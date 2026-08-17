@@ -1,0 +1,6786 @@
+{
+ "asBuiltJoints": 0,
+ "component_count": 79,
+ "components": [
+  {
+   "bodies": [],
+   "comp": "REF_GIM6010-8"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM4305-10"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Shoulder_Cable_Cover_L",
+     "cyl_radii": {
+      "2.000": 4,
+      "30.000": 1,
+      "41.000": 1,
+      "47.000": 1
+     },
+     "edges": 14,
+     "faces": 14,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 15488.0518
+    }
+   ],
+   "comp": "Shoulder_Cable_Cover_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Shoulder_Output_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 6,
+      "19.000": 1,
+      "2.025": 3,
+      "2.600": 3,
+      "28.000": 1,
+      "3.000": 1,
+      "3.100": 6,
+      "5.500": 2,
+      "6.000": 1
+     },
+     "edges": 70,
+     "faces": 51,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 20831.3332
+    }
+   ],
+   "comp": "Shoulder_Output_Hub_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Proximal_Link_L",
+     "cyl_radii": {
+      "17.000": 10,
+      "19.000": 2,
+      "2.000": 5,
+      "2.075": 2,
+      "2.150": 7,
+      "3.750": 6,
+      "31.000": 2,
+      "4.000": 1,
+      "4.500": 6,
+      "51.758": 3,
+      "8.000": 2,
+      "8.500": 2,
+      "9.500": 2
+     },
+     "edges": 223,
+     "faces": 92,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 63093.0735
+    }
+   ],
+   "comp": "Proximal_Link_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Distal_Link_L",
+     "cyl_radii": {
+      "1.400": 6,
+      "10.000": 2,
+      "11.000": 1,
+      "17.000": 1,
+      "2.075": 2,
+      "20.750": 1,
+      "29.000": 3,
+      "3.000": 1,
+      "34.000": 3,
+      "4.500": 6,
+      "56.000": 2,
+      "6.000": 3,
+      "8.000": 6
+     },
+     "edges": 192,
+     "faces": 65,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 44982.5524
+    }
+   ],
+   "comp": "Distal_Link_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Bearing_6800",
+     "cyl_radii": {
+      "5.000": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 1024.9446
+    }
+   ],
+   "comp": "HW_Bearing_6800 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Sleeve_L",
+     "cyl_radii": {
+      "5.000": 2,
+      "8.000": 1
+     },
+     "edges": 14,
+     "faces": 7,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2750.8853
+    }
+   ],
+   "comp": "Knee_Sleeve_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Axle_L",
+     "cyl_radii": {
+      "1.650": 1,
+      "5.000": 1,
+      "7.500": 1
+     },
+     "edges": 18,
+     "faces": 13,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2816.4183
+    }
+   ],
+   "comp": "Knee_Axle_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Magnet_Carrier_L",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.050": 1,
+      "7.500": 1
+     },
+     "edges": 6,
+     "faces": 7,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 1087.7568
+    }
+   ],
+   "comp": "Knee_Magnet_Carrier_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Magnet_D6x2p5_Diametric",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 70.6858
+    }
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Upper_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.500": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 5266.0728
+    }
+   ],
+   "comp": "Cart_Upper_Eye_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Lower_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.800": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 6003.5732
+    }
+   ],
+   "comp": "Cart_Lower_Eye_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Guide_Rod_L",
+     "cyl_radii": {
+      "2.500": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 981.7477
+    }
+   ],
+   "comp": "Cart_Guide_Rod_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Preload_Shim_L",
+     "cyl_radii": {
+      "6.800": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 69.1307
+    }
+   ],
+   "comp": "Cart_Preload_Shim_L (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_ClevisPin_D4x32",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 484.198
+    }
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Stop_Arc_L",
+     "cyl_radii": {
+      "1.700": 3,
+      "11.000": 1,
+      "26.900": 3,
+      "3.100": 2,
+      "33.100": 3,
+      "35.500": 1
+     },
+     "edges": 62,
+     "faces": 25,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2164.2514
+    }
+   ],
+   "comp": "Knee_Stop_Arc_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_DowelPin_D6x9",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 254.469
+    }
+   ],
+   "comp": "HW_DowelPin_D6x9"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Flex_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 27.758
+    }
+   ],
+   "comp": "Knee_Bumper_Flex_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Ext_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 10.118
+    }
+   ],
+   "comp": "Knee_Bumper_Ext_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Green)",
+     "body": "Knee_Encoder_PCB_L",
+     "cyl_radii": {},
+     "edges": 24,
+     "faces": 11,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 338.6
+    }
+   ],
+   "comp": "Knee_Encoder_PCB_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Knee_Encoder_Bracket_L",
+     "cyl_radii": {
+      "1.700": 2,
+      "17.000": 3,
+      "2.500": 3,
+      "4.000": 1,
+      "4.500": 2
+     },
+     "edges": 34,
+     "faces": 17,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2614.8809
+    }
+   ],
+   "comp": "Knee_Encoder_Bracket_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Wheel_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 3,
+      "18.650": 1,
+      "28.000": 1,
+      "3.250": 3,
+      "6.000": 1
+     },
+     "edges": 30,
+     "faces": 21,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 12685.4503
+    }
+   ],
+   "comp": "Wheel_Hub_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Wheel_Rim_L",
+     "cyl_radii": {
+      "2.150": 6,
+      "20.000": 1,
+      "30.000": 1,
+      "44.000": 1,
+      "48.000": 1,
+      "7.000": 6
+     },
+     "edges": 32,
+     "faces": 20,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 66064.7404
+    }
+   ],
+   "comp": "Wheel_Rim_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Rubber - Soft",
+     "body": "Wheel_Tyre_L",
+     "cyl_radii": {
+      "48.000": 1,
+      "55.000": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 67952.6491
+    }
+   ],
+   "comp": "Wheel_Tyre_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x10",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 141.9607
+    }
+   ],
+   "comp": "HW_SHCS_M3x10 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Stainless Steel - Satin",
+     "body": "HW_SHCS_M4x10",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.500": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 279.6017
+    }
+   ],
+   "comp": "HW_SHCS_M4x10 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x8",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 127.8236
+    }
+   ],
+   "comp": "HW_SHCS_M3x8 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M2p5x12",
+     "cyl_radii": {
+      "1.250": 1,
+      "2.250": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 98.6656
+    }
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Stainless Steel - Satin",
+     "body": "HW_SHCS_M3x16",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 184.3722
+    }
+   ],
+   "comp": "HW_SHCS_M3x16 (4)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Shoulder_Cable_Spiral_L",
+     "cyl_radii": {
+      "20.200": 1,
+      "31.800": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 6822.0313
+    }
+   ],
+   "comp": "Shoulder_Cable_Spiral_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Shoulder_Plate_L",
+     "cyl_radii": {
+      "1.700": 16,
+      "24.000": 1,
+      "3.500": 1,
+      "32.000": 1,
+      "33.500": 1,
+      "48.000": 2
+     },
+     "edges": 144,
+     "faces": 54,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 40208.3816
+    }
+   ],
+   "comp": "Chassis_Shoulder_Plate_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Electronics_Tray",
+     "cyl_radii": {},
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 8512.0
+    }
+   ],
+   "comp": "Electronics_Tray"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Frame",
+     "cyl_radii": {
+      "1.700": 10
+     },
+     "edges": 92,
+     "faces": 34,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 61460.8319
+    }
+   ],
+   "comp": "Chassis_Frame"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Battery_4S2200",
+     "cyl_radii": {},
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 77625.0
+    }
+   ],
+   "comp": "Battery_4S2200"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM6010-8(Mirror)"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM4305-10(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Shoulder_Cable_Cover_L",
+     "cyl_radii": {
+      "2.000": 4,
+      "30.000": 1,
+      "41.000": 1,
+      "47.000": 1
+     },
+     "edges": 14,
+     "faces": 14,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 15488.0518
+    }
+   ],
+   "comp": "Shoulder_Cable_Cover_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Shoulder_Output_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 6,
+      "19.000": 1,
+      "2.025": 3,
+      "2.600": 3,
+      "28.000": 1,
+      "3.000": 1,
+      "3.100": 6,
+      "5.500": 2,
+      "6.000": 1
+     },
+     "edges": 70,
+     "faces": 51,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 20831.3332
+    }
+   ],
+   "comp": "Shoulder_Output_Hub_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Proximal_Link_L",
+     "cyl_radii": {
+      "17.000": 9,
+      "19.000": 2,
+      "2.000": 5,
+      "2.075": 2,
+      "2.150": 7,
+      "3.750": 6,
+      "31.000": 2,
+      "4.000": 1,
+      "4.500": 6,
+      "51.758": 3,
+      "8.000": 2,
+      "8.500": 2,
+      "9.500": 2
+     },
+     "edges": 220,
+     "faces": 91,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 70356.4358
+    }
+   ],
+   "comp": "Proximal_Link_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Distal_Link_L",
+     "cyl_radii": {
+      "1.400": 6,
+      "10.000": 2,
+      "11.000": 1,
+      "17.000": 1,
+      "2.075": 2,
+      "20.750": 1,
+      "29.000": 3,
+      "3.000": 1,
+      "34.000": 3,
+      "4.500": 6,
+      "56.000": 2,
+      "6.000": 3,
+      "8.000": 6
+     },
+     "edges": 192,
+     "faces": 65,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 44982.5524
+    }
+   ],
+   "comp": "Distal_Link_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Bearing_6800",
+     "cyl_radii": {
+      "5.000": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 1024.9446
+    }
+   ],
+   "comp": "HW_Bearing_6800 (4)(Mirror)"
+  },
+  {
+   "bodies": [],
+   "comp": "Knee_Sleeve_L(Mirror)"
+  },
+  {
+   "bodies": [],
+   "comp": "Knee_Axle_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Magnet_Carrier_L",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.050": 1,
+      "7.500": 1
+     },
+     "edges": 6,
+     "faces": 7,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 1087.7568
+    }
+   ],
+   "comp": "Knee_Magnet_Carrier_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Magnet_D6x2p5_Diametric",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 70.6858
+    }
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Upper_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.500": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 5266.0728
+    }
+   ],
+   "comp": "Cart_Upper_Eye_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Lower_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.800": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 6003.5732
+    }
+   ],
+   "comp": "Cart_Lower_Eye_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Guide_Rod_L",
+     "cyl_radii": {
+      "2.500": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 981.7477
+    }
+   ],
+   "comp": "Cart_Guide_Rod_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Preload_Shim_L",
+     "cyl_radii": {
+      "6.800": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 69.1307
+    }
+   ],
+   "comp": "Cart_Preload_Shim_L (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_ClevisPin_D4x32",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 484.198
+    }
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Stop_Arc_L",
+     "cyl_radii": {
+      "1.700": 3,
+      "11.000": 1,
+      "26.900": 3,
+      "3.100": 2,
+      "33.100": 3,
+      "35.500": 1
+     },
+     "edges": 62,
+     "faces": 25,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2164.2514
+    }
+   ],
+   "comp": "Knee_Stop_Arc_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_DowelPin_D6x9",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 254.469
+    }
+   ],
+   "comp": "HW_DowelPin_D6x9(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Flex_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 27.758
+    }
+   ],
+   "comp": "Knee_Bumper_Flex_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Ext_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 10.118
+    }
+   ],
+   "comp": "Knee_Bumper_Ext_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Green)",
+     "body": "Knee_Encoder_PCB_L",
+     "cyl_radii": {},
+     "edges": 24,
+     "faces": 11,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 338.6
+    }
+   ],
+   "comp": "Knee_Encoder_PCB_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Knee_Encoder_Bracket_L",
+     "cyl_radii": {
+      "1.700": 2,
+      "17.000": 1,
+      "4.000": 1,
+      "4.500": 2
+     },
+     "edges": 17,
+     "faces": 12,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 2726.1233
+    }
+   ],
+   "comp": "Knee_Encoder_Bracket_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Wheel_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 3,
+      "18.650": 1,
+      "28.000": 1,
+      "3.250": 3,
+      "6.000": 1
+     },
+     "edges": 30,
+     "faces": 21,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 12685.4503
+    }
+   ],
+   "comp": "Wheel_Hub_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Wheel_Rim_L",
+     "cyl_radii": {
+      "2.150": 6,
+      "20.000": 1,
+      "30.000": 1,
+      "44.000": 1,
+      "48.000": 1,
+      "7.000": 6
+     },
+     "edges": 32,
+     "faces": 20,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 66064.7404
+    }
+   ],
+   "comp": "Wheel_Rim_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Rubber - Soft",
+     "body": "Wheel_Tyre_L",
+     "cyl_radii": {
+      "48.000": 1,
+      "55.000": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 67952.6491
+    }
+   ],
+   "comp": "Wheel_Tyre_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x10",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 141.9607
+    }
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Stainless Steel - Satin",
+     "body": "HW_SHCS_M4x10",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.500": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 279.6017
+    }
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x8",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 127.8236
+    }
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M2p5x12",
+     "cyl_radii": {
+      "1.250": 1,
+      "2.250": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 98.6656
+    }
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Stainless Steel - Satin",
+     "body": "HW_SHCS_M3x16",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "Stainless Steel 17-4 PH",
+     "shells": 1,
+     "vol_mm3": 184.3722
+    }
+   ],
+   "comp": "HW_SHCS_M3x16 (4)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Shoulder_Cable_Spiral_L",
+     "cyl_radii": {
+      "20.200": 1,
+      "31.800": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 6822.0313
+    }
+   ],
+   "comp": "Shoulder_Cable_Spiral_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Shoulder_Plate_L",
+     "cyl_radii": {
+      "1.700": 16,
+      "24.000": 1,
+      "3.500": 1,
+      "32.000": 1,
+      "33.500": 1,
+      "48.000": 2
+     },
+     "edges": 144,
+     "faces": 54,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 40208.3816
+    }
+   ],
+   "comp": "Chassis_Shoulder_Plate_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Blue)",
+     "body": "Knee_Spring_L",
+     "cyl_radii": {
+      "6.900": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "Steel",
+     "shells": 1,
+     "vol_mm3": 6546.9181
+    }
+   ],
+   "comp": "Knee_Spring_L"
+  }
+ ],
+ "doc": "Beni_Prototype1",
+ "joints": 0,
+ "occurrence_count": 156,
+ "occurrences": [
+  {
+   "base": "REF_GIM6010-8",
+   "bbox": [
+    -40.0,
+    40.0,
+    5.0,
+    49.0,
+    -40.0,
+    40.0
+   ],
+   "comp": "REF_GIM6010-8",
+   "faces": 1377,
+   "occ": "REF_GIM6010-8:1",
+   "side": "L",
+   "vol_mm3": 112156.0991,
+   "xform": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM4305-10",
+   "bbox": [
+    -27.0991,
+    27.0991,
+    61.5,
+    94.5,
+    -181.3681,
+    -127.1699
+   ],
+   "comp": "REF_GIM4305-10",
+   "faces": 259,
+   "occ": "REF_GIM4305-10:1",
+   "side": "L",
+   "vol_mm3": 53741.4692,
+   "xform": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    6.75,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Cover_L",
+   "bbox": [
+    -47.0,
+    47.0,
+    47.0,
+    53.5,
+    -47.0,
+    47.0
+   ],
+   "comp": "Shoulder_Cable_Cover_L",
+   "faces": 14,
+   "occ": "Shoulder_Cable_Cover_L:1",
+   "side": "L",
+   "vol_mm3": 15488.0518,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Output_Hub_L",
+   "bbox": [
+    -28.0,
+    28.0,
+    45.5,
+    59.5,
+    -28.0,
+    28.0
+   ],
+   "comp": "Shoulder_Output_Hub_L",
+   "faces": 51,
+   "occ": "Shoulder_Output_Hub_L:1",
+   "side": "L",
+   "vol_mm3": 20831.3332,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Proximal_Link_L",
+   "bbox": [
+    -31.0,
+    110.9253,
+    58.7,
+    90.3,
+    -96.1345,
+    31.0
+   ],
+   "comp": "Proximal_Link_L",
+   "faces": 92,
+   "occ": "Proximal_Link_L:1",
+   "side": "L",
+   "vol_mm3": 63093.0735,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Distal_Link_L",
+   "bbox": [
+    -34.0,
+    102.9253,
+    59.5,
+    89.5,
+    -188.269,
+    -66.1345
+   ],
+   "comp": "Distal_Link_L",
+   "faces": 65,
+   "occ": "Distal_Link_L:1",
+   "side": "L",
+   "vol_mm3": 44982.5524,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "bbox": [
+    82.4253,
+    101.4253,
+    58.7,
+    63.7,
+    -86.6345,
+    -67.6345
+   ],
+   "comp": "HW_Bearing_6800 (4)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (4):1",
+   "side": "L",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "bbox": [
+    82.4253,
+    101.4253,
+    85.3,
+    90.3,
+    -86.6345,
+    -67.6345
+   ],
+   "comp": "HW_Bearing_6800 (4)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (4):2",
+   "side": "L",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    2.66,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Sleeve_L",
+   "bbox": [
+    83.9253,
+    99.9253,
+    63.7,
+    85.3,
+    -85.1345,
+    -69.1345
+   ],
+   "comp": "Knee_Sleeve_L",
+   "faces": 7,
+   "occ": "Knee_Sleeve_L:1",
+   "side": "L",
+   "vol_mm3": 2750.8853,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Axle_L",
+   "bbox": [
+    84.4253,
+    99.4253,
+    55.7,
+    90.3,
+    -84.6345,
+    -69.6345
+   ],
+   "comp": "Knee_Axle_L",
+   "faces": 13,
+   "occ": "Knee_Axle_L:1",
+   "side": "L",
+   "vol_mm3": 2816.4183,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Magnet_Carrier_L",
+   "bbox": [
+    84.4253,
+    99.4253,
+    82.3,
+    96.3,
+    -84.6345,
+    -69.6345
+   ],
+   "comp": "Knee_Magnet_Carrier_L",
+   "faces": 7,
+   "occ": "Knee_Magnet_Carrier_L:1",
+   "side": "L",
+   "vol_mm3": 1087.7568,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Magnet_D6x2p5_Diametric",
+   "bbox": [
+    88.9253,
+    94.9253,
+    93.8,
+    96.3,
+    -80.1345,
+    -74.1345
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric",
+   "faces": 3,
+   "occ": "HW_Magnet_D6x2p5_Diametric:1",
+   "side": "L",
+   "vol_mm3": 70.6858,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Upper_Eye_L",
+   "bbox": [
+    59.8477,
+    80.9026,
+    65.0,
+    84.0,
+    -63.4293,
+    -41.145
+   ],
+   "comp": "Cart_Upper_Eye_L",
+   "faces": 15,
+   "occ": "Cart_Upper_Eye_L:1",
+   "side": "L",
+   "vol_mm3": 5266.0728,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Lower_Eye_L",
+   "bbox": [
+    51.3262,
+    72.5989,
+    65.0,
+    84.0,
+    -127.8687,
+    -102.049
+   ],
+   "comp": "Cart_Lower_Eye_L",
+   "faces": 15,
+   "occ": "Cart_Lower_Eye_L:1",
+   "side": "L",
+   "vol_mm3": 6003.5732,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Guide_Rod_L",
+   "bbox": [
+    61.3116,
+    73.1977,
+    72.0,
+    77.0,
+    -101.4699,
+    -51.2597
+   ],
+   "comp": "Cart_Guide_Rod_L",
+   "faces": 3,
+   "occ": "Cart_Guide_Rod_L:1",
+   "side": "L",
+   "vol_mm3": 981.7477,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.4954,
+    72.3811,
+    65.0,
+    84.0,
+    -108.7522,
+    -105.622
+   ],
+   "comp": "Cart_Preload_Shim_L (4)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4):1",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.426,
+    72.3117,
+    65.0,
+    84.0,
+    -109.2474,
+    -106.1172
+   ],
+   "comp": "Cart_Preload_Shim_L (4)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4):2",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.006934408,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.049516805,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.3567,
+    72.2424,
+    65.0,
+    84.0,
+    -109.7426,
+    -106.6123
+   ],
+   "comp": "Cart_Preload_Shim_L (4)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4):3",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.013868816,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.09903361,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.2873,
+    72.1731,
+    65.0,
+    84.0,
+    -110.2377,
+    -107.1075
+   ],
+   "comp": "Cart_Preload_Shim_L (4)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4):4",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.020803224,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.148550415,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "bbox": [
+    67.5266,
+    75.0266,
+    57.5,
+    91.0,
+    -51.395,
+    -43.895
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (4):1",
+   "side": "L",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "bbox": [
+    57.2022,
+    64.7022,
+    57.5,
+    91.0,
+    -125.1187,
+    -117.6187
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (4):2",
+   "side": "L",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.032437585,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -7.372368399,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Stop_Arc_L",
+   "bbox": [
+    58.6399,
+    105.2239,
+    90.3,
+    93.3,
+    -112.6345,
+    -80.9589
+   ],
+   "comp": "Knee_Stop_Arc_L",
+   "faces": 25,
+   "occ": "Knee_Stop_Arc_L:1",
+   "side": "L",
+   "vol_mm3": 2164.2514,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_DowelPin_D6x9",
+   "bbox": [
+    77.0109,
+    83.0109,
+    84.5,
+    93.5,
+    -107.6672,
+    -101.6672
+   ],
+   "comp": "HW_DowelPin_D6x9",
+   "faces": 3,
+   "occ": "HW_DowelPin_D6x9:1",
+   "side": "L",
+   "vol_mm3": 254.469,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Flex_L",
+   "bbox": [
+    63.8845,
+    70.103,
+    91.8,
+    93.2,
+    -97.4307,
+    -90.0051
+   ],
+   "comp": "Knee_Bumper_Flex_L",
+   "faces": 6,
+   "occ": "Knee_Bumper_Flex_L:1",
+   "side": "L",
+   "vol_mm3": 27.758,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Ext_L",
+   "bbox": [
+    86.166,
+    89.115,
+    91.8,
+    93.2,
+    -108.3825,
+    -105.2493
+   ],
+   "comp": "Knee_Bumper_Ext_L",
+   "faces": 6,
+   "occ": "Knee_Bumper_Ext_L:1",
+   "side": "L",
+   "vol_mm3": 10.118,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_PCB_L",
+   "bbox": [
+    84.9253,
+    98.9253,
+    97.3,
+    99.9,
+    -84.1345,
+    -70.1345
+   ],
+   "comp": "Knee_Encoder_PCB_L",
+   "faces": 11,
+   "occ": "Knee_Encoder_PCB_L:1",
+   "side": "L",
+   "vol_mm3": 338.6,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_Bracket_L",
+   "bbox": [
+    74.9253,
+    108.9253,
+    90.3,
+    101.9,
+    -94.1345,
+    -59.6441
+   ],
+   "comp": "Knee_Encoder_Bracket_L",
+   "faces": 17,
+   "occ": "Knee_Encoder_Bracket_L:1",
+   "side": "L",
+   "vol_mm3": 2614.8809,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Hub_L",
+   "bbox": [
+    -28.0,
+    28.0,
+    94.5,
+    100.5,
+    -182.269,
+    -126.269
+   ],
+   "comp": "Wheel_Hub_L",
+   "faces": 21,
+   "occ": "Wheel_Hub_L:1",
+   "side": "L",
+   "vol_mm3": 12685.4503,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Rim_L",
+   "bbox": [
+    -48.0,
+    48.0,
+    69.0,
+    104.5,
+    -202.269,
+    -106.269
+   ],
+   "comp": "Wheel_Rim_L",
+   "faces": 20,
+   "occ": "Wheel_Rim_L:1",
+   "side": "L",
+   "vol_mm3": 66064.7404,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Tyre_L",
+   "bbox": [
+    -55.0,
+    55.0,
+    69.0,
+    99.0,
+    -209.269,
+    -99.269
+   ],
+   "comp": "Wheel_Tyre_L",
+   "faces": 4,
+   "occ": "Wheel_Tyre_L:1",
+   "side": "L",
+   "vol_mm3": 67952.6491,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    31.4088,
+    36.9088,
+    37.0,
+    50.0,
+    11.4689,
+    16.9689
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):2",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.415877803,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    11.3496,
+    16.8496,
+    37.0,
+    50.0,
+    31.4582,
+    36.9582
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):3",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.409960392,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -16.9689,
+    -11.4689,
+    37.0,
+    50.0,
+    31.4088,
+    36.9088
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):4",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.421892694,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -36.9582,
+    -31.4582,
+    37.0,
+    50.0,
+    11.3496,
+    16.8496
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):5",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.420820324,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -36.9088,
+    -31.4088,
+    37.0,
+    50.0,
+    -16.9689,
+    -11.4689
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):6",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.415877803,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -16.8496,
+    -11.3496,
+    37.0,
+    50.0,
+    -36.9582,
+    -31.4582
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):7",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.409960392,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    11.4689,
+    16.9689,
+    37.0,
+    50.0,
+    -36.9088,
+    -31.4088
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):8",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.421892694,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    31.4582,
+    36.9582,
+    37.0,
+    50.0,
+    -16.8496,
+    -11.3496
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):9",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.420820324,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    8.0314,
+    13.5314,
+    40.5,
+    53.5,
+    3.5754,
+    9.0754
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):10",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.078142087,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -2.8373,
+    2.6627,
+    40.5,
+    53.5,
+    9.7497,
+    15.2497
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):11",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.008726575,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -13.6187,
+    -8.1187,
+    40.5,
+    53.5,
+    3.4243,
+    8.9243
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):12",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086868662,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -13.5314,
+    -8.0314,
+    40.5,
+    53.5,
+    -9.0754,
+    -3.5754
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):13",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.078142087,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -2.6627,
+    2.8373,
+    40.5,
+    53.5,
+    -15.2497,
+    -9.7497
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):14",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.008726575,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    8.1187,
+    13.6187,
+    40.5,
+    53.5,
+    -8.9243,
+    -3.4243
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):15",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086868662,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    28.3627,
+    33.8627,
+    39.0,
+    52.0,
+    28.3627,
+    33.8627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):16",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -33.8627,
+    -28.3627,
+    39.0,
+    52.0,
+    28.3627,
+    33.8627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):17",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -33.8627,
+    -28.3627,
+    39.0,
+    52.0,
+    -33.8627,
+    -28.3627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):18",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    28.3627,
+    33.8627,
+    39.0,
+    52.0,
+    -33.8627,
+    -28.3627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4):19",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    18.4995,
+    25.4995,
+    53.3,
+    67.3,
+    -3.3464,
+    3.6536
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):2",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.199946388,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    7.3667,
+    14.3667,
+    53.3,
+    67.3,
+    15.6289,
+    22.6289
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):3",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086672106,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -14.6327,
+    -7.6327,
+    53.3,
+    67.3,
+    15.4753,
+    22.4753
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):4",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.113274281,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -25.4995,
+    -18.4995,
+    53.3,
+    67.3,
+    -3.6536,
+    3.3464
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):5",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.199946388,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -14.3667,
+    -7.3667,
+    53.3,
+    67.3,
+    -22.6289,
+    -15.6289
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):6",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086672106,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    7.6327,
+    14.6327,
+    53.3,
+    67.3,
+    -22.4753,
+    -15.4753
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):7",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.113274281,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    19.5,
+    26.5,
+    94.5,
+    108.5,
+    -157.769,
+    -150.769
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):8",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.3,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    8.0,
+    15.0,
+    94.5,
+    108.5,
+    -137.8504,
+    -130.8504
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):9",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -15.0,
+    -8.0,
+    94.5,
+    108.5,
+    -137.8504,
+    -130.8504
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):10",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -26.5,
+    -19.5,
+    94.5,
+    108.5,
+    -157.769,
+    -150.769
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):11",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.3,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -15.0,
+    -8.0,
+    94.5,
+    108.5,
+    -177.6876,
+    -170.6876
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):12",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    8.0,
+    15.0,
+    94.5,
+    108.5,
+    -177.6876,
+    -170.6876
+   ],
+   "comp": "HW_SHCS_M4x10 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4):13",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    81.6753,
+    87.1753,
+    85.3,
+    96.3,
+    -92.8749,
+    -87.3749
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):2",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.442533317,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -9.012489422,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    86.5706,
+    92.0706,
+    85.3,
+    96.3,
+    -94.6566,
+    -89.1566
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):3",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.932061051,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    91.7801,
+    97.2801,
+    85.3,
+    96.3,
+    -94.6566,
+    -89.1566
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):4",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.453005584,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    9.0915,
+    14.5915,
+    90.0,
+    101.0,
+    -163.502,
+    -158.002
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):5",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.184147321,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -16.075204354,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    -3.0563,
+    2.4437,
+    90.0,
+    101.0,
+    -143.5225,
+    -138.0225
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):6",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.0306279,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -14.07725011,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    -14.2852,
+    -8.7852,
+    90.0,
+    101.0,
+    -164.0325,
+    -158.5325
+   ],
+   "comp": "HW_SHCS_M3x8 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4):7",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.153519421,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -16.128253434,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    18.4413,
+    22.9413,
+    57.0,
+    71.5,
+    -144.8601,
+    -140.3601
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):2",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.069132801,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -14.261006218,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -2.0013,
+    2.4987,
+    57.0,
+    71.5,
+    -132.7703,
+    -128.2703
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):3",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    0.024870487,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -13.052032855,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -22.6926,
+    -18.1926,
+    57.0,
+    71.5,
+    -144.4293,
+    -139.9293
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):4",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.044262314,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -14.21792927,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -22.9413,
+    -18.4413,
+    57.0,
+    71.5,
+    -168.178,
+    -163.678
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):5",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.069132801,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -16.592799047,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -2.4987,
+    2.0013,
+    57.0,
+    71.5,
+    -180.2677,
+    -175.7677
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):6",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -0.024870487,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -17.80177241,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    18.1926,
+    22.6926,
+    57.0,
+    71.5,
+    -168.6088,
+    -164.1088
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4):7",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.044262314,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -16.635875995,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "bbox": [
+    96.6753,
+    102.1753,
+    85.9,
+    104.9,
+    -66.8941,
+    -61.3941
+   ],
+   "comp": "HW_SHCS_M3x16 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (4):2",
+   "side": "L",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.942533317,
+    0.0,
+    1.0,
+    0.0,
+    10.19,
+    0.0,
+    0.0,
+    1.0,
+    -6.414413211,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "bbox": [
+    77.6847,
+    83.1847,
+    85.9,
+    104.9,
+    -70.2427,
+    -64.7427
+   ],
+   "comp": "HW_SHCS_M3x16 (4)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (4):3",
+   "side": "L",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.043466653,
+    0.0,
+    1.0,
+    0.0,
+    10.19,
+    0.0,
+    0.0,
+    1.0,
+    -6.749269902,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Spiral_L",
+   "bbox": [
+    -31.8,
+    31.8,
+    47.2,
+    50.8,
+    -31.8,
+    31.8
+   ],
+   "comp": "Shoulder_Cable_Spiral_L",
+   "faces": 4,
+   "occ": "Shoulder_Cable_Spiral_L:1",
+   "side": "L",
+   "vol_mm3": 6822.0313,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Shoulder_Plate_L",
+   "bbox": [
+    -72.0,
+    48.0,
+    42.0,
+    51.0,
+    -48.0,
+    72.0
+   ],
+   "comp": "Chassis_Shoulder_Plate_L",
+   "faces": 54,
+   "occ": "Chassis_Shoulder_Plate_L:1",
+   "side": "L",
+   "vol_mm3": 40208.3816,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Electronics_Tray",
+   "bbox": [
+    -64.0,
+    -62.0,
+    -38.0,
+    38.0,
+    -16.0,
+    40.0
+   ],
+   "comp": "Electronics_Tray",
+   "faces": 6,
+   "occ": "Electronics_Tray:1",
+   "side": "L",
+   "vol_mm3": 8512.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Frame",
+   "bbox": [
+    -70.0,
+    40.0,
+    -42.0,
+    42.0,
+    -20.0,
+    72.0
+   ],
+   "comp": "Chassis_Frame",
+   "faces": 34,
+   "occ": "Chassis_Frame:1",
+   "side": "L",
+   "vol_mm3": 61460.8319,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Battery_4S2200",
+   "bbox": [
+    -35.0,
+    34.0,
+    -22.5,
+    22.5,
+    42.0,
+    67.0
+   ],
+   "comp": "Battery_4S2200",
+   "faces": 6,
+   "occ": "Battery_4S2200:1",
+   "side": "L",
+   "vol_mm3": 77625.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM6010-8",
+   "bbox": [
+    -40.0,
+    40.0,
+    -49.0,
+    -5.0,
+    -40.0,
+    40.0
+   ],
+   "comp": "REF_GIM6010-8(Mirror)",
+   "faces": 1377,
+   "occ": "REF_GIM6010-8(Mirror):1",
+   "side": "R",
+   "vol_mm3": 112156.0641,
+   "xform": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM4305-10",
+   "bbox": [
+    -27.0991,
+    27.0991,
+    -94.5,
+    -61.5,
+    -181.3681,
+    -127.1699
+   ],
+   "comp": "REF_GIM4305-10(Mirror)",
+   "faces": 259,
+   "occ": "REF_GIM4305-10(Mirror):1",
+   "side": "R",
+   "vol_mm3": 53741.4692,
+   "xform": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -6.75,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Cover_L",
+   "bbox": [
+    -47.0,
+    47.0,
+    -53.5,
+    -47.0,
+    -47.0,
+    47.0
+   ],
+   "comp": "Shoulder_Cable_Cover_L(Mirror)",
+   "faces": 14,
+   "occ": "Shoulder_Cable_Cover_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 15488.0518,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Output_Hub_L",
+   "bbox": [
+    -28.0,
+    28.0,
+    -59.5,
+    -45.5,
+    -28.0,
+    28.0
+   ],
+   "comp": "Shoulder_Output_Hub_L(Mirror)",
+   "faces": 51,
+   "occ": "Shoulder_Output_Hub_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 20831.3332,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Proximal_Link_L",
+   "bbox": [
+    -31.0,
+    110.9253,
+    -90.3,
+    -58.7,
+    -96.1345,
+    31.0
+   ],
+   "comp": "Proximal_Link_L(Mirror)",
+   "faces": 91,
+   "occ": "Proximal_Link_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 70356.4358,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Distal_Link_L",
+   "bbox": [
+    -34.0,
+    102.9253,
+    -89.5,
+    -59.5,
+    -188.269,
+    -66.1345
+   ],
+   "comp": "Distal_Link_L(Mirror)",
+   "faces": 65,
+   "occ": "Distal_Link_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 44982.5524,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "bbox": [
+    82.4253,
+    101.4253,
+    -63.7,
+    -58.7,
+    -86.6345,
+    -67.6345
+   ],
+   "comp": "HW_Bearing_6800 (4)(Mirror)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "bbox": [
+    82.4253,
+    101.4253,
+    -90.3,
+    -85.3,
+    -86.6345,
+    -67.6345
+   ],
+   "comp": "HW_Bearing_6800 (4)(Mirror)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -2.66,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Sleeve_L",
+   "bbox": null,
+   "comp": "Knee_Sleeve_L(Mirror)",
+   "faces": 0,
+   "occ": "Knee_Sleeve_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 0.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Axle_L",
+   "bbox": null,
+   "comp": "Knee_Axle_L(Mirror)",
+   "faces": 0,
+   "occ": "Knee_Axle_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 0.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Magnet_Carrier_L",
+   "bbox": [
+    84.4253,
+    99.4253,
+    -96.3,
+    -82.3,
+    -84.6345,
+    -69.6345
+   ],
+   "comp": "Knee_Magnet_Carrier_L(Mirror)",
+   "faces": 7,
+   "occ": "Knee_Magnet_Carrier_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 1087.7568,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Magnet_D6x2p5_Diametric",
+   "bbox": [
+    88.9253,
+    94.9253,
+    -96.3,
+    -93.8,
+    -80.1345,
+    -74.1345
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric(Mirror)",
+   "faces": 3,
+   "occ": "HW_Magnet_D6x2p5_Diametric(Mirror):1",
+   "side": "R",
+   "vol_mm3": 70.6858,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Upper_Eye_L",
+   "bbox": [
+    59.8477,
+    80.9026,
+    -84.0,
+    -65.0,
+    -63.4293,
+    -41.145
+   ],
+   "comp": "Cart_Upper_Eye_L(Mirror)",
+   "faces": 15,
+   "occ": "Cart_Upper_Eye_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 5266.0728,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Lower_Eye_L",
+   "bbox": [
+    51.3262,
+    72.5989,
+    -84.0,
+    -65.0,
+    -127.8687,
+    -102.049
+   ],
+   "comp": "Cart_Lower_Eye_L(Mirror)",
+   "faces": 15,
+   "occ": "Cart_Lower_Eye_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 6003.5732,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Guide_Rod_L",
+   "bbox": [
+    61.3116,
+    73.1977,
+    -77.0,
+    -72.0,
+    -101.4699,
+    -51.2597
+   ],
+   "comp": "Cart_Guide_Rod_L(Mirror)",
+   "faces": 3,
+   "occ": "Cart_Guide_Rod_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 981.7477,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.4954,
+    72.3811,
+    -84.0,
+    -65.0,
+    -108.7522,
+    -105.622
+   ],
+   "comp": "Cart_Preload_Shim_L (4)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.426,
+    72.3117,
+    -84.0,
+    -65.0,
+    -109.2474,
+    -106.1172
+   ],
+   "comp": "Cart_Preload_Shim_L (4)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.006934408,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.049516805,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.3567,
+    72.2424,
+    -84.0,
+    -65.0,
+    -109.7426,
+    -106.6123
+   ],
+   "comp": "Cart_Preload_Shim_L (4)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.013868816,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.09903361,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "bbox": [
+    53.2873,
+    72.1731,
+    -84.0,
+    -65.0,
+    -110.2377,
+    -107.1075
+   ],
+   "comp": "Cart_Preload_Shim_L (4)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (4)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.020803224,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.148550415,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "bbox": [
+    67.5266,
+    75.0266,
+    -91.0,
+    -57.5,
+    -51.395,
+    -43.895
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "bbox": [
+    57.2022,
+    64.7022,
+    -91.0,
+    -57.5,
+    -125.1187,
+    -117.6187
+   ],
+   "comp": "HW_ClevisPin_D4x32 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.032437585,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -7.372368399,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Stop_Arc_L",
+   "bbox": [
+    58.6399,
+    105.2239,
+    -93.3,
+    -90.3,
+    -112.6345,
+    -80.9589
+   ],
+   "comp": "Knee_Stop_Arc_L(Mirror)",
+   "faces": 25,
+   "occ": "Knee_Stop_Arc_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2164.2514,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_DowelPin_D6x9",
+   "bbox": [
+    77.0109,
+    83.0109,
+    -93.5,
+    -84.5,
+    -107.6672,
+    -101.6672
+   ],
+   "comp": "HW_DowelPin_D6x9(Mirror)",
+   "faces": 3,
+   "occ": "HW_DowelPin_D6x9(Mirror):1",
+   "side": "R",
+   "vol_mm3": 254.469,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Flex_L",
+   "bbox": [
+    63.8845,
+    70.103,
+    -93.2,
+    -91.8,
+    -97.4307,
+    -90.0051
+   ],
+   "comp": "Knee_Bumper_Flex_L(Mirror)",
+   "faces": 6,
+   "occ": "Knee_Bumper_Flex_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 27.758,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Ext_L",
+   "bbox": [
+    86.166,
+    89.115,
+    -93.2,
+    -91.8,
+    -108.3825,
+    -105.2493
+   ],
+   "comp": "Knee_Bumper_Ext_L(Mirror)",
+   "faces": 6,
+   "occ": "Knee_Bumper_Ext_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 10.118,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_PCB_L",
+   "bbox": [
+    84.9253,
+    98.9253,
+    -99.9,
+    -97.3,
+    -84.1345,
+    -70.1345
+   ],
+   "comp": "Knee_Encoder_PCB_L(Mirror)",
+   "faces": 11,
+   "occ": "Knee_Encoder_PCB_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 338.6,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_Bracket_L",
+   "bbox": [
+    74.9253,
+    108.9253,
+    -101.9,
+    -90.3,
+    -94.1345,
+    -59.6441
+   ],
+   "comp": "Knee_Encoder_Bracket_L(Mirror)",
+   "faces": 12,
+   "occ": "Knee_Encoder_Bracket_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2726.1233,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Hub_L",
+   "bbox": [
+    -28.0,
+    28.0,
+    -100.5,
+    -94.5,
+    -182.269,
+    -126.269
+   ],
+   "comp": "Wheel_Hub_L(Mirror)",
+   "faces": 21,
+   "occ": "Wheel_Hub_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 12685.4503,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Rim_L",
+   "bbox": [
+    -48.0,
+    48.0,
+    -104.5,
+    -69.0,
+    -202.269,
+    -106.269
+   ],
+   "comp": "Wheel_Rim_L(Mirror)",
+   "faces": 20,
+   "occ": "Wheel_Rim_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 66064.7404,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Tyre_L",
+   "bbox": [
+    -55.0,
+    55.0,
+    -99.0,
+    -69.0,
+    -209.269,
+    -99.269
+   ],
+   "comp": "Wheel_Tyre_L(Mirror)",
+   "faces": 4,
+   "occ": "Wheel_Tyre_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 67952.6491,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    31.4088,
+    36.9088,
+    -50.0,
+    -37.0,
+    11.4689,
+    16.9689
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.415877803,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    11.3496,
+    16.8496,
+    -50.0,
+    -37.0,
+    31.4582,
+    36.9582
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.409960392,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -16.9689,
+    -11.4689,
+    -50.0,
+    -37.0,
+    31.4088,
+    36.9088
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.421892694,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -36.9582,
+    -31.4582,
+    -50.0,
+    -37.0,
+    11.3496,
+    16.8496
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.420820324,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -36.9088,
+    -31.4088,
+    -50.0,
+    -37.0,
+    -16.9689,
+    -11.4689
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.415877803,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -16.8496,
+    -11.3496,
+    -50.0,
+    -37.0,
+    -36.9582,
+    -31.4582
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.409960392,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    11.4689,
+    16.9689,
+    -50.0,
+    -37.0,
+    -36.9088,
+    -31.4088
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):7",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.421892694,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    31.4582,
+    36.9582,
+    -50.0,
+    -37.0,
+    -16.8496,
+    -11.3496
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):8",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.420820324,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    8.0314,
+    13.5314,
+    -53.5,
+    -40.5,
+    3.5754,
+    9.0754
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):9",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.078142087,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -2.8373,
+    2.6627,
+    -53.5,
+    -40.5,
+    9.7497,
+    15.2497
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):10",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.008726575,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -13.6187,
+    -8.1187,
+    -53.5,
+    -40.5,
+    3.4243,
+    8.9243
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):11",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086868662,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -13.5314,
+    -8.0314,
+    -53.5,
+    -40.5,
+    -9.0754,
+    -3.5754
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):12",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.078142087,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -2.6627,
+    2.8373,
+    -53.5,
+    -40.5,
+    -15.2497,
+    -9.7497
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):13",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.008726575,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    8.1187,
+    13.6187,
+    -53.5,
+    -40.5,
+    -8.9243,
+    -3.4243
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):14",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086868662,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    28.3627,
+    33.8627,
+    -52.0,
+    -39.0,
+    28.3627,
+    33.8627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):15",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -33.8627,
+    -28.3627,
+    -52.0,
+    -39.0,
+    28.3627,
+    33.8627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):16",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    -33.8627,
+    -28.3627,
+    -52.0,
+    -39.0,
+    -33.8627,
+    -28.3627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):17",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "bbox": [
+    28.3627,
+    33.8627,
+    -52.0,
+    -39.0,
+    -33.8627,
+    -28.3627
+   ],
+   "comp": "HW_SHCS_M3x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (4)(Mirror):18",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    18.4995,
+    25.4995,
+    -67.3,
+    -53.3,
+    -3.3464,
+    3.6536
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.199946388,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    7.3667,
+    14.3667,
+    -67.3,
+    -53.3,
+    15.6289,
+    22.6289
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086672106,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -14.6327,
+    -7.6327,
+    -67.3,
+    -53.3,
+    15.4753,
+    22.4753
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.113274281,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -25.4995,
+    -18.4995,
+    -67.3,
+    -53.3,
+    -3.6536,
+    3.3464
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.199946388,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -14.3667,
+    -7.3667,
+    -67.3,
+    -53.3,
+    -22.6289,
+    -15.6289
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086672106,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    7.6327,
+    14.6327,
+    -67.3,
+    -53.3,
+    -22.4753,
+    -15.4753
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.113274281,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    19.5,
+    26.5,
+    -108.5,
+    -94.5,
+    -157.769,
+    -150.769
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):7",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.3,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    8.0,
+    15.0,
+    -108.5,
+    -94.5,
+    -137.8504,
+    -130.8504
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):8",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -15.0,
+    -8.0,
+    -108.5,
+    -94.5,
+    -137.8504,
+    -130.8504
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):9",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -26.5,
+    -19.5,
+    -108.5,
+    -94.5,
+    -157.769,
+    -150.769
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):10",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.3,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    -15.0,
+    -8.0,
+    -108.5,
+    -94.5,
+    -177.6876,
+    -170.6876
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):11",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "bbox": [
+    8.0,
+    15.0,
+    -108.5,
+    -94.5,
+    -177.6876,
+    -170.6876
+   ],
+   "comp": "HW_SHCS_M4x10 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (4)(Mirror):12",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    81.6753,
+    87.1753,
+    -96.3,
+    -85.3,
+    -92.8749,
+    -87.3749
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.442533317,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -9.012489422,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    86.5706,
+    92.0706,
+    -96.3,
+    -85.3,
+    -94.6566,
+    -89.1566
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.932061051,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    91.7801,
+    97.2801,
+    -96.3,
+    -85.3,
+    -94.6566,
+    -89.1566
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.453005584,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    9.0915,
+    14.5915,
+    -101.0,
+    -90.0,
+    -163.502,
+    -158.002
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.184147321,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -16.075204354,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    -3.0563,
+    2.4437,
+    -101.0,
+    -90.0,
+    -143.5225,
+    -138.0225
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.0306279,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -14.07725011,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "bbox": [
+    -14.2852,
+    -8.7852,
+    -101.0,
+    -90.0,
+    -164.0325,
+    -158.5325
+   ],
+   "comp": "HW_SHCS_M3x8 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (4)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.153519421,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -16.128253434,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    18.4413,
+    22.9413,
+    -71.5,
+    -57.0,
+    -144.8601,
+    -140.3601
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.069132801,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -14.261006218,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -2.0013,
+    2.4987,
+    -71.5,
+    -57.0,
+    -132.7703,
+    -128.2703
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    0.024870487,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -13.052032855,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -22.6926,
+    -18.1926,
+    -71.5,
+    -57.0,
+    -144.4293,
+    -139.9293
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.044262314,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -14.21792927,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -22.9413,
+    -18.4413,
+    -71.5,
+    -57.0,
+    -168.178,
+    -163.678
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.069132801,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -16.592799047,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    -2.4987,
+    2.0013,
+    -71.5,
+    -57.0,
+    -180.2677,
+    -175.7677
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -0.024870487,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -17.80177241,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "bbox": [
+    18.1926,
+    22.6926,
+    -71.5,
+    -57.0,
+    -168.6088,
+    -164.1088
+   ],
+   "comp": "HW_SHCS_M2p5x12 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (4)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.044262314,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -16.635875995,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "bbox": [
+    96.6753,
+    102.1753,
+    -104.9,
+    -85.9,
+    -66.8941,
+    -61.3941
+   ],
+   "comp": "HW_SHCS_M3x16 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (4)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.942533317,
+    0.0,
+    -1.0,
+    0.0,
+    -10.19,
+    0.0,
+    0.0,
+    -1.0,
+    -6.414413211,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "bbox": [
+    77.6847,
+    83.1847,
+    -104.9,
+    -85.9,
+    -70.2427,
+    -64.7427
+   ],
+   "comp": "HW_SHCS_M3x16 (4)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (4)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.043466653,
+    0.0,
+    -1.0,
+    0.0,
+    -10.19,
+    0.0,
+    0.0,
+    -1.0,
+    -6.749269902,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Spiral_L",
+   "bbox": [
+    -31.8,
+    31.8,
+    -50.8,
+    -47.2,
+    -31.8,
+    31.8
+   ],
+   "comp": "Shoulder_Cable_Spiral_L(Mirror)",
+   "faces": 4,
+   "occ": "Shoulder_Cable_Spiral_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 6822.0313,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Shoulder_Plate_L",
+   "bbox": [
+    -72.0,
+    48.0,
+    -51.0,
+    -42.0,
+    -48.0,
+    72.0
+   ],
+   "comp": "Chassis_Shoulder_Plate_L(Mirror)",
+   "faces": 54,
+   "occ": "Chassis_Shoulder_Plate_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 40208.3816,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Spring_L",
+   "bbox": [
+    53.5647,
+    79.1592,
+    65.0,
+    84.0,
+    -108.2571,
+    -57.2212
+   ],
+   "comp": "Knee_Spring_L",
+   "faces": 4,
+   "occ": "Knee_Spring_L:1",
+   "side": "L",
+   "vol_mm3": 6546.9181,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "rigidGroups": 0,
+ "timeline_count": 815,
+ "userParameters": [
+  {
+   "comment": "Design total mass",
+   "expression": "3.5",
+   "name": "design_mass_kg",
+   "unit": ""
+  },
+  {
+   "comment": "Proximal link length shoulder->knee",
+   "expression": "120 mm",
+   "name": "L1",
+   "unit": "mm"
+  },
+  {
+   "comment": "Distal link length knee->wheel",
+   "expression": "120 mm",
+   "name": "L2",
+   "unit": "mm"
+  },
+  {
+   "comment": "Nominal link angle from downward vertical",
+   "expression": "50 deg",
+   "name": "A_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee extension stop",
+   "expression": "-8 deg",
+   "name": "phi_ext",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee nominal",
+   "expression": "0 deg",
+   "name": "phi_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee flexion bumper engagement",
+   "expression": "20 deg",
+   "name": "phi_bump",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee main flexion design point",
+   "expression": "25 deg",
+   "name": "phi_design",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee physical flexion hard stop",
+   "expression": "27 deg",
+   "name": "phi_stop",
+   "unit": "deg"
+  },
+  {
+   "comment": "Wheel outside diameter",
+   "expression": "110 mm",
+   "name": "wheel_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Upper cartridge pivot radius from knee",
+   "expression": "36 mm",
+   "name": "Ru",
+   "unit": "mm"
+  },
+  {
+   "comment": "Lower cartridge pivot radius from knee",
+   "expression": "54 mm",
+   "name": "Rl",
+   "unit": "mm"
+  },
+  {
+   "comment": "Included cartridge anchor angle at nominal",
+   "expression": "110 deg",
+   "name": "cart_ang_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Structural leg/knee width",
+   "expression": "30 mm",
+   "name": "leg_width",
+   "unit": "mm"
+  },
+  {
+   "comment": "Central spring channel width",
+   "expression": "20 mm",
+   "name": "leg_ch",
+   "unit": "mm"
+  },
+  {
+   "comment": "Proximal fork arm thickness",
+   "expression": "5 mm",
+   "name": "arm_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring outside diameter",
+   "expression": "19 mm",
+   "name": "spring_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring wire diameter",
+   "expression": "2.6 mm",
+   "name": "spring_wire",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring free length",
+   "expression": "55 mm",
+   "name": "spring_free",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring rate N/mm",
+   "expression": "10.45",
+   "name": "spring_rate",
+   "unit": ""
+  },
+  {
+   "comment": "Knee axle journal diameter",
+   "expression": "10 mm",
+   "name": "knee_axle_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee bearing outer diameter 6800",
+   "expression": "19 mm",
+   "name": "knee_brg_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee bearing width 6800",
+   "expression": "5 mm",
+   "name": "knee_brg_W",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee steel sleeve OD in distal boss",
+   "expression": "16 mm",
+   "name": "knee_sleeve_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Cartridge pivot pin diameter",
+   "expression": "4 mm",
+   "name": "cart_pin_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Spring cartridge guide rod diameter",
+   "expression": "5 mm",
+   "name": "rod_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder motor housing mount face global Y",
+   "expression": "42 mm",
+   "name": "shoulder_y",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder mount plate thickness",
+   "expression": "5 mm",
+   "name": "sh_plate_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder output hub thickness",
+   "expression": "7 mm",
+   "name": "hub_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Leg inboard face global Y",
+   "expression": "52.5 mm",
+   "name": "leg_y_in",
+   "unit": "mm"
+  },
+  {
+   "comment": "Wheel motor housing mount face global Y",
+   "expression": "82.5 mm",
+   "name": "wm_mount_y",
+   "unit": "mm"
+  }
+ ]
+}

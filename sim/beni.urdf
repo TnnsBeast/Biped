@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!-- Beni Prototype 1.  Generated from the Fusion model by
+     beni_export.export_urdf(); masses and inertias are the
+     model's own, not estimates.
+     Frame: X forward, Y left, Z up.  All joints rotate about +Y.
+     The knee is PASSIVE: the limits below are the mechanical
+     stops, and the spring must be supplied by the simulator as
+     a joint spring of ~10.45 N/mm acting through the cartridge
+     moment arm (22.09 mm at -8 deg rising to 31.56 mm at +27).
+-->
+<robot name="beni_prototype1">
+
+  <link name="base_link">
+    <inertial>
+      <origin xyz="-0.010979 -0.000000 0.013055" rpy="0 0 0"/>
+      <mass value="1.613706"/>
+      <inertia ixx="0.002779002" iyy="0.002575152" izz="0.002706901" ixy="0.000000000" iyz="-0.000000000" ixz="0.000388259"/>
+    </inertial>
+  </link>
+
+  <link name="l_thigh">
+    <inertial>
+      <origin xyz="0.037635 0.017204 -0.031631" rpy="0 0 0"/>
+      <mass value="0.219845"/>
+      <inertia ixx="0.000403299" iyy="0.000741327" izz="0.000441002" ixy="-0.000088511" iyz="0.000082713" ixz="0.000318203"/>
+    </inertial>
+  </link>
+  <joint name="l_shoulder" type="revolute">
+    <parent link="base_link"/>
+    <child link="l_thigh"/>
+    <origin xyz="0.000000 0.052500 0.000000" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.228859" upper="3.228859" effort="25.0" velocity="30.0"/>
+  </joint>
+
+  <link name="l_shank">
+    <inertial>
+      <origin xyz="-0.064552 0.003161 -0.056054" rpy="0 0 0"/>
+      <mass value="0.409285"/>
+      <inertia ixx="0.000483229" iyy="0.001102065" izz="0.000683648" ixy="0.000027295" iyz="0.000019955" ixz="-0.000465178"/>
+    </inertial>
+  </link>
+  <joint name="l_knee" type="revolute">
+    <parent link="l_thigh"/>
+    <child link="l_shank"/>
+    <origin xyz="0.091925 0.022000 -0.077135" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.139626" upper="0.471239" effort="25.0" velocity="30.0"/>
+  </joint>
+
+  <link name="l_wheel">
+    <inertial>
+      <origin xyz="0.000000 0.004974 0.000000" rpy="0 0 0"/>
+      <mass value="0.209090"/>
+      <inertia ixx="0.000214164" iyy="0.000374311" izz="0.000214164" ixy="-0.000000000" iyz="0.000000000" ixz="0.000000000"/>
+    </inertial>
+  </link>
+  <joint name="l_wheel" type="continuous">
+    <parent link="l_shank"/>
+    <child link="l_wheel"/>
+    <origin xyz="-0.091925 0.009500 -0.077135" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="r_thigh">
+    <inertial>
+      <origin xyz="0.037635 -0.017204 -0.031631" rpy="0 0 0"/>
+      <mass value="0.219845"/>
+      <inertia ixx="0.000403299" iyy="0.000741327" izz="0.000441002" ixy="0.000088511" iyz="-0.000082713" ixz="0.000318203"/>
+    </inertial>
+  </link>
+  <joint name="r_shoulder" type="revolute">
+    <parent link="base_link"/>
+    <child link="r_thigh"/>
+    <origin xyz="0.000000 -0.052500 0.000000" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-3.228859" upper="3.228859" effort="25.0" velocity="30.0"/>
+  </joint>
+
+  <link name="r_shank">
+    <inertial>
+      <origin xyz="-0.064552 -0.003161 -0.056054" rpy="0 0 0"/>
+      <mass value="0.409285"/>
+      <inertia ixx="0.000483229" iyy="0.001102065" izz="0.000683648" ixy="-0.000027295" iyz="-0.000019955" ixz="-0.000465178"/>
+    </inertial>
+  </link>
+  <joint name="r_knee" type="revolute">
+    <parent link="r_thigh"/>
+    <child link="r_shank"/>
+    <origin xyz="0.091925 -0.022000 -0.077135" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+    <limit lower="-0.139626" upper="0.471239" effort="25.0" velocity="30.0"/>
+  </joint>
+
+  <link name="r_wheel">
+    <inertial>
+      <origin xyz="0.000000 -0.004974 -0.000000" rpy="0 0 0"/>
+      <mass value="0.209090"/>
+      <inertia ixx="0.000214164" iyy="0.000374311" izz="0.000214164" ixy="0.000000000" iyz="0.000000000" ixz="0.000000000"/>
+    </inertial>
+  </link>
+  <joint name="r_wheel" type="continuous">
+    <parent link="r_shank"/>
+    <child link="r_wheel"/>
+    <origin xyz="-0.091925 -0.009500 -0.077135" rpy="0 0 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+</robot>

@@ -1,0 +1,5761 @@
+{
+ "I_origin_kgcm2": [
+  405.5205793583095,
+  336.29123661253686,
+  171.98906249386678,
+  7.897159859382441e-08,
+  -1.976763623900979e-07,
+  38.33343031322429
+ ],
+ "com_mm": [
+  6.455134137591983,
+  -5.15526084480598e-07,
+  -50.56835368165058
+ ],
+ "component_count": 83,
+ "components": [
+  {
+   "bodies": [],
+   "comp": "REF_GIM6010-8"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM4305-10"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Shoulder_Plate_L",
+     "cyl_radii": {
+      "1.700": 15,
+      "2.000": 30,
+      "24.000": 1,
+      "3.500": 1,
+      "32.000": 1,
+      "33.500": 1,
+      "48.000": 2
+     },
+     "edges": 212,
+     "faces": 77,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 40233.6831
+    }
+   ],
+   "comp": "Chassis_Shoulder_Plate_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Shoulder_Cable_Cover_L",
+     "cyl_radii": {
+      "2.000": 4,
+      "30.000": 1,
+      "41.000": 1,
+      "47.000": 1
+     },
+     "edges": 14,
+     "faces": 14,
+     "lumps": 1,
+     "material": "BENI_ABS",
+     "shells": 1,
+     "vol_mm3": 15437.7863
+    }
+   ],
+   "comp": "Shoulder_Cable_Cover_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Shoulder_Cable_Spiral_L",
+     "cyl_radii": {
+      "20.200": 1,
+      "31.800": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_Shoulder_Cable_Spiral_L",
+     "shells": 1,
+     "vol_mm3": 6822.0313
+    }
+   ],
+   "comp": "Shoulder_Cable_Spiral_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Shoulder_Output_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 6,
+      "19.000": 1,
+      "2.025": 3,
+      "2.600": 3,
+      "28.000": 1,
+      "3.000": 1,
+      "3.100": 6,
+      "5.500": 2,
+      "6.000": 1
+     },
+     "edges": 70,
+     "faces": 51,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 20831.3332
+    }
+   ],
+   "comp": "Shoulder_Output_Hub_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Proximal_Link_L",
+     "cyl_radii": {
+      "17.000": 10,
+      "19.000": 2,
+      "2.000": 5,
+      "2.075": 2,
+      "2.150": 7,
+      "2.500": 3,
+      "3.750": 6,
+      "31.000": 2,
+      "4.000": 1,
+      "4.500": 6,
+      "51.758": 3,
+      "8.000": 2,
+      "8.500": 2,
+      "9.500": 2
+     },
+     "edges": 226,
+     "faces": 95,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 63026.4206
+    }
+   ],
+   "comp": "Proximal_Link_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Distal_Link_L",
+     "cyl_radii": {
+      "1.400": 6,
+      "10.000": 2,
+      "11.000": 1,
+      "17.000": 1,
+      "2.075": 2,
+      "2.500": 2,
+      "20.750": 1,
+      "29.000": 3,
+      "3.000": 1,
+      "34.000": 3,
+      "4.500": 6,
+      "56.000": 2,
+      "6.000": 3,
+      "8.000": 6
+     },
+     "edges": 198,
+     "faces": 67,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 44979.558
+    }
+   ],
+   "comp": "Distal_Link_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Stop_Arc_L",
+     "cyl_radii": {
+      "1.700": 3,
+      "11.000": 1,
+      "26.900": 3,
+      "3.100": 2,
+      "33.100": 3,
+      "35.500": 1
+     },
+     "edges": 62,
+     "faces": 25,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2462.5063
+    }
+   ],
+   "comp": "Knee_Stop_Arc_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_DowelPin_D6x9",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 254.469
+    }
+   ],
+   "comp": "HW_DowelPin_D6x9"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Flex_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_PU",
+     "shells": 1,
+     "vol_mm3": 27.758
+    }
+   ],
+   "comp": "Knee_Bumper_Flex_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Ext_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_PU",
+     "shells": 1,
+     "vol_mm3": 10.118
+    }
+   ],
+   "comp": "Knee_Bumper_Ext_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Green)",
+     "body": "Knee_Encoder_PCB_L",
+     "cyl_radii": {},
+     "edges": 24,
+     "faces": 11,
+     "lumps": 1,
+     "material": "BENI_Knee_Encoder_PCB_L",
+     "shells": 1,
+     "vol_mm3": 338.6
+    }
+   ],
+   "comp": "Knee_Encoder_PCB_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Knee_Encoder_Bracket_L",
+     "cyl_radii": {
+      "1.700": 2,
+      "17.000": 3,
+      "2.500": 3,
+      "4.000": 1,
+      "4.500": 2
+     },
+     "edges": 34,
+     "faces": 17,
+     "lumps": 1,
+     "material": "BENI_ABS",
+     "shells": 1,
+     "vol_mm3": 2614.8809
+    }
+   ],
+   "comp": "Knee_Encoder_Bracket_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Wheel_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 3,
+      "18.650": 1,
+      "28.000": 1,
+      "3.250": 3,
+      "6.000": 1
+     },
+     "edges": 30,
+     "faces": 21,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 12685.4503
+    }
+   ],
+   "comp": "Wheel_Hub_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Wheel_Rim_L",
+     "cyl_radii": {
+      "2.150": 6,
+      "20.000": 1,
+      "30.000": 1,
+      "44.000": 2,
+      "46.500": 1,
+      "48.000": 2,
+      "52.000": 1,
+      "7.000": 6
+     },
+     "edges": 40,
+     "faces": 28,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 67141.5213
+    }
+   ],
+   "comp": "Wheel_Rim_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Rubber - Soft",
+     "body": "Wheel_Tyre_L",
+     "cyl_radii": {
+      "46.500": 1,
+      "48.000": 2
+     },
+     "edges": 8,
+     "faces": 8,
+     "lumps": 1,
+     "material": "BENI_TPU",
+     "shells": 1,
+     "vol_mm3": 66709.9761
+    }
+   ],
+   "comp": "Wheel_Tyre_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Frame",
+     "cyl_radii": {
+      "1.700": 10,
+      "2.000": 4
+     },
+     "edges": 104,
+     "faces": 38,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 61172.407
+    }
+   ],
+   "comp": "Chassis_Frame"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Electronics_Tray",
+     "cyl_radii": {},
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_ABS",
+     "shells": 1,
+     "vol_mm3": 8512.0
+    }
+   ],
+   "comp": "Electronics_Tray"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Black)",
+     "body": "Battery_4S2200",
+     "cyl_radii": {},
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_Battery_4S2200",
+     "shells": 1,
+     "vol_mm3": 77625.0
+    }
+   ],
+   "comp": "Battery_4S2200"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Bearing_6800",
+     "cyl_radii": {
+      "5.000": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_HW_Bearing_6800",
+     "shells": 1,
+     "vol_mm3": 1024.9446
+    }
+   ],
+   "comp": "HW_Bearing_6800 (5)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Sleeve_L",
+     "cyl_radii": {
+      "5.000": 2,
+      "8.000": 1
+     },
+     "edges": 14,
+     "faces": 7,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2750.8853
+    }
+   ],
+   "comp": "Knee_Sleeve_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Axle_L",
+     "cyl_radii": {
+      "1.650": 1,
+      "5.000": 1,
+      "7.500": 1
+     },
+     "edges": 18,
+     "faces": 13,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2816.4183
+    }
+   ],
+   "comp": "Knee_Axle_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Magnet_Carrier_L",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.050": 1,
+      "7.500": 1
+     },
+     "edges": 6,
+     "faces": 7,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 1087.7568
+    }
+   ],
+   "comp": "Knee_Magnet_Carrier_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Magnet_D6x2p5_Diametric",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_HW_Magnet_D6x2p5_Diametric",
+     "shells": 1,
+     "vol_mm3": 70.6858
+    }
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Upper_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.500": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 5266.0728
+    }
+   ],
+   "comp": "Cart_Upper_Eye_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Lower_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.800": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 6003.5732
+    }
+   ],
+   "comp": "Cart_Lower_Eye_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Guide_Rod_L",
+     "cyl_radii": {
+      "2.500": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 981.7477
+    }
+   ],
+   "comp": "Cart_Guide_Rod_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Preload_Shim_L",
+     "cyl_radii": {
+      "6.800": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 69.1307
+    }
+   ],
+   "comp": "Cart_Preload_Shim_L (5)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_ClevisPin_D4x32",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 484.198
+    }
+   ],
+   "comp": "HW_ClevisPin_D4x32 (5)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x10",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 141.9607
+    }
+   ],
+   "comp": "HW_SHCS_M3x10 (7)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M4x10",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.500": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 279.6017
+    }
+   ],
+   "comp": "HW_SHCS_M4x10 (7)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x8",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 127.8236
+    }
+   ],
+   "comp": "HW_SHCS_M3x8 (7)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x6",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 113.6864
+    }
+   ],
+   "comp": "HW_SHCS_M3x6 (3)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M2p5x12",
+     "cyl_radii": {
+      "1.250": 1,
+      "2.250": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 98.6656
+    }
+   ],
+   "comp": "HW_SHCS_M2p5x12 (7)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x16",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 184.3722
+    }
+   ],
+   "comp": "HW_SHCS_M3x16 (7)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Green)",
+     "body": "Chassis_Electronics",
+     "cyl_radii": {},
+     "edges": 24,
+     "faces": 11,
+     "lumps": 1,
+     "material": "BENI_Chassis_Electronics",
+     "shells": 1,
+     "vol_mm3": 35216.0
+    }
+   ],
+   "comp": "Chassis_Electronics"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM6010-8(Mirror)"
+  },
+  {
+   "bodies": [],
+   "comp": "REF_GIM4305-10(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Chassis_Shoulder_Plate_L",
+     "cyl_radii": {
+      "1.700": 15,
+      "2.000": 30,
+      "24.000": 1,
+      "3.500": 1,
+      "32.000": 1,
+      "33.500": 1,
+      "48.000": 2
+     },
+     "edges": 212,
+     "faces": 77,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 40233.6831
+    }
+   ],
+   "comp": "Chassis_Shoulder_Plate_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Shoulder_Cable_Cover_L",
+     "cyl_radii": {
+      "2.000": 4,
+      "30.000": 1,
+      "41.000": 1,
+      "47.000": 1
+     },
+     "edges": 14,
+     "faces": 14,
+     "lumps": 1,
+     "material": "BENI_ABS",
+     "shells": 1,
+     "vol_mm3": 15437.7863
+    }
+   ],
+   "comp": "Shoulder_Cable_Cover_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Shoulder_Cable_Spiral_L",
+     "cyl_radii": {
+      "20.200": 1,
+      "31.800": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_Shoulder_Cable_Spiral_L",
+     "shells": 1,
+     "vol_mm3": 6822.0313
+    }
+   ],
+   "comp": "Shoulder_Cable_Spiral_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Shoulder_Output_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 6,
+      "19.000": 1,
+      "2.025": 3,
+      "2.600": 3,
+      "28.000": 1,
+      "3.000": 1,
+      "3.100": 6,
+      "5.500": 2,
+      "6.000": 1
+     },
+     "edges": 70,
+     "faces": 51,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 20831.3332
+    }
+   ],
+   "comp": "Shoulder_Output_Hub_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Proximal_Link_L",
+     "cyl_radii": {
+      "17.000": 10,
+      "19.000": 2,
+      "2.000": 5,
+      "2.075": 2,
+      "2.150": 7,
+      "2.500": 3,
+      "3.750": 6,
+      "31.000": 2,
+      "4.000": 1,
+      "4.500": 6,
+      "51.758": 3,
+      "8.000": 2,
+      "8.500": 2,
+      "9.500": 2
+     },
+     "edges": 226,
+     "faces": 95,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 63026.4206
+    }
+   ],
+   "comp": "Proximal_Link_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Distal_Link_L",
+     "cyl_radii": {
+      "1.400": 6,
+      "10.000": 2,
+      "11.000": 1,
+      "17.000": 1,
+      "2.075": 2,
+      "2.500": 2,
+      "20.750": 1,
+      "29.000": 3,
+      "3.000": 1,
+      "34.000": 3,
+      "4.500": 6,
+      "56.000": 2,
+      "6.000": 3,
+      "8.000": 6
+     },
+     "edges": 198,
+     "faces": 67,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 44979.558
+    }
+   ],
+   "comp": "Distal_Link_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Stop_Arc_L",
+     "cyl_radii": {
+      "1.700": 3,
+      "11.000": 1,
+      "26.900": 3,
+      "3.100": 2,
+      "33.100": 3,
+      "35.500": 1
+     },
+     "edges": 62,
+     "faces": 25,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2462.5063
+    }
+   ],
+   "comp": "Knee_Stop_Arc_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_DowelPin_D6x9",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 254.469
+    }
+   ],
+   "comp": "HW_DowelPin_D6x9(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Flex_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_PU",
+     "shells": 1,
+     "vol_mm3": 27.758
+    }
+   ],
+   "comp": "Knee_Bumper_Flex_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Red)",
+     "body": "Knee_Bumper_Ext_L",
+     "cyl_radii": {
+      "28.600": 1,
+      "31.400": 1
+     },
+     "edges": 12,
+     "faces": 6,
+     "lumps": 1,
+     "material": "BENI_PU",
+     "shells": 1,
+     "vol_mm3": 10.118
+    }
+   ],
+   "comp": "Knee_Bumper_Ext_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Green)",
+     "body": "Knee_Encoder_PCB_L",
+     "cyl_radii": {},
+     "edges": 24,
+     "faces": 11,
+     "lumps": 1,
+     "material": "BENI_Knee_Encoder_PCB_L",
+     "shells": 1,
+     "vol_mm3": 338.6
+    }
+   ],
+   "comp": "Knee_Encoder_PCB_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (White)",
+     "body": "Knee_Encoder_Bracket_L",
+     "cyl_radii": {
+      "1.700": 2,
+      "17.000": 3,
+      "2.500": 3,
+      "4.000": 1,
+      "4.500": 2
+     },
+     "edges": 34,
+     "faces": 17,
+     "lumps": 1,
+     "material": "BENI_ABS",
+     "shells": 1,
+     "vol_mm3": 2614.8809
+    }
+   ],
+   "comp": "Knee_Encoder_Bracket_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Wheel_Hub_L",
+     "cyl_radii": {
+      "1.650": 6,
+      "1.700": 3,
+      "18.650": 1,
+      "28.000": 1,
+      "3.250": 3,
+      "6.000": 1
+     },
+     "edges": 30,
+     "faces": 21,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 12685.4503
+    }
+   ],
+   "comp": "Wheel_Hub_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Gray)",
+     "body": "Wheel_Rim_L",
+     "cyl_radii": {
+      "2.150": 6,
+      "20.000": 1,
+      "30.000": 1,
+      "44.000": 2,
+      "46.500": 1,
+      "48.000": 2,
+      "52.000": 1,
+      "7.000": 6
+     },
+     "edges": 40,
+     "faces": 28,
+     "lumps": 1,
+     "material": "BENI_PACF",
+     "shells": 1,
+     "vol_mm3": 67141.5213
+    }
+   ],
+   "comp": "Wheel_Rim_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Rubber - Soft",
+     "body": "Wheel_Tyre_L",
+     "cyl_radii": {
+      "46.500": 1,
+      "48.000": 2
+     },
+     "edges": 8,
+     "faces": 8,
+     "lumps": 1,
+     "material": "BENI_TPU",
+     "shells": 1,
+     "vol_mm3": 66709.9761
+    }
+   ],
+   "comp": "Wheel_Tyre_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Bearing_6800",
+     "cyl_radii": {
+      "5.000": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_HW_Bearing_6800",
+     "shells": 1,
+     "vol_mm3": 1024.9446
+    }
+   ],
+   "comp": "HW_Bearing_6800 (5)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Sleeve_L",
+     "cyl_radii": {
+      "5.000": 2,
+      "8.000": 1
+     },
+     "edges": 14,
+     "faces": 7,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2750.8853
+    }
+   ],
+   "comp": "Knee_Sleeve_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Axle_L",
+     "cyl_radii": {
+      "1.650": 1,
+      "5.000": 1,
+      "7.500": 1
+     },
+     "edges": 18,
+     "faces": 13,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 2816.4183
+    }
+   ],
+   "comp": "Knee_Axle_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Knee_Magnet_Carrier_L",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.050": 1,
+      "7.500": 1
+     },
+     "edges": 6,
+     "faces": 7,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 1087.7568
+    }
+   ],
+   "comp": "Knee_Magnet_Carrier_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_Magnet_D6x2p5_Diametric",
+     "cyl_radii": {
+      "3.000": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_HW_Magnet_D6x2p5_Diametric",
+     "shells": 1,
+     "vol_mm3": 70.6858
+    }
+   ],
+   "comp": "HW_Magnet_D6x2p5_Diametric(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Upper_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.500": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 5266.0728
+    }
+   ],
+   "comp": "Cart_Upper_Eye_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Aluminum - Satin",
+     "body": "Cart_Lower_Eye_L",
+     "cyl_radii": {
+      "2.075": 1,
+      "2.800": 1,
+      "6.500": 1,
+      "6.700": 1
+     },
+     "edges": 30,
+     "faces": 15,
+     "lumps": 1,
+     "material": "BENI_ALU",
+     "shells": 1,
+     "vol_mm3": 6003.5732
+    }
+   ],
+   "comp": "Cart_Lower_Eye_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Guide_Rod_L",
+     "cyl_radii": {
+      "2.500": 1
+     },
+     "edges": 2,
+     "faces": 3,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 981.7477
+    }
+   ],
+   "comp": "Cart_Guide_Rod_L(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "Cart_Preload_Shim_L",
+     "cyl_radii": {
+      "6.800": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 69.1307
+    }
+   ],
+   "comp": "Cart_Preload_Shim_L (5)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_ClevisPin_D4x32",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 484.198
+    }
+   ],
+   "comp": "HW_ClevisPin_D4x32 (5)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x10",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 141.9607
+    }
+   ],
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M4x10",
+     "cyl_radii": {
+      "2.000": 1,
+      "3.500": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 279.6017
+    }
+   ],
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x8",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 127.8236
+    }
+   ],
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x6",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 113.6864
+    }
+   ],
+   "comp": "HW_SHCS_M3x6 (3)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M2p5x12",
+     "cyl_radii": {
+      "1.250": 1,
+      "2.250": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 98.6656
+    }
+   ],
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Steel - Satin",
+     "body": "HW_SHCS_M3x16",
+     "cyl_radii": {
+      "1.500": 1,
+      "2.750": 1
+     },
+     "edges": 4,
+     "faces": 5,
+     "lumps": 1,
+     "material": "BENI_STEEL",
+     "shells": 1,
+     "vol_mm3": 184.3722
+    }
+   ],
+   "comp": "HW_SHCS_M3x16 (7)(Mirror)"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Blue)",
+     "body": "Knee_Spring_L",
+     "cyl_radii": {
+      "6.900": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_Knee_Spring_L",
+     "shells": 1,
+     "vol_mm3": 6546.9181
+    }
+   ],
+   "comp": "Knee_Spring_L"
+  },
+  {
+   "bodies": [
+    {
+     "appearance": "Plastic - Matte (Blue)",
+     "body": "Knee_Spring_L(Mirror)",
+     "cyl_radii": {
+      "6.900": 1,
+      "9.500": 1
+     },
+     "edges": 4,
+     "faces": 4,
+     "lumps": 1,
+     "material": "BENI_Knee_Spring_L",
+     "shells": 1,
+     "vol_mm3": 6546.9181
+    }
+   ],
+   "comp": "Knee_Spring_L(Mirror)"
+  }
+ ],
+ "doc": "Beni_Prototype1",
+ "mass_g": 3290.147025643396,
+ "occurrence_count": 158,
+ "occurrences": [
+  {
+   "base": "REF_GIM6010-8",
+   "comp": "REF_GIM6010-8",
+   "faces": 1377,
+   "occ": "REF_GIM6010-8:1",
+   "side": "L",
+   "vol_mm3": 112156.0991,
+   "xform": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM4305-10",
+   "comp": "REF_GIM4305-10",
+   "faces": 259,
+   "occ": "REF_GIM4305-10:1",
+   "side": "L",
+   "vol_mm3": 53741.4692,
+   "xform": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    6.75,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Shoulder_Plate_L",
+   "comp": "Chassis_Shoulder_Plate_L",
+   "faces": 77,
+   "occ": "Chassis_Shoulder_Plate_L:1",
+   "side": "L",
+   "vol_mm3": 40233.6831,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Cover_L",
+   "comp": "Shoulder_Cable_Cover_L",
+   "faces": 14,
+   "occ": "Shoulder_Cable_Cover_L:1",
+   "side": "L",
+   "vol_mm3": 15437.7863,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Spiral_L",
+   "comp": "Shoulder_Cable_Spiral_L",
+   "faces": 4,
+   "occ": "Shoulder_Cable_Spiral_L:1",
+   "side": "L",
+   "vol_mm3": 6822.0313,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Output_Hub_L",
+   "comp": "Shoulder_Output_Hub_L",
+   "faces": 51,
+   "occ": "Shoulder_Output_Hub_L:1",
+   "side": "L",
+   "vol_mm3": 20831.3332,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Proximal_Link_L",
+   "comp": "Proximal_Link_L",
+   "faces": 95,
+   "occ": "Proximal_Link_L:1",
+   "side": "L",
+   "vol_mm3": 63026.4206,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Distal_Link_L",
+   "comp": "Distal_Link_L",
+   "faces": 67,
+   "occ": "Distal_Link_L:1",
+   "side": "L",
+   "vol_mm3": 44979.558,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Stop_Arc_L",
+   "comp": "Knee_Stop_Arc_L",
+   "faces": 25,
+   "occ": "Knee_Stop_Arc_L:1",
+   "side": "L",
+   "vol_mm3": 2462.5063,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_DowelPin_D6x9",
+   "comp": "HW_DowelPin_D6x9",
+   "faces": 3,
+   "occ": "HW_DowelPin_D6x9:1",
+   "side": "L",
+   "vol_mm3": 254.469,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Flex_L",
+   "comp": "Knee_Bumper_Flex_L",
+   "faces": 6,
+   "occ": "Knee_Bumper_Flex_L:1",
+   "side": "L",
+   "vol_mm3": 27.758,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Ext_L",
+   "comp": "Knee_Bumper_Ext_L",
+   "faces": 6,
+   "occ": "Knee_Bumper_Ext_L:1",
+   "side": "L",
+   "vol_mm3": 10.118,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_PCB_L",
+   "comp": "Knee_Encoder_PCB_L",
+   "faces": 11,
+   "occ": "Knee_Encoder_PCB_L:1",
+   "side": "L",
+   "vol_mm3": 338.6,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_Bracket_L",
+   "comp": "Knee_Encoder_Bracket_L",
+   "faces": 17,
+   "occ": "Knee_Encoder_Bracket_L:1",
+   "side": "L",
+   "vol_mm3": 2614.8809,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Hub_L",
+   "comp": "Wheel_Hub_L",
+   "faces": 21,
+   "occ": "Wheel_Hub_L:1",
+   "side": "L",
+   "vol_mm3": 12685.4503,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Rim_L",
+   "comp": "Wheel_Rim_L",
+   "faces": 28,
+   "occ": "Wheel_Rim_L:1",
+   "side": "L",
+   "vol_mm3": 67141.5213,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Tyre_L",
+   "comp": "Wheel_Tyre_L",
+   "faces": 8,
+   "occ": "Wheel_Tyre_L:1",
+   "side": "L",
+   "vol_mm3": 66709.9761,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Frame",
+   "comp": "Chassis_Frame",
+   "faces": 38,
+   "occ": "Chassis_Frame:1",
+   "side": "L",
+   "vol_mm3": 61172.407,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Electronics_Tray",
+   "comp": "Electronics_Tray",
+   "faces": 6,
+   "occ": "Electronics_Tray:1",
+   "side": "L",
+   "vol_mm3": 8512.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Battery_4S2200",
+   "comp": "Battery_4S2200",
+   "faces": 6,
+   "occ": "Battery_4S2200:1",
+   "side": "L",
+   "vol_mm3": 77625.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "comp": "HW_Bearing_6800 (5)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (5):1",
+   "side": "L",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "comp": "HW_Bearing_6800 (5)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (5):2",
+   "side": "L",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    2.66,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Sleeve_L",
+   "comp": "Knee_Sleeve_L",
+   "faces": 7,
+   "occ": "Knee_Sleeve_L:1",
+   "side": "L",
+   "vol_mm3": 2750.8853,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Axle_L",
+   "comp": "Knee_Axle_L",
+   "faces": 13,
+   "occ": "Knee_Axle_L:1",
+   "side": "L",
+   "vol_mm3": 2816.4183,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Magnet_Carrier_L",
+   "comp": "Knee_Magnet_Carrier_L",
+   "faces": 7,
+   "occ": "Knee_Magnet_Carrier_L:1",
+   "side": "L",
+   "vol_mm3": 1087.7568,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Magnet_D6x2p5_Diametric",
+   "comp": "HW_Magnet_D6x2p5_Diametric",
+   "faces": 3,
+   "occ": "HW_Magnet_D6x2p5_Diametric:1",
+   "side": "L",
+   "vol_mm3": 70.6858,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Upper_Eye_L",
+   "comp": "Cart_Upper_Eye_L",
+   "faces": 15,
+   "occ": "Cart_Upper_Eye_L:1",
+   "side": "L",
+   "vol_mm3": 5266.0728,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Lower_Eye_L",
+   "comp": "Cart_Lower_Eye_L",
+   "faces": 15,
+   "occ": "Cart_Lower_Eye_L:1",
+   "side": "L",
+   "vol_mm3": 6003.5732,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Guide_Rod_L",
+   "comp": "Cart_Guide_Rod_L",
+   "faces": 3,
+   "occ": "Cart_Guide_Rod_L:1",
+   "side": "L",
+   "vol_mm3": 981.7477,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5):1",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5):2",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.006934408,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.049516805,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5):3",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.013868816,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.09903361,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5):4",
+   "side": "L",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.020803224,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -0.148550415,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "comp": "HW_ClevisPin_D4x32 (5)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (5):1",
+   "side": "L",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "comp": "HW_ClevisPin_D4x32 (5)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (5):2",
+   "side": "L",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.032437585,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    -7.372368399,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):2",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.415877803,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):3",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.409960392,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):4",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.421892694,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):5",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.420820324,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):6",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.415877803,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):7",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.409960392,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):8",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.421892694,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):9",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.420820324,
+    0.0,
+    1.0,
+    0.0,
+    4.7,
+    0.0,
+    0.0,
+    1.0,
+    -1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):10",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.078142087,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):11",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.008726575,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):12",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086868662,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):13",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.078142087,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):14",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.008726575,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7):15",
+   "side": "L",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086868662,
+    0.0,
+    1.0,
+    0.0,
+    5.05,
+    0.0,
+    0.0,
+    1.0,
+    -0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):2",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.199946388,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):3",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086672106,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):4",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.113274281,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):5",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.199946388,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):6",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086672106,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):7",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.113274281,
+    0.0,
+    1.0,
+    0.0,
+    6.33,
+    0.0,
+    0.0,
+    1.0,
+    -1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):8",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.3,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):9",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):10",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):11",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.3,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):12",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7):13",
+   "side": "L",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    1.0,
+    0.0,
+    10.45,
+    0.0,
+    0.0,
+    1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):2",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):3",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):4",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):5",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    -1.0,
+    0.0,
+    4.2,
+    0.0,
+    0.0,
+    1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):6",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.184147321,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -16.075204354,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):7",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.0306279,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -14.07725011,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7):8",
+   "side": "L",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.153519421,
+    0.0,
+    1.0,
+    0.0,
+    9.8,
+    0.0,
+    0.0,
+    1.0,
+    -16.128253434,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3):2",
+   "side": "L",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.228351903,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -8.862517981,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3):3",
+   "side": "L",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.932061051,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3):4",
+   "side": "L",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.705563532,
+    0.0,
+    1.0,
+    0.0,
+    9.33,
+    0.0,
+    0.0,
+    1.0,
+    -9.122990247,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):2",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.069132801,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -14.261006218,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):3",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    0.024870487,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -13.052032855,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):4",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.044262314,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -14.21792927,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):5",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.069132801,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -16.592799047,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):6",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -0.024870487,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -17.80177241,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7):7",
+   "side": "L",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.044262314,
+    0.0,
+    -1.0,
+    0.0,
+    5.95,
+    0.0,
+    0.0,
+    1.0,
+    -16.635875995,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "comp": "HW_SHCS_M3x16 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (7):2",
+   "side": "L",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.942533317,
+    0.0,
+    1.0,
+    0.0,
+    10.19,
+    0.0,
+    0.0,
+    1.0,
+    -6.414413211,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "comp": "HW_SHCS_M3x16 (7)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (7):3",
+   "side": "L",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.043466653,
+    0.0,
+    1.0,
+    0.0,
+    10.19,
+    0.0,
+    0.0,
+    1.0,
+    -6.749269902,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Electronics",
+   "comp": "Chassis_Electronics",
+   "faces": 11,
+   "occ": "Chassis_Electronics:1",
+   "side": "L",
+   "vol_mm3": 35216.0,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM6010-8",
+   "comp": "REF_GIM6010-8(Mirror)",
+   "faces": 1377,
+   "occ": "REF_GIM6010-8(Mirror):1",
+   "side": "R",
+   "vol_mm3": 112156.0641,
+   "xform": [
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "REF_GIM4305-10",
+   "comp": "REF_GIM4305-10(Mirror)",
+   "faces": 259,
+   "occ": "REF_GIM4305-10(Mirror):1",
+   "side": "R",
+   "vol_mm3": 53741.4692,
+   "xform": [
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    -6.75,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Chassis_Shoulder_Plate_L",
+   "comp": "Chassis_Shoulder_Plate_L(Mirror)",
+   "faces": 77,
+   "occ": "Chassis_Shoulder_Plate_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 40233.6831,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Cover_L",
+   "comp": "Shoulder_Cable_Cover_L(Mirror)",
+   "faces": 14,
+   "occ": "Shoulder_Cable_Cover_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 15437.7863,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Cable_Spiral_L",
+   "comp": "Shoulder_Cable_Spiral_L(Mirror)",
+   "faces": 4,
+   "occ": "Shoulder_Cable_Spiral_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 6822.0313,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Shoulder_Output_Hub_L",
+   "comp": "Shoulder_Output_Hub_L(Mirror)",
+   "faces": 51,
+   "occ": "Shoulder_Output_Hub_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 20831.3332,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Proximal_Link_L",
+   "comp": "Proximal_Link_L(Mirror)",
+   "faces": 95,
+   "occ": "Proximal_Link_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 63026.4206,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Distal_Link_L",
+   "comp": "Distal_Link_L(Mirror)",
+   "faces": 67,
+   "occ": "Distal_Link_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 44979.558,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Stop_Arc_L",
+   "comp": "Knee_Stop_Arc_L(Mirror)",
+   "faces": 25,
+   "occ": "Knee_Stop_Arc_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2462.5063,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_DowelPin_D6x9",
+   "comp": "HW_DowelPin_D6x9(Mirror)",
+   "faces": 3,
+   "occ": "HW_DowelPin_D6x9(Mirror):1",
+   "side": "R",
+   "vol_mm3": 254.469,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Flex_L",
+   "comp": "Knee_Bumper_Flex_L(Mirror)",
+   "faces": 6,
+   "occ": "Knee_Bumper_Flex_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 27.758,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Bumper_Ext_L",
+   "comp": "Knee_Bumper_Ext_L(Mirror)",
+   "faces": 6,
+   "occ": "Knee_Bumper_Ext_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 10.118,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_PCB_L",
+   "comp": "Knee_Encoder_PCB_L(Mirror)",
+   "faces": 11,
+   "occ": "Knee_Encoder_PCB_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 338.6,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Encoder_Bracket_L",
+   "comp": "Knee_Encoder_Bracket_L(Mirror)",
+   "faces": 17,
+   "occ": "Knee_Encoder_Bracket_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2614.8809,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Hub_L",
+   "comp": "Wheel_Hub_L(Mirror)",
+   "faces": 21,
+   "occ": "Wheel_Hub_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 12685.4503,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Rim_L",
+   "comp": "Wheel_Rim_L(Mirror)",
+   "faces": 28,
+   "occ": "Wheel_Rim_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 67141.5213,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Wheel_Tyre_L",
+   "comp": "Wheel_Tyre_L(Mirror)",
+   "faces": 8,
+   "occ": "Wheel_Tyre_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 66709.9761,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "comp": "HW_Bearing_6800 (5)(Mirror)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (5)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Bearing_6800",
+   "comp": "HW_Bearing_6800 (5)(Mirror)",
+   "faces": 4,
+   "occ": "HW_Bearing_6800 (5)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 1024.9446,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    -2.66,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Sleeve_L",
+   "comp": "Knee_Sleeve_L(Mirror)",
+   "faces": 7,
+   "occ": "Knee_Sleeve_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2750.8853,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Axle_L",
+   "comp": "Knee_Axle_L(Mirror)",
+   "faces": 13,
+   "occ": "Knee_Axle_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 2816.4183,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Magnet_Carrier_L",
+   "comp": "Knee_Magnet_Carrier_L(Mirror)",
+   "faces": 7,
+   "occ": "Knee_Magnet_Carrier_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 1087.7568,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_Magnet_D6x2p5_Diametric",
+   "comp": "HW_Magnet_D6x2p5_Diametric(Mirror)",
+   "faces": 3,
+   "occ": "HW_Magnet_D6x2p5_Diametric(Mirror):1",
+   "side": "R",
+   "vol_mm3": 70.6858,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Upper_Eye_L",
+   "comp": "Cart_Upper_Eye_L(Mirror)",
+   "faces": 15,
+   "occ": "Cart_Upper_Eye_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 5266.0728,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Lower_Eye_L",
+   "comp": "Cart_Lower_Eye_L(Mirror)",
+   "faces": 15,
+   "occ": "Cart_Lower_Eye_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 6003.5732,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Guide_Rod_L",
+   "comp": "Cart_Guide_Rod_L(Mirror)",
+   "faces": 3,
+   "occ": "Cart_Guide_Rod_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 981.7477,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.006934408,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.049516805,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.013868816,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.09903361,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Cart_Preload_Shim_L",
+   "comp": "Cart_Preload_Shim_L (5)(Mirror)",
+   "faces": 4,
+   "occ": "Cart_Preload_Shim_L (5)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 69.1307,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.020803224,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -0.148550415,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "comp": "HW_ClevisPin_D4x32 (5)(Mirror)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (5)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_ClevisPin_D4x32",
+   "comp": "HW_ClevisPin_D4x32 (5)(Mirror)",
+   "faces": 5,
+   "occ": "HW_ClevisPin_D4x32 (5)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 484.198,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.032437585,
+    0.0,
+    -1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    -1.0,
+    -7.372368399,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.415877803,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.409960392,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.421892694,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.420820324,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -3.415877803,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -1.421892694,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.409960392,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -3.420820324,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):7",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.421892694,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -3.415877803,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):8",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    3.420820324,
+    0.0,
+    -1.0,
+    0.0,
+    -4.7,
+    0.0,
+    0.0,
+    -1.0,
+    -1.409960392,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):9",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.078142087,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):10",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.008726575,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):11",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086868662,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):12",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.078142087,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -0.632542205,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):13",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.008726575,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -1.249969538,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x10",
+   "comp": "HW_SHCS_M3x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x10 (7)(Mirror):14",
+   "side": "R",
+   "vol_mm3": 141.9607,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086868662,
+    0.0,
+    -1.0,
+    0.0,
+    -5.05,
+    0.0,
+    0.0,
+    -1.0,
+    -0.617427333,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.199946388,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.086672106,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.113274281,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.199946388,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -0.015358773,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.086672106,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -1.912888845,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.113274281,
+    0.0,
+    -1.0,
+    0.0,
+    -6.33,
+    0.0,
+    0.0,
+    -1.0,
+    -1.897530072,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):7",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    2.3,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):8",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):9",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -13.435044204,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):10",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -2.3,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -15.426902632,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):11",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M4x10",
+   "comp": "HW_SHCS_M4x10 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M4x10 (7)(Mirror):12",
+   "side": "R",
+   "vol_mm3": 279.6017,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.15,
+    0.0,
+    -1.0,
+    0.0,
+    -10.45,
+    0.0,
+    0.0,
+    -1.0,
+    -17.418761061,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    3.111269837,
+    0.0,
+    1.0,
+    0.0,
+    -4.2,
+    0.0,
+    0.0,
+    -1.0,
+    -3.111269837,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    1.184147321,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -16.075204354,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -0.0306279,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -14.07725011,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x8",
+   "comp": "HW_SHCS_M3x8 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x8 (7)(Mirror):7",
+   "side": "R",
+   "vol_mm3": 127.8236,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    -1.153519421,
+    0.0,
+    -1.0,
+    0.0,
+    -9.8,
+    0.0,
+    0.0,
+    -1.0,
+    -16.128253434,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.228351903,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -8.862517981,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.932061051,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -9.190662946,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x6",
+   "comp": "HW_SHCS_M3x6 (3)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x6 (3)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 113.6864,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.705563532,
+    0.0,
+    -1.0,
+    0.0,
+    -9.33,
+    0.0,
+    0.0,
+    -1.0,
+    -9.122990247,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.069132801,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -14.261006218,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    0.024870487,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -13.052032855,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):3",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.044262314,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -14.21792927,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):4",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -2.069132801,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -16.592799047,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):5",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    -0.024870487,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -17.80177241,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M2p5x12",
+   "comp": "HW_SHCS_M2p5x12 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M2p5x12 (7)(Mirror):6",
+   "side": "R",
+   "vol_mm3": 98.6656,
+   "xform": [
+    -1.0,
+    0.0,
+    0.0,
+    2.044262314,
+    0.0,
+    1.0,
+    0.0,
+    -5.95,
+    0.0,
+    0.0,
+    -1.0,
+    -16.635875995,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "comp": "HW_SHCS_M3x16 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (7)(Mirror):1",
+   "side": "R",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    9.942533317,
+    0.0,
+    -1.0,
+    0.0,
+    -10.19,
+    0.0,
+    0.0,
+    -1.0,
+    -6.414413211,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "HW_SHCS_M3x16",
+   "comp": "HW_SHCS_M3x16 (7)(Mirror)",
+   "faces": 5,
+   "occ": "HW_SHCS_M3x16 (7)(Mirror):2",
+   "side": "R",
+   "vol_mm3": 184.3722,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    8.043466653,
+    0.0,
+    -1.0,
+    0.0,
+    -10.19,
+    0.0,
+    0.0,
+    -1.0,
+    -6.749269902,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Spring_L",
+   "comp": "Knee_Spring_L",
+   "faces": 4,
+   "occ": "Knee_Spring_L:1",
+   "side": "L",
+   "vol_mm3": 6546.9181,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  },
+  {
+   "base": "Knee_Spring_L",
+   "comp": "Knee_Spring_L(Mirror)",
+   "faces": 4,
+   "occ": "Knee_Spring_L(Mirror):1",
+   "side": "R",
+   "vol_mm3": 6546.9181,
+   "xform": [
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0
+   ]
+  }
+ ],
+ "timeline_count": 1063,
+ "userParameters": [
+  {
+   "comment": "Design total mass",
+   "expression": "3.5",
+   "name": "design_mass_kg",
+   "unit": ""
+  },
+  {
+   "comment": "Proximal link length shoulder->knee",
+   "expression": "120 mm",
+   "name": "L1",
+   "unit": "mm"
+  },
+  {
+   "comment": "Distal link length knee->wheel",
+   "expression": "120 mm",
+   "name": "L2",
+   "unit": "mm"
+  },
+  {
+   "comment": "Nominal link angle from downward vertical",
+   "expression": "50 deg",
+   "name": "A_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee extension stop",
+   "expression": "-8 deg",
+   "name": "phi_ext",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee nominal",
+   "expression": "0 deg",
+   "name": "phi_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee flexion bumper engagement",
+   "expression": "20 deg",
+   "name": "phi_bump",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee main flexion design point",
+   "expression": "25 deg",
+   "name": "phi_design",
+   "unit": "deg"
+  },
+  {
+   "comment": "Knee physical flexion hard stop",
+   "expression": "27 deg",
+   "name": "phi_stop",
+   "unit": "deg"
+  },
+  {
+   "comment": "Wheel outside diameter",
+   "expression": "110 mm",
+   "name": "wheel_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Upper cartridge pivot radius from knee",
+   "expression": "36 mm",
+   "name": "Ru",
+   "unit": "mm"
+  },
+  {
+   "comment": "Lower cartridge pivot radius from knee",
+   "expression": "54 mm",
+   "name": "Rl",
+   "unit": "mm"
+  },
+  {
+   "comment": "Included cartridge anchor angle at nominal",
+   "expression": "110 deg",
+   "name": "cart_ang_nom",
+   "unit": "deg"
+  },
+  {
+   "comment": "Structural leg/knee width",
+   "expression": "30 mm",
+   "name": "leg_width",
+   "unit": "mm"
+  },
+  {
+   "comment": "Central spring channel width",
+   "expression": "20 mm",
+   "name": "leg_ch",
+   "unit": "mm"
+  },
+  {
+   "comment": "Proximal fork arm thickness",
+   "expression": "5 mm",
+   "name": "arm_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring outside diameter",
+   "expression": "19 mm",
+   "name": "spring_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring wire diameter",
+   "expression": "2.6 mm",
+   "name": "spring_wire",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring free length",
+   "expression": "55 mm",
+   "name": "spring_free",
+   "unit": "mm"
+  },
+  {
+   "comment": "Main knee spring rate N/mm",
+   "expression": "10.45",
+   "name": "spring_rate",
+   "unit": ""
+  },
+  {
+   "comment": "Knee axle journal diameter",
+   "expression": "10 mm",
+   "name": "knee_axle_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee bearing outer diameter 6800",
+   "expression": "19 mm",
+   "name": "knee_brg_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee bearing width 6800",
+   "expression": "5 mm",
+   "name": "knee_brg_W",
+   "unit": "mm"
+  },
+  {
+   "comment": "Knee steel sleeve OD in distal boss",
+   "expression": "16 mm",
+   "name": "knee_sleeve_OD",
+   "unit": "mm"
+  },
+  {
+   "comment": "Cartridge pivot pin diameter",
+   "expression": "4 mm",
+   "name": "cart_pin_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Spring cartridge guide rod diameter",
+   "expression": "5 mm",
+   "name": "rod_d",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder motor housing mount face global Y",
+   "expression": "42 mm",
+   "name": "shoulder_y",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder mount plate thickness",
+   "expression": "5 mm",
+   "name": "sh_plate_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Shoulder output hub thickness",
+   "expression": "7 mm",
+   "name": "hub_t",
+   "unit": "mm"
+  },
+  {
+   "comment": "Leg inboard face global Y",
+   "expression": "52.5 mm",
+   "name": "leg_y_in",
+   "unit": "mm"
+  },
+  {
+   "comment": "Wheel motor housing mount face global Y",
+   "expression": "82.5 mm",
+   "name": "wm_mount_y",
+   "unit": "mm"
+  },
+  {
+   "comment": "shoulder revolute lower limit",
+   "expression": "-185 deg",
+   "name": "joint_shoulder_min",
+   "unit": "deg"
+  },
+  {
+   "comment": "shoulder revolute upper limit",
+   "expression": "185 deg",
+   "name": "joint_shoulder_max",
+   "unit": "deg"
+  },
+  {
+   "comment": "passive knee extension hard stop",
+   "expression": "-8 deg",
+   "name": "joint_knee_min",
+   "unit": "deg"
+  },
+  {
+   "comment": "passive knee flexion hard stop",
+   "expression": "27 deg",
+   "name": "joint_knee_max",
+   "unit": "deg"
+  },
+  {
+   "comment": "passive knee bumper first contact",
+   "expression": "20 deg",
+   "name": "joint_knee_bumper",
+   "unit": "deg"
+  }
+ ]
+}

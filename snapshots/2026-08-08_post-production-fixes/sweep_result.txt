@@ -1,0 +1,24 @@
+  theta=   +0 phi=  -8   real clashes: 0   bumper crush 1.4 mm3
+  theta=   +0 phi=  -6   real clashes: 0
+  theta=   +0 phi=  +0   real clashes: 0
+  theta=   +0 phi=  +5   real clashes: 0
+  theta=   +0 phi= +10   real clashes: 0
+  theta=   +0 phi= +15   real clashes: 0
+  theta=   +0 phi= +20   real clashes: 0
+  theta=   +0 phi= +22   real clashes: 0   bumper crush 2.4 mm3
+  theta=   +0 phi= +25   real clashes: 0   bumper crush 8.6 mm3
+  theta=   +0 phi= +27   real clashes: 0   bumper crush 12.7 mm3
+  theta= -185 phi=  +0   real clashes: 0
+  theta= -120 phi=  +0   real clashes: 0
+  theta=  -60 phi=  +0   real clashes: 0
+  theta=  +30 phi=  +0   real clashes: 0
+  theta=  +60 phi=  +0   real clashes: 0
+  theta= +120 phi=  +0   real clashes: 0
+  theta= +185 phi=  +0   real clashes: 0
+  theta=  -35 phi= +12   real clashes: 0
+  theta= -185 phi=  -8   real clashes: 0   bumper crush 1.4 mm3
+  theta= -185 phi= +27   real clashes: 0   bumper crush 12.7 mm3
+  theta= +185 phi=  -8   real clashes: 0   bumper crush 1.4 mm3
+  theta= +185 phi= +27   real clashes: 0   bumper crush 12.7 mm3
+
+  NO GENUINE INTERFERENCES across 22 poses

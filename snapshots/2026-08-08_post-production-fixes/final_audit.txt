@@ -1,0 +1,31 @@
+==========================================================================
+BENI PROTOTYPE 1 -- AUTOMATED AUDIT
+==========================================================================
+  COUNTS: clean (72 part/side entries, 1 body each)
+
+  L/R PARITY: clean (32 part families matched)
+
+  FASTENER HEAD CLEARANCE: clean
+
+  joint                                bore insert   screw   clear    floor
+  knee stop arc -> proximal arm B      5.00   5.00    6.00   +2.00     0.80
+  encoder bracket -> proximal arm B    5.00   5.00   16.00   +0.60     0.80
+  cable cover -> M3 inserts            5.00   5.00    8.00   +2.00        -
+  BLIND HOLES: clean
+
+  SOURCE PARITY: 36 parts in model, 36 classified
+
+TOTAL PROBLEMS: 0
+
+=== MASS PROPERTIES (from Fusion, materials assigned) ===
+  mass                       3290.1 g
+  CoM                        X +6.46   Y -0.00   Z -50.57  mm
+  CoM above the wheel axis   103.7 mm
+  CoM fore-aft vs wheel      +6.46 mm
+  inertia about CoM (kg m2)  Ixx 0.03214  Iyy 0.02508  Izz 0.01706
+                             Ixy -0.000000 Iyz +0.000000 Ixz +0.002759
+  inverted-pendulum tau      0.103 s  (sqrt(L/g))
+
+spring pair check:
+   Knee_Spring_L            vol= 6546.92 mass= 25.3 g Y[   65.00,   84.00]
+   Knee_Spring_L(Mirror)    vol= 6546.92 mass= 25.3 g Y[  -84.00,  -65.00]

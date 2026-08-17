@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beni Prototype 1 — wheeled biped, passive spring knee</title>
+<style>
+  :root{
+    --bg:#101215; --panel:#181b20; --line:#262b33; --ink:#e6e8ec;
+    --dim:#8b929d; --accent:#5ec8f0; --hot:#f0674a; --ok:#6fd08c;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+    font:14px/1.5 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+  #app{display:grid;grid-template-columns:1fr 340px;height:100%}
+  @media(max-width:900px){#app{grid-template-columns:1fr;grid-template-rows:1fr auto}}
+  #view{position:relative;min-width:0}
+  canvas{display:block}
+  #side{background:var(--panel);border-left:1px solid var(--line);
+    overflow-y:auto;padding:18px 18px 40px}
+  h1{font-size:15px;margin:0 0 2px;letter-spacing:.2px}
+  h1 span{color:var(--dim);font-weight:400}
+  h2{font-size:11px;text-transform:uppercase;letter-spacing:.09em;
+    color:var(--dim);margin:22px 0 8px;font-weight:600}
+  .sub{color:var(--dim);font-size:12px;margin:0 0 4px}
+  label{display:flex;justify-content:space-between;font-size:12px;
+    color:var(--dim);margin:12px 0 4px}
+  label b{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:600}
+  input[type=range]{width:100%;accent-color:var(--accent)}
+  .btns{display:flex;flex-wrap:wrap;gap:6px}
+  button{background:#21262e;color:var(--ink);border:1px solid var(--line);
+    border-radius:6px;padding:6px 9px;font-size:11.5px;cursor:pointer}
+  button:hover{border-color:var(--accent);color:#fff}
+  button.on{background:var(--accent);color:#06222e;border-color:var(--accent);font-weight:600}
+  table{width:100%;border-collapse:collapse;font-size:12px;
+    font-variant-numeric:tabular-nums}
+  td{padding:3px 0;border-bottom:1px solid #1e232a}
+  td:last-child{text-align:right;font-weight:600}
+  td.k{color:var(--dim);font-weight:400}
+  .warn{color:var(--hot)} .good{color:var(--ok)}
+  #legend{position:absolute;left:14px;bottom:14px;font-size:11px;color:var(--dim);
+    background:rgba(16,18,21,.82);border:1px solid var(--line);border-radius:6px;padding:8px 10px}
+  #legend i{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:5px}
+  #loading{position:absolute;inset:0;display:grid;place-items:center;
+    background:var(--bg);font-size:13px;color:var(--dim);z-index:5}
+  #hint{position:absolute;right:14px;top:14px;font-size:11px;color:var(--dim)}
+  .note{font-size:11.5px;color:var(--dim);margin-top:8px}
+  code{background:#1e232a;padding:1px 4px;border-radius:3px;font-size:11px}
+</style>
+</head>
+<body>
+<div id="app">
+  <div id="view">
+    <div id="loading">loading geometry…</div>
+    <div id="hint">drag to orbit · scroll to zoom</div>
+    <div id="legend"></div>
+  </div>
+  <div id="side">
+    <h1>Beni Prototype 1 <span>— wheeled biped</span></h1>
+    <p class="sub">Geometry exported straight from the Fusion assembly
+      (<code>Beni_Prototype1</code>). Motion uses the same closed-form
+      kinematics the CAD was verified against.</p>
+
+    <h2>Passive knee φ</h2>
+    <label>extension −8° … +27° hard stop <b id="phiv">0.0°</b></label>
+    <input id="phi" type="range" min="-8" max="27" step="0.25" value="0">
+
+    <h2>Active shoulder θ</h2>
+    <label>−185° … +185° <b id="thv">0.0°</b></label>
+    <input id="th" type="range" min="-185" max="185" step="1" value="0">
+
+    <h2>Animate</h2>
+    <div class="btns">
+      <button id="aKnee">knee compression</button>
+      <button id="aSquat">shoulder squat</button>
+      <button id="aSweep">self-right sweep</button>
+      <button id="aStop">stop</button>
+    </div>
+
+    <h2>Named positions</h2>
+    <div class="btns" id="presets"></div>
+
+    <h2>Live state</h2>
+    <table id="ro"></table>
+    <p class="note" id="footnote"></p>
+  </div>
+</div>
+
+<script>window.__BENI_GEO__=__GEO__;</script>
+<script type="importmap">
+{"imports":{
+  "three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+  "three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+}}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+/* ---------------------------------------------------------------- kinematics
+   Ported verbatim from beni_lib.py.  Model frame: X forward, Y left, Z up;
+   the shoulder axis is the global Y axis through the origin.               */
+const D = Math.PI/180;
+const A_NOM = 50, L1 = 120, L2 = 120;
+const RU = 36, RL = 54, CART_ANG = 110;
+const SPRING_RATE = 10.45, SPRING_FREE = 55, SPRING_WIRE = 2.6;
+const SPRING_OD = 19, COILS_TOTAL = 11.8, COILS_ACTIVE = 9.8;
+const CART_DEAD = 25.57, CART_DEAD_U = 11.0;
+const PHI_EXT = -8, PHI_BUMP = 20, PHI_STOP = 27;
+const SOLID = COILS_TOTAL*SPRING_WIRE;                 // 30.68 mm
+
+const KX =  L1*Math.sin(A_NOM*D);                      //  91.9253
+const KZ = -L1*Math.cos(A_NOM*D);                      // -77.1345
+const WZ = -(L1+L2)*Math.cos(A_NOM*D);                 // -154.2690
+const WX = 0;                                          // wheel sits under the shoulder
+const UX = KX + RU*Math.cos((180-CART_ANG/2)*D);
+const UZ = KZ + RU*Math.sin((180-CART_ANG/2)*D);
+
+const lowerPivot = p => { const a=(180+CART_ANG/2-p)*D;
+  return [KX+RL*Math.cos(a), KZ+RL*Math.sin(a)]; };
+const cartLen = p => { const t=(CART_ANG-p)*D;
+  return Math.sqrt(RU*RU+RL*RL-2*RU*RL*Math.cos(t)); };
+const cartArm = p => { const t=(CART_ANG-p)*D;
+  return RU*RL*Math.sin(t)/cartLen(p); };
+const springLen   = p => cartLen(p) - CART_DEAD;
+const springDefl  = p => SPRING_FREE - springLen(p);
+const springForce = p => SPRING_RATE*springDefl(p);
+const wheelAt = p => { const d=(-A_NOM-p)*D;
+  return [KX+L2*Math.sin(d), KZ-L2*Math.cos(d)]; };
+const groundForce = p => springForce(p)*cartArm(p)/Math.abs(wheelAt(p)[0]-KX);
+const cartDir = p => { const [lx,lz]=lowerPivot(p), L=cartLen(p);
+  return [(lx-UX)/L,(lz-UZ)/L]; };
+
+const L0 = cartLen(0), D0 = cartDir(0);
+const PSI0 = Math.atan2(D0[1],D0[0])/D;
+
+/* ------------------------------------------------------------------ scene */
+const view = document.getElementById('view');
+THREE.Object3D.DEFAULT_UP = new THREE.Vector3(0,0,1);
+const renderer = new THREE.WebGLRenderer({antialias:true});
+renderer.setPixelRatio(Math.min(devicePixelRatio,2));
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+view.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x101215);
+scene.fog = new THREE.Fog(0x101215, 700, 1600);
+
+const camera = new THREE.PerspectiveCamera(38, 1, 1, 4000);
+camera.position.set(430, -520, 300);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.target.set(0, 0, 130);
+controls.enableDamping = true;
+
+scene.add(new THREE.HemisphereLight(0x9fb4c8, 0x14171b, 0.55));
+const key = new THREE.DirectionalLight(0xffffff, 2.0);
+key.position.set(300,-420,600); key.castShadow = true;
+key.shadow.mapSize.set(2048,2048);
+const sc = key.shadow.camera;
+sc.left=-400; sc.right=400; sc.top=400; sc.bottom=-400; sc.near=1; sc.far=1800;
+scene.add(key);
+const rim = new THREE.DirectionalLight(0x88bbff, 0.5);
+rim.position.set(-400,300,200); scene.add(rim);
+
+const floor = new THREE.Mesh(new THREE.PlaneGeometry(2600,2600),
+  new THREE.ShadowMaterial({opacity:0.42}));
+floor.receiveShadow = true; scene.add(floor);
+const grid = new THREE.GridHelper(2400, 48, 0x2a313a, 0x1c2127);
+grid.rotation.x = Math.PI/2; scene.add(grid);
+
+/* -------------------------------------------------------------- materials */
+const MAT = {
+  PACF : {c:0x5b6069, r:0.62, m:0.05, label:'PA-CF printed'},
+  ABS  : {c:0xd8dade, r:0.55, m:0.03, label:'ABS printed'},
+  TPU  : {c:0x1b1d20, r:0.85, m:0.02, label:'TPU tyre'},
+  ALU  : {c:0xb9c0c8, r:0.30, m:0.90, label:'7075-T6 aluminium'},
+  STEEL: {c:0x8d949c, r:0.26, m:0.95, label:'steel hardware'},
+  MOTOR: {c:0x3d434b, r:0.42, m:0.65, label:'Steadywin actuator'},
+  PU   : {c:0xf0674a, r:0.60, m:0.00, label:'PU bumper'},
+  PCB  : {c:0x2f7d4f, r:0.55, m:0.05, label:'encoder PCB'},
+  BATT : {c:0x2a3550, r:0.60, m:0.05, label:'battery'},
+};
+const matCache = {};
+function material(k){
+  if(!matCache[k]){
+    const s = MAT[k] || MAT.STEEL;
+    matCache[k] = new THREE.MeshStandardMaterial(
+      {color:s.c, roughness:s.r, metalness:s.m, flatShading:true});
+  }
+  return matCache[k];
+}
+
+/* --------------------------------------------------------- group structure */
+// One Object3D per (motion group × side).  Matrices are driven manually.
+const GROUPS = ['static','centre','prox','dist','wheel','cart_up','cart_lo'];
+const nodes = {};                      // nodes[group][side]
+for(const g of GROUPS){
+  nodes[g] = {};
+  for(const side of ['L','R']){
+    const o = new THREE.Object3D();
+    o.matrixAutoUpdate = false;
+    scene.add(o);
+    nodes[g][side] = o;
+  }
+}
+// the robot is lifted so the tyre contact patch always sits on z = 0
+const lift = new THREE.Object3D();
+scene.add(lift);
+for(const g of GROUPS) for(const s of ['L','R']){
+  scene.remove(nodes[g][s]); lift.add(nodes[g][s]);
+}
+
+const MIRROR = new THREE.Matrix4().makeScale(1,-1,1);
+const rotY  = a => new THREE.Matrix4().makeRotationY(a*D);
+const trans = (x,y,z) => new THREE.Matrix4().makeTranslation(x,y,z);
+const about = (a,ox,oz) =>
+  trans(ox,0,oz).multiply(rotY(a)).multiply(trans(-ox,0,-oz));
+
+/* ------------------------------------------------------- the spring, drawn
+   The Fusion model carries the spring as its outer envelope (documented in
+   the design record).  Here it is drawn as the real specified coil so the
+   compression is actually visible: O19 OD, 2.6 wire, 11.8 total coils.     */
+const springMat = new THREE.MeshStandardMaterial(
+  {color:0x9fb6cc, roughness:0.28, metalness:0.92});
+const springNode = {L:new THREE.Object3D(), R:new THREE.Object3D()};
+for(const s of ['L','R']){ springNode[s].matrixAutoUpdate=false; lift.add(springNode[s]); }
+let springMesh = {L:null,R:null};
+
+function buildSpring(len){
+  const rMean = (SPRING_OD - SPRING_WIRE)/2;
+  const turns = COILS_TOTAL, seg = 26;
+  const n = Math.round(turns*seg);
+  const pts = [];
+  for(let i=0;i<=n;i++){
+    const t = i/n, a = t*turns*2*Math.PI;
+    pts.push(new THREE.Vector3(rMean*Math.cos(a), rMean*Math.sin(a), t*len));
+  }
+  return new THREE.TubeGeometry(
+    new THREE.CatmullRomCurve3(pts), n, SPRING_WIRE/2, 7, false);
+}
+
+/* ------------------------------------------------------------------ loading
+   Geometry is embedded in this file as gzip+base64 packed buffers, so the page
+   runs straight from file:// with no server.  Layout per blob:
+     u32 nVerts | u32 nIndices | f32 xyz * nVerts | u32 index * nIndices      */
+const puMeshes = [];
+
+async function inflate(b64){
+  const bin = Uint8Array.from(atob(b64), c => c.charCodeAt(0));
+  if(typeof DecompressionStream === 'undefined')
+    throw new Error('this browser has no DecompressionStream (needs Chrome 80+, Safari 16.4+, Firefox 113+)');
+  const ds = new DecompressionStream('gzip');
+  return await new Response(new Blob([bin]).stream().pipeThrough(ds)).arrayBuffer();
+}
+
+function geomFromPacked(buf){
+  const dv = new DataView(buf);
+  const nv = dv.getUint32(0, true), ni = dv.getUint32(4, true);
+  const pos = new Float32Array(buf, 8, nv*3);
+  const idx = new Uint32Array(buf, 8 + nv*12, ni);
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+  g.setIndex(new THREE.BufferAttribute(idx, 1));
+  g.computeBoundingSphere();
+  return g;                       // normals come from flatShading in the shader
+}
+
+(async function load(){
+  try{
+    const seenMats = new Set();
+    for(const item of window.__BENI_GEO__){
+      const geo = geomFromPacked(await inflate(item.b64));
+      seenMats.add(item.material);
+      for(const side of ['L','R']){
+        if(item.group === 'centre' && side === 'R') continue;
+        const m = new THREE.Mesh(geo, material(item.material));
+        m.castShadow = true; m.receiveShadow = true;
+        nodes[item.group][side].add(m);
+        if(item.material === 'PU') puMeshes.push(m);
+      }
+    }
+    ready(seenMats);
+  }catch(e){
+    document.getElementById('loading').innerHTML =
+      'could not decode geometry:<br><br><code>' + e.message + '</code>';
+    console.error(e);
+  }
+})();
+
+
+function ready(seenMats){
+  document.getElementById('loading').remove();
+  const leg = document.getElementById('legend');
+  leg.innerHTML = [...seenMats].sort().map(k=>{
+    const s = MAT[k]||MAT.STEEL;
+    return `<div><i style="background:#${s.c.toString(16).padStart(6,'0')}"></i>${s.label}</div>`;
+  }).join('') + `<div><i style="background:#9fb6cc"></i>knee spring (drawn from spec)</div>`;
+  for(const s of ['L','R']){
+    springMesh[s] = new THREE.Mesh(buildSpring(springLen(0)), springMat);
+    springMesh[s].castShadow = true;
+    springNode[s].add(springMesh[s]);
+  }
+  update();
+}
+
+/* ------------------------------------------------------------------ posing */
+let phi = 0, th = 0;
+
+/* Wheel roll angle, degrees, about +Y.  A positive rotation about +Y carries
+   +Z toward +X, i.e. the top of the wheel goes forward, which is forward roll.
+   The mirrored right side needs no sign flip: M.Ry(a).M == Ry(a) for a y-flip,
+   so both wheels turn the same way.                                          */
+const R_TYRE = 55;
+function wheelSpin(thd, phid){
+  const [wx,wz] = wheelAt(phid);
+  const c = Math.cos(thd*D), s = Math.sin(thd*D);
+  const wxr = wx*c + wz*s;                 // axle x after the shoulder rotation
+  return (wxr / R_TYRE) / D;               // rad -> deg
+}
+
+function poseSide(side, thd, phid){
+  const sgn = side==='L' ? 1 : -1;
+  const d1 = cartDir(phid), L1c = cartLen(phid);
+  const psi1 = Math.atan2(d1[1],d1[0])/D;
+  const dpsi = psi1 - PSI0, dL = L1c - L0;
+
+  const shoulder = about(thd, 0, 0);
+  const knee     = about(phid, KX, KZ);
+  // Rolling without slip: the tyre contact patch is held on z = 0, so the wheel
+  // must turn by (horizontal axle travel)/R_tyre.  Spin is about the wheel's own
+  // axis, which lives at the NOMINAL wheel position, so it composes innermost.
+  const spin     = about(wheelSpin(thd, phid), WX, WZ);
+  const cu       = about(-dpsi, UX, UZ);
+  const cl       = trans(dL*d1[0], 0, dL*d1[1]).multiply(cu);
+
+  const put = (g, M) => {
+    const m = nodes[g][side].matrix;
+    m.copy(M);
+    if(side==='R') m.premultiply(MIRROR);
+    nodes[g][side].matrixWorldNeedsUpdate = true;
+  };
+  const I = new THREE.Matrix4();
+  put('static', I);
+  if(side==='L') put('centre', I);
+  put('prox',    shoulder);
+  put('dist',    shoulder.clone().multiply(knee));
+  put('wheel',   shoulder.clone().multiply(knee).multiply(spin));
+  put('cart_up', shoulder.clone().multiply(cu));
+  put('cart_lo', shoulder.clone().multiply(cl));
+
+  // spring: place its local +Z along the cartridge axis, starting at s = 11
+  const sl = springLen(phid);
+  if(springMesh[side]){
+    springMesh[side].geometry.dispose();
+    springMesh[side].geometry = buildSpring(sl);
+  }
+  const ax = new THREE.Vector3(d1[0], 0, d1[1]).normalize();
+  const q  = new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0,0,1), ax);
+  const org = new THREE.Vector3(UX + CART_DEAD_U*d1[0], 74.5*sgn, UZ + CART_DEAD_U*d1[1]);
+  const M = new THREE.Matrix4().compose(org, q, new THREE.Vector3(1,1,1));
+  const full = shoulder.clone().multiply(M);
+  springNode[side].matrix.copy(full);
+  springNode[side].matrixWorldNeedsUpdate = true;
+}
+
+function update(){
+  poseSide('L', th, phi);
+  poseSide('R', th, phi);
+
+  // keep the tyre contact patch on the floor
+  const [wx,wz] = wheelAt(phi);
+  const c = Math.cos(th*D), s = Math.sin(th*D);
+  const wzr = -wx*s + wz*c;
+  lift.position.set(0,0, -(wzr - 55));
+  lift.updateMatrixWorld(true);
+
+  // bumper engagement colour
+  const hot = phi >= PHI_BUMP - 0.01;
+  material('PU').color.setHex(hot ? 0xff8a5c : 0xf0674a);
+  material('PU').emissive.setHex(hot ? 0x5a1a08 : 0x000000);
+
+  readout();
+}
+
+/* ----------------------------------------------------------------- readout */
+const ro = document.getElementById('ro');
+function readout(){
+  const [wx,wz] = wheelAt(phi);
+  const c = Math.cos(th*D), s = Math.sin(th*D);
+  const wzr = -wx*s + wz*c;                 // wheel z after the shoulder rotation
+  const shoulderHeight = -(wzr - 55);       // = lift.position.z
+  const rows = [
+    ['knee φ', phi.toFixed(2)+'°'],
+    ['shoulder θ', th.toFixed(1)+'°'],
+    ['—','—'],
+    ['cartridge eye-to-eye', cartLen(phi).toFixed(2)+' mm'],
+    ['spring moment arm', cartArm(phi).toFixed(2)+' mm'],
+    ['spring length', springLen(phi).toFixed(2)+' mm'],
+    ['spring deflection', springDefl(phi).toFixed(2)+' mm'],
+    ['spring force', springForce(phi).toFixed(1)+' N'],
+    ['above solid height', (springLen(phi)-SOLID).toFixed(2)+' mm'],
+    ['—','—'],
+    ['wheel vertical travel', (wz-WZ).toFixed(1)+' mm'],
+    ['wheel fore-aft', wx.toFixed(1)+' mm'],
+    ['ground force per wheel', groundForce(phi).toFixed(1)+' N'],
+    ['equivalent static load', (groundForce(phi)/17.2).toFixed(2)+' g'],
+    ['—','—'],
+    ['shoulder height above ground', shoulderHeight.toFixed(1)+' mm'],
+  ];
+  ro.innerHTML = rows.map(([k,v])=>{
+    if(k==='—') return '<tr><td colspan="2" style="border:0;height:6px"></td></tr>';
+    let cls='';
+    if(k==='above solid height') cls = (springLen(phi)-SOLID) > 2 ? 'good':'warn';
+    if(k==='spring force' && phi>=PHI_BUMP) cls='warn';
+    return `<tr><td class="k">${k}</td><td class="${cls}">${v}</td></tr>`;
+  }).join('');
+
+  const fn = document.getElementById('footnote');
+  let msg = '';
+  if(phi >= PHI_STOP-0.01) msg = 'At the +27° metal hard stop — the PU bumper is fully crushed and the Ø6 dowel is bearing on the steel slot end.';
+  else if(phi >= PHI_BUMP) msg = 'Past +20°: the progressive PU bumper is engaged and being crushed.';
+  else if(phi <= PHI_EXT+0.01) msg = 'At the −8° extension stop.';
+  else msg = 'Spring never reaches solid height: 4.89 mm of margin remains even at the +27° hard stop.';
+  fn.textContent = msg;
+}
+
+/* ------------------------------------------------------------------ controls */
+const $phi = document.getElementById('phi'), $th = document.getElementById('th');
+const $phiv = document.getElementById('phiv'), $thv = document.getElementById('thv');
+function setPose(p,t,fromUI){
+  phi = Math.max(-8, Math.min(27, p));
+  th  = Math.max(-185, Math.min(185, t));
+  if(!fromUI){ $phi.value = phi; $th.value = th; }
+  $phiv.textContent = phi.toFixed(1)+'°';
+  $thv.textContent  = th.toFixed(1)+'°';
+  update();
+}
+$phi.oninput = ()=>setPose(+$phi.value, th, true);
+$th.oninput  = ()=>setPose(phi, +$th.value, true);
+
+const PRESETS = [
+  ['nominal', 0, 0], ['squat +30', 30, 0], ['extension −8', 0, -8],
+  ['knee +10', 0, 10], ['bumper +20', 0, 20], ['design +25', 0, 25],
+  ['hard stop +27', 0, 27], ['jump drive', -35, 12],
+  ['self-right +185', 185, 0], ['self-right −185', -185, 0],
+];
+const $pre = document.getElementById('presets');
+for(const [name,t,p] of PRESETS){
+  const b = document.createElement('button');
+  b.textContent = name;
+  b.onclick = ()=>{ stopAnim(); setPose(p,t,false); };
+  $pre.appendChild(b);
+}
+
+let anim = null;
+const btns = {aKnee:'aKnee', aSquat:'aSquat', aSweep:'aSweep'};
+function stopAnim(){
+  anim = null;
+  for(const id of Object.keys(btns)) document.getElementById(id).classList.remove('on');
+}
+function startAnim(id, fn){
+  stopAnim(); anim = fn; document.getElementById(id).classList.add('on');
+}
+document.getElementById('aKnee').onclick = ()=>startAnim('aKnee', t=>{
+  const u = (Math.sin(t*1.35) + 1)/2;            // -8 .. +27 and back
+  setPose(-8 + u*35, 0, false);
+});
+document.getElementById('aSquat').onclick = ()=>startAnim('aSquat', t=>{
+  const u = (Math.sin(t*1.0) + 1)/2;
+  setPose(0, u*40, false);
+});
+document.getElementById('aSweep').onclick = ()=>startAnim('aSweep', t=>{
+  setPose(0, 185*Math.sin(t*0.5), false);
+});
+document.getElementById('aStop').onclick = stopAnim;
+
+/* -------------------------------------------------------------------- loop */
+function resize(){
+  const w = view.clientWidth, h = view.clientHeight;
+  renderer.setSize(w,h); camera.aspect = w/h; camera.updateProjectionMatrix();
+}
+addEventListener('resize', resize); resize();
+
+const clock = new THREE.Clock();
+(function loop(){
+  requestAnimationFrame(loop);
+  if(anim) anim(clock.getElapsedTime());
+  controls.update();
+  renderer.render(scene, camera);
+})();
+</script>
+</body>
+</html>

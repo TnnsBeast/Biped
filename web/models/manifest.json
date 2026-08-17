@@ -1,0 +1,233 @@
+[
+ {
+  "file": "cart_lo__ALU.stl",
+  "group": "cart_lo",
+  "material": "ALU",
+  "parts": [
+   "Cart_Lower_Eye_L"
+  ]
+ },
+ {
+  "file": "cart_lo__SPRING.stl",
+  "group": "cart_lo",
+  "material": "SPRING",
+  "parts": [
+   "Knee_Spring_L"
+  ]
+ },
+ {
+  "file": "cart_lo__STEEL.stl",
+  "group": "cart_lo",
+  "material": "STEEL",
+  "parts": [
+   "Cart_Preload_Shim_L",
+   "HW_ClevisPin_D4x32"
+  ]
+ },
+ {
+  "file": "cart_up__ALU.stl",
+  "group": "cart_up",
+  "material": "ALU",
+  "parts": [
+   "Cart_Upper_Eye_L"
+  ]
+ },
+ {
+  "file": "cart_up__STEEL.stl",
+  "group": "cart_up",
+  "material": "STEEL",
+  "parts": [
+   "Cart_Guide_Rod_L",
+   "HW_ClevisPin_D4x32"
+  ]
+ },
+ {
+  "file": "centre__ABS.stl",
+  "group": "centre",
+  "material": "ABS",
+  "parts": [
+   "Electronics_Tray"
+  ]
+ },
+ {
+  "file": "centre__BATT.stl",
+  "group": "centre",
+  "material": "BATT",
+  "parts": [
+   "Battery_4S2200"
+  ]
+ },
+ {
+  "file": "centre__ELEC.stl",
+  "group": "centre",
+  "material": "ELEC",
+  "parts": [
+   "Chassis_Electronics"
+  ]
+ },
+ {
+  "file": "centre__PACF.stl",
+  "group": "centre",
+  "material": "PACF",
+  "parts": [
+   "Chassis_Frame"
+  ]
+ },
+ {
+  "file": "dist__MOTOR.stl",
+  "group": "dist",
+  "material": "MOTOR",
+  "parts": [
+   "REF_GIM4305-10"
+  ]
+ },
+ {
+  "file": "dist__PACF.stl",
+  "group": "dist",
+  "material": "PACF",
+  "parts": [
+   "Distal_Link_L"
+  ]
+ },
+ {
+  "file": "dist__STEEL.stl",
+  "group": "dist",
+  "material": "STEEL",
+  "parts": [
+   "HW_DowelPin_D6x9",
+   "HW_Magnet_D6x2p5_Diametric",
+   "HW_SHCS_M2p5x12",
+   "Knee_Axle_L",
+   "Knee_Magnet_Carrier_L",
+   "Knee_Sleeve_L"
+  ]
+ },
+ {
+  "file": "prox__ABS.stl",
+  "group": "prox",
+  "material": "ABS",
+  "parts": [
+   "Knee_Encoder_Bracket_L"
+  ]
+ },
+ {
+  "file": "prox__ALU.stl",
+  "group": "prox",
+  "material": "ALU",
+  "parts": [
+   "Shoulder_Output_Hub_L"
+  ]
+ },
+ {
+  "file": "prox__PACF.stl",
+  "group": "prox",
+  "material": "PACF",
+  "parts": [
+   "Proximal_Link_L"
+  ]
+ },
+ {
+  "file": "prox__PCB.stl",
+  "group": "prox",
+  "material": "PCB",
+  "parts": [
+   "Knee_Encoder_PCB_L"
+  ]
+ },
+ {
+  "file": "prox__PU.stl",
+  "group": "prox",
+  "material": "PU",
+  "parts": [
+   "Knee_Bumper_Ext_L",
+   "Knee_Bumper_Flex_L"
+  ]
+ },
+ {
+  "file": "prox__STEEL.stl",
+  "group": "prox",
+  "material": "STEEL",
+  "parts": [
+   "HW_Bearing_6800",
+   "HW_SHCS_M3x10",
+   "HW_SHCS_M3x16",
+   "HW_SHCS_M3x6",
+   "HW_SHCS_M4x10",
+   "Knee_Stop_Arc_L"
+  ]
+ },
+ {
+  "file": "static__ABS.stl",
+  "group": "static",
+  "material": "ABS",
+  "parts": [
+   "Shoulder_Cable_Cover_L"
+  ]
+ },
+ {
+  "file": "static__MOTOR.stl",
+  "group": "static",
+  "material": "MOTOR",
+  "parts": [
+   "REF_GIM6010-8"
+  ]
+ },
+ {
+  "file": "static__PACF.stl",
+  "group": "static",
+  "material": "PACF",
+  "parts": [
+   "Chassis_Shoulder_Plate_L"
+  ]
+ },
+ {
+  "file": "static__PU.stl",
+  "group": "static",
+  "material": "PU",
+  "parts": [
+   "Shoulder_Cable_Spiral_L"
+  ]
+ },
+ {
+  "file": "static__STEEL.stl",
+  "group": "static",
+  "material": "STEEL",
+  "parts": [
+   "HW_SHCS_M3x10",
+   "HW_SHCS_M3x8"
+  ]
+ },
+ {
+  "file": "wheel__ALU.stl",
+  "group": "wheel",
+  "material": "ALU",
+  "parts": [
+   "Wheel_Hub_L"
+  ]
+ },
+ {
+  "file": "wheel__PACF.stl",
+  "group": "wheel",
+  "material": "PACF",
+  "parts": [
+   "Wheel_Rim_L"
+  ]
+ },
+ {
+  "file": "wheel__STEEL.stl",
+  "group": "wheel",
+  "material": "STEEL",
+  "parts": [
+   "HW_SHCS_M3x8",
+   "HW_SHCS_M4x10"
+  ]
+ },
+ {
+  "file": "wheel__TPU.stl",
+  "group": "wheel",
+  "material": "TPU",
+  "parts": [
+   "Wheel_Tyre_L"
+  ]
+ }
+]
