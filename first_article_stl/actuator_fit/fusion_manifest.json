@@ -1,0 +1,168 @@
+{
+  "coupons": [
+    {
+      "bbox_mm": [
+        84.0,
+        84.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        48.0,
+        84.0
+      ],
+      "hardware": "8 x M3; use two opposite screws for first seating check",
+      "interface": "GIM6010-8 housing -> Chassis_Shoulder_Plate_L",
+      "name": "ABS_FIT_GIM6010_HOUSING",
+      "spec": {
+        "center_d": 48.0,
+        "hardware": "8 x M3; use two opposite screws for first seating check",
+        "interface": "GIM6010-8 housing -> Chassis_Shoulder_Plate_L",
+        "od": 84.0,
+        "patterns": [
+          [
+            74.0,
+            3.4,
+            8,
+            22.6
+          ]
+        ],
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/ABS_FIT_GIM6010_HOUSING.stl",
+      "stl_bytes": 96284,
+      "volume_cm3": 14.6383
+    },
+    {
+      "bbox_mm": [
+        40.0,
+        40.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        4.05,
+        4.05,
+        4.05,
+        13.2,
+        40.0
+      ],
+      "hardware": "6 x M3 plus 3 x O4 motor pins",
+      "interface": "GIM6010-8 output -> Shoulder_Output_Hub_L",
+      "name": "ABS_FIT_GIM6010_OUTPUT",
+      "spec": {
+        "center_d": 13.2,
+        "hardware": "6 x M3 plus 3 x O4 motor pins",
+        "interface": "GIM6010-8 output -> Shoulder_Output_Hub_L",
+        "od": 40.0,
+        "patterns": [
+          [
+            25.0,
+            3.4,
+            6,
+            30.4
+          ],
+          [
+            20.4,
+            4.05,
+            3,
+            60.4
+          ]
+        ],
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/ABS_FIT_GIM6010_OUTPUT.stl",
+      "stl_bytes": 99884,
+      "volume_cm3": 4.1067
+    },
+    {
+      "bbox_mm": [
+        58.0,
+        58.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        2.8,
+        2.8,
+        2.8,
+        2.8,
+        2.8,
+        2.8,
+        41.5,
+        58.0
+      ],
+      "hardware": "6 x M2.5; use two opposite screws for first seating check",
+      "interface": "GIM4305-10 housing -> Distal_Link_L",
+      "name": "ABS_FIT_GIM4305_HOUSING",
+      "spec": {
+        "center_d": 41.5,
+        "hardware": "6 x M2.5; use two opposite screws for first seating check",
+        "interface": "GIM4305-10 housing -> Distal_Link_L",
+        "od": 58.0,
+        "patterns": [
+          [
+            47.5,
+            2.8,
+            6,
+            29.4
+          ]
+        ],
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/ABS_FIT_GIM4305_HOUSING.stl",
+      "stl_bytes": 83284,
+      "volume_cm3": 5.0099
+    },
+    {
+      "bbox_mm": [
+        44.0,
+        44.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        12.0,
+        37.3,
+        44.0
+      ],
+      "hardware": "3 x M3; printed O37.3 x 0.8 register pocket",
+      "interface": "GIM4305-10 output -> Wheel_Hub_L",
+      "name": "ABS_FIT_GIM4305_OUTPUT",
+      "spec": {
+        "center_d": 12.0,
+        "hardware": "3 x M3; printed O37.3 x 0.8 register pocket",
+        "interface": "GIM4305-10 output -> Wheel_Hub_L",
+        "od": 44.0,
+        "patterns": [
+          [
+            27.0,
+            3.4,
+            3,
+            -28.7
+          ]
+        ],
+        "pocket_d": 37.3,
+        "pocket_depth": 0.8,
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/ABS_FIT_GIM4305_OUTPUT.stl",
+      "stl_bytes": 73684,
+      "volume_cm3": 4.7589
+    }
+  ],
+  "document": "Beni_Prototype1_TestGauges"
+}

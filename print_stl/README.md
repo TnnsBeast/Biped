@@ -1,6 +1,6 @@
-# Beni Prototype 1 — what to print before the motors arrive
+# Beni Prototype 1 — fit coupons and first articles
 
-> ### ⚠ Two entries here are superseded by the single-leg rig build
+> ### ⚠ Superseded in places by the single-leg rig build
 >
 > **3D printed and off-the-shelf parts only, no laser cutting or machining** —
 > see [`../MANUFACTURING_CONSTRAINTS.md`](../MANUFACTURING_CONSTRAINTS.md).
@@ -9,14 +9,13 @@
 >   [`../rig_stl/reroute/Distal_Link_L.stl`](../rig_stl/reroute/Distal_Link_L.stl).
 >   The steel knee sleeve is deleted and its Ø16 bore is now printed into the link
 >   as Ø10. Print the rig version.
-> - **`check_prints/Knee_Stop_Arc_L.stl` and `check_prints/Knee_Sleeve_L.stl`,
->   `Knee_Axle_L.stl`, `Knee_Magnet_Carrier_L.stl` no longer represent real parts.**
->   The stop arc is deleted, the axle is a bought dowel pin, the sleeve is gone,
->   and the magnet carrier is printed. The other check prints are still useful.
+> - **`check_prints/` is obsolete** — it existed to dry-fit before ordering
+>   machining. Use [`../rig_stl/reroute/`](../rig_stl/reroute/) instead.
 > - The **`GAUGE_*` coupons below are still exactly right** and were re-measured
 >   against the design record feature by feature. Note that the shoulder coupon is
->   only **9.5 mm long** and therefore cannot resolve conflict C2 (motor length
->   40 vs 44 mm) — that needs a caliper. See the rig design record §2.4.
+>   only **9.5 mm long** and therefore cannot report the delivered motor's exact
+>   overall length. The STEP model supplies the 44.0000 mm nominal dimension;
+>   use the real motor and ABS mating article as a functional go/no-go.
 >
 > Everything else on this page stands. What to print for the rig:
 > [`../rig_stl/README.md`](../rig_stl/README.md).
@@ -34,14 +33,15 @@ right-hand part; there is no separate `_R` file.
 > and side panels now carry fillets at every load-bearing re-entrant corner, the
 > rim has a tyre bead groove and an inboard retaining flange, and the tyre has a
 > crowned tread. Two screw lengths changed — see the hardware list at the bottom.
-> Details in `beni_prototype1_rev2_changes.md`.
+> Details in [`../beni_prototype1_rev2_changes.md`](../beni_prototype1_rev2_changes.md).
 
 ---
 
 ## Print in this order
 
 ### 1. `GAUGE_Fit_Coupon.stl` — print this first, before anything else
-14 cm³, ~25 min, PA-CF (the material you'll actually use for the links).
+14 cm³, ~25 min. Print the first one in ABS for the ABS first-article campaign,
+then repeat it in PA-CF before releasing structural PA-CF parts.
 
 A 26 × 92 × 8 bar with six through-bores, one for every critical fit in the
 robot:
@@ -49,22 +49,28 @@ robot:
 | bore | what it is | target fit |
 |---:|---|---|
 | Ø19.0 | 6800 bearing seat, proximal arms | light press — bearing enters with thumb pressure, no rock |
-| Ø16.0 | knee steel sleeve into the distal boss | light press |
-| Ø10.0 | knee axle reference | slip, no rock |
+| Ø16.0 | **was** the steel knee sleeve's seat in the distal boss — **that bore is now Ø10**, printed straight into `Distal_Link_L`, because `Knee_Sleeve_L` is deleted. Measure it as a general large-bore check only | light press |
+| Ø10.0 | knee axle bore — the fit that now matters, on a bought Ø10 h6 dowel pin | slip, no rock |
 | Ø6.0 | knee-stop dowel seat | light press |
-| Ø4.05 | shoulder-output dowel (reamed in the metal hub) | slip |
+| Ø4.05 | shoulder-output dowel | slip |
 | Ø4.0 | M3 heat-set insert bore | insert seats flush without splitting the wall |
 
-Measure all six with pin gauges or calipers, then set your slicer's **hole /
-X-Y size compensation** from the result. PA-CF typically comes out 0.1–0.25 mm
-undersize on holes.
+With no calipers, test the bores using the real matching bearings, dowels,
+fasteners, and inserts. Record which nominal feature produces the required fit
+and use that to set the ABS profile's **hole / X-Y size compensation**. The
+result is specific to the material, printer, orientation, and profile; do not
+reuse ABS compensation for PA-CF.
 
 **This one print de-risks every other print.** Don't skip it — the Ø19 bearing
-seats and the Ø16 sleeve bore are the two fits that will otherwise waste a
+seats and the Ø10 knee-axle bore are the two fits that will otherwise waste a
 whole link.
 
-### 2. The two motor stand-ins — this is what lets you test-fit without motors
-PLA is fine; these are gauges, not parts.
+### 2. The two positive motor stand-ins
+These reproduce the motor envelopes for checking mating CAD when no motor is
+available. They are not negative sockets and cannot be test-fitted onto the
+delivered motors. Now that the motors are in hand, they are optional: design a
+small negative ABS mating coupon in Fusion, or print the actual mating part in
+ABS, for the physical go/no-go.
 
 - **`GAUGE_Shoulder_Motor_Interface.stl`** (31 cm³, Ø78 × 10)
   Replicates the GIM6010-8's mating geometry exactly as measured from the STEP:
@@ -82,31 +88,19 @@ PLA is fine; these are gauges, not parts.
   clears the motor and that the driver cover nests in the distal plate's Ø41.5
   pocket.
 
-### 3. `check_prints/` — PLA stand-ins of the metal parts
-Print these in PLA **before ordering any machining**. They let you dry-assemble
-the entire knee and shoulder stack and confirm every hole pattern lines up.
-
-| file | real material | why print it |
-|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | check the 3-dowel + 6 × M3 pattern against the shoulder gauge, and that the link's Ø34 root access bore lines up with the M3 counterbores |
-| `Wheel_Hub_L.stl` | 7075-T6 | check the Ø37.3 register and the 3 × M3 against the wheel gauge |
-| `Cart_Upper_Eye_L.stl`, `Cart_Lower_Eye_L.stl` | 7075-T6 | check the cartridge sits in the 20 mm spring channel and the Ø4 pins line up |
-| `Knee_Stop_Arc_L.stl` | 3 mm steel | check the arc slot lands on the Ø6 dowel at −8° and +27° |
-| `Knee_Sleeve_L.stl`, `Knee_Axle_L.stl`, `Knee_Magnet_Carrier_L.stl` | steel | check the double-D key engages and the axle inserts from inboard |
-
-A printed Ø10 axle will not survive load, but it proves the **assembly order** —
-which is the thing most likely to be wrong, and the thing that is most expensive
-to discover after the metal is cut.
+### 3. `check_prints/` — obsolete
+Its premise was "print these in PLA before ordering any machining." **There is no
+machining.** Print the real printed parts instead:
+[`../rig_stl/reroute/`](../rig_stl/reroute/).
 
 ### 4. Structural PA-CF parts — only after step 1
 Print one of each first and dry-fit before committing to the second set.
-
-| file | vol cm³ | footprint | orientation | support |
-|---|---:|---|---|---|
-| `Chassis_Shoulder_Plate_L.stl` | 40.2 | 120 × 120 × 9 | flat, panel face on the bed | none |
-| `Distal_Link_L.stl` | 45.0 | 137 × 122 × 30 | **on edge**, link axis vertical | none |
-| `Proximal_Link_L.stl` | 63.1 | 142 × 127 × 32 | **on edge**, link axis vertical | none |
-| `Chassis_Frame.stl` | 61.5 | 110 × 92 × 84 | flanges vertical, open box up | none |
+The four files are `Chassis_Shoulder_Plate_L.stl`, `Distal_Link_L.stl`
+(**use `../rig_stl/reroute/Distal_Link_L.stl` instead** — see the banner),
+`Proximal_Link_L.stl` and `Chassis_Frame.stl`. **Orientations, footprints and the
+rationale for each are in the BOM `§1`** —
+[`../beni_prototype1_bom_and_assembly.md`](../beni_prototype1_bom_and_assembly.md).
+Don't re-derive them here.
 
 "On edge" matters for the links: it puts primary bending loads in the print
 plane and makes the 20 mm spring channel a through-slot, so nothing needs
@@ -128,16 +122,12 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 
 ---
 
-## What you *can* validate before the motors arrive
+## What the first-article campaign validates
 
 - Every bore fit and the slicer compensation (step 1).
 - Both motor bolt patterns and the output-side dowel/screw patterns (step 2).
-- The complete knee joint: bearing seats, sleeve, axle insertion direction,
-  thrust washers, and that the axle **can only go in from inboard**.
 - The spring cartridge in the 20 mm channel, both pivot pins, and that removing
   one clevis pin frees the spring.
-- The knee stop: that the Ø6 dowel reaches the steel slot ends at −8° and +27°,
-  and that the PU bumper starts touching around +20°.
 - Driver access to all 32 audited screws.
 - That the wheel drum clears the wheel motor and the distal plate.
 
@@ -152,20 +142,12 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 
 ## Hardware worth ordering now so it's on the bench for the dry fit
 
-4 × 6800-2RS bearings · 4 × Ø4 × 32 clevis pins + E-clips · 2 × Ø6 × 9 hardened
-dowels · 3 × Ø4 × 8 dowels per shoulder gauge · 10 × M3 brass heat-set inserts
-(**5 mm long** — the bores are 5.0 mm deep with a 0.8 mm blind floor, so use a
-depth-stopped tip) · M3/M4/M2.5 SHCS assortment · 4 × Ø22/Ø16.5 × 0.5 PTFE
-thrust washers.
+4 × 6800-2RS bearings · 4 × Ø4 × 32 clevis pins + E-clips · 3 × Ø4 × 8 dowels
+per shoulder gauge · 10 × M3 brass heat-set inserts (**5 mm long** — the bores are
+5.0 mm deep with a 0.8 mm blind floor, so use a depth-stopped tip) · M3/M4/M2.5
+SHCS assortment · 4 × Ø22/Ø16.5 × 0.5 PTFE thrust washers.
 
-**Two screw lengths changed in revision 2, and both were defects — order these:**
-
-- **knee stop arc: M3 × 6**, not M3 × 8. An × 8 reached past the insert bore
-  floor and bottomed out before it clamped, on the fastener set that carries the
-  entire hard-stop crash load.
-- **cable cover: M3 × 8**, not M3 × 10. Same failure, 1.0 mm.
-
-The three knee-stop screws are also now on a **30° spacing** instead of 20°: at
-20° their Ø5.5 heads overlapped each other and the set could not be fitted at
-all. If you have already printed a proximal link or cut a stop arc, they are
-superseded.
+Screw lengths: **cable cover is M3 × 8**, not M3 × 10 — a revision-2 fix, and that
+joint is still real. The knee-stop screws (M3 × 6 at 30° spacing) went with the
+deleted stop arc; the reasoning for both is in
+[`../beni_prototype1_rev2_changes.md`](../beni_prototype1_rev2_changes.md) §4.

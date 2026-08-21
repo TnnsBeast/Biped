@@ -3,12 +3,12 @@
 > ### ⛔ NOT A SHOPPING LIST — nothing here is machined any more
 >
 > **3D printed and off-the-shelf parts only. No laser cutting, no machining.**
-> See **[`../MANUFACTURING_CONSTRAINTS.md`](../MANUFACTURING_CONSTRAINTS.md)**.
+> See **[`../MANUFACTURING_CONSTRAINTS.md`](../../MANUFACTURING_CONSTRAINTS.md)**.
 >
 > All **ten** families below have been rerouted. Nine went to printed or bought
-> parts in [`../beni_rig_no_machining.md`](../beni_rig_no_machining.md) §2–§3; the
+> parts in [`../beni_rig_no_machining.md`](../../beni_rig_no_machining.md) §2–§3; the
 > tenth, `Knee_Stop_Arc_L`, was deleted and its function moved into the spring
-> cartridge — [`../beni_single_leg_rig_design_record.md`](../beni_single_leg_rig_design_record.md) §8.
+> cartridge — [`../beni_single_leg_rig_design_record.md`](../../beni_single_leg_rig_design_record.md) §8.
 >
 > | Family | Now |
 > |---|---|

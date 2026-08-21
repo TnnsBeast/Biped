@@ -1,56 +1,26 @@
-# Beni Single-Leg Rig — Eliminating Machined Parts
+# Beni Single-Leg Rig — Print Settings and Load Arithmetic
 
-> ### ⚠ AMENDED 2026-08-12 — the constraint now excludes laser cutting too
+> ### ⚠ AMENDED 2026-08-12 — every part is now printed or bought
 >
-> This document was written against "no custom machining", and it resolves nine
-> of the ten machined families on that basis. Those nine verdicts all stand and
-> are built.
+> Written against "no custom machining"; the rule is now **3D printed and off-the-shelf only — no
+> laser cutting either**, with the authoritative routing table in
+> **[`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md)**. **All ten machined families
+> are eliminated; nothing here is laser-cut or machined.**
 >
-> The constraint has since been tightened to
-> **3D printed and off-the-shelf parts only — no laser cutting either**
-> (**[`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md)**), which
-> supersedes the tenth:
->
-> - **§2.2 `Knee_Stop_Arc_L` — "the one genuine blocker … Laser-cut it"** is no
->   longer available. Option 1 (laser) and option 2 (two stacked 1.5 mm plates)
->   are both out; option 3 (software-only stops for steps 1–9) was never enough on
->   its own, because step 10 needs a real stop.
-> - **What replaced it:** the +27° hard stop moved out of the arc entirely and into
->   the spring cartridge as a **compression column** — a stack of bought M5
->   washers on the existing guide rod, with a printed TPU sleeve around it as the
->   progressive bumper. `RIG_Knee_Stop_Plate_L` (printed) keeps the −8° extension
->   stop, which only carries 75 N, plus a +28° flexion backup.
-> - **Why not just substitute a printed or bought part in place:** §2.2's judgement
->   that the arc is not printable was right, and for a sharper reason than impact
->   toughness. The steel slot ends are **conformal** (3.1 mm concave on a Ø6
->   dowel, ~257 MPa at 534 N). Every printed or bought *convex* substitute reverts
->   to Hertzian line contact at **1.0–2.0 GPa**. A compression column sidesteps
->   contact stress altogether.
->
-> Full reasoning and the verification sweep:
-> **[`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.**
->
-> One further correction to §2.3, from building it: the double-D flats' second,
-> unstated job is carrying the **encoder's angular reference** out to the magnet.
-> Deleting them is still right, but that reference has to be replaced — see the
-> design record §4.
+> `Knee_Stop_Arc_L` — once the single genuine blocker — is **deleted**, its +27° stop now a
+> compression column of bought M5 washers inside a printed TPU bumper sleeve in the spring
+> cartridge, with printed `RIG_Knee_Stop_Plate_L` keeping the −8° stop (75 N) and a +28° backup.
+> §2.2 was right that the arc is not printable; the Hertzian numbers for every substitute
+> considered, and why a compression column sidesteps contact stress altogether, are in the
+> **[design record](beni_single_leg_rig_design_record.md) §8.**
 
-
-**Constraint.** No custom machining. Off-the-shelf where a part must be metal,
-3D printed everywhere else. **Companion to `fusion_brief_single_leg_rig.md` §2**
-— that brief is the handoff document; this one holds the load arithmetic and the
-per-part orientations behind its routing table.
-
-**The correction that matters most.** `machined_parts_spec.md` lists **ten**
-machined families, not the four named in the earlier rig plan. Six of them are on
-the single-leg critical path. Verdicts below are load-based, not preference.
-
----
+`fusion_brief_single_leg_rig.md` §2 is the handoff document. **This one holds the print settings
+with their justifications, and the load arithmetic behind each verdict.**
 
 ## 1. Print settings — the right levers
 
-**100% infill is not the strongest setting.** For bending, impact and crack
-resistance — every load case here — **walls beat infill**:
+**100% infill is not the strongest setting.** For bending, impact and crack resistance — every
+load case here — **walls beat infill**:
 
 | Setting | Value | Why |
 |---|---|---|
@@ -60,183 +30,171 @@ resistance — every load case here — **walls beat infill**:
 | Extrusion temp | **top of range** | Layer adhesion is temperature-driven, not infill-driven |
 | Cooling | minimal for PA-CF | Fast cooling is the #1 cause of weak Z bonds |
 
-**The real lever is orientation.** PA-CF measures **84–102 MPa in XY but only
-26–50 MPa in Z.** Every part below states its orientation, and that decides
-whether it survives — not infill percentage.
+**The real lever is orientation.** PA-CF measures **84–102 MPa in XY but only 26–50 MPa in Z**, and
+that — not infill percentage — decides whether a part survives; per-part orientations are in the
+design record §7. And **dry the filament**: PA-CF is hygroscopic, wet nylon loses a large fraction
+of interlayer strength, and this is non-negotiable for structural parts.
 
-**Dry the filament.** PA-CF is hygroscopic; wet nylon loses a large fraction of
-interlayer strength. Non-negotiable for structural parts.
+## 2. The load arithmetic behind the verdicts
 
----
+### 2.1 The two printed hubs
 
-## 2. Verdicts
-
-### 2.1 Print these — the loads work out
-
-**`Shoulder_Output_Hub_L` → print, with one bought insert.**
+**`Shoulder_Output_Hub_L` — the flange is fine, the register is not.**
 
 ```
 25 N·m proof / 6 × M4 on Ø44 PCD  =  189 N per screw
 M4 × 7 thread bearing area 28 mm² →  6.8 MPa
 ```
 
-6.8 MPa against 84 MPa XY. **The bolted flange is not the problem.** Use M4
-heat-set inserts (the spec already buys M3 inserts, §11) rather than tapping PA-CF.
-
-**The 3 × Ø4.05 dowel register is the problem:**
+6.8 MPa against 84 MPa XY: **the bolted flange is not the problem.** Use M4 heat-set inserts rather
+than tapping PA-CF. The **3 × Ø4.05 dowel register** is:
 
 | Load | Shear per pin | Stress | vs PA-CF ~40–50 MPa |
 |---|---:|---:|---|
 | 11 N·m stall | 272 N | **28 MPa** | marginal |
 | 25 N·m proof | 817 N | **63 MPa** | **fails** |
 
-**Fix: press three Ø4 × 10 hardened dowel pins into the printed hub.** The pins
-are off-the-shelf (~$0.30 each), and steel-on-steel against the motor's pins
-removes the plastic from the shear path entirely. Print the holes Ø3.9 and ream
-to Ø4.05.
+**Fix: press three Ø4 × 10 hardened dowel pins into the printed hub** (~$0.30 each) —
+steel-on-steel against the motor's pins takes the plastic out of the shear path. Print the holes
+Ø3.9 and ream to Ø4.05. **Orientation: flange face flat on the bed**, so the dowel holes shear
+across layers, not along them.
 
-- **Orientation: flange face flat on the bed**, so torque loads the bolt circle
-  in XY and the dowel holes see shear across layers, not along them.
-
-**`Wheel_Hub_L` → print.**
+**`Wheel_Hub_L` — a friction joint in plastic.**
 
 ```
 3 × M3 at 3.4 kN preload, µ=0.15, r=13.5 mm  →  20.7 N·m friction capacity
 ```
 
-Wheel motor peak is ~4–5 N·m, so ~4× margin — but **preload in plastic relaxes by
-creep**, which is how a friction joint quietly dies. Two mitigations, use both:
+Wheel motor peak is ~4–5 N·m, so ~4× margin — but **preload in plastic relaxes by creep**, which is
+how a friction joint quietly dies. Use both mitigations: **steel washers under every screw head**,
+and **re-torque after the first hour**, then every ~10 hours. **Orientation: flat on the bed,
+register face up.**
 
-1. **Steel washers under every screw head** to spread bearing load
-2. **Re-torque after the first hour of running**, then every ~10 hours
+### 2.2 Why the stop arc could never have been printed
 
-The Ø37.3 H8 register is centring-only and prints fine at 5 walls.
-
-- **Orientation: flat on the bed, register face up.**
-
-**`Knee_Sleeve_L` → substitute, do not print.** An Ø16 OD × Ø10 bore steel
-bushing is a stock item. The double-D flats are the hard part; see §2.3 for the
-redesign that deletes them.
-
-### 2.2 Do NOT print these — buy or substitute
-
-**`Knee_Stop_Arc_L` → the one genuine blocker.**
+The retired steel arc carried the crash load as bearing on a slot end:
 
 ```
 crash load 534 N on a Ø6 dowel through a 3 mm plate  →  30 MPa bearing
 ```
 
-30 MPa looks survivable against 84 MPa XY — **but that is the wrong comparison.**
-This is the final crash load path with nothing compliant downstream, it is
-**impact** loading at 45 HRC hardness for a reason, and it is a repeated
-high-cycle event across the whole drop series. PA-CF has no meaningful impact
-toughness at a sharp slot end; it will delaminate and then the leg has no stop.
+30 MPa looks survivable against 84 MPa XY — **but that is the wrong comparison.** This is the final
+crash load path with nothing compliant downstream, it is **impact** loading at 45 HRC hardness for a
+reason, and it recurs across the drop series. PA-CF has no meaningful impact toughness at a sharp
+slot end; it delaminates and then the leg has no stop.
 
-**Three options, in order:**
+### 2.3 The double-D flats — deleted, but they had a second job
 
-1. **Laser-cut it.** SendCutSend and equivalents cut 3 mm steel at ±0.13 mm with
-   no setup fee — a flat annular sector with two arc slots is exactly what laser
-   cutting is for. **This is not machining; it is uploading a DXF for ~$15.**
-   Order the slot ends ~0.3 mm undersize and file to fit.
-2. **Two stacked 1.5 mm plates** if 3 mm is awkward — the spec's two slot levels
-   (inner hard stop, outer bumper channel) are *already* two distinct profiles,
-   so a two-plate stack is arguably the more natural build.
-3. **Software-only stops for early testing.** Steps 1–9 never approach +27°.
-   Only step 10's drop series needs a metal stop. **You can start the rig
-   without it** — but do not run a single drop without it fitted.
-
-**`Knee_Axle_L` → buy.** An M10 shoulder bolt or a hardened Ø10 h6 dowel pin plus
-a printed retaining collar. **Delete the double-D flats** — see §2.3.
-
-**`Cart_Guide_Rod_L` → buy.** Ø5 mm hardened ground shaft, cut to 50 mm. Sold as
-linear-motion shafting; ~$3.
-
-**`Cart_Preload_Shim_L` → buy.** Ø19/Ø13.6 × 0.5 mm shim washers are stock. Or
-stack M12 washers and measure.
-
-**`Knee_Magnet_Carrier_L` → print, but check runout.** The 0.05 TIR concentricity
-callout is what keeps the absolute encoder honest. Print it, measure it on an
-indicator, and if it exceeds ~0.1 mm, glue the magnet into a printed pocket
-using the bore as the datum instead of the printed step.
-
-### 2.3 The redesign that deletes the hardest part
-
-**The double-D flats (8.40 −0.02 on the axle, 8.60 +0.05 in the sleeve) are the
-single most machining-intensive feature in the whole spec** — a ground flat pair
-held to 20 µm, on two mating parts.
-
-Their only job is to key the axle to the sleeve so they rotate together.
-
-**Replace the keyed axle+sleeve with a plain Ø10 shoulder bolt running directly
-in the two 6800 bearings, and let the printed distal boss carry the anti-rotation
-duty via a simple pin or a D-flat printed into the plastic.** The knee sees
-±35° of oscillation, not continuous rotation, so a keyed steel interface is
-over-engineered for this rig. Loads are modest — the bearings are 10×19×5 and the
-static knee force peaks near 51 N (`fusion_brief_single_leg_rig.md` §4.3).
-
-**This deletes two machined parts and buys one bolt.** Flag it to the fusion
-agent as a design question rather than treating it as settled — it changes the
-knee joint's construction, and the two-leg build may want the keyed version back.
+The flats (8.40 −0.02 axle, 8.60 +0.05 sleeve bore) were the most machining-intensive feature in the
+spec, and loads never justified them: the bearings are 10×19×5, the knee oscillates ±35° rather than
+rotating, and static knee force peaks near 51 N. **Correction from building it:** beyond keying axle
+to sleeve, they also carried the **encoder's angular reference** out to the magnet, so that
+reference had to be replaced — a bought Ø10 h6 hardened ground dowel pin for the axle, the sleeve's
+bore printed into `Distal_Link_L` as Ø10. Design record **§4**.
 
 ### 2.4 Cartridge eyes — the one open question
 
-`Cart_Upper_Eye_L` / `Cart_Lower_Eye_L` carry the **11.00 ±0.05** and
-**14.57 ±0.05** pivot-to-spigot dimensions, and **the spring force curve depends
-directly on them** (spec §3–§4). They also need a Ø5.0 H7 press fit.
+`Cart_Upper_Eye_L` / `Cart_Lower_Eye_L` carry the **11.00 ±0.05** and **14.57 ±0.05**
+pivot-to-spigot dimensions, and **the spring force curve depends directly on them** (spec §3–§4);
+they also need a Ø5.0 H7 press fit. Printing them puts a ±0.05 dimension in PA-CF — achievable if
+measured and shimmed, and step 6 measures F₀ and k anyway, so a print error is detectable and
+correctable. **M5 rod ends** (heim joints) are the obvious off-the-shelf substitute — Ø5 bore,
+580–710 kgf static, ~$8 each — **but their centre-to-thread length differs from 11.00/14.57**, so
+the cartridge dead length changes and the force curve shifts.
 
-- **Printing them** puts a ±0.05 dimension in PA-CF. Achievable *if* measured and
-  shimmed after printing, but the tolerance is what sets your force curve — and
-  step 6 measures F₀ and k anyway, so a print error is detectable and correctable.
-- **M5 rod ends** (heim joints) are the obvious off-the-shelf substitute: Ø5 bore,
-  580–710 kgf static, ~$8 each. **But their centre-to-thread length differs from
-  11.00/14.57**, so the cartridge dead length changes and the force curve shifts.
+**Recommendation: print them, measure the achieved pivot-to-spigot dimension, and feed the real
+number into the spring model** rather than chasing the nominal — and add a threaded adjuster if one
+fits, making dead length tunable instead of tolerance-critical. **Orientation: pivot bore axis
+vertical** (bore in the XY plane); printed on its side, the eye splits along a layer.
 
-**Recommendation: print them, measure the achieved pivot-to-spigot dimension, and
-feed the real number into the spring model** rather than chasing the nominal. Add
-a threaded adjuster if the fusion agent can fit one — then dead length becomes
-tunable instead of tolerance-critical.
+## 3. What printed structure costs you
 
-- **Orientation: pivot bore axis vertical** (bore in the XY plane), so the eye
-  loads the layers in-plane. Printed on its side, the eye splits along a layer.
+**Stand and hub compliance reads as false knee deflection**, and printed hubs make it worse.
+**Take step 6's spring characterisation as a system measurement, and if the numbers look soft,
+suspect the print before the spring.** Also **re-torque everything after the first hour**, then
+periodically — creep relaxation in printed joints is the dominant failure mode and it is silent —
+and **inspect the printed hub's dowel holes after every load session**, because ovalised holes mean
+the dowels are working.
 
----
+**Amended 2026-08-17 — Mode A changes where the compliance lives.** The 2020
+column and `RIG_Carriage` are **[DEFERRED — MODE B]**, so the series stiffness
+chain is now shorter but entirely printed: bench → clamps → `RIG_Stand` → motor
+front face → leg. Three consequences:
 
-## 3. Net result
+- **The stand is now the softest element in the measurement.** It carries the full
+  shoulder yaw reaction (**11.00 N·m stall, 25.00 N·m proof**) at a **42.00 mm**
+  overhang. Any deflection there appears as shoulder angle error, not knee error —
+  which is a different and more insidious artifact than the old column bending.
+  Print it with the load path along the layer *plane*, not across it, and check
+  it: push the leg by hand at the wheel and watch the shoulder encoder.
+- **Deflection is not the failure mode — tipping is.** 11.00 N·m needs 11.2 kg of
+  hold-down at a 100 mm base half-width, 5.6 kg at 200 mm, 3.7 kg at 300 mm; a
+  printed stand is ~0.3 kg. **It must be clamped.** Bench clamps are now a
+  required purchase, and more of them than the Mode B build needed.
+- **No drop session means the hub inspection interval is no longer event-driven.**
+  Mode A never impacts the knee, so inspect on a schedule instead — after the
+  first hour, then after each step-6 loading run.
 
-| Part | Was | Now |
-|---|---|---|
-| `Shoulder_Output_Hub_L` | 7075 machined | **Print** + 3 bought dowels + M4 inserts |
-| `Wheel_Hub_L` | 7075 machined | **Print** + steel washers, re-torque |
-| `Cart_Upper/Lower_Eye_L` | 7075 machined | **Print**, measure, feed back to model |
-| `Knee_Magnet_Carrier_L` | steel | **Print**, verify runout |
-| `Knee_Axle_L` | 4140 ground | **Buy** shoulder bolt (flats deleted, §2.3) |
-| `Knee_Sleeve_L` | steel | **Deleted** by §2.3 |
-| `Cart_Guide_Rod_L` | ground steel | **Buy** Ø5 linear shaft |
-| `Cart_Preload_Shim_L` | shim stock | **Buy** shim washers |
-| `Knee_Stop_Arc_L` | 45 HRC steel | **Laser-cut, ~$15.** Not printable. |
+## 4. ABS as a first-article material — where it is allowed
 
-**Nine of ten eliminated. One laser-cut flat plate remains**, and it is a DXF
-upload rather than a machining job.
+Asked 2026-08-17 and confirmed by the owner 2026-08-20: the first campaign is
+ABS, switching to PA-CF only when structural loading requires it. The split is
+by **test load**, not merely by part name: ABS may be used for fit, assembly
+rehearsal, cable routing, and an unloaded/hand-driven whole-leg article, but not
+for stall, spring-characterisation, drop, or proof loading through the load path.
 
-**Bought hardware to add:** 3 × Ø4 × 10 dowel pins, M4 heat-set inserts, M10
-shoulder bolt, Ø5 × 50 hardened shaft, shim washer assortment, steel washers.
-Roughly $30 all in.
+| Property | PA-CF (design basis) | Printed ABS |
+|---|---:|---:|
+| Tensile, XY | 84–102 MPa | ~20–22 MPa |
+| Tensile, Z | 26–50 MPa | ~11–19 MPa |
+| Young's modulus | — | ~1.8 GPa |
 
----
+ABS is roughly **4× weaker in XY** with a proportionally similar Z penalty, and
+notably softer. Published FDM ABS figures: 20.6 MPa at 0° vs 10.8 MPa at 90°/Z in one
+P430 study; 22.4 → 19.0 MPa with modulus 1.81 → 1.78 GPa in another; general FDM
+guidance puts Z as low as 4–5× below XY where interlayer bonding is poor. **Ranges,
+not a datum** — do not dimension anything against these.
 
-## 4. What this costs you
+**Allowed in ABS.** `RIG_Floor_Plate` (the wheel only rolls on it — flatness and
+hardness matter, strength does not; watch warp over 260 mm), `RIG_Cable_Post_A/B`,
+`RIG_Scale_Pedestal` (compression block under the scale), `Knee_Encoder_Bracket_L`
+(already specified ABS), and **any first-article geometry check** — dry-fitting the
+knee stack, confirming the five insert bores line up with the panel, checking the
+re-routed `RIG_Cable_Post_B` clears the wheel. Cheap ABS is the right material for
+that work and derisks the CAD before PA-CF is committed.
 
-Printed structure is **not** equivalent to 7075. Three consequences to accept:
+**Not allowed to carry measurement or proof loads in ABS, with the reason each
+one fails:** The same geometries may still be printed in ABS for dry assembly,
+clearance, fastener-access, and unloaded kinematic checks.
 
-1. **Re-torque everything after the first hour**, then periodically. Creep
-   relaxation in printed joints is the dominant failure mode, and it is silent.
-2. **Column and carriage compliance reads as false knee deflection.** The fusion
-   brief already flags this; printed hubs make it worse. **Take step 6's spring
-   characterisation as a system measurement**, and if the numbers look soft,
-   suspect the print before the spring.
-3. **Inspect the printed hub's dowel holes after every drop session.** Ovalised
-   holes mean the dowels are working — catch it before the register is gone.
+- **`RIG_Stand`** — the decisive one. It is not that it breaks; it is that per §3 the
+  stand is *already* the softest element in the measurement chain, and ABS at
+  ~1.8 GPa makes it softer. Its deflection appears as **shoulder angle error**, so an
+  ABS stand characterises the fixture instead of the actuator, and it does so
+  silently — plausible numbers, wrong ones.
+- **`Shoulder_Output_Hub_L`** — the three-dowel register already sees 28 MPa at
+  11 N·m stall and 63 MPa at 25 N·m proof against PA-CF's ~40–50 MPa shear (§2.1). In
+  ABS that fails at **stall**, not just at the proof screen. The bought steel dowel
+  pins remain mandatory either way.
+- **`Wheel_Hub_L`** — a friction joint held by bolt preload, and preload in plastic
+  dies by creep (§2.1). ABS creeps faster. Failure mode is quiet slip, which corrupts
+  every wheel-torque reading rather than announcing itself.
+- **`RIG_Torque_Arm`** — a 200 mm lever in pure bending that *is* the torque
+  instrument. Arm flex reads directly as torque error, and step 2's whole purpose is
+  resolving the 4.8 / 9.4 N·m published measurements against the 11 N·m rating.
+- **`Cart_Upper_Eye_L` / `Cart_Lower_Eye_L`** — carry the 11.00 ±0.05 and
+  14.57 ±0.05 pivot-to-spigot dimensions that set the spring force curve (§2.4).
 
-**None of this compromises the rig's purpose.** Steps 1–9 are actuator and spring
-characterisation at modest loads. Only step 10 approaches the design limits, and
-that is exactly where the one bought steel part sits.
+**Print `GAUGE_Fit_Coupon` in ABS for the ABS campaign.** It gives the ABS
+profile's hole/X-Y compensation using real bearings, dowels, fasteners and
+inserts. The two existing `GAUGE_*_Motor_Interface` files are positive motor
+stand-ins; they do not accept the delivered actuators. For a direct motor
+go/no-go, design a negative mating coupon in Fusion or print the actual mating
+part in ABS. ABS and PA-CF differ in shrinkage and hole error, so the ABS result
+does not transfer: repeat the critical fit and negative mating coupons in PA-CF
+before releasing structural PA-CF prints.
+
+⚠ **Heat-set insert data does not transfer either.** The M3 insert's grip is already
+the unverified weak link in the stand's five-bolt joint (`fusion_agent_guide_mode_a.md`
+§2.3). If the pull test on a scrap boss gets done, do it in **PA-CF** — an ABS result
+says nothing about the built joint.

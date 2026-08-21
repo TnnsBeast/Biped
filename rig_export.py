@@ -12,6 +12,7 @@ off-the-shelf shot.  The retired laser files are kept under `archive_laser/` in
 case the two-leg build wants the steel version back.
 """
 
+import json
 import os
 
 import adsk.core
@@ -20,11 +21,18 @@ import adsk.fusion
 import beni_lib as B
 import rig_lib as R
 
-ROOT = '/Users/neilchulani/Fun/Robots/Biped'
+ROOT = '/Users/neilchulani/Robots/Biped'
 STL_DIR = os.path.join(ROOT, 'rig_stl')
+FIRST_ARTICLE_DIR = os.path.join(ROOT, 'first_article_stl', 'mode_a')
 
 # printed rig parts, with the orientation each one has to be printed in
 RIG_PRINT = [
+    ('RIG_Stand', 'mount face (y = 42.00) flat on the bed, building inboard. '
+                  'Every layer is then an XZ slice, so the dominant 11.00 N.m '
+                  'of shoulder yaw -- a couple lying IN the XZ plane -- stays '
+                  'in the print plane at 84-102 MPa instead of across the '
+                  'layers at 26-50.  No support: the Y thickness only ever '
+                  'decreases away from the bed.  Needs a bed >= 300 mm'),
     ('RIG_Carriage', 'plate face flat on the bed; bending stays in the print '
                      'plane and the 8 block-screw counterbores print as pockets'),
     ('RIG_Index_Bar', 'flat on the bed, station holes vertical; the pin bears '
@@ -34,6 +42,8 @@ RIG_PRINT = [
     ('RIG_Floor_Plate', 'flat on the bed'),
     ('RIG_Cable_Post_A', 'flat on the bed, sector face down'),
     ('RIG_Cable_Post_B', 'flat on the bed'),
+    ('RIG_Cable_Anchor_ModeA', 'flat on the bed, either broad face down; '
+                               'first article in ABS'),
     ('RIG_Knee_Collar_L', 'bore axis vertical, so the Ø10 press fit is round'),
     ('RIG_Knee_Magnet_Carrier_L', 'bore axis vertical -- this is what holds the '
                                   '0.05 TIR the encoder needs'),
@@ -105,3 +115,40 @@ def export_stls(verbose=True):
 def export_all():
     print('=== rig STLs ===')
     export_stls()
+
+
+def export_mode_a_anchor_first_article():
+    """Export only the new Mode A cable anchor for the first ABS batch.
+
+    The body is intentionally exported from its validated rig occurrence.  Its
+    broad faces are XZ in assembly coordinates, so the slicer must place either
+    broad face on the bed (a single 90 degree rotation about X).
+    """
+    os.makedirs(FIRST_ARTICLE_DIR, exist_ok=True)
+    part = 'RIG_Cable_Anchor_ModeA'
+    occ = B.find_occ(part)
+    if occ is None:
+        raise RuntimeError('%s is not in the active rig' % part)
+    path = os.path.join(FIRST_ARTICLE_DIR, part + '.stl')
+    size = _stl(occ, path)
+    bb = B.bbox_of(occ)
+    manifest = {
+        'document': adsk.core.Application.get().activeDocument.name,
+        'part': part,
+        'material': 'ABS first article',
+        'bbox_mm': [round(bb[1] - bb[0], 4),
+                    round(bb[3] - bb[2], 4),
+                    round(bb[5] - bb[4], 4)],
+        'orientation': 'place either 41.0 x 15.45 mm broad face on bed',
+        'hardware': '2 x M3 x 8 SHCS plus washers',
+        'stl': path,
+        'stl_bytes': size,
+    }
+    manifest_path = os.path.join(FIRST_ARTICLE_DIR,
+                                 'fusion_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump(manifest, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    print(json.dumps({'exported': manifest,
+                      'manifest': manifest_path}, indent=2, sort_keys=True))
+    return manifest

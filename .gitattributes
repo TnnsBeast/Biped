@@ -1,0 +1,9 @@
+# Generated engineering and evidence artifacts should not produce text diffs.
+*.f3d binary
+*.step binary
+*.stl binary
+*.dxf binary
+*.xlsx binary
+*.jpeg binary
+*.jpg binary
+*.png binary

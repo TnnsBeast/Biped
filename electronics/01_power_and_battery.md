@@ -60,6 +60,11 @@ heavier Li-ion pack here, and it decides the chemistry outright.
 
 ## 2. Battery specification
 
+> **Single-leg rig: §2 through §6 are out of scope.** The rig runs from a
+> current-limited **20 V bench supply** — no pack, no BMS, no loop key, no inrush
+> or precharge stage (`../fusion_brief_single_leg_rig.md` §5). This material is
+> for the two-leg robot.
+
 ### 2.1 The chosen pack
 
 | Parameter | Value |
@@ -248,6 +253,24 @@ still required:
 | Hysteresis | ~0.9 V, via 1 MΩ positive feedback — **mandatory**, or the FET runs linear and cooks |
 | R_brake | 5 Ω (5.3 A, 140 W instantaneous, burst-rated) |
 | Comparator | TLV3011 + logic-level N-FET |
+
+**Single-leg rig: 26.5 / 25.6 V are 6S-pack thresholds and would never fire on a
+20 V bench supply.** Re-scale to **~21.5 V on / ~20.8 V off** — see
+`../fusion_brief_single_leg_rig.md` §5 and `07_bom.md` Wave 0. The chopper itself
+is *more* necessary on the rig: a bench PSU cannot sink regen at all.
+
+**Amended 2026-08-17 — the rig build is Mode A, so the chopper is [DEFERRED].**
+The only thing that pushed energy back on the rig was a Mode B drop, and Mode A
+runs none. The resistor, TLV3011, FET, freewheel diode, sense divider **and its
+heatsink** all come out of `07_bom.md` Wave 0. Two things do not change:
+
+- **It is deferred, not cancelled.** Build it before the first drop and before the
+  two-leg build. The ~21.5 / ~20.8 V divider values are **still uncomputed**.
+- ⚠ **Until it exists, nothing may backdrive a motor.** The bench PSU will simply
+  let the bus rise. No hand-spinning the wheel under power, no dropping the leg off
+  the stand, and no using the wheel motor as a brake. On the Mode A stand the wheel
+  is on the floor plate and the leg cannot fall, so this is a discipline problem
+  rather than a design one — which is exactly how it gets forgotten.
 
 Add a firmware duty limiter: latch an e-stop if the shunt has been active more
 than 200 ms cumulative. **Do not put the brake resistor in the 8 mm centre

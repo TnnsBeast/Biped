@@ -1,0 +1,14 @@
+{
+  "bbox_mm": [
+    41.0,
+    4.0,
+    15.4523
+  ],
+  "document": "Beni_SingleLegRig",
+  "hardware": "2 x M3 x 8 SHCS plus washers",
+  "material": "ABS first article",
+  "orientation": "place either 41.0 x 15.45 mm broad face on bed",
+  "part": "RIG_Cable_Anchor_ModeA",
+  "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl",
+  "stl_bytes": 36884
+}

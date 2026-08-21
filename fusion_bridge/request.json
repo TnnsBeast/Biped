@@ -1,0 +1,13 @@
+{
+  "runid": "2026-08-17-001",
+  "document": "Beni_SingleLegRig",
+  "intent": "First bridge run. Establish a verified baseline for the rig: structural census, mass properties, real clashes, and the six 4.4 release checks. Read-only.",
+  "ops": [
+    {"op": "census"},
+    {"op": "list_occurrences"},
+    {"op": "params"},
+    {"op": "mass_report"},
+    {"op": "real_clashes", "args": {"min_vol_mm3": 0.5}},
+    {"op": "checks_44"}
+  ]
+}

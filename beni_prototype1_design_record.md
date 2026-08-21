@@ -125,6 +125,13 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 
 ## 3. Lateral layout (left leg, frozen)
 
+> **The Y datum and every dimension in this table are still authoritative** — other
+> documents take these rows as the reference stack, and none of the numbers have
+> moved. But four rows describe *parts that no longer exist in that form*, and
+> those rows are tagged **[SUPERSEDED]** inline. A superseded row is history: read
+> its y-coordinates as real, and its material/process as void. Routing for each is
+> in [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md).
+
 | y (mm) | Feature |
 |---:|---|
 | 5 … 16 | shoulder motor driver cover (Ø57) |
@@ -133,19 +140,19 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm PA-CF, Ø96) |
 | 44 | rotor face (Ø34…Ø46) |
 | **45.5** | **output mount face** — 6 × M3 @ Ø25 PCD, 3 × Ø4 pins to y = 49 |
-| 45.5 … 51.5 | `Shoulder_Output_Hub_L` body Ø38 (7075-T6) |
+| 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
 | 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47) |
 | 51.5 … 59.5 | hub flange Ø56, 6 × M4 tapped @ Ø44 PCD, Ø6 cable port at r = 21 |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
-| 63.7 … 85.3 | knee steel sleeve Ø16/Ø10 (double-D bore) |
+| 63.7 … 85.3 | **[SUPERSEDED]** knee steel sleeve Ø16/Ø10 (double-D bore) — **`Knee_Sleeve_L` is DELETED**; its Ø16 bore is now printed as Ø10 directly into `Distal_Link_L` |
 | 64.5 … 84.5 | **spring channel, 20 mm** — cartridge centred on y = 74.5, Ø19 spring spans 65 … 84 |
 | 65 … 84 | distal knee boss Ø22 (19 mm) |
 | 84.5 … 90.3 | proximal arm B (5 mm + 0.8 mm knee boss), 6800 bearing at 85.3 … 90.3 |
 | **89.5** | **leg outboard face** |
-| 90.3 … 93.3 | `Knee_Stop_Arc_L` (3 mm steel, two-level slot) |
+| 90.3 … 93.3 | **[SUPERSEDED]** `Knee_Stop_Arc_L` (3 mm steel, two-level slot) — **DELETED**; the +27° stop is a compression column of bought M5 washers, see `beni_single_leg_rig_design_record.md` §8 |
 | 90.3 … 96.3 | `Knee_Magnet_Carrier_L` Ø15, magnet face at 96.3 |
 | 97.3 | AS5048A die face — **1.0 mm air gap** |
 | 98.3 … 99.9 | encoder PCB; bracket shelf 99.9 … 101.9 |
@@ -155,7 +162,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 68 … 90.5 | wheel motor housing (Ø53) |
 | 69 … 99 | rim + tyre, tyre OD Ø110 (**centre y = 84**) |
 | **94.5** | wheel motor output flange face |
-| 94.5 … 100.5 | `Wheel_Hub_L` (7075-T6, Ø56) |
+| 94.5 … 100.5 | **[SUPERSEDED]** `Wheel_Hub_L` (7075-T6, Ø56) — **now printed**, with steel washers and a re-torque schedule |
 | 100.5 … 104.5 | rim web, 6 × M4 @ Ø46 PCD into the hub |
 
 **Track = 168 mm.** Nothing rotating crosses y = 53.5, so the chassis is free
@@ -226,6 +233,16 @@ to occupy |y| ≤ 47 without ever fouling the leg sweep.
 - **Root joint:** 6 × M4 on Ø44 PCD, 7 mm thread in 7075. Dominant load is the
   14 N·m roll moment from 275 N acting 51 mm outboard → ≈ 412 N peak bolt
   tension.
+
+> **[SUPERSEDED as the governing case]** The two threaded-in-metal margins above —
+> "8 × M3 into 4 mm of aluminium thread" and "6 × M4 … 7 mm thread in 7075" — are
+> the **as-designed metal** numbers and are retained as such. Both joints are now
+> in **printed plastic with heat-set inserts**, so the failure mode is
+> insert-to-plastic pull-out, not thread shear in aluminium, and neither figure is
+> the governing margin for a build. Do not recompute them here; the printed-joint
+> analysis lives in `beni_rig_no_machining.md` §2.1 and
+> `beni_single_leg_rig_design_record.md`.
+
 - **Knee axle:** Ø10 in double shear at the 6800 bearings. 275 N gives 1.75 kN
   of bending at 6.4 mm → 22 MPa in the shaft. Bearing pressure on the printed
   distal boss is carried by the Ø16 steel sleeve → 1.4 MPa on PA-CF.
@@ -278,6 +295,17 @@ bumper pocket and the shoulder's ±185° range are the provisions kept open.
 
 ## 7. Knee stop design
 
+> ### ⚠ SUPERSEDED FOR BUILDING — the whole of §7
+> `Knee_Stop_Arc_L` was laser-cut 3 mm steel and is **DELETED**. The +27° hard stop
+> is now a **compression column of bought M5 washers** inside the spring cartridge,
+> with a printed TPU sleeve as the progressive bumper; a printed
+> `RIG_Knee_Stop_Plate_L` keeps the −8° stop and a +28° backup. The authoritative
+> design, the Hertzian contact-stress reasoning for every substitute considered,
+> and the verification sweep are in
+> [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
+> Everything below is the as-engineered steel-arc design, kept for its angles,
+> radii and load path only.
+
 Two-level arc slot in a 3 mm steel plate (`Knee_Stop_Arc_L`) bolted to the
 proximal arm-B boss, with a Ø6 hardened dowel pressed into the distal arm B at
 r = 30 mm from the knee axis.
@@ -297,18 +325,13 @@ Both bumpers sit in open-ended bays and are replaceable without disturbing the
 bearing stack. The final crash load path is dowel → steel slot end → 3 M3 in
 shear → printed boss; no thin printed tab is ever the last line of defence.
 
-> **[REV2] The three M3 screws that hold this plate on could not be fitted.**
-> They were at 240°/260°/280° on a 15 mm radius, giving 5.209 mm centre-to-centre
-> against a Ø5.5 M3 SHCS head — the heads overlapped by 0.29 mm. Now
-> **230°/260°/290°** (30° spacing, 7.765 mm centres, 2.27 mm head gap); the arc
-> plate grew 12° of sector to carry it (2164 → 2463 mm³, +2.3 g each).
->
-> The insert bore in the arm-B boss was also 4.5 mm deep for a 5.0 mm insert,
-> and the M3 × 8 screw reached 0.5 mm past the bore floor — so the insert stood
-> proud and the screw bottomed out before it clamped anything. Now a **5.0 mm
-> bore with M3 × 6**, 3.0 mm of thread into the insert and 2.0 mm of clearance to
-> the 0.8 mm floor. Both are checked automatically by `audit_fasteners()` and
-> `audit_blind_holes()`.
+> **[REV2] Two fastener defects in this joint were found and fixed:** the three M3
+> screw heads overlapped and could not be fitted (now **30° spacing**, the arc
+> plate grew 12° of sector, 2164 → 2463 mm³, +2.3 g each), and the blind insert
+> bore was shallower than its insert so the screw bottomed out before clamping
+> (now a **5.0 mm bore with M3 × 6**). Both are why `audit_fasteners()` and
+> `audit_blind_holes()` exist. **Full account, with all the arithmetic:**
+> [`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §4.
 
 ---
 
@@ -359,28 +382,15 @@ shear → printed boss; no thin printed tab is ever the last line of defence.
 
 ### 10.1 Knee sweep, shoulder at 0° (spring rebuilt at every angle)
 
-| φ | result | bumper crush |
-|---:|---|---|
-| −8° | clear | extension 1.4 mm³ |
-| −6°, −4°, 0°, +5°, +10°, +15° | clear | — |
-| +20° | clear | first contact (0 mm³) |
-| +22° | clear | flexion 2.4 mm³ |
-| +25° | clear | flexion 8.6 mm³ |
-| +27° | clear | flexion 12.7 mm³ |
-
-The bumpers engage exactly where they were designed to: nothing at +20° (first
-contact), progressive crush to +27°, and the extension pad only at −8°.
+**Clean across 11 knee angles, −8° through +27°.** The bumpers engage exactly
+where they were designed to: nothing at +20° (first contact, 0 mm³), progressive
+crush to +27° (12.7 mm³), and the extension pad only at −8° (1.4 mm³).
 
 ### 10.2 Shoulder sweep, −185° … +185°
 
-| knee φ | angles checked | result |
-|---:|---|---|
-| 0° | −185, −150, −120, −90, −60, −30, 0, 30, 60, 90, 120, 150, 185 | all clear |
-| −8° | −185, −140, −100, −60, −20, 0, 20, 60, 100, 140, 185 | all clear |
-| +27° | −185, −140, −100, −60, −20, 0, 20, 60, 100, 140, 185 | all clear |
-
-Whole-assembly checks (every body, both legs, chassis) at the six corner poses
-(θ = −185/0/+185 × φ = −8/+27) are also clear.
+**Clean across 35 shoulder poses** — 13 angles at knee φ = 0° and 11 each at
+φ = −8° and φ = +27°. Whole-assembly checks (every body, both legs, chassis) at
+the six corner poses (θ = −185/0/+185 × φ = −8/+27) are also clear.
 
 **Why the sweep is clean by construction as well as by test:** all chassis
 geometry lies within |y| ≤ 51 mm; the leg's inboard-most part is the output hub
@@ -435,87 +445,40 @@ mechanism the guide describes, with no deep static knee fold.
 
 ## 11. Defects found and fixed during the audits
 
-Five real defects were found by automated checks, not by eye. All are fixed in
-the model and in `beni_lib.py`.
-
-1. **Cut features leaking across components.** Fusion applies a cut extrude to
-   bodies outside the owning component when `participantBodies` is left unset.
-   A Ø112 wheel-relief cut in the distal link silently destroyed 71 % of the
-   tyre and the whole knee axle. `extrude()` now always scopes cuts to the
-   owning component's bodies, and the entire design was rebuilt from
-   `build_all()` afterwards.
-2. **Tyre inside the distal link.** The wheel relief was Ø100; the tyre's
-   annulus reaches r = 55 from the wheel axis, so the arms fouled it over
-   y = 69…89.5. Relief widened to Ø112.
-3. **Knee-stop through-bolts inside the spring channel.** The stop arc was
-   fastened with M3 through-bolts whose nuts landed at y = 82…84.5 — inside the
-   spring's swept volume *and* inside the distal link's knee web. Changed to
-   blind M3 heat-set inserts in the arm-B boss.
-4. **Six output-hub screws unreachable.** The link's root pad was solid, so no
-   hex key could reach the M3 screws holding the hub to the motor output
-   (436 mm³ of obstruction = exactly 6 × Ø3.4 × 8 mm). Added a Ø34 access bore
-   through the root pad; the hub is now serviceable without removing the link.
-5. **Three knee-stop screws blocked by the encoder bracket.** The bracket's
-   Ø34 shelf covered them. Added three Ø5 driver clearance holes.
-6. **Knee sleeve split into two pieces.** The double-D key was cut on the OD
-   instead of the bore, severing the sleeve. Rebuilt as a Ø10 bore with two
-   filled lens pads giving 8.6 mm across flats, against 8.40 across flats on
-   the axle (0.10 mm clearance per side).
-7. **Rim bolts into the wheel motor's bearing gland.** M4 × 14 through-bolts in
-   a through-drilled hub reached y = 90.5, inside the Ø53 gland. Hub holes are
-   now M4 tapped 6 mm blind and the screws are M4 × 10.
-
-### Automated audit results after the fixes
-
-- **Body sanity:** all 34 modelled parts are single solid bodies, one shell and
-  one lump each — no enclosed voids (so no trapped support), no disjoint lumps,
-  no duplicate solids.
-- **Driver access:** 32 access envelopes (Ø3.0–3.4 hex key, 30–45 mm reach) were
-  modelled for every screw that must be serviceable on the complete robot.
-  **Zero obstructions remain.**
-- **Interference:** clear at nominal and at every pose listed in §10.
-
-> **[REV2] Seven more defects were found after this section was written, and
-> three of them were hidden by the way these very audits were run.** The
-> interference sweep above was executed with screws filtered out, and two real
-> fastener defects were sitting in the screw-versus-part results. The driver-
-> access audit modelled 32 hex-key envelopes and passed, because it only ever
-> asked whether a tool could reach a screw — never whether two screws could
-> coexist.
->
-> 8. **Three knee-stop screw heads physically overlapped** (§7 [REV2]).
-> 9. **Two blind insert bores were shallower than their inserts**, and both
->    screws bottomed out before clamping (§7 [REV2]).
-> 10. **The right leg was not a complete copy.** It came from one non-associative
->     `MirrorFeature` taken early: `Knee_Axle_L`, `Knee_Sleeve_L` and
->     `Knee_Spring_L` did not exist on the right at all, the right proximal link
->     was missing the Ø34 hub-access bore (so its six output-hub screws were
->     unreachable) and the right encoder bracket was missing its three driver
->     clearance holes. Defects 4 and 5 above had been fixed on the left only.
-> 11. **`rebuild_spring()` corrupted the assembly every time the model was
->     posed** — it built only the left spring, so `set_pose()` deleted the right
->     one and re-created the left at default steel density.
-> 12. **`drop_comp()` deleted only the first matching occurrence**, making every
->     builder non-idempotent: placements accumulated and components silently grew
->     extra stacked bodies (the 6800 bearing became four copies of itself).
-> 13. **The tyre had no retention at all** — ID exactly equal to the rim OD, no
->     bead, no lip, no crown.
-> 14. **Every body carried the default "Steel" material**, so Fusion reported the
->     robot at 8174 g and there was no usable CoM or inertia anywhere.
->
-> All fixed. Five new automated checks were added so each class cannot recur:
-> `audit_counts`, `audit_lr_parity`, `audit_fasteners`, `audit_blind_holes`,
-> `audit_source_parity`. `audit_all()` reports **0 problems**.
+Fourteen real defects were found across the two audit rounds — by automated
+checks, not by eye — and all are fixed in the model and in `beni_lib.py`. They
+ranged from cut features leaking across components, unreachable screws, nuts
+landing inside the spring channel and rim bolts entering the wheel motor's
+bearing gland, to a right leg that was never a complete copy, builders that
+corrupted the assembly every time it was posed, a tyre with no retention, and
+every body carrying the default "Steel". Three of the later seven were *hidden by
+the way the earlier audits were run*: the interference sweep was executed with
+screws filtered out, and the driver-access audit only ever asked whether a tool
+could reach a screw, never whether two screws could coexist. **The authoritative
+per-defect account, with the arithmetic and the fix for each, is
+[`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §1–§8**;
+reproducing it here would only let the two copies drift. Five new automated
+checks were added so each class cannot recur — `audit_counts`,
+`audit_lr_parity`, `audit_fasteners`, `audit_blind_holes`,
+`audit_source_parity`.
 
 ### Automated audit results, revision 2
 
-- **Counts:** clean — 72 part/side entries, exactly one body each.
+`audit_all()` reports **0 problems**.
+
+- **Counts:** clean — 72 part/side entries, exactly one body each; all are single
+  solid bodies, one shell and one lump each, so no enclosed voids (no trapped
+  support), no disjoint lumps, no duplicate solids.
 - **L/R parity:** clean — 32 part families matched by volume and face census.
 - **Fastener head clearance:** clean.
 - **Blind holes:** clean — every bore ≥ its insert, every screw clear of the floor.
 - **Source parity:** 36 parts in the model, 36 classified, no orphans.
+- **Driver access:** 32 hex-key access envelopes (Ø3.0–3.4, 30–45 mm reach)
+  modelled for every screw serviceable on the complete robot. **Zero
+  obstructions remain.**
 - **Interference:** 72 pairs, of which **70 are screw-shank-in-tap-drill
-  artifacts** and 2 are the documented M4-stud artifact. No structural clashes.
+  artifacts** and 2 are the documented M4-stud artifact. No structural clashes;
+  clear at nominal and at every pose listed in §10.
 - **Fillets:** 41, where there were previously none anywhere in the design.
 - **Kinematics:** wheel axis matches closed form to **0.0000 mm** at
   (θ,φ) = (0,0), (0,+25), (0,−8), (−35,+12), (+185,0) after the full rebuild.
@@ -549,13 +512,16 @@ each matched the closed-form kinematics to **0.000 mm**.
 | 09 Self-right sweep | +185° | 0° | (13.45, 153.68) |
 | 10 Self-right sweep | −185° | 0° | (−13.45, 153.68) |
 
-**They are not shipped as Fusion snapshots, and that is deliberate.** Rolling
-the timeline back onto a snapshot makes this document resolve the two inserted
-motor references to a stale version (the shoulder body reappears 26 mm out of
-position, which is the difference between the original STEP datum and the
-re-datumed reference). The leg and chassis geometry in every snapshot was
-correct — the wheel checked to 0.000 mm in all ten — but shipping a file whose
-rolled-back states contain misplaced motors would be worse than shipping none.
+**They are not shipped as Fusion snapshots, and that is deliberate.** Rolling the
+timeline back onto a snapshot makes this document resolve the two inserted motor
+references to a stale version (the shoulder body reappears 26 mm out of position —
+the difference between the original STEP datum and the re-datumed reference). The
+leg and chassis geometry in every snapshot was correct — the wheel checked to
+0.000 mm in all ten — but shipping a file whose rolled-back states contain
+misplaced motors would be worse than shipping none. The proper fix is to break the
+two external references (`Occurrence.breakLink()`) and re-create the snapshots;
+that was not done because the mirror feature takes those occurrences as inputs and
+the risk of corrupting the verified assembly outweighed the benefit.
 
 Instead the positions are reproducible on demand:
 
@@ -569,14 +535,14 @@ set_pose(theta_deg, phi_deg)      # e.g. set_pose(0.0, 25.0)
 whole leg from a cached nominal state. It is the same function used for every
 sweep in §10.
 
-**To fix this properly**, break the two external references so the motor
-geometry becomes local (`Occurrence.breakLink()`), then re-create the snapshots.
-That was not done here because the mirror feature takes those occurrences as
-inputs and the risk of corrupting the verified assembly outweighed the benefit.
-
 ---
 
 ## 13. Acceptance checklist (guide §15)
+
+> Two rows below cite deleted hardware — the "Ø16 steel sleeve" (now a Ø10 bore
+> printed into `Distal_Link_L`) and the "dowel → steel slot end" load path (now a
+> compression column of bought M5 washers). Both requirements are still met, by
+> the substitutes in `beni_single_leg_rig_design_record.md` §4 and §8.
 
 | requirement | status |
 |---|---|
@@ -659,19 +625,8 @@ every gram in the assembly must land in exactly one link.
 
 ## 15. [REV2] Why there are still no Fusion joints
 
-Posing is done by writing occurrence transforms (`beni_lib.set_pose()`), and
-that mechanism is what every collision sweep, clearance table and kinematic
-check in §10 runs on. Fusion joints constrain occurrence transforms, so live
-joints and scripted posing cannot coexist: adding them would trade a verified
-0.0000 mm-accurate verification harness for the ability to drag the model by
-hand.
-
-The need is met from two other directions — `sim/beni.urdf` carries the real
-kinematic tree with mechanical limits and true inertias, and `web/index.html`
-gives interactive posing to anyone without Fusion at all. The limits are now
-Fusion **user parameters** (`joint_shoulder_min/max`, `joint_knee_min/max`,
-`joint_knee_bumper`) so they appear in the CAD parameter table instead of living
-only in convention.
-
-If live joints are wanted, the right move is a separate derived document, not the
-master assembly.
+Live Fusion joints were deliberately not added — they constrain occurrence
+transforms and so cannot coexist with the scripted posing (`beni_lib.set_pose()`)
+that every sweep and clearance table in §10 runs on. Full reasoning and what was
+provided instead (URDF limits, `web/index.html`, Fusion user parameters):
+[`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §12.

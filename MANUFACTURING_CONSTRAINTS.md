@@ -21,7 +21,7 @@ fine. Anything that needs a mill, a lathe, a waterjet or a laser is not.
 | Not allowed | Was used for |
 |---|---|
 | Laser-cut sheet | `Knee_Stop_Arc_L`, `RIG_Ballast_Disc` |
-| Milled / turned parts | the ten families in `manufacturing/machined_parts_spec.md` |
+| Milled / turned parts | the ten families in `archive/manufacturing/machined_parts_spec.md` |
 | Ground flats, keyed features, reamed precision bores in metal | `Knee_Axle_L`'s double-D, `Knee_Sleeve_L` |
 
 ## Where each affected part went
@@ -36,10 +36,20 @@ For the single-leg rig, every one of these is resolved. Nothing is outstanding.
 | `Knee_Magnet_Carrier_L` | steel | **printed**, runout measured on an indicator | rig design record §4 |
 | `Knee_Axle_L` | 4140 ground, double-D | **bought** Ø10 h6 hardened ground dowel pin | rig design record §4 |
 | `Knee_Sleeve_L` | steel, double-D bore | **deleted** — its Ø16 bore is printed into `Distal_Link_L` as Ø10 | rig design record §4 |
-| `Cart_Guide_Rod_L` | ground steel | **bought** Ø5 × 50 hardened shaft | `beni_rig_no_machining.md` §2.2 |
-| `Cart_Preload_Shim_L` | shim stock | **bought** Ø19/Ø13.6 × 0.5 shim washers | `beni_rig_no_machining.md` §2.2 |
+| `Cart_Guide_Rod_L` | ground steel | **bought** Ø5 × 50 hardened shaft | rig design record §9 |
+| `Cart_Preload_Shim_L` | shim stock | **bought** Ø19/Ø13.6 × 0.5 shim washers | rig design record §9 |
 | **`Knee_Stop_Arc_L`** | **laser-cut 3 mm steel, 45 HRC** | **deleted.** The +27° hard stop is now a **compression column of bought M5 washers** inside the spring cartridge, with a printed TPU sleeve as the progressive bumper; `RIG_Knee_Stop_Plate_L` (printed) keeps the −8° stop and a +28° backup | **rig design record §8** |
-| **`RIG_Ballast_Disc`** | **laser-cut 3 mm steel** | **`RIG_Ballast_Pot` × 2**, printed cups filled with off-the-shelf steel shot | **rig design record §5** |
+| **`RIG_Ballast_Disc`** | **laser-cut 3 mm steel** | **`RIG_Ballast_Pot` × 2**, printed cups filled with off-the-shelf steel shot — **now [DEFERRED — MODE B] (2026-08-17): the Mode A build has no vertical slide, so there is nothing to ballast. The substitution stands if Mode B is ever built; the shot need not be bought now** | **rig design record §5** |
+
+**Amended 2026-08-17 — the rig build is Mode A only.** This does not change any
+substitution above; it changes only what has to be printed *now*. Deferred with
+Mode B: `RIG_Rail`, `RIG_Blocks`, `RIG_Carriage`, `RIG_Index_Post`,
+`RIG_Index_Bar`, `RIG_Mode_Pin`, `RIG_Bumpers`, `RIG_Ballast_Pot`. Added:
+**`RIG_Stand`**, printed, which reacts the shoulder's own 11.00 N·m stall / 25.00
+N·m proof yaw torque at a **42.00 mm** overhang and therefore **must be clamped to
+the bench, not weighted** — see `fusion_agent_guide_mode_a.md`. The stand is fully
+inside this constraint: printed part plus bought bench clamps, no machining, no
+laser cutting.
 
 ## The one place this cost real margin
 
@@ -70,7 +80,7 @@ verification sweep: `beni_single_leg_rig_design_record.md` §8.
 The constraint governs **what gets built**. It does not invalidate the design
 records that describe the two-leg robot as originally engineered:
 
-- `manufacturing/machined_parts_spec.md` still correctly specifies the ten
+- `archive/manufacturing/machined_parts_spec.md` still correctly specifies the ten
   machined families **as they were designed**. It is not a shopping list for the
   rig build — see its own banner.
 - `beni_prototype1_design_record.md` and `beni_prototype1_bom_and_assembly.md`
@@ -78,4 +88,4 @@ records that describe the two-leg robot as originally engineered:
   mass and load numbers in them are still the reference.
 
 If the two-leg build later gets access to a shop or a laser, the retired steel
-arc files are preserved under `archive_laser/`.
+arc files are preserved under `archive/laser/`.

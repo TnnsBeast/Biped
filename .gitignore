@@ -1,2 +1,13 @@
 .DS_Store
 .ea/
+.codex_tmp/
+.private_evidence/
+__pycache__/
+*.py[cod]
+.pio/
+outputs/
+
+# Local research/order captures are not canonical evidence and may contain
+# account or delivery details. Curated hardware evidence belongs in evidence/.
+/IMG_7500.png
+/clipboard_image_*.jpg

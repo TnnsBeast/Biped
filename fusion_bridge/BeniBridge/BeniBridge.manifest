@@ -1,0 +1,13 @@
+{
+  "autodeskProduct": "Fusion360",
+  "type": "script",
+  "id": "beni.bridge.script",
+  "author": "Beni project",
+  "description": {
+    "": "Runs fusion_bridge/request.json against the open document and writes fusion_bridge/out/<runid>.json"
+  },
+  "version": "1.0.0",
+  "runOnStartup": false,
+  "supportedOS": "mac",
+  "editEnabled": true
+}

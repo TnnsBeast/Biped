@@ -71,8 +71,8 @@ that gimbal.
 | | |
 |---|---|
 | **Do** | Power the main board from a **current-limited bench supply at 0.5 A**, never the pack. Bring up SWD, clocks, the three FDCAN peripherals in loopback, IMU SPI, SD card, telemetry. **Single-leg rig: use the Teensy 4.1 — bring up two CAN buses (500 kbps), IMU SPI, and the onboard microSD.** |
-| **Gate** | All three CAN peripherals pass loopback. SD writes 240 kB/s sustained for 10 minutes with zero dropped frames. IMU streams at 8 kHz. |
-| **Trap** | If SD throughput is marginal here it will be catastrophic under load. Fix it now. |
+| **Gate** | All three CAN peripherals pass loopback. SD writes 240 kB/s sustained for 10 minutes with zero dropped frames. ~~IMU streams at 8 kHz.~~ **Single-leg rig Mode A: two CAN buses, and the IMU gate is 1 kHz raw, not 8 kHz** — the on-hand BNO085 cannot stream faster (SH-2 raw gyro ~1 kHz; calibrated/uncalibrated gyro 100 Hz). The 8 kHz gate applies to the two-leg robot's ICM-42688-P. |
+| **Trap** | If SD throughput is marginal here it will be catastrophic under load. Fix it now. **And read the BNO085 raw** — its on-chip fused output carries 6.6 ms of latency, which by itself exceeds most of Stage 2's <8 ms budget (`03_compute_and_can.md` §4). |
 
 ### Stage 1 — Estimator, no motors
 
@@ -108,10 +108,18 @@ that gimbal.
 
 ### Stage 5 — Drop tests, unpowered then powered
 
+> **Single-leg rig: [DEFERRED — MODE B] (2026-08-17).** The rig build is Mode A
+> only — no vertical slide, no drop release, and **no brake chopper to sink the
+> regen a drop produces**. Rig steps 10–11 are not run. This stage still applies in
+> full to the **two-leg robot**, which now inherits the drop question unmeasured;
+> see `beni_single_leg_rig_design_record.md` §11. ⚠ **Do not improvise a drop test
+> by hand on the Mode A stand** — the gate below exists because an over-height drop
+> is how the knee gets destroyed, and the chopper is not built.
+
 | | |
 |---|---|
 | **Do** | Drop from a hoist, shoulders held at a fixed extended pose, **starting at 20 mm** and increasing in 10 mm steps. Log φ peak on every drop and plot φ_peak vs drop height. Then repeat with the landing impedance controller live. |
-| **Gate** | **The brief's gate — "no powered jump until a 100 mm drop never reaches +27°" — cannot be passed passively.** Passive capacity is ~49 mm (`fusion_brief_single_leg_rig.md` §4.3). Replace it with: **(a) a 49 mm free drop never exceeds +24° passively, and (b) a 100 mm drop never exceeds +24° with the shoulder landing controller active.** |
+| **Gate** | **The brief's gate — "no powered jump until a 100 mm drop never reaches +27°" — cannot be passed passively.** Passive capacity is ~49 mm on the two-leg robot's 1-DOF model (`fusion_brief_single_leg_rig.md` §4.3); the single-leg rig's 2-DOF integration puts the +24° crossing at **46.3 mm**, so the planning limit is **45 mm** (`beni_single_leg_rig_design_record.md` §3). Replace it with: **(a) a 45 mm free drop never exceeds +24° passively, and (b) a 100 mm drop never exceeds +24° with the shoulder landing controller active.** |
 | **Trap** | Extrapolate the φ_peak curve before each step up. If the trend line hits +24° at 40 mm, do not "just try" 50 mm. Use the measured curve to set `A_MAX` in the CBF. **Never extrapolate past the last measured point.** |
 
 ### Stage 6 — Jumping
@@ -149,5 +157,12 @@ that gimbal.
 Runs concurrently with a **4–6 week PCB lead time** (`03_compute_and_can.md`
 §3), so Stages 0–1 should be done on the WeAct fallback board while the custom
 board is in fab. **For the single-leg rig, use the Teensy 4.1** — no PCB lead
-time, no fallback needed. Stages 0–5 map directly to
-`fusion_brief_single_leg_rig.md` §6 (steps 1–11).
+time, no fallback needed.
+
+**Mode A mapping (2026-08-17).** Stages 0–2 map to
+`fusion_brief_single_leg_rig.md` §6 steps 1–6, which is the whole Mode A
+programme. Stages 3–6 and rig steps 7–11 need either the slide or the two-leg
+robot, and are deferred. **Rig step 6, spring characterisation, is a Mode A test
+and it is the programme's last and most valuable step** — it replaces the assumed
+30.0 N preload with a measured F₀ and k, which every drop and landing number
+downstream is computed from.

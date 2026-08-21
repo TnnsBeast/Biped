@@ -5,7 +5,16 @@ is not yet resolved. **Read this before ordering anything.**
 
 ## 1. Blockers — work stops until these are answered
 
-### B1. GIM4305-10 / SDC101 absolute-maximum DC bus voltage and regen clamp
+### B1. GIM4305-10 wheel-driver absolute-maximum DC bus voltage and regen clamp
+
+⚠ **DRIVER PART NUMBER CORRECTED 2026-08-20.** This blocker was written against
+an **SDC101**. The delivered order line reads **"GIM4305-10 … with GDZ34
+driver"** (order screenshot, delivered 2026-08-16, user-confirmed as the source
+of truth); the shoulder line reads **"motor-GDZ468-DE"**. The string "SDC101"
+came from earlier research and appears nowhere in the vendor's own order record.
+**Every voltage figure in the table below was asked about the wrong part number**
+and does not necessarily transfer. Confirm against the label on the physical
+driver.
 
 **This single answer decides 5S vs 6S vs 6S-plus-buck**, and therefore the pack,
 the harness gauge, the power tree and half the BOM.
@@ -15,24 +24,41 @@ Sources conflict badly:
 | Source | Range |
 |---|---|
 | Base datasheet / reseller tables | 12–24 V |
-| SDC101 installation guide | 12–36 V |
+| ~~SDC101~~ installation guide **[part number unconfirmed — see above]** | 12–36 V |
 | Marketing copy | 12–48 V |
 | One listing | 0–26 V rated, 30 V max, "supports 6S LiPo" |
+| **GDZ34 boards, vendor doc tier (web, 2026-08-20)** | **12–40 V**, with one GIM4305-10 manual giving 12–24 V |
 
-The current design (6S + a 20 V buck for the wheel drivers) is safe under every
-reading, which is why it was chosen — but it costs ~15 g and a converter that
-deletes itself the moment Steadywin confirms ≥30 V for the driver revision in
-hand. **Ask with the exact serial and driver revision.**
+**Consequence for the rig: B1 no longer gates the Mode A build.** The rig runs at
+**20 V**, which is inside every range above including the narrowest (12–24 V).
+B1 still gates the two-leg pack decision, where 6S at 25.2 V full is the exposure.
 
 The hazard is regen, not charge voltage. 25.2 V into a 24 V-max driver has
 *negative* headroom before the wheel even starts back-driving.
 
-### B2. SDC101 CAN protocol document and connector pinout
+### B2. Wheel-driver CAN protocol document and connector pinout
+
+⚠ Same part-number correction as B1: written against ~~SDC101~~, delivered as
+**GDZ34**.
 
 The GIM4305-10 speaks a proprietary "SteadyWin" protocol or MIT mode — not
 ODrive CANSimple. **The command table, the CAN MASTER ID semantics, the default
 bitrate, and the 4-pin connector type and pinout are all unpublished.** You
 cannot write the wheel driver's firmware or terminate its cable without them.
+
+**Partial answers, vendor doc tier (web, 2026-08-20) — unverified, confirm
+against the driver's own manual:** the GDZ series does CAN, RS485 and Modbus, and
+the CAN interface is described as **MIT-protocol compatible** (a much better
+starting point than "proprietary, undocumented"). CAN settings shown in the
+GIM43-series driver docs: **1 Mbps**, 8-byte standard data frames, **default CAN
+ID 1**. Start, stop, zero-position and mode-switch commands are defined in the
+MIT-style set. The 4-pin connector part number is **still unpublished**.
+
+⚠ **Bitrate mismatch to plan for.** `03_compute_and_can.md` specifies **500 kbps**
+for the rig because "breadboard impedance cannot hold 1 Mbps stubs", while the
+GDZ34 default appears to be **1 Mbps**. Either reconfigure the driver down to
+500 kbps during bring-up, or keep stubs ≤30 mm and accept 1 Mbps. Do not assume
+the driver comes up at the rate the firmware expects.
 
 ### B3. MIT-mode (0x008) scaling constants for the GIM6010-8
 
@@ -52,7 +78,7 @@ Set_Input_Torque`, which takes a plain float in N·m.
 | C5 | Clock-spring capacity: design record 430–470°, recomputation 390° | 5% margin, not 27% | Resolved — see `02_harness_and_routing.md` §2.2. Design record needs correcting |
 | C6 | Harness research said 48 V was required to fit the cable | Would have forced a different pack | Resolved — that analysis assumed a 100 W wheel; the GIM4305-10 is ~40 W. 20 V + 22 AWG fits |
 | C7 | GIM6010-8 phase R: 0.42 Ω (research) vs 0.15 Ω (earlier assumption) | ±50 W in the peak power budget | Measure with a milliohm meter |
-| C8 | Landing energy: brief says a 100 mm drop is 3.23 J vs 3.553 J capacity ("~10% margin"); recomputation says **4.85 J demand** | The brief omits the m·g·Δz work done during ~50 mm of compression. **A 100 mm free drop bottoms out; passive capacity is ~49 mm** (spring-rate method; see `fusion_brief_single_leg_rig.md` §4.3) | Resolved analytically — see `04_firmware.md` correction 3. **The brief's drop-test gate has been rewritten** (`06_logging_and_bringup.md` Stage 5, `fusion_brief_single_leg_rig.md` §6). Verify empirically with the 10 mm-step drop series |
+| C8 | Landing energy: brief says a 100 mm drop is 3.23 J vs 3.553 J capacity ("~10% margin"); recomputation says **4.85 J demand** | The brief omits the m·g·Δz work done during ~50 mm of compression. **A 100 mm free drop bottoms out; passive capacity is ~49 mm for the two-leg robot's 1-DOF model** (spring-rate method; see `fusion_brief_single_leg_rig.md` §4.3). **The single-leg rig's 2-DOF reality is tighter: 45 mm planning limit, +24° crossed at 46.3 mm** — `beni_single_leg_rig_design_record.md` §3 | Resolved analytically — see `04_firmware.md` correction 3. **The brief's drop-test gate has been rewritten** (`06_logging_and_bringup.md` Stage 5, `fusion_brief_single_leg_rig.md` §6). Verify empirically with the 10 mm-step drop series |
 | C9 | Unstable pole: brief says 9.7 rad/s, URDF-derived model says **11.18 rad/s** | 15% less time to react; also a +6.53 rad/s RHP zero the brief does not mention | Resolved — see `04_firmware.md` §2. Design record needs correcting |
 | C10 | Rotor inertia for both motors: **not published anywhere** | `N²·J_rotor` is 64× and 100× reflected; shifts `K_ẋ` by up to 13% and is the #1 sim-to-real gap | Ask Steadywin (Q15); failing that, measure by spin-down |
 
@@ -148,6 +174,8 @@ day during Stages 3–6. The robot fails in 20–200 ms events and cannot be
 debugged any other way; see `06_logging_and_bringup.md` §1.
 
 ### CR-4 — Satellite PCB mount on each proximal link. **[MEDIUM]**
+**Two-leg robot only — moot for the rig**, which has no satellite node (the
+AS5048A is read directly by the Teensy). Still live for the two-leg build.
 A ~20 × 25 mm boss with two M2 heat-set inserts, inboard face, within 40 mm of
 the knee axle so the AS5048A SPI run stays short. ~2 g of print. Delete this if
 the SDC101's second-encoder header can take the AS5048A directly (B2).
@@ -160,6 +188,9 @@ grommet at r = 29 and the Ø6 hub port at r = 21. **This is the part that fails
 first if it is left to the builder's judgement.**
 
 ### CR-6 — PTFE slip sheets in the clock-spring cavity. **[MEDIUM]**
+
+**Two-leg robot only — moot for the rig**, whose clock spring is deleted. Still
+live for the two-leg build.
 
 0.15 mm PTFE on both cavity faces. Costs 0.3 mm of the 4.0 mm usable width
 (already accounted — the cable is specified at 2.2 mm thick × 3.0 mm wide) and

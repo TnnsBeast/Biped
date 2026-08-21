@@ -3,6 +3,14 @@
 Covers brief §10 deliverables **3** (wiring diagram, CAN topology, grounding,
 connector schedule) and **4** (clock-spring cable specification).
 
+> **Single-leg rig: most of this file is deleted.** The rig has **no satellite
+> node** (the AS5048A is read directly by the Teensy over a short SPI run),
+> **neither clock spring** (the harness routes externally with a service loop
+> through the shoulder hub's Ø6.0 port, ±120° software-limited), and only a
+> handful of the connector schedule's entries survive breadboarded buses. See
+> `../fusion_brief_single_leg_rig.md` §2.4 and §5. This file is for the two-leg
+> robot.
+
 ## 1. The architectural move: a satellite node per leg
 
 The brief's §3.3 counts 7–10 conductors crossing each shoulder: wheel-motor

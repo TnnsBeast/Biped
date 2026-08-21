@@ -1,14 +1,11 @@
 # Beni Prototype 1 — Bill of Materials and Assembly Sequence
 
-> ### ⚠ §4 and §5 (machined parts) are superseded for building
+> ### ⚠ §4, §5 and the §8 roll-up are superseded for building
 > **3D printed and off-the-shelf parts only, no laser cutting or machining** —
-> [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md). All ten machined
-> families are rerouted to printed or bought parts; the mapping is in that file.
-> The **masses** in §4/§5 change accordingly — the printed hubs and eyes are
-> lighter than the 7075 originals, and the steel axle/sleeve/stop-arc line items
-> are gone. Re-read the rig's own mass roll-up in
-> [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §5
-> before trusting any total here for a build.
+> [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md), which carries the
+> routing table for all ten machined families. §1–§3, §6, §7 and §9–§10 stand.
+> See the banners on §4 and §8 before quoting any mass. Four assembly steps in §9
+> reference deleted parts and are annotated inline.
 
 
 **Revision 2 — 2026-08-08.** Masses in this revision are read straight out of
@@ -64,7 +61,16 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
   Ø108.5 at each edge — a contact patch instead of 30 mm of line contact, which
   is what gives the machine any camber tolerance at all.
 
-## 4. Machined parts — 7075-T6 aluminium (ρ = 2.81 g/cm³)
+## 4. Formerly-machined families — historical masses, not a shopping list
+### Was 7075-T6 aluminium (ρ = 2.81 g/cm³)
+
+> **Do not order from §4 or §5.** These are the ten machined families **as they
+> were designed**, retained for their masses and key features. All ten are
+> rerouted to printed or bought parts — the part-by-part routing table (was /
+> now / where it is written up) is in
+> [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md). `Knee_Sleeve_L`
+> and `Knee_Stop_Arc_L` are **deleted outright**. The 414.7 g of §4 + §5 parts
+> below does not exist in this form in any build.
 
 | Part | Vol cm³ | Mass g | Qty | Total g | Key features |
 |---|---:|---:|---:|---:|---|
@@ -74,7 +80,9 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | `Cart_Lower_Eye_L/R` | 6.00 | 16.9 | 2 | 33.8 | Ø4.15 pivot bore; Ø5.6 rod bore 8.5 deep; Ø13.4 × 6 spring spigot |
 | **Subtotal** | | | | **251.8** | |
 
-## 5. Machined parts — steel (ρ = 7.85 g/cm³)
+## 5. Formerly-machined families, continued — was steel (ρ = 7.85 g/cm³)
+
+*Historical masses, not a shopping list — see the §4 banner.*
 
 | Part | Vol cm³ | Mass g | Qty | Total g | Notes |
 |---|---:|---:|---:|---:|---|
@@ -128,25 +136,28 @@ proximal arm-B boss.
 
 **Two screw lengths changed in revision 2, and both were defects:**
 
-- **Knee stop arc: M3 × 8 → M3 × 6.** The insert bore in the arm-B boss is
-  5.0 mm deep (it was 4.5 mm, shallower than the 5 mm insert). An M3 × 8 seated
-  on the 3 mm arc plate reached 0.5 mm *past* the bore floor, so it bottomed out
-  before it clamped — on the fastener set that carries the entire hard-stop
-  crash load. M3 × 6 gives 3.0 mm of thread into the insert with 2.0 mm of
-  clearance to the floor. 3.0 mm is 1.0 × d, which is acceptable here because
-  the joint is loaded in **shear**, not pull-out.
-- **Cable cover: M3 × 10 → M3 × 8.** Same failure at 1.0 mm; the cover's insert
-  bores are now 5.0 mm deep.
-- **Knee stop arc bolt spacing: 20° → 30°** on the same r = 15 mm circle. At 20°
-  the three bolt centres were 5.209 mm apart against a Ø5.5 M3 SHCS head, so the
-  three heads physically overlapped and the set could not be fitted at all.
-  30° gives 7.765 mm centres and a 2.27 mm gap between heads. The arc plate grew
-  by 12° of sector (+2.3 g each) to carry the wider pattern.
+- **Knee stop arc: M3 × 8 → M3 × 6**, on a **30° bolt spacing** (was 20°) on the
+  same r = 15 mm circle. *That part is now deleted — this row is kept only because
+  it is why the audits exist.*
+- **Cable cover: M3 × 10 → M3 × 8.** The cover's insert bores are now 5.0 mm deep.
+  **This joint is still real — order M3 × 8.**
 
+Full account of both defects, with the arithmetic:
+[`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §4.
 Blind-hole geometry is now checked automatically by
 `beni_lib.audit_fasteners()` and `audit_blind_holes()`.
 
 ## 8. Mass roll-up
+
+> ### ⚠ THIS ROLL-UP IS NO LONGER VALID FOR A PRINTED BUILD
+> Every figure below was computed with **metal densities**. In particular the
+> **`7075-T6 machined … 251.7 g`** and **`Steel machined … 162.9 g`** lines are
+> 414.6 g of parts that no longer exist in that form — the hubs and eyes are now
+> printed (far lighter), and `Knee_Sleeve_L` and `Knee_Stop_Arc_L` are deleted
+> entirely. Therefore **the `3290.1 g` total and the `≈ 210 g` margin are stale
+> in the conservative direction** and must not be quoted for a build. They remain
+> the correct as-engineered reference for Prototype 1. For a real build mass, use
+> [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §5.
 
 **Read directly out of the Fusion model** (`beni_lib.mass_by_part()`), with
 physical materials and densities assigned per body. Previously every body in
@@ -158,8 +169,8 @@ this table is now the model's own answer, not a hand calculation beside it.
 | PA-CF printed (links, side panels, rim, chassis frame) | 565.7 |
 | ABS printed (covers, encoder brackets, tray) | 46.4 |
 | TPU tyres | 160.1 |
-| 7075-T6 machined (hubs, cartridge eyes) | 251.7 |
-| Steel machined (axles, sleeves, stop arcs, rods, shims, carriers) | 162.9 |
+| 7075-T6 machined (hubs, cartridge eyes) — **STALE, now printed** | 251.7 |
+| Steel machined (axles, sleeves, stop arcs, rods, shims, carriers) — **STALE, mostly deleted or bought** | 162.9 |
 | Bearings (4 × 6800) | 26.0 |
 | Springs (2, chrome-silicon) | 50.6 |
 | Pins, dowels, magnets, PCBs, bumpers, harness | 38.4 |
@@ -188,35 +199,13 @@ harness envelope at 7 g. `Battery_4S2200` and `Chassis_Electronics` are mass
 placeholders at 250 g and 120 g. All of them are listed in
 `beni_lib.MASS_OVERRIDE_G`.
 
-### Mass properties (the numbers controls actually needs)
+### Mass properties
 
-| | value |
-|---|---:|
-| Mass | **3290.1 g** |
-| CoM, X (fore-aft from the shoulder axis) | **+6.46 mm** |
-| CoM, Y (lateral) | **−0.00 mm** |
-| CoM, Z | −50.57 mm |
-| **CoM height above the wheel axis** | **103.7 mm** |
-| Ixx about CoM (roll) | 0.03214 kg·m² |
-| **Iyy about CoM (pitch — governs balance)** | **0.02508 kg·m²** |
-| Izz about CoM (yaw) | 0.01706 kg·m² |
-| Ixz about CoM | +0.002759 kg·m² |
-| Inverted-pendulum time constant √(L/g) | 0.103 s |
-
-CoM Y of −0.00 mm is a useful side-effect: it is an independent check that the
-two legs really are mirror images, because any missing right-leg part shows up
-here immediately. The remaining **+6.46 mm** fore-aft offset is inherent to the
-bent-leg geometry — the two links and the knee hardware sit around X = +45…+92
-while the wheels and shoulder motors sit at X = 0 — and cannot be nulled by
-moving ballast (it would take ~89 mm of travel on the entire 450 g chassis
-group). Moving the battery aft from X = −0.5 to X = −30.5 and placing the
-electronics block at X = −52 took it from +11.97 mm to +6.46 mm, which is where
-it stays. The residual is a **0.21 N·m standing bias** (0.11 N·m per wheel),
-trimmed by the controller, and it means the equilibrium stance is a few degrees
-off the nominal pose rather than exactly on it.
-
-Per-link masses and inertia tensors for all six moving links are in
-`sim/beni.urdf` and `sim/beni_inertia.json`.
+Mass, CoM and the full inertia tensor — the numbers controls actually needs —
+are in **[`beni_prototype1_design_record.md`](beni_prototype1_design_record.md)
+§14**, which is the single authoritative copy. Per-link masses and inertia
+tensors for all six moving links are in `sim/beni.urdf` and
+`sim/beni_inertia.json`.
 
 Reduction targets, in order of return, if the 210 g margin needs to grow:
 
@@ -245,10 +234,18 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
    seating on the Ø17 lip at y = 85.3.
 3. Press `Knee_Sleeve_L` into the distal link's Ø16 knee boss bore, with the
    double-D flats aligned to the sagittal plane. It protrudes 1.3 mm each side.
+   > **[SUPERSEDED — skip this step.]** `Knee_Sleeve_L` is **deleted**. The Ø16
+   > bore is now **printed directly into `Distal_Link_L` as Ø10**, so the axle
+   > runs in the printed link. See
+   > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §4.
 4. Fit the two PTFE thrust washers, place the distal link into the proximal
    fork channel and align the bores.
 5. **Insert `Knee_Axle_L` from the inboard side** through bearing 1, the sleeve
    and bearing 2. The double-D must engage the sleeve — do not force it.
+   > **[SUPERSEDED — no double-D engagement.]** `Knee_Axle_L` is a **bought
+   > Ø10 h6 hardened ground dowel pin** with no flats; the double-D was
+   > deliberately deleted. The axle simply slides through. Insertion direction
+   > and the anti-rotation substitute are in rig design record **§4**.
 6. Screw `Knee_Magnet_Carrier_L` into the axle's M4 end with thread locker,
    0.8 N·m. Confirm free rotation and < 0.1 mm axial float.
 7. Bond the Ø6 × 2.5 diametric magnet into the carrier pocket.
@@ -266,6 +263,12 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
 **A3 — Wheel (per leg)**
 1. Bolt `Wheel_Hub_L` to the wheel motor's output flange, **3 × M3 × 8**
    into the Ø27 PCD threads, 1.2 N·m. Register on the Ø37.3 H8 recess.
+   > **[SUPERSEDED — the register is not machined any more.]** `Wheel_Hub_L` is
+   > **printed**, so a Ø37.3 H8 recess cannot be held as an H8 fit. It is
+   > replaced by a printed register plus **steel washers under the screws and a
+   > re-torque schedule** to handle plastic creep. See
+   > [`beni_rig_no_machining.md`](beni_rig_no_machining.md) §2.1 and rig design
+   > record §4.
 2. Bolt `Wheel_Rim_L` to the hub, **6 × M4 × 10** on the Ø46 PCD, 2.5 N·m.
 3. Stretch the TPU tyre onto the Ø96 rim seat.
 
@@ -299,6 +302,15 @@ wheel is fully assembled.*
     *M3 × 6, not × 8: an × 8 bottoms out on the bore floor before it clamps.
     The three heads sit 7.765 mm apart on the 30°-spaced r = 15 circle, so a
     2.5 mm hex key reaches each of them without fouling its neighbours.*
+    > **[SUPERSEDED — steps 9 and 10 both. Do not build this.]**
+    > `Knee_Stop_Arc_L` is **deleted** (it was laser-cut steel) and the Ø6 dowel
+    > that engaged its slot goes with it. The **+27° hard stop is now a
+    > compression column of bought M5 washers** inside the spring cartridge, with
+    > a printed TPU sleeve as the progressive bumper; a printed
+    > `RIG_Knee_Stop_Plate_L` keeps the **−8° stop** and a +28° backup. Its
+    > engagement angle must be **set by measurement**, not from a drawing,
+    > because it depends on the printed eyes' achieved dead length. Full design:
+    > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
 11. Bolt the proximal link root to the hub flange, **6 × M4 × 10** through the
     counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
     the driver. *The 6 output-hub screws remain serviceable through the link's
@@ -338,6 +350,10 @@ wheel is fully assembled.*
 Print a **Ø19 bearing-seat coupon and a Ø16 sleeve coupon first** and measure
 them; PA-CF shrinkage will decide whether the seats need to be modelled
 oversize or reamed.
+
+*Note: the Ø16 sleeve fit named in step 2 and above is now a **Ø10** bore printed
+straight into `Distal_Link_L` — `Knee_Sleeve_L` is deleted. The print order itself
+is unchanged. Use `print_stl/GAUGE_Fit_Coupon.stl`, which carries both bores.*
 
 ---
 

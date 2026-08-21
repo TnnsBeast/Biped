@@ -1,6 +1,10 @@
 # Beni Prototype 1 — Electronics Design
 
-**Revision 0 — 2026-08-09.** Written against `beni_electronics_handoff_brief.md` §10.
+**Revision 0 — 2026-08-09.** Originally written against
+`beni_electronics_handoff_brief.md` §10. **That file no longer exists**: its
+CAD-derived geometry survives as `00_mechanical_datum.md`, and its
+request-for-design content is now answered by `01`–`07` themselves. Read §10
+references below as pointing at `00_mechanical_datum.md`.
 Mechanical side is frozen and audited; this is the first pass at the electrical side.
 
 Every number here is traceable to either the CAD/design record (trusted), vendor
@@ -127,8 +131,8 @@ the 4-conductor crossing works with no sharing.
 | Bus voltage | 6S LiPo, 25.2 V full; 20 V buck for wheel drivers |
 | Pack | GNB 6S 550 mAh long type, 82 g (2P if Z opens to 40 mm) |
 | Controller | Custom 84 × 60 × 1.0 mm 4-layer, STM32G474RET6 |
-| IMU | ICM-42688-P, 8 kHz ODR, AAF 250–500 Hz, decimate to 1 kHz |
-| CAN | 3 × classical 1 Mbit, TCAN3414 transceivers |
+| IMU | ICM-42688-P, 8 kHz ODR, AAF 250–500 Hz, decimate to 1 kHz *(rig: on-hand BNO085, **1 kHz raw** — it cannot stream 8 kHz)* |
+| CAN | 3 × classical 1 Mbit, TCAN3414 transceivers *(rig: 2 × 500 kbps on Adafruit CAN Pal 5708 — TJA1051T/3, 3.3 V)* |
 | Knee sensing | AS5048A on a satellite STM32G0B1CBT6 node, per leg |
 | Control rate | 1 kHz (500 Hz floor) |
 | E-stop | XT30 loop key (primary) + fail-safe soft stop + windowed WDT |
@@ -142,14 +146,15 @@ Found while deriving the control design from `sim/beni.urdf` and
 | Brief | Actual |
 |---|---|
 | Unstable pole 9.7 rad/s | **11.18 rad/s** (τ = 89 ms). The LIPM formula drops body pitch inertia and the wheel reaction torque. |
-| A 100 mm drop has ~10% energy margin on the knees | **It bottoms out.** The brief omits gravity work during the 50 mm of compression: 4.85 J demand vs 3.55 J capacity. Passive limit is ~49 mm (spring-rate method). |
+| A 100 mm drop has ~10% energy margin on the knees | **It bottoms out.** The brief omits gravity work during the 50 mm of compression: 4.85 J demand vs 3.55 J capacity. Passive limit is ~49 mm for the two-leg robot (spring-rate method); the single-leg rig's 2-DOF figure is **45 mm** planning / **46.3 mm** at +24° (`../beni_single_leg_rig_design_record.md` §3). |
 | Clock spring: 27% wrap margin | **5%** (§3.3 above). |
 | Shoulders control ride height | **dRide/dθ_s = 0 at the nominal pose.** Zero height, damping and CBF authority at θ_s = 0. Fixed by a scissor stance. |
 
 Consequence for the test plan: the brief's gate *"no powered jump until a 100 mm
 drop never reaches +27°"* **cannot be passed passively.** It is replaced with a
 49 mm passive gate plus a 100 mm gate run with the shoulder landing controller
-live — see `06_logging_and_bringup.md` Stage 5.
+live — see `06_logging_and_bringup.md` Stage 5, which now states the gate as
+45 mm (the rig's planning limit).
 
 Two further findings that are not brief errors but change the design:
 
@@ -157,16 +162,42 @@ Two further findings that are not brief errors but change the design:
   the robot. At 20 rad/s² of pitch acceleration the lever arm produces 22° of
   apparent tilt against a 0.1° budget. Move it (CR-9).
 - **A leg bounce mode at 3.67 Hz sits only 2.06× above the balance pole**, with
-  ζ ≈ 0.01. Active shoulder damping is mandatory, not optional.
+  ζ ≈ 0.01. Active shoulder damping is mandatory, not optional. *(3.67 Hz is the
+  two-leg robot's 1-DOF figure. For the single-leg rig it is superseded: the rig
+  is 2-DOF and predicts **3.49–3.63 Hz** — `../beni_single_leg_rig_design_record.md`
+  §3.1.)*
 
 ## Status
 
-All ten §10 deliverables are drafted across `01`–`06`. Nothing here has been
+All ten §10 deliverables are drafted across `01`–`06`. **They describe the
+two-leg robot, which is not the active build** — the active build is the
+**single-leg test rig** (Teensy 4.1, 20 V bench supply, breadboarded buses;
+`../fusion_brief_single_leg_rig.md`, `../beni_single_leg_rig_design_record.md`).
+Rig carve-outs are marked in `01`, `02`, `03` §3, `06` and `07` Wave 0.
+
+**Amended 2026-08-17 — the rig build is MODE A only.** The vertical slide, the
+ballast and the drop series are deferred, which changes three things on the
+electrical side:
+
+| Change | Where |
+|---|---|
+| **Brake chopper [DEFERRED — MODE B]** — resistor, TLV3011, MOSFET, freewheel diode, sense divider **and heatsink** all out of Wave 0. Nothing generates regen with no drops. ⚠ Until it exists, **nothing may backdrive a motor** | `01` §7.2, `07` Wave 0 |
+| **IMU gate re-scoped 8 kHz → 1 kHz raw** — the on-hand BNO085 tops out near 1 kHz on the SH-2 raw gyro report (100 Hz for calibrated/uncalibrated gyro), and its on-chip fusion carries 6.6 ms of latency, which alone would blow the <8 ms loop gate. Read raw, fuse on the Teensy | `06` Stage 0, `03` §4 |
+| **Transceiver is the Adafruit CAN Pal 5708** (TJA1051T/3, onboard charge pump, single 3.3 V rail) — the TCAN3414 is surface-mount and this build is breadboarded. One board per bus | `07` Wave 0 |
+
+Rig **Stage 5 (drops) is deferred**; Stages 0–2 map to rig steps 1–6, which is
+the whole Mode A programme. **Step 6, spring characterisation, is a Mode A test**
+— so the measured F₀ and k still get taken, replacing the assumed 30.0 N. What
+the deferral actually costs is the bounce mode, the sprung/unsprung split, active
+shoulder damping and the φ_peak-vs-drop-height curve that sets `A_MAX`.
+
+Nothing here has been
 built or measured: every power figure is an estimate pending an inline watt
 meter, the peak-power number swings ±40% on an unverified phase resistance, and
 the wheel driver's maximum bus voltage — the one answer that decides the pack —
 is still outstanding with Steadywin. **Read `05_open_questions.md` before
 ordering anything.**
 
-The shopping list is in `07_bom.md`, split into a wave you can order today
-(~$310, dev hardware and sensors) and a wave that is blocked on Steadywin.
+The shopping list is in `07_bom.md`. **Wave 0 (the Mode A rig) is now ~$25 of
+electronics** plus a bench PSU; Wave A is ~$310 of two-leg dev hardware, and
+Wave B is blocked on Steadywin.

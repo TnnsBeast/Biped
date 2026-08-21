@@ -1,7 +1,7 @@
 # Beni Prototype 1 — Revision 2 Change Record
 
 > **Later note, 2026-08-12.** Revision 2 added
-> `manufacturing/machined_parts_spec.md` and the per-part STEP exports to close
+> `archive/manufacturing/machined_parts_spec.md` and the per-part STEP exports to close
 > finding 3.9. The build has since moved to **3D printed and off-the-shelf parts
 > only, with no laser cutting or machining** —
 > [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md) — so those
@@ -11,7 +11,7 @@
 
 **Date:** 2026-08-08
 **Scope:** Close the defects and production gaps identified in
-`beni_prototype1_production_readiness_findings.md`.
+[`archive/prototype1_production_readiness_audit.md`](archive/prototype1_production_readiness_audit.md).
 **Baseline:** `snapshots/2026-08-08_pre-production-fixes/` (f3d + STEP +
 metrics JSON + a named Fusion cloud version).
 **Result:** `snapshots/2026-08-08_post-production-fixes/` (same set, REV2).
@@ -327,10 +327,10 @@ The original interference audit was run with screws filtered out — and §4.1 a
 
 ## 9. Manufacturing outputs
 
-- **`manufacturing/step/*.step`** — one STEP AP214 per machined part family, all
+- **`archive/manufacturing/step/*.step`** — one STEP AP214 per machined part family, all
   ten. A shop could not previously quote or program anything, because STL was the
   only output.
-- **`manufacturing/machined_parts_spec.md`** — fits, tolerances, surface finish,
+- **`archive/manufacturing/machined_parts_spec.md`** — fits, tolerances, surface finish,
   hardness and handedness for all ten, with the H7/H8/h6/n6 classes actually
   called out instead of described in prose. Includes the hardness spec on
   `Knee_Stop_Arc_L` (45 HRC through, or 50–55 HRC cased at the slot ends) that
@@ -446,8 +446,8 @@ not the master assembly.
 |---|---|
 | `beni_lib.py` | 1742 → ~2790 lines. Fixed `drop_comp` idempotency; added `find_all_occ`, `sk_axial_y`, `rev_profile`, `add_fillets` + edge selectors, `build_chassis_frame`, `build_electronics_tray`, `build_battery`, `build_electronics_block`, `build_cable_spiral`, `build_mirror`, `drop_mirror`, `apply_materials`, `mass_report`, `mass_by_part`, and the five `audit_*` functions. Rewrote `build_shoulder_plate`, `build_wheel`, `rebuild_spring`, `build_fasteners`. |
 | `beni_export.py` | **new** — STEP per machined part, URDF + inertia JSON with a hard mass-closure check, print STL set, viewer STL set with a derived manifest. |
-| `manufacturing/machined_parts_spec.md` | **new** |
-| `manufacturing/step/*.step` | **new**, 10 files |
+| `archive/manufacturing/machined_parts_spec.md` | **new** |
+| `archive/manufacturing/step/*.step` | **new**, 10 files |
 | `sim/beni.urdf`, `sim/beni_inertia.json` | **new** |
 | `beni_prototype1_bom_and_assembly.md` | fastener schedule, masses, mass properties, tyre spec, assembly torques |
 | `web/build.py` | `GROUP_ORDER` was missing the `wheel` group |
@@ -465,7 +465,7 @@ into a controller as a slightly-too-light robot.
 1. **Print `GAUGE_Fit_Coupon.stl` and measure all six bores.** Nothing else
    should be printed or machined first; PA-CF hole shrinkage decides whether the
    Ø19 bearing seats and Ø16 sleeve bore need to be modelled oversize.
-2. **Send `manufacturing/step/` + the spec sheet out for quote.**
+2. **Send `archive/manufacturing/step/` + the spec sheet out for quote.**
 3. **Close the actuator question with the supplier** (§11) before any jump
    tuning, since the jump case sits at rated torque.
 4. **Load `sim/beni.urdf`** and check that the balance controller is happy with

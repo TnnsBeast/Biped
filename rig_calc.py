@@ -12,6 +12,7 @@ of inherited.  Frozen sources:
 Run:  python3 rig_calc.py
 """
 
+import functools
 import json
 import math
 import os
@@ -56,6 +57,13 @@ PANEL_OUTER_Y = 47.0        # Chassis_Shoulder_Plate_L, 5 mm
 CARRIAGE_T = 8.0            # PA-CF carriage plate thickness, mm
 BLOCK_H = 13.0              # MGN12H
 RAIL_PLANE_Y = MOTOR_FRONT_FACE_Y - CARRIAGE_T - BLOCK_H   # 21.0
+
+# Chassis_Shoulder_Plate_L's five existing frame-bolt holes, (X, Z), measured off
+# the model (design record §2.2).  In Mode A these are the ONLY structural joint
+# between the leg and the stand -- mirrored here from rig_lib.PANEL_FRAME_BOLTS
+# so this script stays runnable outside Fusion.
+PANEL_FRAME_BOLTS = [(-60.0, -18.0), (-60.0, 48.0), (-60.0, 62.0),
+                     (30.0, 48.0), (30.0, 62.0)]
 
 
 # ------------------------------------------------------------- knee/spring model
@@ -133,12 +141,22 @@ def wheel_rate(phi, h=1e-4):
     return (ground_force(phi + h) - ground_force(phi - h)) / (x1 - x0)
 
 
+@functools.lru_cache(maxsize=1)
+def spring_energy_curve():
+    """Return the cumulative spring-work curve over the allowed travel."""
+    xs = np.linspace(0.0, compression(PHI_STOP), 4000)
+    fs = np.array([ground_force(phi_at_compression(v)) for v in xs])
+    segment_work = (fs[:-1] + fs[1:]) * 0.5 * np.diff(xs)
+    energy = np.concatenate(([0.0], np.cumsum(segment_work))) / 1000.0
+    return xs, energy
+
+
 def spring_energy(x):
     """Work done compressing the leg from φ=0 to compression x mm, in J."""
-    n = 4000
-    xs = np.linspace(0.0, x, n)
-    fs = np.array([ground_force(phi_at_compression(v)) for v in xs])
-    return float(np.trapezoid(fs, xs)) / 1000.0
+    xs, energy = spring_energy_curve()
+    if not xs[0] <= x <= xs[-1]:
+        raise ValueError(f'compression {x:.3f} mm is outside the energy curve')
+    return float(np.interp(x, xs, energy))
 
 
 # ------------------------------------------------------------------- verification
@@ -545,6 +563,158 @@ def knee_axle_check():
     print('    Ø10 × 35 leaves 3.4 mm proud → carrier bore 3.5 mm deep. Fits.')
 
 
+# --------------------------------------------------------------- Mode A stand
+# Mode A is the active build (2026-08-17).  The vertical slide, the ballast and
+# the drop series are deferred, so the stand only ever has to react the
+# actuator's own torque and the leg's static weight.
+MODE_A_MOUNT_Y = MOTOR_FRONT_FACE_Y   # stand's outboard face = motor front face
+MODE_A_OVERHANG = HALF_TRACK - MODE_A_MOUNT_Y      # 42.0 mm, not 63.0
+
+
+def mode_a_stand():
+    """Load set for the Mode-A-only printed stand: no rail, no carriage."""
+    print()
+    print('=' * 78)
+    print('9.  MODE A STAND  --  the active build, no rail and no ballast')
+    print('=' * 78)
+
+    with open(os.path.join(ROOT, 'sim', 'beni_inertia.json')) as fh:
+        j = json.load(fh)
+    L = j['legs']['L']
+    leg = sum(L[k]['mass_kg'] for k in L)
+
+    print('  Mode A deletes RIG_Rail, both MGN12H blocks, RIG_Carriage, both')
+    print('  ballast pots, the index bar/post, the mode pin and the drop')
+    print('  release.  The leg bolts through Chassis_Shoulder_Plate_L straight')
+    print('  to the stand.')
+    print()
+    print('  Static, hanging:')
+    print(f'    one leg, thigh+shank+wheel        {leg:8.4f} kg'
+          f'  = {leg * G:6.2f} N')
+    for motor in (0.388, 0.500):
+        print(f'    + GIM6010-8 at {motor * 1000:3.0f} g (C4)          '
+              f'{leg + motor:8.4f} kg  = {(leg + motor) * G:6.2f} N')
+
+    print('\n  Lateral overhang is SHORTER than Mode B, because the block and')
+    print('  the carriage plate are gone from the stack:')
+    print(f'    stand outboard face = motor front mount face   y = '
+          f'{MODE_A_MOUNT_Y:6.2f}')
+    print(f'    wheel centre plane (half-track)                y = '
+          f'{HALF_TRACK:6.2f}')
+    mode_b = HALF_TRACK - RAIL_PLANE_Y
+    print(f'    -> Mode A overhang {MODE_A_OVERHANG:.2f} mm against Mode B\'s '
+          f'{mode_b:.2f} mm  ({100 * MODE_A_OVERHANG / mode_b:.0f} %)')
+
+    fmax = ground_force(PHI_STOP)
+    lever_z = -wheel_xz(0.0)[1]
+    f_x = SHOULDER_STALL * 1000.0 / lever_z
+    over = MODE_A_OVERHANG / 1000.0
+
+    print('\n  Moments the stand mount must react (worst case, Mode A):')
+    print(f'    spring-limited wheel force {fmax:.2f} N x '
+          f'{MODE_A_OVERHANG:.0f} mm  -> {fmax * over:5.2f} N.m  pitch')
+    print(f'    shoulder stall about the motor axis         '
+          f'   -> {SHOULDER_STALL:5.2f} N.m  yaw   <-- DOMINANT')
+    print(f'    its ground reaction {f_x:.1f} N x {MODE_A_OVERHANG:.0f} mm'
+          f'        -> {f_x * over:5.2f} N.m  roll')
+    vec = math.hypot(SHOULDER_STALL, f_x * over)
+    print(f'    vector sum of yaw + roll                    '
+          f'   -> {vec:5.2f} N.m')
+    print(f'    proof screen, {SHOULDER_PROOF:.0f} N.m at the hub'
+          f'              -> {SHOULDER_PROOF:5.2f} N.m  yaw')
+    print("\n  The actuator's own reaction torque is the design load, exactly as")
+    print('  brief 4.1 said for the rail.  The impact term is trivial by')
+    print('  comparison, and in Mode A there are no drops to produce it anyway.')
+
+    print('\n  Tipping -- why the stand gets clamped, not weighted:')
+    for b in (100, 150, 200, 250, 300):
+        w_need = SHOULDER_STALL / (b / 1000.0)
+        print(f'      base half-width {b:3d} mm -> needs {w_need:6.1f} N'
+              f' = {w_need / G:5.1f} kg of stand')
+    print('    A printed stand is ~0.3 kg.  No practical base width holds')
+    print('    11 N.m by dead weight, so the stand MUST be clamped or bolted')
+    print('    to the bench.  Not optional, and not a Mode B artefact.')
+
+    print('\n  Ride height and floor clearance (shoulder axis to floor):')
+    for phi, label in ((PHI_EXT, 'knee at the -8 deg extension stop'),
+                       (0.0, 'knee at phi = 0, the modelled pose'),
+                       (PHI_DESIGN, 'knee at the +25 deg design point'),
+                       (PHI_STOP, 'knee against the +27 deg stop')):
+        h = -wheel_xz(phi)[1] + WHEEL_R
+        print(f'    {label:<34s} {h:7.2f} mm')
+    print('    -> the stand must hold the shoulder axis at least '
+          f'{-wheel_xz(PHI_EXT)[1] + WHEEL_R:.0f} mm above the floor')
+
+    print('\n  Step 6 (spring characterisation) runs in MODE A per brief 6, so')
+    print('  F0 and k are still measured in this build.  Known masses on the')
+    print('  wheel, knee angle logged from the AS5048A:')
+    print('   added mass    force at wheel      phi')
+    f_lo, f_hi = ground_force(PHI_EXT), ground_force(PHI_STOP)
+    for m in (0.5, 1.0, 2.0, 3.0, 4.0, 5.0):
+        f = m * G
+        if f < f_lo:
+            note = 'below preload -- still on the -8 deg stop'
+        elif f > f_hi:
+            note = 'past the +27 deg stop -- do not load this far'
+        else:
+            note = f'{phi_at_force(f):+7.2f} deg'
+        print(f'   {m:5.1f} kg     {f:7.2f} N     {note}')
+    print(f'\n  Preload floor: a free leg rests on the -8 deg stop at '
+          f'{f_lo:.2f} N, so anything')
+    print('  lighter is indistinguishable -- threshold on phi, not on force.')
+    return dict(leg=leg, overhang=MODE_A_OVERHANG, fmax=fmax, vec=vec)
+
+
+def mode_a_bolt_group(plate_t=8.0):
+    """Per-screw shear in the stand's five-hole interface under Mode A yaw.
+
+    `Chassis_Shoulder_Plate_L`'s five existing frame-bolt holes are the whole
+    structural joint between the leg and the stand (design record 2.2), so the
+    11.00 N.m of shoulder yaw is carried by five M3 in shear -- there is no
+    register, no dowel and no MGN12H block sharing it.  A pure couple has the
+    same moment about every point, so the group reacts it about its OWN
+    centroid, not about the motor axis.
+    """
+    print()
+    print('=' * 78)
+    print('10.  MODE A BOLT GROUP  --  five M3 carry the whole yaw torque')
+    print('=' * 78)
+    xc = sum(x for x, _ in PANEL_FRAME_BOLTS) / len(PANEL_FRAME_BOLTS)
+    zc = sum(z for _, z in PANEL_FRAME_BOLTS) / len(PANEL_FRAME_BOLTS)
+    print(f'  five frame-bolt holes: {PANEL_FRAME_BOLTS}')
+    print(f'  group centroid  X {xc:+7.2f}   Z {zc:+7.2f}'
+          '   (NOT the motor axis at 0,0)')
+    r2 = 0.0
+    radii = []
+    for x, z in PANEL_FRAME_BOLTS:
+        r = math.hypot(x - xc, z - zc)
+        radii.append(r)
+        r2 += r * r
+    print(f'  sum r^2 = {r2:.0f} mm^2,  worst radius {max(radii):.2f} mm')
+    print()
+    print('   case                        worst screw shear   bearing on a '
+          f'{plate_t:.0f} mm printed wall')
+    for m, label in ((SHOULDER_STALL, 'shoulder stall 11.00 N.m'),
+                     (SHOULDER_PROOF, 'proof screen  25.00 N.m')):
+        v = m * 1000.0 * max(radii) / r2
+        brg = v / (3.0 * plate_t)          # M3 shank bearing on the bore wall
+        print(f'   {label:<28s} {v:7.1f} N        {brg:6.2f} MPa')
+    print('   -> against PA-CF ~84 MPa XY, bearing is not the limit; the limit')
+    print('      is the M3 heat-set insert\'s grip in printed nylon and the')
+    print('      5.0 mm insert depth in the boss (rig_lib INSERT_M3_L).')
+    print()
+    print('  Two consequences for the stand design:')
+    print('    * Spread the five landings as far as the panel allows.  Shear')
+    print('      goes as 1/sum(r^2), so a compact boss cluster is the one way to')
+    print('      make this joint the failure point.')
+    print('    * The group centroid is offset from the motor axis, so the yaw')
+    print('      torque also tries to rotate the panel about a point that is')
+    print(f'      {math.hypot(xc, zc):.1f} mm off-axis.  Do not model the joint as '
+          'five bolts on a')
+    print('      circle about the shoulder.')
+    return dict(centroid=(xc, zc), r2=r2, rmax=max(radii))
+
+
 def main():
     k = check_frozen()
     mb = mass_budget()
@@ -554,6 +724,8 @@ def main():
     bounce_mode(mb, phi_eq)
     torque_arm()
     knee_axle_check()
+    mode_a_stand()
+    mode_a_bolt_group()
     print()
 
 
