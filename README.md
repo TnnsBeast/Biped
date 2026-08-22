@@ -30,11 +30,11 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). No printed leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports all four ABS actuator-interface coupons printed on 2026-08-22; physical fit results are pending. No printed leg or wiring has been assembled yet. |
 
-The immediate next action is physical: print the four actuator-interface gates
-in [`first_article_stl/actuator_fit/`](first_article_stl/actuator_fit/) in
-**ABS**, following [`first_article_stl/README.md`](first_article_stl/README.md).
+The immediate next action is physical: run the four printed actuator-interface
+gates against the delivered actuators, following the illustrated
+[`2026-08-22 coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
 with the real actuators as go/no-go fixtures, so calipers are **not a blocker**.
 The old `GAUGE_*_Motor_Interface.stl` files remain positive motor stand-ins and
