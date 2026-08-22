@@ -9,7 +9,7 @@ the physical results reported that day. Photographic evidence remains pending.
 | Test | Interface | Result | Evidence/status |
 |---:|---|---|---|
 | 1 | GIM6010 housing | **PASS** | Owner report: worked well; photograph pending. |
-| 2 | GIM6010 output | **FAIL** | All three locating pins do not enter nicely by hand. Do not clamp or force. Pin-clearance diagnostic print required before changing the structural hub. |
+| 2 | GIM6010 output | **FAIL — BORE CLEARANCE** | Owner reports the three-hole pattern aligns perfectly, but the factory pins do not slide into the Ø4.05 printed bores. Do not clamp or force. Run the [Ø4.15/4.20/4.25 ABS diagnostic set](../../../first_article_stl/actuator_fit/gim6010_pin_trials/README.md) before changing the structural hub. |
 | 3 | GIM4305 housing | **PENDING** | Matching M2.5 screws ordered; test not yet run. |
 | 4 | GIM4305 output | **PASS** | Owner report: worked well; photograph pending. |
 

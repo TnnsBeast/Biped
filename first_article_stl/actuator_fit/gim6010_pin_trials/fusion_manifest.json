@@ -1,0 +1,150 @@
+{
+  "coupons": [
+    {
+      "bbox_mm": [
+        40.0,
+        40.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        4.15,
+        4.15,
+        4.15,
+        13.2,
+        40.0
+      ],
+      "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.15",
+      "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+      "name": "ABS_CAL_GIM6010_OUTPUT_PIN_D4p15",
+      "spec": {
+        "center_d": 13.2,
+        "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.15",
+        "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+        "od": 40.0,
+        "patterns": [
+          [
+            25.0,
+            3.4,
+            6,
+            30.4
+          ],
+          [
+            20.4,
+            4.15,
+            3,
+            60.4
+          ]
+        ],
+        "pin_trial_d": 4.15,
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/gim6010_pin_trials/ABS_CAL_GIM6010_OUTPUT_PIN_D4p15.stl",
+      "stl_bytes": 99884,
+      "volume_cm3": 4.0989
+    },
+    {
+      "bbox_mm": [
+        40.0,
+        40.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        4.2,
+        4.2,
+        4.2,
+        13.2,
+        40.0
+      ],
+      "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.20",
+      "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+      "name": "ABS_CAL_GIM6010_OUTPUT_PIN_D4p20",
+      "spec": {
+        "center_d": 13.2,
+        "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.20",
+        "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+        "od": 40.0,
+        "patterns": [
+          [
+            25.0,
+            3.4,
+            6,
+            30.4
+          ],
+          [
+            20.4,
+            4.2,
+            3,
+            60.4
+          ]
+        ],
+        "pin_trial_d": 4.2,
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/gim6010_pin_trials/ABS_CAL_GIM6010_OUTPUT_PIN_D4p20.stl",
+      "stl_bytes": 99884,
+      "volume_cm3": 4.095
+    },
+    {
+      "bbox_mm": [
+        40.0,
+        40.0,
+        4.0
+      ],
+      "cylindrical_face_diameters_mm": [
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        3.4,
+        4.25,
+        4.25,
+        4.25,
+        13.2,
+        40.0
+      ],
+      "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.25",
+      "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+      "name": "ABS_CAL_GIM6010_OUTPUT_PIN_D4p25",
+      "spec": {
+        "center_d": 13.2,
+        "hardware": "6 x M3 plus 3 x O4 motor pins; trial bore O4.25",
+        "interface": "ABS-only GIM6010 output-pin clearance calibration; not a structural release dimension",
+        "od": 40.0,
+        "patterns": [
+          [
+            25.0,
+            3.4,
+            6,
+            30.4
+          ],
+          [
+            20.4,
+            4.25,
+            3,
+            60.4
+          ]
+        ],
+        "pin_trial_d": 4.25,
+        "thickness": 4.0
+      },
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/actuator_fit/gim6010_pin_trials/ABS_CAL_GIM6010_OUTPUT_PIN_D4p25.stl",
+      "stl_bytes": 99884,
+      "volume_cm3": 4.091
+    }
+  ],
+  "document": "Beni_Prototype1_TestGauges",
+  "purpose": "ABS-only GIM6010 delivered-pin clearance calibration"
+}

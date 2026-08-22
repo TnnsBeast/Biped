@@ -1,11 +1,11 @@
 # First print — actuator fit gates (ABS)
 
-Print the four files in [`actuator_fit/`](actuator_fit/) now.  They are the
-cheapest way to close the nominal STEP-to-real-hardware interfaces before a
-full leg consumes a long print.  The Mode A cable anchor in [`mode_a/`](mode_a/)
-is validated too, but it is not needed to pass the motor-fit gate.
+The four base files in [`actuator_fit/`](actuator_fit/) are the nominal
+STEP-to-real-hardware gates printed on 2026-08-22.  Their results route the next
+prints below.  The Mode A cable anchor in [`mode_a/`](mode_a/) is validated too,
+but it is not needed to pass the motor-fit gate.
 
-## Batch 1: print now
+## Batch 1: printed and tested 2026-08-22
 
 | STL | Checks |
 |---|---|
@@ -14,12 +14,28 @@ is validated too, but it is not needed to pass the motor-fit gate.
 | `ABS_FIT_GIM4305_HOUSING.stl` | wheel-motor driver-cover clearance and 6 × M2.5 pattern |
 | `ABS_FIT_GIM4305_OUTPUT.stl` | wheel output M3 pattern and Ø37.3 × 0.8 register pocket |
 
+Owner-reported result: GIM6010 housing PASS; GIM6010 output pattern aligned but
+its Ø4.05 printed pin bores did not hand-fit; GIM4305 housing PENDING M2.5
+screws; GIM4305 output PASS.  The failed GIM6010 output coupon is superseded for
+ABS clearance selection by Batch 1B below; it remains the evidence for the
+failed Ø4.05 result.
+
 These were built and exported from Fusion document
 `Beni_Prototype1_TestGauges` through the Fusion MCP.  Fusion's exact B-Rep
 validation and source dimensions are in
 [`actuator_fit/fusion_manifest.json`](actuator_fit/fusion_manifest.json).
 Independent binary-mesh inspection found one closed manifold shell per file,
 zero open/non-manifold edges, and zero degenerate triangles.
+
+## Batch 1B: GIM6010 output-pin clearance diagnostic
+
+Print the three files in
+[`actuator_fit/gim6010_pin_trials/`](actuator_fit/gim6010_pin_trials/) with the
+same ABS profile used for Batch 1.  They retain the validated three-pin pattern
+and change only the printed pin-bore diameter: Ø4.15, Ø4.20 and Ø4.25 mm.  The
+[diagnostic README](actuator_fit/gim6010_pin_trials/README.md) gives the print
+order, identification marks and pass rule.  These are ABS calibration values,
+not released PA-CF dimensions.
 
 ## Slicer setup
 
@@ -49,8 +65,9 @@ first result is recorded.
 5. Remove the coupon.  A print that needed screw torque to seat is a **fail**,
    even if it eventually went flat.
 
-A clean hand fit on all four coupons releases the corresponding ABS leg parts
-for the next print.  It does not release PA-CF structural loading: repeat the
+A clean hand fit releases the corresponding ABS leg interface for the next
+print.  The GIM6010 output requires the smallest passing Batch 1B bore before
+that release.  No ABS result releases PA-CF structural loading: repeat the
 critical interface coupon in the eventual structural material first.
 
 ## Optional Batch 2: Mode A cable anchor
