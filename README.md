@@ -30,10 +30,11 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports all four ABS actuator-interface coupons printed on 2026-08-22; physical fit results are pending. No printed leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, GIM6010 output FAIL at the three locating pins, GIM4305 housing PENDING M2.5 screws, GIM4305 output PASS. No printed leg or wiring has been assembled yet. |
 
-The immediate next action is physical: run the four printed actuator-interface
-gates against the delivered actuators, following the illustrated
+The immediate next actions are to build and Fusion-verify a GIM6010
+pin-clearance diagnostic set, then print it in the same ABS profile and run the
+pending GIM4305 housing gate when the M2.5 screws arrive. Follow the illustrated
 [`2026-08-22 coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
 with the real actuators as go/no-go fixtures, so calipers are **not a blocker**.

@@ -1,9 +1,17 @@
 # ABS actuator-interface coupon test
 
 The owner reported all four ABS actuator-interface coupons printed on
-2026-08-22. This guide maps each coupon to the delivered actuator. The fit
-results remain pending until the physical checks and photographs below are
-returned.
+2026-08-22. This guide maps each coupon to the delivered actuator and records
+the physical results reported that day. Photographic evidence remains pending.
+
+## Reported results — 2026-08-22
+
+| Test | Interface | Result | Evidence/status |
+|---:|---|---|---|
+| 1 | GIM6010 housing | **PASS** | Owner report: worked well; photograph pending. |
+| 2 | GIM6010 output | **FAIL** | All three locating pins do not enter nicely by hand. Do not clamp or force. Pin-clearance diagnostic print required before changing the structural hub. |
+| 3 | GIM4305 housing | **PENDING** | Matching M2.5 screws ordered; test not yet run. |
+| 4 | GIM4305 output | **PASS** | Owner report: worked well; photograph pending. |
 
 ## Identify the four coupons
 
@@ -85,4 +93,3 @@ Before sanding, drilling, filing, heating or forcing anything, photograph:
 
 Send those photographs back with the four PASS/FAIL results. Do not energise or
 backdrive either actuator during these checks.
-
