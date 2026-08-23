@@ -30,11 +30,12 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, GIM6010 output pin pattern aligned but the Ø4.05 bores did not hand-fit, GIM4305 housing PENDING M2.5 screws, GIM4305 output PASS. A Fusion-verified Ø4.15/4.20/4.25 ABS pin-bore diagnostic set is ready. No printed leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL, GIM4305 housing PENDING M2.5 screws, and GIM4305 output PASS. The follow-up GIM6010 Ø4.15 ABS pin-bore coupon PASSed with light pressure. A Fusion-verified Ø4.15 ABS shoulder hub is ready for the unloaded assembly batch. No printed leg or wiring has been assembled yet. |
 
-The immediate next actions are to print and run the GIM6010 pin-clearance
-diagnostic set in the same ABS profile, then run the pending GIM4305 housing gate
-when the M2.5 screws arrive. Follow the illustrated
+The immediate next action is the small unloaded ABS shoulder batch in
+[`first_article_stl/assembly_dry_fit/`](first_article_stl/assembly_dry_fit/):
+the general fit coupon, Ø4.15-compensated output hub and chassis shoulder plate.
+Then run the pending GIM4305 housing gate when the M2.5 screws arrive. Follow the illustrated
 [`2026-08-22 coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
 with the real actuators as go/no-go fixtures, so calipers are **not a blocker**.
@@ -119,7 +120,7 @@ hand-built.
 | `beni_export.py` | inside Fusion | STEP per part, URDF + inertia JSON with a mass-closure assert, print STLs, viewer STLs. |
 | `rig_lib.py` | inside Fusion | Builds every `RIG_*` part, including the completed Mode A `build_rig_stand()`, the §4.4 check suite (`checks_44()`), the Mode B travel harness (`slide_to()`), and an interference reporter whose names actually resolve (`real_clashes()`). The rail/block/carriage/index/pin/bumper/ballast builders and `check3_mode_b_travel()` are deferred with Mode B. |
 | `rig_calc.py` | plain `python3` | Independent recomputation of the brief's arithmetic: spring curve, drop series, MGN12H moments, travel budget, mass budget, bounce mode, torque arm, and **`mode_a_stand()` — the verified Mode A load set** (42.00 mm overhang, the four moments, the tipping table, the step-6 mass/φ table). |
-| `rig_export.py` | inside Fusion | Rig STLs and the targeted Mode A anchor first article, with print orientation recorded per part. |
+| `rig_export.py` | inside Fusion | Rig STLs, the targeted Mode A anchor, and the transient ABS-calibrated shoulder-hub first article, with print orientation recorded per part. |
 | `first_article_fusion.py` | inside Fusion | Builds, validates and exports the four ABS actuator-interface coupons in `Beni_Prototype1_TestGauges`. |
 | `stl_inspect.py` | plain `python3` | Recovers circular features from an STL mesh. Used to check the GAUGE coupons against the design record. |
 | `fusion_bridge/` | both sides | Lets an agent without Fusion read the live model. `bridge.py` (plain `python3`) validates requests and reads results; `probe.py` + `ops.py` run inside Fusion. See [`fusion_bridge/PROTOCOL.md`](fusion_bridge/PROTOCOL.md). |
@@ -151,7 +152,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 | Directory | Contents |
 |---|---|
 | `rig_stl/` | Rig parts to print, plus `reroute/` — the formerly-machined parts, now printed. `reroute/Distal_Link_L.stl` supersedes the `print_stl/` copy. |
-| `first_article_stl/` | **Print this first.** Four ABS actuator mating coupons, the optional Mode A cable anchor, Fusion manifests and mesh checksums. |
+| `first_article_stl/` | **Print this first.** ABS actuator mating coupons, the unloaded shoulder dry-fit batch, the optional Mode A cable anchor, Fusion manifests and mesh checksums. |
 | `print_stl/` | Robot parts to print, the fit coupon, the two motor gauges |
 | `sim/` | `beni.urdf` and `beni_inertia.json`, real inertias, mass closure asserted |
 | `web/` | Browser viewer for posing the robot without Fusion |

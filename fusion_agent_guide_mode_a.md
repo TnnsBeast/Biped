@@ -293,9 +293,11 @@ pedestal fitted, keep the shoulder within **−120…+25°**.
    despite §6 documenting a reproducible way to corrupt it. This is the
    highest-value missing artifact in the project — do not skip it.
 6. The design record §2.3 **dowel-pin recommendation survives intact**:
-   `Shoulder_Output_Hub_L` needs its three Ø4 × 10 hardened dowel pins, holes
-   printed Ø3.9 and reamed to Ø4.05. The printed register alone sees 63 MPa at the
-   25 N·m proof load against PA-CF's ~40–50 MPa shear. **Not optional.**
+   `Shoulder_Output_Hub_L` needs its three Ø4 × 10 hardened dowel pins. The
+   printed register alone sees 63 MPa at the 25 N·m proof load against PA-CF's
+   ~40–50 MPa shear. **The pins are not optional, but machining is prohibited:**
+   structural release now waits for an as-printed PA-CF press-fit coupon; revise
+   the printed retention geometry if no coupon bore works.
 
 ---
 

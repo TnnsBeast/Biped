@@ -6,6 +6,11 @@ do not slide into the printed bores by hand.  This set therefore holds the
 validated Ø20.4 PCD and all other geometry fixed while varying only the three
 pin bores.
 
+**Result, 2026-08-22:** Ø4.15 passed. The owner reports that it is not a loose
+no-force slip fit, but seats easily with light pressure. Stop here; Ø4.20 and
+Ø4.25 are not needed for this ABS profile. The released next article is the
+[Ø4.15 ABS shoulder hub](../../assembly_dry_fit/README.md).
+
 ![Fusion view: Ø4.15, Ø4.20 and Ø4.25 from left to right](00_fusion_clearance_series.png)
 
 | Print order | STL | Pin bores |

@@ -70,6 +70,13 @@ record §2 and every feature agrees, but they are positive stand-ins. They are
 optional now that the motors are present and cannot perform the new physical
 mating check. Use a negative ABS coupon or the actual ABS mating part instead.
 
+For the current GIM6010 ABS article, do **not** use the nominal
+`reroute/Shoulder_Output_Hub_L.stl`. The owner-tested Ø4.15 ABS variant and the
+exact next-print sequence are in
+[`../first_article_stl/assembly_dry_fit/`](../first_article_stl/assembly_dry_fit/).
+That compensation is specific to the ABS profile and is not a structural
+release dimension.
+
 ### 1. ~~`RIG_Carriage.stl`~~ — **[DEFERRED — MODE B]**
 90.2 cm³, **103.7 g**, 154 × 170 × 8. Do not print this for the Mode A build; it
 exists only to ride the MGN12 blocks. **`RIG_Stand` takes its place** and inherits
@@ -222,7 +229,7 @@ committing to a second set.**
 
 | File | Was | Orientation | The thing that will bite |
 |---|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | Torque then loads the bolt circle in XY and the three dowel holes see shear **across** layers. **Print the Ø4.05 holes at Ø3.9 and ream to Ø4.05**, and press in three Ø4 × 10 hardened dowel pins — without them the printed register sees 63 MPa against PA-CF's ~40–50 MPa shear at proof load. Use M4 heat-set inserts **5.8 mm long**, not 8 mm: the flange is 8 mm thick and an 8 mm insert breaks through. |
+| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | Torque then loads the bolt circle in XY and the three dowel holes see shear **across** layers. **Structural release is pending a PA-CF press-fit coupon for the bought Ø4 × 10 hardened dowels.** The former Ø3.9-and-ream instruction is retired because machining is prohibited. Without the steel dowels the printed register sees 63 MPa against PA-CF's ~40–50 MPa shear at proof load. Use M4 heat-set inserts **5.8 mm long**, not 8 mm: the flange is 8 mm thick and an 8 mm insert breaks through. |
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | Torque is carried by **friction**, and preload in plastic creeps. **Steel washer under every screw head**, and re-torque after the first hour then every ~10 hours. The Ø37.3 register is centring only and prints fine at 5 walls. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |

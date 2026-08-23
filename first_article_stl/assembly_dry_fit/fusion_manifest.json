@@ -1,0 +1,25 @@
+{
+  "document": "Beni_SingleLegRig",
+  "fusion_bbox_mm": [
+    56.0,
+    14.0,
+    56.0
+  ],
+  "material_release": "ABS first article only; not PA-CF structural data",
+  "nominal_envelope_mm": [
+    56.0,
+    14.0,
+    56.0
+  ],
+  "orientation": "place the \u00d856 flange face flat on the bed",
+  "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15",
+  "pin_bore_count_brep": 3,
+  "pin_bores_mm": 4.15,
+  "pin_pcd_mm": 20.4,
+  "pin_start_angle_deg": 60.4,
+  "purpose": "unloaded ABS shoulder assembly and interface dry-fit",
+  "restriction": "no actuator torque, backdrive, spring, stand, or load",
+  "source_geometry": "Shoulder_Output_Hub_L with pin bores overridden",
+  "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15.stl",
+  "stl_bytes": 280884
+}

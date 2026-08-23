@@ -15,9 +15,9 @@ but it is not needed to pass the motor-fit gate.
 | `ABS_FIT_GIM4305_OUTPUT.stl` | wheel output M3 pattern and Ø37.3 × 0.8 register pocket |
 
 Owner-reported result: GIM6010 housing PASS; GIM6010 output pattern aligned but
-its Ø4.05 printed pin bores did not hand-fit; GIM4305 housing PENDING M2.5
-screws; GIM4305 output PASS.  The failed GIM6010 output coupon is superseded for
-ABS clearance selection by Batch 1B below; it remains the evidence for the
+its Ø4.05 printed pin bores did not hand-fit; the follow-up Ø4.15 pin-bore
+coupon PASSed with a light press; GIM4305 housing PENDING M2.5 screws; GIM4305
+output PASS.  The failed GIM6010 output coupon remains the evidence for the
 failed Ø4.05 result.
 
 These were built and exported from Fusion document
@@ -29,13 +29,18 @@ zero open/non-manifold edges, and zero degenerate triangles.
 
 ## Batch 1B: GIM6010 output-pin clearance diagnostic
 
-Print the three files in
-[`actuator_fit/gim6010_pin_trials/`](actuator_fit/gim6010_pin_trials/) with the
-same ABS profile used for Batch 1.  They retain the validated three-pin pattern
-and change only the printed pin-bore diameter: Ø4.15, Ø4.20 and Ø4.25 mm.  The
+The three generated files in
+[`actuator_fit/gim6010_pin_trials/`](actuator_fit/gim6010_pin_trials/) retain the
+validated three-pin pattern and change only the printed pin-bore diameter:
+Ø4.15, Ø4.20 and Ø4.25 mm. The
 [diagnostic README](actuator_fit/gim6010_pin_trials/README.md) gives the print
-order, identification marks and pass rule.  These are ABS calibration values,
+order, identification marks and pass rule. These are ABS calibration values,
 not released PA-CF dimensions.
+
+The Ø4.15 coupon passed on 2026-08-22, so stop there; the larger two trials are
+not needed. Batch 2 is the actual unloaded ABS shoulder assembly in
+[`assembly_dry_fit/`](assembly_dry_fit/): the compensated output hub plus the
+existing chassis shoulder plate and general fit coupon.
 
 ## Slicer setup
 

@@ -691,7 +691,11 @@ Two printed parts carry consequences the brief already flagged:
 
 - **`Shoulder_Output_Hub_L` needs its three Ø4 × 10 hardened dowel pins.** The
   printed register alone sees 63 MPa at the 25 N·m proof load against PA-CF's
-  ~40–50 MPa shear. Print the holes **Ø3.9 and ream to Ø4.05.** Not optional.
+  ~40–50 MPa shear. The pins are not optional. The former Ø3.9-and-ream route
+  is retired because machining is prohibited; PA-CF structural release waits
+  for an as-printed bore coupon that gives a true press fit to the bought pins.
+  If no bore works, revise the printed retention geometry rather than drilling
+  or reaming the hub.
 - **`Wheel_Hub_L` needs a steel washer under every screw head**, and the
   re-torque schedule: after the first hour, then every ~10 hours. Its 20.7 N·m
   friction capacity is a preload joint in plastic, and preload in plastic creeps.

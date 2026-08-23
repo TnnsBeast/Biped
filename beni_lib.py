@@ -2528,11 +2528,19 @@ def build_cable_cover():
     return occ
 
 
-def build_shoulder_hub():
-    drop_comp('Shoulder_Output_Hub_L')
-    occ = new_comp('Shoulder_Output_Hub_L'); c = occ.component
+def build_shoulder_hub(pin_bore_d=4.05,
+                       component_name='Shoulder_Output_Hub_L'):
+    """Build the shoulder output hub.
+
+    ``pin_bore_d`` and ``component_name`` exist so material/profile fit trials
+    can be generated without changing the released nominal hub.  The ordinary
+    assembly build still uses the manufacturer-derived Ø4.05 geometry and the
+    canonical ``Shoulder_Output_Hub_L`` name.
+    """
+    drop_comp(component_name)
+    occ = new_comp(component_name); c = occ.component
     sk = sk_on_y(c, HUB_Y0); circle(sk, 0, 0, HUB_BODY_D)
-    extrude(c, sk.profiles.item(0), HUB_MID_Y - HUB_Y0, 'new').bodies.item(0).name = 'Shoulder_Output_Hub_L'
+    extrude(c, sk.profiles.item(0), HUB_MID_Y - HUB_Y0, 'new').bodies.item(0).name = component_name
     sk = sk_on_y(c, HUB_MID_Y); circle(sk, 0, 0, HUB_FLANGE_D)
     extrude(c, sk.profiles.item(0), HUB_Y1 - HUB_MID_Y, 'join')
     sk = sk_on_y(c, HUB_Y0 - 1); circle(sk, 0, 0, 12.0)
@@ -2544,7 +2552,7 @@ def build_shoulder_hub():
     circles_polar(sk, 0, 0, SH_OUT_PCD, 6.2, 6, SH_OUT_A0)
     extrude(c, profiles(sk), HUB_Y1 - 50.5 + 1, 'cut')
     sk = sk_on_y(c, HUB_Y0 - 1)
-    circles_polar(sk, 0, 0, SH_PIN_PCD, 4.05, 3, SH_PIN_A0)
+    circles_polar(sk, 0, 0, SH_PIN_PCD, pin_bore_d, 3, SH_PIN_A0)
     extrude(c, profiles(sk), (HUB_Y1 - HUB_Y0) + 2, 'cut')
     sk = sk_on_y(c, HUB_Y0)
     circles_polar(sk, 0, 0, SH_PIN_PCD, 5.2, 3, SH_PIN_A0)

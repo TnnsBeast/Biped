@@ -55,9 +55,13 @@ than tapping PA-CF. The **3 × Ø4.05 dowel register** is:
 | 25 N·m proof | 817 N | **63 MPa** | **fails** |
 
 **Fix: press three Ø4 × 10 hardened dowel pins into the printed hub** (~$0.30 each) —
-steel-on-steel against the motor's pins takes the plastic out of the shear path. Print the holes
-Ø3.9 and ream to Ø4.05. **Orientation: flange face flat on the bed**, so the dowel holes shear
-across layers, not along them.
+steel-on-steel against the motor's pins takes the plastic out of the shear path.
+The old Ø3.9-and-ream route is prohibited by the project's no-machining rule.
+Before PA-CF structural release, print a dedicated PA-CF bore series and select
+the smallest as-printed bore that accepts the bought dowels as a true press fit;
+if none passes, revise the printed retention geometry rather than drilling or
+reaming it. **Orientation: flange face flat on the bed**, so the dowel holes
+shear across layers, not along them.
 
 **`Wheel_Hub_L` — a friction joint in plastic.**
 

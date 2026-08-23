@@ -24,6 +24,8 @@ import rig_lib as R
 ROOT = '/Users/neilchulani/Robots/Biped'
 STL_DIR = os.path.join(ROOT, 'rig_stl')
 FIRST_ARTICLE_DIR = os.path.join(ROOT, 'first_article_stl', 'mode_a')
+ABS_ASSEMBLY_DIR = os.path.join(ROOT, 'first_article_stl',
+                                'assembly_dry_fit')
 
 # printed rig parts, with the orientation each one has to be printed in
 RIG_PRINT = [
@@ -151,4 +153,85 @@ def export_mode_a_anchor_first_article():
         stream.write('\n')
     print(json.dumps({'exported': manifest,
                       'manifest': manifest_path}, indent=2, sort_keys=True))
+    return manifest
+
+
+def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
+    """Build/export the ABS-only shoulder hub selected by the pin coupon.
+
+    This creates a separately named transient component so the released
+    Ø4.05 hub remains untouched.  Run it in ``Beni_SingleLegRig``, inspect the
+    result, export it, then close the Fusion document without saving.
+    """
+    if abs(pin_bore_d - 4.15) > 1e-6:
+        raise ValueError('only the owner-tested Ø4.15 ABS variant is released')
+    os.makedirs(ABS_ASSEMBLY_DIR, exist_ok=True)
+    name = 'ABS_FA_Shoulder_Output_Hub_L_D4p15'
+    occ = R.guarded(B.build_shoulder_hub,
+                    pin_bore_d=pin_bore_d,
+                    component_name=name)
+    if occ.component.bRepBodies.count != 1:
+        raise RuntimeError('%s must contain exactly one solid body' % name)
+
+    # Recover exact analytic cylinder diameters from the B-Rep, rather than
+    # treating the STL or Fusion's display bounding box as authoritative.
+    diameters = []
+    body = occ.component.bRepBodies.item(0)
+    for face in body.faces:
+        geo = face.geometry
+        if geo.objectType.endswith('Cylinder'):
+            diameters.append(round(geo.radius * 20.0, 5))
+    pin_faces = sum(abs(d - pin_bore_d) <= 1e-4 for d in diameters)
+    if pin_faces != 3:
+        raise RuntimeError('expected 3 Ø%.2f cylinder faces, found %d: %s'
+                           % (pin_bore_d, pin_faces, sorted(diameters)))
+
+    path = os.path.join(ABS_ASSEMBLY_DIR, name + '.stl')
+    size = _stl(occ, path)
+    bb = B.bbox_of(occ)
+    manifest = {
+        'document': adsk.core.Application.get().activeDocument.name,
+        'part': name,
+        'purpose': 'unloaded ABS shoulder assembly and interface dry-fit',
+        'material_release': 'ABS first article only; not PA-CF structural data',
+        'source_geometry': 'Shoulder_Output_Hub_L with pin bores overridden',
+        'pin_bores_mm': pin_bore_d,
+        'pin_bore_count_brep': pin_faces,
+        'pin_pcd_mm': B.SH_PIN_PCD,
+        'pin_start_angle_deg': B.SH_PIN_A0,
+        'nominal_envelope_mm': [B.HUB_FLANGE_D,
+                                B.HUB_Y1 - B.HUB_Y0,
+                                B.HUB_FLANGE_D],
+        'fusion_bbox_mm': [round(bb[1] - bb[0], 4),
+                           round(bb[3] - bb[2], 4),
+                           round(bb[5] - bb[4], 4)],
+        'orientation': 'place the Ø56 flange face flat on the bed',
+        'restriction': 'no actuator torque, backdrive, spring, stand, or load',
+        'stl': path,
+        'stl_bytes': size,
+    }
+    manifest_path = os.path.join(ABS_ASSEMBLY_DIR,
+                                 'fusion_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump(manifest, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+
+    # Keep a Fusion-authored visual record with only the transient article
+    # visible.  The document itself is deliberately not saved.
+    root = B.root()
+    visibility = []
+    for item in root.occurrences:
+        visibility.append((item, item.isLightBulbOn))
+        item.isLightBulbOn = (item == occ)
+    adsk.core.Application.get().activeViewport.fit()
+    image_path = os.path.join(ABS_ASSEMBLY_DIR,
+                              '00_fusion_abs_shoulder_hub_d4p15.png')
+    adsk.core.Application.get().activeViewport.saveAsImageFile(
+        image_path, 1600, 1200)
+    for item, was_on in visibility:
+        item.isLightBulbOn = was_on
+
+    print(json.dumps({'exported': manifest,
+                      'manifest': manifest_path,
+                      'image': image_path}, indent=2, sort_keys=True))
     return manifest

@@ -150,7 +150,10 @@ table is in `beni_single_leg_rig_design_record.md` §7 and `rig_stl/README.md`.
 
 **The dowel pins are not optional.** The printed hub's 3 × Ø4.05 register sees
 63 MPa at proof load against PA-CF's ~40–50 MPa shear. Pressed steel pins move
-the shear into metal. Print the holes Ø3.9 and ream to Ø4.05.
+the shear into metal. The old Ø3.9-and-ream route is prohibited by the project
+manufacturing rule. Gate PA-CF structural release on an as-printed bore coupon
+that produces a true press fit to the bought pins; if none passes, revise the
+printed retention geometry instead of machining it.
 
 ### 2.3 Open design question — delete the double-D flats
 
