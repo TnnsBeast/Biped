@@ -116,7 +116,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 
 | Size | Where | Qty/leg | Qty/robot |
 |---|---|---:|---:|
-| M3 × 10 SHCS | shoulder plate → motor housing (Ø74 PCD) | 8 | 16 |
+| **M3 × 8 SHCS** | shoulder plate → motor housing (Ø74 PCD); **not ×10**, which bottoms in the 4.0 mm-deep actuator thread through the 5 mm panel | 8 | 16 |
 | M3 × 10 SHCS | output hub → motor output (Ø25 PCD) | 6 | 12 |
 | **M3 × 8 SHCS** | shoulder plate → cable cover inserts (Ø88 PCD) | 4 | 8 |
 | M4 × 10 SHCS | proximal link root → hub flange (Ø44 PCD) | 6 | 12 |
@@ -141,6 +141,12 @@ proximal arm-B boss.
   it is why the audits exist.*
 - **Cable cover: M3 × 10 → M3 × 8.** The cover's insert bores are now 5.0 mm deep.
   **This joint is still real — order M3 × 8.**
+
+The later delivered-actuator/rig audit adds one more active correction:
+**shoulder motor housing: M3 × 10 → M3 × 8** through the 5 mm panel. The
+GIM6010 housing thread is 4.0 mm deep, so ×10 bottoms instead of clamping. This
+is Departure 7 in
+[`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md).
 
 Full account of both defects, with the arithmetic:
 [`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §4.
@@ -283,7 +289,9 @@ wheel is fully assembled.*
    panel face faces the stationary housing. The centre opening passes over the
    bare output rotor; the actuator housing stays behind the plate and does not
    pass through it. Bolt the plate to the motor's **front** face,
-   **8 × M3 × 10** on the Ø74 PCD, 1.2 N·m. Heads stand on the y = 47 face. This
+   **8 × M3 × 8** on the Ø74 PCD, 1.2 N·m. Do not use ×10: it puts 5 mm of screw
+   into a 4.0 mm-deep actuator thread and bottoms before clamping. Heads stand
+   on the y = 47 face. This
    insertion path is Fusion-verified and recorded in
    [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 2. Fit 4 × M3 heat-set inserts in `Shoulder_Cable_Cover_L`, then fasten the

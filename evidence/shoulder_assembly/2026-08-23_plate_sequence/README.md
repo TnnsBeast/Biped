@@ -11,6 +11,9 @@ The unloaded ABS shoulder batch was tried on the delivered GIM6010-8:
 - `Chassis_Shoulder_Plate_L`: the first attempt was stopped because the owner
   tried to pass the actuator housing through the plate while the output hub was
   installed. No part was forced or modified.
+- Corrected bare-rotor plate sequence: **PASS** — on 2026-08-23 the owner
+  confirmed that the plate installs successfully before the output hub is
+  reinstalled.
 
 The two owner photographs are retained as
 [`04_owner_shoulder_plate_attempt.jpg`](04_owner_shoulder_plate_attempt.jpg) and
@@ -26,8 +29,10 @@ The actuator housing does **not** pass through the shoulder plate.
    output/front side, move it toward the bare actuator. Its centre opening passes
    over the actuator's bare output rotor while the actuator's outer housing
    remains behind the plate.
-3. Seat the plate on the stationary housing face. Finger-start two opposite M3
-   housing screws, then confirm the other six before tightening anything.
+3. Seat the plate on the stationary housing face. Finger-start two opposite
+   **M3 × 8** housing screws, then confirm the other six before tightening
+   anything. Do not use M3 × 10 here: the plate is 5 mm thick and the actuator
+   housing threads are only 4.0 mm deep, so ×10 bottoms before clamping.
 4. Install the printed output hub only after the plate is seated and fastened.
 
 ![Step 1: plate approaches the bare actuator](01_plate_approaches_bare_motor.png)
@@ -52,5 +57,6 @@ Source document: `Beni_SingleLegRig`, cleanly reopened after the transient test.
   2480.323318 mm³. The Ø56 flange cannot pass through the Ø48 opening even
   though the completed final pose itself is interference-free.
 
-Status: **CAD PATH VERIFIED**. Physical verification remains open until the
-owner completes steps 1–4 above and confirms all eight housing screws align.
+Status: **PHYSICAL ASSEMBLY VERIFIED, 2026-08-23**. The owner completed the
+corrected sequence successfully. This verifies access and order only; the ABS
+parts remain unloaded first articles and the joint has not been torque-tested.

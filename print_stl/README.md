@@ -50,7 +50,7 @@ robot:
 |---:|---|---|
 | Ø19.0 | 6800 bearing seat, proximal arms | light press — bearing enters with thumb pressure, no rock |
 | Ø16.0 | **was** the steel knee sleeve's seat in the distal boss — **that bore is now Ø10**, printed straight into `Distal_Link_L`, because `Knee_Sleeve_L` is deleted. Measure it as a general large-bore check only | light press |
-| Ø10.0 | knee axle bore — the fit that now matters, on a bought Ø10 h6 dowel pin | slip, no rock |
+| Ø10.0 | knee axle bore — the fit that now matters, on a bought Ø10 h6 × 35 mm dowel pin | light press, not a loose slip — this press is the rig's angular reference |
 | Ø6.0 | knee-stop dowel seat | light press |
 | Ø4.05 | shoulder-output dowel | slip |
 | Ø4.0 | M3 heat-set insert bore | insert seats flush without splitting the wall |
@@ -60,6 +60,12 @@ fasteners, and inserts. Record which nominal feature produces the required fit
 and use that to set the ABS profile's **hole / X-Y size compensation**. The
 result is specific to the material, printer, orientation, and profile; do not
 reuse ABS compensation for PA-CF.
+
+For the active Mode A first article, the immediate go/no-go checks are Ø19 with
+the real 6800-2RS bearing and Ø10 with the real h6 knee pin. The Ø16 bore is a
+superseded sleeve check; Ø6 and Ø4.0 support later stop/insert work; and the
+Ø4.05 shoulder-output result has already been superseded for this ABS profile
+by the owner-tested Ø4.15 hub.
 
 **This one print de-risks every other print.** Don't skip it — the Ø19 bearing
 seats and the Ø10 knee-axle bore are the two fits that will otherwise waste a

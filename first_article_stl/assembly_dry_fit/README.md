@@ -44,18 +44,24 @@ parts. A brim is fine if this ABS profile normally needs one.
    the stationary housing face, finger-start two opposite M3 housing screws,
    then confirm the remaining six. Only after the plate is seated should the
    output hub be reinstalled. Do not draw the plate sideways with screws.
-   **CAD PATH VERIFIED; PHYSICAL ASSEMBLY PENDING, 2026-08-23.** The staged
+   Use **M3 × 8** housing screws for fastening; M3 × 10 bottoms in the
+   actuator's 4.0 mm-deep threads before it can clamp this 5 mm plate.
+   **OWNER ASSEMBLY PASS, 2026-08-23.** The staged
    Fusion views and owner evidence are
    [`../../evidence/shoulder_assembly/2026-08-23_plate_sequence/`](../../evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 4. When the 6800 bearings and Ø10 axle/dowel are on the bench, test the fit
-   coupon before printing either link. Record fit only; do not alter the coupon.
+   coupon before printing either link. The Ø19 bearing bore must be a
+   thumb-pressure light press with no rock. The Ø10 h6 × 35 mm knee pin must be
+   a light press, not a loose slip: the pin-to-distal-link press is the rig's
+   angular reference. Record fit only; do not alter the coupon.
 
 Stop after this batch until the remaining gates close:
 
 - Do not print `Proximal_Link_L` until the real 6800 bearing passes the Ø19
   gauge (thumb-pressure light press, no rock).
 - Do not print the rerouted `Distal_Link_L` until the GIM4305 housing coupon
-  passes with the arriving M2.5 screws.
+  passes with the arriving M2.5 screws **and** the real Ø10 h6 knee pin passes
+  the coupon as a light press.
 - Do not install the knee spring, torque/backdrive either actuator, mount the
   leg in the stand, or apply load through these ABS parts.
 - Repeat the critical coupons in PA-CF before structural release; the Ø4.15
