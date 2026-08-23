@@ -33,12 +33,20 @@ parts. A brim is fine if this ABS profile normally needs one.
 
 1. Put the hub onto all three GIM6010 factory pins simultaneously. It should
    reproduce the Ø4.15 coupon result and reach the metal face with light finger
-   pressure. Do not use screws to pull it down.
+   pressure. Do not use screws to pull it down. **OWNER PASS, 2026-08-23.**
 2. Finger-start two opposite of the six M3 output screws, then check the other
-   four. Do not tighten or energise the actuator.
-3. Put the shoulder plate on the stationary GIM6010 housing face and
-   finger-start two opposite M3 screws. Confirm all eight holes and the centre
-   clearance without drawing the plate sideways.
+   four. Do not tighten or energise the actuator. **OWNER PASS, 2026-08-23.**
+3. **Remove the output hub first.** Hold the plate with its raised circular
+   cable-spiral lip facing away from the actuator and its flat panel face toward
+   the stationary housing. From the actuator's output/front side, pass the
+   plate's centre opening over the **bare output rotor**; the Ø80 actuator
+   housing stays behind the plate and never passes through it. Seat the plate on
+   the stationary housing face, finger-start two opposite M3 housing screws,
+   then confirm the remaining six. Only after the plate is seated should the
+   output hub be reinstalled. Do not draw the plate sideways with screws.
+   **CAD PATH VERIFIED; PHYSICAL ASSEMBLY PENDING, 2026-08-23.** The staged
+   Fusion views and owner evidence are
+   [`../../evidence/shoulder_assembly/2026-08-23_plate_sequence/`](../../evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 4. When the 6800 bearings and Ø10 axle/dowel are on the bench, test the fit
    coupon before printing either link. Record fit only; do not alter the coupon.
 

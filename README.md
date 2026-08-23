@@ -5,10 +5,13 @@ passive spring-loaded knee → distal link → driven wheel**, one leg per side.
 Two Steadywin actuators per leg (GIM6010-8 shoulder, GIM4305-10 wheel), ABS
 first articles followed by PA-CF structural parts, Teensy 4.1 control.
 
-> ## Build rule
-> **3D printed and off-the-shelf parts only. No laser cutting, no machining.**
-> Authoritative statement and the full list of what that changed:
-> **[`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md)**
+> ## Non-negotiable build rules
+> 1. **3D printed and off-the-shelf parts only. No laser cutting, no machining.**
+>    Authoritative routing: **[`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md)**.
+> 2. **A final CAD pose is not an assembly proof.** Before release, verify the
+>    insertion order/path, fastener and tool access, cable path, and service path;
+>    then physically rehearse the first article. Canonical gate:
+>    **[`ASSEMBLY_VERIFICATION.md`](ASSEMBLY_VERIFICATION.md)**.
 
 ---
 
@@ -30,11 +33,13 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL, GIM4305 housing PENDING M2.5 screws, and GIM4305 output PASS. The follow-up GIM6010 Ø4.15 ABS pin-bore coupon PASSed with light pressure. A Fusion-verified Ø4.15 ABS shoulder hub is ready for the unloaded assembly batch. No printed leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL, GIM4305 housing PENDING M2.5 screws, and GIM4305 output PASS. The follow-up GIM6010 Ø4.15 ABS pin-bore coupon PASSed with light pressure. The actual Ø4.15 ABS shoulder hub now also PASSes all three pins and all six M3 output positions. The shoulder plate is printed; its bare-actuator insertion path is Fusion-verified and awaits the corrected physical sequence. No loaded leg or wiring has been assembled yet. |
 
-The immediate next action is the small unloaded ABS shoulder batch in
-[`first_article_stl/assembly_dry_fit/`](first_article_stl/assembly_dry_fit/):
-the general fit coupon, Ø4.15-compensated output hub and chassis shoulder plate.
+The immediate next action is to complete the corrected shoulder-plate sequence
+in [`first_article_stl/assembly_dry_fit/`](first_article_stl/assembly_dry_fit/):
+remove the output hub, install the plate over the bare output rotor, confirm all
+eight housing screws, then reinstall the hub. The Fusion path evidence is
+[`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 Then run the pending GIM4305 housing gate when the M2.5 screws arrive. Follow the illustrated
 [`2026-08-22 coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
@@ -72,6 +77,7 @@ Rig design record §6.2.
 | File | What it is |
 |---|---|
 | [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md) | **The CAD handoff for the Mode A build.** Everything a Fusion agent needs to model `RIG_Stand` and the reduced part set: verified load table, the 42.00 mm overhang, the mount interface, the check list, and the model-corrupting traps. Read this before touching the model. |
+| [`ASSEMBLY_VERIFICATION.md`](ASSEMBLY_VERIFICATION.md) | **The physical-assembly release gate.** Required insertion-order/path, tool access, cable path, service path, and first-article rehearsal checks. |
 | [`fusion_brief_single_leg_rig.md`](fusion_brief_single_leg_rig.md) | **The brief.** What the rig must do and why it is a dynamics rig, not a fit check. Amended 2026-08-17 for Mode A. |
 | [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) | **The answer, and the authoritative rig document.** As-built design, all six checks, mass properties, eleven departures from the brief, purchase list. **§6.2's five measurement traps are the most reusable content in the project.** Mode B sections carry `[DEFERRED]` banners; the leg content is unaffected. |
 | [`beni_rig_no_machining.md`](beni_rig_no_machining.md) | Companion: the canonical PA-CF print settings with per-setting reasoning, and the load arithmetic behind the printed-part routing. |

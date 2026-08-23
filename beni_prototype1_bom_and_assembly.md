@@ -277,8 +277,15 @@ wheel is fully assembled.*
 
 ### B. Leg build
 
-1. Bolt `Chassis_Shoulder_Plate_L` to the shoulder motor's **front** face,
-   **8 × M3 × 10** on the Ø74 PCD, 1.2 N·m. Heads stand on the y = 47 face.
+1. With `Shoulder_Output_Hub_L` **removed**, bring
+   `Chassis_Shoulder_Plate_L` in from the shoulder motor's output/front side.
+   Its raised circular cable-spiral lip faces away from the motor and its flat
+   panel face faces the stationary housing. The centre opening passes over the
+   bare output rotor; the actuator housing stays behind the plate and does not
+   pass through it. Bolt the plate to the motor's **front** face,
+   **8 × M3 × 10** on the Ø74 PCD, 1.2 N·m. Heads stand on the y = 47 face. This
+   insertion path is Fusion-verified and recorded in
+   [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 2. Fit 4 × M3 heat-set inserts in `Shoulder_Cable_Cover_L`, then fasten the
    cover through the plate from **inside the chassis**, 4 × **M3 × 8**.
    *Do this before the chassis is closed.*

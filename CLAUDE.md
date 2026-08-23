@@ -70,6 +70,13 @@ Start at [`README.md`](README.md) for status and reading order.
    caches, credentials, local account/order screenshots, or unfinished outputs.
    Read-only reviews and research do not require empty commits.
 
+9. **Final-pose clearance is not assembly verification.** Before releasing a
+   print or an assembly step, demonstrate the insertion order and full path,
+   fastener/tool access, cable path, and service/removal path in Fusion. Then
+   rehearse the sequence on the first physical article before structural release.
+   Never use fasteners to draw an incompatible print into place. Canonical gate:
+   [`ASSEMBLY_VERIFICATION.md`](ASSEMBLY_VERIFICATION.md).
+
 ## Where each fact lives — link, don't copy
 
 | Fact | Canonical home |
@@ -82,6 +89,7 @@ Start at [`README.md`](README.md) for status and reading order.
 | Lateral Y-stack | `beni_prototype1_design_record.md` §3 |
 | Robot mass properties / CoM / inertia | `beni_prototype1_design_record.md` §14 |
 | Fastener schedule, assembly sequence, torques | `beni_prototype1_bom_and_assembly.md` §7, §9 |
+| Physical assembly-path release gate and status labels | `ASSEMBLY_VERIFICATION.md` |
 | Revision-2 defects and the Fusion scripting traps | `beni_prototype1_rev2_changes.md` |
 | Rig as-built, checks, mass, purchase list | `beni_single_leg_rig_design_record.md` |
 | **Mode A scope decision + CAD handoff** | `fusion_agent_guide_mode_a.md` |
