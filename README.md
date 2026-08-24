@@ -33,15 +33,15 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). Four ABS actuator-interface coupons were printed and owner-tested on 2026-08-22: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL, GIM4305 housing PENDING M2.5 screws, and GIM4305 output PASS. The follow-up GIM6010 Ø4.15 ABS pin-bore coupon PASSed with light pressure. The actual Ø4.15 ABS shoulder hub PASSes all three pins and all six M3 output positions. The corrected shoulder-plate-first assembly sequence is now **physically verified**. Use M3 × 8 housing screws; ×10 bottoms before clamping. No loaded leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The two GIM4305 coupons are opposite-face, one-at-a-time gauges and intentionally do not nest. The actual Ø4.15 ABS shoulder hub PASSes all three pins and all six M3 output positions. The corrected shoulder-plate-first assembly sequence is **physically verified**. Use M3 × 8 housing screws; ×10 bottoms before clamping. No loaded leg or wiring has been assembled yet. |
 
 The immediate next action is to use the printed `GAUGE_Fit_Coupon` with the
 real 6800-2RS bearing and Ø10 h6 × 35 mm knee pin. A passing Ø19 bearing seat
 releases the proximal link; a passing Ø10 light press verifies the active rig's
-knee angular reference. See the exact bore map in
-[`print_stl/README.md`](print_stl/README.md). Then run the pending GIM4305
-housing gate when the M2.5 screws arrive; the M2.5 and Ø10 passes together
-release the rerouted distal link. The GIM4305 procedure is in the illustrated
+knee angular reference and, now that the GIM4305 housing gate has passed,
+releases the rerouted distal link. See the exact bore map in
+[`print_stl/README.md`](print_stl/README.md). The GIM4305 procedure and
+non-nesting explanation are in the illustrated
 [`2026-08-22 actuator-coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
 with the real actuators as go/no-go fixtures, so calipers are **not a blocker**.

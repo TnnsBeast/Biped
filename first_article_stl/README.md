@@ -16,9 +16,10 @@ but it is not needed to pass the motor-fit gate.
 
 Owner-reported result: GIM6010 housing PASS; GIM6010 output pattern aligned but
 its Ø4.05 printed pin bores did not hand-fit; the follow-up Ø4.15 pin-bore
-coupon PASSed with a light press; GIM4305 housing PENDING M2.5 screws; GIM4305
-output PASS.  The failed GIM6010 output coupon remains the evidence for the
-failed Ø4.05 result.
+coupon PASSed with a light press; GIM4305 housing PASSed with the real M2.5
+screws; GIM4305 output PASS. The GIM4305 coupons are standalone, opposite-face
+interface gauges and are not intended to nest. The failed GIM6010 output coupon
+remains the evidence for the failed Ø4.05 result.
 
 These were built and exported from Fusion document
 `Beni_Prototype1_TestGauges` through the Fusion MCP.  Fusion's exact B-Rep

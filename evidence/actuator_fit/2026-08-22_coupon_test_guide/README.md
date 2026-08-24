@@ -2,16 +2,17 @@
 
 The owner reported all four ABS actuator-interface coupons printed on
 2026-08-22. This guide maps each coupon to the delivered actuator and records
-the physical results reported that day. Photographic evidence remains pending.
+the physical results reported through 2026-08-23. Photographic evidence remains
+pending for the GIM4305 tests.
 
-## Reported results — 2026-08-22
+## Reported results — through 2026-08-23
 
 | Test | Interface | Result | Evidence/status |
 |---:|---|---|---|
 | 1 | GIM6010 housing | **PASS** | Owner report: worked well; photograph pending. |
 | 2 | GIM6010 output | **FAIL — BORE CLEARANCE** | Owner reports the three-hole pattern aligns perfectly, but the factory pins do not slide into the Ø4.05 printed bores. Do not clamp or force. Run the [Ø4.15/4.20/4.25 ABS diagnostic set](../../../first_article_stl/actuator_fit/gim6010_pin_trials/README.md) before changing the structural hub. |
 | 2B | GIM6010 output Ø4.15 diagnostic | **PASS — ABS PROFILE** | Owner report: Ø4.15 worked well; it is not a no-force loose slip fit, but seats easily with light pressure. Ø4.20 and Ø4.25 are unnecessary for this profile. |
-| 3 | GIM4305 housing | **PENDING** | Matching M2.5 screws ordered; test not yet run. |
+| 3 | GIM4305 housing | **PASS** | Owner report, 2026-08-23: coupon seats and the real M2.5 screws work. Photograph pending. |
 | 4 | GIM4305 output | **PASS** | Owner report: worked well; photograph pending. |
 
 ## Identify the four coupons
@@ -53,16 +54,18 @@ at a time.
 
 ## GIM4305-10 wheel actuator
 
-Use the output side shown below. Both GIM4305 coupons test this same side, one
-at a time.
+The two GIM4305 coupons test **opposite motor faces**, one at a time: the
+housing coupon represents the distal link on the housing-mount/driver-cover
+side; the output coupon represents the wheel hub on the output-flange side.
+The earlier statement that they test the same side was wrong.
 
 ![GIM4305 output face in Fusion](02_gim4305_output_face.png)
 
 ### Test 3 — housing coupon
 
 - Use the medium ring: `ABS_FIT_GIM4305_HOUSING`.
-- Pass it over the centre output and place it on the stationary outer housing
-  face.
+- Place it on the housing-mount/driver-cover side, where the six M2.5 holes are.
+- Its Ø41.5 opening clears the driver cover.
 - Rotate it until all six holes align.
 - Start two opposite M2.5 screws using fingertips only. Do not tighten them.
 - Check the other four holes using loose screw shanks.
@@ -75,6 +78,22 @@ at a time.
   align.
 - It must sit flat on the output register before any screw is inserted.
 - Fingertip-start the three M3 screws; do not use them to pull the coupon flat.
+
+### Why the two GIM4305 coupons do not nest
+
+They are diagnostic slices of two different parts at different axial stations,
+not a miniature wheel-end assembly. Fusion measures the housing coupon opening
+at Ø41.5 mm and the output coupon outside diameter at Ø44.0 mm, so the output
+coupon cannot pass through the ring. In the actual assembly the distal-link
+mount face and motor output face are 27.0 mm apart, on opposite ends of the
+motor; `Wheel_Hub_L` never passes through the distal-link opening. A guarded
+Fusion MCP check on 2026-08-23 found no relevant modeled clash among
+`Distal_Link_L`, `REF_GIM4305-10`, and `Wheel_Hub_L` in the complete rig.
+
+Therefore test and remove each coupon independently. Do not sand, drill, or
+force either coupon to make them nest. The two individual owner passes close
+the ABS actuator-interface gates; they do not yet count as a physical rehearsal
+of the complete wheel-end assembly.
 
 ## Pass/fail rule
 

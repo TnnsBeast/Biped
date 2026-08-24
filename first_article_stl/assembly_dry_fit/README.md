@@ -7,7 +7,8 @@ nominal Fusion assembly or release a PA-CF structural part.
 
 ## Print now, in this order
 
-These prints do not depend on the pending GIM4305 M2.5 housing screws.
+The GIM4305 housing coupon has now passed with the real M2.5 screws; these
+shoulder prints never depended on that separate wheel-end gate.
 
 1. [`../../print_stl/GAUGE_Fit_Coupon.stl`](../../print_stl/GAUGE_Fit_Coupon.stl)
    — 26 × 92 × 8 mm. Print flat. This is the next short print because it gates
@@ -59,9 +60,9 @@ Stop after this batch until the remaining gates close:
 
 - Do not print `Proximal_Link_L` until the real 6800 bearing passes the Ø19
   gauge (thumb-pressure light press, no rock).
-- Do not print the rerouted `Distal_Link_L` until the GIM4305 housing coupon
-  passes with the arriving M2.5 screws **and** the real Ø10 h6 knee pin passes
-  the coupon as a light press.
+- GIM4305 housing is **OWNER PASS, 2026-08-23** with the real M2.5 screws. Do
+  not print the rerouted `Distal_Link_L` until the remaining real Ø10 h6 knee
+  pin passes the fit coupon as a light press.
 - Do not install the knee spring, torque/backdrive either actuator, mount the
   leg in the stand, or apply load through these ABS parts.
 - Repeat the critical coupons in PA-CF before structural release; the Ø4.15
