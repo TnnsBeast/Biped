@@ -67,6 +67,19 @@ superseded sleeve check; Ø6 and Ø4.0 support later stop/insert work; and the
 Ø4.05 shoulder-output result has already been superseded for this ABS profile
 by the owner-tested Ø4.15 hub.
 
+**Physical result, 2026-08-31:** the real 6800-2RS bearing does not enter the
+nominal Ø19.00 bore with thumb pressure. It starts only under table/clamp force,
+so this is a **FAIL**, not permission to clamp it home. Do not scar the bearing
+or split the ABS coupon. Print the indexed
+[`ABS_CAL_6800_BORE_LADDER.stl`](../first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl)
+next. Its two small holes mark the Ø19.05 end; the five main bores are Ø19.05,
+Ø19.10, Ø19.15, Ø19.20 and Ø19.25 moving away from those markers. Test from
+smallest to largest and stop at the first bore that accepts the bearing with
+firm thumb pressure, seats squarely, and has no perceptible rock. The 4 mm-thick
+ladder leaves the 5 mm-wide bearing proud so it can be removed without a press.
+That result selects a full-depth assembly-sim confirmation coupon; it does not
+directly release the structural proximal link.
+
 **This one print de-risks every other print.** Don't skip it — the Ø19 bearing
 seats and the Ø10 knee-axle bore are the two fits that will otherwise waste a
 whole link.

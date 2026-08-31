@@ -1,0 +1,61 @@
+{
+  "coupon": {
+    "bbox_mm": [
+      170.0,
+      32.0,
+      4.0
+    ],
+    "cylindrical_face_diameters_mm": [
+      3.0,
+      3.0,
+      19.05,
+      19.1,
+      19.15,
+      19.2,
+      19.25
+    ],
+    "hardware": "one real 6800-2RS bearing, O19 x 5 mm",
+    "interface": "ABS-only 6800-2RS bearing-bore calibration; not a structural release dimension",
+    "name": "ABS_CAL_6800_BORE_LADDER",
+    "orientation": "two O3 index holes mark the O19.05 end; bores increase left-to-right: 19.05, 19.10, 19.15, 19.20, 19.25 mm",
+    "spec": {
+      "hardware": "one real 6800-2RS bearing, O19 x 5 mm",
+      "index_holes": [
+        [
+          -79.0,
+          -10.0,
+          3.0
+        ],
+        [
+          -79.0,
+          10.0,
+          3.0
+        ]
+      ],
+      "interface": "ABS-only 6800-2RS bearing-bore calibration; not a structural release dimension",
+      "length": 170.0,
+      "orientation": "two O3 index holes mark the O19.05 end; bores increase left-to-right: 19.05, 19.10, 19.15, 19.20, 19.25 mm",
+      "thickness": 4.0,
+      "trial_bores": [
+        19.05,
+        19.1,
+        19.15,
+        19.2,
+        19.25
+      ],
+      "trial_centers_x": [
+        -64.0,
+        -32.0,
+        0.0,
+        32.0,
+        64.0
+      ],
+      "width": 32.0
+    },
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl",
+    "stl_bytes": 58484,
+    "volume_cm3": 15.9429
+  },
+  "document": "Beni_Prototype1_TestGauges",
+  "purpose": "ABS-only 6800-2RS bearing-bore calibration"
+}

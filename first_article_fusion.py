@@ -24,6 +24,8 @@ import adsk.fusion
 WORKSPACE = '/Users/neilchulani/Robots/Biped'
 OUT_DIR = os.path.join(WORKSPACE, 'first_article_stl', 'actuator_fit')
 PIN_TRIAL_OUT_DIR = os.path.join(OUT_DIR, 'gim6010_pin_trials')
+BEARING_TRIAL_OUT_DIR = os.path.join(
+    WORKSPACE, 'first_article_stl', 'bearing_fit')
 DOCUMENT = 'Beni_Prototype1_TestGauges'
 
 COUPONS = {
@@ -70,6 +72,17 @@ COUPONS = {
 GIM6010_PIN_TRIALS = (4.15, 4.20, 4.25)
 
 
+# ABS-only diagnostic ladder after a real 6800-2RS bearing would start in the
+# released O19.00 fit coupon only under table/clamp force.  These are trial
+# bores, not released structural dimensions.  The 0.05 mm steps bracket the
+# expected printer hole compensation without jumping straight to a loose seat.
+BEARING_6800_TRIALS = (19.05, 19.10, 19.15, 19.20, 19.25)
+BEARING_LADDER_NAME = 'ABS_CAL_6800_BORE_LADDER'
+BEARING_LADDER_LENGTH = 170.0
+BEARING_LADDER_WIDTH = 32.0
+BEARING_LADDER_THICKNESS = 4.0
+
+
 def _pin_trial_name(pin_d):
     return 'ABS_CAL_GIM6010_OUTPUT_PIN_D' + ('%.2f' % pin_d).replace('.', 'p')
 
@@ -84,6 +97,22 @@ def _pin_trial_spec(pin_d):
                         pin_d)
     spec['pin_trial_d'] = pin_d
     return spec
+
+
+def _bearing_ladder_spec():
+    return {
+        'length': BEARING_LADDER_LENGTH,
+        'width': BEARING_LADDER_WIDTH,
+        'thickness': BEARING_LADDER_THICKNESS,
+        'trial_bores': list(BEARING_6800_TRIALS),
+        'trial_centers_x': [-64.0, -32.0, 0.0, 32.0, 64.0],
+        'index_holes': [(-79.0, -10.0, 3.0), (-79.0, 10.0, 3.0)],
+        'interface': ('ABS-only 6800-2RS bearing-bore calibration; '
+                      'not a structural release dimension'),
+        'orientation': ('two O3 index holes mark the O19.05 end; bores increase '
+                        'left-to-right: 19.05, 19.10, 19.15, 19.20, 19.25 mm'),
+        'hardware': 'one real 6800-2RS bearing, O19 x 5 mm',
+    }
 
 
 def _cm(mm):
@@ -191,6 +220,43 @@ def _build_one(root, name, spec, x_mm, y_mm=0.0):
     return occ
 
 
+def _build_6800_bore_ladder(root, x_mm=0.0, y_mm=-70.0):
+    """Build one indexed plate containing five removable 6800 bore trials."""
+    spec = _bearing_ladder_spec()
+    _drop_occurrence(root, BEARING_LADDER_NAME)
+    occ = _new_component(root, BEARING_LADDER_NAME, x_mm, y_mm)
+    comp = occ.component
+
+    sketch = comp.sketches.add(comp.xYConstructionPlane)
+    half_l = spec['length'] / 2.0
+    half_w = spec['width'] / 2.0
+    sketch.sketchCurves.sketchLines.addTwoPointRectangle(
+        adsk.core.Point3D.create(_cm(-half_l), _cm(-half_w), 0),
+        adsk.core.Point3D.create(_cm(half_l), _cm(half_w), 0))
+    feature = _extrude(comp, sketch.profiles.item(0), spec['thickness'],
+                       adsk.fusion.FeatureOperations.NewBodyFeatureOperation)
+    body = feature.bodies.item(0)
+    body.name = BEARING_LADDER_NAME
+
+    for x_center, bore_d in zip(spec['trial_centers_x'],
+                                spec['trial_bores']):
+        hole_sketch = comp.sketches.add(comp.xYConstructionPlane)
+        _circle(hole_sketch, x_center, 0.0, bore_d)
+        _extrude(comp, hole_sketch.profiles.item(0),
+                 spec['thickness'] + 0.5,
+                 adsk.fusion.FeatureOperations.CutFeatureOperation)
+    for x_center, y_center, bore_d in spec['index_holes']:
+        hole_sketch = comp.sketches.add(comp.xYConstructionPlane)
+        _circle(hole_sketch, x_center, y_center, bore_d)
+        _extrude(comp, hole_sketch.profiles.item(0),
+                 spec['thickness'] + 0.5,
+                 adsk.fusion.FeatureOperations.CutFeatureOperation)
+
+    comp.attributes.add('BeniFirstArticle', 'spec',
+                        json.dumps(spec, sort_keys=True))
+    return occ
+
+
 def _cylinder_diameters(body):
     values = []
     for face in body.faces:
@@ -230,6 +296,41 @@ def _measure(occ, spec=None):
     }
 
 
+def _measure_6800_bore_ladder(occ, spec=None):
+    if spec is None:
+        spec = _bearing_ladder_spec()
+    comp = occ.component
+    if comp.bRepBodies.count != 1:
+        raise RuntimeError('%s has %d bodies, expected 1' %
+                           (comp.name, comp.bRepBodies.count))
+    body = comp.bRepBodies.item(0)
+    if not body.isSolid:
+        raise RuntimeError('%s body is not solid' % comp.name)
+    bb = body.boundingBox
+    size = [round((bb.maxPoint.x - bb.minPoint.x) * 10.0, 4),
+            round((bb.maxPoint.y - bb.minPoint.y) * 10.0, 4),
+            round((bb.maxPoint.z - bb.minPoint.z) * 10.0, 4)]
+    expected = [spec['length'], spec['width'], spec['thickness']]
+    if any(abs(a - b) > 0.001 for a, b in zip(size, expected)):
+        raise RuntimeError('%s bbox %r != expected %r' %
+                           (comp.name, size, expected))
+    cylinders = _cylinder_diameters(body)
+    for diameter in list(spec['trial_bores']) + [3.0, 3.0]:
+        if not any(abs(actual - diameter) <= 0.001 for actual in cylinders):
+            raise RuntimeError('%s missing O%.2f cylindrical face; got %r' %
+                               (comp.name, diameter, cylinders))
+    return {
+        'name': comp.name,
+        'interface': spec['interface'],
+        'hardware': spec['hardware'],
+        'orientation': spec['orientation'],
+        'bbox_mm': size,
+        'volume_cm3': round(body.volume, 4),
+        'cylindrical_face_diameters_mm': cylinders,
+        'spec': spec,
+    }
+
+
 def build_all():
     _app, doc, _design, root = _app_design_root()
     positions = [-135.0, -45.0, 45.0, 135.0]
@@ -264,6 +365,20 @@ def build_gim6010_pin_trials():
         'coupons': manifest,
     }, indent=2, sort_keys=True))
     return occurrences
+
+
+def build_6800_bore_ladder():
+    """Build the indexed ABS 6800 bearing-bore ladder."""
+    _app, doc, _design, root = _app_design_root()
+    occ = _build_6800_bore_ladder(root)
+    manifest = _measure_6800_bore_ladder(occ)
+    print(json.dumps({
+        'document': doc.name,
+        'document_modified': doc.isModified,
+        'purpose': 'ABS-only 6800-2RS bearing-bore calibration',
+        'coupon': manifest,
+    }, indent=2, sort_keys=True))
+    return occ
 
 
 def export_all():
@@ -343,3 +458,42 @@ def export_gim6010_pin_trials():
     print(json.dumps({'exported': exported,
                       'manifest': manifest_path}, indent=2, sort_keys=True))
     return exported
+
+
+def export_6800_bore_ladder():
+    """Export the ABS bearing-bore ladder after Fusion B-Rep validation."""
+    _app, doc, design, root = _app_design_root()
+    os.makedirs(BEARING_TRIAL_OUT_DIR, exist_ok=True)
+    occ = None
+    for i in range(root.occurrences.count):
+        candidate = root.occurrences.item(i)
+        if candidate.component.name == BEARING_LADDER_NAME:
+            occ = candidate
+            break
+    if occ is None:
+        raise RuntimeError('missing bearing-bore ladder component %s' %
+                           BEARING_LADDER_NAME)
+    row = _measure_6800_bore_ladder(occ)
+    path = os.path.join(BEARING_TRIAL_OUT_DIR,
+                        BEARING_LADDER_NAME + '.stl')
+    options = design.exportManager.createSTLExportOptions(occ.component, path)
+    options.meshRefinement = (
+        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
+    options.isBinaryFormat = True
+    if not design.exportManager.execute(options):
+        raise RuntimeError('STL export failed for %s' % BEARING_LADDER_NAME)
+    row['stl'] = path
+    row['stl_bytes'] = os.path.getsize(path)
+
+    manifest_path = os.path.join(BEARING_TRIAL_OUT_DIR,
+                                 'fusion_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump({
+            'document': doc.name,
+            'purpose': 'ABS-only 6800-2RS bearing-bore calibration',
+            'coupon': row,
+        }, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    print(json.dumps({'exported': row,
+                      'manifest': manifest_path}, indent=2, sort_keys=True))
+    return row
