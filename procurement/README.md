@@ -4,7 +4,10 @@ Dated purchasing workbooks live here so quoted prices and availability are not
 mistaken for permanent engineering requirements.
 
 - [`mode_a_procurement_bom_2026-08-21.xlsx`](mode_a_procurement_bom_2026-08-21.xlsx)
-  is the purchasing view prepared for the first Mode A single-leg build.
+  is the purchasing and inventory-status view for the first Mode A single-leg
+  build. Use its `Status & Gaps` tab for the current readiness audit. Purchases
+  stay **ordered / in transit** until they are received and checked; only then
+  move them into **owned** inventory.
 - The canonical rig electronics requirements are
   [`../electronics/07_bom.md`](../electronics/07_bom.md), Wave 0.
 - The canonical rig mechanical purchase list is
