@@ -1,25 +1,5 @@
 # Beni
 
-<!-- PRINT_QUEUE_START -->
-## Print this next
-
-**[ABS proximal link, Ø19.10 bearing bores — download STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)** — 1 × ABS.
-
-Import as-is; **do not rotate or “lay on face.”** Use 0.20 mm layers, 4 walls,
-5 top/bottom layers, 30% infill, and a brim. Keep supports out of the bearing
-bores and channels. Expected size: **169.39 × 31.60 × 62.00 mm**.
-
-**After printing:** thumb-press one 6800-2RS bearing into each open outside face.
-Both must enter square, seat flush, have no rock, and remain removable without a
-clamp or retaining compound. Follow the
-[full test and acceptance instructions](first_article_stl/assembly_dry_fit/README.md#batch-3--unloaded-abs-proximal-link-bearing-rehearsal).
-
-**Hold:** do not print the distal link yet; the Ø10 h6 knee pin and its DFM and
-assembly-path verification still gate that release.
-<!-- PRINT_QUEUE_END -->
-
----
-
 ![Beni Prototype 1](docs/readme/beni_full_robot.png)
 
 A mostly 3D-printed wheeled biped with active shoulders, passive spring-loaded
@@ -45,3 +25,26 @@ build; the complete robot is modeled but not yet built.
 The CAD gallery is exported from the live Fusion model with
 [`readme_images_fusion.py`](readme_images_fusion.py) and should be refreshed with
 model changes.
+
+---
+
+<!-- PRINT_QUEUE_START -->
+## Current print — convenience link
+
+This automatically maintained section keeps the next released print easy to
+find while the project iterates.
+
+**[ABS proximal link, Ø19.10 bearing bores — download STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)** — 1 × ABS.
+
+Import as-is; **do not rotate or “lay on face.”** Use 0.20 mm layers, 4 walls,
+5 top/bottom layers, 30% infill, and a brim. Keep supports out of the bearing
+bores and channels. Expected size: **169.39 × 31.60 × 62.00 mm**.
+
+**After printing:** thumb-press one 6800-2RS bearing into each open outside face.
+Both must enter square, seat flush, have no rock, and remain removable without a
+clamp or retaining compound. Follow the
+[full test and acceptance instructions](first_article_stl/assembly_dry_fit/README.md#batch-3--unloaded-abs-proximal-link-bearing-rehearsal).
+
+**Hold:** do not print the distal link yet; the Ø10 h6 knee pin and its DFM and
+assembly-path verification still gate that release.
+<!-- PRINT_QUEUE_END -->

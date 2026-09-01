@@ -77,16 +77,17 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    Never use fasteners to draw an incompatible print into place. Canonical gate:
    [`ASSEMBLY_VERIFICATION.md`](ASSEMBLY_VERIFICATION.md).
 
-10. **Keep the active print queue at the top of `README.md`.** Whenever a verified
-    repository change makes a new or revised part ready for the owner to print,
-    update the `PRINT_QUEUE_START` / `PRINT_QUEUE_END` block immediately after the
-    README title before pushing. Put a direct raw-GitHub STL download in the first
-    few lines and state quantity, material, required import orientation, concise
-    slicer constraints, and the physical acceptance test. Replace stale print
-    links rather than accumulating a history there, and identify any closely
-    related parts still on hold. If nothing is released, the block must say so
-    explicitly; a ready-to-print file must never be discoverable only in a
-    subdirectory document.
+10. **Keep the active print queue as the final convenience section in
+    `README.md`.** Whenever a verified repository change makes a new or revised
+    part ready for the owner to print, update the `PRINT_QUEUE_START` /
+    `PRINT_QUEUE_END` block at the bottom of the README before pushing. Label it
+    as an automatically maintained convenience link. Put a direct raw-GitHub STL
+    download in the first few lines of the block and state quantity, material,
+    required import orientation, concise slicer constraints, and the physical
+    acceptance test. Replace stale print links rather than accumulating a history
+    there, and identify any closely related parts still on hold. If nothing is
+    released, the block must say so explicitly; a ready-to-print file must never
+    be discoverable only in a subdirectory document.
 
 11. **Keep the README CAD gallery current.** When a verified model change affects
     the full robot, leg, or knee views shown on the project homepage, run
@@ -98,7 +99,7 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 
 | Fact | Canonical home |
 |---|---|
-| Active owner print/download queue | `README.md`, first section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
+| Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
 | The manufacturing rule and the ten-part routing table | `MANUFACTURING_CONSTRAINTS.md` |
 | PA-CF print settings + per-setting reasoning | `beni_rig_no_machining.md` §1 |
