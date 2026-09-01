@@ -26,11 +26,11 @@ Printed parts assume solid-equivalent density; see the note at the end.
 | Part | Vol cm³ | Mass g | Qty | Total g | Print orientation |
 |---|---:|---:|---:|---:|---|
 | `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.23 | 46.3 | 2 | 92.5 | flat, panel face on the bed; spiral lip prints up, no support |
-| `Proximal_Link_L/R` | 63.03 | 72.5 | 2 | 145.0 | **on edge**, link axis vertical, arms in the XZ print plane so bending loads are in-plane; channel is a through-slot so no trapped support |
+| `Proximal_Link_L/R` | 64.05 | 73.7 | 2 | 147.3 | on the exact long external-tangent datum, link axis along the bed and channel open sideways; use a verified print-oriented export, not native assembly coordinates |
 | `Distal_Link_L/R` | 44.98 | 51.7 | 2 | 103.5 | on edge, link axis vertical, same rationale |
 | `Wheel_Rim_L/R` | 67.14 | 77.2 | 2 | 154.4 | web face down on the bed, drum prints up; no support. Now carries the tyre bead groove and the inboard retaining flange |
 | `Chassis_Frame` (centre cage, not mirrored) | 61.17 | 70.3 | 1 | 70.3 | flanges vertical, open box, no support |
-| **Subtotal** | | | | **565.7** | |
+| **Subtotal** | | | | **568.0** | |
 
 ## 2. Printed parts — ABS (ρ = 1.04 g/cm³)
 
@@ -355,10 +355,12 @@ wheel is fully assembled.*
 
 ## 10. Recommended print order
 
-1. `Chassis_Shoulder_Plate_L/R` — simplest, validates PA-CF settings and the
-   Ø74 hole pattern against the real motor before anything else is printed.
-2. `Distal_Link_L/R` — check the Ø16 sleeve fit and the Ø41.5 cover clearance.
-3. `Proximal_Link_L/R` — check the Ø19 bearing seats and the Ø34 root access.
+1. `Chassis_Shoulder_Plate_L/R` — simplest, validates the motor interface.
+2. `Proximal_Link_L/R` — use the verified bed-ready ABS first article to check
+   the Ø19.10 process-compensated bearing seats and Ø34 root access.
+3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
+   tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
+   Ø10 angular-reference fit and Ø41.5 cover clearance.
 4. `Wheel_Rim_L/R`, then the TPU tyres.
 5. ABS covers and the encoder bracket last (non-critical).
 

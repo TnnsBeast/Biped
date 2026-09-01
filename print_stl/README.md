@@ -8,7 +8,9 @@
 > - **`Distal_Link_L.stl` is superseded** by
 >   [`../rig_stl/reroute/Distal_Link_L.stl`](../rig_stl/reroute/Distal_Link_L.stl).
 >   The steel knee sleeve is deleted and its Ø16 bore is now printed into the link
->   as Ø10. Print the rig version.
+>   as Ø10. **That rig file is currently on DFM hold** pending the real Ø10 h6
+>   knee-pin gate and a post-tangent-fix bed-ready Fusion re-export; do not print
+>   either legacy distal file yet.
 > - **`check_prints/` is obsolete** — it existed to dry-fit before ordering
 >   machining. Use [`../rig_stl/reroute/`](../rig_stl/reroute/) instead.
 > - The **`GAUGE_*` coupons below are still exactly right** and were re-measured

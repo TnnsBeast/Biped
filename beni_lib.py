@@ -1626,6 +1626,29 @@ def dist_inv(x, z):
     return (dx * DU[0] + dz * DU[1], dx * DV[0] + dz * DV[1])
 
 
+def lozenge_tangent_points(c1, r1, c2, r2, upper=True):
+    """Exact external-tangent contact points for two unequal circles.
+
+    The previous sketch helper used ``pi/2 + alpha`` for the upper radius.
+    That is the internal/chord-side sign: unequal end circles projected about
+    0.61 mm beyond the supposedly straight proximal-link print face.  Using
+    ``pi/2 - alpha`` makes the straight segment a true supporting tangent and
+    gives the link a deliberate FDM bed datum without adding sacrificial feet.
+    """
+    dx, dy = c2[0] - c1[0], c2[1] - c1[1]
+    d = math.hypot(dx, dy)
+    if d <= 0.0 or abs(r1 - r2) >= d:
+        raise ValueError('external lozenge tangent requires separate circles')
+    base = math.atan2(dy, dx)
+    alpha = math.asin(max(-1.0, min(1.0, (r1 - r2) / d)))
+    theta = math.pi / 2.0 - alpha
+    angle = base + theta if upper else base - theta
+    return ((c1[0] + r1 * math.cos(angle),
+             c1[1] + r1 * math.sin(angle)),
+            (c2[0] + r2 * math.cos(angle),
+             c2[1] + r2 * math.sin(angle)))
+
+
 def lozenge(sk, c1, r1, c2, r2, frame=None):
     """Closed tangent-line lozenge between two circles.
 
@@ -1633,19 +1656,16 @@ def lozenge(sk, c1, r1, c2, r2, frame=None):
     r1, r2 their radii.  frame is a function (u, v) -> (X, Z).
     """
     f = frame or (lambda u, v: (u, v))
-    d = math.hypot(c2[0] - c1[0], c2[1] - c1[1])
     base = math.atan2(c2[1] - c1[1], c2[0] - c1[0])
-    alpha = math.asin(max(-1.0, min(1.0, (r1 - r2) / d)))
-    th = math.pi / 2.0 + alpha
     arcs = sk.sketchCurves.sketchArcs
     lines = sk.sketchCurves.sketchLines
 
     def on(c, r, ang):
         return f(c[0] + r * math.cos(base + ang), c[1] + r * math.sin(base + ang))
-    p1u = on(c1, r1, th)
-    p2u = on(c2, r2, th)
-    p1l = on(c1, r1, -th)
-    p2l = on(c2, r2, -th)
+    p1u_uv, p2u_uv = lozenge_tangent_points(c1, r1, c2, r2, True)
+    p1l_uv, p2l_uv = lozenge_tangent_points(c1, r1, c2, r2, False)
+    p1u, p2u = f(*p1u_uv), f(*p2u_uv)
+    p1l, p2l = f(*p1l_uv), f(*p2l_uv)
     m1 = on(c1, r1, math.pi)
     m2 = on(c2, r2, 0.0)
     lines.addByTwoPoints(sxz(*p1u), sxz(*p2u))
@@ -1874,17 +1894,17 @@ COVER_INSERT_DEPTH = 5.0  # bore depth in the cable cover (1.5 mm of floor left)
 
 
 def pl_ep(u):
-    d = 120.0
-    al = math.asin((PL_R1 - PL_R2) / d)
-    th = math.pi / 2 + al
-    p1 = (PL_R1 * math.cos(th), PL_R1 * math.sin(th))
-    p2 = (d + PL_R2 * math.cos(th), PL_R2 * math.sin(th))
+    p1, p2 = lozenge_tangent_points(
+        (0.0, 0.0), PL_R1, (120.0, 0.0), PL_R2, True)
     t = (u - p1[0]) / (p2[0] - p1[0])
     return p1[1] + t * (p2[1] - p1[1])
 
 
 def dl_epd(u):
-    return 33.96 - 0.07636 * (u - 41.86)
+    p1, p2 = lozenge_tangent_points(
+        DL_ARM_C, DL_ARM_R, (120.0, 0.0), DL_WHL_R, True)
+    t = (u - p1[0]) / (p2[0] - p1[0])
+    return p1[1] + t * (p2[1] - p1[1])
 
 
 def kpt(r, a_deg):

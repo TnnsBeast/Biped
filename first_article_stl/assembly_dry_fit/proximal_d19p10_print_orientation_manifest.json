@@ -62,12 +62,32 @@
       62.0,
       103.1108
     ],
+    "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_abs_proximal_d19p10_print_oriented.png",
     "name": "ABS_FA_Proximal_Link_L_D19p10",
+    "print_orientation": {
+      "channel": "open sideways; no trapped internal support",
+      "method": "largest Fusion-verified supporting planar side face",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        169.3985,
+        31.6,
+        62.0
+      ],
+      "rotation_axis": "+Y",
+      "rotation_deg": 134.26083,
+      "support_face_area_mm2": 3462.967,
+      "support_face_index": 86,
+      "support_face_normal_native": [
+        0.71617004,
+        0.0,
+        0.69792584
+      ]
+    },
     "retaining_lip_opening_d_mm": 17.0,
-    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10.stl",
-    "stl_bytes": 308984,
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl",
+    "stl_bytes": 312284,
     "volume_cm3": 64.0181
   },
   "document": "Beni_Prototype1_TestGauges",
-  "purpose": "unloaded ABS proximal-link physical assembly rehearsal"
+  "purpose": "bed-ready ABS proximal-link physical assembly rehearsal; assembly geometry unchanged"
 }

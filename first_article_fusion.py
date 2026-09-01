@@ -89,6 +89,7 @@ BEARING_LADDER_LENGTH = 170.0
 BEARING_LADDER_WIDTH = 32.0
 BEARING_LADDER_THICKNESS = 4.0
 ABS_PROXIMAL_NAME = 'ABS_FA_Proximal_Link_L_D19p10'
+ABS_PROXIMAL_PRINT_NAME = ABS_PROXIMAL_NAME + '_PRINT_ORIENTED'
 
 
 def _pin_trial_name(pin_d):
@@ -686,4 +687,161 @@ def export_abs_proximal_link():
         stream.write('\n')
     print(json.dumps({'exported': row,
                       'manifest': manifest_path}, indent=2, sort_keys=True))
+    return row
+
+
+def _abs_proximal_print_transform(occ):
+    """Return the exact Fusion transform for the largest supporting side face.
+
+    The proximal link is modelled in assembly coordinates.  Its native STL has
+    no useful XY-bed datum, even though the solid has a large planar tangent
+    face.  Restrict the search to side faces (normal Y ~= 0), require the face
+    plane to support the entire solid, then put the largest qualifying face on
+    Z=0.  This preserves the one-piece link and keeps the fork channel open
+    sideways without adding sacrificial geometry.
+    """
+    comp = occ.component
+    if comp.bRepBodies.count != 1:
+        raise RuntimeError('%s has %d bodies, expected 1' %
+                           (comp.name, comp.bRepBodies.count))
+    body = comp.bRepBodies.item(0)
+    temporary = adsk.fusion.TemporaryBRepManager.get()
+    candidates = []
+    for i in range(body.faces.count):
+        face = body.faces.item(i)
+        if adsk.core.Plane.cast(face.geometry) is None:
+            continue
+        ok, normal = face.evaluator.getNormalAtPoint(face.pointOnFace)
+        if not ok or abs(normal.y) > 1e-6:
+            continue
+        angle = math.atan2(normal.x, -normal.z)
+        rotation = adsk.core.Matrix3D.create()
+        rotation.setToRotation(
+            angle, adsk.core.Vector3D.create(0, 1, 0),
+            adsk.core.Point3D.create(0, 0, 0))
+        trial_body = temporary.copy(body)
+        if not temporary.transform(trial_body, rotation):
+            raise RuntimeError('Fusion candidate transform failed for face %d' %
+                               i)
+        point = face.pointOnFace
+        cosine, sine = math.cos(angle), math.sin(angle)
+        face_z = -sine * point.x + cosine * point.z
+        min_z = trial_body.boundingBox.minPoint.z
+        # Exact B-Rep bounding boxes include circular extrema that a vertex-only
+        # test misses.  The old pseudo-tangent failed here by 0.608 mm.
+        if abs(face_z - min_z) <= 0.001:  # 0.01 mm
+            candidates.append((face.area, i, normal, angle, trial_body))
+    if not candidates:
+        raise RuntimeError('%s has no supporting planar side face' % comp.name)
+    area_cm2, face_index, normal, angle, trial_body = max(
+        candidates, key=lambda row: row[0])
+    trial_bb = trial_body.boundingBox
+    min_z = trial_bb.minPoint.z
+    matrix = adsk.core.Matrix3D.create()
+    matrix.setToRotation(angle, adsk.core.Vector3D.create(0, 1, 0),
+                         adsk.core.Point3D.create(0, 0, 0))
+    matrix.translation = adsk.core.Vector3D.create(0, 0, -min_z)
+    return matrix, {
+        'method': 'largest Fusion-verified supporting planar side face',
+        'rotation_axis': '+Y',
+        'rotation_deg': round(math.degrees(angle), 6),
+        'support_face_index': face_index,
+        'support_face_area_mm2': round(area_cm2 * 100.0, 3),
+        'support_face_normal_native': [round(normal.x, 8),
+                                       round(normal.y, 8),
+                                       round(normal.z, 8)],
+        'oriented_bbox_mm': [
+            round((trial_bb.maxPoint.x - trial_bb.minPoint.x) * 10.0, 4),
+            round((trial_bb.maxPoint.y - trial_bb.minPoint.y) * 10.0, 4),
+            round((trial_bb.maxPoint.z - trial_bb.minPoint.z) * 10.0, 4),
+        ],
+        'minimum_z_mm': 0.0,
+        'channel': 'open sideways; no trapped internal support',
+    }
+
+
+def export_abs_proximal_link_print_oriented():
+    """Export a bed-ready occurrence without changing assembly geometry."""
+    app, doc, design, root = _app_design_root()
+    os.makedirs(ASSEMBLY_DRY_FIT_OUT_DIR, exist_ok=True)
+    occ = None
+    for i in range(root.occurrences.count):
+        candidate = root.occurrences.item(i)
+        if candidate.component.name == ABS_PROXIMAL_NAME:
+            occ = candidate
+            break
+    if occ is None:
+        raise RuntimeError('missing %s' % ABS_PROXIMAL_NAME)
+
+    row = _measure_abs_proximal(occ)
+    transform, orientation = _abs_proximal_print_transform(occ)
+    _drop_occurrence(root, ABS_PROXIMAL_PRINT_NAME)
+    print_occ = root.occurrences.addNewComponent(adsk.core.Matrix3D.create())
+    print_occ.component.name = ABS_PROXIMAL_PRINT_NAME
+    temporary = adsk.fusion.TemporaryBRepManager.get()
+    transformed_body = temporary.copy(occ.component.bRepBodies.item(0))
+    if not temporary.transform(transformed_body, transform):
+        raise RuntimeError('Fusion B-Rep transform failed for %s' %
+                           ABS_PROXIMAL_PRINT_NAME)
+    base_feature = print_occ.component.features.baseFeatures.add()
+    base_feature.name = ABS_PROXIMAL_PRINT_NAME + '_FusionTransform'
+    base_feature.startEdit()
+    print_body = print_occ.component.bRepBodies.add(transformed_body,
+                                                    base_feature)
+    base_feature.finishEdit()
+    if print_body is None or not print_body.isSolid:
+        raise RuntimeError('Fusion could not create oriented solid %s' %
+                           ABS_PROXIMAL_PRINT_NAME)
+    print_body.name = ABS_PROXIMAL_PRINT_NAME
+    visibility = [(root.occurrences.item(i),
+                   root.occurrences.item(i).isLightBulbOn)
+                  for i in range(root.occurrences.count)]
+    try:
+        for candidate, _was_visible in visibility:
+            candidate.isLightBulbOn = candidate == print_occ
+        app.activeViewport.fit()
+        app.activeViewport.refresh()
+
+        path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
+                            ABS_PROXIMAL_PRINT_NAME + '.stl')
+        options = design.exportManager.createSTLExportOptions(
+            print_occ.component, path)
+        options.meshRefinement = (
+            adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
+        options.isBinaryFormat = True
+        if not design.exportManager.execute(options):
+            raise RuntimeError('STL export failed for %s' %
+                               ABS_PROXIMAL_PRINT_NAME)
+
+        image_path = os.path.join(
+            ASSEMBLY_DRY_FIT_OUT_DIR,
+            '00_fusion_abs_proximal_d19p10_print_oriented.png')
+        if not app.activeViewport.saveAsImageFile(image_path, 1600, 1000):
+            raise RuntimeError('Fusion screenshot failed for %s' %
+                               ABS_PROXIMAL_PRINT_NAME)
+    finally:
+        for candidate, was_visible in visibility:
+            if candidate != print_occ:
+                candidate.isLightBulbOn = was_visible
+        print_occ.deleteMe()
+        app.activeViewport.fit()
+        app.activeViewport.refresh()
+
+    row['print_orientation'] = orientation
+    row['stl'] = path
+    row['stl_bytes'] = os.path.getsize(path)
+    row['fusion_screenshot'] = image_path
+    manifest_path = os.path.join(
+        ASSEMBLY_DRY_FIT_OUT_DIR,
+        'proximal_d19p10_print_orientation_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump({
+            'document': doc.name,
+            'purpose': ('bed-ready ABS proximal-link physical assembly '
+                        'rehearsal; assembly geometry unchanged'),
+            'component': row,
+        }, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    print(json.dumps({'exported': row, 'manifest': manifest_path},
+                     indent=2, sort_keys=True))
     return row

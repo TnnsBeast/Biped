@@ -92,16 +92,25 @@ is the full-depth confirmation; the owner declined a separate depth coupon.
 ## Print now
 
 Print
-[`ABS_FA_Proximal_Link_L_D19p10.stl`](ABS_FA_Proximal_Link_L_D19p10.stl)
+[`ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl`](ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)
 in the same enclosed ABS profile as the passing ladder: no scaling or slicer
 hole compensation, 0.20 mm layers, 4 walls, 5 top and bottom layers and 30%
 infill. This is an unloaded assembly article, not a structural proof part.
 
-Use the BOM §1 canonical **on-edge** orientation with the link axis vertical and
-the 20 mm channel open sideways; do not lay the fork flat. A wide brim is
-appropriate for this tall ABS print. The authoritative orientation and its
-rationale remain in
-[`../../beni_prototype1_bom_and_assembly.md`](../../beni_prototype1_bom_and_assembly.md).
+The `_PRINT_ORIENTED` file is already on its exact external-tangent bed datum:
+**do not rotate it and do not use “lay on face.”** Its slicer envelope is about
+169.39 × 31.60 × 62.00 mm with `min_z = 0`; the 20 mm fork channel stays open
+sideways and needs no trapped support. Use a normal ABS brim if the tuned
+profile benefits from one. The assembly-coordinate file without the suffix is
+retained for traceability, but is not the file to print.
+
+The first attempted print exposed a real source-geometry defect, not ordinary
+ABS shrinkage. The unequal-circle outline used the wrong tangent-angle sign, so
+the two circular ends extended 0.608 mm below the apparent long straight face.
+The shared sketch helper and its proximal channel-wall equation now use the
+exact external tangent. This adds material along the intended load path rather
+than adding disposable feet; the ABS first-article volume changed from 62.9765
+to 64.0181 cm³. Fusion verifies a continuous 3462.967 mm² supporting face.
 
 ## Bearing installation rehearsal
 
@@ -129,6 +138,7 @@ insertion paths every 2 mm and found 0 mm³ interference at every pose, includin
 the final seats. The reverse paths are the service paths. Records:
 
 - [`proximal_d19p10_fusion_manifest.json`](proximal_d19p10_fusion_manifest.json)
+- [`proximal_d19p10_print_orientation_manifest.json`](proximal_d19p10_print_orientation_manifest.json)
 - [`proximal_d19p10_path_verification.json`](proximal_d19p10_path_verification.json)
 
 Fusion exact-B-Rep verification found one solid body, two Ø19.10 cylindrical
@@ -138,8 +148,11 @@ old source: the Ø34 root-access bore was exactly tangent to the Ø8 harness hol
 and the open-channel wall ended at a zero-radius four-face edge. The source now
 uses an Ø8.2 harness clearance (0.10 mm nominal overlap at the tangent) and the
 existing R1.0 channel-corner fallback as a wall-end relief. The final Fusion
-high-refinement STL has 6,232 facets; Bambu Studio 02.08.02.61 reports one part
-and `manifold = yes`.
+high-refinement print-oriented STL has 6,244 facets; Bambu Studio 02.08.02.61
+reports one part, `manifold = yes`, `min_z = 0`, and a
+169.386 × 31.600 × 62.000 mm mesh envelope.
+
+![Fusion view of the corrected link on its exact tangent print datum](00_fusion_abs_proximal_d19p10_print_oriented.png)
 
 ![Fusion view of the Ø19.10 ABS proximal link with both Ø19.00 bearing envelopes seated](01_fusion_abs_proximal_d19p10_with_bearings.png)
 

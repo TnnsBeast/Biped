@@ -6,6 +6,14 @@ centred on the origin — every slicer will drop them to the bed and centre them
 
 Companion: `../beni_single_leg_rig_design_record.md`.
 
+> ## ⚠ HOLD `reroute/Distal_Link_L.stl` — 2026-09-01 DFM audit
+> The proximal-link print failure exposed a reversed unequal-circle tangent
+> sign in the shared source helper. The source geometry is corrected, but the
+> existing distal STL predates that correction and its wheel-end boss needs a
+> separate exact support/overhang check. Do **not** print the legacy distal STL
+> yet. It remains gated by the real Ø10 h6 knee-pin fit and a new bed-ready
+> Fusion export. The other flat-datum parts in this directory are unaffected.
+
 > ## ⚠ AMENDED 2026-08-17 — MODE A ONLY
 > The build is **Mode A**: the shoulder bolts rigid to a printed stand. The
 > vertical slide, the ballast and the drop series are **deferred, not cancelled**.
@@ -233,7 +241,7 @@ committing to a second set.**
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | Torque is carried by **friction**, and preload in plastic creeps. **Steel washer under every screw head**, and re-torque after the first hour then every ~10 hours. The Ø37.3 register is centring only and prints fine at 5 walls. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
-| `Distal_Link_L.stl` | PA-CF already | **on edge, link axis vertical** | **RE-EXPORTED — this supersedes `../print_stl/Distal_Link_L.stl`.** Its Ø16 steel-sleeve bore is now **Ø10**, because adopting §2.3 prints the sleeve's function into the link. Volume 45.0 → 47.6 cm³. On edge puts primary bending in the print plane and makes the 20 mm spring channel a through-slot, so nothing needs internal support. |
+| `Distal_Link_L.stl` | PA-CF already | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Wait for the real Ø10 h6 knee-pin gate and a verified bed-ready re-export; do not infer its print orientation from the proximal link. |
 
 `Knee_Stop_Arc_L` is **gone entirely** — there are no laser-cut parts. The +27°
 crash stop moved into the spring cartridge as a compression stack (a stack of
