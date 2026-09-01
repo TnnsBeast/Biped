@@ -14,7 +14,7 @@ printed stand; the vertical slide, the ballast and the drop series are **deferre
 not cancelled**. `RIG_Stand` **is now modelled** (`rig_lib.build_rig_stand()`,
 2026-08-17) and the Mode B occurrences are stripped from the assembly; the CAD
 handoff that specifies it is [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md),
-and the contradictions found while building it are at the bottom of `README.md`.
+and the contradictions found while building it are in `PROJECT_STATUS.md`.
 The Mode A document is saved as a named cloud version, the stand STL is exported,
 and the snapshot is in `snapshots/2026-08-20_rig-mode-a/`. **Both actuators are in
 hand**, with photographs indexed in
@@ -22,7 +22,7 @@ hand**, with photographs indexed in
 assembled. If you state an engineering figure, trace it to CAD, a vendor source,
 a script, or an explicitly identified physical observation.
 
-Start at [`README.md`](README.md) for status and reading order.
+Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 
 ## The hard rules
 
@@ -34,8 +34,8 @@ Start at [`README.md`](README.md) for status and reading order.
 
 2. **Never invent, recompute or round an engineering number.** Copy figures
    verbatim from their source document. If two documents disagree, **report the
-   contradiction — do not silently pick one.** Unresolved conflicts are listed at
-   the bottom of `README.md`; add to that list rather than guessing.
+   contradiction — do not silently pick one.** Unresolved conflicts are listed in
+   `PROJECT_STATUS.md`; add to that list rather than guessing.
 
 3. **The frozen documents.** `beni_prototype1_fusion_guide_rewritten.md` §4–§9 is
    the frozen kinematics and requirements. `beni_prototype1_design_record.md` §2
@@ -93,6 +93,7 @@ Start at [`README.md`](README.md) for status and reading order.
 | Fact | Canonical home |
 |---|---|
 | Active owner print/download queue | `README.md`, first section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
+| Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
 | The manufacturing rule and the ten-part routing table | `MANUFACTURING_CONSTRAINTS.md` |
 | PA-CF print settings + per-setting reasoning | `beni_rig_no_machining.md` §1 |
 | **Where ABS is allowed instead of PA-CF** | `beni_rig_no_machining.md` §4 |

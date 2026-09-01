@@ -150,7 +150,7 @@ a holed solid reads slightly heavy) — not a geometry difference.
 (vendor spec, web, 2026-08-20). At 200 × 32 × 299.3 the stand **fits outright in
 its natural orientation**, mount face flat on the bed. The §9 splice contingency
 ("split it low in the column… bolted lap") is **not needed**, and the "no build
-envelope is stated anywhere" open item in `../../README.md` can be closed. The
+envelope is stated anywhere" open item in `../../PROJECT_STATUS.md` can be closed. The
 §9 edit itself is left to the analyst side.
 
 ---
@@ -186,7 +186,7 @@ those the bbox comparison is valid.
 ## Findings — reported, not resolved
 
 Four disagreements between a document and the model. **None was silently fixed.**
-Per rule 2 they belong in `../../README.md`'s conflict register; adding them
+Per rule 2 they belong in `../../PROJECT_STATUS.md`'s conflict register; adding them
 there is the analyst side's call.
 
 1. **`rig_stl/README.md` §9 bench-bolt positions are wrong for the built part.**
@@ -233,7 +233,7 @@ the stator. Those need a scale, a milliohm meter and a spin-down test.
 
 ## C2 / C3 — third traceable confirmation
 
-`README.md` lists C2 (shoulder motor 40 vs 44 mm) and C3 (wheel motor 26 vs
+`PROJECT_STATUS.md` lists C2 (shoulder motor 40 vs 44 mm) and C3 (wheel motor 26 vs
 33 mm) as open and gating. Overall lengths returned straight off the live model,
 along each motor's own axis, which is the global Y axis:
 

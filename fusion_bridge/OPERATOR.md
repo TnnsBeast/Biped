@@ -91,4 +91,4 @@ There is no snapshot of `Beni_SingleLegRig` anywhere in this repo — no `.f3d`,
 `.step`, no metrics JSON — despite it being the active, verified build with a
 documented reproducible corruption hazard. Exporting one to
 `snapshots/<date>_rig-baseline/` is the highest-value artifact currently missing
-from the project. See the unresolved list at the bottom of `README.md`.
+from the project. See the unresolved list in `PROJECT_STATUS.md`.

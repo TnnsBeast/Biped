@@ -108,7 +108,7 @@ model to match the document, and do not adjust the document to match the model.
 2026-08-20). `RIG_Stand` at 200 × 32 × 299.3 **fits outright in its natural
 orientation** — the splice contingency in `rig_stl/README.md` §9 ("split it low
 in the column… bolted lap") is not needed and the "no print envelope is stated
-anywhere" open item in `README.md` can be closed. Note this in the snapshot
+anywhere" open item in `PROJECT_STATUS.md` can be closed. Note this in the snapshot
 README; leave the §9 edit to the analyst side unless asked.
 
 While you are exporting, also re-export the other Mode A parts if any are stale
@@ -121,7 +121,7 @@ redesign it.**
 
 ## Task 4 — one measurement, if cheap
 
-`README.md` lists C2 (shoulder motor 40 vs 44 mm) and C3 (wheel motor 26 vs
+`PROJECT_STATUS.md` lists C2 (shoulder motor 40 vs 44 mm) and C3 (wheel motor 26 vs
 33 mm) as open and gating. But `beni_prototype1_design_record.md` §2, titled
 "Motor reference audit (measured from the supplied STEP)", already records
 **"Overall length | 44.0 mm (x = −37.0 … +7.0)"** (§2.1) and **"Overall length |
@@ -153,7 +153,7 @@ meter, and a spin-down test.
 
 - **Never invent, recompute or round an engineering number.** Copy verbatim from
   the source. If two documents disagree, report the contradiction; unresolved
-  conflicts go at the bottom of `README.md`.
+  conflicts go in `PROJECT_STATUS.md`.
 - Prefer changing the builder in `rig_lib.py` over hand-editing the model.
 - No new machined or laser-cut parts. Printed and off-the-shelf only
   (`MANUFACTURING_CONSTRAINTS.md`).
