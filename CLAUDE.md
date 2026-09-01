@@ -90,10 +90,10 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
     be discoverable only in a subdirectory document.
 
 11. **Keep the README CAD gallery current.** When a verified model change affects
-    the full robot, leg, or knee views shown on the project homepage, run
-    `readme_images_fusion.py` through the Fusion MCP and commit the refreshed
-    `docs/readme/` images with the model change. Do not substitute concept art or
-    locally rendered STEP/STL images for the live Fusion model.
+    the full robot, leg, wheel module, or knee views shown on the project
+    homepage, run `readme_images_fusion.py` through the Fusion MCP and commit the
+    refreshed `docs/readme/` images with the model change. Do not substitute
+    concept art or locally rendered STEP/STL images for the live Fusion model.
 
 ## Where each fact lives — link, don't copy
 

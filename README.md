@@ -10,9 +10,9 @@ build; the complete robot is modeled but not yet built.
 
 ## Mechanisms
 
-| Complete leg | Passive knee and spring cartridge |
-|:---:|:---:|
-| <img src="docs/readme/beni_leg_side.png" alt="Complete Beni leg in Fusion" width="680"> | <img src="docs/readme/beni_knee_detail.png" alt="Beni passive knee detail in Fusion" width="680"> |
+| Complete leg | Wheel motor and hub | Passive knee |
+|:---:|:---:|:---:|
+| <img src="docs/readme/beni_leg_side.png" alt="Complete Beni leg in Fusion" width="440"> | <img src="docs/readme/beni_wheel_module.png" alt="Beni wheel module with the motor housing fixed inboard and the output hub outboard" width="440"> | <img src="docs/readme/beni_knee_detail.png" alt="Beni passive knee detail in Fusion" width="440"> |
 
 ## Shoulder assembly path
 
