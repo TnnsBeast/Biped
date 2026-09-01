@@ -33,16 +33,15 @@ first articles followed by PA-CF structural parts, Teensy 4.1 control.
 | **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The two GIM4305 coupons are opposite-face, one-at-a-time gauges and intentionally do not nest. The actual Ø4.15 ABS shoulder hub PASSes all three pins and all six M3 output positions. The corrected shoulder-plate-first assembly sequence is **physically verified**. Use M3 × 8 housing screws; ×10 bottoms before clamping. The original Ø19.00 `GAUGE_Fit_Coupon` bearing bore is a physical **FAIL**: the bearing starts only with table/clamp force and does not enter with thumb pressure. Do not force it. The indexed Ø19.05–Ø19.25 ABS ladder is ready for the next test. No loaded leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The two GIM4305 coupons are opposite-face, one-at-a-time gauges and intentionally do not nest. The actual Ø4.15 ABS shoulder hub PASSes all three pins and all six M3 output positions. The corrected shoulder-plate-first assembly sequence is **physically verified**. Use M3 × 8 housing screws; ×10 bottoms before clamping. The original Ø19.00 bearing coupon is a physical FAIL; the owner's Ø19.10 ladder bore is an **ABS PASS** with firm thumb pressure, square seating, no rock and tool-free removal. The actual Ø19.10-seat ABS proximal-link first article is exported and `CAD PATH VERIFIED`; its bearing installation remains the physical rehearsal. No loaded leg or wiring has been assembled yet. |
 
 The immediate next action is to print and test
-[`ABS_CAL_6800_BORE_LADDER.stl`](first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl)
-with one real 6800-2RS bearing. The two small index holes mark the Ø19.05 end;
-the five main bores increase left-to-right through Ø19.05, Ø19.10, Ø19.15,
-Ø19.20 and Ø19.25. Select the smallest bore that accepts the bearing with firm
-thumb pressure, seats squarely, and has no perceptible rock. A passing result
-will be transferred to a full-depth assembly-sim coupon before the proximal
-link is released. The separate Ø10 h6 × 35 mm knee-pin check still gates the
+[`ABS_FA_Proximal_Link_L_D19p10.stl`](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10.stl)
+as the unloaded ABS physical assembly article, then install the two real
+6800-2RS bearings from the two open outside faces without retaining compound.
+This actual part replaces a separate depth coupon at the owner's direction.
+The Ø19.10 value is ABS process compensation; the real bearing reference stays
+Ø19.00 and PA-CF still requires its own coupon. The separate Ø10 h6 × 35 mm knee-pin check still gates the
 active rig's angular reference and the rerouted distal link. See the exact bore map in
 [`print_stl/README.md`](print_stl/README.md). The GIM4305 procedure and
 non-nesting explanation are in the illustrated

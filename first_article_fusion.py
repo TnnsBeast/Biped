@@ -1,10 +1,10 @@
-"""Fusion builders and exports for the ABS actuator-fit coupon sets.
+"""Fusion builders and exports for ABS fit calibration and assembly articles.
 
 This module is executed *inside Fusion* through the Fusion MCP.  It deliberately
 does not open, save, or close documents itself.  The caller must activate
-``Beni_Prototype1_TestGauges``, run :func:`build_all`, inspect the returned
-manifest.  Diagnostic coupons may be built and exported transiently without
-saving them into the cloud document.
+``Beni_Prototype1_TestGauges``, run the relevant builder, and inspect the
+returned manifest. Diagnostic coupons and first articles may be built and
+exported transiently without saving them into the cloud document.
 
 All public dimensions are millimetres.  Coupons are modelled flat in Fusion's
 XY plane with thickness in +Z, so their exported STLs arrive print-ready without
@@ -16,6 +16,7 @@ the released structural dimensions until a physical result selects it.
 import json
 import math
 import os
+import sys
 
 import adsk.core
 import adsk.fusion
@@ -26,7 +27,13 @@ OUT_DIR = os.path.join(WORKSPACE, 'first_article_stl', 'actuator_fit')
 PIN_TRIAL_OUT_DIR = os.path.join(OUT_DIR, 'gim6010_pin_trials')
 BEARING_TRIAL_OUT_DIR = os.path.join(
     WORKSPACE, 'first_article_stl', 'bearing_fit')
+ASSEMBLY_DRY_FIT_OUT_DIR = os.path.join(
+    WORKSPACE, 'first_article_stl', 'assembly_dry_fit')
 DOCUMENT = 'Beni_Prototype1_TestGauges'
+
+if WORKSPACE not in sys.path:
+    sys.path.insert(0, WORKSPACE)
+import beni_lib as B
 
 COUPONS = {
     # Chassis_Shoulder_Plate_L interface: O48 rotating-face clearance and the
@@ -81,6 +88,7 @@ BEARING_LADDER_NAME = 'ABS_CAL_6800_BORE_LADDER'
 BEARING_LADDER_LENGTH = 170.0
 BEARING_LADDER_WIDTH = 32.0
 BEARING_LADDER_THICKNESS = 4.0
+ABS_PROXIMAL_NAME = 'ABS_FA_Proximal_Link_L_D19p10'
 
 
 def _pin_trial_name(pin_d):
@@ -331,6 +339,67 @@ def _measure_6800_bore_ladder(occ, spec=None):
     }
 
 
+def _measure_abs_proximal(occ):
+    comp = occ.component
+    if comp.bRepBodies.count != 1:
+        raise RuntimeError('%s has %d bodies, expected 1' %
+                           (comp.name, comp.bRepBodies.count))
+    body = comp.bRepBodies.item(0)
+    if not body.isSolid:
+        raise RuntimeError('%s body is not solid' % comp.name)
+    cylinders = _cylinder_diameters(body)
+    seat_count = sum(abs(value - B.ABS_KNEE_BRG_SEAT_D) <= 0.001
+                     for value in cylinders)
+    if seat_count != 2:
+        raise RuntimeError('%s has %d O%.2f bearing-seat faces, expected 2; %r' %
+                           (comp.name, seat_count,
+                            B.ABS_KNEE_BRG_SEAT_D, cylinders))
+    bb = body.boundingBox
+    return {
+        'name': comp.name,
+        'bearing_hardware_od_mm': B.KNEE_BRG_OD,
+        'abs_bearing_seat_d_mm': B.ABS_KNEE_BRG_SEAT_D,
+        'bearing_seat_depth_mm': B.KNEE_BRG_W,
+        'retaining_lip_opening_d_mm': B.KNEE_LIP_D,
+        'bbox_mm': [
+            round((bb.maxPoint.x - bb.minPoint.x) * 10.0, 4),
+            round((bb.maxPoint.y - bb.minPoint.y) * 10.0, 4),
+            round((bb.maxPoint.z - bb.minPoint.z) * 10.0, 4),
+        ],
+        'volume_cm3': round(body.volume, 4),
+        'bearing_seat_face_count': seat_count,
+        'cylindrical_face_diameters_mm': cylinders,
+    }
+
+
+def _bearing_path_occurrence(root, name, y0_mm):
+    _drop_occurrence(root, name)
+    occ = B.new_comp(name)
+    comp = occ.component
+    feature = B.ring(comp, y0_mm, B.KNEE_AXLE_D / 2.0,
+                     B.KNEE_BRG_OD / 2.0, B.KNEE_BRG_W,
+                     'new', cx=B.KX, cz=B.KZ)
+    feature.bodies.item(0).name = name
+    return occ
+
+
+def _interference_mm3(design, occ_a, occ_b):
+    entities = adsk.core.ObjectCollection.create()
+    entities.add(occ_a)
+    entities.add(occ_b)
+    test_input = design.createInterferenceInput(entities)
+    test_input.areCoincidentFacesIncluded = False
+    results = design.analyzeInterference(test_input)
+    return round(sum(results.item(i).interferenceBody.volume * 1000.0
+                     for i in range(results.count)), 6)
+
+
+def _set_y_offset(occ, offset_mm):
+    transform = adsk.core.Matrix3D.create()
+    transform.translation = adsk.core.Vector3D.create(0, _cm(offset_mm), 0)
+    occ.transform2 = transform
+
+
 def build_all():
     _app, doc, _design, root = _app_design_root()
     positions = [-135.0, -45.0, 45.0, 135.0]
@@ -379,6 +448,89 @@ def build_6800_bore_ladder():
         'coupon': manifest,
     }, indent=2, sort_keys=True))
     return occ
+
+
+def build_abs_proximal_link():
+    """Build the actual ABS proximal first article with the selected seat."""
+    _app, doc, _design, root = _app_design_root()
+    _drop_occurrence(root, ABS_PROXIMAL_NAME)
+    occ = B.build_proximal_link(B.ABS_KNEE_BRG_SEAT_D)
+    B.add_fillets(verbose=False)
+    occ.component.name = ABS_PROXIMAL_NAME
+    occ.component.bRepBodies.item(0).name = ABS_PROXIMAL_NAME
+    row = _measure_abs_proximal(occ)
+    print(json.dumps({
+        'document': doc.name,
+        'document_modified': doc.isModified,
+        'purpose': 'unloaded ABS proximal-link physical assembly rehearsal',
+        'component': row,
+    }, indent=2, sort_keys=True))
+    return occ
+
+
+def verify_abs_proximal_bearing_paths():
+    """Verify both bearing insertion paths and their reverse service paths."""
+    _app, doc, design, root = _app_design_root()
+    proximal = None
+    for i in range(root.occurrences.count):
+        candidate = root.occurrences.item(i)
+        if candidate.component.name == ABS_PROXIMAL_NAME:
+            proximal = candidate
+            break
+    if proximal is None:
+        raise RuntimeError('missing %s' % ABS_PROXIMAL_NAME)
+
+    paths = []
+    cases = (
+        ('inboard', 'ABS_PATH_BEARING_INBOARD', B.BRG1_Y0,
+         (-12.0, -10.0, -8.0, -6.0, -4.0, -2.0, 0.0)),
+        ('outboard', 'ABS_PATH_BEARING_OUTBOARD', B.BRG2_Y0,
+         (12.0, 10.0, 8.0, 6.0, 4.0, 2.0, 0.0)),
+    )
+    for side, name, y0_mm, offsets in cases:
+        bearing = _bearing_path_occurrence(root, name, y0_mm)
+        samples = []
+        for offset in offsets:
+            _set_y_offset(bearing, offset)
+            clash = _interference_mm3(design, proximal, bearing)
+            samples.append({'offset_y_mm': offset,
+                            'interference_mm3': clash})
+            if clash > 0.001:
+                raise RuntimeError('%s bearing path clashes at offset %.2f: '
+                                   '%.6f mm3' % (side, offset, clash))
+        paths.append({
+            'side': side,
+            'insertion_direction': '+Y' if side == 'inboard' else '-Y',
+            'service_direction': '-Y' if side == 'inboard' else '+Y',
+            'samples': samples,
+            'max_interference_mm3': max(row['interference_mm3']
+                                        for row in samples),
+        })
+        bearing.deleteMe()
+
+    result = {
+        'document': doc.name,
+        'status': 'CAD PATH VERIFIED',
+        'order': ('press bearings into the detached proximal link before the '
+                  'distal link, axle, cartridge, stop arc, encoder, or cables'),
+        'fastener_tool_access': ('no fastener is used for seating; press only '
+                                 'on the bearing outer race from the open face'),
+        'cable_path': 'no cable is present during the detached-link operation',
+        'service_path': ('remove the proximal link, then reverse the same open-'
+                         'face paths; an internal bearing puller may sacrifice '
+                         'the bearing being replaced but no printed part'),
+        'paths': paths,
+    }
+    os.makedirs(ASSEMBLY_DRY_FIT_OUT_DIR, exist_ok=True)
+    verification_path = os.path.join(
+        ASSEMBLY_DRY_FIT_OUT_DIR,
+        'proximal_d19p10_path_verification.json')
+    with open(verification_path, 'w', encoding='utf-8') as stream:
+        json.dump(result, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    result['verification_file'] = verification_path
+    print(json.dumps(result, indent=2, sort_keys=True))
+    return result
 
 
 def export_all():
@@ -492,6 +644,44 @@ def export_6800_bore_ladder():
             'document': doc.name,
             'purpose': 'ABS-only 6800-2RS bearing-bore calibration',
             'coupon': row,
+        }, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    print(json.dumps({'exported': row,
+                      'manifest': manifest_path}, indent=2, sort_keys=True))
+    return row
+
+
+def export_abs_proximal_link():
+    """Export the Fusion-verified ABS proximal first article."""
+    _app, doc, design, root = _app_design_root()
+    os.makedirs(ASSEMBLY_DRY_FIT_OUT_DIR, exist_ok=True)
+    occ = None
+    for i in range(root.occurrences.count):
+        candidate = root.occurrences.item(i)
+        if candidate.component.name == ABS_PROXIMAL_NAME:
+            occ = candidate
+            break
+    if occ is None:
+        raise RuntimeError('missing %s' % ABS_PROXIMAL_NAME)
+    row = _measure_abs_proximal(occ)
+    path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
+                        ABS_PROXIMAL_NAME + '.stl')
+    options = design.exportManager.createSTLExportOptions(occ.component, path)
+    options.meshRefinement = (
+        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
+    options.isBinaryFormat = True
+    if not design.exportManager.execute(options):
+        raise RuntimeError('STL export failed for %s' % ABS_PROXIMAL_NAME)
+    row['stl'] = path
+    row['stl_bytes'] = os.path.getsize(path)
+
+    manifest_path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
+                                 'proximal_d19p10_fusion_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump({
+            'document': doc.name,
+            'purpose': 'unloaded ABS proximal-link physical assembly rehearsal',
+            'component': row,
         }, stream, indent=2, sort_keys=True)
         stream.write('\n')
     print(json.dumps({'exported': row,

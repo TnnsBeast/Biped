@@ -1,5 +1,10 @@
 # ABS 6800 bearing-bore calibration
 
+**OWNER PASS, 2026-08-31:** Ø19.10 was the smallest/best bore satisfying every
+release criterion: firm thumb pressure, square seating, no perceptible radial
+rock and removal using the exposed bearing edge. Ø19.00 previously failed as
+too tight. The real bearing remains Ø19.00; Ø19.10 is ABS print compensation.
+
 Print [`ABS_CAL_6800_BORE_LADDER.stl`](ABS_CAL_6800_BORE_LADDER.stl) flat in
 the same ABS material and slicer profile intended for the first structural
 links. Do not apply a slicer hole-compensation experiment to this file: the CAD
@@ -24,8 +29,8 @@ Use one real 6800-2RS bearing and test from Ø19.05 toward Ø19.25:
 5. Report the selected nominal diameter and whether insertion was light, firm,
    or still required a tool.
 
-This ladder is diagnostic only. The selected value must pass a full-depth
-assembly-sim coupon, including insertion and removal/service access, before the
-structural bearing seat changes or `Proximal_Link_L` is released.
+This ladder is diagnostic only. At the owner's direction, the actual unloaded
+ABS proximal first article is the full-depth confirmation and physical assembly
+rehearsal; an additional depth coupon is not required. PA-CF remains unreleased.
 
 `fusion_manifest.json` is the Fusion-generated dimensional/export record.

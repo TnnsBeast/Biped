@@ -80,3 +80,68 @@ degenerate triangles. [`fusion_manifest.json`](fusion_manifest.json) records
 the Fusion result.
 
 ![Fusion view of the Ø4.15 ABS first-article hub](00_fusion_abs_shoulder_hub_d4p15.png)
+
+---
+
+# Batch 3 — unloaded ABS proximal-link bearing rehearsal
+
+The owner's Ø19.10 ladder bore passed on 2026-08-31 with firm thumb pressure,
+square seating, no perceptible rock and tool-free removal. The actual ABS link
+is the full-depth confirmation; the owner declined a separate depth coupon.
+
+## Print now
+
+Print
+[`ABS_FA_Proximal_Link_L_D19p10.stl`](ABS_FA_Proximal_Link_L_D19p10.stl)
+in the same enclosed ABS profile as the passing ladder: no scaling or slicer
+hole compensation, 0.20 mm layers, 4 walls, 5 top and bottom layers and 30%
+infill. This is an unloaded assembly article, not a structural proof part.
+
+Use the BOM §1 canonical **on-edge** orientation with the link axis vertical and
+the 20 mm channel open sideways; do not lay the fork flat. A wide brim is
+appropriate for this tall ABS print. The authoritative orientation and its
+rationale remain in
+[`../../beni_prototype1_bom_and_assembly.md`](../../beni_prototype1_bom_and_assembly.md).
+
+## Bearing installation rehearsal
+
+Status before printing: **CAD PATH VERIFIED; PHYSICAL ASSEMBLY PENDING.**
+
+1. Keep the proximal link detached. Do not install the distal link, axle,
+   cartridge, stop arc, encoder or cables first.
+2. Do not apply retaining compound during the ABS rehearsal.
+3. From the inboard open face, press the first 6800-2RS bearing in the +Y
+   direction using both thumbs on the **outer race** until it seats on the Ø17
+   retaining lip.
+4. From the outboard open face, press the second bearing in the −Y direction in
+   the same way.
+5. Both bearings must enter squarely with firm thumb pressure, finish flush with
+   the outside boss faces, and have no perceptible radial rock. Do not use a
+   clamp, hammer, screw or fastener pull-down. Stop if the full-depth pockets
+   feel materially tighter than the ladder.
+6. Leave the bearings installed for the next unloaded knee dry assembly. For
+   service, remove the detached link and reverse the same open-face paths with
+   an internal bearing puller; sacrificing the bearing being replaced is
+   acceptable, damaging the printed link is not.
+
+There are no fasteners or cables in this operation. Fusion sampled both full
+insertion paths every 2 mm and found 0 mm³ interference at every pose, including
+the final seats. The reverse paths are the service paths. Records:
+
+- [`proximal_d19p10_fusion_manifest.json`](proximal_d19p10_fusion_manifest.json)
+- [`proximal_d19p10_path_verification.json`](proximal_d19p10_path_verification.json)
+
+Fusion exact-B-Rep verification found one solid body, two Ø19.10 cylindrical
+seat faces, 5.0 mm seat depth and the two Ø17 retaining-lip openings. The first
+mesh export also exposed two inherited zero-thickness topology defects in the
+old source: the Ø34 root-access bore was exactly tangent to the Ø8 harness hole,
+and the open-channel wall ended at a zero-radius four-face edge. The source now
+uses an Ø8.2 harness clearance (0.10 mm nominal overlap at the tangent) and the
+existing R1.0 channel-corner fallback as a wall-end relief. The final Fusion
+high-refinement STL has 6,232 facets; Bambu Studio 02.08.02.61 reports one part
+and `manifold = yes`.
+
+![Fusion view of the Ø19.10 ABS proximal link with both Ø19.00 bearing envelopes seated](01_fusion_abs_proximal_d19p10_with_bearings.png)
+
+The PA-CF proximal link remains unreleased. Repeat the bearing coupon in PA-CF
+before any structural print or load test.

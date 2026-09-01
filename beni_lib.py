@@ -188,7 +188,12 @@ TRACK = 2 * 84.0                  # 168 mm
 
 # ------------------------------------------------------------- hardware sizes
 KNEE_AXLE_D = 10.0
-KNEE_BRG_OD = 19.0
+KNEE_BRG_OD = 19.0                  # real 6800-2RS hardware envelope
+# ABS first-article printed seat selected by the owner on 2026-08-31 from the
+# O19.05..O19.25 ladder: firm thumb pressure, square seating, no rock, removable.
+# This is process compensation, not a change to the bearing model.  Recalibrate
+# before any PA-CF structural release.
+ABS_KNEE_BRG_SEAT_D = 19.10
 KNEE_BRG_W = 5.0
 KNEE_SLEEVE_OD = 16.0
 CART_PIN_D = 4.0
@@ -1819,6 +1824,15 @@ PL_R1 = 31.0          # root half-depth (about the shoulder axis)
 PL_R2 = 19.0          # knee boss half-depth
 PL_WT = 4.0           # +v / -v wall thickness
 PL_WALL_STOP = 72.0   # -v wall dies out at this u
+# The through-channel termination cannot end as a zero-radius knife edge: that
+# produced a four-face non-manifold B-Rep/STL edge.  R1.0 is the existing
+# fallback channel-corner fillet in add_fillets(), expressed as a relief bore.
+PL_WALL_RELIEF_D = 2.0
+# The O34 root-access bore (R17) and the harness pass-through at R21 were
+# exactly tangent when the latter was O8.0 (17 + 4 = 21), creating the second
+# non-manifold STL edge.  O8.2 preserves the datum centre while providing
+# 0.10 mm nominal overlap and more, not less, cable clearance.
+PROX_HARNESS_D = 8.2
 
 # --- distal link outline ---------------------------------------------------
 DL_WEB_C = (30.0, 24.0)
@@ -1883,7 +1897,7 @@ def slot_half_angle():
     return math.degrees(math.asin((STOP_SLOT_W / 2.0) / STOP_R))
 
 
-def build_proximal_link():
+def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
     drop_comp('Proximal_Link_L')
     occ = new_comp('Proximal_Link_L')
     c = occ.component
@@ -1907,6 +1921,13 @@ def build_proximal_link():
                           sxz(*prox_uv(-(PL_R1 - PL_WT), 0.0)),
                           sxz(*prox_uv(*pts[0])))
     extrude(c, biggest_profile(sk), CH_Y1 - CH_Y0, 'cut')
+    # Round the wall-to-open-channel transition with the already specified
+    # R1.0 fallback instead of leaving a zero-thickness four-face edge.
+    relief = prox_uv(PL_WALL_STOP,
+                     -(pl_ep(PL_WALL_STOP) - PL_WT))
+    sk = sk_on_y(c, CH_Y0)
+    circle(sk, relief[0], relief[1], PL_WALL_RELIEF_D)
+    extrude(c, sk.profiles.item(0), CH_Y1 - CH_Y0, 'cut')
 
     # root pad and knee boss thickening
     sk = sk_on_y(c, CH_Y0); circle(sk, 0, 0, ROOT_DISC_D)
@@ -1917,9 +1938,9 @@ def build_proximal_link():
     extrude(c, sk.profiles.item(0), KNEE_BOSS_B_Y1 - LEG_Y_OUT, 'join')
 
     # knee bearing pockets + O17 retaining lips
-    sk = sk_on_y(c, BRG1_Y0); circle(sk, KX, KZ, KNEE_BRG_OD)
+    sk = sk_on_y(c, BRG1_Y0); circle(sk, KX, KZ, bearing_seat_d)
     extrude(c, sk.profiles.item(0), BRG1_Y1 - BRG1_Y0, 'cut')
-    sk = sk_on_y(c, BRG2_Y0); circle(sk, KX, KZ, KNEE_BRG_OD)
+    sk = sk_on_y(c, BRG2_Y0); circle(sk, KX, KZ, bearing_seat_d)
     extrude(c, sk.profiles.item(0), BRG2_Y1 - BRG2_Y0, 'cut')
     sk = sk_on_y(c, BRG1_Y1); circle(sk, KX, KZ, KNEE_LIP_D)
     extrude(c, sk.profiles.item(0), CH_Y0 - BRG1_Y1, 'cut')
@@ -1950,7 +1971,8 @@ def build_proximal_link():
     # harness pass-through, aligned with the hub cable hole
     a = math.radians(30.4)
     sk = sk_on_y(c, LEG_Y_IN - 1)
-    circle(sk, 21 * math.cos(a), 21 * math.sin(a), 8.0)
+    circle(sk, HUB_CABLE_R * math.cos(a), HUB_CABLE_R * math.sin(a),
+           PROX_HARNESS_D)
     extrude(c, sk.profiles.item(0), ROOT_PLATE_T + 2, 'cut')
 
     # Steel knee-stop arc: 3x M3 heat-set inserts, blind from the arm-B boss

@@ -1,0 +1,82 @@
+{
+  "cable_path": "no cable is present during the detached-link operation",
+  "document": "Beni_Prototype1_TestGauges",
+  "fastener_tool_access": "no fastener is used for seating; press only on the bearing outer race from the open face",
+  "order": "press bearings into the detached proximal link before the distal link, axle, cartridge, stop arc, encoder, or cables",
+  "paths": [
+    {
+      "insertion_direction": "+Y",
+      "max_interference_mm3": 0,
+      "samples": [
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -12.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -10.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -8.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -6.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -4.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": -2.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 0.0
+        }
+      ],
+      "service_direction": "-Y",
+      "side": "inboard"
+    },
+    {
+      "insertion_direction": "-Y",
+      "max_interference_mm3": 0,
+      "samples": [
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 12.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 10.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 8.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 6.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 4.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 2.0
+        },
+        {
+          "interference_mm3": 0,
+          "offset_y_mm": 0.0
+        }
+      ],
+      "service_direction": "+Y",
+      "side": "outboard"
+    }
+  ],
+  "service_path": "remove the proximal link, then reverse the same open-face paths; an internal bearing puller may sacrifice the bearing being replaced but no printed part",
+  "status": "CAD PATH VERIFIED"
+}
