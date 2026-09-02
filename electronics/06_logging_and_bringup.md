@@ -61,6 +61,18 @@ half a day; it pays for itself on the first tuning session.
 **No stage starts until the previous stage's gate is green.** Every stage runs
 on the stand until Stage 4.
 
+> **Active ABS single-leg carve-out, owner decision 2026-09-02.** Complete the
+> whole single-leg integration article in ABS before committing to PA-CF. Stage
+> 0 and Stage 1 run as written. For Stage 2, communicate with each actuator first
+> on the bench with its output free, then on the assembled leg with the wheel
+> clear, the supply and drive current-limited, and no load beyond self-weight.
+> Confirm identity, direction, encoder/telemetry, stop behaviour, logging,
+> phase resistance, loop latency, the unloaded CAN soak, and short slow-motion
+> commands. Do **not** run the lever/scale torque sweep, preload
+> the main spring, characterize the spring, apply ground traction, command stall,
+> or use the ABS stand as a measurement fixture. Those gates move to the later
+> two-leg PA-CF structural build. Stage 3 and beyond remain deferred.
+
 Build the stand first: a rigid frame that holds the shoulder axis with wheels
 clear of the ground, plus a **pitch-only gimbal** mode where the robot can
 rotate freely in pitch but cannot fall over or travel. Most of Stage 3 lives on
@@ -86,8 +98,8 @@ that gimbal.
 
 | | |
 |---|---|
-| **Do** | One GIM6010-8 on the bench, output free. Encoder calibration and save. Torque mode only. Sweep 0.1 → 5 N·m against a lever arm and a kitchen scale — this is the §1.4 torque check from `03_compute_and_can.md`. Measure phase R with a milliohm meter (C7). **Measure end-to-end loop latency**: toggle a GPIO at IMU-sample-complete and at torque-written-to-mailbox, scope both. |
-| **Gate** | Measured torque within 20% of `Kt × I`. **End-to-end latency <8 ms.** No CAN errors in a 1-hour soak at 1 kHz. |
+| **Do** | **Active ABS article:** one actuator on the bench with output free, then both actuators on the complete leg with the wheel clear; use current limits and short slow commands to verify identity, direction, encoder/telemetry, stop behaviour and logging. Measure phase R with a milliohm meter (C7), measure end-to-end loop latency by toggling GPIO at IMU-sample-complete and torque-written-to-mailbox, and run the unloaded CAN soak. **Deferred two-leg structural gate:** sweep 0.1 → 5 N·m against a lever arm and kitchen scale. |
+| **Gate** | **Active ABS article:** correct identity/direction, prompt zero command and stop response, coherent telemetry/logs, end-to-end latency <8 ms, and no CAN errors in a 1-hour soak at 1 kHz without externally loading the leg. **Deferred two-leg structural gate:** measured torque within 20% of `Kt × I`. |
 | **Trap** | Nothing downstream matters if latency fails. Published bench tests found 4.8–9.4 N·m against an 11 N·m rating; if you measure below 5.9 N·m, the jump spec changes here, not after the PCB order. |
 
 ### Stage 3 — Balance on the gimbal
@@ -159,10 +171,8 @@ Runs concurrently with a **4–6 week PCB lead time** (`03_compute_and_can.md`
 board is in fab. **For the single-leg rig, use the Teensy 4.1** — no PCB lead
 time, no fallback needed.
 
-**Mode A mapping (2026-08-17).** Stages 0–2 map to
-`fusion_brief_single_leg_rig.md` §6 steps 1–6, which is the whole Mode A
-programme. Stages 3–6 and rig steps 7–11 need either the slide or the two-leg
-robot, and are deferred. **Rig step 6, spring characterisation, is a Mode A test
-and it is the programme's last and most valuable step** — it replaces the assumed
-30.0 N preload with a measured F₀ and k, which every drop and landing number
-downstream is computed from.
+**Current mapping (owner decision 2026-09-02).** The ABS single-leg programme
+runs Stages 0–1 and the unloaded/current-limited integration, resistance,
+latency and CAN-soak subset of Stage 2 above. The lever torque sweep and rig step 6 spring characterisation are now
+deferred with PA-CF to the later two-leg structural build. Stages 3–6 and rig
+steps 7–11 remain deferred as before.

@@ -8,49 +8,60 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
-> **Scope decision, 2026-08-17 — the rig build is MODE A only.** Mode A is the
-> shoulder bolted rigid to a printed stand. The vertical MGN12 slide, the ballast,
-> the index bar, the mode pin, the bumpers and the drop series are **deferred, not
-> cancelled**. The point of the rig is a working leg on the way to a functional
-> robot, not a perfect fixture — Mode A deletes eight `RIG_*` parts and ~$60 of
-> linear motion for one deferred measurement set. **Rig step 6, spring
-> characterisation, runs in Mode A**, so the measured F₀ and k still get taken.
-> The CAD handoff is [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md).
+> **Current scope decision, 2026-09-02 — complete the single-leg integration
+> article in ABS; defer PA-CF to the two-leg structural build.** The active leg
+> may be fully dry-assembled, hand-posed, wired, and commissioned with both
+> motors under current limits while the wheel is clear and the printed path
+> carries self-weight only. The main spring stays unloaded, and torque-arm,
+> spring-characterisation, ground-traction, stall/proof, drop and human-adjacent
+> tests are deferred with PA-CF. This supersedes the earlier plan to take Mode A
+> step-6 spring data before the two-leg build.
+>
+> **Fixture scope remains Mode A only.** The shoulder-to-stand geometry remains
+> useful for assembly and unloaded integration. The vertical MGN12 slide,
+> ballast, index bar, mode pin, bumpers and drop series remain **deferred, not
+> cancelled**. The CAD handoff is
+> [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md).
 
 | | Status |
 |---|---|
 | **Prototype 1**, two-leg robot | Modelled and verified in Fusion (`Biped → Beni_Prototype1`). 3290.1 g, `beni_lib.audit_all()` reports **0 problems**, revision 2. Not built. |
 | **Single-leg test rig, Mode B** | Designed, verified, exported (Fusion `Biped → Beni_SingleLegRig`); all six §4.4 checks pass. **[DEFERRED]** — not the build. |
-| **Single-leg test rig, Mode A** | **This is the active build.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A checks after the anchor addition. |
+| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` passes all seven Mode A geometry checks. The stand is now an assembly/unloaded commissioning fixture; its measurement and structural-load programme is deferred. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. Its OD, wire diameter, coil count, material and rate remain unverified. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The two GIM4305 coupons are opposite-face, one-at-a-time gauges and intentionally do not nest. The actual Ø4.15 ABS shoulder hub PASSes all three pins and all six M3 output positions. The corrected shoulder-plate-first assembly sequence is **physically verified**. Use M3 × 8 housing screws; ×10 bottoms before clamping. The original Ø19.00 bearing coupon is a physical FAIL; the owner's Ø19.10 ladder bore is an **ABS PASS** with firm thumb pressure, square seating, no rock and tool-free removal. Proximal print 1 exposed the unequal-circle tangent error and print 2 proved the corrected on-edge policy still wrong: support removal broke an internal Ø17 bearing-retention lip and the horizontal Ø19.10 seat was not round enough for the bearing. The redesigned arm-B face now shares the existing Y = 90.3 bearing-boss plane, providing a 4213.248 mm² face-flat datum without changing the 31.6 mm knee envelope. Fusion and Bambu verify the new bed-ready STL with both bearing axes along +Z and no supports on the channel, seats or lips; the new physical print remains pending. No loaded leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The actual Ø4.15 ABS shoulder hub and the corrected shoulder-plate-first sequence are physically verified; use M3 × 8 housing screws because ×10 bottoms before clamping. The nominal Ø19.00 bearing coupon failed. The face-flat Ø19.10 ABS proximal link has now accepted both real bearings and remains usable, but the full-depth seats are slightly tighter than preferred. The owner selected the ladder's Ø19.15 bore for any future ABS proximal print because it takes easier thumb pressure with no perceptible movement. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). On 2026-09-02 the owner also reported an eBay knee-pin order, believed to be a set of three, with delivery expected in roughly two weeks or later. The listing, quantity and h6/h5 tolerance evidence have not been recorded yet and must be verified on arrival. No complete leg or wiring has been assembled yet. |
 
-The revised first article is saved in Fusion `Beni_Prototype1_TestGauges` and
-the scripted body is verified transiently in the Mode A rig. The already-modified
-`Beni_Prototype1` master was not overwritten; rebuild that canonical two-leg
-document only after the new ABS bridge and bearing-fit gate passes.
+The face-flat Ø19.10 first article is the physical ABS proximal link now in use;
+do not reprint it merely to adopt the easier Ø19.15 preference. The scripted
+default is Ø19.15 for a future ABS export, but no replacement STL has been
+generated because no replacement is needed. The already-modified
+`Beni_Prototype1` master was not overwritten.
 
-The immediate next action is to print and test the bed-ready
-[`ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl`](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)
-**without rotating it and with supports off** as the unloaded ABS physical
-assembly article. Its 20.0 mm fork opening is the controlled bridge; do not let
-the slicer generate support in that channel or either bearing seat. Then
-install the two real
-6800-2RS bearings from the two open outside faces without retaining compound.
-This actual part replaces a separate depth coupon at the owner's direction.
-The Ø19.10 value is ABS process compensation; the real bearing reference stays
-Ø19.00 and PA-CF still requires its own coupon. The separate Ø10 h6 × 35 mm knee-pin check still gates the
-active rig's angular reference and the rerouted distal link. See the exact bore map in
+The immediate mechanical gate is the owner-reported eBay knee-pin order. It is
+believed to contain three candidate pins and is not expected before about
+2026-09-16; treat both facts as unverified until the listing or package is
+recorded. On arrival, count the pins, confirm Ø10 × 35 mm and h6/h5 evidence,
+hand-fit one through both 6800 bearing bores, and test the vertical Ø10
+fit-coupon bore. That real steel-pin result plus the final Fusion support/bridge
+and assembly-path audit gate a new bed-ready ABS `Distal_Link_L`.
+
+A deliberately clearance-fit printed ABS pin may be used meanwhile as a
+**supported, hand-posed alignment mandrel only**. It does not release the distal
+link, prove the bearing fit, or establish the AS5048A angular datum. Do not use a
+printed pin for powered motion, main-spring installation/preload, ground contact
+or any load test; support the distal-side mock-up so the pin carries no leg
+weight. No temporary-pin STL is released yet. In parallel, run
+firmware/electronics Stage 0 with both motors disconnected. See the exact bore map in
 [`print_stl/README.md`](print_stl/README.md). The GIM4305 procedure and
 non-nesting explanation are in the illustrated
 [`2026-08-22 actuator-coupon test guide`](evidence/actuator_fit/2026-08-22_coupon_test_guide/README.md).
 They were built from the manufacturer STEP datums in Fusion and are ready to use
 with the real actuators as go/no-go fixtures, so calipers are **not a blocker**.
 The old `GAUGE_*_Motor_Interface.stl` files remain positive motor stand-ins and
-are not substitutes for these mating coupons.  The optional Mode A cable anchor
-is in `first_article_stl/mode_a/`.  Repeat the critical mating coupon in PA-CF
-before any structural PA-CF release.
+are not substitutes for these mating coupons. The optional Mode A cable anchor
+is in `first_article_stl/mode_a/`. PA-CF coupons and structural prints are now
+deferred to the later two-leg build.
 
 ---
 

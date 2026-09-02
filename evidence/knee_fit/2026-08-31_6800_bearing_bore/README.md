@@ -23,10 +23,18 @@ the two-hole Ø19.05 index end is Ø19.10. The owner confirmed all four criteria
 
 Classification: **Ø19.10 ABS PASS.**
 
+**[SUPERSEDED AS THE PREFERRED ABS COMPENSATION, 2026-09-02.]** The full-depth
+face-flat Ø19.10 link accepted both bearings but was slightly tighter than the
+owner prefers for repeated assembly. Ø19.15 is now preferred for future ABS
+links because it retains the bearing without perceptible movement at easier
+thumb pressure. The existing Ø19.10 link remains usable. See the
+[`2026-09-02 full-depth result`](../2026-09-02_proximal_link_full_depth/).
+
 ## Disposition
 
-- The real 6800-2RS hardware envelope remains Ø19.00; the selected printed ABS
-  seat is Ø19.10. This is process compensation, not a hardware-model change.
+- The real 6800-2RS hardware envelope remains Ø19.00. Ø19.10 records the first
+  successful ABS selection; Ø19.15 is the later preferred ABS compensation.
+  Neither is a hardware-model change.
 - Fusion generated and B-Rep-verified an indexed Ø19.05–Ø19.25 ladder in 0.05 mm
   steps: [`../../../first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl`](../../../first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl).
 - At the owner's direction, the actual unloaded ABS proximal-link first article

@@ -63,10 +63,17 @@ Stop after this batch until the remaining gates close:
 - GIM4305 housing is **OWNER PASS, 2026-08-23** with the real M2.5 screws. Do
   not print the rerouted `Distal_Link_L` until the remaining real Ø10 h6 knee
   pin passes the fit coupon as a light press.
-- Do not install the knee spring, torque/backdrive either actuator, mount the
-  leg in the stand, or apply load through these ABS parts.
-- Repeat the critical coupons in PA-CF before structural release; the Ø4.15
-  ABS result must not be copied blindly into the PA-CF hub.
+- Do not install/preload the knee spring or apply torque-arm, ground-traction,
+  stall, proof or drop load through these ABS parts. After the complete leg and
+  electronics gates close, the Mode A stand may hold it for wheel-clear,
+  current-limited, short slow motor commands under self-weight only.
+- While the steel knee pins are in transit, a deliberately loose printed ABS
+  pin may align a fully supported mock-up for hand posing only. It is not the
+  Ø10 h6 fit gauge or angular datum. Do not release the distal link or run a
+  motor, spring, ground-contact or load test on the printed pin.
+- Repeat the critical coupons immediately before the later two-leg PA-CF
+  structural build; the Ø4.15 ABS result must not be copied blindly into the
+  PA-CF hub.
 
 ## Verification
 
@@ -83,13 +90,17 @@ the Fusion result.
 
 ---
 
-# Batch 3 — unloaded ABS proximal-link bearing rehearsal
+# Batch 3 — unloaded ABS proximal-link bearing rehearsal — complete
 
-The owner's Ø19.10 ladder bore passed on 2026-08-31 with firm thumb pressure,
-square seating, no perceptible rock and tool-free removal. The actual ABS link
-is the full-depth confirmation; the owner declined a separate depth coupon.
+The owner's Ø19.10 ladder bore passed on 2026-08-31. The face-flat full-depth
+Ø19.10 link then accepted both real bearings on 2026-09-02 and remains the build
+article, but the owner reports that it is slightly tighter than preferred.
+Ø19.15 is now preferred for any future ABS proximal print because the ladder
+bore retains the bearing without movement at easier thumb pressure. No
+replacement link is required. Physical record:
+[`../../evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](../../evidence/knee_fit/2026-09-02_proximal_link_full_depth/).
 
-## Print now
+## Printed article retained
 
 Print
 [`ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl`](ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)
@@ -120,7 +131,8 @@ the bearing stack or widen the 31.6 mm knee envelope. Fusion verifies a
 
 ## Bearing installation rehearsal
 
-Status before printing: **CAD PATH VERIFIED; PHYSICAL ASSEMBLY PENDING.**
+Status: **PHYSICAL BEARING FIT VERIFIED from the owner report.** The existing
+Ø19.10 link is retained; Ø19.15 is a future-ABS preference, not a reprint order.
 
 1. Confirm the unsupported channel bridge is intact, with no loose strands or
    droop obstructing the fork. There should be no slicer support to remove.
@@ -159,5 +171,6 @@ reports one part, `manifold = yes`, `min_z = 0`, and a
 
 ![Fusion view of the face-flat link with both bearing axes vertical](00_fusion_abs_proximal_d19p10_print_oriented.png)
 
-The PA-CF proximal link remains unreleased. Repeat the bearing coupon in PA-CF
-before any structural print or load test.
+PA-CF is deferred to the later two-leg structural build. Repeat the bearing
+coupon in PA-CF immediately before those structural prints; no ABS compensation
+transfers.

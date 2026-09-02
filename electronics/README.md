@@ -171,7 +171,8 @@ Two further findings that are not brief errors but change the design:
 
 All ten §10 deliverables are drafted across `01`–`06`. **They describe the
 two-leg robot, which is not the active build** — the active build is the
-**single-leg test rig** (Teensy 4.1, 20 V bench supply, breadboarded buses;
+**complete ABS single-leg integration article** using the Mode A fixture
+(Teensy 4.1, 20 V bench supply, breadboarded buses;
 `../fusion_brief_single_leg_rig.md`, `../beni_single_leg_rig_design_record.md`).
 Rig carve-outs are marked in `01`, `02`, `03` §3, `06` and `07` Wave 0.
 
@@ -185,11 +186,13 @@ electrical side:
 | **IMU gate re-scoped 8 kHz → 1 kHz raw** — the on-hand BNO085 tops out near 1 kHz on the SH-2 raw gyro report (100 Hz for calibrated/uncalibrated gyro), and its on-chip fusion carries 6.6 ms of latency, which alone would blow the <8 ms loop gate. Read raw, fuse on the Teensy | `06` Stage 0, `03` §4 |
 | **Transceiver is the Adafruit CAN Pal 5708** (TJA1051T/3, onboard charge pump, single 3.3 V rail) — the TCAN3414 is surface-mount and this build is breadboarded. One board per bus | `07` Wave 0 |
 
-Rig **Stage 5 (drops) is deferred**; Stages 0–2 map to rig steps 1–6, which is
-the whole Mode A programme. **Step 6, spring characterisation, is a Mode A test**
-— so the measured F₀ and k still get taken, replacing the assumed 30.0 N. What
-the deferral actually costs is the bounce mode, the sprung/unsprung split, active
-shoulder damping and the φ_peak-vs-drop-height curve that sets `A_MAX`.
+**Owner scope 2026-09-02:** the complete single-leg integration article remains
+ABS. Stages 0–1 and the wheel-clear/current-limited, self-weight-only subset of
+Stage 2 are active, including unloaded phase-resistance, latency and CAN-soak
+checks. The lever torque sweep, main-spring preload and
+characterisation, ground traction, stall/proof loading, Stage 5 drops and all
+later dynamic gates move to the two-leg PA-CF structural build. The detailed
+boundary is in `06_logging_and_bringup.md`.
 
 Nothing here has been
 built or measured: every power figure is an estimate pending an inline watt

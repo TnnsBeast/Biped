@@ -1,9 +1,13 @@
 # ABS 6800 bearing-bore calibration
 
-**OWNER PASS, 2026-08-31:** Ø19.10 was the smallest/best bore satisfying every
-release criterion: firm thumb pressure, square seating, no perceptible radial
-rock and removal using the exposed bearing edge. Ø19.00 previously failed as
-too tight. The real bearing remains Ø19.00; Ø19.10 is ABS print compensation.
+**OWNER UPDATE, 2026-09-02:** Ø19.10 passed and the full-depth face-flat link is
+usable, but the owner found it slightly tighter than preferred. Ø19.15, the
+third bore from the two-hole index end, retains the bearing with no perceptible
+movement at easier thumb pressure and is now the preferred compensation for any
+future ABS proximal link. Ø19.00 previously failed as too tight. The real
+bearing remains Ø19.00; both larger values are ABS process observations, not a
+hardware-model change. Full-depth result:
+[`../../evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](../../evidence/knee_fit/2026-09-02_proximal_link_full_depth/).
 
 Print [`ABS_CAL_6800_BORE_LADDER.stl`](ABS_CAL_6800_BORE_LADDER.stl) flat in
 the same ABS material and slicer profile intended for the first structural

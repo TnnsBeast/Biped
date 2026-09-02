@@ -14,6 +14,15 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 > yet. It remains gated by the real Ø10 h6 knee-pin fit and a new bed-ready
 > Fusion export. The other flat-datum parts in this directory are unaffected.
 
+> ## ⚠ OWNER SCOPE 2026-09-02 — COMPLETE ABS SINGLE-LEG INTEGRATION FIRST
+> The current print campaign stays ABS through the complete single-leg
+> integration article. The motors may be commissioned only with current limits,
+> the wheel clear, and no load beyond self-weight. PA-CF, the torque arm,
+> spring-characterisation, ground traction, stall/proof and drop loading are
+> deferred to the later two-leg structural build. Existing PA-CF settings and
+> load calculations below remain the structural-build specification, not the
+> current print order.
+
 > ## ⚠ AMENDED 2026-08-17 — MODE A ONLY
 > The build is **Mode A**: the shoulder bolts rigid to a printed stand. The
 > vertical slide, the ballast and the drop series are **deferred, not cancelled**.
@@ -47,19 +56,21 @@ part lies on the bed decides whether it survives.
 | Cooling | **minimal** | fast cooling is the #1 cause of weak Z bonds |
 | Filament | **dried** | non-negotiable; wet nylon loses a large fraction of interlayer strength |
 
-Structural release material is **PA-CF** unless a part is explicitly assigned a
-different material.
+Structural release material remains **PA-CF**, but that release is deferred to
+the later two-leg build.
 
-**The first-article campaign is ABS.** Print `GAUGE_Fit_Coupon`, negative motor
+**The complete single-leg integration campaign is ABS.** Print
+`GAUGE_Fit_Coupon`, negative motor
 mating coupons or the actual mating parts, assembly-rehearsal parts,
-cable-routing parts, covers, floor-contact parts, and—if useful—the whole
-unloaded dry-fit leg in ABS. The two existing `GAUGE_*_Motor_Interface` files
+cable-routing parts, covers, floor-contact parts, and the whole unloaded
+single-leg article in ABS. The two existing `GAUGE_*_Motor_Interface` files
 are positive motor stand-ins and are optional now that the motors are in hand.
-Do not apply stall
-torque, spring-characterisation loads, drops, or proof loads through the ABS load
-path: `RIG_Stand`, both hubs, `RIG_Torque_Arm`, and the two cartridge eyes remain
-PA-CF for loaded testing. An ABS coupon calibrates only the ABS campaign; repeat
-the critical mating coupon in PA-CF before releasing PA-CF structural prints.
+Motor commissioning is limited to wheel-clear, current-limited, short slow
+commands under self-weight. Do not apply torque-arm load, stall torque, main
+spring preload/characterisation, ground traction, drops, or proof loads through
+the ABS path. `RIG_Stand`, both hubs, `RIG_Torque_Arm`, and the two cartridge eyes
+remain PA-CF for later loaded testing. An ABS coupon calibrates only the ABS
+campaign; repeat critical coupons immediately before the two-leg PA-CF prints.
 See `../beni_rig_no_machining.md` §4 for the load-path reasoning.
 
 ---
@@ -241,7 +252,7 @@ committing to a second set.**
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | Torque is carried by **friction**, and preload in plastic creeps. **Steel washer under every screw head**, and re-torque after the first hour then every ~10 hours. The Ø37.3 register is centring only and prints fine at 5 walls. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
-| `Distal_Link_L.stl` | PA-CF already | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new export. |
+| `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new bed-ready ABS export. |
 
 `Knee_Stop_Arc_L` is **gone entirely** — there are no laser-cut parts. The +27°
 crash stop moved into the spring cartridge as a compression stack (a stack of
@@ -271,8 +282,8 @@ them.
   screws match the MGN12H 20 × 20 pattern~~ — **[DEFERRED — MODE B]**, there are no
   blocks.
 - **The stand's clamp access and flat seating**, without applying meaningful
-  torque to an ABS first article. The loaded hold-down release test is for the
-  PA-CF stand: clamp it to the bench, then push at the
+  torque to the ABS article. The loaded hold-down release test is deferred to
+  the later PA-CF structural stand: clamp it to the bench, then push at the
   wheel with a luggage scale to make ~11 N·m about the shoulder axis (≈52 N at the
   209 mm nominal lever) and confirm nothing lifts, slips or visibly twists. This
   is the one Mode A check with no CAD equivalent, and it is the check that decides

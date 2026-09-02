@@ -141,11 +141,14 @@ front face → leg. Three consequences:
 
 ## 4. ABS as a first-article material — where it is allowed
 
-Asked 2026-08-17 and confirmed by the owner 2026-08-20: the first campaign is
-ABS, switching to PA-CF only when structural loading requires it. The split is
-by **test load**, not merely by part name: ABS may be used for fit, assembly
-rehearsal, cable routing, and an unloaded/hand-driven whole-leg article, but not
-for stall, spring-characterisation, drop, or proof loading through the load path.
+Owner decision 2026-09-02: complete the single-leg integration article in ABS
+and defer PA-CF to the later two-leg structural build. The split remains by
+**test load**, not merely by part name. ABS may be used for fit, complete
+mechanical assembly, cable routing, hand-driven kinematics, and wheel-clear,
+current-limited motor/electronics commissioning under self-weight only. It may
+not carry a torque-arm load, stall torque, main-spring preload or
+characterisation load, ground traction, a drop, a proof load, or any
+human-adjacent load.
 
 | Property | PA-CF (design basis) | Printed ABS |
 |---|---:|---:|
@@ -159,13 +162,15 @@ P430 study; 22.4 → 19.0 MPa with modulus 1.81 → 1.78 GPa in another; general
 guidance puts Z as low as 4–5× below XY where interlayer bonding is poor. **Ranges,
 not a datum** — do not dimension anything against these.
 
-**Allowed in ABS.** `RIG_Floor_Plate` (the wheel only rolls on it — flatness and
-hardness matter, strength does not; watch warp over 260 mm), `RIG_Cable_Post_A/B`,
+**Allowed in ABS.** `RIG_Floor_Plate` (for assembly geometry only — ground
+traction is deferred; watch warp over 260 mm), `RIG_Cable_Post_A/B`,
 `RIG_Scale_Pedestal` (compression block under the scale), `Knee_Encoder_Bracket_L`
 (already specified ABS), and **any first-article geometry check** — dry-fitting the
 knee stack, confirming the five insert bores line up with the panel, checking the
-re-routed `RIG_Cable_Post_B` clears the wheel. Cheap ABS is the right material for
-that work and derisks the CAD before PA-CF is committed.
+re-routed `RIG_Cable_Post_B` clears the wheel, and operating both motors slowly
+with current limits while the wheel is clear and the structure carries no load
+beyond self-weight. Cheap ABS is the right material for that work and derisks the
+CAD before PA-CF is committed.
 
 **Not allowed to carry measurement or proof loads in ABS, with the reason each
 one fails:** The same geometries may still be printed in ABS for dry assembly,
@@ -196,7 +201,7 @@ stand-ins; they do not accept the delivered actuators. For a direct motor
 go/no-go, design a negative mating coupon in Fusion or print the actual mating
 part in ABS. ABS and PA-CF differ in shrinkage and hole error, so the ABS result
 does not transfer: repeat the critical fit and negative mating coupons in PA-CF
-before releasing structural PA-CF prints.
+immediately before the later two-leg structural prints.
 
 ⚠ **Heat-set insert data does not transfer either.** The M3 insert's grip is already
 the unverified weak link in the stand's five-bolt joint (`fusion_agent_guide_mode_a.md`

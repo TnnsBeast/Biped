@@ -645,9 +645,10 @@ def mode_a_stand():
     print('    -> the stand must hold the shoulder axis at least '
           f'{-wheel_xz(PHI_EXT)[1] + WHEEL_R:.0f} mm above the floor')
 
-    print('\n  Step 6 (spring characterisation) runs in MODE A per brief 6, so')
-    print('  F0 and k are still measured in this build.  Known masses on the')
-    print('  wheel, knee angle logged from the AS5048A:')
+    print('\n  Step 6 reference table (test deferred by owner decision 2026-09-02):')
+    print('  the current ABS single-leg article does not carry these masses or')
+    print('  characterize the spring.  Preserve the table for the later two-leg')
+    print('  PA-CF structural build:')
     print('   added mass    force at wheel      phi')
     f_lo, f_hi = ground_force(PHI_EXT), ground_force(PHI_STOP)
     for m in (0.5, 1.0, 2.0, 3.0, 4.0, 5.0):

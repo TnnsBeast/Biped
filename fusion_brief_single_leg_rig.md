@@ -1,5 +1,15 @@
 # Fusion Brief — Beni Single-Leg Test Rig
 
+> ### ⚠ OWNER SCOPE 2026-09-02 — COMPLETE ABS SINGLE-LEG INTEGRATION FIRST
+>
+> The active phase is a complete ABS single-leg integration article, including
+> wheel-clear, current-limited motor/electronics commissioning under self-weight.
+> PA-CF is deferred to the later two-leg structural build. The torque-arm test,
+> main-spring preload/characterisation, ground traction, stall/proof loads and
+> drops are not run through ABS. This supersedes the 2026-08-17 statement below
+> that Mode A step 6 would be completed before the two-leg build; it does not
+> change the verified geometry or the retained load tables.
+
 > ### ⚠ AMENDED 2026-08-17 — MODE A ONLY. The slide, the ballast and the drop series are deferred
 >
 > Scope decision by the project owner: **build Mode A and only Mode A.** The
@@ -11,13 +21,13 @@
 > | What that deletes | What survives, and why |
 > |---|---|
 > | `RIG_Rail` (400 mm MGN12 + 2 × MGN12H), `RIG_Carriage`, `RIG_Ballast` × 2, `RIG_Mode_Pin`, `RIG_Drop_Release`, `RIG_Hard_Stops`, `RIG_Index_Bar`/`RIG_Index_Post` | `RIG_Stand` (new, replaces base + column + carriage), `RIG_Floor_Plate`, `RIG_Torque_Arm`, `RIG_Cable_Posts`, the whole knee stack, both hubs, the cartridge eyes — all of these are *robot* parts or measure the robot |
-> | Test steps **7–11** (§6): static release, pluck test, damping injection, drop series | Test steps **1–6**, which include **step 6, spring characterisation** — see below |
+> | Test steps **7–11** (§6): static release, pluck test, damping injection, drop series | Steps **1–5** as unloaded integration work; step 6 is now deferred by the 2026-09-02 owner decision above |
 > | The brake chopper, its comparator, MOSFET, divider and heatsink (§5 trap 4) | Everything else in §5. No drops means no regen, so nothing has to sink it |
 >
-> **Mode A still measures the spring.** §6 assigns step 6 — *known masses on the
-> wheel, φ vs force*, gating *"F₀ and k measured, replacing the assumed 30.0 N"* —
-> to **Mode A**. Steps 1–6 are all bench/Mode A. So the Mode-A-only build does
-> **not** forfeit F₀ and k as-built.
+> **[SUPERSEDED 2026-09-02] Mode A originally measured the spring.** §6 assigns
+> step 6 — *known masses on the wheel, φ vs force* — to Mode A. The calculation
+> and method remain valid, but the physical test now waits for the two-leg PA-CF
+> structural build.
 >
 > **What deferring Mode B actually costs:** the leg bounce mode and its
 > sprung/unsprung split (steps 8–9), active shoulder damping, and the φ_peak vs

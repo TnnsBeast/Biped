@@ -52,12 +52,13 @@ motor stand-ins and cannot serve as sockets for this check.
 
 ## Material decision for the first campaign
 
-The owner's first articles are **ABS**. ABS is appropriate for mating coupons,
-assembly rehearsal, cable-routing parts, guards, floor-contact parts, and an
-unloaded/hand-driven leg. Do not use an ABS result as PA-CF print compensation,
-and do not apply stall torque, spring-characterisation loads, drops, or other
-structural proof loads to the ABS load path. Repeat the critical mating coupon in
-PA-CF before printing or loading the structural release parts.
+The complete single-leg integration article is **ABS**. ABS is appropriate for
+mating coupons, assembly rehearsal, cable routing, guards, and wheel-clear,
+current-limited motor/electronics commissioning under self-weight. Do not use an
+ABS result as PA-CF print compensation, and do not apply torque-arm load, main
+spring preload/characterisation, ground traction, stall/proof torque, drops, or
+other structural loads to the ABS path. Repeat the critical mating coupons
+immediately before the later two-leg PA-CF structural prints.
 
 ## Source mapping and integrity
 

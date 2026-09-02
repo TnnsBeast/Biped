@@ -64,10 +64,15 @@ result is specific to the material, printer, orientation, and profile; do not
 reuse ABS compensation for PA-CF.
 
 For the active Mode A first article, the immediate go/no-go checks are Ø19 with
-the real 6800-2RS bearing and Ø10 with the real h6 knee pin. The Ø16 bore is a
-superseded sleeve check; Ø6 and Ø4.0 support later stop/insert work; and the
-Ø4.05 shoulder-output result has already been superseded for this ABS profile
-by the owner-tested Ø4.15 hub.
+the real 6800-2RS bearing and Ø10 with a real h6/h5 steel knee pin. The
+owner-reported eBay candidates are believed to be a set of three and are not
+expected before roughly 2026-09-16; quantity and exact specification remain to
+be verified. A deliberately clearance-fit printed ABS pin may support
+hand-alignment work meanwhile, but it cannot release the distal link, establish
+the knee-angle datum, or carry powered, spring, ground-contact or load testing.
+The Ø16 bore is a superseded sleeve check; Ø6 and Ø4.0 support later stop/insert
+work; and the Ø4.05 shoulder-output result has already been superseded for this
+ABS profile by the owner-tested Ø4.15 hub.
 
 **Physical result, 2026-08-31:** the real 6800-2RS bearing does not enter the
 nominal Ø19.00 bore with thumb pressure. It starts only under table/clamp force,
@@ -75,11 +80,12 @@ so this is a **FAIL**, not permission to clamp it home. The owner then printed t
 [`ABS_CAL_6800_BORE_LADDER.stl`](../first_article_stl/bearing_fit/ABS_CAL_6800_BORE_LADDER.stl)
 whose two small holes mark the Ø19.05 end; the five main bores are Ø19.05,
 Ø19.10, Ø19.15, Ø19.20 and Ø19.25 moving away from those markers. Test from
-smallest to largest. **Ø19.10 PASSed**: firm thumb pressure, square seating, no
-perceptible rock and removal by the exposed edge. The actual unloaded ABS
-proximal first article with Ø19.10 seats is now the full-depth confirmation and
-physical rehearsal; no extra coupon is required. This does not release the
-PA-CF part, whose critical fit must be recalibrated in PA-CF.
+smallest to largest. **Ø19.10 PASSed** and the face-flat full-depth Ø19.10 link
+accepted both bearings on 2026-09-02, but the owner found the production seats
+slightly tighter than preferred. **Ø19.15 is now preferred for future ABS
+links**: easier thumb insertion with no perceptible movement. The existing
+Ø19.10 link remains usable and needs no reprint. PA-CF is deferred to the later
+two-leg structural build and must be recalibrated then.
 
 **This one print de-risks every other print.** Don't skip it — the Ø19 bearing
 seats and the Ø10 knee-axle bore are the two fits that will otherwise waste a

@@ -358,17 +358,22 @@ wheel is fully assembled.*
 ## 10. Recommended print order
 
 1. `Chassis_Shoulder_Plate_L/R` — simplest, validates the motor interface.
-2. `Proximal_Link_L/R` — use the verified bed-ready ABS first article to check
-   the Ø19.10 process-compensated bearing seats and Ø34 root access.
+2. `Proximal_Link_L/R` — the face-flat Ø19.10 ABS first article passed full-depth
+   bearing installation and remains the build part. Use Ø19.15 for a future ABS
+   reprint; it retains the bearing at easier thumb pressure. Check Ø34 root
+   access during the complete single-leg rehearsal.
 3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
    tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
    Ø10 angular-reference fit and Ø41.5 cover clearance.
+   A clearance-fit printed ABS pin may be used only to hand-align a fully
+   supported mock-up while the steel pins are in transit; it does not clear this
+   gate and must not carry powered, spring, ground-contact or load testing.
 4. `Wheel_Rim_L/R`, then the TPU tyres.
 5. ABS covers and the encoder bracket last (non-critical).
 
-Print a **Ø19 bearing-seat coupon and a Ø16 sleeve coupon first** and measure
-them; PA-CF shrinkage will decide whether the seats need to be modelled
-oversize or reamed.
+Repeat the **Ø19 bearing-seat coupon** immediately before the later two-leg
+PA-CF structural build. PA-CF shrinkage decides its own compensation; do not
+copy the ABS value or ream the printed seat.
 
 *Note: the Ø16 sleeve fit named in step 2 and above is now a **Ø10** bore printed
 straight into `Distal_Link_L` — `Knee_Sleeve_L` is deleted. The print order itself

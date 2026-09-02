@@ -88,7 +88,8 @@ BEARING_LADDER_NAME = 'ABS_CAL_6800_BORE_LADDER'
 BEARING_LADDER_LENGTH = 170.0
 BEARING_LADDER_WIDTH = 32.0
 BEARING_LADDER_THICKNESS = 4.0
-ABS_PROXIMAL_NAME = 'ABS_FA_Proximal_Link_L_D19p10'
+ABS_PROXIMAL_SLUG = 'proximal_d19p15'
+ABS_PROXIMAL_NAME = 'ABS_FA_Proximal_Link_L_D19p15'
 ABS_PROXIMAL_PRINT_NAME = ABS_PROXIMAL_NAME + '_PRINT_ORIENTED'
 
 
@@ -525,7 +526,7 @@ def verify_abs_proximal_bearing_paths():
     os.makedirs(ASSEMBLY_DRY_FIT_OUT_DIR, exist_ok=True)
     verification_path = os.path.join(
         ASSEMBLY_DRY_FIT_OUT_DIR,
-        'proximal_d19p10_path_verification.json')
+        ABS_PROXIMAL_SLUG + '_path_verification.json')
     with open(verification_path, 'w', encoding='utf-8') as stream:
         json.dump(result, stream, indent=2, sort_keys=True)
         stream.write('\n')
@@ -677,7 +678,7 @@ def export_abs_proximal_link():
     row['stl_bytes'] = os.path.getsize(path)
 
     manifest_path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
-                                 'proximal_d19p10_fusion_manifest.json')
+                                 ABS_PROXIMAL_SLUG + '_fusion_manifest.json')
     with open(manifest_path, 'w', encoding='utf-8') as stream:
         json.dump({
             'document': doc.name,
@@ -693,7 +694,7 @@ def export_abs_proximal_link():
 def _abs_proximal_print_transform(occ):
     """Put the redesigned outboard bearing face on the bed.
 
-    The two O19.10 bearing axes must print normal to the bed: the owner's second
+    The two O19.15 bearing axes must print normal to the bed: the owner's second
     ABS article demonstrated that a horizontal FDM bore was not round enough to
     accept the same bearing that passed the vertical-axis calibration ladder.
     ``build_proximal_link`` now carries the complete arm-B face to the existing
@@ -763,7 +764,7 @@ def _abs_proximal_print_transform(occ):
         ],
         'minimum_z_mm': 0.0,
         'bearing_axis_print_direction': '+Z',
-        'bearing_seats': ('vertical; prohibit slicer support in both O19.10 '
+        'bearing_seats': ('vertical; prohibit slicer support in both O19.15 '
                           'seats and at the O17 retention lips'),
         'channel': ('20.0 mm controlled bridge; open at its perimeter; '
                     'prohibit slicer support'),
@@ -827,7 +828,7 @@ def export_abs_proximal_link_print_oriented():
 
         image_path = os.path.join(
             ASSEMBLY_DRY_FIT_OUT_DIR,
-            '00_fusion_abs_proximal_d19p10_print_oriented.png')
+            '00_fusion_abs_' + ABS_PROXIMAL_SLUG + '_print_oriented.png')
         if not app.activeViewport.saveAsImageFile(image_path, 1600, 1000):
             raise RuntimeError('Fusion screenshot failed for %s' %
                                ABS_PROXIMAL_PRINT_NAME)
@@ -845,7 +846,7 @@ def export_abs_proximal_link_print_oriented():
     row['fusion_screenshot'] = image_path
     manifest_path = os.path.join(
         ASSEMBLY_DRY_FIT_OUT_DIR,
-        'proximal_d19p10_print_orientation_manifest.json')
+        ABS_PROXIMAL_SLUG + '_print_orientation_manifest.json')
     with open(manifest_path, 'w', encoding='utf-8') as stream:
         json.dump({
             'document': doc.name,

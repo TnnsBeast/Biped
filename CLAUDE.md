@@ -4,8 +4,9 @@
 
 A Beni-style wheeled biped: **body → active rotary shoulder → proximal link →
 passive spring-loaded knee → distal link → driven wheel**, one leg per side. Two
-Steadywin actuators per leg (GIM6010-8 shoulder, GIM4305-10 wheel), ABS first
-articles followed by PA-CF structural parts, Teensy 4.1 control.
+Steadywin actuators per leg (GIM6010-8 shoulder, GIM4305-10 wheel), a complete
+ABS single-leg integration article followed later by a two-leg PA-CF structural
+build, Teensy 4.1 control.
 
 Two Fusion documents exist: `Beni_Prototype1` (the two-leg robot, revision 2,
 audits clean) and `Beni_SingleLegRig` (a Save-As copy, the **active build**).
@@ -18,9 +19,10 @@ and the contradictions found while building it are in `PROJECT_STATUS.md`.
 The Mode A document is saved as a named cloud version, the stand STL is exported,
 and the snapshot is in `snapshots/2026-08-20_rig-mode-a/`. **Both actuators are in
 hand**, with photographs indexed in
-`evidence/actuators/2026-08-20_received/`; no printed leg or wiring has yet been
-assembled. If you state an engineering figure, trace it to CAD, a vendor source,
-a script, or an explicitly identified physical observation.
+`evidence/actuators/2026-08-20_received/`. The face-flat ABS proximal link is
+printed with both bearings installed; the rest of the leg and all wiring remain
+unassembled. If you state an engineering figure, trace it to CAD, a vendor
+source, a script, or an explicitly identified physical observation.
 
 Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 
@@ -56,12 +58,16 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    editing, export, and verification. Do not substitute local STEP processing or
    UI automation for a Fusion operation.
 
-7. **ABS first, PA-CF at structural release.** Use ABS for the first mating
-   coupons, assembly rehearsal, cable routing, covers, floor-contact parts, and
-   unloaded/hand-driven leg work. Do not apply stall torque, spring-test loads,
-   drops, or structural proof loads through the ABS load path. ABS print
-   compensation does not transfer to PA-CF; repeat the critical coupon before
-   releasing PA-CF structural parts.
+7. **Complete the single-leg integration article in ABS; defer PA-CF to the
+   two-leg structural build.** Use ABS for mating coupons, the complete
+   single-leg mechanical assembly, cable routing, hand-driven kinematics, and
+   wheel-clear/current-limited motor and electronics commissioning under
+   self-weight only. Do not apply a torque-arm load, stall torque, main-spring
+   preload or characterisation load, ground traction, a drop, a structural proof
+   load, or any human-adjacent load through the ABS path. The ABS stand is an
+   assembly fixture, not a measurement fixture. ABS print compensation does not
+   transfer to PA-CF; repeat the critical coupons immediately before the later
+   two-leg structural prints.
 
 8. **Keep the public GitHub repository current.** The tracking repository is
    `https://github.com/TnnsBeast/Biped`. When a task materially changes project

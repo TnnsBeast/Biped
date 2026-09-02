@@ -72,9 +72,9 @@ first result is recorded.
    even if it eventually went flat.
 
 A clean hand fit releases the corresponding ABS leg interface for the next
-print.  The GIM6010 output requires the smallest passing Batch 1B bore before
-that release.  No ABS result releases PA-CF structural loading: repeat the
-critical interface coupon in the eventual structural material first.
+print. The GIM6010 output requires the smallest passing Batch 1B bore before
+that release. No ABS result transfers to PA-CF: repeat the critical interface
+coupon immediately before the later two-leg structural prints.
 
 ## Optional Batch 2: Mode A cable anchor
 

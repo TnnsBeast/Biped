@@ -3,8 +3,9 @@
 ![Beni Prototype 1](docs/readme/beni_full_robot.png)
 
 A mostly 3D-printed wheeled biped with active shoulders, passive spring-loaded
-knees, and a driven wheel on each leg. The single-leg Mode A rig is the active
-build; the complete robot is modeled but not yet built.
+knees, and a driven wheel on each leg. A complete ABS single-leg integration
+article is the active build; PA-CF structural printing is deferred to the later
+two-leg build.
 
 **[Current status](PROJECT_STATUS.md)** · **[Mechanical design](beni_prototype1_design_record.md)** · **[Electronics](electronics/README.md)** · **[Firmware](firmware/README.md)** · **[Interactive viewer](web/)**
 
@@ -39,21 +40,17 @@ acceptance is governed by the specified 30.68 mm solid height and physical test.
 This automatically maintained section keeps the next released print easy to
 find while the project iterates.
 
-**[ABS proximal link, Ø19.10 bearing bores — download STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)** — 1 × ABS.
+**No new part is released for printing right now.** The face-flat Ø19.10 ABS
+proximal link is printed and both bearings fit. It remains the build article;
+do not reprint it. Ø19.15 is the preferred compensation for any future ABS
+proximal print because it retains the bearing without movement at lower thumb
+insertion force.
 
-Import as-is; it is already face-flat with both bearing axes vertical. Use
-0.20 mm layers, 4 walls, 5 top/bottom layers, 30% infill, and a brim. Set
-**supports off**: the 20.0 mm fork opening is a controlled bridge, and no support
-may touch either bearing seat or the Ø17 retention lips. Expected size:
-**141.921 × 127.127 × 31.600 mm**.
-
-**After printing:** thumb-press one 6800-2RS bearing into each open outside face.
-Before inserting them, confirm the bridged channel roof is intact and has no
-loose strands or droop obstructing the fork. Both bearings must then enter
-square, seat flush, have no rock, and remain removable without a clamp or
-retaining compound. Follow the
-[full test and acceptance instructions](first_article_stl/assembly_dry_fit/README.md#batch-3--unloaded-abs-proximal-link-bearing-rehearsal).
-
-**Hold:** do not print the distal link yet; the Ø10 h6 knee pin and its DFM and
-assembly-path verification still gate that release.
+**Next release gate:** do not print the distal link yet. Candidate eBay knee
+pins are ordered (believed to be a set of three; quantity, exact specification
+and delivery remain to be verified). A real Ø10 h6/h5 × 35 mm steel pin must
+pass the fit coupon, and the corrected face-flat distal link still needs its
+final Fusion support/bridge and assembly-path audit. A printed ABS pin is only a
+supported hand-alignment placeholder—not a release gauge or powered-test pin.
+PA-CF is deferred until the later two-leg structural build.
 <!-- PRINT_QUEUE_END -->

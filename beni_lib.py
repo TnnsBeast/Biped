@@ -195,11 +195,13 @@ TRACK = 2 * 84.0                  # 168 mm
 # ------------------------------------------------------------- hardware sizes
 KNEE_AXLE_D = 10.0
 KNEE_BRG_OD = 19.0                  # real 6800-2RS hardware envelope
-# ABS first-article printed seat selected by the owner on 2026-08-31 from the
-# O19.05..O19.25 ladder: firm thumb pressure, square seating, no rock, removable.
-# This is process compensation, not a change to the bearing model.  Recalibrate
-# before any PA-CF structural release.
-ABS_KNEE_BRG_SEAT_D = 19.10
+# ABS first-article printed seat selected by the owner from the O19.05..O19.25
+# ladder.  O19.10 passed and the full-depth link is usable, but was slightly
+# tighter than preferred.  On 2026-09-02 the owner selected O19.15 for future
+# ABS links: easier thumb pressure with no perceptible movement.  This is process
+# compensation, not a change to the bearing model.  Recalibrate before the later
+# two-leg PA-CF structural build.
+ABS_KNEE_BRG_SEAT_D = 19.15
 KNEE_BRG_W = 5.0
 KNEE_SLEEVE_OD = 16.0
 CART_PIN_D = 4.0

@@ -1,5 +1,14 @@
 # Beni Single-Leg Test Rig — Design Record
 
+> ### ⚠ OWNER SCOPE 2026-09-02 — ABS INTEGRATION ARTICLE; PA-CF AT TWO LEGS
+>
+> Complete the single-leg mechanical/electrical integration article in ABS.
+> Wheel-clear, current-limited motor commissioning under self-weight is allowed;
+> torque-arm, main-spring preload/characterisation, ground traction, stall/proof,
+> drop and human-adjacent loading are not. PA-CF and those structural gates move
+> to the later two-leg build. The Mode A geometry and calculations remain valid,
+> but its loaded measurement programme is no longer the active build phase.
+
 > ### ⚠ AMENDED 2026-08-17 — the build is MODE A ONLY
 >
 > Scope decision by the project owner: **build Mode A, defer Mode B.** The leg
@@ -28,8 +37,9 @@
 > | §9 purchase list | linear-motion and extrusion sections **deleted**; §9 carries the note |
 > | §10 drop stations | **[DEFERRED — MODE B]** in full |
 >
-> Mode A load set: `rig_calc.mode_a_stand()`. **Step 6, spring characterisation,
-> runs in Mode A** (brief §6), so F₀ and k are still measured in this build.
+> Mode A load set: `rig_calc.mode_a_stand()`. The step-6 F₀/k table remains the
+> design reference, but the physical spring-characterisation test is deferred by
+> the 2026-09-02 owner decision above.
 
 **Answers `fusion_brief_single_leg_rig.md`.** Fusion document: **`Biped → Beni_SingleLegRig`**,
 saved as a copy of the verified `Beni_Prototype1` so the master was never touched.
@@ -692,8 +702,9 @@ Two printed parts carry consequences the brief already flagged:
 - **`Shoulder_Output_Hub_L` needs its three Ø4 × 10 hardened dowel pins.** The
   printed register alone sees 63 MPa at the 25 N·m proof load against PA-CF's
   ~40–50 MPa shear. The pins are not optional. The former Ø3.9-and-ream route
-  is retired because machining is prohibited; PA-CF structural release waits
-  for an as-printed bore coupon that gives a true press fit to the bought pins.
+  is retired because machining is prohibited; the later two-leg PA-CF
+  structural release waits for an as-printed bore coupon that gives a true
+  press fit to the bought pins.
   If no bore works, revise the printed retention geometry rather than drilling
   or reaming the hub.
 - **`Wheel_Hub_L` needs a steel washer under every screw head**, and the
