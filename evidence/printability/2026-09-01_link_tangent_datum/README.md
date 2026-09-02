@@ -68,7 +68,11 @@ proximal file or use the legacy tall/native instruction as a release.
 
 ## Remaining physical gate
 
-This is an unloaded ABS assembly article. Print the `_PRINT_ORIENTED` file
-without rotating it, then physically verify that both 6800-2RS bearings seat
-squarely with firm thumb pressure, flush outside faces, no clamp and no radial
-rock. PA-CF structural release remains a separate material/calibration gate.
+**[SUPERSEDED PHYSICAL RESULT, later 2026-09-01.]** The exact tangent fixed the
+bed-contact defect, but the corrected on-edge article still failed its DFM gate:
+support removal broke an internal Ø17 bearing-retention lip and the horizontal
+Ø19.10 seat was not round enough for the bearing. The tangent correction remains
+valid source geometry; only this print orientation/release is superseded.
+
+The face-flat redesign and replacement release are recorded in
+[`../2026-09-01_proximal_face_flat_redesign/`](../2026-09-01_proximal_face_flat_redesign/).

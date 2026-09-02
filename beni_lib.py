@@ -152,6 +152,12 @@ KNEE_BOSS_A_Y0 = 58.7             # arm A boss, thickened 0.8 mm inboard
 KNEE_BOSS_A_Y1 = 64.5
 KNEE_BOSS_B_Y0 = 84.5
 KNEE_BOSS_B_Y1 = 90.3
+# DFM datum: the proximal arm-B outer face is coplanar with its bearing boss.
+# The old 89.5 mm arm face left only the O38 boss at Y=90.3 available as a
+# bearing-axis-vertical bed contact.  Extending the arm by the existing 0.8 mm
+# boss allowance creates a broad face-flat print datum without changing the
+# frozen 58.7...90.3 mm knee envelope or any bearing/insert plane.
+PROX_PRINT_FACE_Y = KNEE_BOSS_B_Y1
 BRG1_Y0, BRG1_Y1 = 58.7, 63.7     # 6800 in arm A
 BRG2_Y0, BRG2_Y1 = 85.3, 90.3     # 6800 in arm B
 KNEE_LIP_D = 17.0                 # 0.8 mm retaining lip behind each bearing
@@ -1923,7 +1929,7 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
     c = occ.component
     sk = sk_on_y(c, LEG_Y_IN)
     lozenge(sk, (0.0, 0.0), PL_R1, (120.0, 0.0), PL_R2, frame=prox_uv)
-    e = extrude(c, biggest_profile(sk), LEG_W, 'new')
+    e = extrude(c, biggest_profile(sk), PROX_PRINT_FACE_Y - LEG_Y_IN, 'new')
     e.bodies.item(0).name = 'Proximal_Link_L'
 
     # channel: keep a +v wall the whole length, a -v wall only up to u=72
@@ -1954,8 +1960,9 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
     extrude(c, sk.profiles.item(0), ROOT_PLATE_Y1 - CH_Y0, 'join')
     sk = sk_on_y(c, KNEE_BOSS_A_Y0); circle(sk, KX, KZ, 2 * PL_R2)
     extrude(c, sk.profiles.item(0), LEG_Y_IN - KNEE_BOSS_A_Y0, 'join')
-    sk = sk_on_y(c, LEG_Y_OUT); circle(sk, KX, KZ, 2 * PL_R2)
-    extrude(c, sk.profiles.item(0), KNEE_BOSS_B_Y1 - LEG_Y_OUT, 'join')
+    # Arm B already reaches the existing Y=90.3 bearing-boss plane.  The old
+    # local 0.8 mm boss step is deliberately absorbed into the full outboard
+    # face so the bearing axes can print normal to the bed.
 
     # knee bearing pockets + O17 retaining lips
     sk = sk_on_y(c, BRG1_Y0); circle(sk, KX, KZ, bearing_seat_d)
@@ -1980,9 +1987,9 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
     extrude(c, profiles(sk), ROOT_PLATE_Y1 - 63.3 + 0.5, 'cut')
     sk = sk_on_y(c, CH_Y1)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, 9.0, 6, HUB_LINK_A0)
-    extrude(c, profiles(sk), LEG_Y_OUT - CH_Y1 + 0.5, 'cut')
+    extrude(c, profiles(sk), PROX_PRINT_FACE_Y - CH_Y1 + 0.5, 'cut')
     sk = sk_on_y(c, CH_Y1); circle(sk, 0, 0, 34.0)
-    extrude(c, sk.profiles.item(0), LEG_Y_OUT - CH_Y1 + 0.5, 'cut')
+    extrude(c, sk.profiles.item(0), PROX_PRINT_FACE_Y - CH_Y1 + 0.5, 'cut')
     # O34 access bore straight through the root pad as well, so a hex key can
     # reach the six M3 output-hub screws without removing the link.
     sk = sk_on_y(c, LEG_Y_IN - 1); circle(sk, 0, 0, 34.0)

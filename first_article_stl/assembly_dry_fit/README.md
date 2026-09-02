@@ -97,38 +97,46 @@ in the same enclosed ABS profile as the passing ladder: no scaling or slicer
 hole compensation, 0.20 mm layers, 4 walls, 5 top and bottom layers and 30%
 infill. This is an unloaded assembly article, not a structural proof part.
 
-The `_PRINT_ORIENTED` file is already on its exact external-tangent bed datum:
-**do not rotate it and do not use “lay on face.”** Its slicer envelope is about
-169.39 × 31.60 × 62.00 mm with `min_z = 0`; the 20 mm fork channel stays open
-sideways and needs no trapped support. Use a normal ABS brim if the tuned
-profile benefits from one. The assembly-coordinate file without the suffix is
-retained for traceability, but is not the file to print.
+The `_PRINT_ORIENTED` file is already face-flat on the outboard arm/bearing
+face, with both Ø19.10 bearing axes along +Z. **Do not rotate it or use “lay on
+face.”** Its mesh envelope is 141.921 × 127.127 × 31.600 mm with `min_z = 0`.
+Set supports off. The 20.0 mm fork opening is a controlled bridge; no support
+may touch that channel, either bearing seat or either Ø17 retention lip. Use a
+normal ABS brim if the tuned profile benefits from one. The assembly-coordinate
+file without the suffix is retained for traceability, but is not the file to
+print.
 
-The first attempted print exposed a real source-geometry defect, not ordinary
-ABS shrinkage. The unequal-circle outline used the wrong tangent-angle sign, so
-the two circular ends extended 0.608 mm below the apparent long straight face.
-The shared sketch helper and its proximal channel-wall equation now use the
-exact external tangent. This adds material along the intended load path rather
-than adding disposable feet; the ABS first-article volume changed from 62.9765
-to 64.0181 cm³. Fusion verifies a continuous 3462.967 mm² supporting face.
+This is the third release attempt. Print 1 exposed the unequal-circle tangent
+error; that source correction remains. Print 2 used the corrected on-edge datum,
+but support removal broke an internal Ø17 retention edge and the horizontal
+bearing seat was not round enough for the real bearing. The passing ladder bore
+was vertical, so its compensation did not transfer to a horizontal production
+bore.
+
+The redesign extends arm B by the bearing boss's existing 0.8 mm allowance so
+the whole outboard arm shares the existing Y = 90.3 boss plane. It does not move
+the bearing stack or widen the 31.6 mm knee envelope. Fusion verifies a
+4213.248 mm² support face and 66.7616 cm³ ABS article.
 
 ## Bearing installation rehearsal
 
 Status before printing: **CAD PATH VERIFIED; PHYSICAL ASSEMBLY PENDING.**
 
-1. Keep the proximal link detached. Do not install the distal link, axle,
+1. Confirm the unsupported channel bridge is intact, with no loose strands or
+   droop obstructing the fork. There should be no slicer support to remove.
+2. Keep the proximal link detached. Do not install the distal link, axle,
    cartridge, stop arc, encoder or cables first.
-2. Do not apply retaining compound during the ABS rehearsal.
-3. From the inboard open face, press the first 6800-2RS bearing in the +Y
+3. Do not apply retaining compound during the ABS rehearsal.
+4. From the inboard open face, press the first 6800-2RS bearing in the +Y
    direction using both thumbs on the **outer race** until it seats on the Ø17
    retaining lip.
-4. From the outboard open face, press the second bearing in the −Y direction in
+5. From the outboard open face, press the second bearing in the −Y direction in
    the same way.
-5. Both bearings must enter squarely with firm thumb pressure, finish flush with
+6. Both bearings must enter squarely with firm thumb pressure, finish flush with
    the outside boss faces, and have no perceptible radial rock. Do not use a
    clamp, hammer, screw or fastener pull-down. Stop if the full-depth pockets
    feel materially tighter than the ladder.
-6. Leave the bearings installed for the next unloaded knee dry assembly. For
+7. Leave the bearings installed for the next unloaded knee dry assembly. For
    service, remove the detached link and reverse the same open-face paths with
    an internal bearing puller; sacrificing the bearing being replaced is
    acceptable, damaging the printed link is not.
@@ -142,19 +150,14 @@ the final seats. The reverse paths are the service paths. Records:
 - [`proximal_d19p10_path_verification.json`](proximal_d19p10_path_verification.json)
 
 Fusion exact-B-Rep verification found one solid body, two Ø19.10 cylindrical
-seat faces, 5.0 mm seat depth and the two Ø17 retaining-lip openings. The first
-mesh export also exposed two inherited zero-thickness topology defects in the
-old source: the Ø34 root-access bore was exactly tangent to the Ø8 harness hole,
-and the open-channel wall ended at a zero-radius four-face edge. The source now
-uses an Ø8.2 harness clearance (0.10 mm nominal overlap at the tangent) and the
-existing R1.0 channel-corner fallback as a wall-end relief. The final Fusion
-high-refinement print-oriented STL has 6,244 facets; Bambu Studio 02.08.02.61
+seat faces, 5.0 mm seat depth and the two Ø17 retaining-lip openings. The prior
+topology fixes remain: Ø8.2 harness clearance prevents the root-access tangent,
+and the R1.0 relief removes the open-channel knife edge. The final Fusion
+high-refinement print-oriented STL has 6,064 facets; Bambu Studio 02.08.02.61
 reports one part, `manifold = yes`, `min_z = 0`, and a
-169.386 × 31.600 × 62.000 mm mesh envelope.
+141.921310 × 127.126659 × 31.600000 mm mesh envelope.
 
-![Fusion view of the corrected link on its exact tangent print datum](00_fusion_abs_proximal_d19p10_print_oriented.png)
-
-![Fusion view of the Ø19.10 ABS proximal link with both Ø19.00 bearing envelopes seated](01_fusion_abs_proximal_d19p10_with_bearings.png)
+![Fusion view of the face-flat link with both bearing axes vertical](00_fusion_abs_proximal_d19p10_print_oriented.png)
 
 The PA-CF proximal link remains unreleased. Repeat the bearing coupon in PA-CF
 before any structural print or load test.

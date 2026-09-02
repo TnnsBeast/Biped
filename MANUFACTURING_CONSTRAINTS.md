@@ -11,6 +11,10 @@ Stated by the project owner, 2026-08-12.
 > **3D printed parts and off-the-shelf parts only.**
 > **No laser cutting. No machining.**
 
+A manifold STL is not by itself a printable release. Print-axis dimensional
+control and support-removal requirements are governed by `CLAUDE.md` hard rule
+12.
+
 "Off the shelf" means a catalogue item you can order and fit as-is: fasteners,
 dowel pins, washers, shims, bearings, linear rail and blocks, aluminium
 extrusion, springs, magnets. Cutting bought stock to length with a hacksaw is

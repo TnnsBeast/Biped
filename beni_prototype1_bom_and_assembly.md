@@ -12,6 +12,11 @@
 the Fusion model with real physical materials assigned, not computed by hand.
 See `beni_prototype1_rev2_changes.md` for what changed and why.
 
+**DFM refresh — 2026-09-01.** Fusion re-measured the §1 printed families after
+the proximal face-flat redesign and the current scripted distal-link reroute.
+The displayed §1 values and subtotal are the exact Fusion results from that
+source build; the PA-CF density is unchanged.
+
 Quantities are **per robot** (two legs) unless noted. Left-hand parts are named
 `*_L`; the right leg is the mirror image about Y = 0 and uses the same part
 numbers with `_R`.
@@ -25,12 +30,12 @@ Printed parts assume solid-equivalent density; see the note at the end.
 
 | Part | Vol cm³ | Mass g | Qty | Total g | Print orientation |
 |---|---:|---:|---:|---:|---|
-| `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.23 | 46.3 | 2 | 92.5 | flat, panel face on the bed; spiral lip prints up, no support |
-| `Proximal_Link_L/R` | 64.05 | 73.7 | 2 | 147.3 | on the exact long external-tangent datum, link axis along the bed and channel open sideways; use a verified print-oriented export, not native assembly coordinates |
-| `Distal_Link_L/R` | 44.98 | 51.7 | 2 | 103.5 | on edge, link axis vertical, same rationale |
-| `Wheel_Rim_L/R` | 67.14 | 77.2 | 2 | 154.4 | web face down on the bed, drum prints up; no support. Now carries the tyre bead groove and the inboard retaining flange |
-| `Chassis_Frame` (centre cage, not mirrored) | 61.17 | 70.3 | 1 | 70.3 | flanges vertical, open box, no support |
-| **Subtotal** | | | | **568.0** | |
+| `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.2337 | 46.2687 | 2 | 92.5375 | flat, panel face on the bed; spiral lip prints up, no support |
+| `Proximal_Link_L/R` | 66.7915 | 76.8102 | 2 | 153.6204 | outboard arm/bearing face flat, bearing axes normal to the bed; bed-ready export only, supports off, 20.0 mm channel bridge |
+| `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical Ø10 bore, but the real Ø10 h6 pin and final support/bridge audit still gate its export |
+| `Wheel_Rim_L/R` | 67.1415 | 77.2127 | 2 | 154.4255 | web face down on the bed, drum prints up; no support. Now carries the tyre bead groove and the inboard retaining flange |
+| `Chassis_Frame` (centre cage, not mirrored) | 61.1724 | 70.3483 | 1 | 70.3483 | flanges vertical, open box, no support |
+| **Subtotal** | | | | **576.9947** | |
 
 ## 2. Printed parts — ABS (ρ = 1.04 g/cm³)
 

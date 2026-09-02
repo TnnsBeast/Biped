@@ -65,8 +65,8 @@
     "name": "ABS_FA_Proximal_Link_L_D19p10",
     "retaining_lip_opening_d_mm": 17.0,
     "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p10.stl",
-    "stl_bytes": 308984,
-    "volume_cm3": 64.0181
+    "stl_bytes": 303284,
+    "volume_cm3": 66.7616
   },
   "document": "Beni_Prototype1_TestGauges",
   "purpose": "unloaded ABS proximal-link physical assembly rehearsal"

@@ -95,6 +95,17 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
     refreshed `docs/readme/` images with the model change. Do not substitute
     concept art or locally rendered STEP/STL images for the live Fusion model.
 
+12. **Print orientation is part of dimensional control.** A fit result transfers
+    only when the released part prints the critical interface on the same build
+    axis as the passing coupon. Prefer fit-critical circular axes normal to the
+    bed; any other orientation needs its own physical coupon. Before release,
+    use Fusion to prove an exact supporting plane and audit every overhang,
+    bridge and support-removal path in the final orientation. No slicer support
+    may touch a bearing seat, thin retention lip, mating datum or service
+    surface. Export a bed-ready STL and record the orientation and support policy
+    next to it. When a physical print invalidates the policy, audit adjacent part
+    families before releasing another print.
+
 ## Where each fact lives — link, don't copy
 
 | Fact | Canonical home |

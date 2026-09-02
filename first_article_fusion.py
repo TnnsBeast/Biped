@@ -691,77 +691,89 @@ def export_abs_proximal_link():
 
 
 def _abs_proximal_print_transform(occ):
-    """Return the exact Fusion transform for the largest supporting side face.
+    """Put the redesigned outboard bearing face on the bed.
 
-    The proximal link is modelled in assembly coordinates.  Its native STL has
-    no useful XY-bed datum, even though the solid has a large planar tangent
-    face.  Restrict the search to side faces (normal Y ~= 0), require the face
-    plane to support the entire solid, then put the largest qualifying face on
-    Z=0.  This preserves the one-piece link and keeps the fork channel open
-    sideways without adding sacrificial geometry.
+    The two O19.10 bearing axes must print normal to the bed: the owner's second
+    ABS article demonstrated that a horizontal FDM bore was not round enough to
+    accept the same bearing that passed the vertical-axis calibration ladder.
+    ``build_proximal_link`` now carries the complete arm-B face to the existing
+    bearing-boss plane at ``PROX_PRINT_FACE_Y``.  Verify that this is an exact
+    supporting plane, rotate -90 degrees about X, and translate it to Z=0.
+
+    The 20 mm fork channel becomes a controlled bridge in this orientation.
+    Slicer supports stay disabled in the channel and bearing seats so no support
+    interface can peel the 0.8 mm axial O17 bearing-retention lips.
     """
     comp = occ.component
     if comp.bRepBodies.count != 1:
         raise RuntimeError('%s has %d bodies, expected 1' %
                            (comp.name, comp.bRepBodies.count))
     body = comp.bRepBodies.item(0)
-    temporary = adsk.fusion.TemporaryBRepManager.get()
-    candidates = []
+    face_area_cm2 = 0.0
+    face_indices = []
     for i in range(body.faces.count):
         face = body.faces.item(i)
         if adsk.core.Plane.cast(face.geometry) is None:
             continue
         ok, normal = face.evaluator.getNormalAtPoint(face.pointOnFace)
-        if not ok or abs(normal.y) > 1e-6:
+        if not ok:
+            raise RuntimeError('Fusion face-normal evaluation failed')
+        if (normal.y < 0.999999 or
+                abs(face.pointOnFace.y * 10.0 - B.PROX_PRINT_FACE_Y) > 0.001):
             continue
-        angle = math.atan2(normal.x, -normal.z)
-        rotation = adsk.core.Matrix3D.create()
-        rotation.setToRotation(
-            angle, adsk.core.Vector3D.create(0, 1, 0),
-            adsk.core.Point3D.create(0, 0, 0))
-        trial_body = temporary.copy(body)
-        if not temporary.transform(trial_body, rotation):
-            raise RuntimeError('Fusion candidate transform failed for face %d' %
-                               i)
-        point = face.pointOnFace
-        cosine, sine = math.cos(angle), math.sin(angle)
-        face_z = -sine * point.x + cosine * point.z
-        min_z = trial_body.boundingBox.minPoint.z
-        # Exact B-Rep bounding boxes include circular extrema that a vertex-only
-        # test misses.  The old pseudo-tangent failed here by 0.608 mm.
-        if abs(face_z - min_z) <= 0.001:  # 0.01 mm
-            candidates.append((face.area, i, normal, angle, trial_body))
-    if not candidates:
-        raise RuntimeError('%s has no supporting planar side face' % comp.name)
-    area_cm2, face_index, normal, angle, trial_body = max(
-        candidates, key=lambda row: row[0])
+        face_area_cm2 += face.area
+        face_indices.append(i)
+    if not face_indices:
+        raise RuntimeError('%s has no Y=%.3f outboard print face' %
+                           (comp.name, B.PROX_PRINT_FACE_Y))
+
+    bb = body.boundingBox
+    if abs(bb.maxPoint.y * 10.0 - B.PROX_PRINT_FACE_Y) > 0.001:
+        raise RuntimeError('%s print plane is not the exact +Y support extent' %
+                           comp.name)
+
+    angle = -math.pi / 2.0
+    temporary = adsk.fusion.TemporaryBRepManager.get()
+    rotation = adsk.core.Matrix3D.create()
+    rotation.setToRotation(angle, adsk.core.Vector3D.create(1, 0, 0),
+                           adsk.core.Point3D.create(0, 0, 0))
+    trial_body = temporary.copy(body)
+    if not temporary.transform(trial_body, rotation):
+        raise RuntimeError('Fusion face-flat transform failed for %s' %
+                           comp.name)
     trial_bb = trial_body.boundingBox
     min_z = trial_bb.minPoint.z
     matrix = adsk.core.Matrix3D.create()
-    matrix.setToRotation(angle, adsk.core.Vector3D.create(0, 1, 0),
+    matrix.setToRotation(angle, adsk.core.Vector3D.create(1, 0, 0),
                          adsk.core.Point3D.create(0, 0, 0))
     matrix.translation = adsk.core.Vector3D.create(0, 0, -min_z)
     return matrix, {
-        'method': 'largest Fusion-verified supporting planar side face',
-        'rotation_axis': '+Y',
+        'method': ('Fusion-verified outboard bearing/arm face; bearing axes '
+                   'normal to bed'),
+        'rotation_axis': '+X',
         'rotation_deg': round(math.degrees(angle), 6),
-        'support_face_index': face_index,
-        'support_face_area_mm2': round(area_cm2 * 100.0, 3),
-        'support_face_normal_native': [round(normal.x, 8),
-                                       round(normal.y, 8),
-                                       round(normal.z, 8)],
+        'support_face_indices': face_indices,
+        'support_face_y_mm': B.PROX_PRINT_FACE_Y,
+        'support_face_area_mm2': round(face_area_cm2 * 100.0, 3),
+        'support_face_normal_native': [0.0, 1.0, 0.0],
         'oriented_bbox_mm': [
             round((trial_bb.maxPoint.x - trial_bb.minPoint.x) * 10.0, 4),
             round((trial_bb.maxPoint.y - trial_bb.minPoint.y) * 10.0, 4),
             round((trial_bb.maxPoint.z - trial_bb.minPoint.z) * 10.0, 4),
         ],
         'minimum_z_mm': 0.0,
-        'channel': 'open sideways; no trapped internal support',
+        'bearing_axis_print_direction': '+Z',
+        'bearing_seats': ('vertical; prohibit slicer support in both O19.10 '
+                          'seats and at the O17 retention lips'),
+        'channel': ('20.0 mm controlled bridge; open at its perimeter; '
+                    'prohibit slicer support'),
+        'support_policy': ('bed-only; no support interface on a fit-critical '
+                           'bore, retaining lip, or service surface'),
     }
 
 
 def export_abs_proximal_link_print_oriented():
-    """Export a bed-ready occurrence without changing assembly geometry."""
+    """Export a bed-ready face-flat copy without moving the source occurrence."""
     app, doc, design, root = _app_design_root()
     os.makedirs(ASSEMBLY_DRY_FIT_OUT_DIR, exist_ok=True)
     occ = None
@@ -837,8 +849,8 @@ def export_abs_proximal_link_print_oriented():
     with open(manifest_path, 'w', encoding='utf-8') as stream:
         json.dump({
             'document': doc.name,
-            'purpose': ('bed-ready ABS proximal-link physical assembly '
-                        'rehearsal; assembly geometry unchanged'),
+            'purpose': ('face-flat redesigned ABS proximal-link physical '
+                        'assembly rehearsal; bearing axes vertical'),
             'component': row,
         }, stream, indent=2, sort_keys=True)
         stream.write('\n')

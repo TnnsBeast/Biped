@@ -241,7 +241,7 @@ committing to a second set.**
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | Torque is carried by **friction**, and preload in plastic creeps. **Steel washer under every screw head**, and re-torque after the first hour then every ~10 hours. The Ø37.3 register is centring only and prints fine at 5 walls. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
-| `Distal_Link_L.stl` | PA-CF already | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Wait for the real Ø10 h6 knee-pin gate and a verified bed-ready re-export; do not infer its print orientation from the proximal link. |
+| `Distal_Link_L.stl` | PA-CF already | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new export. |
 
 `Knee_Stop_Arc_L` is **gone entirely** — there are no laser-cut parts. The +27°
 crash stop moved into the spring cartridge as a compression stack (a stack of
