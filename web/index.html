@@ -218,9 +218,8 @@ const about = (a,ox,oz) =>
   trans(ox,0,oz).multiply(rotY(a)).multiply(trans(-ox,0,-oz));
 
 /* ------------------------------------------------------- the spring, drawn
-   The Fusion model carries the spring as its outer envelope (documented in
-   the design record).  Here it is drawn as the real specified coil so the
-   compression is actually visible: O19 OD, 2.6 wire, 11.8 total coils.     */
+   Fusion and this viewer both show the specified helical representation so
+   compression is visible: O19 OD, 2.6 wire, 11.8 total coils.              */
 const springMat = new THREE.MeshStandardMaterial(
   {color:0x9fb6cc, roughness:0.28, metalness:0.92});
 const springNode = {L:new THREE.Object3D(), R:new THREE.Object3D()};

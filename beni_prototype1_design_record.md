@@ -199,9 +199,11 @@ to occupy |y| ≤ 47 without ever fouling the leg sweep.
    inside the spring channel *and* inside the distal link's knee web. Load at
    the inserts is shear (≈ 5 MPa on the insert/plastic interface at the 16 N·m
    impact case), not pull-out.
-6. **The spring is modelled as its outer envelope** (Ø19 OD / Ø13.8 ID) rather
-   than a swept helix. The envelope is the correct representation for clearance
-   work; the full wire spec is in the BOM.
+6. **The spring is modelled as a swept Ø2.6 helical wire body** with the specified
+   Ø19 OD and 11.8 total-coil representation. It rebuilds to the cartridge length
+   at every knee pose. The earlier annular outer-envelope model established the
+   conservative 0.50 mm channel clearance; coil-bind acceptance still comes from
+   the specified solid height and the supplier/press check, not spline end detail.
 7. **The guide rod guides the spring only for φ ≳ +13°.** The stroke (16.6 mm)
    exceeds the axial room available between the lower eye's rod bore and its
    pivot pin, so the rod withdraws at high extension. This is acceptable: at
@@ -531,7 +533,7 @@ import beni_lib; from beni_lib import *
 set_pose(theta_deg, phi_deg)      # e.g. set_pose(0.0, 25.0)
 ```
 
-`set_pose()` rebuilds the spring envelope for the knee angle, then poses the
+`set_pose()` rebuilds the helical spring body for the knee angle, then poses the
 whole leg from a cached nominal state. It is the same function used for every
 sweep in §10.
 
@@ -600,11 +602,11 @@ could be built from it.
 | Ixz about CoM | +0.002759 kg·m² |
 | Inverted-pendulum time constant √(L/g) | 0.103 s |
 
-Four bodies are **envelopes rather than solids** and carry a derived density so
-the assembly mass is right without pretending to model detail that is not there:
-the spring (its full Ø19 outer cylinder, made to weigh the real 25.3 g rather
-than 51 g), the harness spiral at 7 g, and the battery and electronics blocks at
-250 g and 120 g. They are listed in `beni_lib.MASS_OVERRIDE_G`.
+The helical spring and three simplified bought-assembly/presentation bodies carry
+a derived density so the assembly mass remains exact: the spring at 25.3 g, the
+harness spiral at 7 g, and the battery and electronics blocks at 250 g and 120 g.
+They are listed in `beni_lib.MASS_OVERRIDE_G`; left and right spring materials are
+recalibrated independently when their posed lengths differ.
 
 **CoM Y = −0.00 mm is now a standing symmetry check.** Any part missing from one
 leg shows up in it immediately — it is how the missing right-hand spring

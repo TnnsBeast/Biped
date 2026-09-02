@@ -208,6 +208,8 @@ SPRING_OD = 19.0
 SPRING_WIRE = 2.6
 SPRING_FREE = 55.0
 SPRING_RATE = 10.45
+SPRING_ACTIVE_COILS = 9.8
+SPRING_TOTAL_COILS = 11.8
 
 
 # ------------------------------------------------------------------- helpers
@@ -946,11 +948,10 @@ def sweep_check(poses=None, verbose=True):
 #  downstream (balance controller, URDF, sim) could be built at all.
 #
 #  Each entry is either a density in g/cm3, or an exact target mass in grams
-#  for bodies that are ENVELOPES rather than true solids.  The envelopes are
-#  the honest reason the old hand roll-up was 48 g out: the spring is modelled
-#  as its full O19 outer cylinder, which at steel density weighs 51 g against
-#  a real 25.3 g spring.  Giving the envelope an effective density makes the
-#  assembly mass correct without pretending to model a swept helix.
+#  for bought assemblies and presentation solids whose simplified geometry
+#  does not reproduce the supplied mass exactly.  The knee spring is now a
+#  swept O2.6 helical wire body; its density is still derived so the model
+#  keeps the specified 25.3 g through every regenerated pose.
 # =========================================================================
 MATERIAL_SPEC = {
     # class   library material         density   target mass (g)  note
@@ -961,8 +962,8 @@ MATERIAL_SPEC = {
     'ALU':    ('Aluminum',            2.81,  None, '7075-T6'),
     'STEEL':  ('Steel',               7.85,  None, 'steel'),
     'PCB':    ('ABS Plastic',         1.90,  None, 'FR4 assembly'),
-    # envelopes / assemblies -- mass is specified, density is derived
-    'SPRING': ('Steel',               None,  25.3, 'spring, modelled as its O19 envelope'),
+    # presentation solids / assemblies -- mass is specified, density is derived
+    'SPRING': ('Steel',               None,  25.3, 'helical spring wire, mass calibrated'),
     'BATT':   ('ABS Plastic',         None, 250.0, '4S 2200 mAh pack'),
     'ELEC':   ('ABS Plastic',         None, 120.0, 'compute + IMU + PDB + wiring'),
 }
@@ -1038,6 +1039,34 @@ def _set_density(mat, g_per_cm3):
         return False
 
 
+def _mass_material_for_body(cls, material_part, body, target_g):
+    """Assign a per-part material recalibrated to an exact target mass.
+
+    The two knee springs need distinct materials because a posed left spring
+    and nominal right spring have different swept-helix volumes.  Recalibrate
+    on every rebuild rather than reusing the density from the previous pose.
+    """
+    key = 'PART_%s' % material_part
+    mat = _MAT_CACHE.get(key)
+    if mat is None:
+        base = _local_material(cls)
+        if base is None:
+            return None
+        des = design()
+        want = 'BENI_' + material_part
+        for k in range(des.materials.count):
+            if des.materials.item(k).name == want:
+                mat = des.materials.item(k)
+                break
+        if mat is None:
+            mat = des.materials.addByCopy(base, want)
+        _MAT_CACHE[key] = mat
+    if body.volume > 1e-9:
+        _set_density(mat, target_g / body.volume)
+    body.material = mat
+    return mat
+
+
 def apply_materials(verbose=False):
     """Give every body a physical material with the right density.
 
@@ -1066,26 +1095,13 @@ def apply_materials(verbose=False):
             vol_cm3 = b.volume
             target = MASS_OVERRIDE_G.get(part, cls_mass)
             if target is not None and vol_cm3 > 1e-9:
-                # this body needs its own density, so give it its own material
-                key = 'PART_%s' % part
-                if key in _MAT_CACHE:
-                    mat = _MAT_CACHE[key]
-                else:
-                    base = _local_material(cls)
-                    if base is None:
-                        skipped.append(part)
-                        continue
-                    des = design()
-                    mat = None
-                    for k in range(des.materials.count):
-                        if des.materials.item(k).name == 'BENI_' + part:
-                            mat = des.materials.item(k)
-                            break
-                    if mat is None:
-                        mat = des.materials.addByCopy(base, 'BENI_' + part)
-                    _set_density(mat, target / vol_cm3)
-                    _MAT_CACHE[key] = mat
-                b.material = mat
+                material_part = part
+                if part == 'Knee_Spring_L' and '(Mirror)' in raw:
+                    material_part += '_Mirror'
+                mat = _mass_material_for_body(cls, material_part, b, target)
+                if mat is None:
+                    skipped.append(part)
+                    continue
             else:
                 mat = _local_material(cls)
                 if mat is None:
@@ -2231,55 +2247,64 @@ def cart_dir(phi):
 
 
 def _spring_body(name, phi, y_mid):
-    """Build one spring envelope, revolved about the cartridge axis at y_mid."""
+    """Build one variable-length helical spring about the cartridge axis."""
     drop_comp(name)
     o = new_comp(name)
     c = o.component
     d, L = cart_dir(phi)
     s0, s1 = CART_DEAD_U, L - (CART_DEAD - CART_DEAD_U)
-    sk = sk_on_y(c, y_mid)
-    ax = sk.sketchCurves.sketchLines.addByTwoPoints(
-        sxz(UX - 25 * d[0], UZ - 25 * d[1]),
-        sxz(UX + (L + 25) * d[0], UZ + (L + 25) * d[1]))
-    ax.isConstruction = True
+    spring_len = s1 - s0
+    r_mean = (SPRING_OD - SPRING_WIRE) / 2.0
     p = (-d[1], d[0])
-    ri, ro = (SPRING_OD - 2 * SPRING_WIRE) / 2.0, SPRING_OD / 2.0
 
-    def SP(s, rr):
-        return (UX + s * d[0] + rr * p[0], UZ + s * d[1] + rr * p[1])
-    pts = [SP(s0, ri), SP(s1, ri), SP(s1, ro), SP(s0, ro)]
-    ln = sk.sketchCurves.sketchLines
-    for i in range(4):
-        ln.addByTwoPoints(sxz(*pts[i]), sxz(*pts[(i + 1) % 4]))
-    revolve(c, biggest_profile(sk), ax, 360.0, 'new').bodies.item(0).name = name
-    b = c.bRepBodies.item(0)
+    # The centreline stays half a wire diameter inside both spring-seat planes,
+    # so the swept wire occupies exactly `spring_len` axially.  Its radial
+    # extent is exactly O19.  The 11.8-turn representation matches the BOM and
+    # the browser viewer; coil-bind acceptance remains the supplier solid-height
+    # check, not a claim based on spline end geometry.
+    sk = c.sketches.add(c.xYConstructionPlane)
+    sk.name = name + '_Centerline'
+    sk.isComputeDeferred = True
+    fit = adsk.core.ObjectCollection.create()
+    steps = int(math.ceil(SPRING_TOTAL_COILS * 16.0))
+    axial_span = spring_len - SPRING_WIRE
+    for i in range(steps + 1):
+        f = i / float(steps)
+        ang = 2.0 * math.pi * SPRING_TOTAL_COILS * f
+        s = s0 + SPRING_WIRE / 2.0 + axial_span * f
+        radial_y = r_mean * math.cos(ang)
+        radial_p = r_mean * math.sin(ang)
+        fit.add(p3(UX + s * d[0] + radial_p * p[0],
+                   y_mid + radial_y,
+                   UZ + s * d[1] + radial_p * p[1]))
+    spline = sk.sketchCurves.sketchFittedSplines.add(fit)
+    sk.isComputeDeferred = False
+    # Path.create needs an assembly-context proxy for a curve owned by this
+    # nested component; the native spline raises InternalValidationError.
+    spline_proxy = spline.createForAssemblyContext(o)
+    path = adsk.fusion.Path.create(
+        spline_proxy, adsk.fusion.ChainedCurveOptions.noChainedCurves)
+    pipes = c.features.pipeFeatures
+    ipt = pipes.createInput(path, adsk.fusion.FeatureOperations.NewBodyFeatureOperation)
+    ipt.creationOccurrence = o
+    ipt.sectionType = adsk.fusion.PipeSectionTypes.CircularPipeSectionType
+    ipt.sectionSize = adsk.core.ValueInput.createByReal(cm(SPRING_WIRE))
+    feature = pipes.add(ipt)
+    feature.name = name + '_HelicalWire'
+    b = feature.bodies.item(0)
+    b.name = name
+    sk.isLightBulbOn = False
     a = appearance('SPRING')
     if a:
         b.appearance = a
-    # Re-apply the physical material.  A freshly built body defaults to steel,
-    # which for this ENVELOPE means 51 g instead of the real 25.3 g spring --
-    # so skipping this silently adds 26 g per leg to the mass properties.
-    try:
-        mat = None
-        des = design()
-        for k in range(des.materials.count):
-            if des.materials.item(k).name == 'BENI_Knee_Spring_L':
-                mat = des.materials.item(k)
-                break
-        if mat is None:
-            base = _local_material('SPRING')
-            if base is not None:
-                mat = des.materials.addByCopy(base, 'BENI_Knee_Spring_L')
-                _set_density(mat, MASS_OVERRIDE_G['Knee_Spring_L'] / b.volume)
-        if mat is not None:
-            b.material = mat
-    except Exception:
-        pass
+    material_part = name.replace('(Mirror)', '_Mirror')
+    _mass_material_for_body(
+        'SPRING', material_part, b, MASS_OVERRIDE_G['Knee_Spring_L'])
     return o
 
 
 def rebuild_spring(phi, phi_mirror=0.0):
-    """Rebuild BOTH spring envelopes.
+    """Rebuild BOTH helical spring bodies.
 
     Both, not one.  This function is called by set_pose(), so if it only built
     the left spring then merely *posing* the model deleted the right leg's

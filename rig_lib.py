@@ -896,6 +896,8 @@ def rig_set_pose(theta, phi):
     beni_lib.capture_nominal()
     saved = xf_capture()
     beni_lib._spring_body('Knee_Spring_L', phi, beni_lib.LEG_Y_MID)
+    beni_lib.design().computeAll()
+    adsk.doEvents()
     xf_restore(saved)
     replace_cart_stops()            # deterministic, idempotent, phi-independent
     snap = beni_lib.nominal_snapshot()
@@ -1957,6 +1959,12 @@ def guarded(fn, *a, **kw):
     """Run anything structural inside the capture / restore / assert cycle."""
     saved = xf_capture()
     out = fn(*a, **kw)
+    # Pipe/sweep creation can queue one more parametric recompute after the
+    # builder returns.  Flush it before restoring transform2; otherwise that
+    # delayed recompute can erase a successful restore and drop the cartridge
+    # stop parts back at identity before placed_assert() runs.
+    beni_lib.design().computeAll()
+    adsk.doEvents()
     moved = xf_restore(saved)
     if moved:
         print('   guard fired: rewrote %d of %d transforms  %s'

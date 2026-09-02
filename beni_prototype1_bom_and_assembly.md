@@ -202,13 +202,10 @@ the full-hardware figure is ≈3295 g. Both actuator masses are still estimates
 and must be confirmed by weighing the delivered units — a 10 % error on the
 shoulder pair alone is 100 g, which is half the margin.
 
-Two envelope parts carry a derived density so the assembly mass is right without
-pretending to model detail that isn't there: `Knee_Spring_L` is the spring's full
-Ø19 outer cylinder given an effective density that makes it weigh the real
-25.3 g (at steel density it read 51 g), and `Shoulder_Cable_Spiral_L` is the
-harness envelope at 7 g. `Battery_4S2200` and `Chassis_Electronics` are mass
-placeholders at 250 g and 120 g. All of them are listed in
-`beni_lib.MASS_OVERRIDE_G`.
+The swept-helical `Knee_Spring_L` body carries a derived density that preserves
+the specified 25.3 g through regenerated poses. `Shoulder_Cable_Spiral_L` is a
+7 g harness envelope; `Battery_4S2200` and `Chassis_Electronics` are mass
+placeholders at 250 g and 120 g. All are listed in `beni_lib.MASS_OVERRIDE_G`.
 
 ### Mass properties
 

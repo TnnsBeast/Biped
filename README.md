@@ -26,6 +26,11 @@ The CAD gallery is exported from the live Fusion model with
 [`readme_images_fusion.py`](readme_images_fusion.py) and should be refreshed with
 model changes.
 
+The passive-knee detail includes the live `Knee_Spring_L` helical body: Ø19 OD,
+Ø2.6 wire and an 11.8-total-coil representation rebuilt to the current cartridge
+length. The ordered part requirement remains 55 mm free length; CAD coil-bind
+acceptance is governed by the specified 30.68 mm solid height and physical test.
+
 ---
 
 <!-- PRINT_QUEUE_START -->
