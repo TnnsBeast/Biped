@@ -41,6 +41,11 @@ of interlayer strength, and this is non-negotiable for structural parts.
 
 **`Shoulder_Output_Hub_L` — the flange is fine, the register is not.**
 
+> **[HOLD 2026-09-02]** This calculation establishes the intended joint, not
+> the current printed geometry. The released hub still has six Ø3.3 × 7 legacy
+> tapped-metal bores and must be rebuilt with verified M4 insert pockets before
+> the proximal link is attached.
+
 ```
 25 N·m proof / 6 × M4 on Ø44 PCD  =  189 N per screw
 M4 × 7 thread bearing area 28 mm² →  6.8 MPa

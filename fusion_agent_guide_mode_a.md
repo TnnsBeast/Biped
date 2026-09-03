@@ -94,8 +94,14 @@ Two patterns on the panel you must **not** use:
 
 Constants already in `rig_lib.py` to reuse rather than retype:
 `PANEL_FRAME_BOLTS`, `PANEL_Y0`/`PANEL_Y1` (42.0/47.0), `PANEL_X0`…`PANEL_Z1`,
-`INSERT_M3_D`/`INSERT_M3_L` (5.0/5.0), `MOTOR_R` (40.0), `HALF_TRACK` (84.0),
+`MOTOR_R` (40.0), `HALF_TRACK` (84.0),
 `WHEEL_R` (55.0), `Z_WHEEL_AXIS` (−154.269), `Z_FLOOR` (−209.269).
+
+> **[HOLD 2026-09-02]** Do not reuse the current
+> `INSERT_M3_D`/`INSERT_M3_L = 5.0/5.0` pair. The 5.0 mm value was used as both
+> bore diameter and depth, producing a clearance hole for the owner's
+> Voron-style M3 inserts. The correction target is the project's Ø4.0 × 5.0
+> pocket, subject to the physical insert coupon and Fusion verification.
 
 ### 2.2 The load set — yaw dominates by 4×
 
@@ -142,8 +148,8 @@ and hole geometry — roughly 200–400 N in PLA at the low end, and CNC Kitchen
 measured up to ~1.4 kN at the small-hole end of its range — and **none of those
 tests are PA-CF at our geometry, and our load case is shear rather than axial
 pull-out.** So treat the insert as the weak element and design *for* it rather than
-quoting a number at it: full 5.0 mm insert depth, real material around the boss, and
-a depth-stopped installation tip.
+quoting a number at it: a 5.0 mm-deep coupon-controlled pocket, real material
+around the boss, and a depth-stopped installation tip.
 
 Two consequences that should shape the geometry:
 

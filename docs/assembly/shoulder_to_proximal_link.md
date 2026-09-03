@@ -8,6 +8,12 @@ shows where the printed proximal link goes and which motor it belongs to.
 > link, and support the knee end so the printed parts do not carry the link as a
 > cantilever. This is a fit check, not a powered or load test.
 
+> **CURRENT HOLD, 2026-09-02:** the printed Ø4.15 hub is a verified
+> hub-to-motor fit article only. Its six link-side holes are legacy Ø3.3
+> tapped-metal geometry, not M4 heat-set-insert pockets. Do not put M4 screws or
+> inserts into it and do not use screws to pull the proximal link onto it. Steps
+> 1–4 below may be rehearsed; step 6 waits for the corrected hub.
+
 The canonical fastener schedule and final assembly requirements remain in
 [`beni_prototype1_bom_and_assembly.md`](../../beni_prototype1_bom_and_assembly.md#b-leg-build).
 
@@ -19,7 +25,8 @@ The canonical fastener schedule and final assembly requirements remain in
 - the printed face-flat proximal link with both 6800-2RS bearings installed
 - 8 × M3 × 8 housing screws
 - 6 × M3 × 10 shoulder-output-hub screws
-- 6 × M4 × 10 proximal-link-to-hub screws
+- after the corrected hub is released: 6 × specified M4 heat-set inserts and
+  6 × M4 × 10 proximal-link-to-hub screws
 
 For the initial dry fit, only finger-start the screws. Do not apply final torque
 or use screws to pull parts together.
@@ -80,6 +87,12 @@ eventually mounts to the unreleased distal link.
 
 ## 6. Fit the proximal link to the shoulder hub
 
+**Not released with the current hub.** The following is the acceptance sequence
+for the corrected, Fusion-verified hub after its six M4 inserts are installed.
+The owned M4 × 8 and ×10 inserts are not approved substitutes: the current hub
+flange is only 8 mm thick. See the canonical
+[printed-thread map](../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
+
 Support the bearing end on a block or folded towel. Bring the link's large root
 face squarely onto the hub's outboard flange and align the six Ø44 bolt-circle
 positions.
@@ -97,11 +110,11 @@ The final orientation looks like the upper link in this complete-leg view:
 
 ## Pass / stop decision
 
-**PASS** when the link reaches the hub face without force, all six M4 screws
+**PASS** only with the corrected hub when the link reaches the hub face without force, all six M4 screws
 finger-start, the faces remain flush, and the link clears the stationary plate
 and cable path.
 
-**STOP** if a screw is needed to draw the link into position, a screw starts
+**STOP** with the current Ø4.15 hub, or if a screw is needed to draw the link into position, a screw starts
 crooked, the root rocks, or the link touches the stationary plate. Photograph
 the exact interference and remove the link rather than forcing it.
 

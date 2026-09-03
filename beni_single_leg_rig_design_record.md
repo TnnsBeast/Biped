@@ -193,6 +193,11 @@ Verified in the model: all five carriage insert bores are concentric with the
 panel holes, all eight block screws are concentric with the MGN12H taps, and both
 mating faces are coincident to **0.000 mm**.
 
+> **[HOLD 2026-09-02]** Concentricity did not validate insert fit. Both the
+> deferred carriage and the active stand were built with Ø5.0 M3 bores; the
+> owner-supplied Voron-style M3 family uses the project's Ø4.0 pocket gate.
+> Rebuild and re-verify before installing inserts.
+
 The four Ø88 cover holes are **not** used: any fastener there needs access to the
 panel's inboard face, and the carriage is now bolted flat against it. They are
 left open as a stiffening option if bench measurement shows the panel is soft.
@@ -883,8 +888,8 @@ right height.
 |---|---:|---|
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
 | M3 × 16 SHCS, cable post A + panel + motor | 2 | replaces two of the eight above |
-| M3 brass heat-set inserts, 5.0 long | 10 | 5 carriage, spares |
-| M4 heat-set inserts, **5.8 long** | 6 + ~~4~~ | hub root joint ~~+ ballast studs~~; an 8 mm insert breaks through the 8 mm flange. **Mode A: 6 only** |
+| Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 cable cover. The old 10-piece row undercounted the complete Mode A article; exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
+| M4 heat-set inserts, **5.8 long** | 6 + ~~4~~ | shoulder-hub root joint ~~+ Mode-B ballast studs~~; an 8 mm insert breaks through the 8 mm flange. **The current hub is not pocketed for these and must be reprinted.** The separate six wheel-hub receiving threads remain on design hold. |
 | M4 threaded stud, 30 mm | ~~4~~ | ballast. **[DEFERRED — MODE B]** |
 | **Ø4 × 10 hardened dowel pin** | 3 | the output hub's register. Not optional |
 | **Ø10 h6 hardened ground dowel, 35 mm** | 1 | knee axle, §4 |

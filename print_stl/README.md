@@ -55,7 +55,7 @@ robot:
 | Ø10.0 | knee axle bore — the fit that now matters, on a bought Ø10 h6 × 35 mm dowel pin | light press, not a loose slip — this press is the rig's angular reference |
 | Ø6.0 | knee-stop dowel seat | light press |
 | Ø4.05 | shoulder-output dowel | slip |
-| Ø4.0 | M3 heat-set insert bore | insert seats flush without splitting the wall |
+| Ø4.0 | Voron-style M3 heat-set insert pocket | insert seats flush without splitting the wall; verify the exact owned insert first |
 
 With no calipers, test the bores using the real matching bearings, dowels,
 fasteners, and inserts. Record which nominal feature produces the required fit
@@ -143,7 +143,7 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 | `Wheel_Rim_L.stl` | PA-CF | web face down, drum prints up |
 | `Wheel_Tyre_L.stl` | TPU 95A | Ø110 × 30; stretches onto the Ø96 rim seat |
 | `Shoulder_Cable_Cover_L.stl` | ABS | 4 × M3 heat-set inserts |
-| `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 heat-set inserts |
+| `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 clearance holes; the receiving inserts live in the proximal-link arm-B boss |
 | `Electronics_Tray.stl` | ABS | flat panel |
 
 ---
@@ -169,9 +169,11 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 ## Hardware worth ordering now so it's on the bench for the dry fit
 
 4 × 6800-2RS bearings · 4 × Ø4 × 32 clevis pins + E-clips · 3 × Ø4 × 8 dowels
-per shoulder gauge · 10 × M3 brass heat-set inserts (**5 mm long** — the bores are
-5.0 mm deep with a 0.8 mm blind floor, so use a depth-stopped tip) · M3/M4/M2.5
-SHCS assortment · 4 × Ø22/Ø16.5 × 0.5 PTFE thrust washers.
+per shoulder gauge · M3/M4/M2.5 SHCS assortment · 4 × Ø22/Ø16.5 × 0.5 PTFE
+thrust washers. Heat-set insert sizes and quantities are no longer repeated
+here: use the canonical
+[printed-thread map](../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts),
+which records the owned Voron-style M3 family and the current M4 hub holds.
 
 Screw lengths: **cable cover is M3 × 8**, not M3 × 10 — a revision-2 fix, and that
 joint is still real. The knee-stop screws (M3 × 6 at 30° spacing) went with the

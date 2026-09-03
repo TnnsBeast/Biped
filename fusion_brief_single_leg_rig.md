@@ -150,8 +150,8 @@ table is in `beni_single_leg_rig_design_record.md` §7 and `rig_stl/README.md`.
 
 | Part | Route |
 |---|---|
-| `Shoulder_Output_Hub_L` | **Print** + 3 × Ø4 × 10 hardened dowel pins + M4 heat-set inserts |
-| `Wheel_Hub_L` | **Print** + steel washers under every head, re-torque schedule |
+| `Shoulder_Output_Hub_L` | **HOLD / REPRINT** — replace the six legacy Ø3.3 tapped-metal bores with Fusion-verified M4 insert pockets; then use 3 × Ø4 × 10 hardened dowel pins |
+| `Wheel_Hub_L` | **HOLD / REPRINT** — close the six M4 receiving threads in Fusion; the owned M4 × 8/10 inserts are too long for the 6 mm hub |
 | `Cart_Upper_Eye_L` / `Cart_Lower_Eye_L` | **Print**, then measure pivot-to-spigot and feed the real number to the spring model |
 | `Knee_Magnet_Carrier_L` | **Print**, verify 0.05 TIR on an indicator |
 | `Knee_Axle_L` + `Knee_Sleeve_L` | **Buy** one Ø10 h6 hardened ground dowel pin. Double-D flats deleted — see §2.3 |

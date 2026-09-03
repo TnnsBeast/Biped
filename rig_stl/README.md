@@ -27,9 +27,9 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 > The build is **Mode A**: the shoulder bolts rigid to a printed stand. The
 > vertical slide, the ballast and the drop series are **deferred, not cancelled**.
 >
-> | Print now (Mode A) | Deferred (Mode B) |
-> |---|---|
-> | **`RIG_Stand`** *(exported 2026-08-20)*, `RIG_Torque_Arm`, `RIG_Floor_Plate` ⚠ *re-datumed to the bench, see §9*, `RIG_Cable_Post_A`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L`, and all five of `reroute/` | §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` × 2, plus the bought `RIG_Rail` / blocks / Ø8 mode pin / bumpers. `RIG_Cable_Post_B` is separately blocked pending a Mode A redesign; see §6. |
+> | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
+> |---|---|---|
+> | `RIG_Cable_Post_A`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L`, and the cartridge-eye reroute parts | `RIG_Stand`: correct five Ø5.0 M3 bores to the coupon-verified Voron family. `Shoulder_Output_Hub_L` and `Wheel_Hub_L`: close their receiving threads. `Distal_Link_L`: real-pin and printability gate. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -105,8 +105,11 @@ the two things below that were never about the slide:
   line up with `Chassis_Shoulder_Plate_L`'s existing frame-bolt holes at
   (−60, −18), (−60, 48), (−60, 62), (30, 48), (30, 62). Verified concentric in CAD;
   confirm on the print before installing inserts.
-- **M3 heat-set inserts, 5.0 mm long, with a depth-stopped tip** — 5.0 mm bores in
-  an 8 mm plate leave a 3 mm floor. Same rule on the stand.
+- **M3 heat-set interface is on hold.** The current 5.0 mm-diameter bores are
+  clearance on the owned Voron-style inserts, not the project's Ø4.0 pocket.
+  Rebuild through Fusion before installing anything. The canonical disposition
+  is in
+  [`MANUFACTURING_CONSTRAINTS.md`](../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 
 The Mode B notes, for whenever the slide gets built: plate face flat on the bed so
 the 63 mm overhang bends in the print plane and the eight block-screw counterbores
@@ -199,8 +202,9 @@ bed (12 mm web, 32 mm foot, both sharing the y = 42.00 face).
   instead of 26–50. Printed upright the same couple would try to peel layers.
 - **The bed-facing face is the one that has to be flat.** It bears on
   `Chassis_Shoulder_Plate_L`'s inboard face over the five bolt landings, and the
-  five Ø5.0 × 5.0 insert bores open on it, so they print as clean first-layer
-  holes with no bridging.
+  five insert bores open on it, so they print as clean first-layer holes with no
+  bridging. **The 2026-08-20 export is now on hold:** those bores are Ø5.0 ×
+  5.0, not the Ø4.0 Voron-style pocket selected for the owned M3 family.
 - ⚠ **Footprint is 200 × 299 mm, so it needs a bed ≥ 300 mm in one axis.**
   **RESOLVED 2026-08-20: the printer is a Bambu Lab H2S, build volume
   340 × 320 × 340 mm** (vendor spec, web, 2026-08-20 — the first build envelope
@@ -234,9 +238,9 @@ bed (12 mm web, 32 mm foot, both sharing the y = 42.00 face).
   a stand height: the shoulder axis is the model origin. The floor plate's old
   Z = −209.269 top face is the φ = 0 contact plane and is 12.04 mm too high for
   Mode A. See `build_rig_floor()`.
-- Same five-hole panel interface and same 5.0 mm M3 inserts as §1 — but in a 12 mm
-  web, so each bore leaves a **7 mm floor**, not 3 mm. Still use a depth-stopped
-  installation tip: the insert's grip is the joint's weak element.
+- Same five-hole panel interface as §1, but do not print or install inserts from
+  the current STL. Rebuild the five bores to the verified Voron-style pocket in
+  Fusion first; the 12 mm web preserves a deep floor after correction.
 
 ---
 
@@ -248,8 +252,8 @@ committing to a second set.**
 
 | File | Was | Orientation | The thing that will bite |
 |---|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | Torque then loads the bolt circle in XY and the three dowel holes see shear **across** layers. **Structural release is pending a PA-CF press-fit coupon for the bought Ø4 × 10 hardened dowels.** The former Ø3.9-and-ream instruction is retired because machining is prohibited. Without the steel dowels the printed register sees 63 MPa against PA-CF's ~40–50 MPa shear at proof load. Use M4 heat-set inserts **5.8 mm long**, not 8 mm: the flange is 8 mm thick and an 8 mm insert breaks through. |
-| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | Torque is carried by **friction**, and preload in plastic creeps. **Steel washer under every screw head**, and re-torque after the first hour then every ~10 hours. The Ø37.3 register is centring only and prints fine at 5 walls. |
+| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | **HOLD / REPRINT:** the current release has six legacy Ø3.3 × 7 tapped-metal bores, not M4 insert pockets. The candidate is M4 × 5.8 in a manufacturer-recommended Ø5.6 pocket, to be Fusion-verified. Structural release also waits for a PA-CF press-fit coupon for the bought Ø4 × 10 dowels. |
+| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **HOLD / REPRINT:** the current release has six legacy Ø3.3 × 6 tapped-metal bores. The owned M4 × 8/10 inserts do not fit the 6 mm hub. Close a short-insert/fastener or captive-thread scheme in Fusion. After release, retain steel washers and the re-torque schedule because torque is carried by friction and preload in plastic creeps. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
 | `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new bed-ready ABS export. |

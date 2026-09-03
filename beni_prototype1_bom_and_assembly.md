@@ -114,7 +114,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Flexion bumper | Ø6.2 × 7.5 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
-| Heat-set insert | M3 brass, 5.0 long | 10 | 0.4 | 4.0 |
+| Heat-set insert | **[SUPERSEDED]** M3 brass, 5.0 long; use the canonical printed-thread map | 10 historical | 0.4 | 4.0 historical |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
 
 ## 7. Fasteners
@@ -135,9 +135,12 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 
 Fastener mass ≈ **123 g** per robot (model figure).
 
-Also required: **10 × M3 brass heat-set inserts, 5.0 mm long** — 3 per leg for
-the knee stop arc and 2 per leg for the encoder bracket, both blind in the
-proximal arm-B boss.
+The old 10-piece M3 line above covered only the two proximal arm-B bosses and
+omitted both cable covers, the active Mode A stand, and every printed M4
+receiving thread. It is not a purchase quantity. Use the canonical
+[printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts):
+the active single-leg ABS article needs **14 owner-supplied Voron-style M3
+inserts** before spares, while both M4 hub joints remain on design hold.
 
 **Two screw lengths changed in revision 2, and both were defects:**
 
@@ -278,6 +281,9 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
    > [`beni_rig_no_machining.md`](beni_rig_no_machining.md) §2.1 and rig design
    > record §4.
 2. Bolt `Wheel_Rim_L` to the hub, **6 × M4 × 10** on the Ø46 PCD, 2.5 N·m.
+   > **[HOLD 2026-09-02]** The printed wheel hub still contains six legacy Ø3.3
+   > tapped-metal bores. Do not print it or fit the rim until a real insert or
+   > captive-thread scheme and its matching screw length are Fusion-verified.
 3. Stretch the TPU tyre onto the Ø96 rim seat.
 
 *The 3 hub screws stay reachable through the rim's Ø40 central hole after the
@@ -296,7 +302,8 @@ wheel is fully assembled.*
    on the y = 47 face. This
    insertion path is Fusion-verified and recorded in
    [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
-2. Fit 4 × M3 heat-set inserts in `Shoulder_Cable_Cover_L`, then fasten the
+2. After the owned Voron-style M3 insert passes the Ø4.0 ABS pocket coupon, fit
+   4 × M3 heat-set inserts in `Shoulder_Cable_Cover_L`, then fasten the
    cover through the plate from **inside the chassis**, 4 × **M3 × 8**.
    *Do this before the chassis is closed.*
 3. Feed the harness out through the plate's Ø7 grommet hole at r = 29, lay in
@@ -306,8 +313,8 @@ wheel is fully assembled.*
    pins first**, then 6 × M3 × 10 through the deep counterbores, 1.2 N·m.
 5. Pass the harness through the hub's Ø6 port at r = 21 and strain-relieve on
    the hub's outboard face. **Both ends now have strain relief.**
-6. Fit 5 × M3 heat-set inserts in the proximal link's arm B boss (3 for the
-   stop arc, 2 for the encoder bracket).
+6. After the same coupon gate, fit 5 × M3 heat-set inserts in the proximal
+   link's arm B boss (3 for the stop arc, 2 for the encoder bracket).
 7. Complete **A1** (knee stack) — proximal link + distal link joined.
 8. Fit the two `HW_ClevisPin_D4x32` to install **A2** (cartridge): upper pin at
    U first, then compress and fit the lower pin at Lp. E-clips both sides.
@@ -328,8 +335,10 @@ wheel is fully assembled.*
     > engagement angle must be **set by measurement**, not from a drawing,
     > because it depends on the printed eyes' achieved dead length. Full design:
     > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
-11. Bolt the proximal link root to the hub flange, **6 × M4 × 10** through the
-    counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
+11. **[HOLD with the current Ø4.15 hub.]** After a corrected hub with six
+    Fusion-verified M4 insert pockets is printed and the specified inserts are
+    fitted, bolt the proximal link root to the hub flange, **6 × M4 × 10**
+    through the counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
     the driver. *The 6 output-hub screws remain serviceable through the link's
     Ø34 root access hole without removing the link.*
 12. Bolt the wheel motor to the distal wheel-end plate, **6 × M2.5 × 12**

@@ -143,7 +143,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
 | 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47) |
-| 51.5 … 59.5 | hub flange Ø56, 6 × M4 tapped @ Ø44 PCD, Ø6 cable port at r = 21 |
+| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[HOLD 2026-09-02]** Its six Ø44-PCD holes still carry legacy Ø3.3 tapped-metal geometry; the printed hub needs real M4 insert pockets and a reprint. |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
@@ -163,7 +163,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 69 … 99 | rim + tyre, tyre OD Ø110 (**centre y = 84**) |
 | **94.5** | wheel motor output flange face |
 | 94.5 … 100.5 | **[SUPERSEDED]** `Wheel_Hub_L` (7075-T6, Ø56) — **now printed**, with steel washers and a re-torque schedule |
-| 100.5 … 104.5 | rim web, 6 × M4 @ Ø46 PCD into the hub |
+| 100.5 … 104.5 | rim web, 6 × M4 @ Ø46 PCD into the hub. **[HOLD 2026-09-02]** The printed 6 mm hub still has legacy Ø3.3 tapped-metal bores; the insert/captive-thread scheme is not released. |
 
 **Track = 168 mm.** Nothing rotating crosses y = 53.5, so the chassis is free
 to occupy |y| ≤ 47 without ever fouling the leg sweep.
@@ -561,7 +561,7 @@ sweep in §10.
 | knee encoder physically fits and can be wired | **yes** — AS5048A at a 1.00 mm air gap, bracket on 2 inserts, cable slot through the shelf |
 | wheel motor and connectors removable | **yes** — 6 × M2.5 from inboard; the motor's own cover screws stay accessible |
 | every screw has tool access | **yes** — 32 access envelopes modelled, zero obstructions |
-| every nut/washer/spacer has an installation path | **yes** — no nuts remain in the spring channel; all blind fastening is heat-set inserts |
+| every nut/washer/spacer has an installation path | **HOLD** — the spring channel has no trapped nuts, but the printed shoulder hub, wheel hub, Mode A stand, future chassis frame and deferred carriage threaded interfaces failed the 2026-09-02 insert audit; see `MANUFACTURING_CONSTRAINTS.md` |
 | every printed part has an explicit viable print orientation | **yes** — BOM document §1–3 |
 | no inaccessible support required | **yes** — every part is single-shell, so there are no enclosed cavities |
 | one-leg assembly passes all collision sweeps before duplication | **yes** — §10.1/10.2 were run on the single leg first |

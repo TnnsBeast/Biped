@@ -46,6 +46,13 @@ do not reprint it. Ø19.15 is the preferred compensation for any future ABS
 proximal print because it retains the bearing without movement at lower thumb
 insertion force.
 
+**Do not attach that link to the current printed shoulder hub.** The Ø4.15 hub
+passed the real GIM6010 motor fit, but its six link-side holes are legacy Ø3.3
+tapped-metal geometry rather than M4 insert pockets. The shoulder hub must be
+corrected, Fusion-verified and reprinted first. `Wheel_Hub_L` and the exported
+`RIG_Stand` are on the same insert-interface hold; see the canonical
+[printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
+
 **Next release gate:** do not print the distal link yet. Candidate eBay knee
 pins are ordered (believed to be a set of three; quantity, exact specification
 and delivery remain to be verified). A real Ø10 h6/h5 × 35 mm steel pin must

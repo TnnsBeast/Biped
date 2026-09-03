@@ -55,6 +55,54 @@ the bench, not weighted** — see `fusion_agent_guide_mode_a.md`. The stand is f
 inside this constraint: printed part plus bought bench clamps, no machining, no
 laser cutting.
 
+## Threaded interfaces in printed parts
+
+**Audit status 2026-09-02: do not install an insert or release another mating
+print until the row below says `READY`.** This is the canonical insert map. The
+owner's received assortments are indexed at
+[`evidence/inserts/2026-09-02_received/`](evidence/inserts/2026-09-02_received/).
+
+The M3 design family is the owner-reported Voron-style insert. The existing
+project coupon and valid part pockets are Ø4.0 × 5.0 mm; the exact AliExpress
+order variant still needs to be recorded and the real insert must pass the ABS
+coupon before installation. For the specified PSM Tech-Sonic M4 family, the
+[manufacturer table](https://psmcelada.it/?dl=5346) gives a **Ø5.6 mm
+recommended hole** and offers short M4 lengths including 5.8 mm. Its hole
+tolerance is −0.00/+0.10 mm. An insert label or outside diameter is not itself
+a printed-bore prescription.
+
+| Printed thread destination | Qty, active ABS single leg | Insert / receiving feature | Current design status |
+|---|---:|---|---|
+| `Shoulder_Cable_Cover_L` | 4 | Voron-style M3; Ø4.0 × 5.0 blind pocket | **READY in source.** Coupon the owned insert first. |
+| `Proximal_Link_L` arm-B boss | 5 | Voron-style M3; Ø4.0 × 5.0 blind pocket (3 stop-plate + 2 encoder-bracket) | **READY in the printed Ø19.10 link.** Do not reprint merely for the Ø19.15 bearing preference. |
+| `RIG_Stand` panel interface | 5 | Voron-style M3 | **HOLD.** Source and released STL use Ø5.0 × 5.0 bores, which are clearance on the owned M3 families rather than the validated Ø4.0 pocket. Rebuild and re-export through Fusion. |
+| `Shoulder_Output_Hub_L` root flange | 6 | M4 heat-set inserts; current candidate is PSM Tech-Sonic 5.8 mm in a Ø5.6 pocket | **HOLD / REPRINT REQUIRED.** The printed Ø4.15 motor-fit article still has six legacy Ø3.3 × 7.0 tapped-metal bores. It is a motor-interface fit article only and cannot accept the proximal link. |
+| `Wheel_Hub_L` rim joint | 6 | M4 insert or another explicitly modelled captive metal thread | **HOLD.** The 6 mm hub still has six legacy Ø3.3 × 6.0 tapped-metal bores. The owned M4 × 8/10 inserts are too long. Close the short-insert/fastener or captive-nut scheme in Fusion before printing. |
+
+The active ABS article therefore consumes **14 M3 inserts** before any spares:
+4 cover + 5 proximal link + 5 stand. The shoulder and wheel need 6 M4 receiving
+threads each, but only the shoulder's 5.8 mm candidate is currently specified;
+do not convert that into a 12-piece order until the wheel-hub row is closed.
+
+Future/deferred interfaces remain visible rather than silently inheriting the
+active quantities:
+
+| Printed thread destination | Scope | Status |
+|---|---|---|
+| `Chassis_Frame`, 5 per side | two-leg build | **HOLD.** The current source has Ø3.4 through-holes but no insert or nut destination for the ten M3 × 10 panel screws. |
+| Optional proximal-link satellite-PCB boss, 2 × M2 per leg | two-leg build / electronics CR-4 | **OPEN DESIGN.** The boss does not exist yet and may be deleted if the final motor-controller architecture reads the knee encoder directly. If retained, select one of the owned M2 insert lengths by coupon and model its pocket before the boss is released. |
+| `RIG_Carriage`, 5 × M3 | **[DEFERRED — MODE B]** | **HOLD.** The source repeats the incorrect Ø5.0 M3 pocket. |
+| `RIG_Carriage`, 4 × M4 ballast studs | **[DEFERRED — MODE B]** | Retain the Ø5.6 manufacturer hole, but verify the selected insert length and 8 mm plate floor before Mode B returns. |
+| `RIG_Knee_Collar_L`, one M3 set screw | active knee | **DIRECT-THREAD EXCEPTION / HOLD.** The 3 mm collar has no room for a Voron insert. Its one-time set screw plus retaining compound is not counted as a heat-set joint; re-audit the retention geometry in Fusion with the real knee pin before release. |
+
+Do **not** add inserts to clearance parts. `Chassis_Shoulder_Plate_L` fastens to
+the GIM6010's metal threads; `Shoulder_Output_Hub_L` fastens to the GIM6010's
+metal threads; `Distal_Link_L` and `Wheel_Hub_L` fasten to the GIM4305's metal
+threads. `Knee_Encoder_Bracket_L`, `RIG_Knee_Stop_Plate_L`, and `Wheel_Rim_L`
+carry clearance holes; their receiving inserts belong in the proximal link or
+wheel hub as identified above. No active printed joint currently calls for an
+M2 or M5 insert.
+
 ## The one place this cost real margin
 
 Everything above is a lateral move or an improvement except the knee hard stop.
