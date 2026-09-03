@@ -75,9 +75,17 @@ HUB_MID_Y = 51.5                  # hub body -> flange step (8 mm flange)
 HUB_Y1 = 59.5                     # hub outboard face == leg inboard face
 HUB_BODY_D = 38.0
 HUB_FLANGE_D = 56.0
-HUB_LINK_PCD = 44.0               # 6x M4 link bolts into hub flange, 7 mm thread
+HUB_LINK_PCD = 44.0               # 6x M4 link bolts into hub flange
 HUB_LINK_A0 = 0.4
 HUB_CABLE_R = 21.0                # cable pass-through in hub flange
+# PSM Sonic-Lok SL-B-M4 short insert family.  The catalogue gives a Ø5.6
+# receiving hole, a 5.8 mm short insert, and a general blind-hole rule of insert
+# length + two thread pitches.  M4 coarse pitch is 0.7 mm, so the shoulder
+# pocket is 7.2 mm deep.  In the 8 mm flange that leaves a 0.8 mm floor; the
+# M4x10 screw stops 1.0 mm before that floor after its 3.8 mm link counterbore.
+HUB_LINK_INSERT_D = 5.6
+HUB_LINK_INSERT_LEN = 5.8
+HUB_LINK_INSERT_HOLE_DEPTH = 7.2
 
 CAV_R_IN = 20.0                   # cable spiral cavity
 CAV_R_OUT = 32.0
@@ -103,12 +111,24 @@ SH_PANEL_X1, SH_PANEL_Z1 = 42.0, 72.0
 SH_PANEL_WINDOWS = [(-70.0, -6.0, -54.0, 46.0),
                     (-50.0, 50.0, -10.0, 66.0),
                     (-2.0, 50.0, 30.0, 66.0),
-                    (22.0, -15.0, 38.0, 35.0)]
+                    # Stop below the +45° cable-cover insert.  The former
+                    # z=35 edge erased that receiver after it was cut.
+                    (22.0, -15.0, 38.0, 27.0)]
 # Panel <-> frame bolted joint.  Single source of truth for both parts.
 FRAME_BOLTS = [(-60.0, 62.0), (30.0, 62.0), (-60.0, 48.0), (30.0, 48.0),
                (-60.0, -18.0)]
 FRAME_T = 4.0
 FRAME_FLANGE_Y = 38.0                        # flange inner face; outer at 42
+# The panel screws are repeatedly serviced, so the printed frame owns the
+# female threads.  A local 6.5 mm boss adds material only at each receiver;
+# its Ø4.0 x 6.0 blind pocket takes the owner's 5.0 mm Voron-style M3 insert,
+# gives 1.0 mm of air/screw-tip clearance, and leaves a 0.5 mm printed floor.
+FRAME_INSERT_D = 4.0
+FRAME_INSERT_LEN = 5.0
+FRAME_INSERT_HOLE_DEPTH = 6.0
+FRAME_INSERT_BOSS_D = 10.0
+FRAME_INSERT_BOSS_DEPTH = 6.5
+FRAME_INSERT_BOSS_CLEARANCE = 0.5
 FRAME_FLANGE_RECTS = [(-70.0, -20.0, -56.0, 72.0),
                       (-70.0, 58.0, 40.0, 72.0),
                       (26.0, 36.0, 40.0, 72.0)]
@@ -619,10 +639,11 @@ def build_mirror():
 # Expected occurrence count per part, per side.  Anything else means a builder
 # ran twice without clearing, or a placement pattern changed.
 EXPECT_COUNT = {
-    'HW_SHCS_M3x10': 14,      # 8 housing + 6 output hub
-    'HW_SHCS_M3x8': 7,        # 4 cable cover + 3 wheel hub
+    'HW_SHCS_M3x10': 23,      # 8 housing + 6 output + 5 frame + 4 cover
+    'HW_SHCS_M3x8': 3,        # wheel hub -> wheel motor
     'HW_SHCS_M3x6': 3,        # knee stop arc
-    'HW_SHCS_M4x10': 12,      # 6 link root + 6 rim
+    'HW_SHCS_M4x10': 6,       # link root
+    'HW_SHCS_M4x8': 6,        # wheel rim -> short wheel-hub inserts
     'HW_SHCS_M2p5x12': 6,     # wheel motor
     'HW_SHCS_M3x16': 2,       # encoder bracket
     'HW_Bearing_6800': 2,
@@ -706,7 +727,8 @@ def audit_lr_parity(verbose=True):
 # (screw name -> nominal length mm).  Used by audit_fasteners.
 SCREW_LEN = {'HW_SHCS_M2p5x12': (2.5, 12.0), 'HW_SHCS_M3x6': (3.0, 6.0),
              'HW_SHCS_M3x8': (3.0, 8.0), 'HW_SHCS_M3x10': (3.0, 10.0),
-             'HW_SHCS_M3x16': (3.0, 16.0), 'HW_SHCS_M4x10': (4.0, 10.0)}
+             'HW_SHCS_M3x16': (3.0, 16.0), 'HW_SHCS_M4x8': (4.0, 8.0),
+             'HW_SHCS_M4x10': (4.0, 10.0)}
 
 
 def audit_fasteners(verbose=True):
@@ -757,21 +779,30 @@ def audit_fasteners(verbose=True):
 def audit_blind_holes(verbose=True):
     """Insert bore depth vs insert length vs screw reach, stated explicitly.
 
-    Both blind-insert joints in the original model were wrong in the same way:
-    the bore was shorter than the 5 mm insert and the screw ran past the bore
-    floor, so the insert stood proud and the screw bottomed out before it
-    clamped anything.
+    The original shoulder and knee-stop blind-insert joints were wrong in the
+    same way: the bore was shorter than the 5 mm insert and the screw ran past
+    the bore floor, so the insert stood proud and the screw bottomed out before
+    it clamped anything.  Keep every later receiver in this same audit so a
+    geometry edit cannot silently reintroduce that failure mode.
     """
     rows = [
+        ('proximal root -> shoulder hub',
+         HUB_Y1 - HUB_LINK_INSERT_HOLE_DEPTH, HUB_Y1,
+         HUB_LINK_INSERT_LEN, 63.3, 10.0, HUB_MID_Y),
         ('knee stop arc -> proximal arm B',
          KNEE_BOSS_B_Y1 - STOP_INSERT_DEPTH, KNEE_BOSS_B_Y1, INSERT_LEN,
          STOP_ARC_Y0 + STOP_ARC_T, 6.0, KNEE_BOSS_B_Y0),
         ('encoder bracket -> proximal arm B',
          KNEE_BOSS_B_Y1 - ENC_INSERT_DEPTH, KNEE_BOSS_B_Y1, INSERT_LEN,
          101.9, 16.0, KNEE_BOSS_B_Y0),
-        ('cable cover -> M3 inserts',
-         CAV_Y0, CAV_Y0 + COVER_INSERT_DEPTH, INSERT_LEN,
-         SH_PLATE_Y0, 8.0, None),
+        ('cable cover -> shoulder plate',
+         SH_PLATE_Y0, SH_PLATE_Y1, INSERT_LEN,
+         CABLE_COVER_Y0 + CABLE_COVER_T, 10.0, None),
+        ('left panel -> chassis frame',
+         FRAME_FLANGE_Y + FRAME_T - FRAME_INSERT_HOLE_DEPTH,
+         FRAME_FLANGE_Y + FRAME_T, FRAME_INSERT_LEN,
+         SH_PLATE_Y1, 10.0,
+         FRAME_FLANGE_Y + FRAME_T - FRAME_INSERT_BOSS_DEPTH),
     ]
     problems = []
     if verbose:
@@ -796,11 +827,136 @@ def audit_blind_holes(verbose=True):
         if clear < 0:
             problems.append('%s: screw runs %.2f mm past the bore floor'
                             % (name, -clear))
+    wheel_engagement = WHEEL_RIM_SCREW_LEN - (RIM_WEB_Y_B - RIM_WEB_Y_A)
+    wheel_back_clearance = ((WH_HUB_Y_B - WH_HUB_Y_A) - wheel_engagement)
+    if wheel_engagement < 4.0 - 1e-6:
+        problems.append('wheel rim -> wheel hub: less than 1D thread engagement')
+    if wheel_back_clearance <= 0:
+        problems.append('wheel rim -> wheel hub: screw reaches motor face')
     if verbose:
-        print('  BLIND HOLES: %s' % ('clean' if not problems else
-                                     '%d PROBLEM(S)' % len(problems)))
+        print('  %-34s through  %4.1f insert  %4.1f screw engagement  '
+              '%4.1f back clearance'
+              % ('wheel rim -> wheel hub', WHEEL_RIM_INSERT_LEN,
+                 wheel_engagement, wheel_back_clearance))
+        print('  BLIND/INSERT HOLES: %s' % ('clean' if not problems else
+                                            '%d PROBLEM(S)' % len(problems)))
         for p in problems:
             print('     ' + p)
+    return problems
+
+
+def _receiver_centres(cx, cz, pcd, count, start_deg):
+    out = []
+    for i in range(count):
+        angle = math.radians(start_deg + i * 360.0 / count)
+        out.append((cx + pcd / 2.0 * math.cos(angle),
+                    cz + pcd / 2.0 * math.sin(angle)))
+    return out
+
+
+def _receiver_face_spans(occ, diameter, centres):
+    """Return Y spans for cylindrical faces at the requested XZ centres."""
+    found = {}
+    if occ is None:
+        return found
+    for body in occ.component.bRepBodies:
+        for face in body.faces:
+            geo = face.geometry
+            if geo.objectType != 'adsk::core::Cylinder':
+                continue
+            if abs(geo.axis.y) < 0.999999:
+                continue
+            if abs(2.0 * geo.radius * 10.0 - diameter) > 0.01:
+                continue
+            bb = face.boundingBox
+            x = (bb.minPoint.x + bb.maxPoint.x) * 5.0
+            z = (bb.minPoint.z + bb.maxPoint.z) * 5.0
+            nearest = min(range(len(centres)),
+                          key=lambda i: math.hypot(x - centres[i][0],
+                                                   z - centres[i][1]))
+            if math.hypot(x - centres[nearest][0], z - centres[nearest][1]) > 0.05:
+                continue
+            found[nearest] = (bb.minPoint.y * 10.0, bb.maxPoint.y * 10.0)
+    return found
+
+
+def audit_threaded_receivers(verbose=True):
+    """B-Rep audit of every released/future printed threaded destination.
+
+    Clearance parts are intentionally absent.  This catches both failure modes
+    from the 2026-09-02 audit: a legacy tap-drill diameter and a correct-looking
+    diameter cut to the wrong depth.
+    """
+    specs = [
+        ('Shoulder_Output_Hub_L', HUB_LINK_INSERT_D,
+         _receiver_centres(0.0, 0.0, HUB_LINK_PCD, 6, HUB_LINK_A0),
+         HUB_Y1 - HUB_LINK_INSERT_HOLE_DEPTH, HUB_Y1),
+        ('Wheel_Hub_L', WHEEL_RIM_INSERT_D,
+         _receiver_centres(WX, WZ, RIM_BOLT_PCD, 6, 0.0),
+         WH_HUB_Y_A, WH_HUB_Y_B),
+        ('Chassis_Shoulder_Plate_L', 4.0,
+         _receiver_centres(0.0, 0.0, CABLE_COVER_PCD, 4, 45.0),
+         SH_PLATE_Y0, SH_PLATE_Y1),
+        ('Proximal_Link_L', 4.0,
+         ([kpt(STOP_BOLT_R, angle) for angle in STOP_BOLT_A]
+          + [kpt(15.0, angle) for angle in (60.0, 140.0)]),
+         KNEE_BOSS_B_Y1 - INSERT_LEN, KNEE_BOSS_B_Y1),
+        ('Chassis_Frame', FRAME_INSERT_D,
+         FRAME_BOLTS + FRAME_BOLTS,
+         None, None),
+    ]
+    problems = []
+    for name, diameter, centres, y0, y1 in specs:
+        occ = find_occ(name)
+        if occ is None:
+            continue
+        spans = _receiver_face_spans(occ, diameter, centres)
+        if name == 'Chassis_Frame':
+            # Duplicate XZ centres correspond to the two symmetric Y mouths.
+            all_spans = []
+            for body in occ.component.bRepBodies:
+                for face in body.faces:
+                    geo = face.geometry
+                    if (geo.objectType != 'adsk::core::Cylinder' or
+                            abs(geo.axis.y) < 0.999999 or
+                            abs(2.0 * geo.radius * 10.0 - diameter) > 0.01):
+                        continue
+                    bb = face.boundingBox
+                    x = (bb.minPoint.x + bb.maxPoint.x) * 5.0
+                    z = (bb.minPoint.z + bb.maxPoint.z) * 5.0
+                    if min(math.hypot(x - p[0], z - p[1])
+                           for p in FRAME_BOLTS) <= 0.05:
+                        all_spans.append((bb.minPoint.y * 10.0,
+                                          bb.maxPoint.y * 10.0))
+            expected = ([(-FRAME_FLANGE_Y - FRAME_T,
+                          -FRAME_FLANGE_Y - FRAME_T + FRAME_INSERT_HOLE_DEPTH)]
+                        * len(FRAME_BOLTS)
+                        + [(FRAME_FLANGE_Y + FRAME_T - FRAME_INSERT_HOLE_DEPTH,
+                            FRAME_FLANGE_Y + FRAME_T)] * len(FRAME_BOLTS))
+            got = sorted((round(a, 3), round(b, 3)) for a, b in all_spans)
+            want = sorted((round(a, 3), round(b, 3)) for a, b in expected)
+            if got != want:
+                problems.append('%s: expected ten Ø%.1f spans %s, found %s'
+                                % (name, diameter, want, got))
+            if verbose:
+                print('  %-29s Ø%.1f  %2d/10 receivers'
+                      % (name, diameter, len(all_spans)))
+            continue
+        want_span = (round(y0, 3), round(y1, 3))
+        bad_spans = [span for span in spans.values()
+                     if (round(span[0], 3), round(span[1], 3)) != want_span]
+        if len(spans) != len(centres) or bad_spans:
+            problems.append('%s: expected %d × Ø%.1f at Y %.3f..%.3f; found %s'
+                            % (name, len(centres), diameter, y0, y1,
+                               sorted(spans.values())))
+        if verbose:
+            print('  %-29s Ø%.1f  %2d/%d receivers  Y %.3f..%.3f'
+                  % (name, diameter, len(spans), len(centres), y0, y1))
+    if verbose:
+        print('  THREADED RECEIVERS: %s' %
+              ('clean' if not problems else '%d PROBLEM(S)' % len(problems)))
+        for problem in problems:
+            print('     ' + problem)
     return problems
 
 
@@ -844,6 +1000,8 @@ def audit_all():
     p += audit_fasteners()
     print()
     p += audit_blind_holes()
+    print()
+    p += audit_threaded_receivers()
     print()
     audit_source_parity()
     print()
@@ -1459,6 +1617,7 @@ PART_CLASS = {
     'HW_SHCS_M3x8': 'STEEL',
     'HW_SHCS_M3x10': 'STEEL',
     'HW_SHCS_M3x16': 'STEEL',
+    'HW_SHCS_M4x8': 'STEEL',
     'HW_SHCS_M4x10': 'STEEL',
     'Chassis_Frame': 'PACF',
     'Battery_4S2200': 'BATT',
@@ -1914,7 +2073,6 @@ STOP_BOLT_A = (230.0, 260.0, 290.0)
 INSERT_LEN = 5.0          # M3 brass heat-set insert length
 STOP_INSERT_DEPTH = 5.0   # bore depth in the arm-B boss (0.8 mm of floor left)
 ENC_INSERT_DEPTH = 5.0    # bore depth for the encoder bracket inserts
-COVER_INSERT_DEPTH = 5.0  # bore depth in the cable cover (1.5 mm of floor left)
 
 
 def pl_ep(u):
@@ -2159,10 +2317,12 @@ def classify(occ):
     if n == 'HW_SHCS_M3x10':
         return 'PROX' if rs < 20 else 'STATIC'
     if n == 'HW_SHCS_M4x10':
-        return 'DIST' if cz < -120 else 'PROX'
+        return 'PROX'
+    if n == 'HW_SHCS_M4x8':
+        return 'DIST'
     if n == 'HW_SHCS_M3x8':
-        # wheel-hub screws are DIST; the four cable-cover screws sit on the
-        # shoulder plate, which is STATIC.
+        # The M3x8 population is the wheel-motor joint (DIST).  The cable cover
+        # now installs from the serviceable outboard side with M3x10 screws.
         return 'DIST' if cz < -120 else 'STATIC'
     if n == 'HW_ClevisPin_D4x32':
         return 'CART_LO' if cz < -100 else 'CART_UP'
@@ -2477,9 +2637,14 @@ def build_shoulder_plate():
     sk = sk_on_y(c, SH_PLATE_Y0 - 1)
     circle(sk, 29 * math.cos(a), 29 * math.sin(a), 7.0)
     extrude(c, sk.profiles.item(0), SH_PLATE_T + 2, 'cut')
-    sk = sk_on_y(c, SH_PLATE_Y0 - 1)
-    circles_polar(sk, 0, 0, CABLE_COVER_PCD, 3.4, 4, 45.0)
-    extrude(c, profiles(sk), SH_PLATE_T + 2, 'cut')
+    # Cable-cover receivers live in the side plate, not in the removable
+    # cover.  The old inboard-driven screws put their heads in the same space
+    # as the chassis frame / Mode-A stand, so the joint was not installable or
+    # serviceable in the assembly.  A 5 mm Voron-style M3 insert now sits
+    # flush through the 5 mm plate and is reached from the outboard cover face.
+    sk = sk_on_y(c, SH_PLATE_Y0)
+    circles_polar(sk, 0, 0, CABLE_COVER_PCD, 4.0, 4, 45.0)
+    extrude(c, profiles(sk), SH_PLATE_T, 'cut')
     # joint to Chassis_Frame.  FRAME_BOLTS is the single source of truth for
     # this pattern -- the panel used to carry a sixth hole at (+30, -18) with
     # no matching boss on the frame.  Giving the frame a front-lower leg to
@@ -2502,7 +2667,9 @@ def build_chassis_frame():
     """Centre cage tying the two side panels together.
 
     Two 4 mm flanges at y = +/-38..42 (each three rectangles), five 4 mm webs
-    spanning the full 84 mm between them, and the 5+5 panel bolt holes.
+    spanning the full 84 mm between them, and five local M3 insert bosses on
+    each outer panel face.  The side panels remain clearance parts; the frame
+    is the female-thread destination.
     """
     drop_comp('Chassis_Frame')
     occ = new_comp('Chassis_Frame'); c = occ.component
@@ -2520,11 +2687,20 @@ def build_chassis_frame():
         sk = sk_on_y(c, -FRAME_FLANGE_Y - FRAME_T)
         polyline(sk, [(x0, z0), (x1, z0), (x1, z1), (x0, z1)])
         extrude(c, biggest_profile(sk), 2 * (FRAME_FLANGE_Y + FRAME_T), 'join')
-    for y0 in (FRAME_FLANGE_Y - 1.0, -FRAME_FLANGE_Y - FRAME_T - 1.0):
-        sk = sk_on_y(c, y0)
+    # Left-side bosses grow inboard from y=+42; right-side bosses grow inboard
+    # from y=-42.  They do not alter either frozen side-panel datum.
+    for mouth_y, inward in ((FRAME_FLANGE_Y + FRAME_T, -1.0),
+                            (-FRAME_FLANGE_Y - FRAME_T, 1.0)):
+        boss_y0 = mouth_y if inward > 0 else mouth_y - FRAME_INSERT_BOSS_DEPTH
+        sk = sk_on_y(c, boss_y0)
         for (bx, bz) in FRAME_BOLTS:
-            circle(sk, bx, bz, 3.4)
-        extrude(c, profiles(sk), FRAME_T + 2.0, 'cut')
+            circle(sk, bx, bz, FRAME_INSERT_BOSS_D)
+        extrude(c, profiles(sk), FRAME_INSERT_BOSS_DEPTH, 'join')
+
+        sk = sk_on_y(c, mouth_y)
+        for (bx, bz) in FRAME_BOLTS:
+            circle(sk, bx, bz, FRAME_INSERT_D)
+        extrude(c, profiles(sk), inward * FRAME_INSERT_HOLE_DEPTH, 'cut')
     return occ
 
 
@@ -2536,6 +2712,14 @@ def build_electronics_tray():
                   (TRAY_X1, TRAY_Z1), (TRAY_X0, TRAY_Z1)])
     extrude(c, biggest_profile(sk), 2 * TRAY_HALF_W,
             'new').bodies.item(0).name = 'Electronics_Tray'
+    # The lone low frame receiver at (-60, -18) grows 2.5 mm inboard of the
+    # original 4 mm flange.  Relieve the tray locally rather than moving the
+    # frozen panel bolt or thinning the M3 insert wall.  The cut follows the
+    # actual Ø10 boss with 0.5 mm radial assembly clearance.
+    sk = sk_on_y(c, -TRAY_HALF_W - 1.0)
+    circle(sk, FRAME_BOLTS[-1][0], FRAME_BOLTS[-1][1],
+           FRAME_INSERT_BOSS_D + 2.0 * FRAME_INSERT_BOSS_CLEARANCE)
+    extrude(c, sk.profiles.item(0), 2.0 * TRAY_HALF_W + 2.0, 'cut')
     return occ
 
 
@@ -2598,9 +2782,13 @@ def build_cable_cover():
     ring(c, CABLE_COVER_Y0, CABLE_COVER_R_IN, CABLE_COVER_R_OUT,
          CABLE_COVER_T, 'new').bodies.item(0).name = 'Shoulder_Cable_Cover_L'
     ring(c, CAV_Y0, 41.0, CABLE_COVER_R_OUT, CABLE_COVER_Y0 - CAV_Y0, 'join')
-    sk = sk_on_y(c, CAV_Y0)
-    circles_polar(sk, 0, 0, CABLE_COVER_PCD, 4.0, 4, 45.0)
-    extrude(c, profiles(sk), COVER_INSERT_DEPTH, 'cut')
+    # Clearance holes only.  M3 x 10 screws enter from the exposed outboard
+    # face at y=53.5, traverse the 6.5 mm cover, and engage 3.5 mm (>1D) in
+    # the plate inserts while stopping 1.5 mm before the inboard plate face.
+    sk = sk_on_y(c, CAV_Y0 - 1.0)
+    circles_polar(sk, 0, 0, CABLE_COVER_PCD, 3.4, 4, 45.0)
+    extrude(c, profiles(sk),
+            CABLE_COVER_Y0 + CABLE_COVER_T - CAV_Y0 + 2.0, 'cut')
     return occ
 
 
@@ -2633,9 +2821,11 @@ def build_shoulder_hub(pin_bore_d=4.05,
     sk = sk_on_y(c, HUB_Y0)
     circles_polar(sk, 0, 0, SH_PIN_PCD, 5.2, 3, SH_PIN_A0)
     extrude(c, profiles(sk), 0.7, 'cut')
-    sk = sk_on_y(c, 52.5)
-    circles_polar(sk, 0, 0, HUB_LINK_PCD, 3.3, 6, HUB_LINK_A0)
-    extrude(c, profiles(sk), HUB_Y1 - 52.5, 'cut')
+    # Link-side female threads live in the printed hub, not in tapped plastic.
+    # Install the six M4 inserts from the outboard mating face after printing.
+    sk = sk_on_y(c, HUB_Y1)
+    circles_polar(sk, 0, 0, HUB_LINK_PCD, HUB_LINK_INSERT_D, 6, HUB_LINK_A0)
+    extrude(c, profiles(sk), -HUB_LINK_INSERT_HOLE_DEPTH, 'cut')
     a = math.radians(30.4)
     sk = sk_on_y(c, HUB_MID_Y - 1)
     circle(sk, HUB_CABLE_R * math.cos(a), HUB_CABLE_R * math.sin(a), 6.0)
@@ -2873,6 +3063,14 @@ def build_encoder():
 WH_HUB_Y_A, WH_HUB_Y_B = 94.5, 100.5
 RIM_BOLT_PCD = 46.0
 RIM_WEB_Y_A, RIM_WEB_Y_B = 100.5, 104.5
+# The hub is only 6.0 mm thick, so its M4 receiver is deliberately through.
+# A PSM Sonic-Lok SL-B-M4-4.8 insert is installed flush from the rim face and
+# remains 1.2 mm shy of the motor face.  The M4x8 rim screw engages 4.0 mm of
+# thread and stops 2.0 mm before the motor face.  The Ø5.6 hole also preserves
+# 2.2 mm radial wall at the Ø56 hub OD (PSM minimum is 2.1 mm).
+WHEEL_RIM_INSERT_D = 5.6
+WHEEL_RIM_INSERT_LEN = 4.8
+WHEEL_RIM_SCREW_LEN = 8.0
 
 # --- tyre retention (added; the tyre used to be a plain annulus) -----------
 # As modelled the tyre ID was exactly the rim seat OD, so there was no press
@@ -2911,9 +3109,9 @@ def build_wheel():
     sk = sk_on_y(c, WH_HUB_Y_B - 2.5)
     circles_polar(sk, WX, WZ, WM_OUT_PCD, 6.5, 3, WM_OUT_A0)
     extrude(c, profiles(sk), 3.0, 'cut')
-    sk = sk_on_y(c, WH_HUB_Y_B - 6.0)
-    circles_polar(sk, WX, WZ, RIM_BOLT_PCD, 3.3, 6, 0.0)
-    extrude(c, profiles(sk), 6.0, 'cut')
+    sk = sk_on_y(c, WH_HUB_Y_A - 1.0)
+    circles_polar(sk, WX, WZ, RIM_BOLT_PCD, WHEEL_RIM_INSERT_D, 6, 0.0)
+    extrude(c, profiles(sk), (WH_HUB_Y_B - WH_HUB_Y_A) + 2.0, 'cut')
     sk = sk_on_y(c, WH_HUB_Y_A - 1); circle(sk, WX, WZ, 12.0)
     extrude(c, sk.profiles.item(0), (WH_HUB_Y_B - WH_HUB_Y_A) + 2, 'cut')
 
@@ -2958,18 +3156,21 @@ def build_wheel():
 
 def build_fasteners():
     for nm in ('HW_SHCS_M3x6', 'HW_SHCS_M3x10', 'HW_SHCS_M3x8',
-               'HW_SHCS_M2p5x12', 'HW_SHCS_M4x10', 'HW_SHCS_M3x16'):
+               'HW_SHCS_M2p5x12', 'HW_SHCS_M4x8', 'HW_SHCS_M4x10',
+               'HW_SHCS_M3x16'):
         drop_comp(nm)
     s = screw_comp('HW_SHCS_M3x10', 3.0, 10.0)
     place_polar(s, SH_BOLT_PCD, 8, SH_BOLT_A0, SH_PLATE_Y1)
     place_polar(s, SH_OUT_PCD, 6, SH_OUT_A0, 50.5)
+    for x, z in FRAME_BOLTS:
+        place(s, x, z, SH_PLATE_Y1)
+    place_polar(s, CABLE_COVER_PCD, 4, 45.0,
+                CABLE_COVER_Y0 + CABLE_COVER_T)
     s4 = screw_comp('HW_SHCS_M4x10', 4.0, 10.0)
     place_polar(s4, HUB_LINK_PCD, 6, HUB_LINK_A0, 63.3)
-    place_polar(s4, RIM_BOLT_PCD, 6, 0.0, RIM_WEB_Y_B, cx=WX, cz=WZ)
+    s4_short = screw_comp('HW_SHCS_M4x8', 4.0, WHEEL_RIM_SCREW_LEN)
+    place_polar(s4_short, RIM_BOLT_PCD, 6, 0.0, RIM_WEB_Y_B, cx=WX, cz=WZ)
     s8 = screw_comp('HW_SHCS_M3x8', 3.0, 8.0)
-    # cable cover: 5 mm through the plate + 3 mm into a 5 mm insert whose bore
-    # runs y = 47 .. 52.  An M3 x 10 here overshot the bore floor by 1.0 mm.
-    place_polar(s8, CABLE_COVER_PCD, 4, 45.0, SH_PLATE_Y0, flip=True)
     place_polar(s8, WM_OUT_PCD, 3, WM_OUT_A0, WH_HUB_Y_B - 2.5, cx=WX, cz=WZ)
     # knee stop arc: 3 mm of steel plate + 3 mm into a 5 mm insert.  An M3 x 8
     # here reached 0.5 mm past the bore floor and bottomed out before clamping.
@@ -2986,7 +3187,8 @@ def build_fasteners():
     # remove the master occurrences that sit at the origin
     r = root()
     for nm in ('HW_SHCS_M3x6', 'HW_SHCS_M3x10', 'HW_SHCS_M3x8',
-               'HW_SHCS_M2p5x12', 'HW_SHCS_M4x10', 'HW_SHCS_M3x16'):
+               'HW_SHCS_M2p5x12', 'HW_SHCS_M4x8', 'HW_SHCS_M4x10',
+               'HW_SHCS_M3x16'):
         occs = [r.occurrences.item(i) for i in range(r.occurrences.count)
                 if base_name(r.occurrences.item(i).component.name) == nm]
         for o in occs:

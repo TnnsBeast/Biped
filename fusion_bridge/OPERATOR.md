@@ -27,7 +27,7 @@ saves a round trip.
 Text Commands console:
 
 ```python
-import sys; sys.path.insert(0, '/Users/neilchulani/Fun/Robots/Biped')
+import sys; sys.path.insert(0, '/Users/neilchulani/Robots/Biped')
 import fusion_bridge.probe as probe
 probe.run()
 ```

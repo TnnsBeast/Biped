@@ -3,7 +3,7 @@
 Run inside Fusion (the MCP `script` feature type) against the open
 `Beni_Prototype1` document:
 
-    import sys; sys.path.insert(0, '/Users/neilchulani/Fun/Robots/Biped')
+    import sys; sys.path.insert(0, '/Users/neilchulani/Robots/Biped')
     import beni_export; beni_export.export_all()
 
 Produces
@@ -24,7 +24,7 @@ import adsk.fusion
 
 import beni_lib as B
 
-ROOT = '/Users/neilchulani/Fun/Robots/Biped'
+ROOT = '/Users/neilchulani/Robots/Biped'
 STEP_DIR = os.path.join(ROOT, 'manufacturing', 'step')
 SPEC_MD = os.path.join(ROOT, 'manufacturing', 'machined_parts_spec.md')
 SIM_DIR = os.path.join(ROOT, 'sim')
@@ -195,7 +195,8 @@ WHEEL_PARTS = ('Wheel_Hub_L', 'Wheel_Rim_L', 'Wheel_Tyre_L')
 
 # screws are assigned by position rather than by name, since the same size is
 # used in several places; see _split_screws.
-SCREW_PARTS = ('HW_SHCS_M3x10', 'HW_SHCS_M3x8', 'HW_SHCS_M4x10',
+SCREW_PARTS = ('HW_SHCS_M3x10', 'HW_SHCS_M3x8', 'HW_SHCS_M4x8',
+               'HW_SHCS_M4x10',
                'HW_ClevisPin_D4x32')
 
 
@@ -216,7 +217,9 @@ def _split_screws(side):
         elif nm == 'HW_SHCS_M3x8':
             out['wheel' if cz < -120 else 'base'].append(o)
         elif nm == 'HW_SHCS_M4x10':
-            out['wheel' if cz < -120 else 'thigh'].append(o)
+            out['thigh'].append(o)
+        elif nm == 'HW_SHCS_M4x8':
+            out['wheel'].append(o)
         elif nm == 'HW_ClevisPin_D4x32':
             # the cartridge is a floating two-pivot member: its upper pivot
             # rides with the thigh, its lower pivot with the shank.  Same split
@@ -528,7 +531,7 @@ def export_web_stls(verbose=True):
                     # across or they sit still while the wheel spins.  Only
                     # these two families: HW_SHCS_M2p5x12 is the wheel MOTOR
                     # mount, which is fixed to the distal plate.
-                    if grp == 'dist' and part in ('HW_SHCS_M3x8', 'HW_SHCS_M4x10'):
+                    if grp == 'dist' and part in ('HW_SHCS_M3x8', 'HW_SHCS_M4x8'):
                         bb = B.bbox_of(o)
                         wx = (bb[0] + bb[1]) / 2.0 - B.WX
                         wz = (bb[4] + bb[5]) / 2.0 - B.WZ
@@ -565,4 +568,3 @@ def export_web_stls(verbose=True):
         return manifest
     finally:
         shutil.rmtree(tmp, ignore_errors=True)
-

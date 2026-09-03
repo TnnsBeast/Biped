@@ -54,7 +54,7 @@ Establish that the model is currently good. If it is not, **stop and report** �
 do not snapshot a displaced model, and do not "fix" it without saying so.
 
 ```python
-import sys; sys.path.insert(0, '/Users/neilchulani/Fun/Robots/Biped')
+import sys; sys.path.insert(0, '/Users/neilchulani/Robots/Biped')
 import rig_lib
 rig_lib.ref_assert()        # REF_GIM6010-8 Y 5.00…49.00, REF_GIM4305-10 Y 61.50…94.50
 rig_lib.placed_assert()     # HW_WasherStack_M5, RIG_Knee_Bumper_Tube_L not at identity

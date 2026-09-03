@@ -87,21 +87,19 @@ Two patterns on the panel you must **not** use:
 
 - **8 × Ø3.4 on the Ø74 PCD** — that is the motor's own pattern, already occupied by
   the motor's housing screws.
-- **4 × Ø3.4 on the Ø88 PCD** — the deleted clock-spring cover's. Any fastener there
-  needs access to the panel's *inboard* face, which the stand is bolted flat
-  against. Leave them open; design record §2.2 keeps them as a stiffening option if
-  bench measurement shows the panel is soft.
+- **4 × Ø4.0 on the Ø88 PCD** — the removable clock-spring cover's M3 insert
+  receivers. They are driven from the accessible outboard face and are not
+  stand attachment points. Leave them clear of stand geometry.
 
 Constants already in `rig_lib.py` to reuse rather than retype:
 `PANEL_FRAME_BOLTS`, `PANEL_Y0`/`PANEL_Y1` (42.0/47.0), `PANEL_X0`…`PANEL_Z1`,
 `MOTOR_R` (40.0), `HALF_TRACK` (84.0),
 `WHEEL_R` (55.0), `Z_WHEEL_AXIS` (−154.269), `Z_FLOOR` (−209.269).
 
-> **[HOLD 2026-09-02]** Do not reuse the current
-> `INSERT_M3_D`/`INSERT_M3_L = 5.0/5.0` pair. The 5.0 mm value was used as both
-> bore diameter and depth, producing a clearance hole for the owner's
-> Voron-style M3 inserts. The correction target is the project's Ø4.0 × 5.0
-> pocket, subject to the physical insert coupon and Fusion verification.
+> **[CORRECTED 2026-09-02]** `INSERT_M3_D = 4.0`, insert length is 5.0,
+> and the stand hole depth is 6.0 mm. Fusion verified five receivers spanning
+> y = 36…42 with a 6 mm printed floor. Physical installation remains subject
+> to the owner's Ø4.0 ABS insert coupon.
 
 ### 2.2 The load set — yaw dominates by 4×
 
@@ -389,9 +387,9 @@ REF_GIM4305-10   must read  Y 61.50 … 94.50
 Reproduce the current state:
 
 ```python
-import sys; sys.path.insert(0, '/Users/neilchulani/Fun/Robots/Biped')
+import sys; sys.path.insert(0, '/Users/neilchulani/Robots/Biped')
 import rig_lib
-rig_lib.checks_44()          # ⚠ still the Mode B six — update it
+rig_lib.checks_44()          # eight Mode A checks, including receivers
 rig_lib.real_clashes()
 ```
 

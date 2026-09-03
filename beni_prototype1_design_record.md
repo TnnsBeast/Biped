@@ -137,13 +137,13 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 5 … 16 | shoulder motor driver cover (Ø57) |
 | 17 … 41 | shoulder motor housing (Ø80) |
 | **42** | **housing mount face** — 8 × M3 @ Ø74 PCD |
-| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm PA-CF, Ø96) |
+| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm printed plate, Ø96), including 4 × Ø4.0 through receivers for 5 mm Voron-style M3 cable-cover inserts |
 | 44 | rotor face (Ø34…Ø46) |
 | **45.5** | **output mount face** — 6 × M3 @ Ø25 PCD, 3 × Ø4 pins to y = 49 |
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
-| 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47) |
-| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[HOLD 2026-09-02]** Its six Ø44-PCD holes still carry legacy Ø3.3 tapped-metal geometry; the printed hub needs real M4 insert pockets and a reprint. |
+| 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47), 4 × Ø3.4 clearance; M3 × 10 screws enter from outboard into the plate inserts |
+| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[CORRECTED 2026-09-02]** Six Ø5.6 × 7.2 blind pockets receive PSM Sonic-Lok `SL-B-M4-5.8` inserts; M4 × 10 link screws have 1.0 mm floor clearance. The already-printed legacy hub must be reprinted. |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
@@ -163,7 +163,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 69 … 99 | rim + tyre, tyre OD Ø110 (**centre y = 84**) |
 | **94.5** | wheel motor output flange face |
 | 94.5 … 100.5 | **[SUPERSEDED]** `Wheel_Hub_L` (7075-T6, Ø56) — **now printed**, with steel washers and a re-torque schedule |
-| 100.5 … 104.5 | rim web, 6 × M4 @ Ø46 PCD into the hub. **[HOLD 2026-09-02]** The printed 6 mm hub still has legacy Ø3.3 tapped-metal bores; the insert/captive-thread scheme is not released. |
+| 100.5 … 104.5 | rim web, 6 × **M4 × 8** @ Ø46 PCD into PSM Sonic-Lok `SL-B-M4-4.8` inserts in six Ø5.6 through hub receivers. **[CORRECTED 2026-09-02]** 4.0 mm engagement, 2.0 mm motor-face clearance; procurement/coupon gate remains. |
 
 **Track = 168 mm.** Nothing rotating crosses y = 53.5, so the chassis is free
 to occupy |y| ≤ 47 without ever fouling the leg sweep.
@@ -468,13 +468,16 @@ checks were added so each class cannot recur — `audit_counts`,
 
 `audit_all()` reports **0 problems**.
 
-- **Counts:** clean — 72 part/side entries, exactly one body each; all are single
+- **Counts:** clean — 74 part/side entries, exactly one body each; all are single
   solid bodies, one shell and one lump each, so no enclosed voids (no trapped
   support), no disjoint lumps, no duplicate solids.
-- **L/R parity:** clean — 32 part families matched by volume and face census.
+- **L/R parity:** clean — 33 part families matched by volume and face census.
 - **Fastener head clearance:** clean.
 - **Blind holes:** clean — every bore ≥ its insert, every screw clear of the floor.
-- **Source parity:** 36 parts in the model, 36 classified, no orphans.
+- **Threaded receivers:** clean — shoulder hub 6 × Ø5.6, wheel hub 6 × Ø5.6,
+  shoulder plate 4 × Ø4.0, proximal link 5 × Ø4.0, and chassis frame 10 ×
+  Ø4.0, all at their specified depths/spans.
+- **Source parity:** 37 parts in the model, 37 classified, no orphans.
 - **Driver access:** 32 hex-key access envelopes (Ø3.0–3.4, 30–45 mm reach)
   modelled for every screw serviceable on the complete robot. **Zero
   obstructions remain.**
@@ -528,7 +531,7 @@ the risk of corrupting the verified assembly outweighed the benefit.
 Instead the positions are reproducible on demand:
 
 ```python
-import sys; sys.path.insert(0, '/Users/neilchulani/Fun/Robots/Biped')
+import sys; sys.path.insert(0, '/Users/neilchulani/Robots/Biped')
 import beni_lib; from beni_lib import *
 set_pose(theta_deg, phi_deg)      # e.g. set_pose(0.0, 25.0)
 ```
@@ -561,7 +564,7 @@ sweep in §10.
 | knee encoder physically fits and can be wired | **yes** — AS5048A at a 1.00 mm air gap, bracket on 2 inserts, cable slot through the shelf |
 | wheel motor and connectors removable | **yes** — 6 × M2.5 from inboard; the motor's own cover screws stay accessible |
 | every screw has tool access | **yes** — 32 access envelopes modelled, zero obstructions |
-| every nut/washer/spacer has an installation path | **HOLD** — the spring channel has no trapped nuts, but the printed shoulder hub, wheel hub, Mode A stand, future chassis frame and deferred carriage threaded interfaces failed the 2026-09-02 insert audit; see `MANUFACTURING_CONSTRAINTS.md` |
+| every nut/washer/spacer has an installation path | **HEAT-SET PATHS PASS; KNEE RETENTION HOLD** — all existing printed receivers and screw directions are explicit. The cable cover is serviced from outboard. `RIG_Knee_Collar_L` remains unreleased because its current geometry cannot retain the real pin; see `MANUFACTURING_CONSTRAINTS.md`. |
 | every printed part has an explicit viable print orientation | **yes** — BOM document §1–3 |
 | no inaccessible support required | **yes** — every part is single-shell, so there are no enclosed cavities |
 | one-leg assembly passes all collision sweeps before duplication | **yes** — §10.1/10.2 were run on the single leg first |

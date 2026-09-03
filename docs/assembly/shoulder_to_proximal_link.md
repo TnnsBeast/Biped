@@ -8,11 +8,11 @@ shows where the printed proximal link goes and which motor it belongs to.
 > link, and support the knee end so the printed parts do not carry the link as a
 > cantilever. This is a fit check, not a powered or load test.
 
-> **CURRENT HOLD, 2026-09-02:** the printed Ø4.15 hub is a verified
-> hub-to-motor fit article only. Its six link-side holes are legacy Ø3.3
-> tapped-metal geometry, not M4 heat-set-insert pockets. Do not put M4 screws or
-> inserts into it and do not use screws to pull the proximal link onto it. Steps
-> 1–4 below may be rehearsed; step 6 waits for the corrected hub.
+> **REPRINT REQUIRED, 2026-09-02:** the already-printed Ø4.15 hub is a verified
+> hub-to-motor fit article only. Do not put inserts into its legacy Ø3.3 holes.
+> The corrected, bed-ready hub is now released in this repository with six
+> Ø5.6 × 7.2 M4 insert pockets. Use that new print for step 6 after the specified
+> short inserts pass a coupon.
 
 The canonical fastener schedule and final assembly requirements remain in
 [`beni_prototype1_bom_and_assembly.md`](../../beni_prototype1_bom_and_assembly.md#b-leg-build).
@@ -25,7 +25,7 @@ The canonical fastener schedule and final assembly requirements remain in
 - the printed face-flat proximal link with both 6800-2RS bearings installed
 - 8 × M3 × 8 housing screws
 - 6 × M3 × 10 shoulder-output-hub screws
-- after the corrected hub is released: 6 × specified M4 heat-set inserts and
+- 6 × PSM Sonic-Lok `SL-B-M4-5.8` heat-set inserts and
   6 × M4 × 10 proximal-link-to-hub screws
 
 For the initial dry fit, only finger-start the screws. Do not apply final torque
@@ -85,12 +85,34 @@ away from the shoulder motor toward the knee.
 Do not put either end of this link against the GIM4305 wheel motor. That motor
 eventually mounts to the unreleased distal link.
 
+## Where the heat inserts go
+
+The proximal link does **not** bolt into the shoulder plate. Its six M4 screws
+pass through the link's root counterbores and thread into six inserts installed
+from the outboard face of the **rotating shoulder hub**.
+
+<img src="../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png" alt="Corrected print-oriented shoulder hub with six large M4 insert pockets in its outboard flange" width="760">
+
+Use only the corrected
+[`ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl`](../../first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl).
+Install six `SL-B-M4-5.8` inserts flush in the large Ø5.6 pockets. The pockets
+are 7.2 mm deep in the 8 mm flange, leaving a 0.8 mm printed floor. An M4 × 10
+screw through the link stops 1.0 mm before that floor.
+
+The four smaller M3 inserts in the shoulder area belong in the **stationary
+shoulder plate**, only for the removable cable cover. The cover itself has four
+Ø3.4 clearance holes and no inserts; its M3 × 10 screws are installed from the
+accessible outboard face.
+
+| Shoulder plate — four M3 receivers | Cable cover — four clearance holes |
+|:---:|:---:|
+| <img src="../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.png" alt="Print-oriented shoulder plate with four M3 insert receivers around the motor opening" width="440"> | <img src="../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.png" alt="Print-oriented shoulder cable cover with four clearance holes and no inserts" width="440"> |
+
 ## 6. Fit the proximal link to the shoulder hub
 
-**Not released with the current hub.** The following is the acceptance sequence
-for the corrected, Fusion-verified hub after its six M4 inserts are installed.
-The owned M4 × 8 and ×10 inserts are not approved substitutes: the current hub
-flange is only 8 mm thick. See the canonical
+This step is released only for the **new corrected hub** after its six M4
+inserts are installed. The owned generic M4 × 8 and ×10 inserts are not
+substitutes: those are too long for the 8 mm flange. See the canonical
 [printed-thread map](../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 
 Support the bearing end on a block or folded towel. Bring the link's large root
@@ -110,13 +132,14 @@ The final orientation looks like the upper link in this complete-leg view:
 
 ## Pass / stop decision
 
-**PASS** only with the corrected hub when the link reaches the hub face without force, all six M4 screws
-finger-start, the faces remain flush, and the link clears the stationary plate
-and cable path.
+**PASS** only with the corrected hub when the link reaches the hub face without
+force, all six M4 screws finger-start, the faces remain flush, and the link
+clears the stationary plate and cable path.
 
-**STOP** with the current Ø4.15 hub, or if a screw is needed to draw the link into position, a screw starts
-crooked, the root rocks, or the link touches the stationary plate. Photograph
-the exact interference and remove the link rather than forcing it.
+**STOP** with the already-printed legacy Ø4.15 hub, or if a screw is needed to
+draw the link into position, a screw starts crooked, the root rocks, or the
+link touches the stationary plate. Photograph the exact interference and
+remove the link rather than forcing it.
 
 After this check, the distal-link build remains on hold until a real Ø10 h6/h5 ×
 35 mm steel knee pin passes the recorded fit gate. Do not energize the shoulder

@@ -5,21 +5,31 @@ loose slip fit, but it seats easily with light fingertip pressure.  That is the
 selected compensation for this ABS printer/profile.  It does **not** change the
 nominal Fusion assembly or release a PA-CF structural part.
 
-## Print now, in this order
+## Current print decision
 
-The GIM4305 housing coupon has now passed with the real M2.5 screws; these
-shoulder prints never depended on that separate wheel-end gate.
+The GIM4305 housing coupon has passed, the Ø19.10 proximal link is printed, and
+both real bearings are installed. From the owner's reported progress, only one
+printed part must be replaced:
 
-1. [`../../print_stl/GAUGE_Fit_Coupon.stl`](../../print_stl/GAUGE_Fit_Coupon.stl)
-   — 26 × 92 × 8 mm. Print flat. This is the next short print because it gates
-   the Ø19 bearing seats and Ø10 knee axle before either long link is printed.
-2. [`ABS_FA_Shoulder_Output_Hub_L_D4p15.stl`](ABS_FA_Shoulder_Output_Hub_L_D4p15.stl)
-   — the actual shoulder hub with only its three pin bores changed from the
-   nominal Ø4.05 to the owner-tested ABS Ø4.15. Rotate the assembly-coordinate
-   STL 90° about X and place the Ø56 flange face flat on the bed.
-3. [`../../print_stl/Chassis_Shoulder_Plate_L.stl`](../../print_stl/Chassis_Shoulder_Plate_L.stl)
-   — print flat with the panel face on the bed and spiral cable lip upward. The
-   GIM6010 housing coupon already released this interface for ABS dry assembly.
+1. **Reprint the shoulder hub** from
+   [`ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl`](ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl).
+   It keeps the proven Ø4.15 motor-pin bores and adds six Ø5.6 × 7.2 pockets for
+   PSM Sonic-Lok `SL-B-M4-5.8` inserts. It is already on the correct Ø56 bed
+   face; do not rotate it or use slicer “lay on face.”
+2. **Keep the printed Ø19.10 proximal link and both bearings.** Do not reprint
+   merely to adopt the easier Ø19.15 future preference.
+3. If the shoulder plate and cable cover have not been printed, use the new
+   bed-ready
+   [`ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl`](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
+   and
+   [`ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl`](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl).
+   These are new prints, not reprints: the four Voron-style M3 inserts now live
+   in the plate, and the cover is a clearance part serviced from outboard.
+
+Do not install the hub inserts until six `SL-B-M4-5.8` parts are on the bench
+and one passes the same-profile
+[`Ø5.5/5.6/5.7 ABS pocket ladder`](../insert_fit/README.md). The photographed
+generic M4 × 8 and ×10 inserts are too long for this flange.
 
 Optional while the printer is running:
 [`../mode_a/RIG_Cable_Anchor_ModeA.stl`](../mode_a/RIG_Cable_Anchor_ModeA.stl),
@@ -32,11 +42,14 @@ parts. A brim is fine if this ABS profile normally needs one.
 
 ## What to test
 
-1. Put the hub onto all three GIM6010 factory pins simultaneously. It should
+1. Put the **new corrected hub** onto all three GIM6010 factory pins
+   simultaneously. It should
    reproduce the Ø4.15 coupon result and reach the metal face with light finger
-   pressure. Do not use screws to pull it down. **OWNER PASS, 2026-08-23.**
+   pressure. Do not use screws to pull it down. The superseded hub passed this
+   interface on 2026-08-23; repeat the check because this is a new print.
 2. Finger-start two opposite of the six M3 output screws, then check the other
-   four. Do not tighten or energise the actuator. **OWNER PASS, 2026-08-23.**
+   four. Do not tighten or energise the actuator. The superseded hub passed
+   this screw-start check on 2026-08-23; repeat it on the corrected print.
 3. **Remove the output hub first.** Hold the plate with its raised circular
    cable-spiral lip facing away from the actuator and its flat panel face toward
    the stationary housing. From the actuator's output/front side, pass the
@@ -50,16 +63,20 @@ parts. A brim is fine if this ABS profile normally needs one.
    **OWNER ASSEMBLY PASS, 2026-08-23.** The staged
    Fusion views and owner evidence are
    [`../../evidence/shoulder_assembly/2026-08-23_plate_sequence/`](../../evidence/shoulder_assembly/2026-08-23_plate_sequence/).
-4. When the 6800 bearings and Ø10 axle/dowel are on the bench, test the fit
-   coupon before printing either link. The Ø19 bearing bore must be a
-   thumb-pressure light press with no rock. The Ø10 h6 × 35 mm knee pin must be
-   a light press, not a loose slip: the pin-to-distal-link press is the rig's
-   angular reference. Record fit only; do not alter the coupon.
+4. Install the four approved Voron-style M3 inserts flush in the **outboard
+   face of the shoulder plate**. Place the cable cover over them and finger-start
+   four M3 × 10 screws from the exposed outboard face. The cover itself receives
+   no inserts. Confirm each screw clamps before its tip reaches the plate's
+   inboard face.
+5. After the six short M4 inserts are flush in the new hub, support the link's
+   bearing end and finger-start six M4 × 10 screws through the root. The link
+   must sit flush without screw pull-down. See the
+   [picture guide](../../docs/assembly/shoulder_to_proximal_link.md).
 
 Stop after this batch until the remaining gates close:
 
-- Do not print `Proximal_Link_L` until the real 6800 bearing passes the Ø19
-  gauge (thumb-pressure light press, no rock).
+- Keep the accepted Ø19.10 `Proximal_Link_L` and both installed bearings. The
+  bearing gate has passed; no replacement print is required.
 - GIM4305 housing is **OWNER PASS, 2026-08-23** with the real M2.5 screws. Do
   not print the rerouted `Distal_Link_L` until the remaining real Ø10 h6 knee
   pin passes the fit coupon as a light press.
@@ -77,16 +94,19 @@ Stop after this batch until the remaining gates close:
 
 ## Verification
 
-Fusion MCP generated this transient component from `Beni_SingleLegRig`,
-exported the high-refinement binary STL, and then discarded the cloud-document
-change. Fusion was reopened clean. Exact B-Rep validation found one solid,
-three Ø4.15 cylinder faces on the manufacturer-derived Ø20.4 PCD, and the
-nominal 56 × 14 × 56 mm envelope. Independent mesh checks found 5,616
-triangles, one closed manifold shell, zero open/non-manifold edges, and zero
-degenerate triangles. [`fusion_manifest.json`](fusion_manifest.json) records
-the Fusion result.
+Fusion MCP generated the corrected transient component from
+`Beni_SingleLegRig`, exported both traceability and bed-ready high-refinement
+STLs, discarded the temporary component, and reopened the saved rig clean.
+Exact B-Rep validation found one solid, three Ø4.15 pin faces on the
+manufacturer-derived Ø20.4 PCD, six Ø5.6 insert pockets spanning y =
+52.3…59.5, and the nominal 56 × 14 × 56 mm envelope.
+[`fusion_manifest.json`](fusion_manifest.json) records the Fusion result, and
+[`../heatset_receiver_release_manifest.json`](../heatset_receiver_release_manifest.json)
+records every corrected active receiver and print orientation.
 
 ![Fusion view of the Ø4.15 ABS first-article hub](00_fusion_abs_shoulder_hub_d4p15.png)
+
+![Fusion view of the corrected hub on its released bed face](00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png)
 
 ---
 
@@ -102,11 +122,12 @@ replacement link is required. Physical record:
 
 ## Printed article retained
 
-Print
+The retained print came from
 [`ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl`](ABS_FA_Proximal_Link_L_D19p10_PRINT_ORIENTED.stl)
-in the same enclosed ABS profile as the passing ladder: no scaling or slicer
-hole compensation, 0.20 mm layers, 4 walls, 5 top and bottom layers and 30%
-infill. This is an unloaded assembly article, not a structural proof part.
+using the same enclosed ABS profile as the passing ladder. Do not reprint it
+now. If a replacement is ever required, use the newer Ø19.15 ABS release after
+regenerating its bed-ready STL; do not silently reuse this Ø19.10 file. This is
+an unloaded assembly article, not a structural proof part.
 
 The `_PRINT_ORIENTED` file is already face-flat on the outboard arm/bearing
 face, with both Ø19.10 bearing axes along +Z. **Do not rotate it or use “lay on

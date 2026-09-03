@@ -1,0 +1,191 @@
+{
+  "Chassis_Shoulder_Plate_L": {
+    "fastener": "4 x M3 x 10 SHCS, installed from the accessible outboard cable-cover face",
+    "hole": "\u00d84.0 through the 5.0 mm plate",
+    "print_oriented": {
+      "export_name": "ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        120.0,
+        120.0,
+        9.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": 90.0,
+      "source_part": "Chassis_Shoulder_Plate_L",
+      "source_support_face_indices": [
+        52
+      ],
+      "source_support_face_y_mm": 42.0,
+      "source_support_side": "min",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl",
+      "stl_bytes": 175984,
+      "support_face_area_mm2": 7921.972,
+      "support_policy": "No supports. The full inboard panel face is the bed datum; the four M3 cable-cover insert bores and all clearance holes are vertical. Install cable-cover inserts from the opposite, outboard face."
+    },
+    "receiver": "4 x owner-supplied Voron-style M3 x 5.0",
+    "screw_clearance_to_inboard_face_mm": 1.5,
+    "thread_engagement_mm": 3.5
+  },
+  "RIG_Stand": {
+    "hole": "\u00d84.0 x 6.0 blind, 6.0 mm printed floor",
+    "native_stl": "/Users/neilchulani/Robots/Biped/rig_stl/RIG_Stand.stl",
+    "print_oriented": {
+      "export_name": "ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        200.0,
+        299.3119,
+        32.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "RIG_Stand",
+      "source_support_face_indices": [
+        45
+      ],
+      "source_support_face_y_mm": 42.0,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl",
+      "stl_bytes": 118684,
+      "support_face_area_mm2": 35285.964,
+      "support_policy": "No supports. The mount face is the bed datum; all five M3 insert pockets are vertical and the Y thickness only decreases away from the bed. Requires a bed with at least 300 mm in one axis."
+    },
+    "receiver": "5 x owner-supplied Voron-style M3 x 5.0"
+  },
+  "Shoulder_Cable_Cover_L": {
+    "hole": "4 x \u00d83.4 through",
+    "print_oriented": {
+      "export_name": "ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        94.0,
+        94.0,
+        6.5
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Shoulder_Cable_Cover_L",
+      "source_support_face_indices": [
+        8
+      ],
+      "source_support_face_y_mm": 53.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl",
+      "stl_bytes": 87084,
+      "support_face_area_mm2": 4076.028,
+      "support_policy": "No supports. The broad outboard annulus is the bed datum; all four M3 clearance holes are vertical. This removable part has no inserts."
+    },
+    "receiver": "none; clearance part"
+  },
+  "Shoulder_Output_Hub_L": {
+    "document": "Beni_SingleLegRig",
+    "fusion_bbox_mm": [
+      56.0,
+      14.0,
+      56.0
+    ],
+    "link_fastener": "6 x M4 x 10 SHCS",
+    "link_insert_count": 6,
+    "link_insert_family": "PSM Sonic-Lok SL-B-M4-5.8",
+    "link_insert_hole_depth_mm": 7.2,
+    "link_insert_hole_diameter_mm": 5.6,
+    "link_insert_hole_y_span_mm": [
+      52.3,
+      59.5
+    ],
+    "link_insert_length_mm": 5.8,
+    "material_release": "ABS first article only; not PA-CF structural data",
+    "nominal_envelope_mm": [
+      56.0,
+      14.0,
+      56.0
+    ],
+    "orientation": "use the supplied PRINT_ORIENTED STL; \u00d856 outboard flange face is at Z=0",
+    "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15",
+    "pin_bore_count_brep": 3,
+    "pin_bores_mm": 4.15,
+    "pin_pcd_mm": 20.4,
+    "pin_start_angle_deg": 60.4,
+    "print_oriented": {
+      "export_name": "ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        56.0,
+        56.0,
+        14.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_FA_Shoulder_Output_Hub_L_D4p15",
+      "source_support_face_indices": [
+        49
+      ],
+      "source_support_face_y_mm": 59.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl",
+      "stl_bytes": 259284,
+      "support_face_area_mm2": 1762.234,
+      "support_policy": "No supports. Six M4 insert pockets, three dowel-pin bores, six motor holes and the centre bore are vertical; the body contracts away from the \u00d856 bed face."
+    },
+    "purpose": "unloaded ABS shoulder assembly and interface dry-fit",
+    "restriction": "no actuator torque, backdrive, spring, stand, or load",
+    "source_geometry": "Shoulder_Output_Hub_L with pin bores overridden; six M4 heat-set receivers retained",
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15.stl",
+    "stl_bytes": 259284
+  },
+  "Wheel_Hub_L": {
+    "fastener": "6 x M4 x 8 SHCS through the 4.0 mm rim web",
+    "hole": "\u00d85.6 through the 6.0 mm hub",
+    "native_stl": "/Users/neilchulani/Robots/Biped/rig_stl/reroute/Wheel_Hub_L.stl",
+    "print_oriented": {
+      "export_name": "ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        56.0,
+        56.0,
+        6.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Wheel_Hub_L",
+      "source_support_face_indices": [
+        19
+      ],
+      "source_support_face_y_mm": 100.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.stl",
+      "stl_bytes": 136284,
+      "support_face_area_mm2": 2102.582,
+      "support_policy": "No supports. The rim mating face is the bed datum; six M4 insert bores and all motor holes are vertical, and the \u00d837.3 register pocket faces upward."
+    },
+    "receiver": "6 x PSM Sonic-Lok SL-B-M4-4.8 (not currently owned)",
+    "screw_clearance_to_motor_face_mm": 2.0,
+    "thread_engagement_mm": 4.0
+  },
+  "document": "Beni_SingleLegRig",
+  "material_scope": "ABS complete single-leg integration article; PA-CF deferred to the two-leg build",
+  "physical_coupon_gates": {
+    "M3": "existing \u00d84.0 ABS pocket coupon with the exact owner-supplied Voron-style insert",
+    "M4": "/Users/neilchulani/Robots/Biped/first_article_stl/insert_fit/ABS_CAL_PSM_SL_M4_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl"
+  },
+  "reprint_decision": {
+    "not_previously_printed_use_new_files": [
+      "RIG_Stand",
+      "Wheel_Hub_L",
+      "Chassis_Shoulder_Plate_L",
+      "Shoulder_Cable_Cover_L"
+    ],
+    "required": [
+      "ABS_FA_Shoulder_Output_Hub_L_D4p15"
+    ],
+    "retain": [
+      "physical ABS Proximal_Link_L D19.10 with bearings"
+    ]
+  }
+}

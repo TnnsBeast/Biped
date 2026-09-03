@@ -40,9 +40,11 @@ The case label lists:
 - Use the owner-reported Voron-style M3 family only after the existing Ø4.0
   ABS pocket coupon accepts the exact insert without splitting or spin-out.
 - The owned M4 × 8 and M4 × 10 inserts are **not** silent substitutes for the
-  current thin-hub joints. The shoulder flange is 8 mm thick and the wheel hub
-  is 6 mm thick; both interfaces remain on design hold until their insert
-  geometry is rebuilt and verified in Fusion.
+  thin-hub joints; those labels denote insert lengths. The Fusion-verified
+  design instead specifies PSM Sonic-Lok `SL-B-M4-5.8` for the 8 mm shoulder
+  flange and `SL-B-M4-4.8` for the 6 mm wheel hub, both in manufacturer-specified
+  Ø5.6 receivers. These short inserts are a procurement and physical-coupon
+  gate, not present inventory.
 - The canonical part-by-part map and current holds are in
   [`MANUFACTURING_CONSTRAINTS.md`](../../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 

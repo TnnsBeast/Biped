@@ -195,7 +195,7 @@ the 5 mm insert, and the screw ran past the bore floor.
 | joint | bore was | bore now | screw was | screw now | clearance now |
 |---|---:|---:|---|---|---:|
 | knee stop arc → arm B | 4.50 | **5.00** | M3 × 8 | **M3 × 6** | +2.00 mm |
-| cable cover → inserts | 4.00 | **5.00** | M3 × 10 | **M3 × 8** | +2.00 mm |
+| cable cover → inserts **[REV2 history; superseded 2026-09-02]** | 4.00 | **5.00** | M3 × 10 | **M3 × 8** | +2.00 mm |
 | encoder bracket → arm B | 5.00 | 5.00 | M3 × 16 | M3 × 16 | +0.60 mm |
 
 Arm B is only 5.8 mm thick at the boss, so 5.00 mm is the deepest bore that
@@ -206,6 +206,13 @@ shear, not pull-out**, which the design record already establishes.
 Build note: the 0.80 mm blind floor means the inserts must go in with a
 depth-stopped tip. Same floor as the encoder-bracket inserts, which were already
 at that depth.
+
+> **Current disposition, 2026-09-02:** the cable-cover row above records the
+> revision-2 repair but is no longer the released joint. A complete-assembly
+> audit showed its inboard screw heads colliding with the stand/chassis volume.
+> The cover now has Ø3.4 clearance holes, four 5 mm M3 inserts live through the
+> shoulder plate, and M3 × 10 screws enter from the accessible outboard face
+> with 1.5 mm tip clearance.
 
 Both checks are now automated: `audit_fasteners()` (head-to-head clearance for
 every screw pair sharing a seat plane) and `audit_blind_holes()` (bore depth vs

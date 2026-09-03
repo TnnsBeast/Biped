@@ -38,3 +38,11 @@ fastener schedule and full robot assembly order remain in
 
 The first recorded application of this gate is the GIM6010 shoulder stack:
 [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
+
+The 2026-09-02 receiver audit added one concrete correction to that stack: the
+old cable-cover screws entered from the inboard face and their heads collided
+with the stand/chassis volume. The four inserts now live in the shoulder plate,
+the cover is a clearance part, and M3 × 10 screws enter from the accessible
+outboard face. Fusion verified 1.5 mm screw-tip clearance and zero stand
+interference. The pictured insert and screw-direction map is
+[`docs/assembly/heatset_receiver_map.md`](docs/assembly/heatset_receiver_map.md).

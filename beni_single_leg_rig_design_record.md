@@ -147,7 +147,7 @@ cannot be held by dead weight (brief §3).
 | `RIG_Scale_Pedestal` | 2 × 2020 + shelf | buy | **keep in function**; substitute anything rigid at the right height |
 | `RIG_Floor_Plate` | 260 × 60 × 6 | **print** or 6 mm alu | **keep** |
 | `RIG_Cable_Post_A/B` | two service-loop anchors | **print** | **keep**, simpler routing |
-| `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L` | §2.3 substitutes | **print** | **keep** — knee parts, not fixture |
+| `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L` | §2.3 substitutes | collar **HOLD**; carrier **print** | The carrier remains; the collar geometry is not a valid pin retainer and must be redesigned from delivered-pin measurements. |
 
 Reused unchanged: `Proximal_Link_L`, `Wheel_Rim_L`, `Wheel_Tyre_L`,
 `Knee_Encoder_Bracket_L`, `Chassis_Shoulder_Plate_L`, the knee bearings, the
@@ -183,7 +183,8 @@ the modelled position. At both limits the block pair is still fully on the rail
 `Chassis_Shoulder_Plate_L`, measured off the model rather than assumed: a
 **120 × 120 × 5** panel (X −72…48, Z −48…72) with a Ø48 central bore, a
 Ø64/Ø67 cable-cavity lip standing to y = 51, 8 × Ø3.4 on the Ø74 PCD (the
-motor's), 4 × Ø3.4 on a Ø88 PCD (the deleted clock-spring cover's), and
+motor's), 4 × Ø4.0 M3 insert receivers on a Ø88 PCD (the removable
+clock-spring cover's), and
 **5 × Ø3.4 frame-bolt holes** at (−60, −18), (−60, 48), (−60, 62), (30, 48),
 (30, 62).
 
@@ -193,14 +194,16 @@ Verified in the model: all five carriage insert bores are concentric with the
 panel holes, all eight block screws are concentric with the MGN12H taps, and both
 mating faces are coincident to **0.000 mm**.
 
-> **[HOLD 2026-09-02]** Concentricity did not validate insert fit. Both the
-> deferred carriage and the active stand were built with Ø5.0 M3 bores; the
-> owner-supplied Voron-style M3 family uses the project's Ø4.0 pocket gate.
-> Rebuild and re-verify before installing inserts.
+> **[CORRECTED 2026-09-02]** The active stand now has five Ø4.0 × 6.0 M3
+> pockets. An isolated Fusion build also verified the deferred carriage's five
+> Ø4.0 × 6.0 M3 and four Ø5.6 × 7.2 M4 pockets. Physical installation remains
+> gated by the relevant same-profile coupon.
 
-The four Ø88 cover holes are **not** used: any fastener there needs access to the
-panel's inboard face, and the carriage is now bolted flat against it. They are
-left open as a stiffening option if bench measurement shows the panel is soft.
+The four Ø88 cover positions are now used from the **outboard** face: M3 × 10
+screws pass through Ø3.4 clearance holes in the removable cover into the four
+plate inserts. Their tips stop 1.5 mm before the inboard plate face, so the
+joint remains installable and serviceable with either stand or chassis frame
+fitted. This replaces the inaccessible inboard-driven arrangement.
 
 ### 2.3 Moment check, at the as-built overhang
 
@@ -377,7 +380,7 @@ without replacing that reference and the encoder stops tracking the knee.
 | Axle | **Hardened Ø10 h6 ground dowel pin, 35 mm.** NOT a shoulder bolt: a shoulder screw's shoulder is h9/h11, which rattles in the 6800's Ø10 bore, and knee-angle noise is measurement error on this rig. A ground dowel holds the fit for ~$2. |
 | Sleeve | **Deleted.** Its Ø16 bore becomes **Ø10 printed directly into the distal boss** — a light press, which is the same fit class the sleeve itself used. |
 | Angular reference | The press of the pin into the printed boss. Torque to be carried is two 6800 seals' drag, order **0.002 N·m**; a light press on Ø10 × 21.6 holds ~100× that. |
-| Retention | `RIG_Knee_Collar_L`, printed, Ø15 × 3, M3 set screw + retaining compound, replacing the axle's Ø15 flange. |
+| Retention | **UNRESOLVED. Do not print `RIG_Knee_Collar_L`.** Fusion inspection found that its Ø15 × 3 body does not overlap the modelled pin and its Ø2.5 hole is axial, not a radial set-screw receiver. The 35 mm pin allocation leaves no proven free shaft for a catalogue clamp collar. Measure the delivered eBay pin and real bearing/link stack before selecting or modelling retention. |
 | Magnet | `RIG_Knee_Magnet_Carrier_L`, printed, Ø10 bore 3.5 deep pressed on the pin's 3.4 mm protrusion, Ø6.1 pocket 2.5 deep. The magnet **bottoms on the pin's own ground end face** — the best datum available. |
 
 ### Arithmetic
@@ -692,7 +695,7 @@ minimal cooling · dried filament**, per `beni_rig_no_machining.md` §1.
 | `RIG_Floor_Plate` | 93.6 | 107.6 | flat |
 | `RIG_Cable_Post_A` | 4.0 | 4.6 | flat, sector face down |
 | `RIG_Cable_Post_B` | 9.4 | 10.8 | flat |
-| `RIG_Knee_Collar_L` | 0.3 | 0.3 | bore axis vertical |
+| `RIG_Knee_Collar_L` | 0.3 | 0.3 | **UNRELEASED — current geometry does not retain the pin; do not print** |
 | `RIG_Knee_Magnet_Carrier_L` | 0.7 | 0.8 | bore axis vertical — this holds the encoder TIR |
 | `Shoulder_Output_Hub_L` | 20.8 | 58.5 | **flange flat on the bed**, so the dowel holes shear across layers |
 | `Wheel_Hub_L` | 12.7 | 35.6 | flat, register face up |
@@ -888,8 +891,10 @@ right height.
 |---|---:|---|
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
 | M3 × 16 SHCS, cable post A + panel + motor | 2 | replaces two of the eight above |
-| Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 cable cover. The old 10-piece row undercounted the complete Mode A article; exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
-| M4 heat-set inserts, **5.8 long** | 6 + ~~4~~ | shoulder-hub root joint ~~+ Mode-B ballast studs~~; an 8 mm insert breaks through the 8 mm flange. **The current hub is not pocketed for these and must be reprinted.** The separate six wheel-hub receiving threads remain on design hold. |
+| Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
+| PSM Sonic-Lok `SL-B-M4-5.8` | 6 | corrected shoulder-hub root; Ø5.6 × 7.2 blind pocket and M4 × 10 screw. The already-printed legacy hub must be reprinted. |
+| PSM Sonic-Lok `SL-B-M4-4.8` | 6 | corrected wheel hub; Ø5.6 through receiver and M4 × 8 rim screw. Not present in the owner's generic assortments. |
+| PSM Sonic-Lok `SL-B-M4-5.8` | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Source pocket verified; re-coupon when Mode B returns. |
 | M4 threaded stud, 30 mm | ~~4~~ | ballast. **[DEFERRED — MODE B]** |
 | **Ø4 × 10 hardened dowel pin** | 3 | the output hub's register. Not optional |
 | **Ø10 h6 hardened ground dowel, 35 mm** | 1 | knee axle, §4 |

@@ -316,8 +316,14 @@ def build_rig_blocks():
 CARR_DISC_R = 58.0
 CARR_SPINE_X0, CARR_SPINE_X1 = -78.0, -42.0
 CARR_SPINE_Z0, CARR_SPINE_Z1 = -85.0, 85.0
-INSERT_M3_D, INSERT_M3_L = 5.0, 5.0     # M3 brass heat-set, 5 mm long
-INSERT_M4_D, INSERT_M4_L = 5.6, 5.0
+# Printed receiving geometry, kept separate from the insert length.  The
+# owner's Voron-style M3 is 5.0 mm long and uses the project-qualified Ø4.0
+# pocket; the 8/12 mm rig plates have room for a 6.0 mm hole, leaving 1.0 mm
+# below the insert for air and screw-tip clearance.  The deferred ballast studs
+# use the same PSM Sonic-Lok M4x5.8 family as the shoulder hub and therefore the
+# manufacturer's 7.2 mm minimum blind-hole depth.
+INSERT_M3_D, INSERT_M3_LEN, INSERT_M3_HOLE_DEPTH = 4.0, 5.0, 6.0
+INSERT_M4_D, INSERT_M4_LEN, INSERT_M4_HOLE_DEPTH = 5.6, 5.8, 7.2
 BLK_CB_D, BLK_CB_DEEP = 6.4, 3.2        # so M3 x 8 engages 3.2 of the 3.5 mm
 PIN_D = 8.05
 PIN_X, PIN_Z = 66.0, 10.0               # mode pin / drop release, one hole
@@ -361,7 +367,8 @@ def build_rig_carriage():
     sk = sk_on_y(c, CARR_Y1)
     for x, z in PANEL_FRAME_BOLTS:
         circle(sk, x, z, INSERT_M3_D)
-    extrude(c, profiles(sk), -INSERT_M3_L, op='cut', participants=bodies_of(c))
+    extrude(c, profiles(sk), -INSERT_M3_HOLE_DEPTH, op='cut',
+            participants=bodies_of(c))
 
     # --- eight block screws: O3.4 through, counterbored from the outboard face
     holes = []
@@ -388,7 +395,8 @@ def build_rig_carriage():
         r = math.radians(a)
         circle(sk, BALLAST_STUD_R * math.cos(r), BALLAST_STUD_R * math.sin(r),
                INSERT_M4_D)
-    extrude(c, profiles(sk), INSERT_M4_L, op='cut', participants=bodies_of(c))
+    extrude(c, profiles(sk), INSERT_M4_HOLE_DEPTH, op='cut',
+            participants=bodies_of(c))
 
     print('RIG_Carriage')
     _report(occ, 'RIG_Carriage')
@@ -1246,7 +1254,7 @@ def check6_stackup():
 
 
 def checks_44():
-    """The MODE A release checks (guide §4): 1, 2, 3', 4', 5, 6', 7.
+    """The MODE A release checks (guide §4 plus threaded receivers): 1..8.
 
     Was the Mode B six.  check3_mode_b_travel() and check6_stackup() are kept
     but no longer called: the first needs a carriage, and the second's assert is
@@ -1270,7 +1278,8 @@ def checks_44():
     r['4'] = check4_mode_a_loads(); print()
     r['5'] = check5_torque_arm(); print()
     r['6'] = check6_mode_a_overhang(); print()
-    r['7'] = check7_holddown()
+    r['7'] = check7_holddown(); print()
+    r['8'] = check8_threaded_receivers()
     return r
 
 
@@ -1353,7 +1362,9 @@ def build_rig_knee_substitute():
       * a bought hardened Ø10 h6 ground dowel pin replaces the 4140 axle.  NOT
         a shoulder bolt: a shoulder screw's shoulder is h9/h11, which rattles in
         the 6800's Ø10 bore, and knee-angle noise is measurement error here;
-      * a printed collar retains the pin axially, replacing the Ø15 flange;
+      * an unreleased collar placeholder records the missing inboard retention
+        envelope.  Its current geometry does not retain the pin and must not be
+        printed; redesign waits for the delivered pin and real stack measure;
       * a printed magnet carrier presses onto the pin's 3.4 mm protrusion and
         takes the magnet on the pin's own ground end face.
     """
@@ -1373,17 +1384,18 @@ def build_rig_knee_substitute():
     print('   HW_DowelPin_D10x35  y %.1f .. %.1f, %.1f mm proud of arm B'
           % (AXLE_Y0, AXLE_Y0 + PIN_LEN, AXLE_Y0 + PIN_LEN - AXLE_Y1))
 
-    # 3. printed retaining collar, inboard
+    # 3. UNRELEASED inboard collar envelope.  Kept in the assembly so sweeps
+    # reserve its space; this is not a printable retention design.
     drop_comp('RIG_Knee_Collar_L')
     occ = new_comp('RIG_Knee_Collar_L')
     c = occ.component
     cyl_y(c, None, KNEE_X, KNEE_Z, COLLAR_D, AXLE_Y0 - COLLAR_T, AXLE_Y0)
     cyl_y(c, None, KNEE_X, KNEE_Z, 10.0, AXLE_Y0 - COLLAR_T - 1.0, AXLE_Y0 + 1.0,
           op='cut', participants=bodies_of(c))
-    sk = sk_on_y(c, AXLE_Y0 - COLLAR_T)                     # M3 set screw
+    sk = sk_on_y(c, AXLE_Y0 - COLLAR_T)  # legacy axial Ø2.5 hole; not a set screw
     circle(sk, KNEE_X + 6.0, KNEE_Z, 2.5)
     extrude(c, profiles(sk), COLLAR_T, op='cut', participants=bodies_of(c))
-    print('   RIG_Knee_Collar_L   Ø%.0f x %.1f, M3 set screw + retaining compound'
+    print('   RIG_Knee_Collar_L   Ø%.0f x %.1f, REFERENCE ONLY -- retention unresolved'
           % (COLLAR_D, COLLAR_T))
 
     # 4. printed magnet carrier, pressed on the pin's protrusion
@@ -1793,14 +1805,16 @@ def build_rig_stand():
           op='cut', participants=bodies_of(c))
 
     # ---- five M3 insert bores, from the OUTBOARD face -----------------------
-    # 5.0 deep in a 12 mm web leaves a 7 mm floor.  The insert's grip in printed
+    # A 6.0 mm hole in the 12 mm web leaves a 6.0 mm floor and 1.0 mm of space
+    # below the 5.0 mm insert.  The insert's grip in printed
     # nylon is the joint's weak element and its magnitude is unverified (guide
     # §2.3), so this is designed FOR it: full depth, real material round the
     # boss, and a depth-stopped installation tip on the bench.
     sk = sk_on_y(c, STAND_Y1)
     for x, z in PANEL_FRAME_BOLTS:
         circle(sk, x, z, INSERT_M3_D)
-    extrude(c, profiles(sk), -INSERT_M3_L, op='cut', participants=bodies_of(c))
+    extrude(c, profiles(sk), -INSERT_M3_HOLE_DEPTH, op='cut',
+            participants=bodies_of(c))
 
     # ---- bench-bolt path: 4 x M6 through the foot, heads sub-flush ----------
     y_bolt = (STAND_FOOT_Y0 + STAND_Y1) / 2.0
@@ -2119,6 +2133,60 @@ def stand_bolt_group(plate_t=None):
                 r2=r2, rmax=rmax, n=len(pts), plate_t=plate_t,
                 v_stall=11.00 * 1000.0 * rmax / r2,
                 v_proof=25.00 * 1000.0 * rmax / r2)
+
+
+def check8_threaded_receivers():
+    """Verify active and deferred insert pockets directly from Fusion B-Reps."""
+    print('=== CHECK 8: printed threaded receivers ===')
+    problems = list(beni_lib.audit_threaded_receivers(verbose=True))
+
+    stand = find_occ('RIG_Stand')
+    if stand is not None:
+        spans = beni_lib._receiver_face_spans(
+            stand, INSERT_M3_D, PANEL_FRAME_BOLTS)
+        want = (round(STAND_Y1 - INSERT_M3_HOLE_DEPTH, 3),
+                round(STAND_Y1, 3))
+        got = sorted((round(a, 3), round(b, 3)) for a, b in spans.values())
+        if len(spans) != 5 or any(span != want for span in got):
+            problems.append('RIG_Stand: expected 5 x Ø%.1f at Y %.3f..%.3f; '
+                            'found %s' % (INSERT_M3_D, want[0], want[1], got))
+        print('  %-29s Ø%.1f  %2d/5 receivers  Y %.3f..%.3f'
+              % ('RIG_Stand', INSERT_M3_D, len(spans), want[0], want[1]))
+
+    carriage = find_occ('RIG_Carriage')
+    if carriage is not None:
+        m3 = beni_lib._receiver_face_spans(
+            carriage, INSERT_M3_D, PANEL_FRAME_BOLTS)
+        m3_want = (round(CARR_Y1 - INSERT_M3_HOLE_DEPTH, 3),
+                   round(CARR_Y1, 3))
+        m3_got = sorted((round(a, 3), round(b, 3)) for a, b in m3.values())
+        if len(m3) != 5 or any(span != m3_want for span in m3_got):
+            problems.append('RIG_Carriage M3 receivers: expected 5 at %s; '
+                            'found %s' % (m3_want, m3_got))
+        m4_centres = []
+        for angle in BALLAST_STUD_A:
+            radians = math.radians(angle)
+            m4_centres.append((BALLAST_STUD_R * math.cos(radians),
+                               BALLAST_STUD_R * math.sin(radians)))
+        m4 = beni_lib._receiver_face_spans(carriage, INSERT_M4_D, m4_centres)
+        m4_want = (round(CARR_Y0, 3),
+                   round(CARR_Y0 + INSERT_M4_HOLE_DEPTH, 3))
+        m4_got = sorted((round(a, 3), round(b, 3)) for a, b in m4.values())
+        if len(m4) != 4 or any(span != m4_want for span in m4_got):
+            problems.append('RIG_Carriage M4 receivers: expected 4 at %s; '
+                            'found %s' % (m4_want, m4_got))
+        print('  %-29s Ø%.1f  %2d/5 receivers  Y %.3f..%.3f'
+              % ('RIG_Carriage panel', INSERT_M3_D, len(m3),
+                 m3_want[0], m3_want[1]))
+        print('  %-29s Ø%.1f  %2d/4 receivers  Y %.3f..%.3f'
+              % ('RIG_Carriage ballast', INSERT_M4_D, len(m4),
+                 m4_want[0], m4_want[1]))
+
+    print('   -> %s' % ('PASS' if not problems else
+                       'FAIL (%d problem(s))' % len(problems)))
+    for problem in problems:
+        print('      ' + problem)
+    return problems
 
 
 def check4_mode_a_loads():

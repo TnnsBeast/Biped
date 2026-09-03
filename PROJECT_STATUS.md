@@ -25,29 +25,37 @@ commands. For the public project overview and active print download, see
 
 | | Status |
 |---|---|
-| **Prototype 1**, two-leg robot | Modelled and verified in Fusion (`Biped → Beni_Prototype1`). 3290.1 g, `beni_lib.audit_all()` reports **0 problems**, revision 2. Not built. |
-| **Single-leg test rig, Mode B** | Designed, verified, exported (Fusion `Biped → Beni_SingleLegRig`); all six §4.4 checks pass. **[DEFERRED]** — not the build. |
-| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled, checked and saved in Fusion. `rig_lib.checks_44()` still passes all seven Mode A structural-geometry checks, but that checklist did not validate insert fit: the current stand export is on hold for its five Ø5.0 M3 receiving bores. After correction, the stand remains an assembly/unloaded commissioning fixture; its measurement and structural-load programme is deferred. |
+| **Prototype 1**, two-leg robot | Modelled, saved and verified in Fusion (`Biped → Beni_Prototype1`). `beni_lib.audit_all()` reports **0 problems**, including 6 shoulder M4, 6 wheel M4, 4 shoulder-plate M3, 5 proximal M3 and 10 chassis-frame M3 receivers. Revision 2; not built. |
+| **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now has five Ø4.0 × 6.0 M3 and four Ø5.6 × 7.2 M4 carriage pockets; an isolated Fusion build verified all nine. |
+| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled and saved. The eight Mode A checks, including the added threaded-receiver audit, pass. The stand now has five Ø4.0 × 6.0 M3 pockets and zero fastener/stand interference. It remains an assembly/unloaded commissioning fixture; its measurement and structural-load programme is deferred. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The actual Ø4.15 ABS shoulder hub and the corrected shoulder-plate-first sequence are physically verified **only at the hub-to-motor interface**; its six link-side bores are legacy Ø3.3 tapped-metal geometry, so it cannot receive the required M4 heat-set inserts or attach the proximal link. Use M3 × 8 housing screws because ×10 bottoms before clamping. The nominal Ø19.00 bearing coupon failed. The face-flat Ø19.10 ABS proximal link has now accepted both real bearings and remains usable, but the full-depth seats are slightly tighter than preferred. The owner selected the ladder's Ø19.15 bore for any future ABS proximal print because it takes easier thumb pressure with no perceptible movement. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). On 2026-09-02 the owner also reported an eBay knee-pin order, believed to be a set of three, with delivery expected in roughly two weeks or later. The listing, quantity and h6/h5 tolerance evidence have not been recorded yet and must be verified on arrival. The owner also reports Voron-style M3 inserts plus M3 and M2/M3/M4/M5 assortments in hand; label evidence is indexed at [`evidence/inserts/2026-09-02_received/`](evidence/inserts/2026-09-02_received/). No complete leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The already-printed Ø4.15 shoulder hub remains valid motor-fit evidence but its legacy link holes make it unusable for assembly; **reprint the corrected Ø4.15 hub** after obtaining/couponing six `SL-B-M4-5.8` inserts. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping. The face-flat Ø19.10 ABS proximal link has accepted both real bearings and remains the build article; do not reprint it. Ø19.15 is only the future ABS preference. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). On 2026-09-02 the owner reported an eBay knee-pin order, believed to be a set of three, with delivery expected in roughly two weeks or later. The listing, quantity and h6/h5 tolerance evidence remain unverified. Voron-style M3 inserts plus photographed assortments are in hand; exact AliExpress dimensions still require the existing Ø4.0 ABS coupon. The short PSM M4 inserts are not in hand. No complete leg or wiring has been assembled yet. |
 
 The face-flat Ø19.10 first article is the physical ABS proximal link now in use;
 do not reprint it merely to adopt the easier Ø19.15 preference. The scripted
 default is Ø19.15 for a future ABS export, but no replacement STL has been
-generated because no replacement is needed. The already-modified
-`Beni_Prototype1` master was not overwritten.
+generated because no replacement is needed. The saved master retains Ø19.10;
+the compensation is intentionally an ABS first-article override rather than a
+two-leg PA-CF design dimension.
 
-The 2026-09-02 insert audit found three active CAD release blockers. The
-shoulder hub needs six real M4 insert pockets and a reprint; `Wheel_Hub_L` still
-has six legacy Ø3.3 tapped-metal bores and needs a verified receiving-thread
-scheme; and the exported `RIG_Stand` has Ø5.0 M3 bores rather than the project's
-Ø4.0 Voron-style pocket. The future `Chassis_Frame`, optional M2 satellite-PCB
-boss, and deferred Mode-B `RIG_Carriage` also have unresolved printed-thread
-destinations. The canonical part map is
+The 2026-09-02 insert redesign is complete in source, both saved Fusion
+documents, and the print exports. The active receiver map is: four Voron-style
+M3 inserts in `Chassis_Shoulder_Plate_L`, five in the existing proximal link,
+five in `RIG_Stand`, six PSM Sonic-Lok `SL-B-M4-5.8` in the corrected shoulder
+hub, and six `SL-B-M4-4.8` in `Wheel_Hub_L`. The cable cover is now a clearance
+part fastened from the accessible outboard face; this removed four screw-head
+clashes with the stand. The future chassis frame and deferred Mode-B carriage
+are also corrected and Fusion-verified. The optional M2 satellite-PCB boss
+remains an open architecture decision, not a missing receiver on an existing
+part. Exact sizes, pocket depths, fasteners and physical coupon gates are in
 [`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
-No corrected CAD or STL is released until these changes are built and checked
-through Fusion MCP.
+
+The only mandatory reprint from the owner's reported physical progress is the
+**shoulder hub**. Keep the Ø19.10 proximal link and both installed bearings.
+The stand, wheel hub, shoulder plate and cable cover were not reported printed;
+when their turn comes, use only the new `_PRINT_ORIENTED` release files listed
+in [`first_article_stl/heatset_receiver_release_manifest.json`](first_article_stl/heatset_receiver_release_manifest.json).
 
 The immediate mechanical gate is the owner-reported eBay knee-pin order. It is
 believed to contain three candidate pins and is not expected before about
@@ -103,6 +111,7 @@ Rig design record §6.2.
 |---|---|
 | [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md) | **The CAD handoff for the Mode A build.** Everything a Fusion agent needs to model `RIG_Stand` and the reduced part set: verified load table, the 42.00 mm overhang, the mount interface, the check list, and the model-corrupting traps. Read this before touching the model. |
 | [`docs/assembly/shoulder_to_proximal_link.md`](docs/assembly/shoulder_to_proximal_link.md) | **Picture dry-fit guide.** Shows the verified plate-first, hub-second GIM6010 sequence and how the printed proximal link attaches to the shoulder hub. |
+| [`docs/assembly/heatset_receiver_map.md`](docs/assembly/heatset_receiver_map.md) | **Picture insert map.** Shows every active receiver/clearance part, install direction, screw length, and corrected bed-ready STL. |
 | [`ASSEMBLY_VERIFICATION.md`](ASSEMBLY_VERIFICATION.md) | **The physical-assembly release gate.** Required insertion-order/path, tool access, cable path, service path, and first-article rehearsal checks. |
 | [`fusion_brief_single_leg_rig.md`](fusion_brief_single_leg_rig.md) | **The brief.** What the rig must do and why it is a dynamics rig, not a fit check. Amended 2026-08-17 for Mode A. |
 | [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) | **The answer, and the authoritative rig document.** As-built design, all six checks, mass properties, eleven departures from the brief, purchase list. **§6.2's five measurement traps are the most reusable content in the project.** Mode B sections carry `[DEFERRED]` banners; the leg content is unaffected. |

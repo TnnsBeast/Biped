@@ -114,7 +114,9 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Flexion bumper | Ø6.2 × 7.5 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
-| Heat-set insert | **[SUPERSEDED]** M3 brass, 5.0 long; use the canonical printed-thread map | 10 historical | 0.4 | 4.0 historical |
+| Heat-set insert | Voron-style M3 × 5.0; exact owned variant remains coupon-gated | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
+| Heat-set insert | PSM Sonic-Lok `SL-B-M4-5.8`, shoulder root | 6 | — | — |
+| Heat-set insert | PSM Sonic-Lok `SL-B-M4-4.8`, wheel rim joint | 6 | — | — |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
 
 ## 7. Fasteners
@@ -123,9 +125,9 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 |---|---|---:|---:|
 | **M3 × 8 SHCS** | shoulder plate → motor housing (Ø74 PCD); **not ×10**, which bottoms in the 4.0 mm-deep actuator thread through the 5 mm panel | 8 | 16 |
 | M3 × 10 SHCS | output hub → motor output (Ø25 PCD) | 6 | 12 |
-| **M3 × 8 SHCS** | shoulder plate → cable cover inserts (Ø88 PCD) | 4 | 8 |
+| **M3 × 10 SHCS** | cable cover → shoulder-plate inserts, installed from accessible outboard face (Ø88 PCD) | 4 | 8 |
 | M4 × 10 SHCS | proximal link root → hub flange (Ø44 PCD) | 6 | 12 |
-| M4 × 10 SHCS | wheel rim → wheel hub (Ø46 PCD) | 6 | 12 |
+| **M4 × 8 SHCS** | wheel rim → short wheel-hub inserts (Ø46 PCD) | 6 | 12 |
 | **M3 × 6 SHCS** | knee stop arc → proximal arm B inserts | 3 | 6 |
 | M3 × 8 SHCS | wheel hub → motor output (Ø27 PCD) | 3 | 6 |
 | M2.5 × 12 SHCS | wheel motor → distal wheel-end plate (Ø47.5 PCD) | 6 | 12 |
@@ -135,20 +137,25 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 
 Fastener mass ≈ **123 g** per robot (model figure).
 
-The old 10-piece M3 line above covered only the two proximal arm-B bosses and
-omitted both cable covers, the active Mode A stand, and every printed M4
-receiving thread. It is not a purchase quantity. Use the canonical
+The former 10-piece M3 row covered only the two proximal arm-B bosses and
+omitted both shoulder-plate cover receivers, the active Mode A stand, and every
+printed M4 receiving thread. It was not a purchase quantity. Use the canonical
 [printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts):
 the active single-leg ABS article needs **14 owner-supplied Voron-style M3
-inserts** before spares, while both M4 hub joints remain on design hold.
+inserts** before spares, plus 6 × `SL-B-M4-5.8` at the shoulder and 6 ×
+`SL-B-M4-4.8` at the wheel. The short M4 families are CAD-specified but still
+need procurement and a same-profile ABS coupon.
 
-**Two screw lengths changed in revision 2, and both were defects:**
+**Fastener corrections retained in the current release:**
 
 - **Knee stop arc: M3 × 8 → M3 × 6**, on a **30° bolt spacing** (was 20°) on the
   same r = 15 mm circle. *That part is now deleted — this row is kept only because
   it is why the audits exist.*
-- **Cable cover: M3 × 10 → M3 × 8.** The cover's insert bores are now 5.0 mm deep.
-  **This joint is still real — order M3 × 8.**
+- **Cable cover, current service-path correction: M3 × 10 from outboard.** The
+  four inserts now live through the 5 mm shoulder plate; the removable cover
+  has clearance holes. Each screw traverses 6.5 mm of cover, engages 3.5 mm in
+  brass and stops 1.5 mm before the inaccessible inboard plate face. This
+  supersedes revision 2's M3 × 8 screw driven from inside the chassis.
 
 The later delivered-actuator/rig audit adds one more active correction:
 **shoulder motor housing: M3 × 10 → M3 × 8** through the 5 mm panel. The
@@ -280,10 +287,10 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
    > re-torque schedule** to handle plastic creep. See
    > [`beni_rig_no_machining.md`](beni_rig_no_machining.md) §2.1 and rig design
    > record §4.
-2. Bolt `Wheel_Rim_L` to the hub, **6 × M4 × 10** on the Ø46 PCD, 2.5 N·m.
-   > **[HOLD 2026-09-02]** The printed wheel hub still contains six legacy Ø3.3
-   > tapped-metal bores. Do not print it or fit the rim until a real insert or
-   > captive-thread scheme and its matching screw length are Fusion-verified.
+2. After a same-profile coupon passes, install 6 × PSM Sonic-Lok
+   `SL-B-M4-4.8` inserts flush in the corrected wheel hub, then bolt
+   `Wheel_Rim_L` to it with **6 × M4 × 8** on the Ø46 PCD, 2.5 N·m. The screws
+   engage 4.0 mm through the rim web and stop 2.0 mm before the motor face.
 3. Stretch the TPU tyre onto the Ø96 rim seat.
 
 *The 3 hub screws stay reachable through the rim's Ø40 central hole after the
@@ -303,9 +310,10 @@ wheel is fully assembled.*
    insertion path is Fusion-verified and recorded in
    [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 2. After the owned Voron-style M3 insert passes the Ø4.0 ABS pocket coupon, fit
-   4 × M3 heat-set inserts in `Shoulder_Cable_Cover_L`, then fasten the
-   cover through the plate from **inside the chassis**, 4 × **M3 × 8**.
-   *Do this before the chassis is closed.*
+   4 × M3 heat-set inserts flush in the **outboard face of
+   `Chassis_Shoulder_Plate_L`**. `Shoulder_Cable_Cover_L` has clearance holes
+   only. Fasten it from the accessible outboard face with 4 × **M3 × 10**;
+   this joint remains serviceable after the stand or chassis frame is fitted.
 3. Feed the harness out through the plate's Ø7 grommet hole at r = 29, lay in
    the spiral (≥ 400 mm, ~3 turns, inner end toward r = 21) and strain-relieve
    at the plate.
@@ -335,9 +343,11 @@ wheel is fully assembled.*
     > engagement angle must be **set by measurement**, not from a drawing,
     > because it depends on the printed eyes' achieved dead length. Full design:
     > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
-11. **[HOLD with the current Ø4.15 hub.]** After a corrected hub with six
-    Fusion-verified M4 insert pockets is printed and the specified inserts are
-    fitted, bolt the proximal link root to the hub flange, **6 × M4 × 10**
+11. **[REPRINT / INSERT GATE.]** Use the corrected Ø4.15 hub, not the
+    already-printed motor-fit article. After six PSM Sonic-Lok
+    `SL-B-M4-5.8` inserts pass a same-profile coupon and are fitted flush in
+    the hub's Ø5.6 × 7.2 pockets, bolt the proximal link root to the hub flange,
+    **6 × M4 × 10**
     through the counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
     the driver. *The 6 output-hub screws remain serviceable through the link's
     Ø34 root access hole without removing the link.*

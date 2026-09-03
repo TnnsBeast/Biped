@@ -193,8 +193,7 @@
   "group": "static",
   "material": "STEEL",
   "parts": [
-   "HW_SHCS_M3x10",
-   "HW_SHCS_M3x8"
+   "HW_SHCS_M3x10"
   ]
  },
  {
@@ -219,7 +218,7 @@
   "material": "STEEL",
   "parts": [
    "HW_SHCS_M3x8",
-   "HW_SHCS_M4x10"
+   "HW_SHCS_M4x8"
   ]
  },
  {

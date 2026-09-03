@@ -142,7 +142,7 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 |---|---|---|
 | `Wheel_Rim_L.stl` | PA-CF | web face down, drum prints up |
 | `Wheel_Tyre_L.stl` | TPU 95A | Ø110 × 30; stretches onto the Ø96 rim seat |
-| `Shoulder_Cable_Cover_L.stl` | ABS | 4 × M3 heat-set inserts |
+| `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. Its four M3 receivers are Ø4.0 through the 5 mm `Chassis_Shoulder_Plate_L`; use M3 × 10 screws from the accessible outboard face. Bed-ready files for both are in `first_article_stl/assembly_dry_fit/`. |
 | `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 clearance holes; the receiving inserts live in the proximal-link arm-B boss |
 | `Electronics_Tray.stl` | ABS | flat panel |
 
@@ -175,7 +175,8 @@ here: use the canonical
 [printed-thread map](../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts),
 which records the owned Voron-style M3 family and the current M4 hub holds.
 
-Screw lengths: **cable cover is M3 × 8**, not M3 × 10 — a revision-2 fix, and that
-joint is still real. The knee-stop screws (M3 × 6 at 30° spacing) went with the
-deleted stop arc; the reasoning for both is in
+Screw lengths: the cable cover is now **M3 × 10 from the outboard face into
+shoulder-plate inserts**. This supersedes revision 2's inaccessible inboard
+M3 × 8 arrangement. The knee-stop screws (M3 × 6 at 30° spacing) went with the
+deleted stop arc; historical reasoning is in
 [`../beni_prototype1_rev2_changes.md`](../beni_prototype1_rev2_changes.md) §4.
