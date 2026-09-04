@@ -8,10 +8,10 @@ disagree with the brief, the brief is wrong and it is flagged.
 
 | # | Brief says | Model says |
 |---|---|---|
-| 1 | Unstable pole 9.7 rad/s, τ = 103 ms | **11.18 rad/s, τ = 89 ms.** The LIPM formula drops body pitch inertia and the wheel reaction torque. You are 15% more urgent than you thought. |
+| 1 | Unstable pole 9.7 rad/s, τ = 103 ms | **11.20 rad/s, τ = 89 ms.** The LIPM formula drops body pitch inertia and the wheel reaction torque. You are 15% more urgent than you thought. |
 | 2 | — | **RHP zero at +6.53 rad/s in x/τ.** Velocity-loop bandwidth is hard-capped near **3.2 rad/s (0.5 Hz)**, whatever you tune. |
 | 3 | 100 mm drop = 3.23 J vs 3.553 J, "~10% margin" | **A 100 mm free drop bottoms out.** The brief omits gravity work during the 50 mm of compression. True demand 4.85 J vs 3.55 J available. **Passive free-drop capacity is ~49 mm for the two-leg robot's 1-DOF model** (spring-rate method, more conservative than the ~60 mm energy method — see `fusion_brief_single_leg_rig.md` §4.3). **For the single-leg rig the 2-DOF reality is tighter: 45 mm planning limit, +24° crossed at 46.3 mm** — see `beni_single_leg_rig_design_record.md` §3. |
-| 4 | — | **Leg bounce mode at 3.67 Hz = 23.0 rad/s, only 2.06× the balance pole.** No timescale separation; the balance loop will excite it. |
+| 4 | — | **Leg bounce mode at 3.66 Hz = 23.0 rad/s, only 2.05× the balance pole.** No timescale separation; the balance loop will excite it. |
 | 5 | Shoulders raise and lower the body | **dRide/dθ_s = 0 at θ_s = 0.** `ride = 154.269·cos θ_s` — the nominal pose is a stationary point with *zero* height authority. |
 | 6 | The knee encoder is your force sensor | True and excellent (0.025 N/leg), **but a free leg reads 8.25 N against the preload.** Below 0.52 g everything looks identical. Threshold on angle, not force. |
 
@@ -26,18 +26,18 @@ Planar, wheels lumped, `q = [x, θ]`, `u = τ` (total wheel torque). Keep the
 the resulting gains do not work on hardware.
 
 ```
-m_b = 2.871967 kg   I_b = 0.019158   l = 0.118800 m
-m_w = 0.418181 kg   I_w = 0.000749   I_w/r² = 0.2476 kg  (7.5% of mass — keep it)
+m_b = 2.894760 kg   I_b = 0.019342   l = 0.119070 m
+m_w = 0.414120 kg   I_w = 0.000746   I_w/r² = 0.2467 kg  (7.5% of mass — keep it)
 
       ⎡0  1     0        0⎤        ⎡    0    ⎤
-A  =  ⎢0  0  −12.0510    0⎥   B  = ⎢  15.0533⎥
+A  =  ⎢0  0  −12.1536    0⎥   B  = ⎢  15.0432⎥
       ⎢0  0     0        1⎥        ⎢    0    ⎥
-      ⎣0  0  124.9553    0⎦        ⎣−102.7957⎦
+      ⎣0  0  125.3721    0⎦        ⎣−102.4297⎦
 
-poles {0, 0, ±11.1783}      x/τ zeros {±6.5316}      θ/τ zeros {0, 0}
+poles {0, 0, ±11.1970}      x/τ zeros {±6.5282}      θ/τ zeros {0, 0}
 ```
 
-Anchors: gravity restoring torque 3.347 N·m/rad; 0.181 N·m of total wheel
+Anchors: gravity restoring torque 3.381 N·m/rad; 0.181 N·m of total wheel
 torque per 1 m/s² of body acceleration; **a >40° static lean is holdable.
 Torque is not the scarce resource — bandwidth, latency and pitch bias are.**
 
@@ -55,7 +55,7 @@ space for WBC to exploit, and you will crash this robot dozens of times.
 ```
 
 **Wheels do balance and yaw. Shoulders do posture, height, roll, spring damping
-and jumping.** Shoulder torque reaches the body *through* the 3.67 Hz spring,
+and jumping.** Shoulder torque reaches the body *through* the 3.66 Hz spring,
 so it is a slow channel, and you will never saturate the wheels.
 
 ### 3.1 Starting gains
@@ -97,8 +97,8 @@ GIM4305-10 rotor inertia and fold it into `I_w` before touching the schedule.
 ### 3.3 The bounce mode is the biggest control risk
 
 ```
-ω_hop = √(1747/3.290) = 23.05 rad/s = 3.67 Hz
-balance pole                        = 11.18 rad/s      ratio 2.06
+ω_hop = √(1747/3.309) = 22.98 rad/s = 3.66 Hz
+balance pole                        = 11.20 rad/s      ratio 2.05
 ```
 
 The rule of thumb wants ≥3–4×. A bare steel cartridge spring has ζ ≈ 0.01.
@@ -106,8 +106,8 @@ The rule of thumb wants ≥3–4×. A bare steel cartridge spring has ζ ≈ 0.0
 fixed hardware, so the fix is active:
 
 ```
-c_crit   = 2√(k·m) = 151.6 N·s/m
-ζ = 0.3  ⇒ 45.5 N·s/m total ⇒ c_φ = 0.192 N·m·s/rad per leg
+c_crit   = 2√(k·m) = 152.0 N·s/m
+ζ = 0.3  ⇒ 45.6 N·s/m total ⇒ c_φ = 0.192 N·m·s/rad per leg
 ```
 
 ```c

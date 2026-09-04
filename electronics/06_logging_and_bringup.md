@@ -108,7 +108,7 @@ that gimbal.
 |---|---|
 | **Do** | Full four-actuator bus, robot on the pitch gimbal. Start with the **very-soft** gains `[−0.500, −1.422, −7.592, −0.855]` (20 ms margin), then the soft set. Add the ∫θ state. Verify the wheel-odometry shank term with the chock test (`04_firmware.md` §5.2). |
 | **Gate** | Holds pitch within ±2° against a hand push, recovers in <1 s, **no growing 3–4 Hz oscillation**, no CAN faults. Latency still <8 ms with all four nodes live. |
-| **Trap** | **This is where the 3.67 Hz bounce mode shows up.** If pitch oscillation grows as you raise K_θ, that is the mode, not a gain problem. Turn on shoulder damping injection (`c_φ ≈ 0.19 N·m·s/rad`) and bias the stance to θ_s ≈ ±12° so the shoulders have authority. |
+| **Trap** | **This is where the 3.66 Hz bounce mode shows up.** If pitch oscillation grows as you raise K_θ, that is the mode, not a gain problem. Turn on shoulder damping injection (`c_φ ≈ 0.19 N·m·s/rad`) and bias the stance to θ_s ≈ ±12° so the shoulders have authority. |
 
 ### Stage 4 — Free balancing
 

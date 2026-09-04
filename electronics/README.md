@@ -145,7 +145,7 @@ Found while deriving the control design from `sim/beni.urdf` and
 
 | Brief | Actual |
 |---|---|
-| Unstable pole 9.7 rad/s | **11.18 rad/s** (τ = 89 ms). The LIPM formula drops body pitch inertia and the wheel reaction torque. |
+| Unstable pole 9.7 rad/s | **11.20 rad/s** (τ = 89 ms). The LIPM formula drops body pitch inertia and the wheel reaction torque. |
 | A 100 mm drop has ~10% energy margin on the knees | **It bottoms out.** The brief omits gravity work during the 50 mm of compression: 4.85 J demand vs 3.55 J capacity. Passive limit is ~49 mm for the two-leg robot (spring-rate method); the single-leg rig's 2-DOF figure is **45 mm** planning / **46.3 mm** at +24° (`../beni_single_leg_rig_design_record.md` §3). |
 | Clock spring: 27% wrap margin | **5%** (§3.3 above). |
 | Shoulders control ride height | **dRide/dθ_s = 0 at the nominal pose.** Zero height, damping and CBF authority at θ_s = 0. Fixed by a scissor stance. |
@@ -161,8 +161,8 @@ Two further findings that are not brief errors but change the design:
 - **The IMU datum pad is 195 mm above the wheel axis** — the worst location on
   the robot. At 20 rad/s² of pitch acceleration the lever arm produces 22° of
   apparent tilt against a 0.1° budget. Move it (CR-9).
-- **A leg bounce mode at 3.67 Hz sits only 2.06× above the balance pole**, with
-  ζ ≈ 0.01. Active shoulder damping is mandatory, not optional. *(3.67 Hz is the
+- **A leg bounce mode at 3.66 Hz sits only 2.05× above the balance pole**, with
+  ζ ≈ 0.01. Active shoulder damping is mandatory, not optional. *(3.66 Hz is the
   two-leg robot's 1-DOF figure. For the single-leg rig it is superseded: the rig
   is 2-DOF and predicts **3.49–3.63 Hz** — `../beni_single_leg_rig_design_record.md`
   §3.1.)*

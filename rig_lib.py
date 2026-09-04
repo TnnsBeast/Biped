@@ -21,7 +21,9 @@ The brief requires every interface to be gated on that coupon, so the
 structural joint has to live on the face the coupon can actually check.
 """
 
+import json
 import math
+import os
 
 import adsk.core
 import adsk.fusion
@@ -320,10 +322,12 @@ CARR_SPINE_Z0, CARR_SPINE_Z1 = -85.0, 85.0
 # owner's Voron-style M3 is 5.0 mm long and uses the project-qualified Ø4.0
 # pocket; the 8/12 mm rig plates have room for a 6.0 mm hole, leaving 1.0 mm
 # below the insert for air and screw-tip clearance.  The deferred ballast studs
-# use the same PSM Sonic-Lok M4x5.8 family as the shoulder hub and therefore the
-# manufacturer's 7.2 mm minimum blind-hole depth.
+# use the same owner-held M4 x 8 insert as the active hubs.  The carriage is
+# exactly 8 mm thick, so those four receivers are through holes.
 INSERT_M3_D, INSERT_M3_LEN, INSERT_M3_HOLE_DEPTH = 4.0, 5.0, 6.0
-INSERT_M4_D, INSERT_M4_LEN, INSERT_M4_HOLE_DEPTH = 5.6, 5.8, 7.2
+INSERT_M4_D = beni_lib.OWNED_M4_POCKET_D
+INSERT_M4_LEN = beni_lib.OWNED_M4_INSERT_LEN
+INSERT_M4_HOLE_DEPTH = CARR_T
 BLK_CB_D, BLK_CB_DEEP = 6.4, 3.2        # so M3 x 8 engages 3.2 of the 3.5 mm
 PIN_D = 8.05
 PIN_X, PIN_Z = 66.0, 10.0               # mode pin / drop release, one hole
@@ -1008,7 +1012,13 @@ def occ_mass_g(occ):
 def slide_mass(verbose=True):
     """Mass on the slide, the ballast to reach half the robot, and the split."""
     r = root()
-    target = 1.6451                     # half of 3.2901 kg, sim/beni_inertia.json
+    inertia_path = os.path.join(os.path.dirname(__file__), 'sim',
+                                'beni_inertia.json')
+    with open(inertia_path) as fh:
+        inertia = json.load(fh)
+    leg = sum(inertia['legs']['L'][k]['mass_kg']
+              for k in ('thigh', 'shank', 'wheel'))
+    target = (inertia['base']['mass_kg'] + 2.0 * leg) / 2.0
     rows, total = [], 0.0
     for i in range(r.occurrences.count):
         o = r.occurrences.item(i)
@@ -1026,7 +1036,7 @@ def slide_mass(verbose=True):
         for nm in sorted(agg, key=lambda k: -agg[k]):
             print('      %-32s %8.1f g' % (nm, agg[nm]))
         print('      %-32s %8.1f g' % ('TOTAL', total))
-        print('   target (half of 3.2901 kg)          %8.1f g' % (target * 1000))
+        print('   target (half current inertia JSON)  %8.1f g' % (target * 1000))
         print('   ballast still needed                %+8.1f g' % (target * 1000 - total))
     return total, agg
 
@@ -1651,8 +1661,8 @@ def build_rig_ballast_pot():
 #
 #   design load    11.00 N.m yaw about the motor axis (shoulder stall), 25.00
 #                  N.m at the proof screen.  Pitch 2.30 and roll 2.99 N.m are
-#                  trivial by comparison and the static hanging load (8.22 N of
-#                  leg, 12.03 N with a 388 g motor) is ~3 % of the yaw.
+#                  trivial by comparison and the static hanging load (8.24 N of
+#                  leg, 12.05 N with a 388 g motor) is ~3 % of the yaw.
 #   structural joint   Chassis_Shoulder_Plate_L's five existing frame-bolt
 #                  holes, five M3 in shear, worst screw 53.2 N at stall and
 #                  121.0 N at proof.  No register, no dowel, no block.

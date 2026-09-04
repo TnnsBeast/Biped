@@ -33,9 +33,9 @@ Printed parts assume solid-equivalent density; see the note at the end.
 | `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.2337 | 46.2687 | 2 | 92.5375 | flat, panel face on the bed; spiral lip prints up, no support |
 | `Proximal_Link_L/R` | 66.7915 | 76.8102 | 2 | 153.6204 | outboard arm/bearing face flat, bearing axes normal to the bed; bed-ready export only, supports off, 20.0 mm channel bridge |
 | `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical Ø10 bore, but the real Ø10 h6 pin and final support/bridge audit still gate its export |
-| `Wheel_Rim_L/R` | 67.1415 | 77.2127 | 2 | 154.4255 | web face down on the bed, drum prints up; no support. Now carries the tyre bead groove and the inboard retaining flange |
+| `Wheel_Rim_L/R` | 67.4501 | 77.5676 | 2 | 155.1352 | web face down on the bed, drum prints up; no support. Carries the tyre bead groove, inboard retaining flange, owned-M4×8 insert-tip reliefs, and a Ø38 web opening that preserves a 1 mm ligament to those reliefs |
 | `Chassis_Frame` (centre cage, not mirrored) | 61.1724 | 70.3483 | 1 | 70.3483 | flanges vertical, open box, no support |
-| **Subtotal** | | | | **576.9947** | |
+| **Subtotal** | | | | **577.7044** | |
 
 ## 2. Printed parts — ABS (ρ = 1.04 g/cm³)
 
@@ -115,8 +115,8 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
 | Heat-set insert | Voron-style M3 × 5.0; exact owned variant remains coupon-gated | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
-| Heat-set insert | PSM Sonic-Lok `SL-B-M4-5.8`, shoulder root | 6 | — | — |
-| Heat-set insert | PSM Sonic-Lok `SL-B-M4-4.8`, wheel rim joint | 6 | — | — |
+| Heat-set insert | Owner-held Kadriick M4 × 8, shoulder root; printed bore physical-coupon-gated | 6 | — | — |
+| Heat-set insert | Owner-held Kadriick M4 × 8, wheel rim joint; printed bore physical-coupon-gated | 6 | — | — |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
 
 ## 7. Fasteners
@@ -142,9 +142,9 @@ omitted both shoulder-plate cover receivers, the active Mode A stand, and every
 printed M4 receiving thread. It was not a purchase quantity. Use the canonical
 [printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts):
 the active single-leg ABS article needs **14 owner-supplied Voron-style M3
-inserts** before spares, plus 6 × `SL-B-M4-5.8` at the shoulder and 6 ×
-`SL-B-M4-4.8` at the wheel. The short M4 families are CAD-specified but still
-need procurement and a same-profile ABS coupon.
+inserts** before spares, plus **12 of the 30 owner-held Kadriick M4 × 8
+inserts**: six shoulder and six wheel. The M4 receiver still needs the
+same-profile ABS Ø4.9/5.0/5.1/5.2/5.3 coupon before either hub is released.
 
 **Fastener corrections retained in the current release:**
 
@@ -287,13 +287,16 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
    > re-torque schedule** to handle plastic creep. See
    > [`beni_rig_no_machining.md`](beni_rig_no_machining.md) §2.1 and rig design
    > record §4.
-2. After a same-profile coupon passes, install 6 × PSM Sonic-Lok
-   `SL-B-M4-4.8` inserts flush in the corrected wheel hub, then bolt
-   `Wheel_Rim_L` to it with **6 × M4 × 8** on the Ø46 PCD, 2.5 N·m. The screws
-   engage 4.0 mm through the rim web and stop 2.0 mm before the motor face.
+2. After the owned-M4 same-profile coupon passes and its winning bore is
+   promoted through Fusion, install 6 × owner-held M4 × 8 inserts from the
+   corrected wheel hub's **motor face** with a depth stop. Leave 6.0 mm embedded
+   and 2.0 mm projecting outboard into the mating rim's six Ø6.0 × 2.2
+   reliefs. Bolt `Wheel_Rim_L` to it with **6 × M4 × 8** on the Ø46 PCD,
+   2.5 N·m. The screws engage 6.0 mm and stop 2.0 mm before the insert's
+   motor-side end.
 3. Stretch the TPU tyre onto the Ø96 rim seat.
 
-*The 3 hub screws stay reachable through the rim's Ø40 central hole after the
+*The 3 hub screws stay reachable through the rim's Ø38 central hole after the
 wheel is fully assembled.*
 
 ### B. Leg build
@@ -344,9 +347,10 @@ wheel is fully assembled.*
     > because it depends on the printed eyes' achieved dead length. Full design:
     > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
 11. **[REPRINT / INSERT GATE.]** Use the corrected Ø4.15 hub, not the
-    already-printed motor-fit article. After six PSM Sonic-Lok
-    `SL-B-M4-5.8` inserts pass a same-profile coupon and are fitted flush in
-    the hub's Ø5.6 × 7.2 pockets, bolt the proximal link root to the hub flange,
+    already-printed motor-fit article. After six owner-held M4 × 8 inserts pass
+    the same-profile receiver ladder, promote the winning bore through Fusion,
+    reprint the hub, and install the inserts from its outboard face with a
+    depth stop. They occupy the full 8.0 mm flange. Then bolt the proximal link root to the hub flange,
     **6 × M4 × 10**
     through the counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
     the driver. *The 6 output-hub screws remain serviceable through the link's

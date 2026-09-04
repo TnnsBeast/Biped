@@ -39,22 +39,26 @@ order, identification marks and pass rule. These are ABS calibration values,
 not released PA-CF dimensions.
 
 The Ø4.15 coupon passed on 2026-08-22, so stop there; the larger two trials are
-not needed. Batch 2 is the actual unloaded ABS shoulder assembly in
+not needed. Batch 2 is the unloaded ABS shoulder assembly in
 [`assembly_dry_fit/`](assembly_dry_fit/). The original hub print proved the
-motor interface but predated heat-set receiver design. Its corrected
-`_PRINT_ORIENTED` replacement now includes six M4 insert pockets; the same
-folder also contains bed-ready shoulder-plate and cable-cover articles.
+motor interface but predated heat-set receiver design. Its replacement will
+retain Ø4.15 and use the owner's M4 × 8 inserts, but remains on hold until the
+new M4 receiver ladder selects the printed bore. The same folder contains
+bed-ready shoulder-plate and cable-cover articles.
 
-## 2026-09-02 threaded-receiver release
+## 2026-09-03 owned-insert redesign
 
 [`heatset_receiver_release_manifest.json`](heatset_receiver_release_manifest.json)
-is the machine-readable release record for the corrected shoulder hub, wheel
-hub, shoulder plate, cable cover, and Mode A stand. Fusion B-Rep checks verify
-the receiver diameters/depths and each listed STL is already transformed to its
-controlled bed face. From the owner's reported progress, **only the shoulder
-hub is a required reprint**; retain the printed Ø19.10 proximal link and both
-installed bearings. After the PSM inserts arrive, use the Fusion-generated
-[`insert_fit/`](insert_fit/) 5.5/5.6/5.7 mm ABS pocket ladder before either hub.
+is the machine-readable geometry record for the shoulder hub, wheel hub/rim,
+shoulder plate, cable cover, and Mode A stand. Fusion B-Rep checks verify the
+candidate receiver spans and the wheel-rim service relief. From the owner's
+reported progress, **only the shoulder hub will be a required reprint**; retain
+the printed Ø19.10 proximal link and both installed bearings.
+
+Print only the Fusion-generated
+[`insert_fit/`](insert_fit/) Ø4.9/5.0/5.1/5.2/5.3 M4 × 8 ladder now. The larger
+M4 files are explicitly named `PROVISIONAL_DO_NOT_PRINT`; replace them with
+final files after the physical result is fed back through Fusion.
 
 ## Slicer setup
 

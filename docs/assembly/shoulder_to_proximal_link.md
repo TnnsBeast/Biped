@@ -8,11 +8,12 @@ shows where the printed proximal link goes and which motor it belongs to.
 > link, and support the knee end so the printed parts do not carry the link as a
 > cantilever. This is a fit check, not a powered or load test.
 
-> **REPRINT REQUIRED, 2026-09-02:** the already-printed Ø4.15 hub is a verified
+> **REPRINT REQUIRED AFTER THE M4 COUPON, updated 2026-09-03:** the
+> already-printed Ø4.15 hub is a verified
 > hub-to-motor fit article only. Do not put inserts into its legacy Ø3.3 holes.
-> The corrected, bed-ready hub is now released in this repository with six
-> Ø5.6 × 7.2 M4 insert pockets. Use that new print for step 6 after the specified
-> short inserts pass a coupon.
+> The replacement preserves that Ø4.15 fit and uses six owner-held M4 × 8
+> inserts through the full 8.0 mm flange. Its exact printed bore is not released
+> until the new ABS ladder selects it.
 
 The canonical fastener schedule and final assembly requirements remain in
 [`beni_prototype1_bom_and_assembly.md`](../../beni_prototype1_bom_and_assembly.md#b-leg-build).
@@ -21,11 +22,11 @@ The canonical fastener schedule and final assembly requirements remain in
 
 - GIM6010-8 shoulder motor
 - `Chassis_Shoulder_Plate_L`
-- `ABS_FA_Shoulder_Output_Hub_L_D4p15`
+- the coupon-selected `ABS_FA_Shoulder_Output_Hub_L_D4p15` replacement
 - the printed face-flat proximal link with both 6800-2RS bearings installed
 - 8 × M3 × 8 housing screws
 - 6 × M3 × 10 shoulder-output-hub screws
-- 6 × PSM Sonic-Lok `SL-B-M4-5.8` heat-set inserts and
+- 6 × owner-held Kadriick M4 × 8 heat-set inserts and
   6 × M4 × 10 proximal-link-to-hub screws
 
 For the initial dry fit, only finger-start the screws. Do not apply final torque
@@ -91,13 +92,15 @@ The proximal link does **not** bolt into the shoulder plate. Its six M4 screws
 pass through the link's root counterbores and thread into six inserts installed
 from the outboard face of the **rotating shoulder hub**.
 
-<img src="../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png" alt="Corrected print-oriented shoulder hub with six large M4 insert pockets in its outboard flange" width="760">
+<img src="../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED.png" alt="Provisional print-oriented shoulder hub with six full-depth M4 insert bores in its outboard flange" width="760">
 
-Use only the corrected
-[`ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl`](../../first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl).
-Install six `SL-B-M4-5.8` inserts flush in the large Ø5.6 pockets. The pockets
-are 7.2 mm deep in the 8 mm flange, leaving a 0.8 mm printed floor. An M4 × 10
-screw through the link stops 1.0 mm before that floor.
+The picture is the Fusion-verified **provisional Ø5.1 candidate, not a print
+release**. First print the
+[`owned-M4×8 ladder`](../../first_article_stl/insert_fit/README.md). After its
+winning bore is promoted into Fusion, install six M4 × 8 inserts from the
+outboard/link face with a depth stop. Each occupies the full 8.0 mm flange. An
+M4 × 10 screw through the link engages 6.2 mm and stops 1.8 mm before the
+motor-side insert end.
 
 The four smaller M3 inserts in the shoulder area belong in the **stationary
 shoulder plate**, only for the removable cable cover. The cover itself has four
@@ -110,9 +113,9 @@ accessible outboard face.
 
 ## 6. Fit the proximal link to the shoulder hub
 
-This step is released only for the **new corrected hub** after its six M4
-inserts are installed. The owned generic M4 × 8 and ×10 inserts are not
-substitutes: those are too long for the 8 mm flange. See the canonical
+This step is released only after the physical ladder result is incorporated in
+the **new corrected hub** and its six owned M4 × 8 inserts are installed. Do
+not use M4 × 10 inserts: the extra length has no available purpose here. See the canonical
 [printed-thread map](../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 
 Support the bearing end on a block or folded towel. Bring the link's large root

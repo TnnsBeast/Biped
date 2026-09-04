@@ -46,3 +46,16 @@ the cover is a clearance part, and M3 × 10 screws enter from the accessible
 outboard face. Fusion verified 1.5 mm screw-tip clearance and zero stand
 interference. The pictured insert and screw-direction map is
 [`docs/assembly/heatset_receiver_map.md`](docs/assembly/heatset_receiver_map.md).
+
+The 2026-09-03 owned-M4 redesign adds a second explicit path condition. The
+M4 × 8 wheel inserts install from the detached hub's motor face, pass through
+the 6.0 mm hub, and finish with 2.0 mm projecting outboard. Fusion B-Rep checks
+verify that all six projecting Ø5.5 label envelopes enter straight coaxial
+Ø6.0 × 2.2 reliefs in `Wheel_Rim_L`; after the six screws are removed, the rim
+services straight outboard along the same open paths. The production receiver
+diameter is still blocked on the ABS ladder, so this is envelope/path
+verification—not a print release.
+
+The same rerun found a separate `RIG_Cable_Post_A`/cable-cover overlap. Post A
+is not part of the detached shoulder/link dry fit, but it remains `BLOCKED` for
+the complete wired Mode-A article until rerouted.

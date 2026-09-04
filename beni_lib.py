@@ -78,14 +78,20 @@ HUB_FLANGE_D = 56.0
 HUB_LINK_PCD = 44.0               # 6x M4 link bolts into hub flange
 HUB_LINK_A0 = 0.4
 HUB_CABLE_R = 21.0                # cable pass-through in hub flange
-# PSM Sonic-Lok SL-B-M4 short insert family.  The catalogue gives a Ø5.6
-# receiving hole, a 5.8 mm short insert, and a general blind-hole rule of insert
-# length + two thread pitches.  M4 coarse pitch is 0.7 mm, so the shoulder
-# pocket is 7.2 mm deep.  In the 8 mm flange that leaves a 0.8 mm floor; the
-# M4x10 screw stops 1.0 mm before that floor after its 3.8 mm link counterbore.
-HUB_LINK_INSERT_D = 5.6
-HUB_LINK_INSERT_LEN = 5.8
-HUB_LINK_INSERT_HOLE_DEPTH = 7.2
+# Owner-held Kadriick assortment, photographed 2026-09-02.  Its case label
+# specifies M4 x 8 mm (H), d1=5.5 and d2=5.0.  It does not define a printed-hole
+# prescription, so the 5.1 mm receiver below is the centre of an empirical
+# 4.9..5.3 ABS coupon ladder and remains PHYSICAL-COUPON-GATED.  Length and
+# envelope are evidence-backed; pocket diameter is a candidate, not an assumed
+# vendor recommendation.
+OWNED_M4_INSERT_LEN = 8.0
+OWNED_M4_INSERT_D1 = 5.5
+OWNED_M4_INSERT_D2 = 5.0
+OWNED_M4_POCKET_D = 5.1
+OWNED_M4_COUPON_DIAMETERS = (4.9, 5.0, 5.1, 5.2, 5.3)
+HUB_LINK_INSERT_D = OWNED_M4_POCKET_D
+HUB_LINK_INSERT_LEN = OWNED_M4_INSERT_LEN
+HUB_LINK_INSERT_HOLE_DEPTH = HUB_Y1 - HUB_MID_Y
 
 CAV_R_IN = 20.0                   # cable spiral cavity
 CAV_R_OUT = 32.0
@@ -827,17 +833,29 @@ def audit_blind_holes(verbose=True):
         if clear < 0:
             problems.append('%s: screw runs %.2f mm past the bore floor'
                             % (name, -clear))
-    wheel_engagement = WHEEL_RIM_SCREW_LEN - (RIM_WEB_Y_B - RIM_WEB_Y_A)
-    wheel_back_clearance = ((WH_HUB_Y_B - WH_HUB_Y_A) - wheel_engagement)
+    wheel_engagement = (WHEEL_RIM_SCREW_LEN -
+                        (RIM_WEB_Y_B - WHEEL_INSERT_OUTBOARD_Y))
+    wheel_back_clearance = WHEEL_RIM_INSERT_LEN - wheel_engagement
     if wheel_engagement < 4.0 - 1e-6:
         problems.append('wheel rim -> wheel hub: less than 1D thread engagement')
     if wheel_back_clearance <= 0:
         problems.append('wheel rim -> wheel hub: screw reaches motor face')
     if verbose:
         print('  %-34s through  %4.1f insert  %4.1f screw engagement  '
-              '%4.1f back clearance'
+              '%4.1f back clearance; protrusion %.1f in relief'
               % ('wheel rim -> wheel hub', WHEEL_RIM_INSERT_LEN,
-                 wheel_engagement, wheel_back_clearance))
+                 wheel_engagement, wheel_back_clearance,
+                 WHEEL_INSERT_PROTRUSION))
+        print('  %-34s Ø%.1f x %.1f relief  radial %.2f  axial %.2f'
+              % ('wheel insert -> rim relief', WHEEL_RIM_RELIEF_D,
+                 WHEEL_RIM_RELIEF_DEPTH,
+                 (WHEEL_RIM_RELIEF_D - OWNED_M4_INSERT_D1) / 2.0,
+                 WHEEL_RIM_RELIEF_DEPTH - WHEEL_INSERT_PROTRUSION))
+    if WHEEL_RIM_RELIEF_D <= OWNED_M4_INSERT_D1:
+        problems.append('wheel rim relief does not clear the labelled M4 d1')
+    if WHEEL_RIM_RELIEF_DEPTH <= WHEEL_INSERT_PROTRUSION:
+        problems.append('wheel rim relief has no axial insertion clearance')
+    if verbose:
         print('  BLIND/INSERT HOLES: %s' % ('clean' if not problems else
                                             '%d PROBLEM(S)' % len(problems)))
         for p in problems:
@@ -883,7 +901,8 @@ def _receiver_face_spans(occ, diameter, centres):
 def audit_threaded_receivers(verbose=True):
     """B-Rep audit of every released/future printed threaded destination.
 
-    Clearance parts are intentionally absent.  This catches both failure modes
+    Receiver parts are followed by the wheel rim's required insert-protrusion
+    relief.  This catches both failure modes
     from the 2026-09-02 audit: a legacy tap-drill diameter and a correct-looking
     diameter cut to the wrong depth.
     """
@@ -952,6 +971,23 @@ def audit_threaded_receivers(verbose=True):
         if verbose:
             print('  %-29s Ø%.1f  %2d/%d receivers  Y %.3f..%.3f'
                   % (name, diameter, len(spans), len(centres), y0, y1))
+    rim = find_occ('Wheel_Rim_L')
+    if rim is not None:
+        centres = _receiver_centres(WX, WZ, RIM_BOLT_PCD, 6, 0.0)
+        spans = _receiver_face_spans(rim, WHEEL_RIM_RELIEF_D, centres)
+        want_span = (round(RIM_WEB_Y_A, 3),
+                     round(RIM_WEB_Y_A + WHEEL_RIM_RELIEF_DEPTH, 3))
+        got = sorted((round(a, 3), round(b, 3))
+                     for a, b in spans.values())
+        if len(spans) != 6 or any(span != want_span for span in got):
+            problems.append('Wheel_Rim_L: expected 6 x Ø%.1f insert reliefs '
+                            'at Y %.3f..%.3f; found %s'
+                            % (WHEEL_RIM_RELIEF_D, want_span[0],
+                               want_span[1], got))
+        if verbose:
+            print('  %-29s Ø%.1f  %2d/6 clearances Y %.3f..%.3f'
+                  % ('Wheel_Rim_L insert relief', WHEEL_RIM_RELIEF_D,
+                     len(spans), want_span[0], want_span[1]))
     if verbose:
         print('  THREADED RECEIVERS: %s' %
               ('clean' if not problems else '%d PROBLEM(S)' % len(problems)))
@@ -2822,7 +2858,9 @@ def build_shoulder_hub(pin_bore_d=4.05,
     circles_polar(sk, 0, 0, SH_PIN_PCD, 5.2, 3, SH_PIN_A0)
     extrude(c, profiles(sk), 0.7, 'cut')
     # Link-side female threads live in the printed hub, not in tapped plastic.
-    # Install the six M4 inserts from the outboard mating face after printing.
+    # The owner-held M4 x 8 inserts occupy the flange's full 8 mm thickness.
+    # Install from the outboard mating face with a depth stop; the M4x10 link
+    # screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end.
     sk = sk_on_y(c, HUB_Y1)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, HUB_LINK_INSERT_D, 6, HUB_LINK_A0)
     extrude(c, profiles(sk), -HUB_LINK_INSERT_HOLE_DEPTH, 'cut')
@@ -3063,14 +3101,20 @@ def build_encoder():
 WH_HUB_Y_A, WH_HUB_Y_B = 94.5, 100.5
 RIM_BOLT_PCD = 46.0
 RIM_WEB_Y_A, RIM_WEB_Y_B = 100.5, 104.5
-# The hub is only 6.0 mm thick, so its M4 receiver is deliberately through.
-# A PSM Sonic-Lok SL-B-M4-4.8 insert is installed flush from the rim face and
-# remains 1.2 mm shy of the motor face.  The M4x8 rim screw engages 4.0 mm of
-# thread and stops 2.0 mm before the motor face.  The Ø5.6 hole also preserves
-# 2.2 mm radial wall at the Ø56 hub OD (PSM minimum is 2.1 mm).
-WHEEL_RIM_INSERT_D = 5.6
-WHEEL_RIM_INSERT_LEN = 4.8
+# The hub is only 6.0 mm thick, while the owner-held insert is 8.0 mm long.
+# Preserve every frozen Y datum by installing it from the motor face: 6.0 mm
+# embeds in the hub and 2.0 mm projects outboard into a coaxial Ø6.0 x 2.2 rim
+# relief.  The rim remains axially removable after its screws are removed.
+# The M4x8 screw engages 6.0 mm and stops 2.0 mm before the insert's motor-side
+# end.  The candidate receiver diameter is gated by the dedicated ABS ladder.
+WHEEL_RIM_INSERT_D = OWNED_M4_POCKET_D
+WHEEL_RIM_INSERT_LEN = OWNED_M4_INSERT_LEN
 WHEEL_RIM_SCREW_LEN = 8.0
+WHEEL_INSERT_PROTRUSION = WHEEL_RIM_INSERT_LEN - (WH_HUB_Y_B - WH_HUB_Y_A)
+WHEEL_INSERT_OUTBOARD_Y = WH_HUB_Y_B + WHEEL_INSERT_PROTRUSION
+WHEEL_RIM_RELIEF_D = 6.0
+WHEEL_RIM_RELIEF_DEPTH = 2.2
+RIM_WEB_INNER_R = 19.0            # 1 mm ligament to reliefs; Ø38 opening
 
 # --- tyre retention (added; the tyre used to be a plain annulus) -----------
 # As modelled the tyre ID was exactly the rim seat OD, so there was no press
@@ -3117,7 +3161,8 @@ def build_wheel():
 
     drop_comp('Wheel_Rim_L')
     o = new_comp('Wheel_Rim_L'); c = o.component
-    ring(c, RIM_WEB_Y_A, 20.0, 45.0, RIM_WEB_Y_B - RIM_WEB_Y_A, 'new',
+    ring(c, RIM_WEB_Y_A, RIM_WEB_INNER_R, 45.0,
+         RIM_WEB_Y_B - RIM_WEB_Y_A, 'new',
          cx=WX, cz=WZ).bodies.item(0).name = 'Wheel_Rim_L'
     # drum now starts at RIM_Y0 so the inboard flange shares its O96 face
     # rather than meeting it on an edge (which would be non-manifold).
@@ -3134,6 +3179,15 @@ def build_wheel():
     sk = sk_on_y(c, RIM_WEB_Y_A - 1)
     circles_polar(sk, WX, WZ, RIM_BOLT_PCD, 4.3, 6, 0.0)
     extrude(c, profiles(sk), (RIM_WEB_Y_B - RIM_WEB_Y_A) + 2, 'cut')
+    # Clearance for the 2 mm of each motor-side-installed M4 x 8 insert that
+    # projects beyond the unchanged 6 mm hub.  This is a serviceable axial
+    # nest, not a second heat-set receiver: the rim still slides off outboard.
+    # The Ø38 web opening leaves a 1 mm ligament to these Ø6 reliefs. The
+    # former Ø40 opening was exactly tangent at r=20 and exported as six
+    # non-manifold four-face edges even though Fusion accepted the B-Rep.
+    sk = sk_on_y(c, RIM_WEB_Y_A)
+    circles_polar(sk, WX, WZ, RIM_BOLT_PCD, WHEEL_RIM_RELIEF_D, 6, 0.0)
+    extrude(c, profiles(sk), WHEEL_RIM_RELIEF_DEPTH, 'cut')
     sk = sk_on_y(c, RIM_WEB_Y_A - 1)
     circles_polar(sk, WX, WZ, 66.0, 14.0, 6, 30.0)
     extrude(c, profiles(sk), (RIM_WEB_Y_B - RIM_WEB_Y_A) + 2, 'cut')

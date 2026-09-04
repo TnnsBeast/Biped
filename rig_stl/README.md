@@ -29,7 +29,7 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 >
 > | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
 > |---|---|---|
-> | `RIG_Stand`, `RIG_Cable_Post_A`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, both hubs, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. `RIG_Knee_Collar_L`: the present geometry does not retain the pin. `RIG_Cable_Post_B`: Mode-A redesign. Short PSM M4 inserts: procurement/coupon gate. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
+> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. Both M4 hubs plus `Wheel_Rim_L`: owned-M4×8 coupon gate. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: current 1610.44 mm³ cable-cover clash. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -105,9 +105,10 @@ the two things below that were never about the slide:
   line up with `Chassis_Shoulder_Plate_L`'s existing frame-bolt holes at
   (−60, −18), (−60, 48), (−60, 62), (30, 48), (30, 62). Verified concentric in CAD;
   confirm on the print before installing inserts.
-- **The deferred source is corrected.** An isolated Fusion build verified five
-  Ø4.0 × 6.0 M3 pockets and four Ø5.6 × 7.2 M4 pockets. Do not print the
-  carriage for Mode A; re-coupon the inserts when Mode B returns. The canonical
+- **The deferred source is corrected.** It has five Ø4.0 × 6.0 M3 pockets and
+  four full-depth provisional Ø5.1 M4 receivers for the owner-held M4 × 8
+  inserts. Do not print the carriage for Mode A; promote the physical coupon
+  result when Mode B returns. The canonical
   disposition is in
   [`MANUFACTURING_CONSTRAINTS.md`](../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 
@@ -154,6 +155,11 @@ place of the proximal link** — step 2 runs with the leg off.
 ### 6. `RIG_Cable_Post_A.stl`, `RIG_Cable_Post_B.stl`
 Flat on the bed. Post A is clamped under two of the motor's eight M3 housing
 screws, which become **M3 × 16** for that reason.
+
+⚠ **`RIG_Cable_Post_A.stl` is also on hold.** The 2026-09-03 Fusion rerun found
+a real 1610.44 mm³ overlap with `Shoulder_Cable_Cover_L` at every shoulder
+angle. Do not print or force those two parts together; the anchor needs a
+separate reroute.
 
 ⚠ **`RIG_Cable_Post_B.stl` is NOT printable for Mode A — do not send it to the
 bed.** [BLOCKED 2026-08-20] The part mounted to `RIG_Column`'s T-slot, and
@@ -261,8 +267,8 @@ committing to a second set.**
 
 | File | Was | Orientation | The thing that will bite |
 |---|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | **CAD READY / PHYSICAL REPRINT:** use the compensated ABS [`ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl`](../first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl), not this nominal reroute file. Six PSM Sonic-Lok `SL-B-M4-5.8` inserts fit Ø5.6 × 7.2 pockets. Procurement/coupon gate remains; PA-CF waits for the two-leg build. |
-| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **CAD READY / PROCUREMENT-GATED:** the bed-ready ABS file has six Ø5.6 through receivers for `SL-B-M4-4.8` inserts. Use 6 × M4 × 8 rim screws for 4 mm engagement and 2 mm motor-face clearance. Retain steel washers and the re-torque schedule because torque is carried by friction and preload in plastic creeps. |
+| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | **PROVISIONAL / PHYSICAL REPRINT AFTER COUPON:** use the future coupon-selected Ø4.15 ABS export, not this nominal check file. Six owner-held M4 × 8 inserts occupy the full 8.0 mm flange. The current Ø5.1 candidate is not released; PA-CF waits for the two-leg build. |
+| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **PROVISIONAL / COUPON-GATED:** six owner-held M4 × 8 inserts use provisional through receivers. Install from the motor face, leaving 2.0 mm in the mating rim relief. Use 6 × M4 × 8 rim screws for 6.0 mm engagement and 2.0 mm back clearance. Retain steel washers and the re-torque schedule because torque is carried by friction and preload in plastic creeps. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
 | `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new bed-ready ABS export. |
@@ -277,11 +283,12 @@ reasoning and the verification sweep are in the design record §8.
 
 ## Reused unchanged from `../print_stl/`
 
-`Proximal_Link_L` · `Wheel_Rim_L` · `Wheel_Tyre_L` (TPU 95A) ·
+`Proximal_Link_L` · `Wheel_Tyre_L` (TPU 95A) ·
 `Knee_Encoder_Bracket_L` (ABS) · `Chassis_Shoulder_Plate_L`.
 
-Nothing in this build modifies those five, and no new hole was put in any of
-them.
+`Wheel_Rim_L` is no longer in this list: the owned M4 × 8 redesign adds six
+Ø6.0 × 2.2 reliefs for the insert ends that project 2.0 mm from the wheel hub.
+The other four remain unchanged.
 
 ---
 

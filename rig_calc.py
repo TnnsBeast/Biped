@@ -215,7 +215,7 @@ def mass_budget():
     leg = thigh + shank + wheel
     half = total / 2.0
     print(f'  robot total (inertia json)      {total:8.4f} kg'
-          '   design record §14 says 3.2901')
+          '   authoritative source: design record §14')
     print(f'  one leg  thigh+shank+wheel      {leg:8.4f} kg'
           f'   ({thigh:.4f} + {shank:.4f} + {wheel:.4f})')
     print(f'  half the robot = slide target   {half:8.4f} kg')

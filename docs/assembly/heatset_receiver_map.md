@@ -7,10 +7,13 @@ the screw direction that remains accessible in the assembled robot.
 The complete single-leg article is ABS. PA-CF coupons and structural prints
 wait for the later two-leg build.
 
-## What changed on 2026-09-02
+## What changed on 2026-09-03
 
-- The corrected shoulder hub has six real M4 insert pockets.
-- The wheel hub has six short-M4 through receivers and uses M4 × 8 rim screws.
+- The shoulder and wheel M4 joints now use the owner's Kadriick M4 × 8 inserts;
+  procurement of a separate short family is no longer required.
+- The shoulder receiver runs through the full 8.0 mm flange.
+- The wheel hub embeds 6.0 mm of the insert; the remaining 2.0 mm nests in six
+  new `Wheel_Rim_L` reliefs without changing the frozen Y stack.
 - The stand has five Voron-style M3 pockets instead of Ø5 clearance bores.
 - Cable-cover inserts moved from the removable cover into the shoulder plate;
   all four screws are now reachable from outboard.
@@ -21,14 +24,17 @@ wait for the later two-leg build.
 
 ## Shoulder hub — six M4 inserts
 
-![Corrected shoulder hub on its released bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png)
+![Provisional shoulder hub on its controlled bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED.png)
 
-- Print:
-  [`ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl`](../../first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl)
-- Receiver: 6 × Ø5.6 × 7.2 blind pockets in the outboard flange face.
-- Insert: 6 × PSM Sonic-Lok `SL-B-M4-5.8`.
+- Status: **provisional—do not print until the owned-M4 coupon selects the
+  production receiver diameter**. The image shows the scripted Ø5.1 centre
+  candidate.
+- Receiver: 6 × provisional Ø5.1 through the 8.0 mm flange.
+- Insert: 6 × owner-held Kadriick M4 × 8, installed from the outboard/link
+  face with a depth stop and flush at both ends.
 - Fastener: 6 × M4 × 10 through the proximal-link root.
-- Clearance: 0.8 mm printed floor; screw tip stops 1.0 mm before it.
+- Result: 6.2 mm thread engagement; screw tip stops 1.8 mm before the
+  motor-side insert end.
 
 The already-printed Ø4.15 hub is not this part. Keep it as motor-fit evidence,
 but do not attempt to melt inserts into its Ø3.3 holes.
@@ -68,34 +74,42 @@ future Ø19.15 bearing preference.
 - Fastener: 5 × M3 × 10 through the 5 mm shoulder plate.
 - Clearance: 1.0 mm below the insert and a 6.0 mm printed floor.
 
-## Wheel hub — six short M4 inserts
+## Wheel hub and rim — six owned M4 × 8 inserts
 
-![Wheel hub on its released rim-face bed datum](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.png)
+| Wheel hub candidate | Rim with insert-tip reliefs |
+|:---:|:---:|
+| ![Wheel hub on its rim-face bed datum](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT.png) | ![Wheel rim showing six coaxial insert-tip reliefs](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PROVISIONAL_DO_NOT_PRINT.png) |
 
-- Print:
-  [`ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.stl`](../../first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.stl)
-- Receiver: 6 × Ø5.6 through the 6.0 mm hub.
-- Insert: 6 × PSM Sonic-Lok `SL-B-M4-4.8`, flush from the rim face.
+- Status: **both provisional—do not print until the owned-M4 coupon selects
+  the production receiver diameter**.
+- Hub receiver: 6 × provisional Ø5.1 through 6.0 mm.
+- Insert: 6 × owner-held Kadriick M4 × 8. Install from the motor face with a
+  depth stop, leaving 2.0 mm projecting from the outboard/rim face.
+- Rim: 6 × Ø6.0 × 2.2 coaxial reliefs from the hub-mating face, with a 1.0 mm
+  ligament to the Ø38 web opening; it owns no
+  inserts.
 - Fastener: 6 × M4 × 8 through the 4.0 mm rim web.
-- Result: 4.0 mm thread engagement and 2.0 mm clearance to the motor face.
+- Result: 6.0 mm thread engagement, 2.0 mm screw clearance to the insert's
+  motor-side end, 0.25 mm radial and 0.20 mm axial protrusion clearance.
 
-The photographed generic M4 × 8 and ×10 inserts are too long. Do not
-substitute them.
+After the screws are removed, the rim services straight outboard along the six
+open coaxial reliefs. M4 × 10 was rejected because its additional 2.0 mm of
+projection requires more rim relief without adding useful engagement.
 
 ## Deferred receivers already corrected in source
 
 | Part | Receiver geometry | Status |
 |---|---|---|
 | `Chassis_Frame` | 10 × Ø4.0 × 6.0 M3 pockets in Ø10 × 6.5 bosses | Fusion verified; defer print to two-leg build |
-| `RIG_Carriage` | 5 × Ø4.0 × 6.0 M3 plus 4 × Ø5.6 × 7.2 M4 pockets | isolated Fusion build verified; Mode B deferred |
+| `RIG_Carriage` | 5 × Ø4.0 × 6.0 M3 plus 4 × provisional Ø5.1 through M4 receivers for owned M4 × 8 | source verified; Mode B deferred |
 | optional M2 satellite-PCB boss | no existing part | architecture decision remains open; do not invent receivers |
 
 ## Installation gate
 
 1. Use the existing Ø4.0 ABS coupon for the exact owner-supplied M3 insert.
-2. Obtain the two specified short M4 families and print the same-profile
-   [`Ø5.5/5.6/5.7 pocket ladder`](../../first_article_stl/insert_fit/README.md)
-   before committing either hub.
+2. Print the same-profile
+   [`owned-M4×8 Ø4.9/5.0/5.1/5.2/5.3 ladder`](../../first_article_stl/insert_fit/README.md)
+   and report the smallest passing station before either M4 hub is released.
 3. Heat inserts with a perpendicular, depth-controlled tip; stop flush and let
    the part cool without a screw installed.
 4. Start every screw with fingers. Never use screw torque to seat a printed

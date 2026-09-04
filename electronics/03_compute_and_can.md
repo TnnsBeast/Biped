@@ -216,7 +216,7 @@ order:
 ### 4.2 The datum pad is in the worst possible place
 
 The brief's IMU datum pad (§4.2) is 12 × 12 mm at X = −52.0, Z = 40.0…41.5,
-centred on Y = 0 — **58.5 mm aft and 91.3 mm above the CoM**, which puts it
+centred on Y = 0 — **58.5 mm aft and 90.8 mm above the CoM**, which puts it
 **195 mm above the wheel axis.** The lever-arm error scales with that height,
 and 195 mm is the largest value available anywhere on the robot.
 
@@ -278,7 +278,7 @@ function of knee flexion φ:
 
 | φ | contact X | CoM ahead of contact | pitch torque |
 |---|---:|---:|---:|
-| 0° | 0.00 mm | 6.46 mm | 0.21 N·m (0.10/wheel) |
+| 0° | 0.00 mm | 6.47 mm | 0.21 N·m (0.10/wheel) |
 | +10° | −12.00 mm | 18.46 mm | 0.60 N·m (0.30/wheel) |
 | +20° | −20.84 mm | 27.30 mm | 0.88 N·m (0.44/wheel) |
 | +25° | −23.99 mm | 30.45 mm | 0.98 N·m (0.49/wheel) |

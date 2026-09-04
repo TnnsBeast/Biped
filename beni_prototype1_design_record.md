@@ -143,7 +143,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
 | 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47), 4 × Ø3.4 clearance; M3 × 10 screws enter from outboard into the plate inserts |
-| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[CORRECTED 2026-09-02]** Six Ø5.6 × 7.2 blind pockets receive PSM Sonic-Lok `SL-B-M4-5.8` inserts; M4 × 10 link screws have 1.0 mm floor clearance. The already-printed legacy hub must be reprinted. |
+| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[REDESIGNED 2026-09-03]** Six owner-held Kadriick M4 × 8 inserts occupy provisional Ø5.1 through receivers across the full 8.0 mm flange. The exact bore remains physical-coupon-gated. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The already-printed legacy hub must be reprinted after the coupon result is promoted. |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
@@ -163,7 +163,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 69 … 99 | rim + tyre, tyre OD Ø110 (**centre y = 84**) |
 | **94.5** | wheel motor output flange face |
 | 94.5 … 100.5 | **[SUPERSEDED]** `Wheel_Hub_L` (7075-T6, Ø56) — **now printed**, with steel washers and a re-torque schedule |
-| 100.5 … 104.5 | rim web, 6 × **M4 × 8** @ Ø46 PCD into PSM Sonic-Lok `SL-B-M4-4.8` inserts in six Ø5.6 through hub receivers. **[CORRECTED 2026-09-02]** 4.0 mm engagement, 2.0 mm motor-face clearance; procurement/coupon gate remains. |
+| 100.5 … 104.5 | rim web, 6 × **M4 × 8** @ Ø46 PCD into six owner-held Kadriick M4 × 8 inserts. **[REDESIGNED 2026-09-03]** Each insert occupies a provisional Ø5.1 through receiver in the 6.0 mm hub and projects 2.0 mm into a coaxial Ø6.0 × 2.2 rim relief. The exact receiver remains physical-coupon-gated. Screw engagement is 6.0 mm with 2.0 mm clearance to the insert's motor-side end. |
 
 **Track = 168 mm.** Nothing rotating crosses y = 53.5, so the chassis is free
 to occupy |y| ≤ 47 without ever fouling the leg sweep.
@@ -274,10 +274,12 @@ spring force rises 64 → 203 N over 19.43 − 6.13 = 13.30 mm of spring travel,
 per leg `½(64+203) × 13.30 mm = 1.78 J`, and **3.55 J for the pair** — enough
 for a 100 mm free drop with essentially no margin.
 
-> **[REV2]** With the model's true mass of **3290.1 g** rather than the 3.5 kg
-> design mass, a 100 mm free drop carries **3.23 J** against the pair's
+> **[HISTORICAL REV2]** With the then-current model mass of **3290.1 g** rather
+> than the 3.5 kg design mass, a 100 mm free drop carried **3.23 J** against the pair's
 > **3.553 J** (numerically integrated, not trapezoid-approximated), so there is
-> **+10 % margin** rather than ≈0 %. The conclusion below is unchanged.
+> **+10 % margin** rather than ≈0 %. The 2026-09-03 receiver redesign changed
+> the current mass slightly; §14 is authoritative. The corrected conclusion
+> below is unchanged.
 
 > **[CORRECTION — 2026-08-11]** Both the original and the REV2 energy comparison
 > omit the m·g·Δz gravity work done during the ~50 mm of spring compression.
@@ -474,9 +476,10 @@ checks were added so each class cannot recur — `audit_counts`,
 - **L/R parity:** clean — 33 part families matched by volume and face census.
 - **Fastener head clearance:** clean.
 - **Blind holes:** clean — every bore ≥ its insert, every screw clear of the floor.
-- **Threaded receivers:** clean — shoulder hub 6 × Ø5.6, wheel hub 6 × Ø5.6,
-  shoulder plate 4 × Ø4.0, proximal link 5 × Ø4.0, and chassis frame 10 ×
-  Ø4.0, all at their specified depths/spans.
+- **Threaded receivers:** clean — shoulder hub 6 × provisional Ø5.1, wheel hub
+  6 × provisional Ø5.1, wheel rim 6 × Ø6.0 protrusion reliefs, shoulder plate
+  4 × Ø4.0, proximal link 5 × Ø4.0, and chassis frame 10 × Ø4.0, all at their
+  specified depths/spans. The M4 diameter is a physical gate, not a release.
 - **Source parity:** 37 parts in the model, 37 classified, no orphans.
 - **Driver access:** 32 hex-key access envelopes (Ø3.0–3.4, 30–45 mm reach)
   modelled for every screw serviceable on the complete robot. **Zero
@@ -592,17 +595,17 @@ could be built from it.
 
 | | value |
 |---|---:|
-| Mass (from Fusion, materials assigned) | **3290.1 g** |
+| Mass (from Fusion, materials assigned) | **3308.9 g** |
 | Design mass | 3500 g |
-| Margin | **≈ 210 g (6.0 %)** |
-| CoM X, fore-aft from the shoulder axis | **+6.46 mm** |
+| Margin | **≈ 191 g (5.5 %)** |
+| CoM X, fore-aft from the shoulder axis | **+6.47 mm** |
 | CoM Y, lateral | **−0.00 mm** |
-| CoM Z | −50.57 mm |
-| **CoM height above the wheel axis** | **103.7 mm** |
-| Ixx about CoM (roll) | 0.03214 kg·m² |
-| **Iyy about CoM (pitch — governs balance)** | **0.02508 kg·m²** |
-| Izz about CoM (yaw) | 0.01706 kg·m² |
-| Ixz about CoM | +0.002759 kg·m² |
+| CoM Z | −50.10 mm |
+| **CoM height above the wheel axis** | **104.2 mm** |
+| Ixx about CoM (roll) | 0.03231 kg·m² |
+| **Iyy about CoM (pitch — governs balance)** | **0.02525 kg·m²** |
+| Izz about CoM (yaw) | 0.01719 kg·m² |
+| Ixz about CoM | +0.002796 kg·m² |
 | Inverted-pendulum time constant √(L/g) | 0.103 s |
 
 The helical spring and three simplified bought-assembly/presentation bodies carry
@@ -615,10 +618,10 @@ recalibrated independently when their posed lengths differ.
 leg shows up in it immediately — it is how the missing right-hand spring
 (§11 [REV2] item 11) was caught.
 
-**The +6.46 mm fore-aft offset is inherent, not a defect.** The two links and the
+**The +6.47 mm fore-aft offset is inherent, not a defect.** The two links and the
 knee hardware sit around X = +45…+92 while both wheels and both shoulder motors
 sit at X = 0. Moving the battery aft (centre X = −0.5 → −30.5) and placing the
-electronics block at X = −52 took it from +11.97 mm to +6.46 mm; nulling it
+electronics block at X = −52 took it from +11.97 mm to about +6.47 mm; nulling it
 entirely would need ≈89 mm of travel on the whole 450 g chassis group, which does
 not exist in a 110 mm frame. In service it is a **0.21 N·m standing bias**
 (0.11 N·m per wheel) and it means the equilibrium stance sits a few degrees off

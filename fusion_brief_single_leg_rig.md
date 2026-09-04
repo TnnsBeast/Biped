@@ -150,8 +150,8 @@ table is in `beni_single_leg_rig_design_record.md` §7 and `rig_stl/README.md`.
 
 | Part | Route |
 |---|---|
-| `Shoulder_Output_Hub_L` | **CAD READY / PHYSICAL REPRINT** — six Ø5.6 × 7.2 pockets for PSM Sonic-Lok `SL-B-M4-5.8`; retain 3 × Ø4 × 10 hardened dowel pins and the owner-tested Ø4.15 ABS bore override |
-| `Wheel_Hub_L` | **CAD READY / PROCUREMENT-GATED** — six Ø5.6 through receivers for `SL-B-M4-4.8`; use M4 × 8 rim screws. The owned generic M4 × 8/10 inserts remain too long |
+| `Shoulder_Output_Hub_L` | **ENVELOPE READY / PHYSICAL-COUPON HOLD / REPRINT AFTER PASS** — six full-depth receivers for the owner-held M4 × 8 inserts; provisional Ø5.1, retain 3 × Ø4 × 10 hardened dowel pins and the owner-tested Ø4.15 ABS bore override |
+| `Wheel_Hub_L` + mating rim | **ENVELOPE READY / PHYSICAL-COUPON HOLD** — owned M4 × 8 insert embeds 6.0 mm and projects 2.0 mm into a new Ø6.0 × 2.2 rim relief; use M4 × 8 rim screws |
 | `Cart_Upper_Eye_L` / `Cart_Lower_Eye_L` | **Print**, then measure pivot-to-spigot and feed the real number to the spring model |
 | `Knee_Magnet_Carrier_L` | **Print**, verify 0.05 TIR on an indicator |
 | `Knee_Axle_L` + `Knee_Sleeve_L` | **Buy** one Ø10 h6 hardened ground dowel pin. Double-D flats deleted — see §2.3 |
@@ -286,8 +286,8 @@ design record §2.1 and §2.3, and `rig_calc.py`.
 ### 4.2 Mass — and the sprung/unsprung split
 
 **[DEFERRED — MODE B].** With no slide and no ballast there is no mass budget to
-blow: the stand carries a static **0.8382 kg** of leg (8.22 N), or **1.2262 kg**
-with a 388 g GIM6010-8 and **1.3382 kg** with a 500 g one (conflict C4). That is
+blow: the stand carries a static **0.8401 kg** of leg (8.24 N), or **1.2281 kg**
+with a 388 g GIM6010-8 and **1.3401 kg** with a 500 g one (conflict C4). That is
 a hanging load, not a sprung mass, and it is 3 % of the yaw load the stand is
 sized by. **C4 stops being a rig-design risk in Mode A** — weigh the motors
 anyway, because the two-leg robot's budget still depends on it.

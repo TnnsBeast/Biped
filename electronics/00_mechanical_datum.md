@@ -40,34 +40,34 @@ Measured from CAD, not estimated.
 
 | Property | Value |
 |---|---:|
-| Mass | **3.290 kg** |
+| Mass | **3.309 kg** |
 | Overall L × W × H | 183 × 217 × 281 mm |
 | Track (wheel centre to wheel centre) | 168 mm |
 | Wheel diameter / radius | 110 mm / **55 mm** |
 | Ride height (shoulder axis to ground) | 209.3 mm |
-| **CoM** (X, Y, Z from shoulder axis) | **(+6.46, −0.00, −50.57) mm** |
-| **CoM height above the wheel axis** | **103.7 mm** |
-| Ixx about CoM (roll) | 0.03214 kg·m² |
-| **Iyy about CoM (pitch — governs balance)** | **0.02508 kg·m²** |
-| Izz about CoM (yaw) | 0.01706 kg·m² |
-| Ixz about CoM | +0.002759 kg·m² |
+| **CoM** (X, Y, Z from shoulder axis) | **(+6.47, −0.00, −50.10) mm** |
+| **CoM height above the wheel axis** | **104.2 mm** |
+| Ixx about CoM (roll) | 0.03231 kg·m² |
+| **Iyy about CoM (pitch — governs balance)** | **0.02525 kg·m²** |
+| Izz about CoM (yaw) | 0.01719 kg·m² |
+| Ixz about CoM | +0.002796 kg·m² |
 | **Inverted-pendulum time constant** √(L/g) | **0.103 s** |
 
 Per-link masses and full inertia tensors for all 6 moving links:
 **`sim/beni.urdf`** and **`sim/beni_inertia.json`**. Mass closure is exact.
 
-**Unstable pole.** The unstable pole sits at **11.18 rad/s** (τ = 89 ms).[^pole]
+**Unstable pole.** The unstable pole sits at **11.20 rad/s** (τ = 89 ms).[^pole]
 This is a *short, twitchy* pendulum — shorter than most balancing robots. It
 drives the control-loop rate and the IMU latency budget.
 
-**Standing trim.** The CoM is 6.46 mm forward of the wheel contact patch. That is
+**Standing trim.** The CoM is 6.47 mm forward of the wheel contact patch. That is
 a permanent **0.21 N·m** bias (0.11 N·m per wheel) that the controller must hold,
 and it means the equilibrium stance sits a few degrees off the nominal pose. It
 is inherent to the bent-leg geometry and cannot be ballasted out.
 
 [^pole]: The original brief stated ≈9.7 rad/s (1.55 Hz) in both §1.2 and §7.1,
 derived from the bare LIPM formula, which drops body pitch inertia and the wheel
-reaction torque. The corrected URDF-derived value is 11.18 rad/s — see
+reaction torque. The current URDF-derived value is 11.20 rad/s — see
 `04_firmware.md` correction 1 and `05_open_questions.md` C9.
 
 ---
@@ -125,7 +125,7 @@ the electronics block's top face:
 |---|---|
 | Pad centre | X = −52.0, Z = 40.0…41.5 mm, centred on Y = 0 |
 | Orientation | pad axes aligned to the robot frame (X fwd, Y left, Z up) |
-| Position relative to CoM | **58.5 mm aft, 91.3 mm above** |
+| Position relative to CoM | **58.5 mm aft, 90.8 mm above** |
 
 That offset matters: the IMU is **not** at the CoM, so accelerometer readings
 include centripetal and angular-acceleration terms that must be compensated.
@@ -344,6 +344,6 @@ drop never exceeds +24° with the shoulder landing controller active** — see
   assumption that survives in some early notes. 25 N·m is a *structural proof*
   figure, never a motor capability claim.
 - Any robot mass of 8174 g — that was a CAD artifact from unassigned materials,
-  now fixed. The real figure is 3290 g.
-- An unstable pole of 9.7 rad/s — superseded by 11.18 rad/s (§2).
+  now fixed. The current Fusion figure is 3309 g.
+- An unstable pole of 9.7 rad/s — superseded by 11.20 rad/s (§2).
 - A clock-spring rotation margin of 20–27 % — it is ~5 % (§3).

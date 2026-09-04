@@ -88,16 +88,17 @@
       14.0,
       56.0
     ],
+    "insert_installation": "from the outboard/link face; use a depth stop so the 8.0 mm insert is flush at both ends",
     "link_fastener": "6 x M4 x 10 SHCS",
     "link_insert_count": 6,
-    "link_insert_family": "PSM Sonic-Lok SL-B-M4-5.8",
-    "link_insert_hole_depth_mm": 7.2,
-    "link_insert_hole_diameter_mm": 5.6,
+    "link_insert_family": "owner-held Kadriick assortment M4 x 8 mm (H); case label d1=5.5 mm, d2=5.0 mm",
+    "link_insert_hole_depth_mm": 8.0,
+    "link_insert_hole_diameter_mm": 5.1,
     "link_insert_hole_y_span_mm": [
-      52.3,
+      51.5,
       59.5
     ],
-    "link_insert_length_mm": 5.8,
+    "link_insert_length_mm": 8.0,
     "material_release": "ABS first article only; not PA-CF structural data",
     "nominal_envelope_mm": [
       56.0,
@@ -105,14 +106,14 @@
       56.0
     ],
     "orientation": "use the supplied PRINT_ORIENTED STL; \u00d856 outboard flange face is at Z=0",
-    "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15",
+    "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT",
     "pin_bore_count_brep": 3,
     "pin_bores_mm": 4.15,
     "pin_pcd_mm": 20.4,
     "pin_start_angle_deg": 60.4,
     "print_oriented": {
-      "export_name": "ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED",
-      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.png",
+      "export_name": "ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED.png",
       "minimum_z_mm": 0.0,
       "oriented_bbox_mm": [
         56.0,
@@ -121,30 +122,32 @@
       ],
       "rotation_axis": "+X",
       "rotation_deg": -90.0,
-      "source_part": "ABS_FA_Shoulder_Output_Hub_L_D4p15",
+      "source_part": "ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT",
       "source_support_face_indices": [
-        49
+        43
       ],
       "source_support_face_y_mm": 59.5,
       "source_support_side": "max",
-      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_PRINT_ORIENTED.stl",
-      "stl_bytes": 259284,
-      "support_face_area_mm2": 1762.234,
-      "support_policy": "No supports. Six M4 insert pockets, three dowel-pin bores, six motor holes and the centre bore are vertical; the body contracts away from the \u00d856 bed face."
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED.stl",
+      "stl_bytes": 260484,
+      "support_face_area_mm2": 1787.445,
+      "support_policy": "PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No supports. Six M4 insert bores, three dowel-pin bores, six motor holes and the centre bore are vertical; the body contracts away from the \u00d856 bed face."
     },
     "purpose": "unloaded ABS shoulder assembly and interface dry-fit",
-    "restriction": "no actuator torque, backdrive, spring, stand, or load",
+    "release_status": "PHYSICAL COUPON HOLD: do not print until the owned M4 x 8 ladder selects this receiver diameter",
+    "restriction": "provisional receiver diameter; no print before coupon pass, then no actuator torque, backdrive, spring, stand, or load",
     "source_geometry": "Shoulder_Output_Hub_L with pin bores overridden; six M4 heat-set receivers retained",
-    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15.stl",
-    "stl_bytes": 259284
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT.stl",
+    "stl_bytes": 260484
   },
   "Wheel_Hub_L": {
     "fastener": "6 x M4 x 8 SHCS through the 4.0 mm rim web",
-    "hole": "\u00d85.6 through the 6.0 mm hub",
+    "hole": "\u00d85.1 provisional through the 6.0 mm hub",
+    "installation": "heat-set from the motor face with a depth stop; 6.0 mm embedded and 2.0 mm projecting outboard",
     "native_stl": "/Users/neilchulani/Robots/Biped/rig_stl/reroute/Wheel_Hub_L.stl",
     "print_oriented": {
-      "export_name": "ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED",
-      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.png",
+      "export_name": "ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT.png",
       "minimum_z_mm": 0.0,
       "oriented_bbox_mm": [
         56.0,
@@ -159,29 +162,67 @@
       ],
       "source_support_face_y_mm": 100.5,
       "source_support_side": "max",
-      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_M4_INSERTS_PRINT_ORIENTED.stl",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT.stl",
       "stl_bytes": 136284,
-      "support_face_area_mm2": 2102.582,
-      "support_policy": "No supports. The rim mating face is the bed datum; six M4 insert bores and all motor holes are vertical, and the \u00d837.3 register pocket faces upward."
+      "support_face_area_mm2": 2127.793,
+      "support_policy": "PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No supports. The rim mating face is the bed datum; six M4 insert bores and all motor holes are vertical, and the \u00d837.3 register pocket faces upward. Install inserts later from that upward motor face with a 2.0 mm outboard projection."
     },
-    "receiver": "6 x PSM Sonic-Lok SL-B-M4-4.8 (not currently owned)",
-    "screw_clearance_to_motor_face_mm": 2.0,
-    "thread_engagement_mm": 4.0
+    "receiver": "6 x owner-held Kadriick assortment M4 x 8 mm (H); case label d1=5.5 mm, d2=5.0 mm",
+    "release_status": "PHYSICAL COUPON HOLD; \u00d85.1 is the provisional centre station, not a released diameter",
+    "screw_clearance_to_insert_motor_end_mm": 2.0,
+    "thread_engagement_mm": 6.0
+  },
+  "Wheel_Rim_L": {
+    "axial_clearance_mm": 0.2,
+    "insert_tip_relief": "6 x \u00d86.0 x 2.2 mm from hub-mating face",
+    "labelled_insert_envelope": "\u00d85.5 x 2.0 mm protrusion",
+    "minimum_ligament_to_relief_mm": 1.0,
+    "print_oriented": {
+      "export_name": "ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PROVISIONAL_DO_NOT_PRINT",
+      "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PROVISIONAL_DO_NOT_PRINT.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        104.0,
+        104.0,
+        36.5
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Wheel_Rim_L",
+      "source_support_face_indices": [
+        38
+      ],
+      "source_support_face_y_mm": 104.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PROVISIONAL_DO_NOT_PRINT.stl",
+      "stl_bytes": 281684,
+      "support_face_area_mm2": 5093.354,
+      "support_policy": "PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No supports. The broad web face is the bed datum and the drum builds upward. Six \u00d86.0 x 2.2 insert-tip reliefs open upward from the hub-mating face; no support may enter them."
+    },
+    "radial_clearance_mm": 0.25,
+    "receiver": "none; clearance part",
+    "release_status": "PHYSICAL COUPON HOLD; this mating part changed with the owned-insert redesign",
+    "service_path": "after screw removal the rim translates outboard along the six straight coaxial reliefs",
+    "web_opening_diameter_mm": 38.0
   },
   "document": "Beni_SingleLegRig",
   "material_scope": "ABS complete single-leg integration article; PA-CF deferred to the two-leg build",
   "physical_coupon_gates": {
     "M3": "existing \u00d84.0 ABS pocket coupon with the exact owner-supplied Voron-style insert",
-    "M4": "/Users/neilchulani/Robots/Biped/first_article_stl/insert_fit/ABS_CAL_PSM_SL_M4_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl"
+    "M4": "/Users/neilchulani/Robots/Biped/first_article_stl/insert_fit/ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl"
   },
   "reprint_decision": {
     "not_previously_printed_use_new_files": [
       "RIG_Stand",
       "Wheel_Hub_L",
+      "Wheel_Rim_L",
       "Chassis_Shoulder_Plate_L",
       "Shoulder_Cable_Cover_L"
     ],
-    "required": [
+    "print_now": [
+      "ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER"
+    ],
+    "required_after_coupon_selects_receiver": [
       "ABS_FA_Shoulder_Output_Hub_L_D4p15"
     ],
     "retain": [

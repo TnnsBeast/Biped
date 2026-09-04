@@ -32,7 +32,7 @@
 > | §2.1 rail length, §2.3's 63.00 mm stack | **[DEFERRED]**. Mode A overhang is **42.00 mm** — the 13.0 block and 8.0 carriage plate leave the stack |
 > | §2.3 moment check | **redone for Mode A**, see the note in that section. Yaw 11.00 N·m dominates; pitch 2.30, roll 2.99 |
 > | §3 drop series, §3.1 bounce mode | **[DEFERRED — MODE B]**. The 54.8 N force ceiling is **not** deferred — it is a spring property |
-> | §5 mass properties, ballast | **[DEFERRED — MODE B]**. Mode A carries 0.8382 kg of leg static, 1.2262–1.3382 kg with the motor |
+> | §5 mass properties, ballast | **[DEFERRED — MODE B]**. Mode A carries 0.8401 kg of leg static, 1.2281–1.3401 kg with the motor |
 > | §6 checks | six become four plus a hold-down check; brief §4.4 |
 > | §9 purchase list | linear-motion and extrusion sections **deleted**; §9 carries the note |
 > | §10 drop stations | **[DEFERRED — MODE B]** in full |
@@ -78,7 +78,7 @@ constraint the brief did not have. None is a matter of taste.
 | 2 | Passive drop limit **49 mm** | ~~**45 mm** planning limit; **46.3 mm** computed +24° gate crossing~~ **[DEFERRED — MODE B]** | The brief's own step-10 gate is φ_peak < +24°. That is reached at **46.3 mm**, so a 49 mm drop already breaks the gate; 45 mm is the round planning limit just inside it. +25° is at 50.7 mm, the +27° metal stop at **60.0 mm**. §3. **No drops in Mode A — but these are the numbers the two-leg build inherits.** |
 | 3 | Peak force **~53 N** | **54.8 N** at the stop, 51.4 N at +25° | Exact integration of the frozen spring curve. §3. **Stands in Mode A** — it is a property of the spring, not of the fixture. |
 | 4 | "Print the two GAUGE coupons" resolves C2 and C3 | Resolves **C3 only** | `GAUGE_Shoulder_Motor_Interface.stl` is **9.5 mm long** (y −6…+3.5) — the front face and the output interface, nothing else. It cannot see a 40-vs-44 mm motor. §2.4. **Stands.** |
-| 5 | Ballast adjustable for **1.2** / 1.645 / 2.0 kg | ~~**1.2 kg is impossible**~~ **no ballast — [DEFERRED, MODE A build]** | The bare slide is **1607.6 g**. 1.2 kg would need 408 g *removed* and there is nothing left to remove. §5. **Moot in Mode A: the stand carries 0.8382 kg of leg as a static hanging load, which is 3 % of the yaw it is sized by.** |
+| 5 | Ballast adjustable for **1.2** / 1.645 / 2.0 kg | ~~**1.2 kg is impossible**~~ **no ballast — [DEFERRED, MODE A build]** | The old Mode B snapshot had a **1607.6 g** bare slide. Regenerate that roll-up if Mode B resumes. §5. **Moot in Mode A: the stand carries 0.8401 kg of leg as a static hanging load, which is 3 % of the yaw it is sized by.** |
 | 6 | `Chassis_Shoulder_Plate_L` is "Ø96, 8 × M3 on Ø74 PCD" | 120 × 120 panel, Ø48 bore | It is the chassis **side panel**. The Ø74 PCD is the *motor's* pattern, already used by the motor's own screws, so the ~~carriage~~ **stand** bolts to the panel's **five existing frame-bolt holes** instead. §2.2. **Stands — and it is now the stand's primary interface.** |
 | 7 | (not mentioned) | Housing screws **M3 × 8**, not M3 × 10 | The inherited model uses M3 × 10 through a 5 mm panel into a **4.0 mm** thread → 5 mm of screw into 4 mm of hole. Bottoms out before it clamps — the same defect class as the two found in design record §7 [REV2]. §9. **Stands.** |
 | 8 | `Knee_Stop_Arc_L`, laser-cut 3 mm steel at 45 HRC | **Deleted.** The +27° stop becomes a **compression stack inside the spring cartridge**; a printed plate keeps the −8° stop and a +28° backup | No laser parts. And the steel plate only worked because its slot ends were *conformal*; every printed or bought convex substitute reverts to Hertzian line contact at 1.0–1.8 GPa. §8. **Stands. The −8° stop is live in Mode A; the +27° column is only needed before step 10.** |
@@ -146,13 +146,14 @@ cannot be held by dead weight (brief §3).
 | `RIG_Torque_Arm` | 200 mm lever, 12 mm PA-CF | **print** | **keep** — step 2 |
 | `RIG_Scale_Pedestal` | 2 × 2020 + shelf | buy | **keep in function**; substitute anything rigid at the right height |
 | `RIG_Floor_Plate` | 260 × 60 × 6 | **print** or 6 mm alu | **keep** |
-| `RIG_Cable_Post_A/B` | two service-loop anchors | **print** | **keep**, simpler routing |
+| `RIG_Cable_Post_A/B` | two service-loop anchors | **HOLD** | Post A currently overlaps the cable cover by 1610.44 mm³; Post B still targets deleted Mode-B structure. Neither is released. |
 | `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L` | §2.3 substitutes | collar **HOLD**; carrier **print** | The carrier remains; the collar geometry is not a valid pin retainer and must be redesigned from delivered-pin measurements. |
 
-Reused unchanged: `Proximal_Link_L`, `Wheel_Rim_L`, `Wheel_Tyre_L`,
+Reused unchanged: `Proximal_Link_L`, `Wheel_Tyre_L`,
 `Knee_Encoder_Bracket_L`, `Chassis_Shoulder_Plate_L`, the knee bearings, the
-cartridge and the spring. Reused **modified**: `Distal_Link_L` (§4). **All of these
-are unaffected by the Mode A cut** — every one is a robot part.
+cartridge and the spring. Reused **modified**: `Distal_Link_L` (§4) and, as of
+2026-09-03, `Wheel_Rim_L` (six owned-M4 insert-tip reliefs). **All of these are
+unaffected by the Mode A cut** — every one is a robot part.
 
 ---
 
@@ -194,10 +195,10 @@ Verified in the model: all five carriage insert bores are concentric with the
 panel holes, all eight block screws are concentric with the MGN12H taps, and both
 mating faces are coincident to **0.000 mm**.
 
-> **[CORRECTED 2026-09-02]** The active stand now has five Ø4.0 × 6.0 M3
-> pockets. An isolated Fusion build also verified the deferred carriage's five
-> Ø4.0 × 6.0 M3 and four Ø5.6 × 7.2 M4 pockets. Physical installation remains
-> gated by the relevant same-profile coupon.
+> **[UPDATED 2026-09-03]** The active stand has five Ø4.0 × 6.0 M3 pockets.
+> The deferred carriage has five Ø4.0 × 6.0 M3 and four full-depth provisional
+> Ø5.1 M4 receivers for the owner-held M4 × 8 inserts. Physical installation
+> remains gated by the relevant same-profile coupon.
 
 The four Ø88 cover positions are now used from the **outboard** face: M3 × 10
 screws pass through Ø3.4 clearance holes in the removable cover into the four
@@ -422,16 +423,19 @@ argues against it; the rig simply cannot have it without a machine shop.
 >
 > | Mode A | kg | N |
 > |---|---:|---:|
-> | one leg: thigh + shank + wheel | 0.8382 | 8.22 |
-> | + GIM6010-8 at 388 g (C4 optimistic) | 1.2262 | 12.03 |
-> | + GIM6010-8 at 500 g (C4 pessimistic) | 1.3382 | 13.12 |
+> | one leg: thigh + shank + wheel | 0.8401 | 8.24 |
+> | + GIM6010-8 at 388 g (C4 optimistic) | 1.2281 | 12.05 |
+> | + GIM6010-8 at 500 g (C4 pessimistic) | 1.3401 | 13.15 |
 >
 > That is **3 % of the 11.00 N·m yaw** the stand is actually sized by (§2.3), which
 > is why **C4 stops being a rig-design risk in Mode A** — the 112 g spread changes
 > nothing structural. Weigh the motors anyway; the two-leg mass budget still turns
 > on it. Source: `rig_calc.mode_a_stand()`.
 >
-> The per-part masses in the table below remain the authoritative part weights.
+> The deferred table below is a Mode B planning snapshot, not the current mass
+> authority. The 2026-09-03 receiver redesign changed several printed parts;
+> current complete-robot mass properties are in
+> `beni_prototype1_design_record.md` §14 and `sim/beni_inertia.json`.
 
 Measured off the built assembly, materials assigned, **not estimated**. The model
 carries the pessimistic C4 figure of 500 g for the GIM6010-8.
@@ -442,25 +446,24 @@ carries the pessimistic C4 figure of 500 g for the GIM6010-8.
 | REF_GIM4305-10 wheel motor | 250.0 |
 | 2 × MGN12H block | 108.0 |
 | `RIG_Carriage` | 103.7 |
-| `Wheel_Tyre_L` 80.1 · `Wheel_Rim_L` 77.2 | 157.3 |
+| `Wheel_Tyre_L` 80.052 · `Wheel_Rim_L` 77.568 | 157.620 |
 | `Proximal_Link_L` 72.5 · `Distal_Link_L` 54.8 | 127.3 |
-| `Shoulder_Output_Hub_L` | 58.5 |
-| `Chassis_Shoulder_Plate_L` | 46.3 |
-| `Wheel_Hub_L` 35.6 · knee + cartridge + fasteners | ~232.8 |
+| `Shoulder_Output_Hub_L` | 56.790 |
+| `Chassis_Shoulder_Plate_L` | 46.896 |
+| `Wheel_Hub_L` 34.445 · knee + cartridge + fasteners | ~231.6 |
 | 2 × `RIG_Ballast_Pot` shell (empty) | 31.8 |
 | `RIG_Knee_Stop_Plate_L` 2.9 · `HW_WasherStack_M5` 7.3 · TPU tube 1.1 | 11.3 |
 | **Bare slide, empty pots, no mode pin** | **1607.6** |
 
 | | g |
 |---|---:|
-| Target, half of 3.2901 kg | 1645.1 |
-| **Shot to reach it, 500 g motor** | **+37.5** |
-| **Shot to reach it, 388 g motor** | **+149.5** |
+| Target | **1654.4 g from the current inertia JSON; recompute when Mode B resumes** |
+| **Shot to reach it, 500 g motor** | **Deferred — regenerate the Mode B assembly first** |
+| **Shot to reach it, 388 g motor** | **Deferred — regenerate the Mode B assembly first** |
 
-**It fits — but only just.** With a 500 g motor there is 38 g of headroom; the
-brief's warning that the rig might exceed 1.645 kg with zero ballast was very
-nearly right. Deleting the steel arc stop gave back 19 g, which is most of what
-the printed pots cost.
+**Historical Mode B conclusion:** the old snapshot fit only just. Its 37.5 g
+and 149.5 g ballast values are not release values after the 2026-09-03 receiver
+redesign. Regenerate the deferred assembly before using either number.
 
 **The 1.2 kg run in the brief is not achievable.** The bare slide is 1607.6 g and
 there is nothing left to remove. Runs of 1.645 and 2.0 kg are.
@@ -472,15 +475,14 @@ there is nothing left to remove. Runs of 1.645 and 2.0 kg are.
 | Sprung — carriage, motor, panel, hub, thigh | **1051.1** | 65.4 |
 | Unsprung — shank, wheel motor, wheel | **556.5** | **34.6** |
 
-**The sprung mass is the number that matters.** The real robot's per-leg sprung
-mass is (3290.1 − 2 × 618.4) / 2 = **1026.7 g**; the rig sits at 1051.1 g with
-empty pots, 2.4 % high, and lands on it once the shot goes in the pots (which are
-above the spring). The match is structural rather than lucky: the leg and the
-target total come from the same frozen mass roll-up. That is why the bounce-mode
-prediction in §3.1 transfers to the robot.
+**The sprung mass is the number that matters.** In the current inertia JSON the
+robot's shank + wheel mass is **617.650 g per side**, so its per-leg sprung mass
+is `(3308.880 − 2 × 617.650) / 2 = 1036.8 g`. The deferred rig split above is a
+historical Mode B snapshot and must be regenerated before its matching error or
+ballast is used. The comparison still comes from the same Fusion mass roll-up.
 
-(`sim/beni_inertia.json` splits shank + wheel at 618.4 g; Fusion's
-classification puts 556.5 g below the spring. The 62 g difference is knee
+(`sim/beni_inertia.json` now splits shank + wheel at 617.650 g; the historical
+rig classification put 556.5 g below the spring. The roughly 61 g difference is knee
 hardware that the URDF assigns to the shank link and the rig assigns to the
 proximal side. Use 556.5 g for the rig's own dynamics.)
 
@@ -494,13 +496,14 @@ which is **≈344 g of steel shot** at a realistic 4.7 g/cm³ packed density.
 Fill with whatever dense granulate is to hand — steel shot, airgun BBs, a jar of
 M4 nuts, lead-free shot — and set the mass on a kitchen scale. That gives about
 **1 g of granularity** instead of the 32.8 g steps a cut steel plate gave, which
-matters because the trim needed is only 36.6 g.
+which mattered because the historical snapshot's smallest trim was only about
+38 g.
 
 The pots span |X| ≤ 37.9, so they pass between the column (X ≤ −50) and the index
 post (X ≥ 40) and can run inboard past the rail plane to y = 4 without fouling
 anything, including the motor's Ø57 driver cover (they start at r = 40).
 
-| Run | Fill needed | |
+| Historical Mode B run | Old fill result — **do not use without regeneration** | |
 |---|---:|---|
 | **1.645 kg, 500 g motor** | **+37.5 g** | ~8 cm³, a spoonful |
 | 1.645 kg, 388 g motor | +149.5 g | 32 cm³ |
@@ -514,7 +517,17 @@ it reduces the overhang moment rather than increasing it.
 
 ## 6. The §4.4 checks
 
-All six run from `rig_lib.checks_44()`.
+The current Mode-A suite runs eight checks from `rig_lib.checks_44()`.
+
+> **Current rerun, 2026-09-03.** Checks 1, 4, 5, 6, 7 and the new threaded-
+> receiver check 8 pass. Check 2 fails at all 17 sampled angles because the
+> fixed `RIG_Cable_Post_A` overlaps `Shoulder_Cable_Cover_L` by 1610.44 mm³.
+> Check 3 additionally reports the already-exposed rigid-floor contradiction:
+> datuming the floor to touch at the −8° longest-leg pose means shoulder
+> rotation can only lift the wheel, while raising the floor to maintain contact
+> pre-compresses the knee. These failures predate and are independent of the
+> owned-insert redesign; the detached, supported shoulder/link dry fit does not
+> use either cable post or floor.
 
 > **Mode A (2026-08-17).** These six checks were run and passed against the
 > two-mode assembly and stay on the record. For the Mode A stand, brief §4.4 is
@@ -533,7 +546,7 @@ All six run from `rig_lib.checks_44()`.
 > `rig_lib.check3_mode_b_travel()` and the `slide_to()` harness it uses have no
 > Mode A equivalent and are **[DEFERRED]**.
 
-| # | Check | Result |
+| # | Legacy Mode-B check | Recorded result |
 |---|---|---|
 | 1 | Knee sweep −8 → +27 reproduces guide §4 | **PASS** — worst deviation **0.043 mm**; +25° gives 46.08 vertical / 23.99 fore-aft against 46.1 / 24.0 |
 | 2 | Shoulder ±120°, service loop clear of rail, column, carriage, wheel | **PASS** — 17 angles at 15° steps, **zero** clashes |
@@ -566,12 +579,18 @@ Y bands are disjoint (arm 59.5…71.5, column 1…21). Its maximum radius is
 intended bearing contact — and staying within ±8° of horizontal also keeps the
 cos(α) error on the 200 mm arm under 1 %.
 
-### 6.1 Interference: one clash, and it is intentional
+### 6.1 Interference: one fixture clash and one active design clash
 
 `RIG_Torque_Arm ↔ Proximal_Link_L`, 14 635 mm³. **The torque arm replaces the
 proximal link** on the hub's 6 × M4 Ø44 PCD — step 2 runs with the leg off. It
 and `RIG_Scale_Pedestal` are hidden in the assembled state and excluded from the
 sweeps as step-2 fixtures.
+
+`RIG_Cable_Post_A ↔ Shoulder_Cable_Cover_L`, **1610.44 mm³**, is not an
+artifact. The current post spans the same radial/y volume as the redesigned
+serviceable cover, so Post A is held from print until its cable-anchor function
+is rerouted. This does not block a detached shoulder/link dry fit, but it does
+block claiming the complete wired Mode-A article is assembly-released.
 
 > **Re-measured 2026-08-17 on the Mode A assembly.** Still one real clash, still
 > 14 634.62 mm³, still that pair — **but only after fixing three things this
@@ -697,8 +716,8 @@ minimal cooling · dried filament**, per `beni_rig_no_machining.md` §1.
 | `RIG_Cable_Post_B` | 9.4 | 10.8 | flat |
 | `RIG_Knee_Collar_L` | 0.3 | 0.3 | **UNRELEASED — current geometry does not retain the pin; do not print** |
 | `RIG_Knee_Magnet_Carrier_L` | 0.7 | 0.8 | bore axis vertical — this holds the encoder TIR |
-| `Shoulder_Output_Hub_L` | 20.8 | 58.5 | **flange flat on the bed**, so the dowel holes shear across layers |
-| `Wheel_Hub_L` | 12.7 | 35.6 | flat, register face up |
+| `Shoulder_Output_Hub_L` | 20.210 | 56.790 | **flange flat on the bed**, so the dowel holes shear across layers |
+| `Wheel_Hub_L` | 12.258 | 34.445 | flat, register face up |
 | `Cart_Upper_Eye_L` / `Cart_Lower_Eye_L` | 5.3 / 6.0 | 14.8 / 16.9 | **pivot bore axis vertical** |
 | `RIG_Knee_Stop_Plate_L` | 2.5 | 2.9 | flat on the bed |
 | `RIG_Knee_Bumper_Tube_L` | 0.9 | 1.1 | **TPU 95A**, bore axis vertical |
@@ -892,9 +911,9 @@ right height.
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
 | M3 × 16 SHCS, cable post A + panel + motor | 2 | replaces two of the eight above |
 | Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
-| PSM Sonic-Lok `SL-B-M4-5.8` | 6 | corrected shoulder-hub root; Ø5.6 × 7.2 blind pocket and M4 × 10 screw. The already-printed legacy hub must be reprinted. |
-| PSM Sonic-Lok `SL-B-M4-4.8` | 6 | corrected wheel hub; Ø5.6 through receiver and M4 × 8 rim screw. Not present in the owner's generic assortments. |
-| PSM Sonic-Lok `SL-B-M4-5.8` | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Source pocket verified; re-coupon when Mode B returns. |
+| Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; full-depth provisional Ø5.1 receiver and M4 × 10 screw. Reprint the legacy hub only after the physical bore ladder passes. |
+| Owner-held Kadriick M4 × 8 | 6 | wheel hub; 6.0 mm embedded, 2.0 mm projecting into the rim's Ø6.0 × 2.2 relief, and M4 × 8 rim screw. |
+| Owner-held Kadriick M4 × 8 | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Full-depth provisional receiver is in source; promote the coupon result when Mode B returns. |
 | M4 threaded stud, 30 mm | ~~4~~ | ballast. **[DEFERRED — MODE B]** |
 | **Ø4 × 10 hardened dowel pin** | 3 | the output hub's register. Not optional |
 | **Ø10 h6 hardened ground dowel, 35 mm** | 1 | knee axle, §4 |

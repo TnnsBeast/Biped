@@ -57,9 +57,11 @@ laser cutting.
 
 ## Threaded interfaces in printed parts
 
-**Audit status 2026-09-02: the receiver redesign and Fusion B-Rep audit are
-complete. Do not install an insert until its row's physical coupon/procurement
-gate is satisfied.** This is the canonical insert map. The
+**Audit status 2026-09-03: the receiver envelopes have been redesigned around
+the owner's photographed inserts and the Fusion B-Rep audit is clean. The M4
+receiver diameter remains physical-coupon-gated; do not print an M4 production
+part until the winning coupon station has been fed back into both Fusion
+documents.** This is the canonical insert map. The
 owner's received assortments are indexed at
 [`evidence/inserts/2026-09-02_received/`](evidence/inserts/2026-09-02_received/).
 The same information is shown visually in the
@@ -68,26 +70,28 @@ The same information is shown visually in the
 The M3 design family is the owner-reported Voron-style insert. The existing
 project coupon and valid part pockets are Ø4.0 × 5.0 mm; the exact AliExpress
 order variant still needs to be recorded and the real insert must pass the ABS
-coupon before installation. For the specified PSM Sonic-Lok SL M4 family, the
-[manufacturer table](https://psmcelada.it/?dl=5346) gives a **Ø5.6 mm
-recommended hole** (−0.00/+0.10 mm), a 2.1 mm minimum wall, and short M4
-lengths including 4.8 and 5.8 mm. Its blind-hole rule is insert length plus two
-thread pitches. An insert label or outside diameter is not itself a
-printed-bore prescription.
+coupon before installation. The mixed Kadriick case contains 30 × M4 × 8 and
+25 × M4 × 10 inserts. Its label gives M4 thread pitch 0.7 mm, `d1=5.5 mm` and
+`d2=5.0 mm`, but it does not unambiguously define the printed-hole diameter.
+The new same-profile ABS ladder therefore tests Ø4.9/5.0/5.1/5.2/5.3 through
+bores. Ø5.1 is only the scripted centre candidate until that physical test
+selects a winner.
 
 | Printed thread destination | Qty, active ABS single leg | Insert / receiving feature | Current design status |
 |---|---:|---|---|
 | `Chassis_Shoulder_Plate_L`, cable-cover joint | 4 | Voron-style M3; Ø4.0 through the 5.0 mm plate | **READY / COUPON-GATED.** The removable cover now has Ø3.4 clearance holes and four M3 × 10 screws enter from its accessible outboard face. They engage 3.5 mm and stop 1.5 mm before the inboard plate face. |
 | `Proximal_Link_L` arm-B boss | 5 | Voron-style M3; Ø4.0 × 5.0 blind pocket (3 stop-plate + 2 encoder-bracket) | **READY in the printed Ø19.10 link.** Do not reprint merely for the Ø19.15 bearing preference. |
 | `RIG_Stand` panel interface | 5 | Voron-style M3; Ø4.0 × 6.0 blind pocket, 5.0 mm insert, 1.0 mm insertion space, 6.0 mm printed floor | **READY / COUPON-GATED.** Fusion verified all five receivers and zero stand interference; use the new print-oriented ABS file. |
-| `Shoulder_Output_Hub_L` root flange | 6 | **PSM Sonic-Lok `SL-B-M4-5.8`**; Ø5.6 × 7.2 blind pocket, 0.8 mm floor | **READY CAD / REPRINT REQUIRED / PROCUREMENT-GATED.** The corrected Ø4.15 ABS file retains the proven motor-pin fit. M4 × 10 link screws stop 1.0 mm before the pocket floor. The already-printed legacy hub remains motor-fit evidence only. |
-| `Wheel_Hub_L` rim joint | 6 | **PSM Sonic-Lok `SL-B-M4-4.8`**; Ø5.6 through the 6.0 mm hub | **READY CAD / PROCUREMENT-GATED.** Use M4 × 8 rim screws: 4.0 mm engagement through the 4.0 mm rim web and 2.0 mm clearance to the motor face. The owned M4 × 8/10 inserts are insert lengths, not substitutes. |
+| `Shoulder_Output_Hub_L` root flange | 6 | Owner-held Kadriick M4 × 8; provisional Ø5.1 through the full 8.0 mm flange | **ENVELOPE VERIFIED / REPRINT REQUIRED / PHYSICAL-COUPON HOLD.** The Ø4.15 ABS motor-pin fit remains selected. Install the insert from the outboard/link face with a depth stop. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The already-printed legacy hub remains motor-fit evidence only. |
+| `Wheel_Hub_L` rim joint | 6 | Owner-held Kadriick M4 × 8; provisional Ø5.1 through the 6.0 mm hub | **ENVELOPE VERIFIED / PHYSICAL-COUPON HOLD.** Install from the motor face: 6.0 mm embeds and 2.0 mm projects outboard. `Wheel_Rim_L` now has six coaxial Ø6.0 × 2.2 reliefs and a Ø38 web opening that leaves a 1.0 mm ligament to them. M4 × 8 rim screws engage 6.0 mm and stop 2.0 mm before the insert's motor-side end. Fusion measures 0.25 mm radial and 0.20 mm axial relief clearance from the labelled insert envelope. |
 
 The active ABS article consumes **14 M3 inserts** before spares: 4 shoulder
-plate + 5 proximal-link boss + 5 stand. It also consumes **6 ×
-`SL-B-M4-5.8`** for the shoulder and **6 × `SL-B-M4-4.8`** for the wheel. The
-owned generic M4 × 8/10 inserts are too long; buy and coupon the specified
-short families before installing either M4 joint. The released ABS coupon is
+plate + 5 proximal-link boss + 5 stand. It also consumes **12 of the 30 owned
+M4 × 8 inserts**: six shoulder and six wheel. M4 × 10 was rejected because it
+would add 2.0 mm more projection/relief without improving either joint; changing
+these torque joints to M3 was rejected because it would reduce the specified
+fastener size and mismatch the existing M4 clearance patterns. The released
+ABS coupon is
 [`first_article_stl/insert_fit/`](first_article_stl/insert_fit/).
 
 Future/deferred interfaces remain visible rather than silently inheriting the
@@ -98,7 +102,7 @@ active quantities:
 | `Chassis_Frame`, 5 per side | two-leg build | **READY IN SOURCE / DEFERRED.** Ten Ø4.0 × 6.0 blind M3 pockets sit in local Ø10 × 6.5 bosses. Fusion verified all ten, a 0.5 mm floor, and the local electronics-tray relief. |
 | Optional proximal-link satellite-PCB boss, 2 × M2 per leg | two-leg build / electronics CR-4 | **OPEN DESIGN.** The boss does not exist yet and may be deleted if the final motor-controller architecture reads the knee encoder directly. If retained, select one of the owned M2 insert lengths by coupon and model its pocket before the boss is released. |
 | `RIG_Carriage`, 5 × M3 | **[DEFERRED — MODE B]** | **READY IN SOURCE / DEFERRED.** Isolated Fusion build verified five Ø4.0 × 6.0 blind pockets. |
-| `RIG_Carriage`, 4 × M4 ballast studs | **[DEFERRED — MODE B]** | **READY IN SOURCE / DEFERRED.** Isolated Fusion build verified four Ø5.6 × 7.2 blind pockets in the 8 mm plate, leaving a 0.8 mm floor. Re-coupon the selected insert when Mode B returns. |
+| `RIG_Carriage`, 4 × M4 ballast studs | **[DEFERRED — MODE B]** | **ENVELOPE READY IN SOURCE / DEFERRED.** Four provisional Ø5.1 through receivers take the same owned M4 × 8 insert across the full 8 mm carriage. Promote the physical coupon result when Mode B returns. |
 | `RIG_Knee_Collar_L` | active knee | **UNRELEASED RETENTION DESIGN — DO NOT PRINT.** The current 3 mm collar does not overlap the Ø10 pin and its Ø2.5 hole is axial, not a working radial set-screw receiver. A clamp collar also cannot be selected from CAD alone because the 35 mm pin allocation leaves no proven free shaft. Resolve after measuring the delivered eBay pin and the real bearing/link stack. This is not an insert interface. |
 
 Do **not** add inserts to clearance parts. `Shoulder_Cable_Cover_L` is now a
@@ -108,7 +112,9 @@ clearance part; its receiving inserts are in `Chassis_Shoulder_Plate_L`.
 `Distal_Link_L` and `Wheel_Hub_L` fasten to the GIM4305's metal threads.
 `Knee_Encoder_Bracket_L`, `RIG_Knee_Stop_Plate_L`, and `Wheel_Rim_L` carry
 clearance holes; their receiving inserts belong in the proximal link or wheel
-hub as identified above. No active printed joint calls for an M2 or M5 insert.
+hub as identified above. The rim's six larger recesses clear projecting insert
+ends and are not receivers. No active printed joint calls for an M2 or M5
+insert.
 
 ## The one place this cost real margin
 

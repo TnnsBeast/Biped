@@ -116,8 +116,8 @@ to a printed stand.
 | Yaw at proof screen | **25.00 N·m** | Y | screening load |
 
 **The stand's job is torsional, not vertical.** The static hanging load is
-irrelevant by comparison: 0.8382 kg of leg (8.22 N), or 1.2262 kg with a 388 g
-GIM6010-8 and 1.3382 kg with a 500 g one — about 3 % of the yaw it is sized by. This
+irrelevant by comparison: 0.8401 kg of leg (8.24 N), or 1.2281 kg with a 388 g
+GIM6010-8 and 1.3401 kg with a 500 g one — about 3 % of the yaw it is sized by. This
 is also why **conflict C4 (motor mass 388/150 vs 500/250 g) decides nothing
 structural in Mode A**; weigh the motors anyway for the two-leg budget.
 
