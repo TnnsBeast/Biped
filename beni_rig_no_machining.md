@@ -41,10 +41,11 @@ of interlayer strength, and this is non-negotiable for structural parts.
 
 **`Shoulder_Output_Hub_L` — the flange is fine, the register is not.**
 
-> **[HOLD 2026-09-02]** This calculation establishes the intended joint, not
-> the current printed geometry. The released hub still has six Ø3.3 × 7 legacy
-> tapped-metal bores and must be rebuilt with verified M4 insert pockets before
-> the proximal link is attached.
+> **[UPDATED 2026-09-04]** The legacy Ø3.3 hub must be replaced by the new
+> ABS hub with owner-passed Ø5.3 receivers for M4 × 8 inserts. This historical
+> load arithmetic is not an ABS strength release. The six-screw proximal joint
+> additionally remains held for screw-loading access; current release status
+> is in [ASSEMBLY_VERIFICATION.md](ASSEMBLY_VERIFICATION.md).
 
 ```
 25 N·m proof / 6 × M4 on Ø44 PCD  =  189 N per screw

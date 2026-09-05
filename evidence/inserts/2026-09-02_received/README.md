@@ -44,8 +44,8 @@ The case label lists:
   6.0 mm in its hub and lets 2.0 mm project into new rim reliefs. M4 × 10 adds
   unnecessary projection and was not selected.
 - The label does not unambiguously state a printed-hole prescription. The
-  production receiver remains on hold until the same-profile ABS
-  Ø4.9/5.0/5.1/5.2/5.3 ladder selects the smallest no-split, no-spin fit.
+  owner subsequently selected Ø5.3 from the same-profile ABS ladder and
+  confirmed all checks passed; see the [2026-09-04 result](../2026-09-04_m4_coupon_pass/).
 - The canonical part-by-part map and current holds are in
   [`MANUFACTURING_CONSTRAINTS.md`](../../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 

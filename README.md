@@ -37,51 +37,45 @@ acceptance is governed by the specified 30.68 mm solid height and physical test.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-This automatically maintained section keeps the next released print easy to
-find while the project iterates.
+**Print one ABS shoulder hub now:** [direct raw-GitHub STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl).
 
-**Print one ABS fit coupon now:** [direct raw-GitHub download — owned M4×8
-insert ladder](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/insert_fit/ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl).
-Quantity 1, using the same tuned enclosed ABS profile planned for the leg. The
-file is already oriented on its 60 × 16 mm face with all five bores vertical:
-do not rotate, scale, apply hole compensation, or add supports. Use one insert
-from the **M4 × 8** compartment of the Kadriick mixed case at each attempted
-station. The Ø2 marker identifies Ø4.9; moving away from it gives
-Ø4.9/5.0/5.1/5.2/5.3. Accept the smallest station that heat-sets square without
-splitting/bulging and resists firm hand spin and pull after cooling. Report the
-winning station before printing a hub.
+This automatically maintained section links the next verified print. The
+owner's Ø5.3 M4 × 8 ABS ladder passed on 2026-09-04; Fusion incorporated the
+result in both documents. This hub retains the proven Ø4.15 motor-pin bores.
 
-**No larger M4 production part is released yet.** Ø5.1 is the scripted centre
-candidate only. After the physical result is fed back through Fusion, the only
-mandatory reprint from the work completed so far will be the Ø4.15 shoulder
-hub. The already-printed hub remains motor-fit evidence but its legacy link
-holes cannot receive inserts. The redesigned shoulder uses six owned M4 × 8
-inserts through its full 8 mm flange. The wheel uses six more, with 6 mm
-embedded in the hub and 2 mm housed by new near-circular rim reliefs. M4 × 10
-is not needed.
+**Quantity 1, ABS.** Import the supplied orientation unchanged: broad Ø56
+outboard flange on the bed, all critical bores vertical. No rotation, scaling,
+hole compensation or supports. Use the same tuned enclosed ABS profile as the
+passing coupon: 0.20 mm layers, 4 walls, 5 top/bottom layers, 30% infill; use a
+brim if that profile needs one. The two Ø11 blind-relief ceilings and motor
+counterbore shoulders bridge; check for loose/drooping strands before assembly.
 
-**Keep the face-flat Ø19.10 ABS proximal link and both installed bearings.** Do
-not reprint it. Ø19.15 remains the preference only if a future ABS replacement
-is needed. After the coupon-selected hub is released and its inserts are fitted,
-the supported, unplugged link may be dry-fitted to the **GIM6010 shoulder motor
-only** with six M4 × 10 screws. The illustrated sequence is in the [picture
-assembly guide](docs/assembly/shoulder_to_proximal_link.md).
+**Acceptance:** while the hub is detached, install six owned **M4 × 8 inserts**
+from the link face with a depth stop, flush at both ends, and let them cool.
+Then repeat the unplugged GIM6010 motor fit: plate first, hub second; all three
+pins enter with light finger pressure and all six M3 output screws start
+freely. No screw pull-down. Use **M3 × 8** for the eight housing screws and
+**M3 × 10** for the six output-hub screws.
 
-`RIG_Stand`, `Wheel_Hub_L`, `Wheel_Rim_L`,
-`Chassis_Shoulder_Plate_L`, and `Shoulder_Cable_Cover_L` were not reported
-printed, so they will be new prints—not reprints. The M4 hub/rim candidates are
-currently named `PROVISIONAL_DO_NOT_PRINT`. Their geometry and exact
-insert/fastener map are recorded in
-[`first_article_stl/heatset_receiver_release_manifest.json`](first_article_stl/heatset_receiver_release_manifest.json)
-and [the printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
+**Keep the Ø19.10 proximal link and both bearings.** The six-screw link joint
+remains on an assembly-path hold: two M4 heads collide on a straight approach
+through the opposite arm. Check whether all six screws can be loaded into the
+detached physical link without force before another link print is considered.
+See the [shoulder guide](docs/assembly/shoulder_to_proximal_link.md).
 
-**Next release gate:** do not print the distal link yet. Candidate eBay knee
-pins are ordered (believed to be a set of three; quantity, exact specification
-and delivery remain to be verified). A real Ø10 h6/h5 × 35 mm steel pin must
-pass the fit coupon, and the corrected face-flat distal link still needs its
-final Fusion support/bridge and assembly-path audit. A printed ABS pin is only a
-supported hand-alignment placeholder—not a release gauge or powered-test pin.
-`RIG_Knee_Collar_L` is also unreleased: its current geometry does not retain the
-pin and must wait for measurements of the delivered hardware and bearing stack.
-PA-CF is deferred until the later two-leg structural build.
+Other bed-ready ABS files, quantity 1 each if needed: [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl),
+[cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl),
+[wheel hub](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl), and
+[stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl).
+Use their unchanged supplied orientations and no supports; the stand requires
+at least 300 mm bed length. Confirm the exact M3 insert coupon before heat
+installation. Part-specific acceptance and limitations are in the
+[receiver map](docs/assembly/heatset_receiver_map.md).
+
+**Still held:** wheel rim (unsupported ledges), distal link (real steel-pin fit
+and printability), knee collar (retention), and the complete wired fixture
+(cable-post clash/floor disposition). The wheel hub is available for detached
+motor fit while the rim is held. The next full-leg phase remains ABS,
+wheel-clear and current-limited under self-weight only after all gates close;
+no spring preload or structural loading. PA-CF is deferred.
 <!-- PRINT_QUEUE_END -->

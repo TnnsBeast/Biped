@@ -41,24 +41,25 @@ not released PA-CF dimensions.
 The Ø4.15 coupon passed on 2026-08-22, so stop there; the larger two trials are
 not needed. Batch 2 is the unloaded ABS shoulder assembly in
 [`assembly_dry_fit/`](assembly_dry_fit/). The original hub print proved the
-motor interface but predated heat-set receiver design. Its replacement will
-retain Ø4.15 and use the owner's M4 × 8 inserts, but remains on hold until the
-new M4 receiver ladder selects the printed bore. The same folder contains
+motor interface but predated heat-set receiver design. Its replacement now
+retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. It is ready for
+detached insert installation and motor fit; link screw loading remains held. The same folder contains
 bed-ready shoulder-plate and cable-cover articles.
 
-## 2026-09-03 owned-insert redesign
+## 2026-09-04 owned-insert release
 
-[`heatset_receiver_release_manifest.json`](heatset_receiver_release_manifest.json)
-is the machine-readable geometry record for the shoulder hub, wheel hub/rim,
-shoulder plate, cable cover, and Mode A stand. Fusion B-Rep checks verify the
-candidate receiver spans and the wheel-rim service relief. From the owner's
-reported progress, **only the shoulder hub will be a required reprint**; retain
-the printed Ø19.10 proximal link and both installed bearings.
+The owner confirmed the largest M4 × 8 ladder station, Ø5.3, passed all
+installation and cooled-retention checks. Fusion incorporated it in both
+saved documents. The two hubs, shoulder plate, cable cover and stand have
+bed-ready ABS files in the
+[receiver manifest](heatset_receiver_release_manifest.json).
 
-Print only the Fusion-generated
-[`insert_fit/`](insert_fit/) Ø4.9/5.0/5.1/5.2/5.3 M4 × 8 ladder now. The larger
-M4 files are explicitly named `PROVISIONAL_DO_NOT_PRINT`; replace them with
-final files after the physical result is fed back through Fusion.
+The next print is the corrected shoulder hub; use the final
+[README print queue](../README.md#current-print--convenience-link). Keep the
+printed Ø19.10 proximal link and bearings. Two root screw heads have a blocked
+straight loading path, so the six-screw assembly waits for a demonstrated
+alternative. The wheel rim also remains held for unsupported ledges in its
+print orientation. Evidence: [2026-09-04 checks](../evidence/inserts/2026-09-04_m4_coupon_pass/).
 
 ## Slicer setup
 

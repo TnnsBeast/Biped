@@ -52,10 +52,40 @@ M4 × 8 wheel inserts install from the detached hub's motor face, pass through
 the 6.0 mm hub, and finish with 2.0 mm projecting outboard. Fusion B-Rep checks
 verify that all six projecting Ø5.5 label envelopes enter straight coaxial
 Ø6.0 × 2.2 reliefs in `Wheel_Rim_L`; after the six screws are removed, the rim
-services straight outboard along the same open paths. The production receiver
-diameter is still blocked on the ABS ladder, so this is envelope/path
-verification—not a print release.
+services straight outboard along the same open paths. The owner-selected
+Ø5.3 receiver was promoted through Fusion on 2026-09-04. The hub is an ABS
+print release; the rim remains held for the separate printability finding below.
 
 The same rerun found a separate `RIG_Cable_Post_A`/cable-cover overlap. Post A
 is not part of the detached shoulder/link dry fit, but it remains `BLOCKED` for
 the complete wired Mode-A article until rerouted.
+
+## 2026-09-04 release checks and new blockers
+
+[Fusion B-Rep path and print audit](evidence/inserts/2026-09-04_m4_coupon_pass/fusion_paths_and_print_audit.json)
+checks each axial path from +40 mm to the final pose in 0.5 mm steps. The
+bare-rotor plate, Ø4.15 ABS hub, cable cover, proximal-link body, wheel hub and
+rim body paths have zero intersections; reverse motion provides their removal
+path. The wheel’s six M4 screws also have clear insertion paths. The shoulder
+hub is released for detached insert installation and unplugged motor fit.
+
+**Proximal-link fastening remains BLOCKED.** Two M4 × 10 screw heads meet the
+link’s internal wall on a straight approach from outboard (combined maximum
+41.13735205928748 mm³ at +15.5 mm). A Ø3.5 driver envelope clears all six
+positions; that does not establish a path for the larger screw heads. Retain
+the printed link and bearings pending a detached screw-loading rehearsal.
+An alternate insertion angle is not yet verified. Do not force screws through
+the access holes or release the joint from final-pose clearance alone.
+
+**Wheel-rim printing remains BLOCKED.** With the broad web face on the bed,
+the annular underside at source y = 72 spans r = 30…44: a 14 mm unsupported
+inward ledge. The outer retaining flange also has an overhang. The former
+no-support claim is withdrawn. A printable solution must preserve the frozen
+stack and keep support off the tyre, insert reliefs and mating/service faces.
+
+The shoulder hub’s two Ø11 blind-relief ceilings and motor counterbore
+shoulders are controlled bridges. The wheel-hub counterbore shoulders and
+stand’s Ø4 blind-pocket roofs also bridge. Inspect their undersides on the
+first ABS articles; the bores remain vertical and no slicer support is allowed
+on their functional surfaces. The full wired/stand article is still gated by
+the cable-post clash, floor disposition, real knee pin and electronics checks.

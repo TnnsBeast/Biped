@@ -195,10 +195,11 @@ Verified in the model: all five carriage insert bores are concentric with the
 panel holes, all eight block screws are concentric with the MGN12H taps, and both
 mating faces are coincident to **0.000 mm**.
 
-> **[UPDATED 2026-09-03]** The active stand has five Ø4.0 × 6.0 M3 pockets.
-> The deferred carriage has five Ø4.0 × 6.0 M3 and four full-depth provisional
-> Ø5.1 M4 receivers for the owner-held M4 × 8 inserts. Physical installation
-> remains gated by the relevant same-profile coupon.
+> **[UPDATED 2026-09-04]** The active stand has five Ø4.0 × 6.0 M3 pockets.
+> The deferred carriage builder has five Ø4.0 × 6.0 M3 and four full-depth
+> Ø5.3 M4 receivers for the owner-held M4 × 8 inserts. The Ø5.3 ABS ladder
+> passed; rebuild/verify the deferred carriage when Mode B returns. M3
+> installation still needs its exact owned insert coupon.
 
 The four Ø88 cover positions are now used from the **outboard** face: M3 × 10
 screws pass through Ø3.4 clearance holes in the removable cover into the four
@@ -911,9 +912,9 @@ right height.
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
 | M3 × 16 SHCS, cable post A + panel + motor | 2 | replaces two of the eight above |
 | Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
-| Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; full-depth provisional Ø5.1 receiver and M4 × 10 screw. Reprint the legacy hub only after the physical bore ladder passes. |
+| Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; owner-passed Ø5.3 ABS receiver and M4 × 10 screw. Reprint the hub for detached inserts/motor fit; link screw loading remains held. |
 | Owner-held Kadriick M4 × 8 | 6 | wheel hub; 6.0 mm embedded, 2.0 mm projecting into the rim's Ø6.0 × 2.2 relief, and M4 × 8 rim screw. |
-| Owner-held Kadriick M4 × 8 | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Full-depth provisional receiver is in source; promote the coupon result when Mode B returns. |
+| Owner-held Kadriick M4 × 8 | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Full-depth Ø5.3 ABS receiver is in source; rebuild/verify in Fusion when Mode B returns. |
 | M4 threaded stud, 30 mm | ~~4~~ | ballast. **[DEFERRED — MODE B]** |
 | **Ø4 × 10 hardened dowel pin** | 3 | the output hub's register. Not optional |
 | **Ø10 h6 hardened ground dowel, 35 mm** | 1 | knee axle, §4 |

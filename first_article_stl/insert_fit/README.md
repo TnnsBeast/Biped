@@ -1,8 +1,14 @@
 # ABS M4 × 8 heat-set receiver ladder
 
-Print
+**Completed — owner PASS, 2026-09-04: nominal Ø5.3.** The owner confirmed
+square/flush installation without splitting or bulging and secure retention
+after cooling. [Physical result](../../evidence/inserts/2026-09-04_m4_coupon_pass/).
+Both Fusion documents now use this ABS diameter. The procedure below remains
+for reproduction and future material/profile changes.
+
+Coupon:
 [`ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl`](ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl)
-before either M4 hub. It is for the **M4 × 8** compartment in the owner's
+was used before releasing the M4 hubs. It is for the **M4 × 8** compartment in the owner's
 photographed Kadriick mixed kit. The case says 30 pieces and labels the M4
 family `d1=5.5 mm`, `d2=5.0 mm`; it does not unambiguously define the required
 printed-hole diameter.
@@ -18,7 +24,7 @@ vertical through bores are:
 
 1. Ø4.9 × 8.0
 2. Ø5.0 × 8.0
-3. Ø5.1 × 8.0 — scripted centre candidate, not yet released
+3. Ø5.1 × 8.0 — original centre candidate; Ø5.3 selected
 4. Ø5.2 × 8.0
 5. Ø5.3 × 8.0
 
@@ -36,11 +42,12 @@ Do not use screw torque to pull an insert into place. Record the winning
 station and photograph the result. If none passes, stop and revise the ladder
 rather than drilling, filing, scaling, or modifying a hub.
 
-That one diameter is then promoted through Fusion into:
+The selected Ø5.3 ABS diameter has been promoted through Fusion into:
 
 - six full-depth 8.0 mm shoulder-hub receivers;
 - six through receivers in the 6.0 mm wheel hub; and
-- four full-depth 8.0 mm deferred Mode-B carriage receivers.
+- the shared source for four full-depth 8.0 mm deferred Mode-B carriage
+  receivers; rebuild/verify that deferred component when Mode B returns.
 
 The wheel's complete insert length is accommodated by the mating rim: 6.0 mm
 embeds in the hub and 2.0 mm projects into a Ø6.0 × 2.2 relief. M4 × 10 was not

@@ -1,0 +1,18 @@
+{
+  "status": "OWNER PASS",
+  "reported_date_local": "2026-09-04",
+  "material": "ABS",
+  "insert_family": "owner-held Kadriick M4 x 8",
+  "insert_length_mm": 8.0,
+  "nominal_pocket_diameter_mm": 5.3,
+  "station": "largest of the released five-hole ladder",
+  "coupon": "first_article_stl/insert_fit/ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl",
+  "checks_confirmed_by_owner": [
+    "square and flush",
+    "no splitting or bulging",
+    "no spin with a finger-started M4 screw after cooling",
+    "resists a firm hand pull after cooling"
+  ],
+  "source": "Owner reported the largest hole worked, then answered: Yes, all those checks passed.",
+  "limitations": "Qualitative owner report; no new photograph or measured strength. ABS printer/profile result only; repeat critical coupons for PA-CF."
+}

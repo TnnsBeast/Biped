@@ -29,7 +29,7 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 >
 > | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
 > |---|---|---|
-> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. Both M4 hubs plus `Wheel_Rim_L`: owned-M4×8 coupon gate. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: current 1610.44 mm³ cable-cover clash. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
+> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the new first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: two screw-head loading paths blocked. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: current 1610.44 mm³ cable-cover clash. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -106,7 +106,7 @@ the two things below that were never about the slide:
   (−60, −18), (−60, 48), (−60, 62), (30, 48), (30, 62). Verified concentric in CAD;
   confirm on the print before installing inserts.
 - **The deferred source is corrected.** It has five Ø4.0 × 6.0 M3 pockets and
-  four full-depth provisional Ø5.1 M4 receivers for the owner-held M4 × 8
+  four full-depth source-updated Ø5.3 M4 receivers for the owner-held M4 × 8
   inserts. Do not print the carriage for Mode A; promote the physical coupon
   result when Mode B returns. The canonical
   disposition is in
@@ -267,8 +267,8 @@ committing to a second set.**
 
 | File | Was | Orientation | The thing that will bite |
 |---|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | **flange face flat on the bed** | **PROVISIONAL / PHYSICAL REPRINT AFTER COUPON:** use the future coupon-selected Ø4.15 ABS export, not this nominal check file. Six owner-held M4 × 8 inserts occupy the full 8.0 mm flange. The current Ø5.1 candidate is not released; PA-CF waits for the two-leg build. |
-| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **PROVISIONAL / COUPON-GATED:** six owner-held M4 × 8 inserts use provisional through receivers. Install from the motor face, leaving 2.0 mm in the mating rim relief. Use 6 × M4 × 8 rim screws for 6.0 mm engagement and 2.0 mm back clearance. Retain steel washers and the re-torque schedule because torque is carried by friction and preload in plastic creeps. |
+| `Shoulder_Output_Hub_L.stl` | 7075-T6 | flange face flat on the bed | **USE THE NEW ABS FIRST ARTICLE**, not this nominal coordinate file. The [print queue](../README.md#current-print--convenience-link) links the Ø4.15 motor-pin / Ø5.3 M4 receiver version. Detached insert installation and motor fit only while link screw loading is held. PA-CF remains deferred. |
+| `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **ABS FIRST ARTICLE READY:** use the new bed-ready Ø5.3 file in the [receiver map](../docs/assembly/heatset_receiver_map.md). Install M4 × 8 inserts from the detached motor face, with 2 mm projection. Rim printing remains held for unsupported ledges. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
 | `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new bed-ready ABS export. |

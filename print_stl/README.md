@@ -140,7 +140,7 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 ### 5. Wheel and covers — last, nothing depends on them
 | file | material | note |
 |---|---|---|
-| `Wheel_Rim_L.stl` | ABS now; PA-CF later | **PHYSICAL-COUPON HOLD.** The web face prints down and the drum up. This source mesh now has six Ø6.0 × 2.2 reliefs for owned M4 × 8 insert ends, but the bed-ready production file is not released until the hub-bore coupon passes. |
+| `Wheel_Rim_L.stl` | ABS now; PA-CF later | **PRINTABILITY HOLD, 2026-09-04.** The M4 Ø5.3 ABS coupon passed, but Fusion found a 14 mm unsupported internal ledge and an outer flange overhang in the web-down orientation. Do not print this mesh or the held bed-ready candidate. Resolve the overhangs while preserving the six Ø6.0 × 2.2 insert-tip reliefs and mating surfaces. |
 | `Wheel_Tyre_L.stl` | TPU 95A | Ø110 × 30; stretches onto the Ø96 rim seat |
 | `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. Its four M3 receivers are Ø4.0 through the 5 mm `Chassis_Shoulder_Plate_L`; use M3 × 10 screws from the accessible outboard face. Bed-ready files for both are in `first_article_stl/assembly_dry_fit/`. |
 | `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 clearance holes; the receiving inserts live in the proximal-link arm-B boss |

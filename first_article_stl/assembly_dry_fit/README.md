@@ -5,32 +5,26 @@ loose slip fit, but it seats easily with light fingertip pressure.  That is the
 selected compensation for this ABS printer/profile.  It does **not** change the
 nominal Fusion assembly or release a PA-CF structural part.
 
-## Current print decision — updated 2026-09-03
+## Current print decision — updated 2026-09-04
 
-The GIM4305 housing coupon has passed, the Ø19.10 proximal link is printed, and
-both real bearings are installed. Print only the
-[`owned-M4×8 receiver ladder`](../insert_fit/README.md) now. The production hub
-remains on hold until the winning diameter is fed back through Fusion. From the
-owner's reported progress, only one larger part will then need replacement:
+The owner confirmed the Ø5.3 M4 ladder station passed installation and cooled
+retention. The Fusion-verified replacement is
+[`ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl`](ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl). Print one in ABS for detached insert installation and an unplugged
+hub-to-motor fit. The old hub remains motor-fit evidence only.
 
-1. **Reprint the shoulder hub after the M4 coupon passes.** The final file will
-   keep the proven Ø4.15 motor-pin bores and add six full-depth receivers for
-   the owner's M4 × 8 inserts. Current M4 candidate filenames say
-   `PROVISIONAL_DO_NOT_PRINT` and are verification artifacts, not releases.
-2. **Keep the printed Ø19.10 proximal link and both bearings.** Do not reprint
-   merely to adopt the easier Ø19.15 future preference.
-3. If the shoulder plate and cable cover have not been printed, use the new
-   bed-ready
-   [`ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl`](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
-   and
-   [`ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl`](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl).
-   These are new prints, not reprints: the four Voron-style M3 inserts now live
-   in the plate, and the cover is a clearance part serviced from outboard.
+**Keep the existing Ø19.10 proximal link and both bearings.** The new full-path
+check found two M4 screw heads blocked on a straight approach through its
+internal wall. The link body seats and driver access is clear, but an alternate
+screw-loading path is not yet demonstrated. First rehearse loading all six
+M4 × 10 screws into the detached physical link without force. No replacement
+link is requested pending that result; the six-screw joint is not released.
 
-Use six inserts from the photographed **M4 × 8** compartment after the
-same-profile Ø4.9/5.0/5.1/5.2/5.3 ladder selects the production bore. M4 × 10
-was rejected because its extra length adds projection without useful
-engagement.
+The corrected [shoulder plate](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
+and [cable cover](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl)
+are available if needed. The plate owns four M3 inserts; the cover has clearance
+holes only. The [wheel hub](ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) is available for detached motor fit, but the rim has a separate
+printability hold. Exact quantities and insert installation directions are in
+the [receiver map](../../docs/assembly/heatset_receiver_map.md).
 
 Optional while the printer is running:
 [`../mode_a/RIG_Cable_Anchor_ModeA.stl`](../mode_a/RIG_Cable_Anchor_ModeA.stl),
@@ -69,10 +63,10 @@ parts. A brim is fine if this ABS profile normally needs one.
    four M3 × 10 screws from the exposed outboard face. The cover itself receives
    no inserts. Confirm each screw clamps before its tip reaches the plate's
    inboard face.
-5. After the six M4 × 8 inserts are flush in the new hub, support the link's
-   bearing end and finger-start six M4 × 10 screws through the root. The link
-   must sit flush without screw pull-down. See the
-   [picture guide](../../docs/assembly/shoulder_to_proximal_link.md).
+5. Keep the proximal link detached while the screw-loading hold is resolved.
+   Try placing all six M4 × 10 screws into their root counterbores without force;
+   a confirmed alternate loading sequence is needed before fastening the link.
+   Do not push a blocked head through the internal wall.
 
 Stop after this batch until the remaining gates close:
 
@@ -95,19 +89,21 @@ Stop after this batch until the remaining gates close:
 
 ## Verification
 
-Fusion MCP generated the corrected transient component from
-`Beni_SingleLegRig`, exported both traceability and bed-ready high-refinement
-STLs, discarded the temporary component, and reopened the saved rig clean.
-Exact B-Rep validation found one solid, three Ø4.15 pin faces on the
-manufacturer-derived Ø20.4 PCD, six provisional Ø5.1 insert bores spanning the
-full y = 51.5…59.5 flange, and the nominal 56 × 14 × 56 mm envelope.
-[`fusion_manifest.json`](fusion_manifest.json) records the Fusion result, and
-[`../heatset_receiver_release_manifest.json`](../heatset_receiver_release_manifest.json)
-records every corrected active receiver and print orientation.
+Fusion MCP promoted Ø5.3 receivers in both saved documents and exported the
+new ABS hub while preserving the manufacturer-derived motor datums. Its exact
+B-Rep has three Ø4.15 pin bores and six Ø5.3 receivers through the full 8 mm
+flange. The bed datum is the outboard flange. Two Ø11 blind-relief roofs and
+the motor-counterbore shoulders are controlled bridges; inspect their
+undersides and keep supports off all functional surfaces.
 
-![Fusion view of the provisional Ø4.15 ABS hub](00_fusion_abs_shoulder_hub_owned_m4x8_d5p10_provisional.png)
+The plate and new hub installation/removal paths have zero intersections in
+81 sampled poses each. The separate failed link screw-loading path and rim
+printability findings are retained as holds. Evidence:
+[2026-09-04 checks](../../evidence/inserts/2026-09-04_m4_coupon_pass/),
+[fusion_manifest.json](fusion_manifest.json), and
+[receiver manifest](../heatset_receiver_release_manifest.json).
 
-![Fusion view of the provisional hub on its controlled bed face](00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_PROVISIONAL_DO_NOT_PRINT_PRINT_ORIENTED.png)
+![Fusion view of the Ø5.3 ABS hub on its controlled bed face](00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.png)
 
 ---
 

@@ -1,0 +1,89 @@
+{
+  "verification_method": "Fusion MCP; Fusion-exported binary STL topology and bed-position checks",
+  "mesh_checks": [
+    {
+      "part": "Shoulder_Output_Hub_L",
+      "stl": "first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl",
+      "triangles": 5208,
+      "minimum_z_mm": 0.0,
+      "bbox_mm": [
+        55.98747,
+        55.99374,
+        14.0
+      ],
+      "non_two_face_edges": 0,
+      "degenerate_triangles": 0,
+      "sha256": "62301e1f8be2f9a7f3654423525ad5b532b1b59d5319558a7f1298f643496c17"
+    },
+    {
+      "part": "Wheel_Hub_L",
+      "stl": "first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl",
+      "triangles": 2724,
+      "minimum_z_mm": -0.0,
+      "bbox_mm": [
+        55.98747,
+        55.99373999999999,
+        6.0
+      ],
+      "non_two_face_edges": 0,
+      "degenerate_triangles": 0,
+      "sha256": "c5938b156ae47429fabdc4ea4d348663e97a52458e542b2f296801ca8a480617"
+    },
+    {
+      "part": "Chassis_Shoulder_Plate_L",
+      "stl": "first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl",
+      "triangles": 3518,
+      "minimum_z_mm": 0.0,
+      "bbox_mm": [
+        120.0,
+        120.0,
+        9.0
+      ],
+      "non_two_face_edges": 0,
+      "degenerate_triangles": 0,
+      "sha256": "8598e8298e31155dd73140c282d4c22800fb06e84882908ec5c487948665fb61"
+    },
+    {
+      "part": "Shoulder_Cable_Cover_L",
+      "stl": "first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl",
+      "triangles": 1740,
+      "minimum_z_mm": -0.0,
+      "bbox_mm": [
+        93.97897,
+        93.98948,
+        6.5
+      ],
+      "non_two_face_edges": 0,
+      "degenerate_triangles": 0,
+      "sha256": "d577e92e577e96442d0313872086443b2beb0e509ccd5731287c3a5a5491972b"
+    },
+    {
+      "part": "RIG_Stand",
+      "stl": "first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl",
+      "triangles": 2372,
+      "minimum_z_mm": -0.0,
+      "bbox_mm": [
+        200.0,
+        299.31189,
+        32.0
+      ],
+      "non_two_face_edges": 0,
+      "degenerate_triangles": 0,
+      "sha256": "bb1d54dd4879cb875740cd68054b3203cb800586e84112c35a1bf46e4b0e1a83"
+    }
+  ],
+  "saved_documents": [
+    {
+      "document": "Beni_Prototype1",
+      "saved": true,
+      "isModified": false,
+      "version": 15
+    },
+    {
+      "document": "Beni_SingleLegRig",
+      "saved": true,
+      "isModified": false,
+      "version": 15
+    }
+  ]
+}

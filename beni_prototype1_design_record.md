@@ -143,7 +143,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
 | 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47), 4 × Ø3.4 clearance; M3 × 10 screws enter from outboard into the plate inserts |
-| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[REDESIGNED 2026-09-03]** Six owner-held Kadriick M4 × 8 inserts occupy provisional Ø5.1 through receivers across the full 8.0 mm flange. The exact bore remains physical-coupon-gated. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The already-printed legacy hub must be reprinted after the coupon result is promoted. |
+| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[REDESIGNED 2026-09-03]** Six owner-held Kadriick M4 × 8 inserts occupy owner-passed Ø5.3 ABS through receivers across the full 8.0 mm flange. The Ø5.3 ABS result was promoted through Fusion on 2026-09-04; repeat for PA-CF. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The legacy hub must be reprinted. The six-screw link joint remains held for screw-loading access; see `ASSEMBLY_VERIFICATION.md`. |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
@@ -163,7 +163,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 69 … 99 | rim + tyre, tyre OD Ø110 (**centre y = 84**) |
 | **94.5** | wheel motor output flange face |
 | 94.5 … 100.5 | **[SUPERSEDED]** `Wheel_Hub_L` (7075-T6, Ø56) — **now printed**, with steel washers and a re-torque schedule |
-| 100.5 … 104.5 | rim web, 6 × **M4 × 8** @ Ø46 PCD into six owner-held Kadriick M4 × 8 inserts. **[REDESIGNED 2026-09-03]** Each insert occupies a provisional Ø5.1 through receiver in the 6.0 mm hub and projects 2.0 mm into a coaxial Ø6.0 × 2.2 rim relief. The exact receiver remains physical-coupon-gated. Screw engagement is 6.0 mm with 2.0 mm clearance to the insert's motor-side end. |
+| 100.5 … 104.5 | rim web, 6 × **M4 × 8** @ Ø46 PCD into six owner-held Kadriick M4 × 8 inserts. **[REDESIGNED 2026-09-03]** Each insert occupies an owner-passed Ø5.3 ABS through receiver in the 6.0 mm hub and projects 2.0 mm into a coaxial Ø6.0 × 2.2 rim relief. The Ø5.3 ABS result was promoted through Fusion on 2026-09-04. The rim remains on a separate printability hold. Screw engagement is 6.0 mm with 2.0 mm clearance to the insert's motor-side end. |
 
 **Track = 168 mm.** Nothing rotating crosses y = 53.5, so the chassis is free
 to occupy |y| ≤ 47 without ever fouling the leg sweep.
@@ -476,14 +476,18 @@ checks were added so each class cannot recur — `audit_counts`,
 - **L/R parity:** clean — 33 part families matched by volume and face census.
 - **Fastener head clearance:** clean.
 - **Blind holes:** clean — every bore ≥ its insert, every screw clear of the floor.
-- **Threaded receivers:** clean — shoulder hub 6 × provisional Ø5.1, wheel hub
-  6 × provisional Ø5.1, wheel rim 6 × Ø6.0 protrusion reliefs, shoulder plate
+- **Threaded receivers:** clean — shoulder hub 6 × owner-selected Ø5.3 ABS, wheel hub
+  6 × owner-selected Ø5.3 ABS, wheel rim 6 × Ø6.0 protrusion reliefs, shoulder plate
   4 × Ø4.0, proximal link 5 × Ø4.0, and chassis frame 10 × Ø4.0, all at their
-  specified depths/spans. The M4 diameter is a physical gate, not a release.
+  specified depths/spans. The M4 ABS coupon passed on 2026-09-04; this does
+  not close the independent link screw-loading and rim printability holds.
 - **Source parity:** 37 parts in the model, 37 classified, no orphans.
 - **Driver access:** 32 hex-key access envelopes (Ø3.0–3.4, 30–45 mm reach)
   modelled for every screw serviceable on the complete robot. **Zero
-  obstructions remain.**
+  driver obstructions remained in that audit.** The 2026-09-04 check uses a
+  Ø3.5 driver envelope for the six M4 root positions and passes, but two M4
+  screw heads collide on the straight insertion path. Driver access is not
+  screw insertion; the link joint remains held in `ASSEMBLY_VERIFICATION.md`.
 - **Interference:** 72 pairs, of which **70 are screw-shank-in-tap-drill
   artifacts** and 2 are the documented M4-stud artifact. No structural clashes;
   clear at nominal and at every pose listed in §10.

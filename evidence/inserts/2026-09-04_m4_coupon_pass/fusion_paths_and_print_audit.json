@@ -1,0 +1,323 @@
+{
+  "document": "Beni_SingleLegRig",
+  "source": "Fusion MCP / exact B-Rep",
+  "paths": [
+    {
+      "path": "shoulder plate over bare rotor; hub absent",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "ABS shoulder hub after plate; cover and link absent",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "cable cover; hub fitted and link absent",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "supported proximal link onto assembled shoulder",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "wheel hub onto detached wheel motor; rim absent",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "wheel rim onto hub and detached wheel motor",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "rim reliefs over the six projecting insert tips",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    },
+    {
+      "path": "HW_SHCS_M4x10 six screw insertion paths",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 41.13735205928748,
+      "worst_offset_mm": 15.5
+    },
+    {
+      "path": "HW_SHCS_M4x8 six screw insertion paths",
+      "direction": "-Y insertion / +Y removal",
+      "start_offset_mm": 40.0,
+      "end_offset_mm": 0.0,
+      "step_mm": 0.5,
+      "sample_count": 81,
+      "max_interference_mm3": 0.0,
+      "worst_offset_mm": null
+    }
+  ],
+  "driver_access": [
+    {
+      "screw_family": "HW_SHCS_M4x10",
+      "probe_diameter_mm": 3.5,
+      "count": 6,
+      "interference_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "screw_family": "HW_SHCS_M4x8",
+      "probe_diameter_mm": 3.5,
+      "count": 6,
+      "interference_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "screw_family": "HW_SHCS_M3x10",
+      "probe_diameter_mm": 5.5,
+      "count": 6,
+      "interference_mm3": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "bed_facing_planar_faces": {
+    "VERIFY_ABS_M4_D5p30_SHOULDER": [
+      {
+        "face": 0,
+        "y_mm": 54.0,
+        "height_above_bed_mm": 5.499999999999998,
+        "area_mm2": 94.94941548023857
+      },
+      {
+        "face": 3,
+        "y_mm": 54.0,
+        "height_above_bed_mm": 5.499999999999998,
+        "area_mm2": 94.94941548023856
+      },
+      {
+        "face": 6,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 2.915520634740672
+      },
+      {
+        "face": 24,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.111502632123425
+      },
+      {
+        "face": 26,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.11150263212343
+      },
+      {
+        "face": 28,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.111502632123415
+      },
+      {
+        "face": 29,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.11150263212343
+      },
+      {
+        "face": 31,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.11150263212343
+      },
+      {
+        "face": 33,
+        "y_mm": 50.50000000000001,
+        "height_above_bed_mm": 8.999999999999995,
+        "area_mm2": 21.11150263212343
+      },
+      {
+        "face": 43,
+        "y_mm": 59.5,
+        "height_above_bed_mm": 0.0,
+        "area_mm2": 1777.643341570048
+      }
+    ],
+    "Wheel_Hub_L": [
+      {
+        "face": 8,
+        "y_mm": 98.0,
+        "height_above_bed_mm": 2.5,
+        "area_mm2": 24.103869634667685
+      },
+      {
+        "face": 10,
+        "y_mm": 98.0,
+        "height_above_bed_mm": 2.5,
+        "area_mm2": 24.103869634667692
+      },
+      {
+        "face": 12,
+        "y_mm": 98.0,
+        "height_above_bed_mm": 2.5,
+        "area_mm2": 24.103869634667685
+      },
+      {
+        "face": 19,
+        "y_mm": 100.5,
+        "height_above_bed_mm": 0.0,
+        "area_mm2": 2117.9910812155326
+      }
+    ],
+    "Wheel_Rim_L": [
+      {
+        "face": 26,
+        "y_mm": 82.5,
+        "height_above_bed_mm": 22.00000000000001,
+        "area_mm2": 445.32075864635345
+      },
+      {
+        "face": 29,
+        "y_mm": 69.0,
+        "height_above_bed_mm": 35.50000000000001,
+        "area_mm2": 1256.6370614359173
+      },
+      {
+        "face": 31,
+        "y_mm": 72.0,
+        "height_above_bed_mm": 32.50000000000001,
+        "area_mm2": 3254.6899891190264
+      },
+      {
+        "face": 38,
+        "y_mm": 104.50000000000001,
+        "height_above_bed_mm": 0.0,
+        "area_mm2": 5093.354213522256
+      }
+    ],
+    "Chassis_Shoulder_Plate_L": [
+      {
+        "face": 19,
+        "y_mm": 48.00000000000001,
+        "height_above_bed_mm": 6.000000000000005,
+        "area_mm2": 64.35020624790586
+      },
+      {
+        "face": 33,
+        "y_mm": 48.00000000000001,
+        "height_above_bed_mm": 6.000000000000005,
+        "area_mm2": 1.2858361397990152
+      },
+      {
+        "face": 52,
+        "y_mm": 42.0,
+        "height_above_bed_mm": -0.0,
+        "area_mm2": 7921.972427692223
+      }
+    ],
+    "Shoulder_Cable_Cover_L": [
+      {
+        "face": 8,
+        "y_mm": 53.50000000000001,
+        "height_above_bed_mm": 0.0,
+        "area_mm2": 4076.027972473543
+      }
+    ],
+    "RIG_Stand": [
+      {
+        "face": 13,
+        "y_mm": 36.0,
+        "height_above_bed_mm": 6.000000000000001,
+        "area_mm2": 12.566370614359196
+      },
+      {
+        "face": 15,
+        "y_mm": 36.0,
+        "height_above_bed_mm": 6.000000000000001,
+        "area_mm2": 12.566370614359196
+      },
+      {
+        "face": 17,
+        "y_mm": 36.0,
+        "height_above_bed_mm": 6.000000000000001,
+        "area_mm2": 12.566370614359196
+      },
+      {
+        "face": 19,
+        "y_mm": 36.0,
+        "height_above_bed_mm": 6.000000000000001,
+        "area_mm2": 12.566370614359196
+      },
+      {
+        "face": 21,
+        "y_mm": 36.0,
+        "height_above_bed_mm": 6.000000000000001,
+        "area_mm2": 12.566370614359196
+      },
+      {
+        "face": 45,
+        "y_mm": 42.0,
+        "height_above_bed_mm": 0.0,
+        "area_mm2": 35285.96394307681
+      }
+    ]
+  },
+  "cable_scope": "detached, unplugged dry fits; route harness in open shoulder spiral before hub/link; complete wired article remains blocked by cable post A",
+  "wheel_rim_print_status": "HOLD: y=72 annular underside from r=30 to r=44 is a 14 mm unsupported inward ledge; outer retaining flange also needs an overhang solution",
+  "shoulder_link_assembly_status": "BLOCKED: two screw heads cannot follow the straight axial path; alternate loading path not verified. Retain the physical link pending a detached screw-loading rehearsal.",
+  "physical_rehearsal": "required after printing; coupon pass is not subassembly acceptance"
+}

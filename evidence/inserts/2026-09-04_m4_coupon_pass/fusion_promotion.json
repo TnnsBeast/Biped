@@ -1,0 +1,52 @@
+{
+  "operation": "promote owner-passed ABS M4 receiver diameter",
+  "nominal_diameter_mm": 5.3,
+  "documents": [
+    {
+      "document": "Beni_SingleLegRig",
+      "changes": [
+        {
+          "part": "Shoulder_Output_Hub_L",
+          "sketch": "Sketch8",
+          "count": 6,
+          "old_diameter_mm": 5.1,
+          "new_diameter_mm": 5.3
+        },
+        {
+          "part": "Wheel_Hub_L",
+          "sketch": "Sketch5",
+          "count": 6,
+          "old_diameter_mm": 5.1,
+          "new_diameter_mm": 5.3
+        }
+      ],
+      "audit_problems": [],
+      "reference_guard": true,
+      "placed_guard": true,
+      "audit_output": "=== CHECK 8: printed threaded receivers ===\n  Shoulder_Output_Hub_L         \u00d85.3   6/6 receivers  Y 51.500..59.500\n  Wheel_Hub_L                   \u00d85.3   6/6 receivers  Y 94.500..100.500\n  Chassis_Shoulder_Plate_L      \u00d84.0   4/4 receivers  Y 42.000..47.000\n  Proximal_Link_L               \u00d84.0   5/5 receivers  Y 85.300..90.300\n  Wheel_Rim_L insert relief     \u00d86.0   6/6 clearances Y 100.500..102.700\n  THREADED RECEIVERS: clean\n  RIG_Stand                     \u00d84.0   5/5 receivers  Y 36.000..42.000\n   -> PASS\n"
+    },
+    {
+      "document": "Beni_Prototype1",
+      "changes": [
+        {
+          "part": "Shoulder_Output_Hub_L",
+          "sketch": "Sketch8",
+          "count": 6,
+          "old_diameter_mm": 5.1,
+          "new_diameter_mm": 5.3
+        },
+        {
+          "part": "Wheel_Hub_L",
+          "sketch": "Sketch5",
+          "count": 6,
+          "old_diameter_mm": 5.1,
+          "new_diameter_mm": 5.3
+        }
+      ],
+      "audit_problems": [],
+      "reference_guard": true,
+      "placed_guard": true,
+      "audit_output": "==========================================================================\nBENI PROTOTYPE 1 -- AUTOMATED AUDIT\n==========================================================================\n  COUNTS: clean (74 part/side entries, 1 body each)\n\n  L/R PARITY: clean (33 part families matched)\n\n  FASTENER HEAD CLEARANCE: clean\n\n  joint                                bore insert   screw   clear    floor\n  proximal root -> shoulder hub        8.00   8.00   10.00   +1.80     0.00\n  knee stop arc -> proximal arm B      5.00   5.00    6.00   +2.00     0.80\n  encoder bracket -> proximal arm B    5.00   5.00   16.00   +0.60     0.80\n  cable cover -> shoulder plate        5.00   5.00   10.00   +1.50        -\n  left panel -> chassis frame          6.00   5.00   10.00   +1.00     0.50\n  wheel rim -> wheel hub             through   8.0 insert   6.0 screw engagement   2.0 back clearance; protrusion 2.0 in relief\n  wheel insert -> rim relief         \u00d86.0 x 2.2 relief  radial 0.25  axial 0.20\n  BLIND/INSERT HOLES: clean\n\n  Shoulder_Output_Hub_L         \u00d85.3   6/6 receivers  Y 51.500..59.500\n  Wheel_Hub_L                   \u00d85.3   6/6 receivers  Y 94.500..100.500\n  Chassis_Shoulder_Plate_L      \u00d84.0   4/4 receivers  Y 42.000..47.000\n  Proximal_Link_L               \u00d84.0   5/5 receivers  Y 85.300..90.300\n  Chassis_Frame                 \u00d84.0  10/10 receivers\n  Wheel_Rim_L insert relief     \u00d86.0   6/6 clearances Y 100.500..102.700\n  THREADED RECEIVERS: clean\n\n  SOURCE PARITY: 37 parts in model, 37 classified\n\nTOTAL PROBLEMS: 0\n"
+    }
+  ]
+}

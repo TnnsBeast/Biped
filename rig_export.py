@@ -30,6 +30,20 @@ ABS_ASSEMBLY_DIR = os.path.join(ROOT, 'first_article_stl',
 HEATSET_RELEASE_MANIFEST = os.path.join(
     ROOT, 'first_article_stl', 'heatset_receiver_release_manifest.json')
 INSERT_FIT_DIR = os.path.join(ROOT, 'first_article_stl', 'insert_fit')
+M4_COUPON_EVIDENCE = os.path.join(
+    ROOT, 'evidence', 'inserts', '2026-09-04_m4_coupon_pass', 'result.json')
+
+
+def _accepted_m4_coupon():
+    """Require the physical result that authorizes these ABS exports."""
+    with open(M4_COUPON_EVIDENCE, encoding='utf-8') as stream:
+        result = json.load(stream)
+    if (result['status'] != 'OWNER PASS'
+            or result['material'] != 'ABS'
+            or abs(result['nominal_pocket_diameter_mm'] - B.OWNED_M4_POCKET_D) > 1e-6
+            or result['insert_length_mm'] != B.OWNED_M4_INSERT_LEN):
+        raise RuntimeError('M4 ABS export does not match the accepted coupon')
+    return result
 
 # printed rig parts, with the orientation each one has to be printed in
 RIG_PRINT = [
@@ -275,19 +289,18 @@ def export_mode_a_anchor_first_article():
 
 
 def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
-    """Build/export the coupon-gated ABS shoulder-hub candidate.
+    """Build/export the coupon-selected ABS shoulder hub.
 
     This creates a separately named transient component so the released
     Ø4.05 master hub remains untouched.  The owner-tested Ø4.15 motor-pin
-    fit is retained, while the M4 receiver diameter remains provisional until
-    the owned-insert coupon passes.  Both native-coordinate and bed-ready
-    candidates are exported, then the transient component is deleted.
+    fit is retained with the owner-tested M4 receiver diameter. Both native
+    and bed-ready copies are exported, then the transient component is deleted.
     """
     if abs(pin_bore_d - 4.15) > 1e-6:
         raise ValueError('only the owner-tested Ø4.15 ABS variant is released')
+    _accepted_m4_coupon()
     os.makedirs(ABS_ASSEMBLY_DIR, exist_ok=True)
-    name = ('ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p10_'
-            'PROVISIONAL_DO_NOT_PRINT')
+    name = 'ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30'
     occ = R.guarded(B.build_shoulder_hub,
                     pin_bore_d=pin_bore_d,
                     component_name=name)
@@ -324,10 +337,13 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
     manifest = {
         'document': adsk.core.Application.get().activeDocument.name,
         'part': name,
-        'purpose': 'unloaded ABS shoulder assembly and interface dry-fit',
+        'purpose': 'detached ABS hub insert installation and hub-to-motor fit',
         'material_release': 'ABS first article only; not PA-CF structural data',
-        'release_status': ('PHYSICAL COUPON HOLD: do not print until the owned '
-                           'M4 x 8 ladder selects this receiver diameter'),
+        'release_status': 'ABS PRINT RELEASE; physical assembly rehearsal required',
+        'physical_coupon_evidence': M4_COUPON_EVIDENCE,
+        'proximal_link_assembly_status': ('BLOCKED: two M4 heads collide on the '
+            'straight path through the existing link; verify an alternate '
+            'loading sequence before releasing the six-screw joint'),
         'source_geometry': ('Shoulder_Output_Hub_L with pin bores overridden; '
                             'six M4 heat-set receivers retained'),
         'pin_bores_mm': pin_bore_d,
@@ -352,9 +368,9 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
                         'flange face is at Z=0'),
         'insert_installation': ('from the outboard/link face; use a depth stop '
                                 'so the 8.0 mm insert is flush at both ends'),
-        'restriction': ('provisional receiver diameter; no print before coupon '
-                        'pass, then no actuator torque, backdrive, spring, '
-                        'stand, or load'),
+        'restriction': ('unplugged hub-to-motor fit only until the proximal '
+                        'screw-loading path closes; powered integration waits for the complete '
+                        'leg, fixture and electronics gates; no structural load'),
         'stl': path,
         'stl_bytes': size,
     }
@@ -367,8 +383,7 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
         item.isLightBulbOn = (item == occ)
     adsk.core.Application.get().activeViewport.fit()
     image_path = os.path.join(ABS_ASSEMBLY_DIR,
-                              '00_fusion_abs_shoulder_hub_owned_m4x8_d5p10_'
-                              'provisional.png')
+                              '00_fusion_abs_shoulder_hub_owned_m4x8_d5p30.png')
     adsk.core.Application.get().activeViewport.saveAsImageFile(
         image_path, 1600, 1200)
     for item, was_on in visibility:
@@ -376,10 +391,11 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
 
     oriented = _export_max_y_face_down(
         occ, name + '_PRINT_ORIENTED', ABS_ASSEMBLY_DIR,
-        ('PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No '
-         'supports. Six M4 insert bores, three dowel-pin bores, six motor '
+        ('No supports. Six M4 insert bores, three dowel-pin bores, six motor '
          'holes and the centre bore are vertical; the body contracts away '
-         'from the Ø56 bed face.'))
+         'from the Ø56 bed face. Two Ø11 blind-relief ceilings and the Ø6.2 '
+         'motor-counterbore shoulders are controlled bridges; inspect their '
+         'undersides before inserting hardware.'))
     manifest['print_oriented'] = oriented
     manifest_path = os.path.join(ABS_ASSEMBLY_DIR,
                                  'fusion_manifest.json')
@@ -475,13 +491,13 @@ def export_abs_m4_insert_coupon():
 
 
 def export_heatset_receiver_release_articles():
-    """Export corrected receiver candidates and their mating clearance parts.
+    """Export coupon-selected ABS receivers and their mating clearance parts.
 
     The physical Ø19.10 proximal link is intentionally absent: its five M3
     pockets are already correct, so regenerating it would create a needless
-    reprint.  The M4 production articles remain on a physical-coupon hold; the
-    exported names say PROVISIONAL_DO_NOT_PRINT to prevent accidental release.
+    reprint. M4 exports require the recorded owner PASS for the exact ABS bore.
     """
+    coupon = _accepted_m4_coupon()
     problems = R.check8_threaded_receivers()
     if problems:
         raise RuntimeError('threaded-receiver release audit failed: %s' % problems)
@@ -508,24 +524,24 @@ def export_heatset_receiver_release_articles():
         FIRST_ARTICLE_DIR,
         ('No supports. The mount face is the bed datum; all five M3 insert '
          'pockets are vertical and the Y thickness only decreases away from '
-         'the bed. Requires a bed with at least 300 mm in one axis.'))
+         'the bed. The five Ø4 blind-pocket roofs bridge above the bed. '
+         'Requires a bed with at least 300 mm in one axis.'))
     wheel_oriented = _export_max_y_face_down(
-        wheel, ('ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p10_'
-                'PROVISIONAL_DO_NOT_PRINT'),
+        wheel, 'ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED',
         ABS_ASSEMBLY_DIR,
-        ('PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No '
-         'supports. The rim mating face is the bed datum; six M4 insert '
+        ('No supports. The rim mating face is the bed datum; six M4 insert '
          'bores and all motor holes are vertical, and the Ø37.3 register '
          'pocket faces upward. Install inserts later from that upward motor '
-         'face with a 2.0 mm outboard projection.'))
+         'face with a 2.0 mm outboard projection. The three Ø6.5 counterbore '
+         'shoulders are controlled bridges; inspect before assembly.'))
     rim_oriented = _export_max_y_face_down(
-        rim, ('ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_'
-              'PROVISIONAL_DO_NOT_PRINT'),
+        rim, 'ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PRINTABILITY_HOLD_DO_NOT_PRINT',
         ABS_ASSEMBLY_DIR,
-        ('PROVISIONAL / DO NOT PRINT before the owned-M4 coupon passes. No '
-         'supports. The broad web face is the bed datum and the drum builds '
-         'upward. Six Ø6.0 x 2.2 insert-tip reliefs open upward from the '
-         'hub-mating face; no support may enter them.'))
+        ('PRINTABILITY HOLD / DO NOT PRINT. The broad web face is the bed '
+         'datum. Fusion found an unsupported 14 mm inward annular ledge '
+         'at source y=72 and an outer retaining-flange overhang. Resolve '
+         'these before release; the previous no-support claim was incorrect. '
+         'No support may touch the insert-tip reliefs or mating/service faces.'))
     plate_oriented = _export_min_y_face_down(
         plate, 'ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED',
         ABS_ASSEMBLY_DIR,
@@ -550,9 +566,9 @@ def export_heatset_receiver_release_articles():
         'physical_coupon_gates': {
             'M3': ('existing Ø4.0 ABS pocket coupon with the exact '
                    'owner-supplied Voron-style insert'),
-            'M4': os.path.join(
-                INSERT_FIT_DIR,
-                'ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl'),
+            'M4': {'status': coupon['status'],
+                   'nominal_pocket_diameter_mm': B.OWNED_M4_POCKET_D,
+                   'evidence': M4_COUPON_EVIDENCE},
         },
         'RIG_Stand': {
             'receiver': '5 x owner-supplied Voron-style M3 x 5.0',
@@ -561,11 +577,10 @@ def export_heatset_receiver_release_articles():
             'print_oriented': stand_oriented,
         },
         'Wheel_Hub_L': {
-            'release_status': ('PHYSICAL COUPON HOLD; Ø5.1 is the provisional '
-                               'centre station, not a released diameter'),
+            'release_status': 'ABS PRINT RELEASE; physical assembly rehearsal required',
             'receiver': ('6 x owner-held Kadriick assortment M4 x 8 mm (H); '
                          'case label d1=5.5 mm, d2=5.0 mm'),
-            'hole': 'Ø5.1 provisional through the 6.0 mm hub',
+            'hole': 'Ø5.3 through the 6.0 mm hub',
             'installation': ('heat-set from the motor face with a depth stop; '
                              '6.0 mm embedded and 2.0 mm projecting outboard'),
             'fastener': '6 x M4 x 8 SHCS through the 4.0 mm rim web',
@@ -575,8 +590,7 @@ def export_heatset_receiver_release_articles():
             'print_oriented': wheel_oriented,
         },
         'Wheel_Rim_L': {
-            'release_status': ('PHYSICAL COUPON HOLD; this mating part changed '
-                               'with the owned-insert redesign'),
+            'release_status': 'PRINTABILITY HOLD: unsupported internal ledge and retaining flange; do not print',
             'receiver': 'none; clearance part',
             'insert_tip_relief': '6 x Ø6.0 x 2.2 mm from hub-mating face',
             'labelled_insert_envelope': 'Ø5.5 x 2.0 mm protrusion',
@@ -606,8 +620,8 @@ def export_heatset_receiver_release_articles():
         },
         'Shoulder_Output_Hub_L': shoulder,
         'reprint_decision': {
-            'print_now': ['ABS_CAL_OWNED_M4x8_INSERT_POCKET_LADDER'],
-            'required_after_coupon_selects_receiver': [
+            'print_now': ['ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30'],
+            'required_reprint': [
                 'ABS_FA_Shoulder_Output_Hub_L_D4p15'],
             'retain': ['physical ABS Proximal_Link_L D19.10 with bearings'],
             'not_previously_printed_use_new_files': [

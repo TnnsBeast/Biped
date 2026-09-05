@@ -80,14 +80,14 @@ HUB_LINK_A0 = 0.4
 HUB_CABLE_R = 21.0                # cable pass-through in hub flange
 # Owner-held Kadriick assortment, photographed 2026-09-02.  Its case label
 # specifies M4 x 8 mm (H), d1=5.5 and d2=5.0.  It does not define a printed-hole
-# prescription, so the 5.1 mm receiver below is the centre of an empirical
-# 4.9..5.3 ABS coupon ladder and remains PHYSICAL-COUPON-GATED.  Length and
-# envelope are evidence-backed; pocket diameter is a candidate, not an assumed
-# vendor recommendation.
+# prescription, so the receiver was selected with an empirical
+# 4.9..5.3 ABS coupon ladder. The owner confirmed the Ø5.3 station passed all
+# installation and cooled-retention checks on 2026-09-04. This is an ABS
+# printer/profile result, not a vendor prescription or PA-CF fit release.
 OWNED_M4_INSERT_LEN = 8.0
 OWNED_M4_INSERT_D1 = 5.5
 OWNED_M4_INSERT_D2 = 5.0
-OWNED_M4_POCKET_D = 5.1
+OWNED_M4_POCKET_D = 5.3  # owner ABS coupon PASS, 2026-09-04; repeat for PA-CF
 OWNED_M4_COUPON_DIAMETERS = (4.9, 5.0, 5.1, 5.2, 5.3)
 HUB_LINK_INSERT_D = OWNED_M4_POCKET_D
 HUB_LINK_INSERT_LEN = OWNED_M4_INSERT_LEN
@@ -3106,7 +3106,8 @@ RIM_WEB_Y_A, RIM_WEB_Y_B = 100.5, 104.5
 # embeds in the hub and 2.0 mm projects outboard into a coaxial Ø6.0 x 2.2 rim
 # relief.  The rim remains axially removable after its screws are removed.
 # The M4x8 screw engages 6.0 mm and stops 2.0 mm before the insert's motor-side
-# end.  The candidate receiver diameter is gated by the dedicated ABS ladder.
+# end. The receiver diameter is the owner-tested ABS ladder result; repeat the
+# critical fit coupon before the later PA-CF structural build.
 WHEEL_RIM_INSERT_D = OWNED_M4_POCKET_D
 WHEEL_RIM_INSERT_LEN = OWNED_M4_INSERT_LEN
 WHEEL_RIM_SCREW_LEN = 8.0

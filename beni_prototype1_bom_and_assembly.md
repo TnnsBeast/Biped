@@ -33,7 +33,7 @@ Printed parts assume solid-equivalent density; see the note at the end.
 | `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.2337 | 46.2687 | 2 | 92.5375 | flat, panel face on the bed; spiral lip prints up, no support |
 | `Proximal_Link_L/R` | 66.7915 | 76.8102 | 2 | 153.6204 | outboard arm/bearing face flat, bearing axes normal to the bed; bed-ready export only, supports off, 20.0 mm channel bridge |
 | `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical Ø10 bore, but the real Ø10 h6 pin and final support/bridge audit still gate its export |
-| `Wheel_Rim_L/R` | 67.4501 | 77.5676 | 2 | 155.1352 | web face down on the bed, drum prints up; no support. Carries the tyre bead groove, inboard retaining flange, owned-M4×8 insert-tip reliefs, and a Ø38 web opening that preserves a 1 mm ligament to those reliefs |
+| `Wheel_Rim_L/R` | 67.4501 | 77.5676 | 2 | 155.1352 | **PRINTABILITY HOLD:** web-down orientation has unsupported internal and retaining-flange ledges; do not print until resolved. Carries the tyre bead groove, inboard retaining flange, owned-M4×8 insert-tip reliefs, and a Ø38 web opening that preserves a 1 mm ligament to those reliefs |
 | `Chassis_Frame` (centre cage, not mirrored) | 61.1724 | 70.3483 | 1 | 70.3483 | flanges vertical, open box, no support |
 | **Subtotal** | | | | **577.7044** | |
 
@@ -115,8 +115,8 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
 | Heat-set insert | Voron-style M3 × 5.0; exact owned variant remains coupon-gated | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
-| Heat-set insert | Owner-held Kadriick M4 × 8, shoulder root; printed bore physical-coupon-gated | 6 | — | — |
-| Heat-set insert | Owner-held Kadriick M4 × 8, wheel rim joint; printed bore physical-coupon-gated | 6 | — | — |
+| Heat-set insert | Owner-held Kadriick M4 × 8, shoulder root; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
+| Heat-set insert | Owner-held Kadriick M4 × 8, wheel rim joint; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
 
 ## 7. Fasteners
@@ -143,8 +143,10 @@ printed M4 receiving thread. It was not a purchase quantity. Use the canonical
 [printed-thread map](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts):
 the active single-leg ABS article needs **14 owner-supplied Voron-style M3
 inserts** before spares, plus **12 of the 30 owner-held Kadriick M4 × 8
-inserts**: six shoulder and six wheel. The M4 receiver still needs the
-same-profile ABS Ø4.9/5.0/5.1/5.2/5.3 coupon before either hub is released.
+inserts**: six shoulder and six wheel. The Ø5.3 ABS ladder station passed and
+was promoted through Fusion on 2026-09-04. The hubs are print-ready; the link
+screw-loading path and rim printability have separate holds in
+[ASSEMBLY_VERIFICATION.md](ASSEMBLY_VERIFICATION.md#2026-09-04-release-checks-and-new-blockers).
 
 **Fastener corrections retained in the current release:**
 
@@ -287,11 +289,13 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
    > re-torque schedule** to handle plastic creep. See
    > [`beni_rig_no_machining.md`](beni_rig_no_machining.md) §2.1 and rig design
    > record §4.
-2. After the owned-M4 same-profile coupon passes and its winning bore is
-   promoted through Fusion, install 6 × owner-held M4 × 8 inserts from the
+2. With the owner-passed Ø5.3 ABS receiver promoted through Fusion, install
+   6 × owner-held M4 × 8 inserts while the hub is detached, from the
    corrected wheel hub's **motor face** with a depth stop. Leave 6.0 mm embedded
    and 2.0 mm projecting outboard into the mating rim's six Ø6.0 × 2.2
-   reliefs. Bolt `Wheel_Rim_L` to it with **6 × M4 × 8** on the Ø46 PCD,
+   reliefs. **RIM PRINT/ASSEMBLY HOLD, 2026-09-04:** resolve its unsupported
+   ledges before this following assembly step. Then bolt `Wheel_Rim_L` with
+   **6 × M4 × 8** on the Ø46 PCD,
    2.5 N·m. The screws engage 6.0 mm and stop 2.0 mm before the insert's
    motor-side end.
 3. Stretch the TPU tyre onto the Ø96 rim seat.
@@ -346,15 +350,15 @@ wheel is fully assembled.*
     > engagement angle must be **set by measurement**, not from a drawing,
     > because it depends on the printed eyes' achieved dead length. Full design:
     > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
-11. **[REPRINT / INSERT GATE.]** Use the corrected Ø4.15 hub, not the
-    already-printed motor-fit article. After six owner-held M4 × 8 inserts pass
-    the same-profile receiver ladder, promote the winning bore through Fusion,
-    reprint the hub, and install the inserts from its outboard face with a
-    depth stop. They occupy the full 8.0 mm flange. Then bolt the proximal link root to the hub flange,
-    **6 × M4 × 10**
-    through the counterbores at Ø44 PCD, 2.5 N·m, using the Ø9 access holes in arm B for
-    the driver. *The 6 output-hub screws remain serviceable through the link's
-    Ø34 root access hole without removing the link.*
+11. **[HUB PRINT READY / LINK SCREW-LOADING HOLD, 2026-09-04.]** Print the
+    corrected Ø4.15 ABS hub with owner-passed Ø5.3 receivers. Install its six
+    M4 × 8 inserts from the detached hub's outboard face using a depth stop;
+    each occupies the full 8 mm flange. Repeat the unplugged motor fit.
+    The final joint specifies **6 × M4 × 10** on Ø44 PCD, but two screw heads
+    hit the existing link's internal wall on a straight insertion path. Keep
+    the printed link and bearings pending a detached loading rehearsal; do
+    not release or torque this joint before an alternate path is demonstrated.
+    The six M3 hub screws remain accessible through the Ø34 root opening.
 12. Bolt the wheel motor to the distal wheel-end plate, **6 × M2.5 × 12**
     inserted **from the inboard face**, 0.6 N·m. The driver cover nests in the
     plate's Ø41.5 hole and its two M2 screws stay accessible.
@@ -380,18 +384,27 @@ wheel is fully assembled.*
 
 ## 10. Recommended print order
 
-1. `Chassis_Shoulder_Plate_L/R` — simplest, validates the motor interface.
+For the active single-leg article, start with the corrected shoulder hub in
+the [current print queue](README.md#current-print--convenience-link). The
+remaining sequence is gated as follows:
+
+1. Corrected `Chassis_Shoulder_Plate_L` and cable cover, if needed. Confirm the
+   exact owned M3 insert coupon before heat installation.
 2. `Proximal_Link_L/R` — the face-flat Ø19.10 ABS first article passed full-depth
    bearing installation and remains the build part. Use Ø19.15 for a future ABS
    reprint; it retains the bearing at easier thumb pressure. Check Ø34 root
-   access during the complete single-leg rehearsal.
+   access during the complete single-leg rehearsal. **The six M4 root screws
+   have an assembly-path hold:** rehearse loading them into the detached link
+   before another link print is considered.
 3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
    tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
    Ø10 angular-reference fit and Ø41.5 cover clearance.
    A clearance-fit printed ABS pin may be used only to hand-align a fully
    supported mock-up while the steel pins are in transit; it does not clear this
    gate and must not carry powered, spring, ground-contact or load testing.
-4. `Wheel_Rim_L/R`, then the TPU tyres.
+4. The Ø5.3 ABS `Wheel_Hub_L` is available for detached motor fit.
+   **Hold `Wheel_Rim_L/R`** until its internal ledge and outer flange have a
+   verified printable solution; then rehearse rim/tyre installation.
 5. ABS covers and the encoder bracket last (non-critical).
 
 Repeat the **Ø19 bearing-seat coupon** immediately before the later two-leg
