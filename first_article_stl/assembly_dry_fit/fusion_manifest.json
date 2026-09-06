@@ -24,6 +24,8 @@
   ],
   "orientation": "use the supplied PRINT_ORIENTED STL; \u00d856 outboard flange face is at Z=0",
   "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30",
+  "physical_assembly_evidence": "/Users/neilchulani/Robots/Biped/evidence/assembly/2026-09-05_access_fix/owner_report.json",
+  "physical_assembly_status": "OWNER PASS: replacement hub printed and inserts installed successfully, 2026-09-05",
   "physical_coupon_evidence": "/Users/neilchulani/Robots/Biped/evidence/inserts/2026-09-04_m4_coupon_pass/result.json",
   "pin_bore_count_brep": 3,
   "pin_bores_mm": 4.15,
@@ -51,10 +53,10 @@
     "support_face_area_mm2": 1777.643,
     "support_policy": "No supports. Six M4 insert bores, three dowel-pin bores, six motor holes and the centre bore are vertical; the body contracts away from the \u00d856 bed face. Two \u00d811 blind-relief ceilings and the \u00d86.2 motor-counterbore shoulders are controlled bridges; inspect their undersides before inserting hardware."
   },
-  "proximal_link_assembly_status": "BLOCKED: two M4 heads collide on the straight path through the existing link; verify an alternate loading sequence before releasing the six-screw joint",
+  "proximal_link_assembly_status": "CAD PATH VERIFIED for the 2026-09-05 access-fixed link; physical six-screw rehearsal required. Old link has two obstructed head paths and one incomplete seat.",
   "purpose": "detached ABS hub insert installation and hub-to-motor fit",
   "release_status": "ABS PRINT RELEASE; physical assembly rehearsal required",
-  "restriction": "unplugged hub-to-motor fit only until the proximal screw-loading path closes; powered integration waits for the complete leg, fixture and electronics gates; no structural load",
+  "restriction": "Unplugged supported dry assembly; powered integration awaits complete leg, fixture, harness and electronics gates.",
   "source_geometry": "Shoulder_Output_Hub_L with pin bores overridden; six M4 heat-set receivers retained",
   "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30.stl",
   "stl_bytes": 260484

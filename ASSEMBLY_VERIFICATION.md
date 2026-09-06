@@ -56,9 +56,9 @@ services straight outboard along the same open paths. The owner-selected
 Ø5.3 receiver was promoted through Fusion on 2026-09-04. The hub is an ABS
 print release; the rim remains held for the separate printability finding below.
 
-The same rerun found a separate `RIG_Cable_Post_A`/cable-cover overlap. Post A
-is not part of the detached shoulder/link dry fit, but it remains `BLOCKED` for
-the complete wired Mode-A article until rerouted.
+The same rerun found a separate `RIG_Cable_Post_A`/cable-cover overlap. The
+2026-09-05 redesign moves the post outside the cover; its eye remains open
+beyond the cover edge. Actual harness routing still needs physical rehearsal.
 
 ## 2026-09-04 release checks and new blockers
 
@@ -69,13 +69,13 @@ rim body paths have zero intersections; reverse motion provides their removal
 path. The wheel’s six M4 screws also have clear insertion paths. The shoulder
 hub is released for detached insert installation and unplugged motor fit.
 
-**Proximal-link fastening remains BLOCKED.** Two M4 × 10 screw heads meet the
-link’s internal wall on a straight approach from outboard (combined maximum
-41.13735205928748 mm³ at +15.5 mm). A Ø3.5 driver envelope clears all six
-positions; that does not establish a path for the larger screw heads. Retain
-the printed link and bearings pending a detached screw-loading rehearsal.
-An alternate insertion angle is not yet verified. Do not force screws through
-the access holes or release the joint from final-pose clearance alone.
+**Historical 2026-09-04 link failure, corrected 2026-09-05:** two M4 × 10
+heads hit the internal wall on a straight approach. The current link extends
+all six access passages through that wall and shortens the lightening opening
+to restore a complete seat under the sixth head. New exact continuous swept
+head/shank/driver envelopes and seat-support checks pass. The owner accepted
+the new hub's insert installation; the corrected link still needs its own
+physical six-screw rehearsal. See the [current audit](evidence/assembly/2026-09-05_access_fix/).
 
 **Wheel-rim printing remains BLOCKED.** With the broad web face on the bed,
 the annular underside at source y = 72 spans r = 30…44: a 14 mm unsupported
@@ -88,4 +88,25 @@ shoulders are controlled bridges. The wheel-hub counterbore shoulders and
 stand’s Ø4 blind-pocket roofs also bridge. Inspect their undersides on the
 first ABS articles; the bores remain vertical and no slicer support is allowed
 on their functional surfaces. The full wired/stand article is still gated by
-the cable-post clash, floor disposition, real knee pin and electronics checks.
+actual harness routing, floor disposition, real knee pin/retention and electronics checks.
+
+## 2026-09-05 access and assembly-order audit
+
+[Ordered Fusion paths](evidence/assembly/2026-09-05_access_fix/ordered_paths.json)
+check the link, cover, cable post and rim through 81 poses each. All 49 modelled
+screw paths clear with the stated order. These constraints are part of assembly,
+not optional workarounds:
+
+- Fit housing screws with the proximal link, cover and post absent.
+- Attach the panel to the stand before adding the front cable post.
+- Fit knee-stop screws before the encoder bracket; remove the bracket to
+  withdraw those screw heads. Its Ø5 access openings are for a driver.
+- Fit/service wheel-motor housing screws with the leg supported off the stand.
+- Remove the link before removing the cover; reverse the remaining sequence.
+
+[The ABS export report](evidence/assembly/2026-09-05_access_fix/proximal_release.json)
+checks both continuous bearing insertion/removal envelopes, full root screw
+lands, topology and supporting plane. The front post's Ø6 probe passes its
+open Ø8 eye with the cover fitted. The exact iron tip, cable connector, tie and
+bend-radius fit remain physical checks; these envelopes do not assert a full
+wired or structural release.

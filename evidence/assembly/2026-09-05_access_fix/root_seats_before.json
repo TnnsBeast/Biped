@@ -1,0 +1,38 @@
+[
+  {
+    "index": 0,
+    "expected_land_volume_mm3": 4.792499593051333,
+    "actual_land_volume_mm3": 4.792499593051333,
+    "supported_fraction": 1.0
+  },
+  {
+    "index": 1,
+    "expected_land_volume_mm3": 4.792499593051333,
+    "actual_land_volume_mm3": 4.792499593051333,
+    "supported_fraction": 1.0
+  },
+  {
+    "index": 2,
+    "expected_land_volume_mm3": 4.79249959305133,
+    "actual_land_volume_mm3": 4.79249959305133,
+    "supported_fraction": 1.0
+  },
+  {
+    "index": 3,
+    "expected_land_volume_mm3": 4.792499593051334,
+    "actual_land_volume_mm3": 4.792499593051334,
+    "supported_fraction": 1.0
+  },
+  {
+    "index": 4,
+    "expected_land_volume_mm3": 4.792499593051333,
+    "actual_land_volume_mm3": 4.792499593051333,
+    "supported_fraction": 1.0
+  },
+  {
+    "index": 5,
+    "expected_land_volume_mm3": 4.792499593051333,
+    "actual_land_volume_mm3": 2.5063897746180643,
+    "supported_fraction": 0.5229817396859231
+  }
+]

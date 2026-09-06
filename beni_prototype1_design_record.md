@@ -11,8 +11,8 @@
 > hardened steel stop arc. **None of those are built that way any more:**
 > 3D printed and off-the-shelf parts only, no laser cutting or machining — see
 > **[`MANUFACTURING_CONSTRAINTS.md`](MANUFACTURING_CONSTRAINTS.md)**. The
-> kinematics, load cases and mass properties below are unaffected and remain the
-> reference; the *material and process* callouts are not. §7's knee-stop design is
+> kinematics and load cases below remain the reference; mass tables are
+> historical snapshots and must be regenerated for later geometry/material changes; the *material and process* callouts are not. §7's knee-stop design is
 > superseded in particular — see
 > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §8.
 >
@@ -590,14 +590,14 @@ sweep in §10.
 
 ---
 
-## 14. [REV2] Mass properties
+## 14. [REV2 historical snapshot] Mass properties
 
 Revision 1 had none: every body carried the default "Steel", Fusion reported the
 robot at **8174.2 g**, and there was no centre of mass or inertia tensor anywhere
 in the project. Nothing downstream — balance controller, URDF, simulation —
 could be built from it.
 
-| | value |
+| | Historical REV2 value; predates the current access correction |
 |---|---:|
 | Mass (from Fusion, materials assigned) | **3308.9 g** |
 | Design mass | 3500 g |
@@ -642,3 +642,14 @@ transforms and so cannot coexist with the scripted posing (`beni_lib.set_pose()`
 that every sweep and clearance table in §10 runs on. Full reasoning and what was
 provided instead (URDF limits, `web/index.html`, Fusion user parameters):
 [`beni_prototype1_rev2_changes.md`](beni_prototype1_rev2_changes.md) §12.
+
+
+## 2026-09-05 assembly-access correction
+
+The [current access audit](evidence/assembly/2026-09-05_access_fix/) records the
+owner-triggered proximal-link wall and incomplete-seat corrections, continuous
+screw/head/driver checks and revised ABS export. The six screw seats, bolt
+patterns and assembly Y datums are retained; the large lightening opening is
+shorter to preserve the complete seating lands. Shoulder housing screws in
+CAD/source now match the physically accepted M3 × 8. Regenerate mass/inertia
+exports before using the historical REV2 simulation values for a new build.

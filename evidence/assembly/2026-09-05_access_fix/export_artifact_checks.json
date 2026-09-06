@@ -1,0 +1,32 @@
+[
+  {
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl",
+    "facets": 6288,
+    "vertices": 3104,
+    "edge_incidence_errors": {},
+    "degenerate_facets": 0,
+    "min_z_mm": 0.0,
+    "envelope_mm": [
+      141.92131,
+      127.126658,
+      31.6
+    ],
+    "sha256": "6038dd17ef491064edc21f6e1ac9b1cb4e0dba87a8c10ab177b827c73ffc1dc0",
+    "source": "Fusion MCP verification of the actual Fusion export"
+  },
+  {
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl",
+    "facets": 728,
+    "vertices": 360,
+    "edge_incidence_errors": {},
+    "degenerate_facets": 0,
+    "min_z_mm": -0.0,
+    "envelope_mm": [
+      88.861152,
+      35.487915,
+      2.0
+    ],
+    "sha256": "02a46d5876512b5e2275debef03625e21deaa35d598e85276a33c8ae0a6ab9c3",
+    "source": "Fusion MCP verification of the actual Fusion export"
+  }
+]

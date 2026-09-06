@@ -25,48 +25,42 @@ commands. For the public project overview and active print download, see
 
 | | Status |
 |---|---|
-| **Prototype 1**, two-leg robot | Modelled, saved and verified in Fusion (`Biped → Beni_Prototype1`). On 2026-09-04 `beni_lib.audit_all()` reported **0 problems** after the owner-passed Ø5.3 ABS M4 receiver update. Both documents were saved. This geometry/fastener audit does not close the separate assembly-path and printability holds below. Revision 2; not built. |
+| **Prototype 1**, two-leg robot | Modelled, saved and verified in Fusion (`Biped → Beni_Prototype1`). The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. The assembly audit and remaining release gates are linked below. Revision 2; not built. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source has five Ø4.0 × 6.0 M3 and four source-updated Ø5.3 through M4 carriage receivers for the owned M4 × 8 inserts. Rebuild and verify the deferred carriage in Fusion when Mode B returns. |
-| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled and saved. The 2026-09-03 threaded-receiver check passes, and the stand has five Ø4.0 × 6.0 M3 pockets with zero stand interference. The wider `checks_44()` suite still reports the previously independent rigid-floor/contact contradiction plus a `RIG_Cable_Post_A`/cable-cover clash; do not describe the complete fixture as assembly-released until those are dispositioned. These are independent of the new proximal screw-loading-path hold below. |
+| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** `RIG_Stand` and the rear-face `RIG_Cable_Anchor_ModeA` are modelled and saved. The 2026-09-03 threaded-receiver check passes, and the stand has five Ø4.0 × 6.0 M3 pockets with zero stand interference. The front cable post now mounts outside the cover with an open cable eye. The rigid-floor/contact contradiction, actual harness rehearsal, knee retention and electronics gates still prevent a complete powered release. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The already-printed Ø4.15 shoulder hub remains valid motor-fit evidence but its legacy link holes make it unusable for assembly; **the corrected Ø4.15 hub with owner-passed Ø5.3 M4 receivers is ready to reprint for detached insert installation and motor fit**. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping. The face-flat Ø19.10 ABS proximal link has accepted both real bearings and remains the build article; do not reprint it. Ø19.15 is only the future ABS preference. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). On 2026-09-02 the owner reported an eBay knee-pin order, believed to be a set of three, with delivery expected in roughly two weeks or later. The listing, quantity and h6/h5 tolerance evidence remain unverified. Voron-style M3 inserts plus photographed assortments are in hand. The mixed Kadriick case label shows 30 × M4 × 8 and 25 × M4 × 10. The owner confirmed the largest ABS ladder station, Ø5.3, passed all installation and cooled-retention checks on 2026-09-04 and elected to retain M4. No complete leg or wiring has been assembled yet. |
+| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). The owner reports that an AliExpress spring arrived at **150 mm free length** on 2026-09-01. That is not the Ø19 × 2.6 × **55 mm free** knee spring specified in the BOM and RFQ; do not install or trim it into the cartridge. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The owner printed the corrected Ø4.15 shoulder hub with Ø5.3 M4 receivers and successfully installed its inserts. Retain that hub. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping; the CAD/source now match this physical result. The face-flat Ø19.10 proximal link passed both bearing fits, but the owner's wall-obstruction report now justifies replacing it with the corrected Ø19.15 ABS link. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). On 2026-09-02 the owner reported an eBay knee-pin order, believed to be a set of three, with delivery expected in roughly two weeks or later. The listing, quantity and h6/h5 tolerance evidence remain unverified. Voron-style M3 inserts plus photographed assortments are in hand. The mixed Kadriick case label shows 30 × M4 × 8 and 25 × M4 × 10. The owner confirmed the largest ABS ladder station, Ø5.3, passed all installation and cooled-retention checks on 2026-09-04 and elected to retain M4. No complete leg or wiring has been assembled yet. |
 
-The face-flat Ø19.10 first article is the physical ABS proximal link now in use;
-do not reprint it merely to adopt the easier Ø19.15 preference. The scripted
-default is Ø19.15 for a future ABS export, but no replacement STL has been
-generated for that bearing preference; screw loading is being checked separately. The saved master retains Ø19.10;
-the compensation is intentionally an ABS first-article override rather than a
-two-leg PA-CF design dimension.
+**Next print: the corrected Ø19.15 ABS proximal link.** Use the bed-ready
+file in the final [README print queue](README.md#current-print--convenience-link).
+Fusion found two wall-obstructed M4 head paths and one screw seat cut into by
+the large lightening opening. The corrected link clears the paths and retains
+complete seating lands. The five knee M3 pockets were unobstructed. The accepted
+shoulder hub stays in use; no further hub reprint is needed.
 
-The owned-insert redesign now uses the owner-passed **Ø5.3 ABS receiver** in
-both saved Fusion documents. The exact insert map, pocket depths and screw
-lengths remain in [MANUFACTURING_CONSTRAINTS.md](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
-Physical and Fusion evidence: [2026-09-04 M4 release checks](evidence/inserts/2026-09-04_m4_coupon_pass/).
+The corrected front cable post fits outside the cover and uses two M3 × 12
+screws in the upper cover positions. Its Ø8 eye lies beyond the cover edge.
+The other two cover screws remain M3 × 10. Install it before the link, and
+verify the real tie/harness routing during the supported dry assembly.
 
-**Next print: the corrected Ø4.15 shoulder hub with Ø5.3 M4 pockets.** Use the
-bed-ready file in the final [README print queue](README.md#current-print--convenience-link).
-Install its six M4 × 8 inserts while detached, then repeat the unplugged
-hub-to-GIM6010 fit with the plate fitted first. Keep the existing Ø19.10
-proximal link and both bearings; no replacement link is released or requested.
-The corrected shoulder plate, cable cover, stand and wheel hub also have
-bed-ready ABS files in the [receiver manifest](first_article_stl/heatset_receiver_release_manifest.json).
-Their M3 insert installation still requires the exact owned insert's coupon.
+The complete [assembly audit, evidence and acceptance steps](evidence/assembly/2026-09-05_access_fix/)
+cover the adjacent receiver and fastener families. The exact insert map stays
+in [MANUFACTURING_CONSTRAINTS.md](MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
+The corrections are saved in `Beni_SingleLegRig` v18 and `Beni_Prototype1` v16.
+The master audit reports zero problems; the rig's 49 ordered fastener paths
+pass. The audit records motion-check scope and the repaired CAD screw-pose
+classification issue separately from physical acceptance.
+The new link requires a physical six-screw and full-depth bearing rehearsal.
+Its Ø19.15 bores use the previously selected easier-thumb-pressure ABS
+preference; the saved assembly bearing nominal is retained.
 
-**Two new limits from the full-path/print audit:**
-
-- **Shoulder-to-link fastening is BLOCKED:** two M4 × 10 screw heads hit the
-  internal wall on the straight insertion path, although the link body seats
-  and a Ø3.5 driver envelope clears. First try loading all six screws into the
-  detached physical link without force; an alternate loading path is not yet
-  verified. Preserve the printed link and bearings pending that result.
-- **Wheel rim is on PRINTABILITY HOLD:** the former no-support instruction
-  missed a 14 mm inward annular ledge and an outer flange overhang. The wheel
-  hub can be printed and tried on the detached motor; do not print the rim yet.
-
-The complete wired Mode-A article additionally retains the cable-post/cover
-clash and rigid-floor/contact disposition. Passing insert audits does not
-release the full fixture or powered operation.
+**Still held:** wheel rim (unsupported inward ledge and outer retaining flange),
+distal link (real steel-pin fit and dedicated printability audit), knee collar
+(pin retention), actual harness routing, and complete powered fixture/electronics
+acceptance. The wheel hub remains available for detached motor fit. The floor
+contradiction concerns the future contact/load procedure and is not closed by
+this access correction.
 
 The next distal-link hardware gate is the owner-reported eBay knee-pin order. It is
 believed to contain three candidate pins and is not expected before about

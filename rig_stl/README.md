@@ -29,7 +29,7 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 >
 > | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
 > |---|---|---|
-> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the new first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: two screw-head loading paths blocked. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: current 1610.44 mm³ cable-cover clash. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
+> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the new first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: use the access-fixed ABS link; physical rehearsal required. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: use the revised cover-mounted ABS first article. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -153,13 +153,13 @@ Tiny, but the second one is an instrument mount.
 place of the proximal link** — step 2 runs with the leg off.
 
 ### 6. `RIG_Cable_Post_A.stl`, `RIG_Cable_Post_B.stl`
-Flat on the bed. Post A is clamped under two of the motor's eight M3 housing
-screws, which become **M3 × 16** for that reason.
-
-⚠ **`RIG_Cable_Post_A.stl` is also on hold.** The 2026-09-03 Fusion rerun found
-a real 1610.44 mm³ overlap with `Shoulder_Cable_Cover_L` at every shoulder
-angle. Do not print or force those two parts together; the anchor needs a
-separate reroute.
+Post A was redesigned on 2026-09-05 to sit **outside the cover**, with an
+open Ø8 tie eye beyond the cover edge. Use the supplied orientation in the
+[bed-ready ABS file](../first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl),
+quantity 1, no supports. Two **M3 × 12** replace the upper cover M3 × 10;
+the lower cover screws remain ×10 and all eight motor-housing screws stay ×8.
+Fit panel/stand bolts before the post. The prior housing-mounted STL and its
+M3 × 16 instruction are superseded. [Acceptance and paths](../evidence/assembly/2026-09-05_access_fix/).
 
 ⚠ **`RIG_Cable_Post_B.stl` is NOT printable for Mode A — do not send it to the
 bed.** [BLOCKED 2026-08-20] The part mounted to `RIG_Column`'s T-slot, and
@@ -267,7 +267,7 @@ committing to a second set.**
 
 | File | Was | Orientation | The thing that will bite |
 |---|---|---|---|
-| `Shoulder_Output_Hub_L.stl` | 7075-T6 | flange face flat on the bed | **USE THE NEW ABS FIRST ARTICLE**, not this nominal coordinate file. The [print queue](../README.md#current-print--convenience-link) links the Ø4.15 motor-pin / Ø5.3 M4 receiver version. Detached insert installation and motor fit only while link screw loading is held. PA-CF remains deferred. |
+| `Shoulder_Output_Hub_L.stl` | 7075-T6 | flange face flat on the bed | **USE THE NEW ABS FIRST ARTICLE**, not this nominal coordinate file. The [print queue](../README.md#current-print--convenience-link) links the Ø4.15 motor-pin / Ø5.3 M4 receiver version. The owner accepted the corrected hub's insert installation. Retain it and rehearse the new access-fixed proximal link. PA-CF remains deferred. |
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **ABS FIRST ARTICLE READY:** use the new bed-ready Ø5.3 file in the [receiver map](../docs/assembly/heatset_receiver_map.md). Install M4 × 8 inserts from the detached motor face, with 2 mm projection. Rim printing remains held for unsupported ledges. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |

@@ -645,8 +645,8 @@ def build_mirror():
 # Expected occurrence count per part, per side.  Anything else means a builder
 # ran twice without clearing, or a placement pattern changed.
 EXPECT_COUNT = {
-    'HW_SHCS_M3x10': 23,      # 8 housing + 6 output + 5 frame + 4 cover
-    'HW_SHCS_M3x8': 3,        # wheel hub -> wheel motor
+    'HW_SHCS_M3x10': 15,      # 6 output + 5 frame + 4 cover
+    'HW_SHCS_M3x8': 11,       # 8 shoulder housing + 3 wheel output
     'HW_SHCS_M3x6': 3,        # knee stop arc
     'HW_SHCS_M4x10': 6,       # link root
     'HW_SHCS_M4x8': 6,        # wheel rim -> short wheel-hub inserts
@@ -735,6 +735,7 @@ SCREW_LEN = {'HW_SHCS_M2p5x12': (2.5, 12.0), 'HW_SHCS_M3x6': (3.0, 6.0),
              'HW_SHCS_M3x8': (3.0, 8.0), 'HW_SHCS_M3x10': (3.0, 10.0),
              'HW_SHCS_M3x16': (3.0, 16.0), 'HW_SHCS_M4x8': (4.0, 8.0),
              'HW_SHCS_M4x10': (4.0, 10.0)}
+SCREW_LEN['HW_SHCS_M3x12_PostA'] = (3.0, 12.0)
 
 
 def audit_fasteners(verbose=True):
@@ -1024,6 +1025,44 @@ def audit_source_parity(verbose=True):
     return orphan
 
 
+def audit_proximal_access(verbose=True):
+    """Continuous solid envelopes catch walls above otherwise valid holes."""
+    occ = find_occ('Proximal_Link_L')
+    if occ is None:
+        return []
+    tm = adsk.fusion.TemporaryBRepManager.get()
+    problems = []
+    for i, (x, z) in enumerate(_receiver_centres(0, 0, HUB_LINK_PCD, 6, HUB_LINK_A0)):
+        land = tm.createCylinderOrCone(
+            adsk.core.Point3D.create(cm(x), cm(63.1), cm(z)), cm(3.5),
+            adsk.core.Point3D.create(cm(x), cm(63.3), cm(z)), cm(3.5))
+        bore = tm.createCylinderOrCone(
+            adsk.core.Point3D.create(cm(x), cm(63.1), cm(z)), cm(2.15),
+            adsk.core.Point3D.create(cm(x), cm(63.3), cm(z)), cm(2.15))
+        assert tm.booleanOperation(land, bore, adsk.fusion.BooleanTypes.DifferenceBooleanType)
+        expected_land = land.volume
+        assert tm.booleanOperation(land, occ.component.bRepBodies.item(0),
+                                   adsk.fusion.BooleanTypes.IntersectionBooleanType)
+        if abs(land.volume - expected_land)*1000 > .001:
+            problems.append('proximal root %d: incomplete screw-head bearing land' % i)
+        for label, diameter, y0, y1 in (
+                ('M4 head', 7.0, 63.3, PROX_PRINT_FACE_Y + 44.0),
+                ('M4 shank', 4.0, 53.3, PROX_PRINT_FACE_Y + 40.0),
+                ('driver', 6.0, 67.3, PROX_PRINT_FACE_Y + 50.0)):
+            for body in occ.component.bRepBodies:
+                probe = tm.createCylinderOrCone(
+                    adsk.core.Point3D.create(cm(x), cm(y0), cm(z)), cm(diameter/2),
+                    adsk.core.Point3D.create(cm(x), cm(y1), cm(z)), cm(diameter/2))
+                assert tm.booleanOperation(probe, body,
+                    adsk.fusion.BooleanTypes.IntersectionBooleanType)
+                if probe.volume * 1000 > .001:
+                    problems.append('proximal root %d %s path obstructed: %.6f mm3'
+                                    % (i, label, probe.volume * 1000))
+    if verbose:
+        print('  PROXIMAL CONTINUOUS ACCESS: %s' % (problems or 'six heads, shanks and Ø6 drivers clear'))
+    return problems
+
+
 def audit_all():
     print('=' * 74)
     print('BENI PROTOTYPE 1 -- AUTOMATED AUDIT')
@@ -1038,6 +1077,8 @@ def audit_all():
     p += audit_blind_holes()
     print()
     p += audit_threaded_receivers()
+    print()
+    p += audit_proximal_access()
     print()
     audit_source_parity()
     print()
@@ -1522,11 +1563,13 @@ def _edge_key(e):
     return (round(p.x * 10, 3), round(p.y * 10, 3), round(p.z * 10, 3))
 
 
-def add_fillets(verbose=False):
+def add_fillets(verbose=False, only=None, proximal_name='Proximal_Link_L'):
     """Radius every load-bearing re-entrant corner.  Returns a per-part tally."""
     tally = {}
 
     def do(part, edges_fn, radii, label):
+        if only is not None and part not in only:
+            return
         occ = find_occ(part)
         if occ is None or occ.component.bRepBodies.count == 0:
             return
@@ -1558,19 +1601,19 @@ def add_fillets(verbose=False):
     # ---- proximal link -------------------------------------------------
     # the 20 mm spring-channel corners: the classic FDM crack initiator, a
     # sharp slot end in a part loaded in bending
-    do('Proximal_Link_L',
+    do(proximal_name,
        lambda b: _y_line_edges(b, CH_Y1 - CH_Y0, CH_Y0, CH_Y1),
        (2.5, 1.5, 1.0), 'channel corners')
     # root pad step: O62 disc standing 3 mm proud into the channel, and the
     # face the six M4 root bolts clamp against
-    do('Proximal_Link_L',
+    do(proximal_name,
        lambda b: _circle_edges(b, ROOT_DISC_D / 2.0, CH_Y0, 0.0, 0.0),
        (2.0, 1.0, 0.5), 'root pad step')
     # knee bearing-boss roots (0.8 mm steps, so a small radius is all that fits)
-    do('Proximal_Link_L',
+    do(proximal_name,
        lambda b: _circle_edges(b, PL_R2, LEG_Y_IN, KX, KZ),
        (0.5,), 'knee boss A root')
-    do('Proximal_Link_L',
+    do(proximal_name,
        lambda b: _circle_edges(b, PL_R2, LEG_Y_OUT, KX, KZ),
        (0.5,), 'knee boss B root')
 
@@ -2135,14 +2178,63 @@ def slot_half_angle():
     return math.degrees(math.asin((STOP_SLOT_W / 2.0) / STOP_R))
 
 
-def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
-    drop_comp('Proximal_Link_L')
-    occ = new_comp('Proximal_Link_L')
+def clear_proximal_root_access(comp):
+    """Clear all six M4 head paths through the channel wall and arm B.
+
+    The old arm-B-only holes left the internal wall crossing two paths.
+    Start at the back of the root pad, preserving the Y=63.3 screw seats
+    and their Ø7.5 counterbores. Ø9 is the existing arm-B access diameter.
+    Also usable as a guarded, in-place migration of saved Fusion parts.
+    """
+    sk = sk_on_y(comp, ROOT_PLATE_Y1)
+    sk.name = 'Root_M4_Continuous_Access'
+    circles_polar(sk, 0, 0, HUB_LINK_PCD, 9.0, 6, HUB_LINK_A0)
+    feature = extrude(comp, profiles(sk),
+                      PROX_PRINT_FACE_Y - ROOT_PLATE_Y1 + 0.5, 'cut')
+    feature.name = 'Root_M4_Clear_Wall_For_Head_And_Driver'
+    sk.isLightBulbOn = False
+    return feature
+
+
+def repair_proximal_root_seat_land(comp):
+    """Migrate the saved old lightening cut without rebuilding the component.
+
+    The owner-triggered audit measured only 52.3% of one M4 head's seat.
+    Move the slot start from u36 to u44; the builder below uses the same
+    new design dimension. The new sketch precedes the existing cut feature.
+    """
+    for s in comp.sketches:
+        if s.name == 'Lightening_Clear_Root_Screw_Seats':
+            return
+    candidates=[]
+    for f in comp.features.extrudeFeatures:
+        p=adsk.fusion.Profile.cast(f.profile)
+        if p and p.parentSketch.name=='Sketch19':
+            candidates.append(f)
+    assert len(candidates)==1, 'expected original proximal large-slot cut'
+    feature=candidates[0]
+    try:
+        feature.timelineObject.rollTo(True)
+        sk=sk_on_y(comp,KNEE_BOSS_A_Y0-1)
+        sk.name='Lightening_Clear_Root_Screw_Seats'
+        a1=prox_uv(44.0,0.0); a2=prox_uv(68.0,0.0)
+        slot(sk,a1[0],a1[1],a2[0],a2[1],34.0)
+        feature.timelineObject.rollTo(True)
+        feature.profile=biggest_profile(sk)
+        sk.isLightBulbOn=False
+    finally:
+        design().timeline.moveToEnd()
+
+
+def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
+                        component_name='Proximal_Link_L'):
+    drop_comp(component_name)
+    occ = new_comp(component_name)
     c = occ.component
     sk = sk_on_y(c, LEG_Y_IN)
     lozenge(sk, (0.0, 0.0), PL_R1, (120.0, 0.0), PL_R2, frame=prox_uv)
     e = extrude(c, biggest_profile(sk), PROX_PRINT_FACE_Y - LEG_Y_IN, 'new')
-    e.bodies.item(0).name = 'Proximal_Link_L'
+    e.bodies.item(0).name = component_name
 
     # channel: keep a +v wall the whole length, a -v wall only up to u=72
     sk = sk_on_y(c, CH_Y0)
@@ -2190,16 +2282,15 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
     sk = sk_on_y(c, KNEE_BOSS_A_Y0 - 1); circle(sk, UX, UZ, 4.15)
     extrude(c, sk.profiles.item(0), (KNEE_BOSS_B_Y1 - KNEE_BOSS_A_Y0) + 2, 'cut')
 
-    # root fasteners: 6x M4 counterbored in arm A, 6x access holes in arm B
+    # Root fasteners: counterbored seats in arm A, continuous access through
+    # the channel wall and arm B (the wall obstructed two old access holes).
     sk = sk_on_y(c, LEG_Y_IN - 1)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, 4.3, 6, HUB_LINK_A0)
     extrude(c, profiles(sk), ROOT_PLATE_T + 2, 'cut')
     sk = sk_on_y(c, 63.3)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, 7.5, 6, HUB_LINK_A0)
     extrude(c, profiles(sk), ROOT_PLATE_Y1 - 63.3 + 0.5, 'cut')
-    sk = sk_on_y(c, CH_Y1)
-    circles_polar(sk, 0, 0, HUB_LINK_PCD, 9.0, 6, HUB_LINK_A0)
-    extrude(c, profiles(sk), PROX_PRINT_FACE_Y - CH_Y1 + 0.5, 'cut')
+    clear_proximal_root_access(c)
     sk = sk_on_y(c, CH_Y1); circle(sk, 0, 0, 34.0)
     extrude(c, sk.profiles.item(0), PROX_PRINT_FACE_Y - CH_Y1 + 0.5, 'cut')
     # O34 access bore straight through the root pad as well, so a hex key can
@@ -2231,7 +2322,8 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD):
 
     # lightening
     sk = sk_on_y(c, KNEE_BOSS_A_Y0 - 1)
-    a1 = prox_uv(36.0, 0.0); a2 = prox_uv(68.0, 0.0)
+    # u36 clipped one M4 screw seat; u44 retains the whole head-bearing land.
+    a1 = prox_uv(44.0, 0.0); a2 = prox_uv(68.0, 0.0)
     slot(sk, a1[0], a1[1], a2[0], a2[1], 34.0)
     extrude(c, biggest_profile(sk), (KNEE_BOSS_B_Y1 - KNEE_BOSS_A_Y0) + 2, 'cut')
     sk = sk_on_y(c, KNEE_BOSS_A_Y0 - 1)
@@ -2357,9 +2449,10 @@ def classify(occ):
     if n == 'HW_SHCS_M4x8':
         return 'DIST'
     if n == 'HW_SHCS_M3x8':
-        # The M3x8 population is the wheel-motor joint (DIST).  The cable cover
-        # now installs from the serviceable outboard side with M3x10 screws.
-        return 'DIST' if cz < -120 else 'STATIC'
+        # Wheel-output screws seat at Y98; shoulder-housing screws at Y47.
+        # Y is invariant under both joint rotations. A Z threshold changes
+        # class during a shoulder sweep and leaves wheel screws behind.
+        return 'DIST' if cy > WH_HUB_Y_A else 'STATIC'
     if n == 'HW_ClevisPin_D4x32':
         return 'CART_LO' if cz < -100 else 'CART_UP'
     return 'STATIC'
@@ -3215,7 +3308,6 @@ def build_fasteners():
                'HW_SHCS_M3x16'):
         drop_comp(nm)
     s = screw_comp('HW_SHCS_M3x10', 3.0, 10.0)
-    place_polar(s, SH_BOLT_PCD, 8, SH_BOLT_A0, SH_PLATE_Y1)
     place_polar(s, SH_OUT_PCD, 6, SH_OUT_A0, 50.5)
     for x, z in FRAME_BOLTS:
         place(s, x, z, SH_PLATE_Y1)
@@ -3226,6 +3318,8 @@ def build_fasteners():
     s4_short = screw_comp('HW_SHCS_M4x8', 4.0, WHEEL_RIM_SCREW_LEN)
     place_polar(s4_short, RIM_BOLT_PCD, 6, 0.0, RIM_WEB_Y_B, cx=WX, cz=WZ)
     s8 = screw_comp('HW_SHCS_M3x8', 3.0, 8.0)
+    # Delivered actuator test: x10 bottoms before the 5 mm panel clamps.
+    place_polar(s8, SH_BOLT_PCD, 8, SH_BOLT_A0, SH_PLATE_Y1)
     place_polar(s8, WM_OUT_PCD, 3, WM_OUT_A0, WH_HUB_Y_B - 2.5, cx=WX, cz=WZ)
     # knee stop arc: 3 mm of steel plate + 3 mm into a 5 mm insert.  An M3 x 8
     # here reached 0.5 mm past the bore floor and bottomed out before clamping.

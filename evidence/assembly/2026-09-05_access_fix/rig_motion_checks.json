@@ -1,0 +1,13 @@
+{
+  "root_access": [],
+  "receivers": [],
+  "knee_sweep": 0.042865894902575974,
+  "shoulder_sweep": [],
+  "clashes": [
+    [
+      "Proximal_Link_L",
+      "RIG_Torque_Arm",
+      15987.629837351591
+    ]
+  ]
+}

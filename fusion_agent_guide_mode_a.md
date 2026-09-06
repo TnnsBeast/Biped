@@ -230,7 +230,7 @@ Five families, of which four already exist:
 | **`RIG_Stand`** | **TO DESIGN.** No builder exists. |
 | `RIG_Torque_Arm` | Exists — `build_rig_torque_arm()`. 200 mm lever on the hub's 6 × M4 Ø44 PCD, bearing on a 5 kg kitchen scale. Highest-value cheap part in the rig: published bench tests of this actuator found 4.8 and 9.4 N·m against an 11 N·m rating, and the jump needs 5.9 N·m = **3.01 kgf at 200 mm**. Re-run check 5 against the *stand*. |
 | `RIG_Floor_Plate` | Exists — `build_rig_floor()`. Unchanged. |
-| `RIG_Cable_Post_A` / `_B` | Exist. Post A is unchanged (clamped under two of the motor's eight M3 housing screws, which become **M3 × 16** for that reason, capped at y = 57 so the proximal link at 58.7 can sweep over). **Post B needs rework**: it currently mounts to the column T-slot above the carriage's travel, and there is no column. Re-route it to the stand — the routing is simpler now, with only the wheel and the stand to clear. |
+| `RIG_Cable_Post_A` / `_B` | Post A was revised on 2026-09-05: it sits outside the cover, shares the upper two Ø88 holes with M3 × 12, and has an open Ø8 eye beyond the cover edge. See the [current audit](evidence/assembly/2026-09-05_access_fix/). Post B remains deferred with the deleted Mode-B column; the separate rear Mode A anchor serves the fixed harness. |
 | `RIG_Knee_Stop_Plate_L` | Exists — `build_rig_knee_stop_plate()`. Still required: it carries the **−8° extension stop**, which a free leg rests on in every unloaded pose. |
 
 **Deferred with Mode B — do not build, do not delete the builders:**

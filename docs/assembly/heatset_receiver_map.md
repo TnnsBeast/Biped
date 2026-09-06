@@ -7,15 +7,14 @@ the screw direction that remains accessible in the assembled robot.
 The complete single-leg article is ABS. PA-CF coupons and structural prints
 wait for the later two-leg build.
 
-## Release status — 2026-09-04
+## Release status — 2026-09-05
 
-The owner-passed **Ø5.3 ABS** M4 receiver is incorporated in both Fusion
-documents. Print the shoulder hub for detached insert installation and motor
-fit; the wheel hub is also available. **Keep the printed proximal link** pending
-its screw-loading rehearsal. Two screw heads have a blocked straight path;
-the six-screw link assembly is not yet released. The **wheel rim is on
-printability hold** for unsupported ledges. Evidence and scope:
-[assembly release checks](../../ASSEMBLY_VERIFICATION.md#2026-09-04-release-checks-and-new-blockers).
+The owner successfully printed and installed inserts in the Ø5.3 shoulder hub.
+Keep it. The replacement proximal link clears two obstructed M4 head paths and
+restores one incomplete seat; its five knee M3 mouths remain clear. Use the
+[current print queue](../../README.md#current-print--convenience-link) and
+[access audit](../../evidence/assembly/2026-09-05_access_fix/).
+The wheel rim retains its independent printability hold.
 
 ## Insert redesign retained from 2026-09-03
 
@@ -36,8 +35,8 @@ printability hold** for unsupported ledges. Evidence and scope:
 
 ![Coupon-selected shoulder hub on its controlled bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.png)
 
-- Status: **ABS PRINT READY for detached inserts and unplugged motor fit**.
-  The shoulder-to-link screw-loading path remains held.
+- Status: **OWNER INSERT INSTALLATION PASS.** Retain the accepted hub;
+  rehearse the corrected link before accepting the complete six-screw joint.
 - Receiver: 6 × owner-selected Ø5.3 through the 8.0 mm flange.
 - Insert: 6 × owner-held Kadriick M4 × 8, installed from the outboard/link
   face with a depth stop and flush at both ends.
@@ -45,8 +44,8 @@ printability hold** for unsupported ledges. Evidence and scope:
 - Result: 6.2 mm thread engagement; screw tip stops 1.8 mm before the
   motor-side insert end.
 
-The already-printed Ø4.15 hub is not this part. Keep it as motor-fit evidence,
-but do not attempt to melt inserts into its Ø3.3 holes.
+The first legacy hub with Ø3.3 holes remains historical motor-fit evidence.
+The owner has since printed and successfully inserted the corrected Ø5.3 hub.
 
 ## Shoulder plate and cable cover — four M3 inserts total
 
@@ -60,8 +59,10 @@ but do not attempt to melt inserts into its Ø3.3 holes.
 - Drive 4 × M3 × 10 from the cover's exposed outboard face. Each screw crosses
   6.5 mm of cover, engages 3.5 mm of brass and stops 1.5 mm before the plate's
   inboard face.
-- This service direction remains available after the stand or chassis frame is
-  fitted behind the plate.
+- This screw direction remains available after the stand or chassis frame is
+  fitted. Remove the link before removing the cover. With revised cable post A,
+  use two M3 × 12 through the upper cover positions; the lower two remain ×10.
+  The added 2 mm post thickness preserves the same engagement and tip clearance.
 
 ## Existing proximal link — five M3 inserts
 
@@ -69,8 +70,9 @@ but do not attempt to melt inserts into its Ø3.3 holes.
 
 The physical Ø19.10 link retains its valid bearing fit and M3 pockets. Its arm-B boss
 has five Ø4.0 × 5.0 pockets: three for the knee stop plate and two for the
-encoder bracket. Keep the link and bearings; do not reprint merely to adopt the
-future Ø19.15 bearing preference.
+encoder bracket. These mouths are clear, but the separate root-access and
+seating defects now require the replacement Ø19.15 link. Reuse bearings only
+if removed without damage.
 
 ## Mode A stand — five M3 inserts
 
@@ -122,8 +124,8 @@ projection requires more rim relief without adding useful engagement.
    the part cool without a screw installed.
 4. Start every screw with fingers. Never use screw torque to seat a printed
    part or straighten an insert.
-5. Keep the motors unplugged. The detached hub-to-motor rehearsal is released;
-   the six-screw link assembly waits for a demonstrated screw-loading path.
+5. Keep the motors unplugged. Rehearse all six screw seats in the corrected
+   link before attaching it to the accepted hub.
 
 For the complete shoulder order and link attachment, continue with the
 [shoulder-to-proximal picture guide](shoulder_to_proximal_link.md).

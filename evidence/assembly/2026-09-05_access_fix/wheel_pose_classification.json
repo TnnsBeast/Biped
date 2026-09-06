@@ -1,0 +1,59 @@
+{
+  "method": "Actual Fusion occurrence transforms at shoulder extremes; restoration to source datums",
+  "poses": [
+    {
+      "shoulder_deg": -120,
+      "wheel_classes": [
+        "DIST",
+        "DIST",
+        "DIST"
+      ],
+      "housing_classes": [
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC"
+      ]
+    },
+    {
+      "shoulder_deg": 120,
+      "wheel_classes": [
+        "DIST",
+        "DIST",
+        "DIST"
+      ],
+      "housing_classes": [
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC"
+      ]
+    },
+    {
+      "shoulder_deg": 0,
+      "wheel_classes": [
+        "DIST",
+        "DIST",
+        "DIST"
+      ],
+      "housing_classes": [
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC",
+        "STATIC"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "reported_date_local": "2026-09-05",
+  "source": "Owner report in the project task; no new photograph supplied",
+  "shoulder_hub": {
+    "part": "ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30",
+    "status": "OWNER PASS: printed, inserts installed successfully",
+    "quote": "I went ahead and printed the new shoulder hub, melted the inserts in, and it worked great."
+  },
+  "proximal_link": {
+    "status": "OWNER ASSEMBLY DEFECT: link attached, outer fastener access partly covered by wall",
+    "quote": "The holes for the inserts that sit around the edge/outer side of the part are slightly covered by the wall, so the head of the inserts cant actually seat properly.",
+    "interpretation": "Fusion inspection identifies two obstructed shoulder M4 screw-head access paths. The actual M4 heat-set receivers are in the hub; the five M3 insert pockets at the link knee have unobstructed mouths. The owner has not accepted all six screw seats or the revised link."
+  }
+}

@@ -46,8 +46,8 @@ WHEEL_R = 55.0
 Z_WHEEL_AXIS = -154.269                 # shoulder axis to wheel axis at phi=0
 
 # Panel holes measured off the model, not assumed.  The five frame bolts are
-# the rig's structural joint; the four O88 cover holes are freed by deleting
-# the clock spring (brief §2.4) and are left open as a stiffening option.
+# the rig's structural joint. The four O88 holes retain the removable cover;
+# its upper two also locate the revised front cable post.
 PANEL_FRAME_BOLTS = [(-60.0, -18.0), (-60.0, 48.0), (-60.0, 62.0),
                      (30.0, 48.0), (30.0, 62.0)]
 PANEL_COVER_PCD = 88.0
@@ -627,43 +627,56 @@ def build_rig_scale_pedestal(z_bench=None):
 
 # =========================================================== 7. cable posts
 def build_rig_cable_post_a():
-    """RIG_Cable_Posts -- two posts, one per service loop.
+    """Front strain-relief sector on the OUTSIDE of the removable cover.
 
-    A: clamped under two of the motor's eight M3 housing screws, anchoring the
-       hub's rotating loop.  Height is capped at y = 57 so the proximal link,
-       whose inboard face is at 58.7, can sweep over it.
-    B: on the column T-slot above the carriage's travel, carrying the loop that
-       has to tolerate the 210 mm of Mode B carriage stroke.
+    The old housing-mounted sector occupied the cover volume. The cover now
+    has outboard-accessible screws, so share its two upper Ø88 positions.
+    Two M3 x 12 replace those two cover M3 x 10 screws: the added 2 mm
+    thickness preserves 3.5 mm insert engagement and 1.5 mm tip clearance.
+    The rear Mode A anchor remains a separate fixed-harness strain relief.
     """
     drop_comp('RIG_Cable_Post_A')
     occ = new_comp('RIG_Cable_Post_A')
     c = occ.component
-    # Post A rides two of the motor's own 8 x M3 O74 positions, NOT the four
-    # freed O88 cover holes: those need a fastener on the panel's inboard face,
-    # and RIG_Carriage is now bolted flat against it.  Two of the eight housing
-    # screws become M3 x 16 and clamp post A, panel and motor together.
-    r = 37.0
-    t = 8.0
-    a1, a2 = 67.6, 112.6
-    # An annular sector r 35..50, NOT a slot between the two screw centres: a
-    # 14 mm-wide slot dipped to r 27, which hit both the panel's cable-cavity
-    # lip (r 32..33.5) and the O56 output hub.
+    r = beni_lib.CABLE_COVER_PCD / 2.0
+    t = 2.0
+    y0 = beni_lib.CABLE_COVER_Y0 + beni_lib.CABLE_COVER_T
+    a1, a2 = 45.0, 135.0
     p1 = (r * math.cos(math.radians(a1)), r * math.sin(math.radians(a1)))
     p2 = (r * math.cos(math.radians(a2)), r * math.sin(math.radians(a2)))
-    sk = sk_on_y(c, PANEL_Y1)
-    arc_sector(sk, 0.0, 0.0, 35.0, 50.0, a1 - 3.0, a2 + 3.0)
+    sk = sk_on_y(c, y0)
+    arc_sector(sk, 0.0, 0.0, 35.0, 58.0, a1 - 5.0, a2 + 5.0)
     extrude(c, biggest_profile(sk), t)
-    sk = sk_on_y(c, PANEL_Y1)
+    sk = sk_on_y(c, y0)
     circle(sk, p1[0], p1[1], 3.4)
     circle(sk, p2[0], p2[1], 3.4)
-    circle(sk, 0.0, 44.0, 8.0)                 # the cable eye
+    # Entire Ø8 eye lies beyond the cover's r47 edge; the cover must not
+    # close its underside. Its inner edge r48 has 1 mm air to the cover.
+    circle(sk, 0.0, 52.0, 8.0)
     extrude(c, profiles(sk), t, op='cut', participants=bodies_of(c))
     print('RIG_Cable_Post_A')
     _report(occ, 'RIG_Cable_Post_A')
-    print('     post A spans y %.1f..%.1f, r 35..50 (lip r33.5, link at %.1f)'
-          % (PANEL_Y1, PANEL_Y1 + 8.0, LINK_INBOARD_Y))
-    print('     its two M3 x 16 replace two of the eight M3 x 10 housing screws')
+    print('     post A spans y %.1f..%.1f, r 35..58; open Ø8 eye at Z52' % (y0, y0+t))
+    print('     two M3 x 12 replace the upper two cover M3 x 10 screws')
     return occ
+
+
+def fit_cable_post_a_fasteners():
+    """Guard the call: replace only the two upper cover screws, idempotently."""
+    centres = [(44*math.cos(math.radians(a)),44*math.sin(math.radians(a)))
+               for a in (45,135)]
+    for occ in list(root().occurrences):
+        if base_name(occ.component.name) != 'HW_SHCS_M3x10':
+            continue
+        bb = bbox_of(occ)
+        x,z = (bb[0]+bb[1])/2,(bb[4]+bb[5])/2
+        if abs(bb[3]-56.5)<.001 and min(math.hypot(x-a,z-b) for a,b in centres)<.001:
+            occ.deleteMe()
+    drop_comp('HW_SHCS_M3x12_PostA')
+    master = beni_lib.screw_comp('HW_SHCS_M3x12_PostA',3.0,12.0)
+    for x,z in centres:
+        place(master,x,z,55.5)
+    master.deleteMe()
 
 
 def build_rig_cable_anchor_mode_a():
@@ -947,6 +960,7 @@ RIG_PART_CLASS = {
     'RIG_Index_Bar': 'PACF',
     'RIG_Torque_Arm': 'PACF',
     'RIG_Cable_Post_A': 'PACF',
+    'HW_SHCS_M3x12_PostA': 'STEEL',
     'RIG_Cable_Post_B': 'PACF',
     'RIG_Cable_Anchor_ModeA': 'ABS',
     'RIG_Floor_Plate': 'PACF',
@@ -2045,6 +2059,8 @@ def build_mode_a(verbose=True):
     print('3. build the fixed-side Mode A cable anchor')
     if find_occ('RIG_Cable_Anchor_ModeA') is None:
         guarded(build_rig_cable_anchor_mode_a)
+    guarded(build_rig_cable_post_a)
+    guarded(fit_cable_post_a_fasteners)
     print()
     print('4. re-datum the two parts that stood on the deleted 2020 base')
     guarded(build_rig_floor)
@@ -2149,6 +2165,7 @@ def check8_threaded_receivers():
     """Verify active and deferred insert pockets directly from Fusion B-Reps."""
     print('=== CHECK 8: printed threaded receivers ===')
     problems = list(beni_lib.audit_threaded_receivers(verbose=True))
+    problems += beni_lib.audit_proximal_access(verbose=True)
 
     stand = find_occ('RIG_Stand')
     if stand is not None:

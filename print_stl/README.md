@@ -84,7 +84,9 @@ smallest to largest. **Ø19.10 PASSed** and the face-flat full-depth Ø19.10 lin
 accepted both bearings on 2026-09-02, but the owner found the production seats
 slightly tighter than preferred. **Ø19.15 is now preferred for future ABS
 links**: easier thumb insertion with no perceptible movement. The existing
-Ø19.10 link remains usable and needs no reprint. PA-CF is deferred to the later
+Ø19.10 bearing fit remains accepted, but its separately identified root-access
+and screw-seat defects now require the corrected Ø19.15 link in the
+[current queue](../README.md#current-print--convenience-link). PA-CF is deferred to the later
 two-leg structural build and must be recalibrated then.
 
 **This one print de-risks every other print.** Don't skip it — the Ø19 bearing

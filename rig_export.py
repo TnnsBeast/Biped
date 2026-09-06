@@ -341,9 +341,9 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
         'material_release': 'ABS first article only; not PA-CF structural data',
         'release_status': 'ABS PRINT RELEASE; physical assembly rehearsal required',
         'physical_coupon_evidence': M4_COUPON_EVIDENCE,
-        'proximal_link_assembly_status': ('BLOCKED: two M4 heads collide on the '
-            'straight path through the existing link; verify an alternate '
-            'loading sequence before releasing the six-screw joint'),
+        'proximal_link_assembly_status': ('CAD PATH VERIFIED for the 2026-09-05 '
+            'access-fixed link; physical six-screw rehearsal required. The old '
+            'link has two blocked head paths and one incomplete seat.'),
         'source_geometry': ('Shoulder_Output_Hub_L with pin bores overridden; '
                             'six M4 heat-set receivers retained'),
         'pin_bores_mm': pin_bore_d,
@@ -368,8 +368,7 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
                         'flange face is at Z=0'),
         'insert_installation': ('from the outboard/link face; use a depth stop '
                                 'so the 8.0 mm insert is flush at both ends'),
-        'restriction': ('unplugged hub-to-motor fit only until the proximal '
-                        'screw-loading path closes; powered integration waits for the complete '
+        'restriction': ('unplugged supported dry assembly; powered integration waits for the complete '
                         'leg, fixture and electronics gates; no structural load'),
         'stl': path,
         'stl_bytes': size,
@@ -493,9 +492,9 @@ def export_abs_m4_insert_coupon():
 def export_heatset_receiver_release_articles():
     """Export coupon-selected ABS receivers and their mating clearance parts.
 
-    The physical Ø19.10 proximal link is intentionally absent: its five M3
-    pockets are already correct, so regenerating it would create a needless
-    reprint. M4 exports require the recorded owner PASS for the exact ABS bore.
+    The proximal access correction has a separate source-built export in
+    evidence/assembly/2026-09-05_access_fix/release_fusion.py. Its five M3
+    pockets remain unchanged. M4 exports require the recorded owner PASS.
     """
     coupon = _accepted_m4_coupon()
     problems = R.check8_threaded_receivers()
@@ -620,15 +619,28 @@ def export_heatset_receiver_release_articles():
         },
         'Shoulder_Output_Hub_L': shoulder,
         'reprint_decision': {
-            'print_now': ['ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30'],
+            'print_now': ['ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED'],
             'required_reprint': [
-                'ABS_FA_Shoulder_Output_Hub_L_D4p15'],
-            'retain': ['physical ABS Proximal_Link_L D19.10 with bearings'],
+                'physical ABS Proximal_Link_L D19.10 with obstructed root paths'],
+            'retain': ['owner-passed ABS shoulder hub D4.15 with D5.3 M4 receivers'],
             'not_previously_printed_use_new_files': [
-                'RIG_Stand', 'Wheel_Hub_L', 'Wheel_Rim_L',
+                'RIG_Stand', 'Wheel_Hub_L',
                 'Chassis_Shoulder_Plate_L', 'Shoulder_Cable_Cover_L'],
+            'held': ['Wheel_Rim_L', 'Distal_Link_L', 'RIG_Knee_Collar_L'],
         },
     }
+    # Include the separately verified current assembly articles without
+    # rebuilding the accepted hub or changing historical geometric evidence.
+    access_dir = os.path.join(ROOT, 'evidence', 'assembly', '2026-09-05_access_fix')
+    for part, filename in [('Proximal_Link_L', 'proximal_release.json'),
+                            ('RIG_Cable_Post_A', 'post_a_release.json')]:
+        report_path = os.path.join(access_dir, filename)
+        if os.path.exists(report_path):
+            with open(report_path, encoding='utf-8') as stream:
+                report = json.load(stream)
+            manifest[part] = {'print_oriented': report['print_export'],
+                              'verification': report_path,
+                              'release_status': 'ABS PRINT READY; physical assembly rehearsal required'}
     with open(HEATSET_RELEASE_MANIFEST, 'w', encoding='utf-8') as stream:
         json.dump(manifest, stream, indent=2, sort_keys=True)
         stream.write('\n')

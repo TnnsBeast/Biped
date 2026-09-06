@@ -42,8 +42,8 @@ The Ø4.15 coupon passed on 2026-08-22, so stop there; the larger two trials are
 not needed. Batch 2 is the unloaded ABS shoulder assembly in
 [`assembly_dry_fit/`](assembly_dry_fit/). The original hub print proved the
 motor interface but predated heat-set receiver design. Its replacement now
-retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. It is ready for
-detached insert installation and motor fit; link screw loading remains held. The same folder contains
+retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. The owner has printed it and successfully installed its inserts. The next
+print is the corrected proximal link. The same folder contains
 bed-ready shoulder-plate and cable-cover articles.
 
 ## 2026-09-04 owned-insert release
@@ -54,12 +54,12 @@ saved documents. The two hubs, shoulder plate, cable cover and stand have
 bed-ready ABS files in the
 [receiver manifest](heatset_receiver_release_manifest.json).
 
-The next print is the corrected shoulder hub; use the final
-[README print queue](../README.md#current-print--convenience-link). Keep the
-printed Ø19.10 proximal link and bearings. Two root screw heads have a blocked
-straight loading path, so the six-screw assembly waits for a demonstrated
-alternative. The wheel rim also remains held for unsupported ledges in its
-print orientation. Evidence: [2026-09-04 checks](../evidence/inserts/2026-09-04_m4_coupon_pass/).
+The owner accepted the corrected hub's insert installation on 2026-09-05.
+The next print is the **access-fixed Ø19.15 proximal link**; use the final
+[README print queue](../README.md#current-print--convenience-link). Two head
+paths and one incomplete seat were corrected. The front cable post also now
+mounts outside the cover. The wheel rim retains its printability hold.
+[Current audit and acceptance](../evidence/assembly/2026-09-05_access_fix/).
 
 ## Slicer setup
 

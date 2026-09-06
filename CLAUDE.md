@@ -21,7 +21,9 @@ and the snapshot is in `snapshots/2026-08-20_rig-mode-a/`. **Both actuators are 
 hand**, with photographs indexed in
 `evidence/actuators/2026-08-20_received/`. The face-flat ABS proximal link is
 printed with both bearings installed; the rest of the leg and all wiring remain
-unassembled. If you state an engineering figure, trace it to CAD, a vendor
+unassembled except the owner's successful shoulder-hub/insert installation and
+link attachment. The link now needs the access-corrected replacement in the
+README queue. If you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.
 
 Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.

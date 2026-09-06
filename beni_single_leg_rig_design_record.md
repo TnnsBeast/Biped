@@ -146,7 +146,7 @@ cannot be held by dead weight (brief §3).
 | `RIG_Torque_Arm` | 200 mm lever, 12 mm PA-CF | **print** | **keep** — step 2 |
 | `RIG_Scale_Pedestal` | 2 × 2020 + shelf | buy | **keep in function**; substitute anything rigid at the right height |
 | `RIG_Floor_Plate` | 260 × 60 × 6 | **print** or 6 mm alu | **keep** |
-| `RIG_Cable_Post_A/B` | two service-loop anchors | **HOLD** | Post A currently overlaps the cable cover by 1610.44 mm³; Post B still targets deleted Mode-B structure. Neither is released. |
+| `RIG_Cable_Post_A/B` | two service-loop anchors | **A: revised ABS first article; B: deferred** | Post A now mounts outside the cover with two M3 × 12 and an open Ø8 eye; physical harness rehearsal required. Post B still targets deleted Mode-B structure. |
 | `RIG_Knee_Collar_L`, `RIG_Knee_Magnet_Carrier_L` | §2.3 substitutes | collar **HOLD**; carrier **print** | The carrier remains; the collar geometry is not a valid pin retainer and must be redesigned from delivered-pin measurements. |
 
 Reused unchanged: `Proximal_Link_L`, `Wheel_Tyre_L`,
@@ -522,7 +522,10 @@ The current Mode-A suite runs eight checks from `rig_lib.checks_44()`.
 
 > **Current rerun, 2026-09-03.** Checks 1, 4, 5, 6, 7 and the new threaded-
 > receiver check 8 pass. Check 2 fails at all 17 sampled angles because the
-> fixed `RIG_Cable_Post_A` overlaps `Shoulder_Cable_Cover_L` by 1610.44 mm³.
+> old `RIG_Cable_Post_A` overlaps `Shoulder_Cable_Cover_L` by 1610.44 mm³.
+> **This post geometry is superseded by the 2026-09-05 cover-mounted revision;**
+> see the [current audit](evidence/assembly/2026-09-05_access_fix/) for its paths
+> and rerun evidence.
 > Check 3 additionally reports the already-exposed rigid-floor contradiction:
 > datuming the floor to touch at the −8° longest-leg pose means shoulder
 > rotation can only lift the wheel, while raising the floor to maintain contact
@@ -587,11 +590,11 @@ proximal link** on the hub's 6 × M4 Ø44 PCD — step 2 runs with the leg off. 
 and `RIG_Scale_Pedestal` are hidden in the assembled state and excluded from the
 sweeps as step-2 fixtures.
 
-`RIG_Cable_Post_A ↔ Shoulder_Cable_Cover_L`, **1610.44 mm³**, is not an
-artifact. The current post spans the same radial/y volume as the redesigned
-serviceable cover, so Post A is held from print until its cable-anchor function
-is rerouted. This does not block a detached shoulder/link dry fit, but it does
-block claiming the complete wired Mode-A article is assembly-released.
+The old `RIG_Cable_Post_A ↔ Shoulder_Cable_Cover_L` overlap of
+**1610.44 mm³** was a design defect. The 2026-09-05 post now sits outside the
+cover, uses its upper two screws, and places the tie eye beyond the cover edge.
+The [current assembly audit](evidence/assembly/2026-09-05_access_fix/) records
+its insertion path, screw order and remaining physical harness gate.
 
 > **Re-measured 2026-08-17 on the Mode A assembly.** Still one real clash, still
 > 14 634.62 mm³, still that pair — **but only after fixing three things this
@@ -713,7 +716,7 @@ minimal cooling · dried filament**, per `beni_rig_no_machining.md` §1.
 | `RIG_Index_Bar` | 114.3 | 131.4 | flat, station holes vertical |
 | `RIG_Torque_Arm` | 93.6 | 107.6 | flat, arm plane on the bed |
 | `RIG_Floor_Plate` | 93.6 | 107.6 | flat |
-| `RIG_Cable_Post_A` | 4.0 | 4.6 | flat, sector face down |
+| `RIG_Cable_Post_A` | [SUPERSEDED: old 4.0] | [SUPERSEDED: old 4.6] | revised constant-section cover-mounted post; dimensions/export in the current access audit |
 | `RIG_Cable_Post_B` | 9.4 | 10.8 | flat |
 | `RIG_Knee_Collar_L` | 0.3 | 0.3 | **UNRELEASED — current geometry does not retain the pin; do not print** |
 | `RIG_Knee_Magnet_Carrier_L` | 0.7 | 0.8 | bore axis vertical — this holds the encoder TIR |
@@ -910,9 +913,9 @@ right height.
 | Item | Qty | Note |
 |---|---:|---|
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
-| M3 × 16 SHCS, cable post A + panel + motor | 2 | replaces two of the eight above |
+| M3 × 12 SHCS, revised cable post A + cover + plate insert | 2 | replaces the two upper cover M3 × 10 screws; post is outside the cover, Y53.5…55.5, Ø8 eye at Z52. The eight housing screws remain M3 × 8. |
 | Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification and the Ø4.0 ABS coupon gate. |
-| Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; owner-passed Ø5.3 ABS receiver and M4 × 10 screw. Reprint the hub for detached inserts/motor fit; link screw loading remains held. |
+| Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; owner-passed Ø5.3 ABS receiver and M4 × 10 screw. Owner printed and installed hub inserts successfully. Reprint the corrected link for the physical six-screw rehearsal. |
 | Owner-held Kadriick M4 × 8 | 6 | wheel hub; 6.0 mm embedded, 2.0 mm projecting into the rim's Ø6.0 × 2.2 relief, and M4 × 8 rim screw. |
 | Owner-held Kadriick M4 × 8 | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Full-depth Ø5.3 ABS receiver is in source; rebuild/verify in Fusion when Mode B returns. |
 | M4 threaded stud, 30 mm | ~~4~~ | ballast. **[DEFERRED — MODE B]** |

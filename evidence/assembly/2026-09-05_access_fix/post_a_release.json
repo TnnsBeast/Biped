@@ -1,0 +1,36 @@
+{
+  "volume_mm3": 3596.4114940254963,
+  "faces": 9,
+  "edges": 18,
+  "closed_manifold": true,
+  "bed_facing_planes": [
+    {
+      "face": 7,
+      "y_mm": 55.50000000000001,
+      "height_mm": 0.0,
+      "area_mm2": 1798.2057470127502
+    }
+  ],
+  "print_export": {
+    "source_part": "RIG_Cable_Post_A",
+    "export_name": "ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED",
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl",
+    "stl_bytes": 36484,
+    "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.png",
+    "rotation_axis": "+X",
+    "rotation_deg": -90.0,
+    "source_support_side": "max",
+    "source_support_face_y_mm": 55.5,
+    "source_support_face_indices": [
+      7
+    ],
+    "support_face_area_mm2": 1798.206,
+    "oriented_bbox_mm": [
+      88.8612,
+      35.5024,
+      2.0
+    ],
+    "minimum_z_mm": 0.0,
+    "support_policy": "No supports; constant 2 mm section, all through holes vertical, either broad face supports the whole part. Use supplied orientation."
+  }
+}

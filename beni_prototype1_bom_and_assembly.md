@@ -144,9 +144,9 @@ printed M4 receiving thread. It was not a purchase quantity. Use the canonical
 the active single-leg ABS article needs **14 owner-supplied Voron-style M3
 inserts** before spares, plus **12 of the 30 owner-held Kadriick M4 × 8
 inserts**: six shoulder and six wheel. The Ø5.3 ABS ladder station passed and
-was promoted through Fusion on 2026-09-04. The hubs are print-ready; the link
-screw-loading path and rim printability have separate holds in
-[ASSEMBLY_VERIFICATION.md](ASSEMBLY_VERIFICATION.md#2026-09-04-release-checks-and-new-blockers).
+was promoted through Fusion on 2026-09-04. The shoulder hub insert installation has since passed. The corrected link
+requires physical rehearsal; the rim retains its printability hold. See
+[ASSEMBLY_VERIFICATION.md](ASSEMBLY_VERIFICATION.md#2026-09-05-access-and-assembly-order-audit).
 
 **Fastener corrections retained in the current release:**
 
@@ -373,29 +373,29 @@ wheel is fully assembled.*
 
 - The spring can be changed by removing **one clevis pin** — no need to touch
   the bearing stack, the shoulder or the wheel.
-- The wheel motor and its connector come off with the 6 M2.5 screws while the
-  leg stays assembled.
+- The wheel motor and its connector come off with the 6 M2.5 screws. Support
+  the active leg off the Mode A stand first; the stand blocks the axial rear
+  screw/driver path at the nominal pose.
 - The shoulder motor's output screws are reachable through the link's root
   access hole; the motor itself comes out after removing the link.
-- The knee axle can only be withdrawn inboard, so the cartridge and the stop
-  arc must come off first.
+- The knee axle can only be withdrawn inboard, so the cartridge and stop
+  hardware must come off first. Remove the encoder bracket before withdrawing
+  the knee-stop screw heads; its Ø5 holes provide driver access only.
 
 ---
 
 ## 10. Recommended print order
 
-For the active single-leg article, start with the corrected shoulder hub in
+For the active single-leg article, retain the accepted shoulder hub and print the corrected proximal link in
 the [current print queue](README.md#current-print--convenience-link). The
 remaining sequence is gated as follows:
 
 1. Corrected `Chassis_Shoulder_Plate_L` and cable cover, if needed. Confirm the
    exact owned M3 insert coupon before heat installation.
-2. `Proximal_Link_L/R` — the face-flat Ø19.10 ABS first article passed full-depth
-   bearing installation and remains the build part. Use Ø19.15 for a future ABS
-   reprint; it retains the bearing at easier thumb pressure. Check Ø34 root
-   access during the complete single-leg rehearsal. **The six M4 root screws
-   have an assembly-path hold:** rehearse loading them into the detached link
-   before another link print is considered.
+2. `Proximal_Link_L/R` — the face-flat Ø19.10 bearing fit passed, but the root
+   wall obstructed two screw heads and a lightening cut clipped one seat.
+   Print the corrected Ø19.15 ABS link and rehearse all six M4 × 10 heads and
+   both bearings. [Access audit and order](evidence/assembly/2026-09-05_access_fix/).
 3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
    tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
    Ø10 angular-reference fit and Ø41.5 cover clearance.

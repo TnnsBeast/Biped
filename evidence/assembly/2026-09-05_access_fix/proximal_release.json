@@ -1,0 +1,250 @@
+{
+  "source_builder": "beni_lib.build_proximal_link + targeted add_fillets",
+  "bearing_seat_d_mm": 19.15,
+  "bearing_depth_mm": 5,
+  "root_access": [
+    {
+      "index": 0,
+      "centre_xz_mm": [
+        21.999463875518686,
+        0.15358772655515415
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    },
+    {
+      "index": 1,
+      "centre_xz_mm": [
+        10.866721064853083,
+        19.128888449114815
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    },
+    {
+      "index": 2,
+      "centre_xz_mm": [
+        -11.13274281066561,
+        18.975300722559663
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    },
+    {
+      "index": 3,
+      "centre_xz_mm": [
+        -21.999463875518686,
+        -0.15358772655515168
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    },
+    {
+      "index": 4,
+      "centre_xz_mm": [
+        -10.866721064853081,
+        -19.128888449114818
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    },
+    {
+      "index": 5,
+      "centre_xz_mm": [
+        11.132742810665597,
+        -18.975300722559666
+      ],
+      "head_path_mm3": 0.0,
+      "shank_path_mm3": 0.0,
+      "driver_d6_path_mm3": 0.0,
+      "final_head_mm3": 0.0
+    }
+  ],
+  "root_seat_lands": [
+    {
+      "index": 0,
+      "expected_land_volume_mm3": 4.792499593051333,
+      "actual_land_volume_mm3": 4.792499593051333,
+      "supported_fraction": 1.0
+    },
+    {
+      "index": 1,
+      "expected_land_volume_mm3": 4.792499593051333,
+      "actual_land_volume_mm3": 4.792499593051333,
+      "supported_fraction": 1.0
+    },
+    {
+      "index": 2,
+      "expected_land_volume_mm3": 4.79249959305133,
+      "actual_land_volume_mm3": 4.79249959305133,
+      "supported_fraction": 1.0
+    },
+    {
+      "index": 3,
+      "expected_land_volume_mm3": 4.792499593051334,
+      "actual_land_volume_mm3": 4.792499593051334,
+      "supported_fraction": 1.0
+    },
+    {
+      "index": 4,
+      "expected_land_volume_mm3": 4.792499593051333,
+      "actual_land_volume_mm3": 4.792499593051333,
+      "supported_fraction": 1.0
+    },
+    {
+      "index": 5,
+      "expected_land_volume_mm3": 4.792499593051333,
+      "actual_land_volume_mm3": 4.792499593051333,
+      "supported_fraction": 1.0
+    }
+  ],
+  "bearing_insertion_and_removal": [
+    {
+      "side": "inboard",
+      "continuous_swept_ring_y_mm": [
+        28.7,
+        63.7
+      ],
+      "interference_mm3": 0.0
+    },
+    {
+      "side": "outboard",
+      "continuous_swept_ring_y_mm": [
+        85.3,
+        120.3
+      ],
+      "interference_mm3": 0.0
+    }
+  ],
+  "topology_and_print": {
+    "volume_mm3": 69626.56021073872,
+    "faces": 80,
+    "edges": 181,
+    "closed_manifold": true,
+    "bed_facing_planes": [
+      {
+        "face": 10,
+        "y_mm": 64.5,
+        "height_mm": 25.80000000000001,
+        "area_mm2": 2479.7930298577617
+      },
+      {
+        "face": 24,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 12.566370614359082
+      },
+      {
+        "face": 26,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 12.566370614359082
+      },
+      {
+        "face": 28,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 12.566370614359082
+      },
+      {
+        "face": 30,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 12.566370614359082
+      },
+      {
+        "face": 32,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 12.566370614359082
+      },
+      {
+        "face": 45,
+        "y_mm": 67.5,
+        "height_mm": 22.80000000000001,
+        "area_mm2": 1401.9270200218202
+      },
+      {
+        "face": 48,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.656634649887646
+      },
+      {
+        "face": 50,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.65663464988767
+      },
+      {
+        "face": 52,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.656634649887636
+      },
+      {
+        "face": 54,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.656634649887646
+      },
+      {
+        "face": 56,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.656634649887636
+      },
+      {
+        "face": 58,
+        "y_mm": 63.3,
+        "height_mm": 27.00000000000001,
+        "area_mm2": 29.656634649887636
+      },
+      {
+        "face": 70,
+        "y_mm": 85.3,
+        "height_mm": 5.000000000000018,
+        "area_mm2": 61.04310875465813
+      },
+      {
+        "face": 79,
+        "y_mm": 90.30000000000001,
+        "height_mm": 0.0,
+        "area_mm2": 4453.407113763144
+      }
+    ]
+  },
+  "print_export": {
+    "source_part": "ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED",
+    "export_name": "ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED",
+    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl",
+    "stl_bytes": 314484,
+    "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.png",
+    "rotation_axis": "+X",
+    "rotation_deg": -90.0,
+    "source_support_side": "max",
+    "source_support_face_y_mm": 90.3,
+    "source_support_face_indices": [
+      79
+    ],
+    "support_face_area_mm2": 4453.407,
+    "oriented_bbox_mm": [
+      141.9253,
+      127.1345,
+      31.6
+    ],
+    "minimum_z_mm": 0.0,
+    "support_policy": "No supports. Same vertical bearing/insert axes as passed ABS coupons. Outboard arm face Y90.3 down. Existing 20 mm channel and root-pad ceilings are controlled bridges; inspect undersides and \u00d817 retention lips. Access cuts run vertically. Shorter lightening slot retains the six screw seats and increases the bed footprint; maximum channel width remains 20 mm. Inspect slicer bridge preview before printing."
+  },
+  "release": "ABS dry assembly only; physical six-screw seating and new full-depth bearing rehearsal required"
+}

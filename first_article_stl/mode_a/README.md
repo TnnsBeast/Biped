@@ -30,3 +30,21 @@ Place either broad face on the bed and install with 2 × M3 × 8 plus washers.
 
 The full receiver release record is
 [`../heatset_receiver_release_manifest.json`](../heatset_receiver_release_manifest.json).
+
+
+## Corrected front cable post A — 2026-09-05
+
+Print one ABS
+[`ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl`](ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
+with its supplied broad face down and no supports. This is a constant 2 mm
+section with vertical through holes. Use the same tuned ABS profile as the
+other first articles.
+
+It mounts on the outside of the cover, sharing the upper two Ø88 holes. Use
+**two M3 × 12**, replacing those two cover M3 × 10 screws; the lower two stay
+×10. Fit the panel/stand and housing screws first. The Ø8 eye lies outside the
+cover edge and must remain open after assembly. Fit and inspect the actual tie
+and harness before attaching the link; both must clear supported hand motion.
+This part is distinct from the rear anchor above.
+
+[Assembly paths and remaining gates](../../evidence/assembly/2026-09-05_access_fix/).
