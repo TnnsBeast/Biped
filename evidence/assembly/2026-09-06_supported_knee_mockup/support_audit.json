@@ -1,0 +1,62 @@
+[
+  {
+    "label": "knee_web",
+    "top_y_mm": 64.7,
+    "depth_mm": 5.2,
+    "support_volume_mm3": 2511.6333955404343,
+    "clear_removal_paths": [
+      {
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "maximum_mm3": 0
+      }
+    ],
+    "samples_each_path": 81,
+    "step_mm": 0.5,
+    "travel_mm": 40,
+    "lateral_gap_mm": 0.6,
+    "top_bottom_gap_mm": 0.3,
+    "keepout_diameters_mm": {
+      "knee": 18,
+      "cartridge_pivot": 8,
+      "stop_pin": 9
+    }
+  },
+  {
+    "label": "open_channel",
+    "top_y_mm": 84.2,
+    "depth_mm": 19.4,
+    "support_volume_mm3": 12213.497520430057,
+    "clear_removal_paths": [
+      {
+        "direction": [
+          -0.8660254037844387,
+          0,
+          0.49999999999999994
+        ],
+        "maximum_mm3": 0
+      },
+      {
+        "direction": [
+          -0.9659258262890682,
+          0,
+          0.258819045102521
+        ],
+        "maximum_mm3": 0
+      }
+    ],
+    "samples_each_path": 81,
+    "step_mm": 0.5,
+    "travel_mm": 40,
+    "lateral_gap_mm": 0.6,
+    "top_bottom_gap_mm": 0.3,
+    "keepout_diameters_mm": {
+      "knee": 18,
+      "cartridge_pivot": 8,
+      "stop_pin": 9
+    }
+  }
+]

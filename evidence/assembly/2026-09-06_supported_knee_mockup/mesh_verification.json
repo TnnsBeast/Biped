@@ -1,0 +1,47 @@
+[
+  {
+    "file": "ABS_MOCKUP_Knee_Alignment_Pin_D9p7_PRINT_ORIENTED.stl",
+    "triangles": 948,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "minimum_z_mm": -1.9979631047750777e-15,
+    "dimensions_mm": [
+      17.99210548400879,
+      17.996051788330078,
+      43.0
+    ],
+    "mesh_volume_mm3": 3703.61676981428,
+    "native_volume_relative_error": 0.001751814218935055,
+    "sha256": "ac6427c184b3e02a0e0ff949c3a8700a21f1a2ac85c123e84ac619fe6b7978b6"
+  },
+  {
+    "file": "ABS_MOCKUP_Distal_Link_L_PRINT_ORIENTED.stl",
+    "triangles": 4082,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "minimum_z_mm": -1.7763568394002505e-14,
+    "dimensions_mm": [
+      136.9186019897461,
+      122.11627960205078,
+      30.000000000000018
+    ],
+    "mesh_volume_mm3": 50641.75985361192,
+    "native_volume_relative_error": 0.00013398805443280674,
+    "sha256": "9e28bf9289a0323bda1bede0a3e60265d5aa0e0b766f307bd202e3a2a52f0a3f"
+  },
+  {
+    "file": "ABS_Spring_Seat_Fit_Cap_D8_PRINT_ORIENTED.stl",
+    "triangles": 900,
+    "nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "minimum_z_mm": -2.220446049250313e-15,
+    "dimensions_mm": [
+      20.0,
+      20.0,
+      6.000000000000002
+    ],
+    "mesh_volume_mm3": 681.2354348077532,
+    "native_volume_relative_error": 0.0005347819044443606,
+    "sha256": "c354be3136560f75a0a040599797a3b559679e2eb7c96d9e45c63f894749bd4f"
+  }
+]

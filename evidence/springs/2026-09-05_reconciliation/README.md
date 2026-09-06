@@ -53,9 +53,11 @@ See [fusion_geometry.json](fusion_geometry.json) for the live inspection.
 
 ## Current work
 
-The owner reports the corrected proximal link is printing. A springless,
-supported mock-up with a temporary printed alignment pin is requested, but its
-distal link, cartridge eyes and temporary pin have **not been released**.
-The length clarification is complete, so mock-up preparation can proceed from
-the confirmed owned variant. Inspection candidates are not print files. ABS restrictions remain unchanged: no main
-spring preload and no powered or load-bearing use of a printed knee pin.
+The corrected proximal link is printing. The
+[2026-09-06 supported knee mock-up](../../../first_article_stl/knee_mockup/)
+now provides a provisional distal link and temporary alignment pin for two
+supported links, with the spring cartridge absent. Two optional detached
+Ø8-pilot seat caps check the owned spring's ends on the bench, uncompressed.
+They are fit coupons, not revised cartridge eyes or preload spacers. Actual
+cartridge adaptation remains unfinished. No main-spring preload or powered/
+load-bearing use of a printed knee pin is released.

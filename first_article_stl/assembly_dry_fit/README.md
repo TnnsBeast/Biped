@@ -49,7 +49,11 @@ The [shoulder plate](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.s
 and [stand](../mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) remain
 available if needed, using their documented bed orientations and insert gates.
 The wheel rim is still **DO NOT PRINT** because of its unsupported ledges.
-The distal link and knee collar retain their pin-fit/retention gates.
+The final distal link and knee collar retain their pin-fit/retention gates.
+For the interim two-link bench test, use the separate
+[supported knee mock-up batch](../knee_mockup/): its provisional distal link
+and temporary pin are for supported hand positioning only, with no motor or
+spring cartridge attached.
 
 The new [front cable post](../mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
 fits outside the cover. Use two **M3 × 12** at the upper cover positions; the

@@ -40,52 +40,48 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Print one corrected ABS proximal link:** [direct raw-GitHub STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl).
+**Next: one temporary ABS knee pin** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_MOCKUP_Knee_Alignment_Pin_D9p7_PRINT_ORIENTED.stl).
+Then print the [provisional distal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_MOCKUP_Distal_Link_L_PRINT_ORIENTED.stl) for the supported two-link bench assembly.
 
-This automatically maintained section links the next verified print. The
-owner's new shoulder hub and insert installation passed. Keep that hub. The
-replacement link clears the wall from two M4 head paths and restores the full
-seat beneath a third head. It uses the selected Ø19.15 ABS bearing preference.
+This automatically maintained section links the next verified print batch.
+The corrected proximal link is printing; keep the accepted shoulder hub.
+[Full print, support and assembly traveller](first_article_stl/knee_mockup/).
 
-**Quantity 1, ABS.** Import the supplied orientation unchanged: broad outboard
-arm/bearing face on the bed, all critical bores vertical. No rotation, scaling,
-hole compensation or supports. Use the same tuned enclosed ABS profile as the
-passing coupon: 0.20 mm layers, 4 walls, 5 top/bottom layers, 30% infill; use a
-brim if that profile needs one. Preview the 20 mm channel and root-pad bridges;
-check for drooping strands, damaged bearing lips or uneven screw seats.
+| Part | Quantity / material | Supplied orientation and support policy |
+|---|---|---|
+| Temporary Ø9.7 pin | 1 ABS | Grip on bed, shaft vertical; 0.20 mm layers, 4 walls, 100% infill; **no supports** |
+| Provisional distal link | 1 ABS | Broad wheel-end face down, all bores vertical; **manual supports only in the two pictured regions** |
+| [Spring-seat fit caps](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_Spring_Seat_Fit_Cap_D8_PRINT_ORIENTED.stl) | 2 ABS, optional | Broad base down, pilot vertical; **no supports**; try the free spring off the leg |
 
-**Acceptance:** before attachment, pass all six **M4 × 10 screws** through the
-link's access passages; each head must sit flat without force. Rehearse both
-bearing seats with outer-race thumb pressure and no radial rock. Install the
-five knee M3 inserts while the link is open, after the exact-insert coupon
-passes. Support the knee end and attach it to the accepted hub; all six M4
-screws must start freely and clamp without pulling the print into place.
-Keep the motor unplugged. [Assembly steps and audit](evidence/assembly/2026-09-05_access_fix/).
+Import unchanged: no rotation, scaling or hole compensation. Use the tuned
+ABS enclosure profile; the link and caps use 0.20 mm layers, 4 walls,
+5 top/bottom layers and 30% infill. A brim is allowed. For the distal link,
+follow the pictured support guide: 0.6 mm XY clearance, 0.4 mm top/bottom gap,
+and no support in bores or on mating/bearing surfaces. Preview the support
+removal paths and controlled bridges before printing.
 
-The old Ø19.10 print remains bearing-fit evidence; its access defect now
-justifies replacement. Reuse bearings only if removed without damage. Do not
-put M4 inserts into the link—the six M4 receivers are in the accepted hub.
+**Acceptance:** the pin must slide freely through each bearing and the distal
+bore by hand. Support both detached links on the bench, slide the distal tongue
+into the fork, then insert the pin through both bearings and the tongue. No
+thrust spacers or axial clamp are fitted. Gently hand-position and disassemble
+once without force or rubbing. The older proximal print is usable for this
+bench rehearsal if both bearings are seated and their lips are intact.
 
-Other bed-ready ABS files, quantity 1 each if needed: [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl),
-[cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl),
-[wheel hub](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl), and
-[stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl).
-Use their unchanged supplied orientations and no supports; the stand requires
-at least 300 mm bed length. Confirm the exact M3 insert coupon before heat
-installation. Part-specific acceptance and limitations are in the
-[receiver map](docs/assembly/heatset_receiver_map.md).
+**This is a temporary, loose mock-up.** Keep motors, spring cartridge, stop
+hardware, encoder and collar off it. Support both links so the pin carries no
+leg weight. The distal mock-up may need replacement when the real steel pin
+and retention stack are resolved. The two caps test the spring ends separately,
+uncompressed; cartridge adaptation remains unfinished.
 
-The corrected [front cable anchor](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
-is also available, quantity 1 ABS, supplied flat orientation, no supports.
-It fits outside the cable cover using **two M3 × 12** in its upper positions;
-the lower two cover screws remain M3 × 10. Check its eye stays open with the
-cover fitted and that the tie/harness clears the supported moving link.
+The [corrected proximal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl)
+is already printing. Its [traveller](first_article_stl/assembly_dry_fit/) retains
+the six M4 screw-seat and bearing-fit acceptance checks and links the shoulder
+plate, cover and wheel hub. The accepted hub stays in use. The corrected
+[front cable anchor](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
+uses two M3 × 12 in the upper cover positions; lower positions remain M3 × 10.
 
-**Still held:** wheel rim (unsupported ledges), distal link (real steel-pin fit
-and printability), knee collar (retention), and the complete wired fixture
-(actual harness routing, floor disposition and electronics). The cable-post
-geometry clash is corrected. The wheel hub is available for detached
-motor fit while the rim is held. The next full-leg phase remains ABS,
-wheel-clear and current-limited under self-weight only after all gates close;
-no spring preload or structural loading. PA-CF is deferred.
+**Still held:** final distal/steel-pin/retention stack, wheel rim, spring
+cartridge and the complete wired fixture. This batch does not release powered
+motion or spring loading. The complete single-leg build stays ABS; PA-CF and
+structural tests remain deferred.
 <!-- PRINT_QUEUE_END -->

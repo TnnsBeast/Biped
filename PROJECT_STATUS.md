@@ -56,7 +56,7 @@ Its Ø19.15 bores use the previously selected easier-thumb-pressure ABS
 preference; the saved assembly bearing nominal is retained.
 
 **Still held:** wheel rim (unsupported inward ledge and outer retaining flange),
-distal link (real steel-pin fit and dedicated printability audit), knee collar
+final distal link (real steel-pin fit and final retention/printability audit), knee collar
 (pin retention), actual harness routing, and complete powered fixture/electronics
 acceptance. The wheel hub remains available for detached motor fit. The floor
 contradiction concerns the future contact/load procedure and is not closed by
@@ -75,7 +75,14 @@ A deliberately clearance-fit printed ABS pin may be used meanwhile as a
 link, prove the bearing fit, or establish the AS5048A angular datum. Do not use a
 printed pin for powered motion, main-spring installation/preload, ground contact
 or any load test; support the distal-side mock-up so the pin carries no leg
-weight. The owner has requested that mock-up; the spring-length clarification is now closed, and preparation can proceed with the confirmed owned variant. No temporary-pin or distal mock-up STL is released yet. In parallel, run
+weight. **The supported mock-up batch is now released, 2026-09-06:** a Ø9.7 printed
+alignment pin, a provisional distal link that enters with both bearings already
+installed, and two optional detached spring-seat fit caps. The mock-up omits
+the original protruding thrust lands and has no axial clamp. It is not a final
+distal/retention release. Follow the [print and bench traveller](first_article_stl/knee_mockup/)
+for selective supports, weight support, insertion order and physical acceptance.
+The spring stays off the leg; the caps check its ends uncompressed on the bench.
+Cartridge adaptation remains open. In parallel, run
 firmware/electronics Stage 0 with both motors disconnected. See the exact bore map in
 [`print_stl/README.md`](print_stl/README.md). The GIM4305 procedure and
 non-nesting explanation are in the illustrated
@@ -95,6 +102,7 @@ deferred to the later two-leg build.
 |---|---|
 | `Beni_Prototype1` | The complete two-leg robot. **Master — do not edit casually.** |
 | `Beni_SingleLegRig` | The test rig. A Save-As copy of the master with the right leg and chassis deleted and the `RIG_*` parts added. |
+| `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
 ⚠ **In `Beni_SingleLegRig`, deleting any occurrence displaces both motor STEP
@@ -168,6 +176,7 @@ hand-built.
 | `rig_calc.py` | plain `python3` | Independent recomputation of the brief's arithmetic: spring curve, drop series, MGN12H moments, travel budget, mass budget, bounce mode, torque arm, and **`mode_a_stand()` — the verified Mode A load set** (42.00 mm overhang, the four moments, the tipping table, the step-6 mass/φ table). |
 | `rig_export.py` | inside Fusion | Rig STLs, the targeted Mode A anchor, and the transient ABS-calibrated shoulder-hub first article, with print orientation recorded per part. |
 | `first_article_fusion.py` | inside Fusion | Builds, validates and exports the four ABS actuator-interface coupons in `Beni_Prototype1_TestGauges`. |
+| `knee_mockup_fusion.py` | Fusion MCP | Creates the separate supported ABS knee mock-up, temporary pin and detached spring-seat caps; checks assembly/support paths and exported meshes. |
 | `readme_images_fusion.py` | Fusion MCP, with `Beni_Prototype1` active | Refreshes the full-robot, complete-leg, wheel-module, and knee-detail images used by the project homepage. |
 | `stl_inspect.py` | plain `python3` | Recovers circular features from an STL mesh. Used to check the GAUGE coupons against the design record. |
 | `fusion_bridge/` | both sides | Lets an agent without Fusion read the live model. `bridge.py` (plain `python3`) validates requests and reads results; `probe.py` + `ops.py` run inside Fusion. See [`fusion_bridge/PROTOCOL.md`](fusion_bridge/PROTOCOL.md). |

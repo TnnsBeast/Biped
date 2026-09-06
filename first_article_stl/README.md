@@ -42,8 +42,9 @@ The Ø4.15 coupon passed on 2026-08-22, so stop there; the larger two trials are
 not needed. Batch 2 is the unloaded ABS shoulder assembly in
 [`assembly_dry_fit/`](assembly_dry_fit/). The original hub print proved the
 motor interface but predated heat-set receiver design. Its replacement now
-retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. The owner has printed it and successfully installed its inserts. The next
-print is the corrected proximal link. The same folder contains
+retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. The owner has
+printed it and successfully installed its inserts. The corrected proximal link
+is now printing. The same folder contains
 bed-ready shoulder-plate and cable-cover articles.
 
 ## 2026-09-04 owned-insert release
@@ -55,13 +56,21 @@ bed-ready ABS files in the
 [receiver manifest](heatset_receiver_release_manifest.json).
 
 The owner accepted the corrected hub's insert installation on 2026-09-05.
-The next print is the **access-fixed Ø19.15 proximal link**; use the final
+The **access-fixed Ø19.15 proximal link is printing**; use the final
 [README print queue](../README.md#current-print--convenience-link). Two head
 paths and one incomplete seat were corrected. The front cable post also now
 mounts outside the cover. The wheel rim retains its printability hold.
 [Current audit and acceptance](../evidence/assembly/2026-09-05_access_fix/).
 
-## Slicer setup
+## 2026-09-06 supported knee mock-up
+
+The next batch is the [temporary pin and provisional distal link](knee_mockup/)
+for two detached links supported on the bench. Two optional caps check the
+ends of the owned spring off the leg. Follow that batch's specific support
+policy: **the distal mock-up needs selective supports**, while the pin and
+caps print without supports. No main spring or motors attach to this mock-up.
+
+## Actuator-coupon slicer setup
 
 - Material: the owner's normal, tuned **ABS** profile in an enclosure.
 - No scaling and no hole compensation for the first pass.  The purpose is to

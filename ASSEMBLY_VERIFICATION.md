@@ -110,3 +110,16 @@ lands, topology and supporting plane. The front post's Ø6 probe passes its
 open Ø8 eye with the cover fitted. The exact iron tip, cable connector, tie and
 bend-radius fit remain physical checks; these envelopes do not assert a full
 wired or structural release.
+
+## 2026-09-06 supported knee mock-up
+
+The [interim batch](first_article_stl/knee_mockup/) is `CAD PATH VERIFIED`
+for two detached, supported links. A provisional distal tongue with its thrust
+extensions omitted enters the fork radially with both bearings installed;
+the temporary Ø9.7 pin then slides through all three bores. No spacers, collar,
+spring cartridge, motors or wiring are present. Support removal, radial
+insertion, continuous pin envelopes and sampled hand poses are recorded in
+the [Fusion evidence](evidence/assembly/2026-09-06_supported_knee_mockup/).
+Physical support removal and hand rehearsal remain required. This does not
+release the final distal/steel-pin/retention stack. Optional spring-seat caps
+are detached fit coupons for the free spring only.

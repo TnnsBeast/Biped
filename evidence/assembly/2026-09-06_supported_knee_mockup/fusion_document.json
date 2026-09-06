@@ -1,0 +1,30 @@
+{
+  "document": "Beni_Knee_Supported_DryFit",
+  "file_id": "urn:adsk.wipprod:dm.lineage:yk-kqPQxRBuNik50sj6O-A",
+  "version": 1,
+  "source_rig": "Beni_SingleLegRig",
+  "source_rig_version": 21,
+  "source_rig_modified": false,
+  "save_method": "Native Fusion archive export, upload, open and re-inspection",
+  "reopened_native_geometry_matches_release": true,
+  "verified_parts": {
+    "ABS_MOCKUP_Distal_Link_L": {
+      "volume_mm3": 50648.54615377091,
+      "faces": 64,
+      "edges": 182,
+      "closed_manifold": true
+    },
+    "ABS_MOCKUP_Knee_Alignment_Pin_D9p7": {
+      "volume_mm3": 3710.116204134584,
+      "faces": 6,
+      "edges": 5,
+      "closed_manifold": true
+    },
+    "ABS_Spring_Seat_Fit_Cap_D8": {
+      "volume_mm3": 681.5999421228709,
+      "faces": 6,
+      "edges": 6,
+      "closed_manifold": true
+    }
+  }
+}
