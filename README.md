@@ -29,11 +29,11 @@ model changes.
 
 The passive-knee detail includes the live `Knee_Spring_L` helical body: Ø19 OD,
 Ø2.6 wire and an 11.8-total-coil representation rebuilt to the current cartridge
-length. This is the original 55 mm baseline, not the later recommended yellow
-OD18 / ID9 × 50 mm candidate. Its cartridge adaptation was never completed;
-the order screenshot confirms the 50 mm option, while the reported 150 mm physical length still needs checking. See the
-[spring reconciliation](evidence/springs/2026-09-05_reconciliation/) before
-ordering or printing spring-loaded parts.
+length. This is the original 55 mm baseline. The owner has the recommended
+yellow OD18 / ID9 × **50 mm spring**; the earlier longer-length report was a
+typo, corrected on September 6. Keep that spring. The cartridge adaptation
+is still unfinished; see the [spring record](evidence/springs/2026-09-05_reconciliation/)
+before printing spring-loaded parts.
 
 ---
 

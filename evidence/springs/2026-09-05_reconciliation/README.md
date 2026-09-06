@@ -1,5 +1,9 @@
 # Spring recommendation and CAD mismatch — 2026-09-05
 
+**Corrected by the owner, 2026-09-06:** the received spring is **50 mm (5 cm)**,
+matching the order. The earlier 150 mm / 15 cm report was a typo. There is no
+wrong-length delivery or replacement-order hold. [Owner correction](owner_correction.json).
+
 The owner challenged the claim that the purchased spring should have been the
 55 mm baseline. Reviewing the earlier conversation confirmed a recommendation
 for a different, off-the-shelf candidate. The project records had failed to
@@ -30,11 +34,9 @@ recommendation overstated what was verified.
   **Yellow, 50 mm, OD18 mm / ID9 mm**, quantity one, from Creamily Official Store.
   It matches the recommended variant. The account/order screenshot is not
   copied into this public repository.
-- The owner reports **150 mm free length** and reconfirmed that on September 5.
-  That conflicts with the confirmed 50 mm order option. A photograph of the
-  actual spring beside a ruler is still needed to distinguish a measurement
-  misunderstanding from a wrong-length delivery. Do not infer seller error
-  from the order screenshot alone; do not describe this as wrong variant selection.
+- The owner confirms the received spring is **50 mm free length**. The earlier
+  longer-length report is corrected; no ruler photograph or supplier dispute
+  is required to resolve it. The owned part matches the recommended order option.
 - Live Fusion inspection found **Ø13.4 spigots**, an **Ø10 washer stack** and
   **Ø13 TPU bumper**. Those have not been adapted to the candidate's stated
   ID9. The earlier suggestion to keep the internal hard stop while changing
@@ -43,9 +45,7 @@ recommendation overstated what was verified.
   installed length/preload, compressed-length margin, guide and internal hard
   stop/bumper clearance. No such change is released. This does not establish a
   need to redesign the whole leg, or justify choosing new dimensions by guess.
-- A 150 mm spring is not accepted for this cartridge. Do not cut it or force it
-  into the assembly. The selected order option is now confirmed; verify the
-  physical spring next and resolve any wrong-length delivery before adapting it.
+- Keep the owned 50 mm spring; no replacement is required because of length.
   Do not order another spring solely from the old 55 mm headline. The baseline
   CAD remaining unadapted is an assistant workflow error, not an owner selection error.
 
@@ -56,6 +56,6 @@ See [fusion_geometry.json](fusion_geometry.json) for the live inspection.
 The owner reports the corrected proximal link is printing. A springless,
 supported mock-up with a temporary printed alignment pin is requested, but its
 distal link, cartridge eyes and temporary pin have **not been released**.
-The owner paused that work to reconcile the spring recommendation. Inspection
-candidates are not print files. ABS restrictions remain unchanged: no main
+The length clarification is complete, so mock-up preparation can proceed from
+the confirmed owned variant. Inspection candidates are not print files. ABS restrictions remain unchanged: no main
 spring preload and no powered or load-bearing use of a printed knee pin.

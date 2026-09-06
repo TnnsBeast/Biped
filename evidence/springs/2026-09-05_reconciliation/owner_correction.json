@@ -1,0 +1,13 @@
+{
+  "date": "2026-09-06",
+  "source": "Owner correction in the active conversation",
+  "owner_statement": "actually I misspoke, i have the correct 5cm spring. I must have accidentally told you earlier the one that came is 15cm, go back and fix everything that was just a typo on my part.",
+  "confirmed_free_length_mm": 50,
+  "ordered_variant": "Yellow, 50mm, OD18mm-(ID9mm)",
+  "order_variant_source": "Owner-provided completed-order screenshot, 2026-09-05",
+  "quantity_ordered": 1,
+  "supersedes": "Owner-reported 150 mm / 15 cm free length; this was a typo, not a wrong-length delivery",
+  "length_discrepancy_status": "CLOSED — owner confirmed ordered 50 mm spring received",
+  "replacement_for_length_required": false,
+  "separate_open_work": "Adapt and verify the original 55 mm cartridge CAD for the owned OD18 / ID9 / 50 mm spring; actual spring rate and fatigue performance remain unverified"
+}

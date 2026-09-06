@@ -922,11 +922,11 @@ right height.
 | **Ø4 × 10 hardened dowel pin** | 3 | the output hub's register. Not optional |
 | **Ø10 h6 hardened ground dowel, 35 mm** | 1 | knee axle, §4 |
 | Ø6 × 9 hardened dowel, h6 | 1 | knee stop, moving element |
-| **M5 plain washer**, Ø10/Ø5.3 × 1.0 | 20 | the +27° hard-stop stack, §8 |
-| **M5 shim washer** DIN 988, 0.2 / 0.3 / 0.5 mm | 10 ea | trimming the stack to 16.571 mm |
+| **M5 plain washer**, Ø10/Ø5.3 × 1.0 | 20 baseline | **Adaptation hold:** original +27° hard-stop stack, §8; Ø10 OD cannot fit inside the owned spring's ID9. Do not order as a verified drop-in set for that spring. |
+| **M5 shim washer** DIN 988, 0.2 / 0.3 / 0.5 mm | 10 ea baseline | Original stack trim to 16.571 mm; revised internal stop geometry remains unverified for the owned spring. |
 | Ø5 hardened ground shaft, cut 50 mm | 1 | cartridge guide rod |
 | Ø8 quick-release pin, 20 mm grip | ~~1~~ | mode pin / drop release. **[DEFERRED — MODE B]** |
-| Ø19/Ø13.6 × 0.5 shim washers | 8 + 8 | cartridge preload |
+| Ø19/Ø13.6 × 0.5 shim washers | 8 + 8 baseline | Original cartridge preload; replacement seat/spacer geometry for the owned spring is not yet released. |
 | M3 steel washers | 6 | under every wheel-hub head |
 | M12 washers (~7 g) | ~~20~~ | ballast trim. **[DEFERRED — MODE B]** |
 | 6800-2RS bearing | 2 | |
@@ -934,7 +934,7 @@ right height.
 | Ø6 × 2.5 diametric NdFeB magnet | 1 | **the AS5048A adapter kit already bundles an AS5000-MD6H-2 diametric magnet** — check the kit before buying this separately. A plain axial fridge magnet does **not** work; it must be diametrically magnetised |
 | PU bumper, Ø14 | ~~2~~ | rail travel stops. **[DEFERRED — MODE B]** |
 | **Steel shot / airgun BBs / M4 nuts** | ~~~150 g~~ | ballast fill, §5. **[DEFERRED — MODE B]** |
-| Main spring, Ø19 × 2.6 × 55, chrome-silicon A877 | 1 | 10.45 N/mm ±5 %. **A228 music wire is acceptable for early prototypes** — A877 is required only for high-cycle fatigue life |
+| Main spring, Yellow TF, OD18 / ID9 × **50 mm free** | **1 owned** | Order screenshot and owner length correction confirm the recommended variant. Keep it; no replacement for length is needed. The original Ø19 × 2.6 × 55 / 10.45 N/mm baseline remains in CAD; cartridge adaptation and the owned spring's measured rate remain open. [Spring record](evidence/springs/2026-09-05_reconciliation/). |
 
 ### Nothing to laser-cut and nothing to machine
 Every part is printed or bought. The retired steel-arc DXFs are under
