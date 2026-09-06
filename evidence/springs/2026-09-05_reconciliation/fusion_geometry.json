@@ -1,0 +1,40 @@
+{
+  "method": "Fusion MCP inspection of native cylindrical faces; no spring geometry changed",
+  "parts": [
+    {
+      "part": "Cart_Upper_Eye_L",
+      "cylinder_diameters_mm": [
+        4.15,
+        5.0,
+        13.0,
+        13.4
+      ]
+    },
+    {
+      "part": "Cart_Lower_Eye_L",
+      "cylinder_diameters_mm": [
+        4.15,
+        5.6,
+        13.0,
+        13.4
+      ]
+    },
+    {
+      "part": "HW_WasherStack_M5",
+      "cylinder_diameters_mm": [
+        5.3,
+        10.0
+      ]
+    },
+    {
+      "part": "RIG_Knee_Bumper_Tube_L",
+      "cylinder_diameters_mm": [
+        10.5,
+        13.0
+      ]
+    }
+  ],
+  "document": "Beni_SingleLegRig",
+  "version": 19,
+  "saved": true
+}
