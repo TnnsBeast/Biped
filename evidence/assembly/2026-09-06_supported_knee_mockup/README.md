@@ -54,7 +54,10 @@ bridge. All curved distal faces are cylinders parallel to the print axis.
 each exported orientation. [mesh_verification.json](mesh_verification.json)
 records hashes, bounding boxes, zero degenerate triangles and zero open or
 non-manifold edges. Binary STLs were checked inside Fusion via MCP, without
-mesh repair. Physical print/support removal and bench rehearsal remain open.
+mesh repair. The [September 7 owner report](../2026-09-07_owner_mockup/)
+confirms printing, successful provisional assembly, free supported movement,
+easy pin removal and detached cap fit. Detailed support-removal quality was
+not separately reported; final steel-pin/retention release remains open.
 
 ## Reproduce
 

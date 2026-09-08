@@ -44,7 +44,8 @@ not needed. Batch 2 is the unloaded ABS shoulder assembly in
 motor interface but predated heat-set receiver design. Its replacement now
 retains Ø4.15 and uses the owner-passed Ø5.3 M4 × 8 receivers. The owner has
 printed it and successfully installed its inserts. The corrected proximal link
-is now printing. The same folder contains
+is printed and the owner confirmed all six hub screw seats on September 7.
+The same folder contains
 bed-ready shoulder-plate and cable-cover articles.
 
 ## 2026-09-04 owned-insert release
@@ -56,7 +57,7 @@ bed-ready ABS files in the
 [receiver manifest](heatset_receiver_release_manifest.json).
 
 The owner accepted the corrected hub's insert installation on 2026-09-05.
-The **access-fixed Ø19.15 proximal link is printing**; use the final
+The **access-fixed Ø19.15 proximal link is printed with six-screw seating accepted**; use the final
 [README print queue](../README.md#current-print--convenience-link). Two head
 paths and one incomplete seat were corrected. The front cable post also now
 mounts outside the cover. The wheel rim retains its printability hold.
@@ -64,9 +65,12 @@ mounts outside the cover. The wheel rim retains its printability hold.
 
 ## 2026-09-06 supported knee mock-up
 
-The next batch is the [temporary pin and provisional distal link](knee_mockup/)
-for two detached links supported on the bench. Two optional caps check the
-ends of the owned spring off the leg. Follow that batch's specific support
+The [temporary pin and provisional distal link](knee_mockup/) are printed and
+provisionally assembled by owner report on September 7. Both spring caps are
+also printed, with both spring ends seating flat uncompressed. Supported knee
+movement and pin removal pass. [Photo and physical acceptance scope](../evidence/assembly/2026-09-07_owner_mockup/).
+The traveller remains scoped to two detached links supported on the bench;
+the caps check the ends of the owned spring off the leg. Follow that batch's specific support
 policy: **the distal mock-up needs selective supports**, while the pin and
 caps print without supports. No main spring or motors attach to this mock-up.
 

@@ -74,8 +74,10 @@ heads hit the internal wall on a straight approach. The current link extends
 all six access passages through that wall and shortens the lightening opening
 to restore a complete seat under the sixth head. New exact continuous swept
 head/shank/driver envelopes and seat-support checks pass. The owner accepted
-the new hub's insert installation; the corrected link still needs its own
-physical six-screw rehearsal. See the [current audit](evidence/assembly/2026-09-05_access_fix/).
+the new hub's insert installation; on September 7 the owner also confirmed
+the corrected link and all six screw seats. See the
+[physical result](evidence/assembly/2026-09-07_owner_mockup/) and
+[current audit](evidence/assembly/2026-09-05_access_fix/).
 
 **Wheel-rim printing remains BLOCKED.** With the broad web face on the bed,
 the annular underside at source y = 72 spans r = 30…44: a 14 mm unsupported
@@ -120,6 +122,11 @@ the temporary Ø9.7 pin then slides through all three bores. No spacers, collar,
 spring cartridge, motors or wiring are present. Support removal, radial
 insertion, continuous pin envelopes and sampled hand poses are recorded in
 the [Fusion evidence](evidence/assembly/2026-09-06_supported_knee_mockup/).
-Physical support removal and hand rehearsal remain required. This does not
-release the final distal/steel-pin/retention stack. Optional spring-seat caps
-are detached fit coupons for the free spring only.
+The [September 7 owner report](evidence/assembly/2026-09-07_owner_mockup/)
+confirms printing, successful provisional assembly, free supported knee
+movement and easy pin removal: `PHYSICAL ASSEMBLY VERIFIED` for the supported
+provisional hand fit. The shoulder motor appears attached in the photo; the
+report does not expand the detached-link traveller to motor loads or power.
+Detailed support-removal quality was not separately reported. Both spring
+caps pass their detached, uncompressed fit check. These results do not release
+the final distal/steel-pin/retention stack or spring cartridge.

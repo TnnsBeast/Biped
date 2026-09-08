@@ -53,11 +53,14 @@ See [fusion_geometry.json](fusion_geometry.json) for the live inspection.
 
 ## Current work
 
-The corrected proximal link is printing. The
+The corrected proximal link is printed and all six hub screw seats were
+accepted by the owner on September 7. The
 [2026-09-06 supported knee mock-up](../../../first_article_stl/knee_mockup/)
 now provides a provisional distal link and temporary alignment pin for two
-supported links, with the spring cartridge absent. Two optional detached
-Ø8-pilot seat caps check the owned spring's ends on the bench, uncompressed.
+supported links, with the spring cartridge absent. The owner has now printed
+and assembled that mock-up and printed both detached Ø8-pilot seat caps;
+[September 7 evidence](../../assembly/2026-09-07_owner_mockup/). The owner
+confirmed both spring ends sit flat on the caps without force or compression.
 They are fit coupons, not revised cartridge eyes or preload spacers. Actual
 cartridge adaptation remains unfinished. No main-spring preload or powered/
 load-bearing use of a printed knee pin is released.

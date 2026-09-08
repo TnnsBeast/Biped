@@ -40,48 +40,46 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next: one temporary ABS knee pin** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_MOCKUP_Knee_Alignment_Pin_D9p7_PRINT_ORIENTED.stl).
-Then print the [provisional distal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_MOCKUP_Distal_Link_L_PRINT_ORIENTED.stl) for the supported two-link bench assembly.
+**Next, if not already printed: one ABS Mode A stand** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl).
 
-This automatically maintained section links the next verified print batch.
-The corrected proximal link is printing; keep the accepted shoulder hub.
-[Full print, support and assembly traveller](first_article_stl/knee_mockup/).
+This automatically maintained convenience section lists previously released
+prints still useful for fixture preparation. No new CAD or STL is released by
+the September 7 physical update. [Current next steps](PROJECT_STATUS.md#immediate-next-steps-after-the-september-7-mock-up).
 
-| Part | Quantity / material | Supplied orientation and support policy |
+**Completed and accepted, September 7:** provisional distal link and temporary
+pin assembled with free supported movement/easy pin removal; both detached
+spring caps fit the free spring; corrected proximal link fitted with all six
+hub screws seating properly. Keep these parts and the accepted shoulder hub.
+[Owner photo and acceptance scope](evidence/assembly/2026-09-07_owner_mockup/).
+No repeat print is requested for the completed batch.
+
+| Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
-| Temporary Ø9.7 pin | 1 ABS | Grip on bed, shaft vertical; 0.20 mm layers, 4 walls, 100% infill; **no supports** |
-| Provisional distal link | 1 ABS | Broad wheel-end face down, all bores vertical; **manual supports only in the two pictured regions** |
-| [Spring-seat fit caps](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_mockup/ABS_Spring_Seat_Fit_Cap_D8_PRINT_ORIENTED.stl) | 2 ABS, optional | Broad base down, pilot vertical; **no supports**; try the free spring off the leg |
+| [Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS | Supplied mount face down; **no supports**; needs at least 300 mm on one bed axis |
+| [Cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, holes vertical; **no supports** |
+| [Front cable post](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl) | 1 ABS | Supplied broad face down, holes vertical; **no supports** |
+| [Wheel hub, detached motor fit only](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, bores vertical; **no supports** |
 
-Import unchanged: no rotation, scaling or hole compensation. Use the tuned
-ABS enclosure profile; the link and caps use 0.20 mm layers, 4 walls,
-5 top/bottom layers and 30% infill. A brim is allowed. For the distal link,
-follow the pictured support guide: 0.6 mm XY clearance, 0.4 mm top/bottom gap,
-and no support in bores or on mating/bearing surfaces. Preview the support
-removal paths and controlled bridges before printing.
+Use the tuned enclosed ABS profile. Import unchanged: no rotation, scaling or
+hole compensation. Preview the stand's blind-pocket roofs and hub counterbore
+bridges, and inspect their printed undersides. Keep supports off functional
+faces. [Stand/post traveller](first_article_stl/mode_a/) · [Cover/hub and receiver instructions](first_article_stl/assembly_dry_fit/)
+· [Insert map](docs/assembly/heatset_receiver_map.md).
 
-**Acceptance:** the pin must slide freely through each bearing and the distal
-bore by hand. Support both detached links on the bench, slide the distal tongue
-into the fork, then insert the pin through both bearings and the tongue. No
-thrust spacers or axial clamp are fitted. Gently hand-position and disassemble
-once without force or rubbing. The older proximal print is usable for this
-bench rehearsal if both bearings are seated and their lips are intact.
-
-**This is a temporary, loose mock-up.** Keep motors, spring cartridge, stop
-hardware, encoder and collar off it. Support both links so the pin carries no
-leg weight. The distal mock-up may need replacement when the real steel pin
-and retention stack are resolved. The two caps test the spring ends separately,
-uncompressed; cartridge adaptation remains unfinished.
-
-The [corrected proximal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl)
-is already printing. Its [traveller](first_article_stl/assembly_dry_fit/) retains
-the six M4 screw-seat and bearing-fit acceptance checks and links the shoulder
-plate, cover and wheel hub. The accepted hub stays in use. The corrected
-[front cable anchor](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
-uses two M3 × 12 in the upper cover positions; lower positions remain M3 × 10.
+**Acceptance and assembly:** coupon the exact M3 insert before fitting the
+stand's five receivers. Rehearse the panel fit and bench clamp/bolt hold-down;
+secure the stand before mounting the shoulder. Follow the verified order:
+panel/stand and housing screws first, cover/post next, proximal link last.
+The front post uses two M3 × 12 in the upper cover positions; lower positions
+remain M3 × 10. Check the real tie/harness through its eye before refitting the
+link. Keep the provisional distal link detached during fixture preparation;
+its printed pin is only for the [supported bench rehearsal](first_article_stl/knee_mockup/).
+Fit the wheel hub to its unplugged motor separately from that mock-up.
 
 **Still held:** final distal/steel-pin/retention stack, wheel rim, spring
-cartridge and the complete wired fixture. This batch does not release powered
-motion or spring loading. The complete single-leg build stays ABS; PA-CF and
-structural tests remain deferred.
+cartridge and complete powered fixture. The passed caps are fit coupons;
+keep the spring off the leg. The complete single-leg build stays ABS; PA-CF
+and structural tests remain deferred. [Teensy Stage 0](firmware/teensy_stage0/)
+can proceed with USB power and both motors disconnected while the steel pin
+is in transit.
 <!-- PRINT_QUEUE_END -->

@@ -1,11 +1,19 @@
 # Supported knee mock-up — ABS, 2026-09-06
 
-Print the temporary pin first, then the provisional distal link. Two small
-caps also let you try the ends of your **50 mm, OD18 / ID9 spring off the leg**.
-The old proximal link can be used on the bench while the corrected one prints,
-provided both bearings are fully seated and their retaining lips are intact.
+**Owner update, 2026-09-07:** the pin, provisional distal link and both caps
+are printed; the owner reports successful provisional assembly, free supported
+knee movement, easy pin removal and uncompressed fit at both spring ends.
+[Photo and physical acceptance scope](../../evidence/assembly/2026-09-07_owner_mockup/).
+No repeat print is currently requested for this batch.
 
-**CAD PATH VERIFIED; physical assembly not yet verified.** This batch is for
+For a replacement batch, print the temporary pin first, then the provisional distal link. Two small
+caps also let you try the ends of your **50 mm, OD18 / ID9 spring off the leg**.
+The owner also confirmed the corrected proximal link and all six hub screw
+seats. Keep the accepted prints; no replacement is prompted by this result.
+
+**PHYSICAL ASSEMBLY VERIFIED — supported provisional knee hand fit only.**
+Detached spring-cap fit also passes. The original CAD path verification remains
+the source for the procedure below. This batch is for
 two supported, detached links and gentle hand positioning. Keep motors,
 cartridge, knee-stop hardware, encoder and collar off this mock-up. The pin
 does not carry the leg's weight. No spring preload or powered movement.
@@ -52,8 +60,8 @@ use the STL's orientation for printing.
   not through a pin hole. Fusion checked these removal paths. Do not pry
   against a bearing, bore, mating face or thin edge.
 
-This is a first-article support policy, not a report of a successful physical
-print. Reject a print with a blocked bore, damaged wall, curled datum or
+The owner has printed and assembled the first article; detailed support-removal
+quality was not separately reported. Reject a print with a blocked bore, damaged wall, curled datum or
 support debris that prevents the following hand fit.
 
 ## Bench assembly
@@ -101,7 +109,9 @@ open in the [spring record](../../evidence/springs/2026-09-05_reconciliation/).
 
 ## What carries forward
 
-Keep the accepted shoulder hub and finish the corrected proximal-link print.
+Keep the accepted shoulder hub and corrected proximal link; the owner confirmed
+all six screw seats on September 7. Its [traveller](../assembly_dry_fit/)
+retains the bearing inspection and assembly instructions.
 This distal mock-up preserves the link outline and pivot locations but omits
 the original protruding thrust lands so it can enter a fork with bearings
 already fitted. Its 19 mm tongue has 0.5 mm nominal clearance to each fork arm.

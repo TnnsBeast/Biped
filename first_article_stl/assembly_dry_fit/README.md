@@ -1,8 +1,11 @@
 # ABS shoulder and proximal-link assembly articles
 
-## Current print — updated 2026-09-05
+## Accepted corrected print — updated 2026-09-07
 
-Print one
+The owner confirmed the corrected replacement and proper seating of all six
+hub screws on September 7. [Physical result and photo](../../evidence/assembly/2026-09-07_owner_mockup/).
+Keep this link and the accepted hub; no reprint is requested. If a replacement
+is needed, print one
 [`ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl`](ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl)
 in ABS. The owner successfully printed the corrected Ø4.15 shoulder hub and
 installed its Ø5.3 M4 inserts; retain that hub.
