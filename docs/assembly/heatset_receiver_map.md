@@ -7,11 +7,13 @@ the screw direction that remains accessible in the assembled robot.
 The complete single-leg article is ABS. PA-CF coupons and structural prints
 wait for the later two-leg build.
 
-## Release status — 2026-09-05
+## Release status — 2026-09-07
 
 The owner successfully printed and installed inserts in the Ø5.3 shoulder hub.
 Keep it. The replacement proximal link clears two obstructed M4 head paths and
-restores one incomplete seat; its five knee M3 mouths remain clear. Use the
+restores one incomplete seat; its five knee M3 mouths remain clear. The owner
+is now using this replacement and confirms all six M4 screws seat properly.
+[Physical acceptance](../../evidence/assembly/2026-09-07_owner_mockup/). Use the
 [current print queue](../../README.md#current-print--convenience-link) and
 [access audit](../../evidence/assembly/2026-09-05_access_fix/).
 The wheel rim retains its independent printability hold.
@@ -35,8 +37,8 @@ The wheel rim retains its independent printability hold.
 
 ![Coupon-selected shoulder hub on its controlled bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.png)
 
-- Status: **OWNER INSERT INSTALLATION PASS.** Retain the accepted hub;
-  rehearse the corrected link before accepting the complete six-screw joint.
+- Status: **OWNER INSERT INSTALLATION AND SIX-SCREW SEATING PASS.** Retain the
+  accepted hub and corrected proximal link; all six M4 screws work properly.
 - Receiver: 6 × owner-selected Ø5.3 through the 8.0 mm flange.
 - Insert: 6 × owner-held Kadriick M4 × 8, installed from the outboard/link
   face with a depth stop and flush at both ends.
@@ -64,15 +66,16 @@ The owner has since printed and successfully inserted the corrected Ø5.3 hub.
   use two M3 × 12 through the upper cover positions; the lower two remain ×10.
   The added 2 mm post thickness preserves the same engagement and tip clearance.
 
-## Existing proximal link — five M3 inserts
+## Proximal link — five M3 inserts
 
 ![Printed face-flat proximal link with both bearings installed](../../first_article_stl/assembly_dry_fit/01_fusion_abs_proximal_d19p10_with_bearings.png)
 
-The physical Ø19.10 link retains its valid bearing fit and M3 pockets. Its arm-B boss
-has five Ø4.0 × 5.0 pockets: three for the knee stop plate and two for the
-encoder bracket. These mouths are clear, but the separate root-access and
-seating defects now require the replacement Ø19.15 link. Reuse bearings only
-if removed without damage.
+The image records the earlier Ø19.10 bearing-fit article. The owner now uses
+the corrected Ø19.15 replacement, with all six M4 hub screw seats accepted.
+The arm-B boss retains five Ø4.0 × 5.0 pockets: three for the knee stop plate
+and two for the encoder bracket. These mouths are clear. The existing
+[corrected-link traveller](../../first_article_stl/assembly_dry_fit/) retains
+the bearing and insert instructions; no further link reprint is requested.
 
 ## Mode A stand — five M3 inserts
 
@@ -124,8 +127,8 @@ projection requires more rim relief without adding useful engagement.
    the part cool without a screw installed.
 4. Start every screw with fingers. Never use screw torque to seat a printed
    part or straighten an insert.
-5. Keep the motors unplugged. Rehearse all six screw seats in the corrected
-   link before attaching it to the accepted hub.
+5. Keep the motors unplugged. The owner has completed the corrected link's
+   six-screw seating check; use the existing traveller if repeating assembly.
 
 For the complete shoulder order and link attachment, continue with the
 [shoulder-to-proximal picture guide](shoulder_to_proximal_link.md).

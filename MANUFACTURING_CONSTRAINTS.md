@@ -57,11 +57,13 @@ laser cutting.
 
 ## Threaded interfaces in printed parts
 
-**Updated 2026-09-04: the owner confirmed the Ø5.3 ABS station passed all M4 × 8
+**Updated 2026-09-07: the owner confirmed the Ø5.3 ABS station passed all M4 × 8
 installation and cooled-retention checks. Fusion verifies that diameter in both
 documents. The two hubs are ABS first-article print releases; the rim has a
-separate printability hold and the proximal-link joint has a screw-loading-path
-hold.** Physical evidence: [M4 coupon PASS](evidence/inserts/2026-09-04_m4_coupon_pass/).
+separate printability hold. The corrected proximal link is now in use and all
+six M4 screws seat properly, closing its reported root-access/seating failure.**
+Physical evidence: [M4 coupon PASS](evidence/inserts/2026-09-04_m4_coupon_pass/)
+and [corrected-link assembly PASS](evidence/assembly/2026-09-07_owner_mockup/).
 This is the canonical insert map. The
 owner's received assortments are indexed at
 [`evidence/inserts/2026-09-02_received/`](evidence/inserts/2026-09-02_received/).
@@ -81,9 +83,9 @@ coupons before the later PA-CF structural build.
 | Printed thread destination | Qty, active ABS single leg | Insert / receiving feature | Current design status |
 |---|---:|---|---|
 | `Chassis_Shoulder_Plate_L`, cable-cover joint | 4 | Voron-style M3; Ø4.0 through the 5.0 mm plate | **READY / COUPON-GATED.** The removable cover now has Ø3.4 clearance holes and four M3 × 10 screws enter from its accessible outboard face. They engage 3.5 mm and stop 1.5 mm before the inboard plate face. When fitting revised cable post A, its 2 mm thickness requires M3 × 12 at the two upper positions; the lower two remain ×10. |
-| `Proximal_Link_L` arm-B boss | 5 | Voron-style M3; Ø4.0 × 5.0 blind pocket (3 stop-plate + 2 encoder-bracket) | **M3 mouths clear; replacement link required for separate root defects.** Use the Ø19.15 access-fixed ABS file; rehearse full-depth bearing and six-screw seating. |
+| `Proximal_Link_L` arm-B boss | 5 | Voron-style M3; Ø4.0 × 5.0 blind pocket (3 stop-plate + 2 encoder-bracket) | **M3 mouths clear; corrected link printed and six M4 screw seats accepted.** Retain the Ø19.15 access-fixed ABS link. Its traveller retains the full-depth bearing inspection; exact owned M3 insert fit remains coupon-gated. |
 | `RIG_Stand` panel interface | 5 | Voron-style M3; Ø4.0 × 6.0 blind pocket, 5.0 mm insert, 1.0 mm insertion space, 6.0 mm printed floor | **READY / COUPON-GATED.** Fusion verified all five receivers and zero stand interference; use the new print-oriented ABS file. |
-| `Shoulder_Output_Hub_L` root flange | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the full 8.0 mm flange | **OWNER HUB INSERT INSTALLATION PASS.** Retain the new Ø4.15 hub with Ø5.3 receivers. M4 × 10 link screws have 6.2 mm engagement and 1.8 mm end clearance. The replacement link clears their wall-obstructed paths and restores full head seats; repeat its physical assembly rehearsal. |
+| `Shoulder_Output_Hub_L` root flange | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the full 8.0 mm flange | **OWNER HUB INSERT INSTALLATION AND CORRECTED-LINK SIX-SCREW SEATING PASS.** Retain the new Ø4.15 hub with Ø5.3 receivers and corrected link. M4 × 10 link screws have 6.2 mm engagement and 1.8 mm end clearance. The owner confirms all six M4 screws work properly on the replacement. |
 | `Wheel_Hub_L` rim joint | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the 6.0 mm hub | **ABS HUB PRINT READY; RIM PRINTABILITY HOLD.** Install from the motor face: 6.0 mm embeds and 2.0 mm projects outboard. The rim’s six Ø6.0 × 2.2 reliefs retain 0.25 mm radial and 0.20 mm axial envelope clearance, with a Ø38 opening and 1.0 mm ligament. M4 × 8 rim screws have 6.0 mm engagement and 2.0 mm end clearance. The rim’s internal ledge and outer flange need a verified overhang solution; do not print it under the former no-support instruction. |
 
 The active ABS article consumes **14 M3 inserts** before spares: 4 shoulder

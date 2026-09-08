@@ -59,12 +59,22 @@ No repeat print is requested for the completed batch.
 | [Cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, holes vertical; **no supports** |
 | [Front cable post](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl) | 1 ABS | Supplied broad face down, holes vertical; **no supports** |
 | [Wheel hub, detached motor fit only](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, bores vertical; **no supports** |
+| [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
+| [Updated shoulder plate — only if the fitted plate lacks the four M3 cover-insert receivers](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS | Supplied inboard face down, holes vertical; **no supports** |
 
-Use the tuned enclosed ABS profile. Import unchanged: no rotation, scaling or
-hole compensation. Preview the stand's blind-pocket roofs and hub counterbore
+Use the tuned enclosed ABS profile. Import the `PRINT_ORIENTED` files unchanged:
+no rotation, scaling or hole compensation. The optional rear anchor is the
+exception: lay either 41.0 × 15.45 mm broad face on the bed, as described in its
+traveller. Preview the stand's blind-pocket roofs and hub counterbore
 bridges, and inspect their printed undersides. Keep supports off functional
 faces. [Stand/post traveller](first_article_stl/mode_a/) · [Cover/hub and receiver instructions](first_article_stl/assembly_dry_fit/)
 · [Insert map](docs/assembly/heatset_receiver_map.md).
+
+Use the existing Ø4.0 M3-insert coupon before installing stand or shoulder-plate
+inserts. If that coupon is unavailable, one ABS
+[fit coupon](print_stl/GAUGE_Fit_Coupon.stl) is also available; use its broad
+bar face down with through-bores vertical. The M4 coupon has already passed;
+no repeat is needed for the unchanged ABS profile.
 
 **Acceptance and assembly:** coupon the exact M3 insert before fitting the
 stand's five receivers. Rehearse the panel fit and bench clamp/bolt hold-down;
@@ -72,7 +82,8 @@ secure the stand before mounting the shoulder. Follow the verified order:
 panel/stand and housing screws first, cover/post next, proximal link last.
 The front post uses two M3 × 12 in the upper cover positions; lower positions
 remain M3 × 10. Check the real tie/harness through its eye before refitting the
-link. Keep the provisional distal link detached during fixture preparation;
+link. The optional rear anchor uses two M3 × 8 plus washers and fits before
+enclosing the rear wiring. Keep the provisional distal link detached during fixture preparation;
 its printed pin is only for the [supported bench rehearsal](first_article_stl/knee_mockup/).
 Fit the wheel hub to its unplugged motor separately from that mock-up.
 
@@ -82,4 +93,11 @@ keep the spring off the leg. The complete single-leg build stays ABS; PA-CF
 and structural tests remain deferred. [Teensy Stage 0](firmware/teensy_stage0/)
 can proceed with USB power and both motors disconnected while the steel pin
 is in transit.
+
+The TPU tyre remains coupled to the held rim. Knee stop/encoder parts and the
+magnet carrier have legacy STLs but are not added to this print batch: full
+knee assembly still awaits the real pin/retention, and their current bed-ready
+print release needs verification before adding them to this queue. Cartridge
+eyes and the internal bumper await the owned-spring adaptation. Two-leg and
+Mode B parts are deferred.
 <!-- PRINT_QUEUE_END -->
