@@ -74,6 +74,17 @@ the caps check the ends of the owned spring off the leg. Follow that batch's spe
 policy: **the distal mock-up needs selective supports**, while the pin and
 caps print without supports. No main spring or motors attach to this mock-up.
 
+## 2026-09-07 fixture small parts printed
+
+The owner has printed the cable cover, corrected front cable post, wheel hub
+and M3 fit coupon. [Exact files and completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
+Physical insert, detached motor-fit and cover/post/harness results are still
+pending. Test the M3 coupon before the stand print; the updated shoulder plate
+is conditional on the fitted plate's receivers, and the rear anchor is optional.
+The [current print queue](../README.md#current-print--convenience-link) contains
+the remaining prints, and [PROJECT_STATUS.md](../PROJECT_STATUS.md) maintains
+the active mechanical, CAD and electronics work.
+
 ## Actuator-coupon slicer setup
 
 - Material: the owner's normal, tuned **ABS** profile in an enclosure.

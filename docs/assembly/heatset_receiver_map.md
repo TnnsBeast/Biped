@@ -90,11 +90,13 @@ the bearing and insert instructions; no further link reprint is requested.
 
 ## Wheel hub and rim — six owned M4 × 8 inserts
 
-| Wheel hub — ABS print ready | Rim — printability hold |
+| Wheel hub — printed; physical checks pending | Rim — printability hold |
 |:---:|:---:|
 | ![Wheel hub on its rim-face bed datum](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.png) | ![Wheel rim showing six coaxial insert-tip reliefs](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PRINTABILITY_HOLD_DO_NOT_PRINT.png) |
 
-- Status: **hub ABS PRINT READY; rim DO NOT PRINT**. The rim's 14 mm inward
+- Status: **hub PRINTED; insert installation/detached motor fit pending; rim
+  DO NOT PRINT**. [Owner print completion](../../evidence/assembly/2026-09-07_small_parts_printed/).
+  The rim's 14 mm inward
   ledge and outer flange overhang invalidate the former no-support instruction.
 - Hub receiver: 6 × owner-selected Ø5.3 through 6.0 mm.
 - Insert: 6 × owner-held Kadriick M4 × 8. Install from the motor face with a

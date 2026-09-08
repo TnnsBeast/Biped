@@ -4,6 +4,12 @@ The active single-leg integration article remains entirely ABS. These files
 support dry assembly and wheel-clear, current-limited commissioning under
 self-weight only. They are not structural-load articles.
 
+**Owner update, 2026-09-07:** the corrected front cable post and M3 fit coupon
+are printed, together with the cover and wheel hub.
+[Completion record](../../evidence/assembly/2026-09-07_small_parts_printed/).
+Their physical checks remain pending. Test the M3 insert first, then print
+the stand separately; the rear anchor remains optional.
+
 ## Stand
 
 ![Fusion view of the stand on its released bed face](00_fusion_ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.png)
@@ -34,9 +40,11 @@ The full receiver release record is
 
 ## Corrected front cable post A — 2026-09-05
 
-Print one ABS
+The owner has printed one ABS
 [`ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl`](ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
-with its supplied broad face down and no supports. This is a constant 2 mm
+as of September 7; cover/post and actual harness fit remain pending. No reprint
+is requested. For a replacement, use its supplied broad face down and no
+supports. This is a constant 2 mm
 section with vertical through holes. Use the same tuned ABS profile as the
 other first articles.
 

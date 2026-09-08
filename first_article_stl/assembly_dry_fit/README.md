@@ -46,11 +46,18 @@ only for bearing preference.
 
 ## Adjacent available articles
 
-The [shoulder plate](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl),
-[cable cover](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl),
-[wheel hub](ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl),
-and [stand](../mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) remain
-available if needed, using their documented bed orientations and insert gates.
+The [cable cover](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl)
+and [wheel hub](ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) are now
+printed, along with the front cable post and M3 fit coupon.
+[September 7 completion record](../../evidence/assembly/2026-09-07_small_parts_printed/).
+Cover/post/harness fit and wheel-hub insert installation/detached motor fit
+remain pending; no repeat print is currently requested.
+
+After the M3 coupon passes, print the
+[stand](../mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) separately.
+The [shoulder plate](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
+is needed only if the fitted plate lacks its four M3 cover-insert receivers.
+Use their documented bed orientations and insert gates.
 The wheel rim is still **DO NOT PRINT** because of its unsupported ledges.
 The final distal link and knee collar retain their pin-fit/retention gates.
 For the interim two-link bench test, use the separate

@@ -25,6 +25,8 @@ knee assembly on September 7 after printing the temporary pin, distal mock-up
 and two spring caps; [physical evidence and remaining checks](evidence/assembly/2026-09-07_owner_mockup/).
 The owner also confirmed the corrected proximal replacement's six screw seats,
 free supported knee movement/pin removal, and detached spring-cap fit.
+The cover, corrected front cable post, wheel hub and M3 fit coupon are now
+printed; [batch record and pending physical checks](evidence/assembly/2026-09-07_small_parts_printed/).
 The complete leg and wiring are unfinished. Use the README queue for current
 prints. If you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.

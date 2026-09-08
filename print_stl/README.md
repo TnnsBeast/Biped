@@ -41,9 +41,13 @@ right-hand part; there is no separate `_R` file.
 
 ## Print in this order
 
-### 1. `GAUGE_Fit_Coupon.stl` — print this first, before anything else
-14 cm³, ~25 min. Print the first one in ABS for the ABS first-article campaign,
-then repeat it in PA-CF before releasing structural PA-CF parts.
+### 1. `GAUGE_Fit_Coupon.stl` — printed; M3 insert test pending
+The owner printed an ABS coupon with the fixture small parts on September 7.
+[Completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
+Use its Ø4.0 hole to test the exact owned M3 insert before the stand print;
+print completion does not establish a fit pass. No repeat is requested now.
+The coupon is 14 cm³, ~25 min; repeat in PA-CF before releasing structural
+PA-CF parts.
 
 A 26 × 92 × 8 bar with six through-bores, one for every critical fit in the
 robot:

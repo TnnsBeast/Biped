@@ -40,6 +40,13 @@ corrected proximal replacement with all six hub screws seating properly.
 [Photo and physical acceptance scope](evidence/assembly/2026-09-07_owner_mockup/).
 This is a provisional knee assembly; the complete leg and wiring remain unfinished.
 
+**Latest print completion, 2026-09-07:** the shoulder cable cover, corrected
+front cable post, wheel hub and M3 fit coupon are now printed.
+[Owner completion record and exact files](evidence/assembly/2026-09-07_small_parts_printed/).
+M3 insert fit/cooled retention, cover/post/harness fit, and wheel-hub insert
+installation/detached motor fit remain unreported. No repeat of this batch is
+requested. The next print is the stand after the M3 coupon passes.
+
 **Corrected Ø19.15 ABS proximal link: printed and six-screw seating accepted.**
 Keep it and the accepted shoulder hub. The active downloads are in the final
 [README print queue](README.md#current-print--convenience-link).
@@ -109,25 +116,34 @@ deferred to the later two-leg build.
 ## Immediate next steps after the September 7 mock-up
 
 1. Keep the accepted mock-up, corrected proximal link, shoulder hub and caps.
-   No reprint is needed from the reported results. The temporary pin remains
-   for supported hand positioning only, and the spring stays off the leg.
-2. If not already printed, prepare the released [ABS stand and cable parts](first_article_stl/mode_a/)
-   and [cable cover](first_article_stl/assembly_dry_fit/). The stand needs at
-   least 300 mm on one bed axis. Rehearse its inserts and bench hold-down, then
-   the shoulder/cover/harness sequence with the provisional distal assembly
-   detached. The existing wheel hub is available for detached, unplugged motor
-   fit; do not put the wheel motor on the provisional distal link.
-3. Run [Teensy Stage 0](firmware/teensy_stage0/) in parallel: USB power, both
+   Use the newly printed fit coupon to check the exact owned M3 insert in its
+   Ø4.0 hole: square/flush installation, no cracking or bulging, and secure
+   retention after cooling with a finger-started screw. Record the result.
+   The M4 coupon and corrected proximal six-screw fit already pass.
+2. Inspect the printed cable cover, front cable post and wheel hub. Follow the
+   [receiver map](docs/assembly/heatset_receiver_map.md) for wheel-hub M4 inserts,
+   then rehearse detached, unplugged motor fit. Keep the wheel motor off the
+   provisional distal link. Cover/post and actual harness acceptance remain
+   part of the fixture rehearsal below; printing does not close those checks.
+3. After the M3 coupon passes, print the released [ABS stand](first_article_stl/mode_a/)
+   on its own; it needs at least 300 mm on one bed axis. Print the
+   [updated shoulder plate](first_article_stl/assembly_dry_fit/) only if the
+   fitted plate lacks its four M3 cover-insert receivers. The rear cable anchor
+   remains optional. Install the stand inserts, secure the bench hold-down,
+   then rehearse panel/stand and housing screws, cover/post/harness, and proximal
+   link in that order, with the provisional distal assembly detached. The
+   already printed cover, post, wheel hub and coupon need no repeat print.
+4. Run [Teensy Stage 0](firmware/teensy_stage0/) in parallel: USB power, both
    motors disconnected, internal CAN loopback, BNO085 acquisition and the
    microSD gate. Hardware results are still owed; the prior compile is not a pass.
-4. When the real steel pin arrives, record the hardware and run the bearing/
+5. When the real steel pin arrives, record the hardware and run the bearing/
    coupon fits above. The final distal link, retention and encoder coupling
    still need Fusion assembly/print verification before release. Independent
    CAD work can address the held wheel rim and adapt the cartridge to the owned
    50 mm spring. The cap fit informs seat design only; main-spring preload and
    characterisation remain deferred to PA-CF.
 
-No new CAD or print release is implied by the owner photo. Keep the temporary
+No new CAD or print release is implied by the owner reports. Keep the temporary
 pin limited to the supported bench rehearsal; motor commissioning waits for
 the final mechanical, fixture, harness and electronics gates.
 

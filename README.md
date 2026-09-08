@@ -40,7 +40,7 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next, if not already printed: one ABS Mode A stand** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl).
+**Next, after the M3 coupon passes: one ABS Mode A stand** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl). Print the stand on its own.
 
 This automatically maintained convenience section lists previously released
 prints still useful for fixture preparation. No new CAD or STL is released by
@@ -53,12 +53,15 @@ hub screws seating properly. Keep these parts and the accepted shoulder hub.
 [Owner photo and acceptance scope](evidence/assembly/2026-09-07_owner_mockup/).
 No repeat print is requested for the completed batch.
 
+**Also printed, September 7:** shoulder cable cover, corrected front cable
+post, wheel hub and M3 fit coupon. These four prints are complete; insert,
+motor-fit and cover/post/harness checks remain pending.
+[Owner completion record](evidence/assembly/2026-09-07_small_parts_printed/).
+Use the new coupon for the M3 insert test before the next stand print.
+
 | Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
 | [Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS | Supplied mount face down; **no supports**; needs at least 300 mm on one bed axis |
-| [Cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, holes vertical; **no supports** |
-| [Front cable post](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl) | 1 ABS | Supplied broad face down, holes vertical; **no supports** |
-| [Wheel hub, detached motor fit only](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) | 1 ABS | Supplied bed-ready orientation, bores vertical; **no supports** |
 | [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
 | [Updated shoulder plate — only if the fitted plate lacks the four M3 cover-insert receivers](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS | Supplied inboard face down, holes vertical; **no supports** |
 
@@ -70,11 +73,11 @@ bridges, and inspect their printed undersides. Keep supports off functional
 faces. [Stand/post traveller](first_article_stl/mode_a/) · [Cover/hub and receiver instructions](first_article_stl/assembly_dry_fit/)
 · [Insert map](docs/assembly/heatset_receiver_map.md).
 
-Use the existing Ø4.0 M3-insert coupon before installing stand or shoulder-plate
-inserts. If that coupon is unavailable, one ABS
-[fit coupon](print_stl/GAUGE_Fit_Coupon.stl) is also available; use its broad
-bar face down with through-bores vertical. The M4 coupon has already passed;
-no repeat is needed for the unchanged ABS profile.
+Test the exact owned M3 insert in the printed coupon's Ø4.0 hole: install square
+and flush, let it cool, and confirm secure retention with a finger-started
+screw and no cracked or bulged wall. Record the result before printing the
+stand or installing M3 inserts in the assembly. The M4 coupon has already
+passed; no repeat is needed for the unchanged ABS profile.
 
 **Acceptance and assembly:** coupon the exact M3 insert before fitting the
 stand's five receivers. Rehearse the panel fit and bench clamp/bolt hold-down;
