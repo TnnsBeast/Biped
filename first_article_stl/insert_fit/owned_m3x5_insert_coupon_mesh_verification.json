@@ -1,0 +1,18 @@
+{
+  "degenerate_facets": 0,
+  "edge_incidence_errors": {},
+  "envelope_mm": [
+    60.0,
+    16.0,
+    8.0
+  ],
+  "facets": 1024,
+  "file": "ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl",
+  "mesh_volume_mm3": 7221.07392370406,
+  "minimum_z_mm": 0.0,
+  "native_volume_mm3": 7218.735658636663,
+  "native_volume_relative_error": 0.0003239161506903291,
+  "sha256": "c99f2a6240c6179dc8ffadec7ee2f6c98c70084b2e61c54f0a23d2cbf8764a93",
+  "verification_method": "Fusion MCP execution of the actual Fusion STL export",
+  "vertices": 512
+}

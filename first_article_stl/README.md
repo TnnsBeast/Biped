@@ -52,9 +52,10 @@ bed-ready shoulder-plate and cable-cover articles.
 
 The owner confirmed the largest M4 × 8 ladder station, Ø5.3, passed all
 installation and cooled-retention checks. Fusion incorporated it in both
-saved documents. The two hubs, shoulder plate, cable cover and stand have
-bed-ready ABS files in the
-[receiver manifest](heatset_receiver_release_manifest.json).
+saved documents. The two hubs and cable cover retain bed-ready ABS files in the
+[receiver manifest](heatset_receiver_release_manifest.json). That September 4
+manifest predates the M3 Ø4.0 physical failure; its shoulder-plate and stand
+exports are now held until the M3 ladder winner is promoted and re-exported.
 
 The owner accepted the corrected hub's insert installation on 2026-09-05.
 The **access-fixed Ø19.15 proximal link is printed with six-screw seating accepted**; use the final
@@ -74,13 +75,17 @@ the caps check the ends of the owned spring off the leg. Follow that batch's spe
 policy: **the distal mock-up needs selective supports**, while the pin and
 caps print without supports. No main spring or motors attach to this mock-up.
 
-## 2026-09-07 fixture small parts printed
+## 2026-09-14 M3 receiver recalibration
 
 The owner has printed the cable cover, corrected front cable post, wheel hub
-and M3 fit coupon. [Exact files and completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
-Physical insert, detached motor-fit and cover/post/harness results are still
-pending. Test the M3 coupon before the stand print; the updated shoulder plate
-is conditional on the fitted plate's receivers, and the rear anchor is optional.
+and general fit gauge. [Exact files and completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
+The gauge's nominal Ø4.0 M3 station is too small.
+[Physical result](../evidence/inserts/2026-09-14_m3_coupon_fail/). The new
+Fusion-generated [Ø4.1–4.5 M3 ladder](insert_fit/) is the next print. Hold the
+stand, shoulder plate and M3 insertion into the printed proximal link until the
+smallest passing station is promoted and the affected parts are reverified in
+Fusion. Detached motor-fit and cover/post/harness results are still pending;
+the rear anchor is optional.
 The [current print queue](../README.md#current-print--convenience-link) contains
 the remaining prints, and [PROJECT_STATUS.md](../PROJECT_STATUS.md) maintains
 the active mechanical, CAD and electronics work.

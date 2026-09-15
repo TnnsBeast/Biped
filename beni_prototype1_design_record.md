@@ -137,7 +137,7 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 5 … 16 | shoulder motor driver cover (Ø57) |
 | 17 … 41 | shoulder motor housing (Ø80) |
 | **42** | **housing mount face** — 8 × M3 @ Ø74 PCD |
-| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm printed plate, Ø96), including 4 × Ø4.0 through receivers for 5 mm Voron-style M3 cable-cover inserts |
+| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm printed plate, Ø96), including 4 current Ø4.0 through receivers for 5 mm Voron-style M3 cable-cover inserts. **Physical update 2026-09-14:** Ø4.0 failed in ABS; hold the plate until the Ø4.1–4.5 ladder result is promoted through Fusion. |
 | 44 | rotor face (Ø34…Ø46) |
 | **45.5** | **output mount face** — 6 × M3 @ Ø25 PCD, 3 × Ø4 pins to y = 49 |
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |

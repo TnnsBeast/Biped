@@ -319,8 +319,9 @@ CARR_DISC_R = 58.0
 CARR_SPINE_X0, CARR_SPINE_X1 = -78.0, -42.0
 CARR_SPINE_Z0, CARR_SPINE_Z1 = -85.0, 85.0
 # Printed receiving geometry, kept separate from the insert length.  The
-# owner's Voron-style M3 is 5.0 mm long and uses the project-qualified Ø4.0
-# pocket; the 8/12 mm rig plates have room for a 6.0 mm hole, leaving 1.0 mm
+# owner's Voron-style M3 is 5.0 mm long.  Nominal Ø4.0 failed physically on
+# 2026-09-14; keep this source value unchanged until the Ø4.1–4.5 ladder selects
+# a replacement.  The 8/12 mm rig plates have room for a 6.0 mm hole, leaving 1.0 mm
 # below the insert for air and screw-tip clearance.  The deferred ballast studs
 # use the same owner-held M4 x 8 insert as the active hubs.  The carriage is
 # exactly 8 mm thick, so those four receivers are through holes.

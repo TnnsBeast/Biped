@@ -1,4 +1,48 @@
-# ABS M4 × 8 heat-set receiver ladder
+# ABS heat-set receiver ladders
+
+## M3 × 5 — print next; physical selection pending
+
+The general `GAUGE_Fit_Coupon.stl` contained only one M3 candidate. The owner
+reported on 2026-09-14 that its nominal Ø4.0 hole is too small for the intended
+M3 heat-set insert. [Physical result](../../evidence/inserts/2026-09-14_m3_coupon_fail/).
+That gauge is not an M3 diameter ladder.
+
+Print one ABS
+[`ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl`](ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl)
+with the same tuned, enclosed ABS profile as the single-leg parts. Import the
+file unchanged: no rotation, scaling, hole compensation or supports. Its
+60 × 16 mm pocket-opening face is already on the bed. The five pockets are
+vertical, blind and 6.0 mm deep, matching the Mode A stand receiver depth for
+the 5.0 mm insert. Inspect the bridged pocket roofs in the slicer preview.
+
+![Fusion view of the five M3 pocket stations](00_fusion_ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_POCKET_FACE.png)
+
+The small Ø2 through marker identifies the **Ø4.1 end**. Moving away from it:
+
+1. Ø4.1 × 6.0
+2. Ø4.2 × 6.0
+3. Ø4.3 × 6.0
+4. Ø4.4 × 6.0
+5. Ø4.5 × 6.0
+
+Use one fresh owner-supplied Voron-style **M3 × 5** insert per attempted
+station. Start at the marked Ø4.1 end and select the smallest station that:
+
+- accepts a perpendicular heat-set without splitting, bulging or driving
+  excessive plastic ahead of it;
+- finishes square and flush;
+- does not spin with a finger-started M3 screw after cooling; and
+- resists a firm hand pull after cooling.
+
+Stop once the first station passes. If none passes, report that result rather
+than drilling, filing, scaling or changing the slicer compensation. The current
+Ø4.0 production receivers remain unchanged and held until the physical winner
+is promoted and reverified in Fusion.
+
+[Fusion B-Rep and orientation manifest](owned_m3x5_insert_coupon_manifest.json) ·
+[Fusion MCP verification of the exported mesh](owned_m3x5_insert_coupon_mesh_verification.json)
+
+## M4 × 8 — completed
 
 **Completed — owner PASS, 2026-09-04: nominal Ø5.3.** The owner confirmed
 square/flush installation without splitting or bulging and secure retention

@@ -127,8 +127,10 @@ FRAME_T = 4.0
 FRAME_FLANGE_Y = 38.0                        # flange inner face; outer at 42
 # The panel screws are repeatedly serviced, so the printed frame owns the
 # female threads.  A local 6.5 mm boss adds material only at each receiver;
-# its Ø4.0 x 6.0 blind pocket takes the owner's 5.0 mm Voron-style M3 insert,
-# gives 1.0 mm of air/screw-tip clearance, and leaves a 0.5 mm printed floor.
+# its current Ø4.0 x 6.0 blind pocket was intended for the owner's 5.0 mm
+# Voron-style M3 insert.  Ø4.0 failed physically on 2026-09-14; keep the source
+# value unchanged until the Ø4.1–4.5 ladder selects a replacement.  The pocket
+# gives 1.0 mm of air/screw-tip clearance and leaves a 0.5 mm printed floor.
 FRAME_INSERT_D = 4.0
 FRAME_INSERT_LEN = 5.0
 FRAME_INSERT_HOLE_DEPTH = 6.0

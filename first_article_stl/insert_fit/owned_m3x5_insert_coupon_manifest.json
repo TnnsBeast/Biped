@@ -1,0 +1,81 @@
+{
+  "document": "Beni_SingleLegRig",
+  "failed_predecessor": {
+    "coupon": "print_stl/GAUGE_Fit_Coupon.stl",
+    "diameter_mm": 4.0,
+    "owner_reported_date": "2026-09-14",
+    "result": "too small for the heat-set insert pocket"
+  },
+  "insert_family": "owner-supplied Voron-style M3 x 5 mm; exact seller dimension order remains unverified",
+  "insert_nominal_length_mm": 5.0,
+  "material": "same ABS profile as the single-leg articles",
+  "mesh_verification": "/Users/neilchulani/Biped/first_article_stl/insert_fit/owned_m3x5_insert_coupon_mesh_verification.json",
+  "orientation": {
+    "export_name": "ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED",
+    "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/insert_fit/00_fusion_ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.png",
+    "minimum_z_mm": 0.0,
+    "oriented_bbox_mm": [
+      60.0,
+      16.0,
+      8.0
+    ],
+    "rotation_axis": "+X",
+    "rotation_deg": 90.0,
+    "source_part": "ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER",
+    "source_support_face_indices": [
+      16
+    ],
+    "source_support_face_y_mm": 0.0,
+    "source_support_side": "min",
+    "stl": "/Users/neilchulani/Biped/first_article_stl/insert_fit/ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl",
+    "stl_bytes": 51284,
+    "support_face_area_mm2": 884.17,
+    "support_policy": "No supports. The 60 x 16 mm pocket-opening face is the bed datum; all five M3 insert pockets are vertical and blind. The 6 mm pocket roofs are controlled bridges. The \u00d82 marker identifies the \u00d84.1 end, and bore size increases toward the unmarked end."
+  },
+  "part": "ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER",
+  "pocket_face_screenshot": "/Users/neilchulani/Biped/first_article_stl/insert_fit/00_fusion_ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_POCKET_FACE.png",
+  "production_receivers_unchanged_pending_physical_result": true,
+  "selection_rule": "smallest bore that accepts a perpendicular heat-set without splitting or bulging, finishes square and flush, and resists hand spin/pull after cooling",
+  "stations": [
+    {
+      "depth_mm": 6.0,
+      "diameter_mm": 4.1,
+      "distance_from_first_station_mm": 0.0,
+      "local_x_mm": -24.0,
+      "station_from_marked_end": 1,
+      "through": false
+    },
+    {
+      "depth_mm": 6.0,
+      "diameter_mm": 4.2,
+      "distance_from_first_station_mm": 12.0,
+      "local_x_mm": -12.0,
+      "station_from_marked_end": 2,
+      "through": false
+    },
+    {
+      "depth_mm": 6.0,
+      "diameter_mm": 4.3,
+      "distance_from_first_station_mm": 24.0,
+      "local_x_mm": 0.0,
+      "station_from_marked_end": 3,
+      "through": false
+    },
+    {
+      "depth_mm": 6.0,
+      "diameter_mm": 4.4,
+      "distance_from_first_station_mm": 36.0,
+      "local_x_mm": 12.0,
+      "station_from_marked_end": 4,
+      "through": false
+    },
+    {
+      "depth_mm": 6.0,
+      "diameter_mm": 4.5,
+      "distance_from_first_station_mm": 48.0,
+      "local_x_mm": 24.0,
+      "station_from_marked_end": 5,
+      "through": false
+    }
+  ]
+}

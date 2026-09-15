@@ -98,8 +98,10 @@ Constants already in `rig_lib.py` to reuse rather than retype:
 
 > **[CORRECTED 2026-09-02]** `INSERT_M3_D = 4.0`, insert length is 5.0,
 > and the stand hole depth is 6.0 mm. Fusion verified five receivers spanning
-> y = 36…42 with a 6 mm printed floor. Physical installation remains subject
-> to the owner's Ø4.0 ABS insert coupon.
+> y = 36…42 with a 6 mm printed floor. **Physical update 2026-09-14:** nominal
+> Ø4.0 is too small in the owner's ABS result. Keep the source constant unchanged
+> until the Ø4.1–4.5 ladder selects a replacement, then promote it and rerun the
+> full Fusion verification before re-exporting the stand.
 
 ### 2.2 The load set — yaw dominates by 4×
 

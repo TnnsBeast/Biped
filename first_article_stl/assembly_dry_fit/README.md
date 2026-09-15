@@ -34,8 +34,10 @@ only for bearing preference.
 - Fit both 6800 bearings from their respective open faces using thumb pressure
   on the outer race. They must sit square and have no perceptible radial rock.
   Reuse bearings from the old link only if removed without damage.
-- Install the five M3 inserts with the knee open, after the exact owned M3
-  insert passes its coupon. The six M4 inserts belong in the accepted hub.
+- Install no M3 inserts in this printed link yet. Its five nominal Ø4.0 pockets
+  are held by the September 14 physical failure. Reassess the link after the
+  Ø4.1–4.5 ladder selects a diameter. The six M4 inserts belong in the accepted
+  hub.
 - Keep the motor unplugged, support the knee end, attach the link and
   finger-start all six M4 screws. Every head must clamp flat. Remove/refit once
   and record the physical result.
@@ -48,16 +50,16 @@ only for bearing preference.
 
 The [cable cover](ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl)
 and [wheel hub](ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl) are now
-printed, along with the front cable post and M3 fit coupon.
+printed, along with the front cable post and general fit gauge.
 [September 7 completion record](../../evidence/assembly/2026-09-07_small_parts_printed/).
 Cover/post/harness fit and wheel-hub insert installation/detached motor fit
 remain pending; no repeat print is currently requested.
 
-After the M3 coupon passes, print the
-[stand](../mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) separately.
-The [shoulder plate](ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
-is needed only if the fitted plate lacks its four M3 cover-insert receivers.
-Use their documented bed orientations and insert gates.
+The gauge's Ø4.0 M3 station failed. Print the dedicated
+[Ø4.1–4.5 M3 ladder](../insert_fit/) next. After its winner is promoted through
+Fusion, print the re-exported stand separately. A re-exported shoulder plate is
+needed only if the fitted plate lacks suitable cover-insert receivers. Use the
+documented bed orientations and insert gates.
 The wheel rim is still **DO NOT PRINT** because of its unsupported ledges.
 The final distal link and knee collar retain their pin-fit/retention gates.
 For the interim two-link bench test, use the separate

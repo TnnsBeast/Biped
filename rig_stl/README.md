@@ -29,7 +29,7 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 >
 > | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
 > |---|---|---|
-> | `RIG_Stand`, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, the M3 shoulder parts, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the new first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: use the access-fixed ABS link; physical rehearsal required. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: use the revised cover-mounted ABS first article. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
+> | `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, and the cartridge-eye reroute parts | M3 receiver parts: nominal Ø4.0 failed; print the Ø4.1–4.5 ladder, then promote and re-export through Fusion. `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the new first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: retain the access-fixed ABS link but install no M3 inserts until receiver selection. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: use the revised cover-mounted ABS first article. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -105,10 +105,11 @@ the two things below that were never about the slide:
   line up with `Chassis_Shoulder_Plate_L`'s existing frame-bolt holes at
   (−60, −18), (−60, 48), (−60, 62), (30, 48), (30, 62). Verified concentric in CAD;
   confirm on the print before installing inserts.
-- **The deferred source is corrected.** It has five Ø4.0 × 6.0 M3 pockets and
+- **The deferred source records the intended topology.** It has five current
+  Ø4.0 × 6.0 M3 pockets that require recalibration and
   four full-depth source-updated Ø5.3 M4 receivers for the owner-held M4 × 8
-  inserts. Do not print the carriage for Mode A; promote the physical coupon
-  result when Mode B returns. The canonical
+  inserts. Do not print the carriage for Mode A; promote a material-specific
+  physical coupon result when Mode B returns. The canonical
   disposition is in
   [`MANUFACTURING_CONSTRAINTS.md`](../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts).
 
@@ -216,10 +217,11 @@ bed (12 mm web, 32 mm foot, both sharing the y = 42.00 face).
 - **The bed-facing face is the one that has to be flat.** It bears on
   `Chassis_Shoulder_Plate_L`'s inboard face over the five bolt landings, and the
   five insert bores open on it, so they print as clean first-layer holes with no
-  bridging. The corrected bores are **Ø4.0 × 6.0** for 5 mm Voron-style M3
-  inserts, with 1 mm installation space and a 6 mm printed floor. Use
-  [`../first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl`](../first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl),
-  not an older slicer project.
+  bridging. The current bores are **Ø4.0 × 6.0** for 5 mm Voron-style M3
+  inserts, with 1 mm installation space and a 6 mm printed floor. Nominal Ø4.0
+  failed physically on 2026-09-14. Do not print the current stand file; use the
+  Ø4.1–4.5 ladder, promote the smallest passing diameter and re-export through
+  Fusion first.
 - ⚠ **Footprint is 200 × 299 mm, so it needs a bed ≥ 300 mm in one axis.**
   **RESOLVED 2026-08-20: the printer is a Bambu Lab H2S, build volume
   340 × 320 × 340 mm** (vendor spec, web, 2026-08-20 — the first build envelope

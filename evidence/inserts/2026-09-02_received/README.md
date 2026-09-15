@@ -35,10 +35,12 @@ The case label lists:
 - printed diameter table: M2 `d1=3.0`, `d2=2.7`; M3 `d1=4.5`,
   `d2=3.9`; M4 `d1=5.5`, `d2=5.0`; M5 `d1=7.0`, `d2=6.1` mm
 
-## Engineering disposition — updated 2026-09-03
+## Engineering disposition — updated 2026-09-14
 
-- Use the owner-reported Voron-style M3 family only after the existing Ø4.0
-  ABS pocket coupon accepts the exact insert without splitting or spin-out.
+- The existing nominal Ø4.0 M3 station failed physically. Use the dedicated
+  Ø4.1–4.5 ABS ladder and select the smallest station that installs without
+  splitting or spin-out; promote that result through Fusion before any part
+  insertion or affected-part print.
 - The active M4 joints have now been redesigned around **12 of the 30 owned
   M4 × 8 inserts**. The shoulder uses the full 8.0 mm flange. The wheel embeds
   6.0 mm in its hub and lets 2.0 mm project into new rim reliefs. M4 × 10 adds

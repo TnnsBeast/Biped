@@ -1,0 +1,11 @@
+{
+  "status": "OWNER FAIL",
+  "reported_date_local": "2026-09-14",
+  "material": "ABS",
+  "insert_family": "owner-supplied M3 heat-set insert intended for the active single-leg article; exact seller variant unrecorded",
+  "nominal_pocket_diameter_mm": 4.0,
+  "coupon": "print_stl/GAUGE_Fit_Coupon.stl",
+  "result": "too small for the heat-set insert pocket",
+  "source": "Owner reported that the two smallest general-gauge holes were too small, then clarified that the heat-set insert pocket needs to be wider.",
+  "limitations": "Qualitative owner report; no photograph or measured printed diameter. ABS printer/profile result only."
+}

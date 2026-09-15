@@ -114,7 +114,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Flexion bumper | Ø6.2 × 7.5 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
-| Heat-set insert | Voron-style M3 × 5.0; exact owned variant remains coupon-gated | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
+| Heat-set insert | Voron-style M3 × 5.0; exact owned variant unverified; nominal Ø4.0 ABS receiver failed and Ø4.1–4.5 ladder selection is pending | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
 | Heat-set insert | Owner-held Kadriick M4 × 8, shoulder root; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
 | Heat-set insert | Owner-held Kadriick M4 × 8, wheel rim joint; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
@@ -316,8 +316,9 @@ wheel is fully assembled.*
    on the y = 47 face. This
    insertion path is Fusion-verified and recorded in
    [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
-2. After the owned Voron-style M3 insert passes the Ø4.0 ABS pocket coupon, fit
-   4 × M3 heat-set inserts flush in the **outboard face of
+2. After the dedicated ABS ladder selects an M3 receiver diameter and that
+   result is promoted and reverified through Fusion, fit 4 × M3 heat-set
+   inserts flush in the **outboard face of
    `Chassis_Shoulder_Plate_L`**. `Shoulder_Cable_Cover_L` has clearance holes
    only. Fasten it from the accessible outboard face with 4 × **M3 × 10**;
    this joint remains serviceable after the stand or chassis frame is fitted.
@@ -328,7 +329,7 @@ wheel is fully assembled.*
    pins first**, then 6 × M3 × 10 through the deep counterbores, 1.2 N·m.
 5. Pass the harness through the hub's Ø6 port at r = 21 and strain-relieve on
    the hub's outboard face. **Both ends now have strain relief.**
-6. After the same coupon gate, fit 5 × M3 heat-set inserts in the proximal
+6. After the same ladder-selection and Fusion-promotion gate, fit 5 × M3 heat-set inserts in the proximal
    link's arm B boss (3 for the stop arc, 2 for the encoder bracket).
 7. Complete **A1** (knee stack) — proximal link + distal link joined.
 8. Fit the two `HW_ClevisPin_D4x32` to install **A2** (cartridge): upper pin at
@@ -390,8 +391,9 @@ For the active single-leg article, retain the accepted shoulder hub and print th
 the [current print queue](README.md#current-print--convenience-link). The
 remaining sequence is gated as follows:
 
-1. Corrected `Chassis_Shoulder_Plate_L` and cable cover, if needed. Confirm the
-   exact owned M3 insert coupon before heat installation.
+1. Corrected `Chassis_Shoulder_Plate_L` and cable cover, if needed. Nominal Ø4.0
+   failed in ABS; print the Ø4.1–4.5 ladder and promote the smallest physical
+   pass through Fusion before printing the plate or installing an insert.
 2. `Proximal_Link_L/R` — the face-flat Ø19.10 bearing fit passed, but the root
    wall obstructed two screw heads and a lightening cut clipped one seat.
    Print the corrected Ø19.15 ABS link and rehearse all six M4 × 10 heads and

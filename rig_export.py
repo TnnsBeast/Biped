@@ -22,7 +22,7 @@ import adsk.fusion
 import beni_lib as B
 import rig_lib as R
 
-ROOT = '/Users/neilchulani/Robots/Biped'
+ROOT = os.path.dirname(os.path.realpath(__file__))
 STL_DIR = os.path.join(ROOT, 'rig_stl')
 FIRST_ARTICLE_DIR = os.path.join(ROOT, 'first_article_stl', 'mode_a')
 ABS_ASSEMBLY_DIR = os.path.join(ROOT, 'first_article_stl',
@@ -32,6 +32,15 @@ HEATSET_RELEASE_MANIFEST = os.path.join(
 INSERT_FIT_DIR = os.path.join(ROOT, 'first_article_stl', 'insert_fit')
 M4_COUPON_EVIDENCE = os.path.join(
     ROOT, 'evidence', 'inserts', '2026-09-04_m4_coupon_pass', 'result.json')
+
+# The general fit gauge's single nominal Ø4.0 M3 station physically failed on
+# 2026-09-14.  The next empirical ladder starts one 0.1 mm step above that
+# failed station and ends at Ø4.5, the largest M3 diameter printed on the
+# owner's photographed assortments.  These are coupon candidates only; no
+# production receiver changes until the owner selects a physical PASS.
+M3_COUPON_DIAMETERS = (4.1, 4.2, 4.3, 4.4, 4.5)
+M3_INSERT_LEN = 5.0
+M3_COUPON_POCKET_DEPTH = 6.0
 
 
 def _accepted_m4_coupon():
@@ -489,6 +498,190 @@ def export_abs_m4_insert_coupon():
     return manifest
 
 
+def export_abs_m3_insert_coupon():
+    """Export the indexed ABS ladder for the active M3 insert family.
+
+    The existing general fit gauge supplied only one Ø4.0 station, which the
+    owner reported too small on 2026-09-14.  This ladder matches the Mode A
+    stand's 6 mm blind-pocket depth for the 5 mm insert and uses the same
+    print axis as the released M3 receiver parts.
+    """
+    os.makedirs(INSERT_FIT_DIR, exist_ok=True)
+    name = 'ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER'
+
+    def build():
+        B.drop_comp(name)
+        occ = B.new_comp(name)
+        comp = occ.component
+        # Eight millimetres total thickness leaves a 2 mm coupon floor under
+        # the 6 mm pocket.  The receiver depth itself matches RIG_Stand.
+        R.box(comp, -30.0, 30.0, 0.0, 8.0, -8.0, 8.0,
+              op='new').bodies.item(0).name = name
+        sketch = R.sk_on_y(comp, 0.0)
+        xs = (-24.0, -12.0, 0.0, 12.0, 24.0)
+        for x, diameter in zip(xs, M3_COUPON_DIAMETERS):
+            R.circle(sketch, x, 0.0, diameter)
+        R.extrude(comp, R.profiles(sketch), M3_COUPON_POCKET_DEPTH,
+                  op='cut', participants=R.bodies_of(comp))
+        # The small through marker identifies the Ø4.1 end.  Pocket diameter
+        # increases in 0.1 mm steps toward the unmarked end.
+        sketch = R.sk_on_y(comp, -1.0)
+        R.circle(sketch, -27.0, -5.0, 2.0)
+        R.extrude(comp, sketch.profiles.item(0), 10.0, op='cut',
+                  participants=R.bodies_of(comp))
+        return occ
+
+    R.replace_cart_stops()
+    occ = R.guarded(build)
+    expected = list(zip((-24.0, -12.0, 0.0, 12.0, 24.0),
+                        M3_COUPON_DIAMETERS))
+    measured = []
+    for index, (x, diameter) in enumerate(expected):
+        spans = B._receiver_face_spans(occ, diameter, [(x, 0.0)])
+        found = sorted((round(a, 3), round(b, 3))
+                       for a, b in spans.values())
+        if found != [(0.0, M3_COUPON_POCKET_DEPTH)]:
+            raise RuntimeError('coupon Ø%.1f pocket span is %s' %
+                               (diameter, found))
+        measured.append({'diameter_mm': diameter,
+                         'station_from_marked_end': index + 1,
+                         'distance_from_first_station_mm': index * 12.0,
+                         'local_x_mm': x,
+                         'depth_mm': M3_COUPON_POCKET_DEPTH,
+                         'through': False})
+
+    native_volume_mm3 = occ.component.bRepBodies.item(0).volume * 1000.0
+    root = B.root()
+    visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
+    app = adsk.core.Application.get()
+    old_camera = app.activeViewport.camera
+    pocket_face_image = os.path.join(
+        INSERT_FIT_DIR,
+        '00_fusion_ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_POCKET_FACE.png')
+    try:
+        for item, _was_on in visibility:
+            item.isLightBulbOn = (item == occ)
+        camera = app.activeViewport.camera
+        camera.eye = adsk.core.Point3D.create(0.0, -8.0, 0.0)
+        camera.target = adsk.core.Point3D.create(0.0, 0.4, 0.0)
+        camera.upVector = adsk.core.Vector3D.create(0.0, 0.0, 1.0)
+        camera.isFitView = True
+        app.activeViewport.camera = camera
+        app.activeViewport.refresh()
+        if not app.activeViewport.saveAsImageFile(
+                pocket_face_image, 1600, 700):
+            raise RuntimeError('Fusion pocket-face screenshot failed')
+    finally:
+        app.activeViewport.camera = old_camera
+        for item, was_on in visibility:
+            item.isLightBulbOn = was_on
+        app.activeViewport.refresh()
+
+    oriented = _export_min_y_face_down(
+        occ, name + '_PRINT_ORIENTED', INSERT_FIT_DIR,
+        ('No supports. The 60 x 16 mm pocket-opening face is the bed datum; '
+         'all five M3 insert pockets are vertical and blind. The 6 mm pocket '
+         'roofs are controlled bridges. The Ø2 marker identifies the Ø4.1 '
+         'end, and bore size increases toward the unmarked end.'))
+
+    # Verify the actual binary STL inside Fusion, through this MCP-run script.
+    # This checks that the bed-ready export is closed, non-degenerate, at Z=0,
+    # and still matches the native solid volume and Fusion-measured envelope.
+    import collections
+    import hashlib
+    import struct
+    with open(oriented['stl'], 'rb') as stream:
+        data = stream.read()
+    facet_count = struct.unpack_from('<I', data, 80)[0]
+    if len(data) != 84 + 50 * facet_count:
+        raise RuntimeError('unexpected binary STL length')
+    edges = collections.Counter()
+    vertices = set()
+    degenerate = 0
+    mesh_volume_mm3 = 0.0
+    for index in range(facet_count):
+        values = struct.unpack_from('<12fH', data, 84 + 50 * index)
+        triangle = [tuple(round(values[3 + 3 * j + k], 6)
+                          for k in range(3)) for j in range(3)]
+        if len(set(triangle)) < 3:
+            degenerate += 1
+        vertices.update(triangle)
+        for j in range(3):
+            edges[tuple(sorted((triangle[j], triangle[(j + 1) % 3])))] += 1
+        a, b, c = triangle
+        mesh_volume_mm3 += (
+            a[0] * (b[1] * c[2] - b[2] * c[1])
+            + a[1] * (b[2] * c[0] - b[0] * c[2])
+            + a[2] * (b[0] * c[1] - b[1] * c[0])) / 6.0
+    edge_incidence_errors = collections.Counter(
+        count for count in edges.values() if count != 2)
+    minimum = [min(vertex[k] for vertex in vertices) for k in range(3)]
+    maximum = [max(vertex[k] for vertex in vertices) for k in range(3)]
+    envelope = [maximum[k] - minimum[k] for k in range(3)]
+    volume_error = abs(abs(mesh_volume_mm3) - native_volume_mm3) / native_volume_mm3
+    if edge_incidence_errors or degenerate:
+        raise RuntimeError('M3 coupon STL is not a closed clean mesh')
+    if abs(minimum[2]) >= 0.001:
+        raise RuntimeError('M3 coupon STL is not on Z=0')
+    if any(abs(actual - expected) >= 0.02 for actual, expected in
+           zip(envelope, oriented['oriented_bbox_mm'])):
+        raise RuntimeError('M3 coupon STL envelope mismatch')
+    if volume_error >= 0.002:
+        raise RuntimeError('M3 coupon STL volume mismatch')
+    mesh_verification = {
+        'file': os.path.basename(oriented['stl']),
+        'facets': facet_count,
+        'vertices': len(vertices),
+        'edge_incidence_errors': dict(edge_incidence_errors),
+        'degenerate_facets': degenerate,
+        'minimum_z_mm': minimum[2],
+        'envelope_mm': envelope,
+        'native_volume_mm3': native_volume_mm3,
+        'mesh_volume_mm3': abs(mesh_volume_mm3),
+        'native_volume_relative_error': volume_error,
+        'sha256': hashlib.sha256(data).hexdigest(),
+        'verification_method': 'Fusion MCP execution of the actual Fusion STL export',
+    }
+    mesh_path = os.path.join(
+        INSERT_FIT_DIR, 'owned_m3x5_insert_coupon_mesh_verification.json')
+    with open(mesh_path, 'w', encoding='utf-8') as stream:
+        json.dump(mesh_verification, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    manifest = {
+        'document': adsk.core.Application.get().activeDocument.name,
+        'part': name,
+        'material': 'same ABS profile as the single-leg articles',
+        'insert_family': ('owner-supplied Voron-style M3 x 5 mm; exact seller '
+                          'dimension order remains unverified'),
+        'insert_nominal_length_mm': M3_INSERT_LEN,
+        'failed_predecessor': {
+            'coupon': 'print_stl/GAUGE_Fit_Coupon.stl',
+            'diameter_mm': 4.0,
+            'owner_reported_date': '2026-09-14',
+            'result': 'too small for the heat-set insert pocket',
+        },
+        'stations': measured,
+        'selection_rule': ('smallest bore that accepts a perpendicular '
+                           'heat-set without splitting or bulging, finishes '
+                           'square and flush, and resists hand spin/pull '
+                           'after cooling'),
+        'production_receivers_unchanged_pending_physical_result': True,
+        'pocket_face_screenshot': pocket_face_image,
+        'mesh_verification': mesh_path,
+        'orientation': oriented,
+    }
+    manifest_path = os.path.join(
+        INSERT_FIT_DIR, 'owned_m3x5_insert_coupon_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump(manifest, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    occ.deleteMe()
+    R.replace_cart_stops()
+    print(json.dumps({'manifest': manifest_path, 'coupon': manifest},
+                     indent=2, sort_keys=True))
+    return manifest
+
+
 def export_heatset_receiver_release_articles():
     """Export coupon-selected ABS receivers and their mating clearance parts.
 
@@ -563,8 +756,17 @@ def export_heatset_receiver_release_articles():
         'material_scope': ('ABS complete single-leg integration article; '
                            'PA-CF deferred to the two-leg build'),
         'physical_coupon_gates': {
-            'M3': ('existing Ø4.0 ABS pocket coupon with the exact '
-                   'owner-supplied Voron-style insert'),
+            'M3': {
+                'status': 'OWNER FAIL; production receiver release held',
+                'failed_nominal_pocket_diameter_mm': 4.0,
+                'candidate_ladder_mm': list(M3_COUPON_DIAMETERS),
+                'next_coupon': os.path.join(
+                    INSERT_FIT_DIR,
+                    'ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl'),
+                'evidence': os.path.join(
+                    ROOT, 'evidence', 'inserts',
+                    '2026-09-14_m3_coupon_fail', 'result.json'),
+            },
             'M4': {'status': coupon['status'],
                    'nominal_pocket_diameter_mm': B.OWNED_M4_POCKET_D,
                    'evidence': M4_COUPON_EVIDENCE},

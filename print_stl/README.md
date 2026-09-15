@@ -41,11 +41,14 @@ right-hand part; there is no separate `_R` file.
 
 ## Print in this order
 
-### 1. `GAUGE_Fit_Coupon.stl` — printed; M3 insert test pending
+### 1. `GAUGE_Fit_Coupon.stl` — printed; nominal Ø4.0 M3 station failed
 The owner printed an ABS coupon with the fixture small parts on September 7.
 [Completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
-Use its Ø4.0 hole to test the exact owned M3 insert before the stand print;
-print completion does not establish a fit pass. No repeat is requested now.
+On September 14 the owner reported that the nominal Ø4.0 M3 station is too
+small. [Physical result](../evidence/inserts/2026-09-14_m3_coupon_fail/).
+This general gauge has only one M3 candidate, so it cannot select a replacement
+diameter. Print the dedicated Ø4.1–4.5
+[M3 insert-pocket ladder](../first_article_stl/insert_fit/) next.
 The coupon is 14 cm³, ~25 min; repeat in PA-CF before releasing structural
 PA-CF parts.
 
@@ -59,7 +62,7 @@ robot:
 | Ø10.0 | knee axle bore — the fit that now matters, on a bought Ø10 h6 × 35 mm dowel pin | light press, not a loose slip — this press is the rig's angular reference |
 | Ø6.0 | knee-stop dowel seat | light press |
 | Ø4.05 | shoulder-output dowel | slip |
-| Ø4.0 | Voron-style M3 heat-set insert pocket | insert seats flush without splitting the wall; verify the exact owned insert first |
+| Ø4.0 | Voron-style M3 heat-set insert pocket | **OWNER FAIL, 2026-09-14: too small; use the dedicated ladder** |
 
 With no calipers, test the bores using the real matching bearings, dowels,
 fasteners, and inserts. Record which nominal feature produces the required fit
@@ -74,8 +77,9 @@ expected before roughly 2026-09-16; quantity and exact specification remain to
 be verified. A deliberately clearance-fit printed ABS pin may support
 hand-alignment work meanwhile, but it cannot release the distal link, establish
 the knee-angle datum, or carry powered, spring, ground-contact or load testing.
-The Ø16 bore is a superseded sleeve check; Ø6 and Ø4.0 support later stop/insert
-work; and the Ø4.05 shoulder-output result has already been superseded for this
+The Ø16 bore is a superseded sleeve check; Ø6 supports later stop work; the
+Ø4.0 M3 result is superseded by the dedicated ladder; and the Ø4.05
+shoulder-output result has already been superseded for this
 ABS profile by the owner-tested Ø4.15 hub.
 
 **Physical result, 2026-08-31:** the real 6800-2RS bearing does not enter the
@@ -148,7 +152,7 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 |---|---|---|
 | `Wheel_Rim_L.stl` | ABS now; PA-CF later | **PRINTABILITY HOLD, 2026-09-04.** The M4 Ø5.3 ABS coupon passed, but Fusion found a 14 mm unsupported internal ledge and an outer flange overhang in the web-down orientation. Do not print this mesh or the held bed-ready candidate. Resolve the overhangs while preserving the six Ø6.0 × 2.2 insert-tip reliefs and mating surfaces. |
 | `Wheel_Tyre_L.stl` | TPU 95A | Ø110 × 30; stretches onto the Ø96 rim seat |
-| `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. Its four M3 receivers are Ø4.0 through the 5 mm `Chassis_Shoulder_Plate_L`; use M3 × 10 screws from the accessible outboard face. Bed-ready files for both are in `first_article_stl/assembly_dry_fit/`. |
+| `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. The current shoulder plate has four failed Ø4.0 M3 receivers and is held for ladder-based Fusion re-export. After release, use M3 × 10 screws from the accessible outboard face. |
 | `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 clearance holes; the receiving inserts live in the proximal-link arm-B boss |
 | `Electronics_Tray.stl` | ABS | flat panel |
 
