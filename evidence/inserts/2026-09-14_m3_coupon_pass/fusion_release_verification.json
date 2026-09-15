@@ -1,0 +1,227 @@
+{
+  "document": "Beni_SingleLegRig",
+  "fusion_source_checks": {
+    "Chassis_Shoulder_Plate_L": {
+      "nominal_diameter_mm": 4.5,
+      "receiver_count": 4,
+      "receiver_spans_mm": [
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ]
+      ],
+      "status": "PASS"
+    },
+    "Proximal_Link_L": {
+      "nominal_diameter_mm": 4.5,
+      "receiver_count": 5,
+      "receiver_spans_mm": [
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ]
+      ],
+      "status": "PASS"
+    },
+    "RIG_Stand": {
+      "nominal_diameter_mm": 4.5,
+      "receiver_count": 5,
+      "receiver_spans_mm": [
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ]
+      ],
+      "status": "PASS"
+    }
+  },
+  "physical_selection": "evidence/inserts/2026-09-14_m3_coupon_pass/result.json",
+  "protected_occurrences": {
+    "placed_guard": true,
+    "reference_guard": true
+  },
+  "status": "PASS",
+  "stl_checks": {
+    "Chassis_Shoulder_Plate_L": {
+      "bed_datum_required": true,
+      "bytes": 216984,
+      "degenerate_facets": 0,
+      "edge_incidence_errors": {},
+      "envelope_mm": [
+        119.97387313842773,
+        119.97682571411133,
+        9.000000000000028
+      ],
+      "expected_envelope_mm": [
+        120.0,
+        120.0,
+        9.0
+      ],
+      "facets": 4338,
+      "fusion_brep_volume_mm3": 40691.786282365596,
+      "maximum_mm": [
+        47.973873138427734,
+        47.97682571411133,
+        9.0
+      ],
+      "mesh_volume_mm3": 40694.75002019957,
+      "minimum_mm": [
+        -72.0,
+        -72.0,
+        -2.841656285821649e-14
+      ],
+      "path": "first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl",
+      "sha256": "d0489f235902321cf666ba97e5a41208e6e6c615323cadf4c7e70dd96e807121",
+      "status": "PASS",
+      "vertices": 2131,
+      "volume_relative_error": 7.283381008172003e-05
+    },
+    "Proximal_Link_L_D19p15_M4_ACCESS_FIXED": {
+      "bed_datum_required": true,
+      "bytes": 314484,
+      "degenerate_facets": 0,
+      "edge_incidence_errors": {},
+      "envelope_mm": [
+        141.9213104248047,
+        127.12665748596191,
+        31.60000038146973
+      ],
+      "expected_envelope_mm": [
+        141.9253,
+        127.1345,
+        31.6
+      ],
+      "facets": 6288,
+      "fusion_brep_volume_mm3": 69543.11165587777,
+      "maximum_mm": [
+        110.92176818847656,
+        30.999284744262695,
+        31.600000381469727
+      ],
+      "mesh_volume_mm3": 69576.6674542187,
+      "minimum_mm": [
+        -30.999542236328125,
+        -96.12737274169922,
+        -4.216641819780945e-15
+      ],
+      "path": "first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl",
+      "sha256": "a0ac3fe5101fc34ad232fec66350fad511bfc2a9113cc167331a657a693e807d",
+      "status": "PASS",
+      "vertices": 3104,
+      "volume_relative_error": 0.0004825179308479702
+    },
+    "RIG_Stand": {
+      "bed_datum_required": true,
+      "bytes": 118684,
+      "degenerate_facets": 0,
+      "edge_incidence_errors": {},
+      "envelope_mm": [
+        200.0,
+        299.3118896484375,
+        32.000000000000064
+      ],
+      "expected_envelope_mm": [
+        200.0,
+        299.3119,
+        32.0
+      ],
+      "facets": 2372,
+      "fusion_brep_volume_mm3": 499321.97143180907,
+      "maximum_mm": [
+        100.0,
+        72.0,
+        32.0
+      ],
+      "mesh_volume_mm3": 499420.7438051548,
+      "minimum_mm": [
+        -100.0,
+        -227.3118896484375,
+        -6.217248937900877e-14
+      ],
+      "path": "first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl",
+      "sha256": "d222b5fb7d6a586f7feddef55d9e860a1a59ecc9e4b2abde3a9c8da3a256d2cb",
+      "status": "PASS",
+      "vertices": 1174,
+      "volume_relative_error": 0.00019781299241150615
+    },
+    "RIG_Stand_native_assembly_coordinates": {
+      "bed_datum_required": false,
+      "bytes": 118684,
+      "degenerate_facets": 0,
+      "edge_incidence_errors": {},
+      "envelope_mm": [
+        200.0,
+        32.0,
+        299.3118896484375
+      ],
+      "expected_envelope_mm": [
+        200.0,
+        32.0,
+        299.3119
+      ],
+      "facets": 2372,
+      "fusion_brep_volume_mm3": 499321.97143180907,
+      "maximum_mm": [
+        100.0,
+        42.0,
+        72.0
+      ],
+      "mesh_volume_mm3": 499420.7438374049,
+      "minimum_mm": [
+        -100.0,
+        10.0,
+        -227.3118896484375
+      ],
+      "path": "rig_stl/RIG_Stand.stl",
+      "sha256": "6df6b1fb0f05191e9962767cb92afca7e52fc94539151bca99d76b8720e8e6b2",
+      "status": "PASS",
+      "vertices": 1174,
+      "volume_relative_error": 0.0001978130569992327
+    }
+  },
+  "verification_method": "Fusion MCP B-Rep receiver inspection plus binary STL manifold, bed-datum, envelope, volume and SHA-256 checks"
+}

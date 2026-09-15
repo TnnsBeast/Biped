@@ -33,8 +33,10 @@
     "support_policy": "No supports. The 60 x 16 mm pocket-opening face is the bed datum; all five M3 insert pockets are vertical and blind. The 6 mm pocket roofs are controlled bridges. The \u00d82 marker identifies the \u00d84.1 end, and bore size increases toward the unmarked end."
   },
   "part": "ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER",
+  "physical_selection_evidence": "/Users/neilchulani/Biped/evidence/inserts/2026-09-14_m3_coupon_pass/result.json",
   "pocket_face_screenshot": "/Users/neilchulani/Biped/first_article_stl/insert_fit/00_fusion_ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_POCKET_FACE.png",
-  "production_receivers_unchanged_pending_physical_result": true,
+  "production_receivers_promoted": true,
+  "selected_nominal_pocket_diameter_mm": 4.5,
   "selection_rule": "smallest bore that accepts a perpendicular heat-set without splitting or bulging, finishes square and flush, and resists hand spin/pull after cooling",
   "stations": [
     {

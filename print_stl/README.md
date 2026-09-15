@@ -46,9 +46,10 @@ The owner printed an ABS coupon with the fixture small parts on September 7.
 [Completion record](../evidence/assembly/2026-09-07_small_parts_printed/).
 On September 14 the owner reported that the nominal Ø4.0 M3 station is too
 small. [Physical result](../evidence/inserts/2026-09-14_m3_coupon_fail/).
-This general gauge has only one M3 candidate, so it cannot select a replacement
-diameter. Print the dedicated Ø4.1–4.5
-[M3 insert-pocket ladder](../first_article_stl/insert_fit/) next.
+This general gauge has only one M3 candidate, so it could not select a replacement
+diameter. The owner printed the dedicated Ø4.1–4.5
+[M3 insert-pocket ladder](../first_article_stl/insert_fit/) and selected the
+largest, unmarked-end station, nominal Ø4.5.
 The coupon is 14 cm³, ~25 min; repeat in PA-CF before releasing structural
 PA-CF parts.
 
@@ -152,7 +153,7 @@ lightly-infilled 5 mm knee arm is not the part that was analysed.
 |---|---|---|
 | `Wheel_Rim_L.stl` | ABS now; PA-CF later | **PRINTABILITY HOLD, 2026-09-04.** The M4 Ø5.3 ABS coupon passed, but Fusion found a 14 mm unsupported internal ledge and an outer flange overhang in the web-down orientation. Do not print this mesh or the held bed-ready candidate. Resolve the overhangs while preserving the six Ø6.0 × 2.2 insert-tip reliefs and mating surfaces. |
 | `Wheel_Tyre_L.stl` | TPU 95A | Ø110 × 30; stretches onto the Ø96 rim seat |
-| `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. The current shoulder plate has four failed Ø4.0 M3 receivers and is held for ladder-based Fusion re-export. After release, use M3 × 10 screws from the accessible outboard face. |
+| `Shoulder_Cable_Cover_L.stl` | ABS | Clearance part: 4 × Ø3.4 through-holes, **no inserts**. The released replacement shoulder plate has four owner-selected Ø4.5 M3 receivers. Use M3 × 10 screws from the accessible outboard face. |
 | `Knee_Encoder_Bracket_L.stl` | ABS | 2 × M3 clearance holes; the receiving inserts live in the proximal-link arm-B boss |
 | `Electronics_Tray.stl` | ABS | flat panel |
 

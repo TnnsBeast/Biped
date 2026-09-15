@@ -137,13 +137,13 @@ Reference datum: **housing mount face at x = 0**, output toward −x.
 | 5 … 16 | shoulder motor driver cover (Ø57) |
 | 17 … 41 | shoulder motor housing (Ø80) |
 | **42** | **housing mount face** — 8 × M3 @ Ø74 PCD |
-| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm printed plate, Ø96), including 4 current Ø4.0 through receivers for 5 mm Voron-style M3 cable-cover inserts. **Physical update 2026-09-14:** Ø4.0 failed in ABS; hold the plate until the Ø4.1–4.5 ladder result is promoted through Fusion. |
+| 42 … 47 | `Chassis_Shoulder_Plate_L` (5 mm printed plate, Ø96), including 4 owner-selected Ø4.5 through receivers for 5 mm Voron-style M3 cable-cover inserts. **Physical update 2026-09-14:** Ø4.0 failed in ABS; the ladder's unmarked-end Ø4.5 station was selected, promoted and verified through Fusion. |
 | 44 | rotor face (Ø34…Ø46) |
 | **45.5** | **output mount face** — 6 × M3 @ Ø25 PCD, 3 × Ø4 pins to y = 49 |
 | 45.5 … 51.5 | **[SUPERSEDED]** `Shoulder_Output_Hub_L` body Ø38 (7075-T6) — **now printed**, with 3 bought Ø4 × 10 dowel pins and M4 inserts |
 | 47 … 51 | cable spiral cavity, r = 20 … 32 (lip r = 32 … 33.5) |
 | 51.5 … 53.5 | `Shoulder_Cable_Cover_L` (2 mm ABS ring, r = 30 … 47), 4 × Ø3.4 clearance; M3 × 10 screws enter from outboard into the plate inserts |
-| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[REDESIGNED 2026-09-03]** Six owner-held Kadriick M4 × 8 inserts occupy owner-passed Ø5.3 ABS through receivers across the full 8.0 mm flange. The Ø5.3 ABS result was promoted through Fusion on 2026-09-04; repeat for PA-CF. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The legacy hub must be reprinted. The six-screw link joint remains held for screw-loading access; see `ASSEMBLY_VERIFICATION.md`. |
+| 51.5 … 59.5 | hub flange Ø56, Ø6 cable port at r = 21. **[REDESIGNED 2026-09-03]** Six owner-held Kadriick M4 × 8 inserts occupy owner-passed Ø5.3 ABS through receivers across the full 8.0 mm flange. The Ø5.3 ABS result was promoted through Fusion on 2026-09-04; repeat for PA-CF. M4 × 10 link screws engage 6.2 mm and stop 1.8 mm before the motor-side insert end. The replacement hub is printed with inserts installed successfully. The printed corrected link passed all six screw seats; repeat that rehearsal after printing its required Ø4.5 M3-receiver replacement. |
 | **59.5** | **leg inboard face** |
 | 55.7 … 58.7 | knee axle flange Ø15 |
 | 58.7 … 64.5 | proximal arm A (5 mm + 0.8 mm knee boss), 6800 bearing at 58.7 … 63.7 |
@@ -478,16 +478,17 @@ checks were added so each class cannot recur — `audit_counts`,
 - **Blind holes:** clean — every bore ≥ its insert, every screw clear of the floor.
 - **Threaded receivers:** clean — shoulder hub 6 × owner-selected Ø5.3 ABS, wheel hub
   6 × owner-selected Ø5.3 ABS, wheel rim 6 × Ø6.0 protrusion reliefs, shoulder plate
-  4 × Ø4.0, proximal link 5 × Ø4.0, and chassis frame 10 × Ø4.0, all at their
-  specified depths/spans. The M4 ABS coupon passed on 2026-09-04; this does
+  4 × Ø4.5, proximal link 5 × Ø4.5, and chassis frame 10 × Ø4.5, all at their
+  specified depths/spans. The M4 ABS coupon passed on 2026-09-04 and the M3
+  Ø4.5 station was selected on 2026-09-14; this does
   not close the independent link screw-loading and rim printability holds.
 - **Source parity:** 37 parts in the model, 37 classified, no orphans.
 - **Driver access:** 32 hex-key access envelopes (Ø3.0–3.4, 30–45 mm reach)
   modelled for every screw serviceable on the complete robot. **Zero
   driver obstructions remained in that audit.** The 2026-09-04 check uses a
-  Ø3.5 driver envelope for the six M4 root positions and passes, but two M4
-  screw heads collide on the straight insertion path. Driver access is not
-  screw insertion; the link joint remains held in `ASSEMBLY_VERIFICATION.md`.
+  Ø3.5 driver envelope for the six M4 root positions. The later access-fixed
+  link removes the two blocked head paths and restores the clipped seating land;
+  its printed Ø4.0-receiver revision passed all six M4 screw seats on 2026-09-07.
 - **Interference:** 72 pairs, of which **70 are screw-shank-in-tap-drill
   artifacts** and 2 are the documented M4-stud artifact. No structural clashes;
   clear at nominal and at every pose listed in §10.

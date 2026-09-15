@@ -14,9 +14,9 @@
   "print_export": {
     "source_part": "RIG_Cable_Post_A",
     "export_name": "ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED",
-    "stl": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl",
+    "stl": "/Users/neilchulani/Biped/first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl",
     "stl_bytes": 36484,
-    "fusion_screenshot": "/Users/neilchulani/Robots/Biped/first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.png",
+    "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.png",
     "rotation_axis": "+X",
     "rotation_deg": -90.0,
     "source_support_side": "max",

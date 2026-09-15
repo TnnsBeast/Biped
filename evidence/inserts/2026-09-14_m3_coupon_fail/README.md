@@ -16,9 +16,12 @@ candidate. The dedicated Fusion-generated replacement tests nominal
 Ø4.1/4.2/4.3/4.4/4.5 blind pockets at the Mode A stand's 6.0 mm receiver depth:
 [`first_article_stl/insert_fit/`](../../../first_article_stl/insert_fit/).
 
-Do not print the current Ø4.0 stand or install an M3 insert in the already
-printed Ø4.0 receiver parts. Select the smallest passing ladder station first,
-then promote that diameter through Fusion and reassess which physical parts
-need replacement.
+This failure supersedes every affected Ø4.0 print. The later ladder result
+selected Ø4.5; Fusion has promoted that diameter and released replacement
+stand, shoulder-plate and proximal-link exports. Do not install inserts in the
+prior printed Ø4.0 receiver parts.
 
 Machine-readable observation: [`result.json`](result.json).
+
+**Later the same day:** the dedicated ladder selected nominal Ø4.5. See the
+[M3 coupon selection](../2026-09-14_m3_coupon_pass/).

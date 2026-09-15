@@ -319,13 +319,14 @@ CARR_DISC_R = 58.0
 CARR_SPINE_X0, CARR_SPINE_X1 = -78.0, -42.0
 CARR_SPINE_Z0, CARR_SPINE_Z1 = -85.0, 85.0
 # Printed receiving geometry, kept separate from the insert length.  The
-# owner's Voron-style M3 is 5.0 mm long.  Nominal Ø4.0 failed physically on
-# 2026-09-14; keep this source value unchanged until the Ø4.1–4.5 ladder selects
-# a replacement.  The 8/12 mm rig plates have room for a 6.0 mm hole, leaving 1.0 mm
+# owner's Voron-style M3 is 5.0 mm long.  The owner selected nominal Ø4.5 from
+# the same-profile ABS ladder on 2026-09-14.  The 8/12 mm rig plates have room
+# for a 6.0 mm hole, leaving 1.0 mm
 # below the insert for air and screw-tip clearance.  The deferred ballast studs
 # use the same owner-held M4 x 8 insert as the active hubs.  The carriage is
 # exactly 8 mm thick, so those four receivers are through holes.
-INSERT_M3_D, INSERT_M3_LEN, INSERT_M3_HOLE_DEPTH = 4.0, 5.0, 6.0
+INSERT_M3_D = beni_lib.M3_INSERT_RECEIVER_D
+INSERT_M3_LEN, INSERT_M3_HOLE_DEPTH = 5.0, 6.0
 INSERT_M4_D = beni_lib.OWNED_M4_POCKET_D
 INSERT_M4_LEN = beni_lib.OWNED_M4_INSERT_LEN
 INSERT_M4_HOLE_DEPTH = CARR_T

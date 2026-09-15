@@ -12,18 +12,18 @@ wait for the later two-leg build.
 The owner successfully printed and installed inserts in the Ø5.3 shoulder hub.
 Keep it. The replacement proximal link clears two obstructed M4 head paths and
 restores one incomplete seat; its five knee M3 mouths remain clear. The owner
-is now using this replacement and confirms all six M4 screws seat properly.
+confirmed all six M4 screws seat properly on the printed Ø4.0 revision. Retain
+that result, but print the Ø4.5-receiver replacement before M3 installation.
 [Physical acceptance](../../evidence/assembly/2026-09-07_owner_mockup/). Use the
 [current print queue](../../README.md#current-print--convenience-link) and
 [access audit](../../evidence/assembly/2026-09-05_access_fix/).
 The wheel rim retains its independent printability hold.
 
-The owner reports that the general gauge's nominal Ø4.0 M3 station is too
-small. [Physical result](../../evidence/inserts/2026-09-14_m3_coupon_fail/).
-Print the dedicated Ø4.1–4.5
-[M3 ladder](../../first_article_stl/insert_fit/) next. Every active M3 receiver
-print and insertion is held until the smallest passing station is promoted and
-reverified through Fusion.
+The general gauge's nominal Ø4.0 M3 station was too small. The owner then
+reported that the largest, unmarked-end pocket on the dedicated Ø4.1–4.5
+[M3 ladder](../../first_article_stl/insert_fit/) works best. That station is
+nominal Ø4.5. Fusion now carries Ø4.5 through the active ABS receiver family.
+[Physical selection and limitations](../../evidence/inserts/2026-09-14_m3_coupon_pass/).
 
 ## Insert redesign retained from 2026-09-03
 
@@ -62,9 +62,9 @@ The owner has since printed and successfully inserted the corrected Ø5.3 hub.
 |:---:|:---:|
 | ![Shoulder plate on the inboard bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.png) | ![Cable cover on its outboard bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.png) |
 
-- **HOLD:** the current plate receivers are Ø4.0 through 5.0 mm, and Ø4.0 has
-  failed physically. Re-export the plate after the ladder selects a diameter,
-  then install 4 × approved 5 mm Voron-style M3 inserts flush from the
+- **ABS RELEASE:** the current plate receivers are owner-selected Ø4.5 through
+  5.0 mm. Replace a prior Ø4.0 plate, then install 4 × approved 5 mm
+  Voron-style M3 inserts flush from the
   shoulder plate's **outboard** face.
 - Put **no inserts** in the cover. Its four holes are Ø3.4 clearance.
 - Drive 4 × M3 × 10 from the cover's exposed outboard face. Each screw crosses
@@ -79,22 +79,20 @@ The owner has since printed and successfully inserted the corrected Ø5.3 hub.
 
 ![Printed face-flat proximal link with both bearings installed](../../first_article_stl/assembly_dry_fit/01_fusion_abs_proximal_d19p10_with_bearings.png)
 
-The image records the earlier Ø19.10 bearing-fit article. The owner now uses
-the corrected Ø19.15 replacement, with all six M4 hub screw seats accepted.
-The printed arm-B boss retains five Ø4.0 × 5.0 pockets: three for the knee stop
-plate and two for the encoder bracket. Their paths are clear, but Ø4.0 has now
-failed the insert-fit gate. Install no M3 inserts. Retain the link for its
-accepted bearing and M4 interfaces, then reassess its replacement after the
-ladder winner is promoted in Fusion.
+The image records the earlier Ø19.10 bearing-fit article. The printed corrected
+Ø19.15 link passed all six M4 hub screw seats, but still has the failed Ø4.0 M3
+pockets. Retain it as physical evidence and replace it with the released Ø4.5
+revision before M3 installation. The new arm-B boss has five Ø4.5 × 5.0
+pockets: three for the knee stop plate and two for the encoder bracket. Fusion
+verifies that all five mouths and paths are clear.
 
 ## Mode A stand — five M3 inserts
 
 ![Current Mode A stand source on its mount-face bed datum](../../first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.png)
 
-- Status: **DO NOT PRINT** until the M3 ladder winner is promoted and this file
-  is re-exported through Fusion.
-- Current receiver: 5 × Ø4.0 × 6.0 blind pockets from the y = 42 mount face;
-  this nominal diameter failed physically.
+- Status: **ABS PRINT RELEASE.** Fusion verifies the source and clean bed-ready
+  STL after the Ø4.5 promotion.
+- Receiver: 5 × Ø4.5 × 6.0 blind pockets from the y = 42 mount face.
 - Insert: 5 × approved 5 mm Voron-style M3.
 - Fastener: 5 × M3 × 10 through the 5 mm shoulder plate.
 - Clearance: 1.0 mm below the insert and a 6.0 mm printed floor.
@@ -127,15 +125,15 @@ projection requires more rim relief without adding useful engagement.
 
 | Part | Receiver geometry | Status |
 |---|---|---|
-| `Chassis_Frame` | 10 current Ø4.0 × 6.0 M3 pockets in Ø10 × 6.5 bosses | Ø4.0 recalibration required; defer print to two-leg build |
-| `RIG_Carriage` | 5 current Ø4.0 × 6.0 M3 plus 4 × source-updated Ø5.3 through M4 receivers for owned M4 × 8 | recalibrate M3 and rebuild/verify in Fusion when Mode B returns |
+| `Chassis_Frame` | 10 Ø4.5 × 6.0 M3 pockets in Ø10 × 6.5 bosses | master source and B-Rep audit updated; repeat coupon for PA-CF before two-leg print release |
+| `RIG_Carriage` | builder inherits five Ø4.5 × 6.0 M3 plus 4 × Ø5.3 through M4 receivers for owned M4 × 8 | stripped/deferred component not rebuilt; repeat coupon and rebuild/verify in Fusion when Mode B returns |
 | optional M2 satellite-PCB boss | no existing part | architecture decision remains open; do not invent receivers |
 
 ## Installation gate
 
-1. The existing Ø4.0 ABS station failed. Print the dedicated Ø4.1–4.5 M3
-   ladder with the same ABS profile and select the smallest passing station.
-   Its Ø2 marker identifies the Ø4.1 end.
+1. The existing Ø4.0 ABS station failed. The owner selected the dedicated
+   ladder's unmarked-end Ø4.5 station. Use Ø4.5 only with the same ABS profile;
+   repeat the ladder for any other process or the later PA-CF build.
 2. The owned M4 × 8 ladder is complete: Ø5.3 is the owner-confirmed ABS PASS.
    Use the same profile and vertical bore axis for the released hub files.
 3. Heat inserts with a perpendicular, depth-controlled tip; stop flush and let

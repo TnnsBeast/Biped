@@ -117,9 +117,9 @@ The lightening opening now stops short of the previously clipped seat.
 
 Rehearse both bearing seats with outer-race thumb pressure. Both bearings must
 sit square and have no perceptible radial rock. Reuse old bearings only if they
-can be removed without damage. Install no M3 inserts in the printed link's five
-Ø4.0 pockets. After the Ø4.1–4.5 ladder selects a diameter, promote it through
-Fusion and reassess whether the link needs replacement.
+can be removed without damage. The active replacement has five verified Ø4.5
+M3 pockets selected from the same-profile ABS ladder. Install no M3 inserts in
+the prior printed Ø4.0 revision.
 
 Support the knee end. Move the link straight onto the accepted hub, finger-start
 all six M4 × 10 screws, and check each head clamps flat. Do not use screws to

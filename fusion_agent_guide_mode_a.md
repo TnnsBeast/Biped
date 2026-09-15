@@ -87,7 +87,7 @@ Two patterns on the panel you must **not** use:
 
 - **8 × Ø3.4 on the Ø74 PCD** — that is the motor's own pattern, already occupied by
   the motor's housing screws.
-- **4 × Ø4.0 on the Ø88 PCD** — the removable clock-spring cover's M3 insert
+- **4 × Ø4.5 on the Ø88 PCD** — the removable clock-spring cover's M3 insert
   receivers. They are driven from the accessible outboard face and are not
   stand attachment points. Leave them clear of stand geometry.
 
@@ -96,12 +96,12 @@ Constants already in `rig_lib.py` to reuse rather than retype:
 `MOTOR_R` (40.0), `HALF_TRACK` (84.0),
 `WHEEL_R` (55.0), `Z_WHEEL_AXIS` (−154.269), `Z_FLOOR` (−209.269).
 
-> **[CORRECTED 2026-09-02]** `INSERT_M3_D = 4.0`, insert length is 5.0,
+> **[CORRECTED 2026-09-14]** `INSERT_M3_D = 4.5`, insert length is 5.0,
 > and the stand hole depth is 6.0 mm. Fusion verified five receivers spanning
-> y = 36…42 with a 6 mm printed floor. **Physical update 2026-09-14:** nominal
-> Ø4.0 is too small in the owner's ABS result. Keep the source constant unchanged
-> until the Ø4.1–4.5 ladder selects a replacement, then promote it and rerun the
-> full Fusion verification before re-exporting the stand.
+> y = 36…42 with a 6 mm printed floor. Nominal Ø4.0 failed in the owner's ABS
+> result; the owner selected the dedicated ladder's largest, unmarked-end Ø4.5
+> station. The promoted source and bed-ready stand export passed Fusion MCP
+> verification.
 
 ### 2.2 The load set — yaw dominates by 4×
 

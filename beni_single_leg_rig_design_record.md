@@ -184,7 +184,7 @@ the modelled position. At both limits the block pair is still fully on the rail
 `Chassis_Shoulder_Plate_L`, measured off the model rather than assumed: a
 **120 × 120 × 5** panel (X −72…48, Z −48…72) with a Ø48 central bore, a
 Ø64/Ø67 cable-cavity lip standing to y = 51, 8 × Ø3.4 on the Ø74 PCD (the
-motor's), 4 × Ø4.0 M3 insert receivers on a Ø88 PCD (the removable
+motor's), 4 × Ø4.5 M3 insert receivers on a Ø88 PCD (the removable
 clock-spring cover's), and
 **5 × Ø3.4 frame-bolt holes** at (−60, −18), (−60, 48), (−60, 62), (30, 48),
 (30, 62).
@@ -195,13 +195,12 @@ Verified in the model: all five carriage insert bores are concentric with the
 panel holes, all eight block screws are concentric with the MGN12H taps, and both
 mating faces are coincident to **0.000 mm**.
 
-> **[UPDATED 2026-09-14]** The active stand source has five Ø4.0 × 6.0 M3
-> pockets, but the owner reports that nominal diameter too small in ABS. Hold
-> the stand until the dedicated Ø4.1–4.5 ladder selects a replacement and the
-> receivers are promoted and reverified through Fusion.
-> The deferred carriage builder has five Ø4.0 × 6.0 M3 and four full-depth
-> Ø5.3 M4 receivers for the owner-held M4 × 8 inserts. The Ø5.3 ABS ladder
-> passed; recalibrate M3 and rebuild/verify the deferred carriage when Mode B
+> **[UPDATED 2026-09-14]** The Ø4.0 M3 station failed, and the owner selected
+> the dedicated ladder's unmarked-end Ø4.5 station. The active stand now has
+> five Ø4.5 × 6.0 M3 pockets and passed Fusion source/export verification.
+> The deferred carriage builder inherits five Ø4.5 × 6.0 M3 and four full-depth
+> Ø5.3 M4 receivers for the owner-held M4 × 8 inserts. The carriage remains
+> stripped and unreleased; repeat the coupon and rebuild/verify it when Mode B
 > returns.
 
 The four Ø88 cover positions are now used from the **outboard** face: M3 × 10
@@ -917,7 +916,7 @@ right height.
 |---|---:|---|
 | **M3 × 8** SHCS, motor housing → panel | 8 | **NOT M3 × 10** — the thread is 4.0 mm deep in a 5 mm panel; ×10 bottoms out. Departure 7 |
 | M3 × 12 SHCS, revised cable post A + cover + plate insert | 2 | replaces the two upper cover M3 × 10 screws; post is outside the cover, Y53.5…55.5, Ø8 eye at Z52. The eight housing screws remain M3 × 8. |
-| Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification. Nominal Ø4.0 failed in ABS; print the Ø4.1–4.5 ladder and promote the smallest pass before any M3 insertion or affected-part print. |
+| Owner-supplied Voron-style M3 heat-set inserts | **14 active + spares** | 5 stand + 5 proximal-link boss + 4 shoulder plate. Exact AliExpress variant still needs inventory verification. Nominal Ø4.0 failed in ABS; the owner selected Ø4.5 on the dedicated ladder. Use the released Ø4.5 parts and repeat the coupon for any other process/material. |
 | Owner-held Kadriick M4 × 8 | 6 | shoulder-hub root; owner-passed Ø5.3 ABS receiver and M4 × 10 screw. Owner printed and installed hub inserts successfully. Reprint the corrected link for the physical six-screw rehearsal. |
 | Owner-held Kadriick M4 × 8 | 6 | wheel hub; 6.0 mm embedded, 2.0 mm projecting into the rim's Ø6.0 × 2.2 relief, and M4 × 8 rim screw. |
 | Owner-held Kadriick M4 × 8 | ~~4~~ | ballast studs. **[DEFERRED — MODE B]** Full-depth Ø5.3 ABS receiver is in source; rebuild/verify in Fusion when Mode B returns. |

@@ -37,10 +37,10 @@ The case label lists:
 
 ## Engineering disposition — updated 2026-09-14
 
-- The existing nominal Ø4.0 M3 station failed physically. Use the dedicated
-  Ø4.1–4.5 ABS ladder and select the smallest station that installs without
-  splitting or spin-out; promote that result through Fusion before any part
-  insertion or affected-part print.
+- The existing nominal Ø4.0 M3 station failed physically. The owner then
+  selected the dedicated Ø4.1–4.5 ABS ladder's largest, unmarked-end station,
+  nominal Ø4.5. Fusion promoted and verified Ø4.5 for the active ABS receiver
+  parts. Repeat the coupon for any other profile/material.
 - The active M4 joints have now been redesigned around **12 of the 30 owned
   M4 × 8 inserts**. The shoulder uses the full 8.0 mm flange. The wheel embeds
   6.0 mm in its hub and lets 2.0 mm project into new rim reliefs. M4 × 10 adds

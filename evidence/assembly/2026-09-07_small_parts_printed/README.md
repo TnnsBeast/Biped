@@ -20,15 +20,15 @@ batch.
 The earlier [supported knee and corrected proximal-link acceptance](../2026-09-07_owner_mockup/)
 remains valid, including all six M4 screw seats and the detached spring caps.
 
-The next physical gate is the dedicated
-[Ø4.1–4.5 M3 insert-pocket ladder](../../../first_article_stl/insert_fit/).
+The dedicated [Ø4.1–4.5 M3 insert-pocket ladder](../../../first_article_stl/insert_fit/)
+was printed later, and the owner selected its unmarked-end Ø4.5 station.
 Check the printed wheel hub and its inserts against the unplugged wheel motor
 separately from the provisional distal link. The stand, shoulder plate and M3
-insertion into the corrected proximal link remain held until the ladder winner
-is promoted and reverified through Fusion. The rear cable anchor remains
+insertion into the prior Ø4.0 corrected proximal link were superseded by verified
+Ø4.5 replacement exports. The rear cable anchor remains
 optional. The active sequence and remaining CAD/electronics gates are maintained
 in [PROJECT_STATUS.md](../../../PROJECT_STATUS.md); pending prints are in the
 final [README queue](../../../README.md#current-print--convenience-link).
 
 The September 7 entry remains a physical print-completion record; the later M3
-failure and replacement ladder supersede its pending insert gate.
+failure and Ø4.5 ladder selection supersede its pending insert gate.

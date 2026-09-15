@@ -125,13 +125,15 @@ FRAME_BOLTS = [(-60.0, 62.0), (30.0, 62.0), (-60.0, 48.0), (30.0, 48.0),
                (-60.0, -18.0)]
 FRAME_T = 4.0
 FRAME_FLANGE_Y = 38.0                        # flange inner face; outer at 42
+# The owner selected nominal Ø4.5 from the same-profile ABS M3 ladder on
+# 2026-09-14.  This is the single source for every printed M3 receiver in the
+# shoulder plate, proximal link and future chassis-frame family.
+M3_INSERT_RECEIVER_D = 4.5
 # The panel screws are repeatedly serviced, so the printed frame owns the
 # female threads.  A local 6.5 mm boss adds material only at each receiver;
-# its current Ø4.0 x 6.0 blind pocket was intended for the owner's 5.0 mm
-# Voron-style M3 insert.  Ø4.0 failed physically on 2026-09-14; keep the source
-# value unchanged until the Ø4.1–4.5 ladder selects a replacement.  The pocket
+# its Ø4.5 x 6.0 blind pocket takes the owner's 5.0 mm Voron-style M3 insert,
 # gives 1.0 mm of air/screw-tip clearance and leaves a 0.5 mm printed floor.
-FRAME_INSERT_D = 4.0
+FRAME_INSERT_D = M3_INSERT_RECEIVER_D
 FRAME_INSERT_LEN = 5.0
 FRAME_INSERT_HOLE_DEPTH = 6.0
 FRAME_INSERT_BOSS_D = 10.0
@@ -916,10 +918,10 @@ def audit_threaded_receivers(verbose=True):
         ('Wheel_Hub_L', WHEEL_RIM_INSERT_D,
          _receiver_centres(WX, WZ, RIM_BOLT_PCD, 6, 0.0),
          WH_HUB_Y_A, WH_HUB_Y_B),
-        ('Chassis_Shoulder_Plate_L', 4.0,
+        ('Chassis_Shoulder_Plate_L', M3_INSERT_RECEIVER_D,
          _receiver_centres(0.0, 0.0, CABLE_COVER_PCD, 4, 45.0),
          SH_PLATE_Y0, SH_PLATE_Y1),
-        ('Proximal_Link_L', 4.0,
+        ('Proximal_Link_L', M3_INSERT_RECEIVER_D,
          ([kpt(STOP_BOLT_R, angle) for angle in STOP_BOLT_A]
           + [kpt(15.0, angle) for angle in (60.0, 140.0)]),
          KNEE_BOSS_B_Y1 - INSERT_LEN, KNEE_BOSS_B_Y1),
@@ -2313,13 +2315,15 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
     # STOP_INSERT_DEPTH so the 5 mm insert seats flush; see the note there.
     sk = sk_on_y(c, KNEE_BOSS_B_Y1 - STOP_INSERT_DEPTH)
     for ang in STOP_BOLT_A:
-        w = kpt(STOP_BOLT_R, ang); circle(sk, w[0], w[1], 4.0)
+        w = kpt(STOP_BOLT_R, ang)
+        circle(sk, w[0], w[1], M3_INSERT_RECEIVER_D)
     extrude(c, profiles(sk), STOP_INSERT_DEPTH, 'cut')
 
     # 2x M3 heat-set inserts for the knee encoder bracket
     sk = sk_on_y(c, KNEE_BOSS_B_Y1 - ENC_INSERT_DEPTH)
     for ang in (60.0, 140.0):
-        w = kpt(15.0, ang); circle(sk, w[0], w[1], 4.0)
+        w = kpt(15.0, ang)
+        circle(sk, w[0], w[1], M3_INSERT_RECEIVER_D)
     extrude(c, profiles(sk), ENC_INSERT_DEPTH, 'cut')
 
     # lightening
@@ -2774,7 +2778,8 @@ def build_shoulder_plate():
     # serviceable in the assembly.  A 5 mm Voron-style M3 insert now sits
     # flush through the 5 mm plate and is reached from the outboard cover face.
     sk = sk_on_y(c, SH_PLATE_Y0)
-    circles_polar(sk, 0, 0, CABLE_COVER_PCD, 4.0, 4, 45.0)
+    circles_polar(sk, 0, 0, CABLE_COVER_PCD,
+                  M3_INSERT_RECEIVER_D, 4, 45.0)
     extrude(c, profiles(sk), SH_PLATE_T, 'cut')
     # joint to Chassis_Frame.  FRAME_BOLTS is the single source of truth for
     # this pattern -- the panel used to carry a sixth hole at (+30, -18) with

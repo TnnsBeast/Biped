@@ -114,7 +114,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Flexion bumper | Ø6.2 × 7.5 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Extension bumper | Ø6.2 × 3.0 arc block, PU ~90 A | 2 | <0.1 | 0.2 |
 | Knee thrust washer | PTFE/POM, Ø22 / Ø16.5 × 0.5 (as required) | 4 | 0.1 | 0.4 |
-| Heat-set insert | Voron-style M3 × 5.0; exact owned variant unverified; nominal Ø4.0 ABS receiver failed and Ø4.1–4.5 ladder selection is pending | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts |
+| Heat-set insert | Voron-style M3 × 5.0; exact owned variant unverified; nominal Ø4.0 ABS receiver failed and the owner selected nominal Ø4.5 on the dedicated ladder | 14 active single-leg (including stand) / 28 two-leg robot | ~0.4 | track from achieved parts; repeat coupon for PA-CF |
 | Heat-set insert | Owner-held Kadriick M4 × 8, shoulder root; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
 | Heat-set insert | Owner-held Kadriick M4 × 8, wheel rim joint; Ø5.3 ABS bore owner PASS, 2026-09-04 | 6 | — | — |
 | Harness | Ø3.0 high-flex silicone, ≥ 400 mm coiled per shoulder | 2 | ~7 | 14.0 |
@@ -387,17 +387,18 @@ wheel is fully assembled.*
 
 ## 10. Recommended print order
 
-For the active single-leg article, retain the accepted shoulder hub and print the corrected proximal link in
+For the active single-leg article, retain the accepted shoulder hub and print the Ø4.5 corrected proximal-link replacement in
 the [current print queue](README.md#current-print--convenience-link). The
 remaining sequence is gated as follows:
 
-1. Corrected `Chassis_Shoulder_Plate_L` and cable cover, if needed. Nominal Ø4.0
-   failed in ABS; print the Ø4.1–4.5 ladder and promote the smallest physical
-   pass through Fusion before printing the plate or installing an insert.
+1. Corrected `Chassis_Shoulder_Plate_L`, if the fitted plate is the failed Ø4.0
+   revision. The released plate uses the owner-selected Ø4.5 receiver; retain
+   the already printed clearance-only cable cover.
 2. `Proximal_Link_L/R` — the face-flat Ø19.10 bearing fit passed, but the root
    wall obstructed two screw heads and a lightening cut clipped one seat.
-   Print the corrected Ø19.15 ABS link and rehearse all six M4 × 10 heads and
-   both bearings. [Access audit and order](evidence/assembly/2026-09-05_access_fix/).
+   The printed corrected Ø19.15 link passed its six M4 seats but has failed Ø4.0
+   M3 pockets. Print the released Ø4.5 replacement and rehearse all six M4 × 10
+   heads and both bearings. [Access audit and order](evidence/assembly/2026-09-05_access_fix/).
 3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
    tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
    Ø10 angular-reference fit and Ø41.5 cover clearance.

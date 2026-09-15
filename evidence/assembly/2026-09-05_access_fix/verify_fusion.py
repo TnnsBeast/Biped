@@ -6,8 +6,8 @@ import sys
 import adsk.core
 import adsk.fusion
 
-ROOT = '/Users/neilchulani/Robots/Biped'
-OUT = os.path.dirname(__file__)
+OUT = os.path.dirname(os.path.realpath(__file__))
+ROOT = os.path.abspath(os.path.join(OUT, '..', '..', '..'))
 sys.path.insert(0, ROOT)
 import beni_lib as B
 import rig_lib as R

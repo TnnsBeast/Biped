@@ -35,10 +35,10 @@ part of the seat correction, not a change to the leg kinematics.
 |---|---|
 | Shoulder hub | Six Ø5.3 × 8 receivers clear from the detached link face; owner installation PASS. Retain this print. |
 | Proximal link | Two obstructed head paths and one incomplete seat corrected. Six continuous head/shank/Ø6 driver paths and full seat lands are release gates in `beni_lib.audit_proximal_access()`. |
-| Knee M3 pockets | All five paths and seating envelopes clear, but the printed nominal Ø4.0 pockets are on insertion hold after the 2026-09-14 physical failure. Select and promote the Ø4.1–4.5 ladder winner, then reassess this printed link. |
-| Shoulder plate / cover | Four insert paths clear; four screws enter outboard. Current nominal Ø4.0 plate receivers are held for ladder-based re-export. Cover contains no inserts. Fit housing screws before the cover, and reverse that order for service. |
+| Knee M3 pockets | All five paths and seating envelopes clear. The printed corrected link has failed Ø4.0 pockets; replace it with the Fusion-verified Ø4.5 revision before M3 installation. |
+| Shoulder plate / cover | Four insert paths clear; four screws enter outboard. The released plate has owner-selected Ø4.5 receivers. Replace a prior Ø4.0 plate; the cover contains no inserts. Fit housing screws before the cover, and reverse that order for service. |
 | Shoulder housing screws | CAD/source updated to the physically accepted M3 × 8; the previous model still showed ×10 despite the owner-observed bottoming. |
-| Mode A stand | Five blind M3 receiver paths are open from the detached mount face, but the current nominal Ø4.0 file is held for ladder-based Fusion re-export. After release, install inserts before attaching the panel, and attach the panel before fitting post A, which covers one panel-bolt approach. Bench access retains its separate checked mount-face orientation. |
+| Mode A stand | Five owner-selected Ø4.5 × 6.0 blind M3 receiver paths are open from the detached mount face. The source and bed-ready STL passed Fusion verification. Install inserts before attaching the panel, and attach the panel before fitting post A, which covers one panel-bolt approach. Bench access retains its checked mount-face orientation. |
 | Front cable post A | Old post intersected the cover. New flat sector mounts outside the cover on its upper two Ø88 holes. Use two **M3 × 12** in place of those two cover M3 × 10 screws; the other two cover screws stay ×10. The Ø8 cable eye is at Z52, beyond the cover's r47 edge. It is a strain-relief/tie eye; no claim that a terminated connector fits through it. |
 | Rear Mode A cable anchor | Separate fixed-harness anchor retained; fit before enclosing the rear wiring. |
 | Wheel hub / rim | Six hub insert mouths and six rim protrusion reliefs clear. Heat the hub inserts from its motor face before mounting it; rim screws enter outboard. Rim still has a separate printability hold for the 14 mm inward ledge and retaining flange. Altering those features also affects the tyre interface, so this audit does not release a revised rim. |
@@ -80,9 +80,11 @@ eventually use the complete ABS article after those gates close.
   both shoulder extremes](wheel_pose_classification.json) pass, followed by
   the final nominal head-spacing and all 49 ordered hardware-path checks above.
 - [Master final audit](master_after.json) and [save record](master_save.json):
-  `Beni_Prototype1` v16 saved, `audit_all()` reports zero problems, 33 mirrored
+  `Beni_Prototype1` v16 saved at this access-fix milestone, `audit_all()` reports zero problems, 33 mirrored
   families match. The canonical link STL and all four README Fusion views
-  were refreshed. [Rig save record](rig_save.json): `Beni_SingleLegRig` v18 saved.
+  were refreshed. [Rig save record](rig_save.json): `Beni_SingleLegRig` v18 saved
+  at this milestone. The later Ø4.5 M3 promotion is saved as rig v23 and master
+  v18 in the [September 14 receiver record](../../inserts/2026-09-14_m3_coupon_pass/).
 - [Proximal release](proximal_release.json), [post release](post_a_release.json)
   and [exported mesh checks](export_artifact_checks.json): both new bed-ready
   STLs are closed, have no degenerate facets, and sit at Z0. The link's two
@@ -108,7 +110,8 @@ Before putting the replacement link on the hub, all six M4 × 10 heads must
 pass through their access holes and rest flat without force. Install bearings
 from their two open faces using pressure on the outer races; both must sit
 square and have no perceptible rock. Reuse old bearings only if they can be
-removed without damage. Install the five M3 inserts while the knee is open.
+removed without damage. Install the five M3 inserts only in the new Ø4.5
+revision while the knee is open; do not use the prior printed Ø4.0 pockets.
 Support the knee end, attach the link to the accepted hub, finger-start all six
 screws, and confirm each head clamps flat without drawing the print into place.
 Repeat removal once. Record the physical result before any powered step.

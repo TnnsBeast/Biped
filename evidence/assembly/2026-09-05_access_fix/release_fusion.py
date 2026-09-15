@@ -7,8 +7,8 @@ import sys
 import adsk.core
 import adsk.fusion
 
-ROOT = '/Users/neilchulani/Robots/Biped'
-OUT = os.path.dirname(__file__)
+OUT = os.path.dirname(os.path.realpath(__file__))
+ROOT = os.path.abspath(os.path.join(OUT, '..', '..', '..'))
 sys.path.insert(0, ROOT)
 import beni_lib as B
 import rig_lib as R
@@ -51,6 +51,16 @@ def run(_context: str):
         cylinders=[f for f in body.faces if (g:=adsk.core.Cylinder.cast(f.geometry)) and abs(g.radius*20-19.15)<.001]
         assert len(cylinders)==2
         assert all(abs((f.boundingBox.maxPoint.y-f.boundingBox.minPoint.y)*10-5)<.001 for f in cylinders)
+        m3_centres=([B.kpt(B.STOP_BOLT_R,angle) for angle in B.STOP_BOLT_A]
+                    + [B.kpt(15.0,angle) for angle in (60.0,140.0)])
+        m3_spans=B._receiver_face_spans(
+            occ,B.M3_INSERT_RECEIVER_D,m3_centres)
+        expected_m3_span=(B.KNEE_BOSS_B_Y1-B.INSERT_LEN,
+                          B.KNEE_BOSS_B_Y1)
+        assert len(m3_spans)==5,m3_spans
+        assert all(abs(y0-expected_m3_span[0])<.001 and
+                   abs(y1-expected_m3_span[1])<.001
+                   for y0,y1 in m3_spans.values()),m3_spans
         tm=adsk.fusion.TemporaryBRepManager.get()
         bearing_paths=[]
         for side,y0,y1 in [('inboard',28.7,63.7),('outboard',85.3,120.3)]:
@@ -61,11 +71,15 @@ def run(_context: str):
             bearing_paths.append(dict(side=side,continuous_swept_ring_y_mm=[y0,y1],interference_mm3=vol))
         report=dict(source_builder='beni_lib.build_proximal_link + targeted add_fillets',
                     bearing_seat_d_mm=19.15,bearing_depth_mm=5,root_access=access,root_seat_lands=lands,
-                    bearing_insertion_and_removal=bearing_paths,topology_and_print=face_audit(occ))
+                    bearing_insertion_and_removal=bearing_paths,
+                    m3_receiver_diameter_mm=B.M3_INSERT_RECEIVER_D,
+                    m3_receiver_depth_mm=B.INSERT_LEN,
+                    m3_receiver_count=len(m3_spans),
+                    topology_and_print=face_audit(occ))
         v=adsk.core.Application.get().activeViewport
         cam=v.camera; cam.viewOrientation=adsk.core.ViewOrientations.IsoTopRightViewOrientation; cam.isFitView=True; v.camera=cam
         report['print_export']=R.guarded(E._export_max_y_face_down,occ,name+'_PRINT_ORIENTED',E.ABS_ASSEMBLY_DIR,
-            'No supports. Same vertical bearing/insert axes as passed ABS coupons. Outboard arm face Y90.3 down. Existing 20 mm channel and root-pad ceilings are controlled bridges; inspect undersides and Ø17 retention lips. Access cuts run vertically. Shorter lightening slot retains the six screw seats and increases the bed footprint; maximum channel width remains 20 mm. Inspect slicer bridge preview before printing.')
+            'No supports. Same vertical bearing/insert axes as passed ABS coupons, including the owner-selected Ø4.5 M3 receivers. Outboard arm face Y90.3 down. Existing 20 mm channel and root-pad ceilings are controlled bridges; inspect undersides and Ø17 retention lips. Access cuts run vertically. Shorter lightening slot retains the six screw seats and increases the bed footprint; maximum channel width remains 20 mm. Inspect slicer bridge preview before printing.')
         report['release']='ABS dry assembly only; physical six-screw seating and new full-depth bearing rehearsal required'
         with open(os.path.join(OUT,'proximal_release.json'),'w') as f:
             json.dump(report,f,indent=2); f.write('\n')

@@ -46,6 +46,9 @@ the cover is a clearance part, and M3 × 10 screws enter from the accessible
 outboard face. Fusion verified 1.5 mm screw-tip clearance and zero stand
 interference. The pictured insert and screw-direction map is
 [`docs/assembly/heatset_receiver_map.md`](docs/assembly/heatset_receiver_map.md).
+On 2026-09-14 the owner selected nominal Ø4.5 on the same-profile M3 ladder.
+Fusion promoted that diameter into the active plate, proximal link and stand;
+replace prior printed Ø4.0 receiver parts before insert installation.
 
 The 2026-09-03 owned-M4 redesign adds a second explicit path condition. The
 M4 × 8 wheel inserts install from the detached hub's motor face, pass through
@@ -87,7 +90,7 @@ stack and keep support off the tyre, insert reliefs and mating/service faces.
 
 The shoulder hub’s two Ø11 blind-relief ceilings and motor counterbore
 shoulders are controlled bridges. The wheel-hub counterbore shoulders and
-stand’s Ø4 blind-pocket roofs also bridge. Inspect their undersides on the
+stand’s Ø4.5 blind-pocket roofs also bridge. Inspect their undersides on the
 first ABS articles; the bores remain vertical and no slicer support is allowed
 on their functional surfaces. The full wired/stand article is still gated by
 actual harness routing, floor disposition, real knee pin/retention and electronics checks.

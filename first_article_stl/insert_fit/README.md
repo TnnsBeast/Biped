@@ -1,13 +1,20 @@
 # ABS heat-set receiver ladders
 
-## M3 × 5 — print next; physical selection pending
+## M3 × 5 — completed; owner selected Ø4.5
 
 The general `GAUGE_Fit_Coupon.stl` contained only one M3 candidate. The owner
 reported on 2026-09-14 that its nominal Ø4.0 hole is too small for the intended
 M3 heat-set insert. [Physical result](../../evidence/inserts/2026-09-14_m3_coupon_fail/).
 That gauge is not an M3 diameter ladder.
 
-Print one ABS
+The owner printed the ladder and reported that the largest pocket, furthest
+from the marker, works best. That station is nominal **Ø4.5 × 6.0 mm**.
+[Physical selection and limitations](../../evidence/inserts/2026-09-14_m3_coupon_pass/).
+Fusion has promoted Ø4.5 into the active ABS M3 receiver parts. The qualitative
+report did not include a photograph, measured printed diameter, or separate
+spin/pull result.
+
+For reproduction, print one ABS
 [`ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl`](ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl)
 with the same tuned, enclosed ABS profile as the single-leg parts. Import the
 file unchanged: no rotation, scaling, hole compensation or supports. Its
@@ -35,9 +42,9 @@ station. Start at the marked Ø4.1 end and select the smallest station that:
 - resists a firm hand pull after cooling.
 
 Stop once the first station passes. If none passes, report that result rather
-than drilling, filing, scaling or changing the slicer compensation. The current
-Ø4.0 production receivers remain unchanged and held until the physical winner
-is promoted and reverified in Fusion.
+than drilling, filing, scaling or changing the slicer compensation. The owner
+selected station 5, Ø4.5. Repeat the coupon before transferring the value to a
+different printer, filament, process profile, or the later PA-CF build.
 
 [Fusion B-Rep and orientation manifest](owned_m3x5_insert_coupon_manifest.json) ·
 [Fusion MCP verification of the exported mesh](owned_m3x5_insert_coupon_mesh_verification.json)

@@ -40,12 +40,13 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next: one ABS M3 × 5 insert-pocket ladder** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/insert_fit/ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl). Print it with the same ABS profile as the single-leg parts.
+**Next: replace the corrected proximal link with the Ø4.5-receiver revision** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl). Print it alone in ABS from the supplied orientation. The [Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) follows as a separate plate.
 
 This automatically maintained convenience section lists previously released
 prints still useful for fixture preparation. The nominal Ø4.0 M3 station in the
-general fit gauge failed on September 14, so the new Ø4.1–4.5 ladder now gates
-every M3 receiver print and installation. [Current next steps](PROJECT_STATUS.md#immediate-next-steps-after-the-september-14-m3-result).
+general gauge failed, and the owner selected the largest station on the new
+same-profile ladder: **Ø4.5 × 6.0 mm**. Fusion now carries Ø4.5 throughout the
+active ABS M3 receiver family. [Selection and Fusion verification](evidence/inserts/2026-09-14_m3_coupon_pass/).
 
 **Completed and accepted, September 7:** provisional distal link and temporary
 pin assembled with free supported movement/easy pin removal; both detached
@@ -58,37 +59,34 @@ No repeat print is requested for the completed batch.
 post, wheel hub and general fit gauge. These four prints are complete; the
 gauge's M3 station later failed. Motor-fit and cover/post/harness checks remain pending.
 [Owner completion record](evidence/assembly/2026-09-07_small_parts_printed/).
-The general gauge supplied only one M3 candidate; its nominal Ø4.0 hole is now
-an owner-reported FAIL. Use the new dedicated ladder below.
+The general gauge supplied only one M3 candidate; its nominal Ø4.0 hole is an
+owner-reported FAIL. The dedicated ladder has since selected Ø4.5.
 
 | Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
-| [M3 × 5 insert-pocket ladder](first_article_stl/insert_fit/ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged with the 60 × 16 mm pocket-opening face down; **no supports** |
-| [Mode A stand — HOLD](first_article_stl/mode_a/) | 1 ABS after receiver promotion | Current file still has failed Ø4.0 receivers; wait for the ladder result and Fusion re-export |
+| [Corrected proximal link, Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) | 1 ABS replacement | Import unchanged with the outboard arm face down; **no supports**. Inspect the controlled bridge undersides and Ø17 bearing-retention lips. |
+| [Mode A stand, Ø4.5 M3 revision](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS, separate plate | Import unchanged with the mount face down; **no supports**; requires at least 300 mm on one bed axis |
 | [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
-| [Updated shoulder plate — HOLD; only if the fitted plate lacks the four M3 cover-insert receivers](first_article_stl/assembly_dry_fit/) | 1 ABS after receiver promotion | Current file still has failed Ø4.0 receivers; wait for the ladder result and Fusion re-export |
+| [Shoulder plate, Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS if the fitted plate is the prior Ø4.0 revision | Import unchanged with the full inboard panel face down; **no supports** |
 
 Use the tuned enclosed ABS profile. Import the `PRINT_ORIENTED` files unchanged:
 no rotation, scaling or hole compensation. The optional rear anchor is the
 exception: lay either 41.0 × 15.45 mm broad face on the bed, as described in its
-traveller. Preview the ladder's blind-pocket roofs and inspect their printed
-undersides. Keep supports off functional
-faces. [Stand/post traveller](first_article_stl/mode_a/) · [Cover/hub and receiver instructions](first_article_stl/assembly_dry_fit/)
+traveller. Preview the stand's blind-pocket roofs and the proximal link's
+channel/root-pad bridges, then inspect their printed undersides. Keep supports off functional
+faces. [Stand/post traveller](first_article_stl/mode_a/) · [Link, plate and receiver instructions](first_article_stl/assembly_dry_fit/)
 · [Insert map](docs/assembly/heatset_receiver_map.md).
 
-The ladder's Ø2 marker identifies the **Ø4.1 end**; the five blind stations are
-Ø4.1, Ø4.2, Ø4.3, Ø4.4 and Ø4.5 moving away from it. Start at Ø4.1 with one
-fresh insert per attempt. Select the smallest station that installs square and
-flush without cracking or bulging, then resists finger-started screw spin and a
-firm hand pull after cooling. Stop at the first pass and report that station.
-The M4 coupon has already passed; no repeat is needed for the unchanged ABS
-profile. [Full M3 procedure](first_article_stl/insert_fit/).
+The owner reports that the unmarked-end, largest M3 ladder pocket works best.
+That station is nominal Ø4.5. This is a qualitative same-profile ABS selection;
+no measured printed diameter, photograph, or separate spin/pull result was
+supplied. Repeat the coupon before the later PA-CF build. [Full M3 result](evidence/inserts/2026-09-14_m3_coupon_pass/).
 
-**Acceptance and assembly:** the stand, shoulder plate and any insertion into
-the corrected proximal link remain held until the chosen M3 diameter is
-promoted and verified through Fusion. The already printed proximal link has
-five Ø4.0 pockets and may require replacement after that decision. After the
-re-export, rehearse the panel fit and bench clamp/bolt hold-down;
+**Acceptance and assembly:** the Ø4.5 source and the three affected ABS exports
+have passed Fusion B-Rep and mesh verification. Replace the already printed
+corrected proximal link because its five pockets are the failed Ø4.0 revision.
+Print the stand next, and replace a fitted Ø4.0 shoulder plate before installing
+its four cover inserts. Then rehearse the panel fit and bench clamp/bolt hold-down;
 secure the stand before mounting the shoulder. Follow the verified order:
 panel/stand and housing screws first, cover/post next, proximal link last.
 The front post uses two M3 × 12 in the upper cover positions; lower positions

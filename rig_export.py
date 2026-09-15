@@ -32,12 +32,16 @@ HEATSET_RELEASE_MANIFEST = os.path.join(
 INSERT_FIT_DIR = os.path.join(ROOT, 'first_article_stl', 'insert_fit')
 M4_COUPON_EVIDENCE = os.path.join(
     ROOT, 'evidence', 'inserts', '2026-09-04_m4_coupon_pass', 'result.json')
+M3_COUPON_EVIDENCE = os.path.join(
+    ROOT, 'evidence', 'inserts', '2026-09-14_m3_coupon_pass', 'result.json')
+ASSEMBLY_OWNER_EVIDENCE = os.path.join(
+    ROOT, 'evidence', 'assembly', '2026-09-05_access_fix',
+    'owner_report.json')
 
 # The general fit gauge's single nominal Ø4.0 M3 station physically failed on
 # 2026-09-14.  The next empirical ladder starts one 0.1 mm step above that
 # failed station and ends at Ø4.5, the largest M3 diameter printed on the
-# owner's photographed assortments.  These are coupon candidates only; no
-# production receiver changes until the owner selects a physical PASS.
+# owner's photographed assortments.  The owner selected Ø4.5 on 2026-09-14.
 M3_COUPON_DIAMETERS = (4.1, 4.2, 4.3, 4.4, 4.5)
 M3_INSERT_LEN = 5.0
 M3_COUPON_POCKET_DEPTH = 6.0
@@ -52,6 +56,19 @@ def _accepted_m4_coupon():
             or abs(result['nominal_pocket_diameter_mm'] - B.OWNED_M4_POCKET_D) > 1e-6
             or result['insert_length_mm'] != B.OWNED_M4_INSERT_LEN):
         raise RuntimeError('M4 ABS export does not match the accepted coupon')
+    return result
+
+
+def _accepted_m3_coupon():
+    """Require the physical M3 selection that authorizes ABS receiver exports."""
+    with open(M3_COUPON_EVIDENCE, encoding='utf-8') as stream:
+        result = json.load(stream)
+    if (result['status'] != 'OWNER SELECTED PASS'
+            or result['material'] != 'ABS'
+            or abs(result['selected_nominal_pocket_diameter_mm']
+                   - B.M3_INSERT_RECEIVER_D) > 1e-6
+            or result['insert_length_mm'] != M3_INSERT_LEN):
+        raise RuntimeError('M3 ABS export does not match the selected coupon')
     return result
 
 # printed rig parts, with the orientation each one has to be printed in
@@ -350,9 +367,13 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
         'material_release': 'ABS first article only; not PA-CF structural data',
         'release_status': 'ABS PRINT RELEASE; physical assembly rehearsal required',
         'physical_coupon_evidence': M4_COUPON_EVIDENCE,
-        'proximal_link_assembly_status': ('CAD PATH VERIFIED for the 2026-09-05 '
-            'access-fixed link; physical six-screw rehearsal required. The old '
-            'link has two blocked head paths and one incomplete seat.'),
+        'physical_assembly_evidence': ASSEMBLY_OWNER_EVIDENCE,
+        'physical_assembly_status': ('OWNER PASS: replacement hub printed and '
+                                     'inserts installed successfully, 2026-09-05'),
+        'proximal_link_assembly_status': ('OWNER PASS on 2026-09-07 for all six '
+            'M4 screw seats on the printed access-fixed link. That print has '
+            'the failed Ø4.0 M3 receivers; repeat the six-screw rehearsal after '
+            'printing the released Ø4.5 replacement.'),
         'source_geometry': ('Shoulder_Output_Hub_L with pin bores overridden; '
                             'six M4 heat-set receivers retained'),
         'pin_bores_mm': pin_bore_d,
@@ -665,7 +686,9 @@ def export_abs_m3_insert_coupon():
                            'heat-set without splitting or bulging, finishes '
                            'square and flush, and resists hand spin/pull '
                            'after cooling'),
-        'production_receivers_unchanged_pending_physical_result': True,
+        'physical_selection_evidence': M3_COUPON_EVIDENCE,
+        'selected_nominal_pocket_diameter_mm': B.M3_INSERT_RECEIVER_D,
+        'production_receivers_promoted': True,
         'pocket_face_screenshot': pocket_face_image,
         'mesh_verification': mesh_path,
         'orientation': oriented,
@@ -686,13 +709,19 @@ def export_heatset_receiver_release_articles():
     """Export coupon-selected ABS receivers and their mating clearance parts.
 
     The proximal access correction has a separate source-built export in
-    evidence/assembly/2026-09-05_access_fix/release_fusion.py. Its five M3
-    pockets remain unchanged. M4 exports require the recorded owner PASS.
+    evidence/assembly/2026-09-05_access_fix/release_fusion.py. M3 and M4
+    exports require their recorded owner selections.
     """
+    m3_coupon = _accepted_m3_coupon()
     coupon = _accepted_m4_coupon()
     problems = R.check8_threaded_receivers()
     if problems:
         raise RuntimeError('threaded-receiver release audit failed: %s' % problems)
+    # The threaded receiver audit exercises transient B-Rep paths that can
+    # trigger Fusion's known identity-reset bug for the two cartridge parts.
+    R.replace_cart_stops()
+    R.ref_assert()
+    R.placed_assert()
 
     stand = B.find_occ('RIG_Stand')
     wheel = B.find_occ('Wheel_Hub_L')
@@ -716,7 +745,7 @@ def export_heatset_receiver_release_articles():
         FIRST_ARTICLE_DIR,
         ('No supports. The mount face is the bed datum; all five M3 insert '
          'pockets are vertical and the Y thickness only decreases away from '
-         'the bed. The five Ø4 blind-pocket roofs bridge above the bed. '
+         'the bed. The five Ø4.5 blind-pocket roofs bridge above the bed. '
          'Requires a bed with at least 300 mm in one axis.'))
     wheel_oriented = _export_max_y_face_down(
         wheel, 'ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED',
@@ -757,15 +786,10 @@ def export_heatset_receiver_release_articles():
                            'PA-CF deferred to the two-leg build'),
         'physical_coupon_gates': {
             'M3': {
-                'status': 'OWNER FAIL; production receiver release held',
-                'failed_nominal_pocket_diameter_mm': 4.0,
-                'candidate_ladder_mm': list(M3_COUPON_DIAMETERS),
-                'next_coupon': os.path.join(
-                    INSERT_FIT_DIR,
-                    'ABS_CAL_OWNED_M3x5_INSERT_POCKET_LADDER_PRINT_ORIENTED.stl'),
-                'evidence': os.path.join(
-                    ROOT, 'evidence', 'inserts',
-                    '2026-09-14_m3_coupon_fail', 'result.json'),
+                'status': m3_coupon['status'],
+                'nominal_pocket_diameter_mm': B.M3_INSERT_RECEIVER_D,
+                'insert_length_mm': M3_INSERT_LEN,
+                'evidence': M3_COUPON_EVIDENCE,
             },
             'M4': {'status': coupon['status'],
                    'nominal_pocket_diameter_mm': B.OWNED_M4_POCKET_D,
@@ -773,7 +797,7 @@ def export_heatset_receiver_release_articles():
         },
         'RIG_Stand': {
             'receiver': '5 x owner-supplied Voron-style M3 x 5.0',
-            'hole': 'Ø4.0 x 6.0 blind, 6.0 mm printed floor',
+            'hole': 'Ø%.1f x 6.0 blind, 6.0 mm printed floor' % R.INSERT_M3_D,
             'native_stl': native['RIG_Stand'],
             'print_oriented': stand_oriented,
         },
@@ -807,7 +831,7 @@ def export_heatset_receiver_release_articles():
         },
         'Chassis_Shoulder_Plate_L': {
             'receiver': '4 x owner-supplied Voron-style M3 x 5.0',
-            'hole': 'Ø4.0 through the 5.0 mm plate',
+            'hole': 'Ø%.1f through the 5.0 mm plate' % B.M3_INSERT_RECEIVER_D,
             'fastener': ('4 x M3 x 10 SHCS, installed from the accessible '
                          'outboard cable-cover face'),
             'thread_engagement_mm': 3.5,
@@ -821,13 +845,18 @@ def export_heatset_receiver_release_articles():
         },
         'Shoulder_Output_Hub_L': shoulder,
         'reprint_decision': {
-            'print_now': ['ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED'],
+            'print_now': [
+                'ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED',
+                'ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED',
+            ],
             'required_reprint': [
                 'physical ABS Proximal_Link_L D19.10 with obstructed root paths'],
             'retain': ['owner-passed ABS shoulder hub D4.15 with D5.3 M4 receivers'],
-            'not_previously_printed_use_new_files': [
-                'RIG_Stand', 'Wheel_Hub_L',
-                'Chassis_Shoulder_Plate_L', 'Shoulder_Cable_Cover_L'],
+            'conditional': [
+                'Chassis_Shoulder_Plate_L if the fitted plate is the prior '
+                'Ø4.0 revision or lacks four usable M3 cover receivers'],
+            'already_printed_retain': [
+                'Wheel_Hub_L', 'Shoulder_Cable_Cover_L'],
             'held': ['Wheel_Rim_L', 'Distal_Link_L', 'RIG_Knee_Collar_L'],
         },
     }
@@ -843,6 +872,22 @@ def export_heatset_receiver_release_articles():
             manifest[part] = {'print_oriented': report['print_export'],
                               'verification': report_path,
                               'release_status': 'ABS PRINT READY; physical assembly rehearsal required'}
+            if part == 'Proximal_Link_L':
+                manifest[part].update({
+                    'bearing_seat_d_mm': report['bearing_seat_d_mm'],
+                    'm3_receiver_diameter_mm': report['m3_receiver_diameter_mm'],
+                    'm3_receiver_depth_mm': report['m3_receiver_depth_mm'],
+                    'm3_receiver_count': report['m3_receiver_count'],
+                })
+            else:
+                manifest[part].update({
+                    'fasteners': ('2 x M3 x 12 through the upper cover holes; '
+                                  'lower two cover screws remain M3 x 10'),
+                    'assembly_path_verification': os.path.join(
+                        access_dir, 'ordered_paths.json'),
+                    'release_status': ('ABS PRINT READY; physical tie/harness '
+                                       'routing required'),
+                })
     with open(HEATSET_RELEASE_MANIFEST, 'w', encoding='utf-8') as stream:
         json.dump(manifest, stream, indent=2, sort_keys=True)
         stream.write('\n')

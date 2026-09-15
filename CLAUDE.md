@@ -27,10 +27,12 @@ The owner also confirmed the corrected proximal replacement's six screw seats,
 free supported knee movement/pin removal, and detached spring-cap fit.
 The cover, corrected front cable post, wheel hub and general fit gauge are now
 printed; [batch record and pending physical checks](evidence/assembly/2026-09-07_small_parts_printed/).
-The owner reports that the gauge's nominal Ø4.0 M3 station is too small. The
-Fusion-generated Ø4.1–4.5 ladder in `first_article_stl/insert_fit/` is the next
-print; all production M3 receivers remain held until its smallest passing
-station is promoted and reverified through Fusion.
+The gauge's nominal Ø4.0 M3 station was too small. On September 14 the owner
+selected the dedicated ladder's largest, unmarked-end station, nominal Ø4.5.
+Fusion now uses Ø4.5 for the active ABS stand, shoulder plate and proximal link
+and the future chassis-frame family. The updated sources, documents and active
+exports passed Fusion MCP verification. Replace affected printed Ø4.0 parts
+before M3 insert installation; repeat the coupon for the later PA-CF build.
 The complete leg and wiring are unfinished. Use the README queue for current
 prints. If you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.

@@ -1,13 +1,13 @@
 # ABS shoulder and proximal-link assembly articles
 
-## Accepted corrected print — updated 2026-09-07
+## Corrected proximal link — Ø4.5 replacement released 2026-09-14
 
-The owner confirmed the corrected replacement and proper seating of all six
-hub screws on September 7. [Physical result and photo](../../evidence/assembly/2026-09-07_owner_mockup/).
-Keep this link and the accepted hub; no reprint is requested. If a replacement
-is needed, print one
+The owner confirmed proper seating of all six hub screws on the printed Ø4.0
+revision on September 7. [Physical result and photo](../../evidence/assembly/2026-09-07_owner_mockup/).
+That result remains valid for the M4 access correction, but its five M3 pockets
+are the failed Ø4.0 size. Print one replacement
 [`ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl`](ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl)
-in ABS. The owner successfully printed the corrected Ø4.15 shoulder hub and
+in ABS; this file uses the owner-selected Ø4.5 M3 receiver diameter. The owner successfully printed the corrected Ø4.15 shoulder hub and
 installed its Ø5.3 M4 inserts; retain that hub.
 
 Fusion found two wall-obstructed M4 head paths and one incomplete screw seat
@@ -34,10 +34,9 @@ only for bearing preference.
 - Fit both 6800 bearings from their respective open faces using thumb pressure
   on the outer race. They must sit square and have no perceptible radial rock.
   Reuse bearings from the old link only if removed without damage.
-- Install no M3 inserts in this printed link yet. Its five nominal Ø4.0 pockets
-  are held by the September 14 physical failure. Reassess the link after the
-  Ø4.1–4.5 ladder selects a diameter. The six M4 inserts belong in the accepted
-  hub.
+- Install five M3 × 5 inserts in the new link's Ø4.5 pockets only after checking
+  the print for cracks, bulging and bridge debris. Do not install them in the
+  prior printed Ø4.0 revision. The six M4 inserts belong in the accepted hub.
 - Keep the motor unplugged, support the knee end, attach the link and
   finger-start all six M4 screws. Every head must clamp flat. Remove/refit once
   and record the physical result.
@@ -55,11 +54,10 @@ printed, along with the front cable post and general fit gauge.
 Cover/post/harness fit and wheel-hub insert installation/detached motor fit
 remain pending; no repeat print is currently requested.
 
-The gauge's Ø4.0 M3 station failed. Print the dedicated
-[Ø4.1–4.5 M3 ladder](../insert_fit/) next. After its winner is promoted through
-Fusion, print the re-exported stand separately. A re-exported shoulder plate is
-needed only if the fitted plate lacks suitable cover-insert receivers. Use the
-documented bed orientations and insert gates.
+The gauge's Ø4.0 M3 station failed, and the owner selected Ø4.5 on the dedicated
+[M3 ladder](../insert_fit/). Print the re-exported stand separately. Print the
+Ø4.5 shoulder plate if the fitted plate is the prior Ø4.0 revision or lacks
+suitable cover-insert receivers. Use the documented bed orientations and insert gates.
 The wheel rim is still **DO NOT PRINT** because of its unsupported ledges.
 The final distal link and knee collar retain their pin-fit/retention gates.
 For the interim two-link bench test, use the separate

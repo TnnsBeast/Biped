@@ -1,0 +1,95 @@
+{
+  "document": "Beni_Prototype1",
+  "file_id": "urn:adsk.wipprod:dm.lineage:mrn7U3LFSCuxZ3WZgsN3lw",
+  "full_audit_problem_count": 0,
+  "is_modified": false,
+  "left_right_parity": "PASS",
+  "m3_receiver_diameter_mm": 4.5,
+  "receiver_checks": {
+    "Chassis_Frame": [
+      [
+        -42.0,
+        -36.0
+      ],
+      [
+        -42.0,
+        -36.0
+      ],
+      [
+        -42.0,
+        -36.0
+      ],
+      [
+        -42.0,
+        -36.0
+      ],
+      [
+        -42.0,
+        -36.0
+      ],
+      [
+        36.0,
+        42.0
+      ],
+      [
+        36.0,
+        42.0
+      ],
+      [
+        36.0,
+        42.0
+      ],
+      [
+        36.0,
+        42.0
+      ],
+      [
+        36.0,
+        42.0
+      ]
+    ],
+    "Chassis_Shoulder_Plate_L": [
+      [
+        42.0,
+        47.0
+      ],
+      [
+        42.0,
+        47.0
+      ],
+      [
+        42.0,
+        47.0
+      ],
+      [
+        42.0,
+        47.0
+      ]
+    ],
+    "Proximal_Link_L": [
+      [
+        85.3,
+        90.3
+      ],
+      [
+        85.3,
+        90.3
+      ],
+      [
+        85.3,
+        90.3
+      ],
+      [
+        85.3,
+        90.3
+      ],
+      [
+        85.3,
+        90.3
+      ]
+    ]
+  },
+  "saved_version": 18,
+  "status": "PASS",
+  "verification_method": "Fusion MCP B-Rep inspection and beni_lib.audit_all"
+}
