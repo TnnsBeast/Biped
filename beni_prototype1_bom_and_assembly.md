@@ -32,7 +32,7 @@ Printed parts assume solid-equivalent density; see the note at the end.
 |---|---:|---:|---:|---:|---|
 | `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.2337 | 46.2687 | 2 | 92.5375 | flat, panel face on the bed; spiral lip prints up, no support |
 | `Proximal_Link_L/R` | 66.7915 | 76.8102 | 2 | 153.6204 | outboard arm/bearing face flat, bearing axes normal to the bed; bed-ready export only, supports off, 20.0 mm channel bridge |
-| `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical Ø10 bore, but the real Ø10 h6 pin and final support/bridge audit still gate its export |
+| `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical bore, but the received steel pin seized in the provisional nominal Ø10 ABS shin bore. Physical selection on the released full-depth same-axis ladder and the final support/bridge audit now gate export. |
 | `Wheel_Rim_L/R` | 67.4501 | 77.5676 | 2 | 155.1352 | **PRINTABILITY HOLD:** web-down orientation has unsupported internal and retaining-flange ledges; do not print until resolved. Carries the tyre bead groove, inboard retaining flange, owned-M4×8 insert-tip reliefs, and a Ø38 web opening that preserves a 1 mm ligament to those reliefs |
 | `Chassis_Frame` (centre cage, not mirrored) | 61.1724 | 70.3483 | 1 | 70.3483 | flanges vertical, open box, no support |
 | **Subtotal** | | | | **577.7044** | |
@@ -399,11 +399,13 @@ remaining sequence is gated as follows:
    The printed corrected Ø19.15 link passed its six M4 seats but has failed Ø4.0
    M3 pockets. Print the released Ø4.5 replacement and rehearse all six M4 × 10
    heads and both bearings. [Access audit and order](evidence/assembly/2026-09-05_access_fix/).
-3. `Distal_Link_L/R` — **hold** until the real Ø10 h6 pin passes and a corrected
-   tangent-source, bed-ready STL clears its dedicated DFM audit; then check the
-   Ø10 angular-reference fit and Ø41.5 cover clearance.
+3. `Distal_Link_L/R` — **hold**. The received steel pin seized in the provisional
+   nominal Ø10 ABS shin bore, and the owner broke that print to recover it.
+   Select a corrected diameter with the released full-depth Ø22-boss, bed-normal ABS ladder,
+   then let the corrected tangent-source, bed-ready STL clear its dedicated DFM
+   audit and check the angular-reference fit and Ø41.5 cover clearance.
    A clearance-fit printed ABS pin may be used only to hand-align a fully
-   supported mock-up while the steel pins are in transit; it does not clear this
+   supported mock-up; it does not clear this
    gate and must not carry powered, spring, ground-contact or load testing.
 4. The Ø5.3 ABS `Wheel_Hub_L` is available for detached motor fit.
    **Hold `Wheel_Rim_L/R`** until its internal ledge and outer flange have a

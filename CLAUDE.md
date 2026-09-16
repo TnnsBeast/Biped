@@ -27,6 +27,13 @@ The owner also confirmed the corrected proximal replacement's six screw seats,
 free supported knee movement/pin removal, and detached spring-cap fit.
 The cover, corrected front cable post, wheel hub and general fit gauge are now
 printed; [batch record and pending physical checks](evidence/assembly/2026-09-07_small_parts_printed/).
+The bought metal knee pins arrived on September 15. One was fully inserted
+through the installed bearings and provisional shin. The owner reports that the
+bearings are snug but the nominal Ø10 printed shin bore caused the seizure; the
+provisional shin was broken to recover the pin. Treat that ABS bore as failed,
+run the pins through each bearing separately, and use a full-depth same-axis
+bore ladder before releasing another distal link. Fusion has released that
+Ø10.05–Ø10.25 ladder with the final Ø22 × 19 mm boss geometry. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Print and test](first_article_stl/knee_pin_fit/).
 The gauge's nominal Ø4.0 M3 station was too small. On September 14 the owner
 selected the dedicated ladder's largest, unmarked-end station, nominal Ø4.5.
 Fusion now uses Ø4.5 for the active ABS stand, shoulder plate and proximal link

@@ -4,10 +4,21 @@
 are printed; the owner reports successful provisional assembly, free supported
 knee movement, easy pin removal and uncompressed fit at both spring ends.
 [Photo and physical acceptance scope](../../evidence/assembly/2026-09-07_owner_mockup/).
-No repeat print is currently requested for this batch.
+That result remains historical evidence for the loose printed pin; the later
+steel-pin result below supersedes the print disposition.
 
-For a replacement batch, print the temporary pin first, then the provisional distal link. Two small
-caps also let you try the ends of your **50 mm, OD18 / ID9 spring off the leg**.
+**Owner update, 2026-09-15:** the provisional distal/shin link has been
+destroyed. A received metal pin was fully inserted through the installed
+bearings and its nominal Ø10 printed bore, then seized in the printed bore. The
+owner broke the shin pieces to recover the pin and reports that the bearings,
+although snug, were not the source of the seizure. Do not reprint this
+provisional link for a steel-pin trial; a full-depth bore ladder must select the
+ABS compensation first. The released [Ø10.05–Ø10.25 ladder](../knee_pin_fit/)
+matches the final boss geometry. [Result and remaining checks](../../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
+
+Do not print a replacement provisional distal link for the steel pin. The
+temporary printed pin remains a loose alignment tool only. Two small caps also
+let you try the ends of your **50 mm, OD18 / ID9 spring off the leg**.
 The owner also confirmed the corrected proximal link and all six hub screw
 seats. Keep the accepted prints; no replacement is prompted by this result.
 

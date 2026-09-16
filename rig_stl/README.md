@@ -315,7 +315,8 @@ The other four remain unchanged.
   confirm every mating face closes, and verify the wheel plane lands correctly
   over the floor plate. Every moment in the load table still uses the 42.00 mm
   CAD datum.
-- The knee stack only after the real pin arrives: Ø10 dowel through both 6800s,
+- The knee stack only after the received pin passes separate bearing checks and
+  a corrected full-depth ABS bore coupon: Ø10 dowel through both 6800s,
   pressed into the printed distal boss, and magnet carrier on. **Axial
   retention remains unreleased; do not substitute the existing collar STL.**
 - **Assembly order.** ~~The eight carriage-to-block screws are captive under the

@@ -133,5 +133,6 @@ supported. Remove the link before servicing the cover; remove cover/post before
 accessing the housing screws.
 
 [Exact Fusion audit and physical acceptance](../../evidence/assembly/2026-09-05_access_fix/).
-The distal-link build still awaits the real Ø10 × 35 steel pin, verified
+The distal-link build now awaits a corrected full-depth ABS bore selection for
+the received Ø10 × 35 steel pin, plus verified
 retention and printability. Keep both motors unplugged for this rehearsal.

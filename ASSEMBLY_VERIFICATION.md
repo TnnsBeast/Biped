@@ -133,3 +133,19 @@ report does not expand the detached-link traveller to motor loads or power.
 Detailed support-removal quality was not separately reported. Both spring
 caps pass their detached, uncompressed fit check. These results do not release
 the final distal/steel-pin/retention stack or spring cartridge.
+
+## 2026-09-15 real steel pin in provisional shin
+
+The real-pin gate is now `PHYSICAL FIT FAILED` for the provisional shin bore.
+The owner fully inserted one received metal pin through both installed bearings
+and the provisional shin, then had to break the printed shin pieces to recover
+it. The owner isolated the seizure to the shin's nominal Ø10 bore; the bearings
+were snug but were not the cause of the trapped assembly.
+
+Do not repeat the nominal Ø10 bore in another link. The bearing result remains
+incomplete until the pin candidates are inserted and removed through each
+bearing separately without the printed link. A same-profile coupon must match
+the final Ø22 boss, 19 mm engagement and bed-normal axis. The released
+Ø10.05–Ø10.25 ladder matches those datums; its selected
+light-press station, followed by Fusion insertion/service-path verification,
+gates the final distal link. [Owner report and disposition](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).

@@ -72,10 +72,17 @@ result is specific to the material, printer, orientation, and profile; do not
 reuse ABS compensation for PA-CF.
 
 For the active Mode A first article, the immediate go/no-go checks are Ø19 with
-the real 6800-2RS bearing and Ø10 with a real h6/h5 steel knee pin. The
-owner-reported eBay candidates are believed to be a set of three and are not
-expected before roughly 2026-09-16; quantity and exact specification remain to
-be verified. A deliberately clearance-fit printed ABS pin may support
+the real 6800-2RS bearing and Ø10 with a real h6/h5 steel knee pin. The metal
+candidates arrived on September 15; quantity, measured diameter and exact
+tolerance evidence remain to be verified. One pin passed snugly through both
+installed bearings but seized in the provisional shin's nominal Ø10 bore,
+forcing the owner to break the printed shin to recover it. That bore is a
+**FAIL**. Test the candidates through each bearing separately and use a
+full-depth, final-boss-matched bore ladder before another distal link. The
+released [Ø10.05–Ø10.25 ladder](../first_article_stl/knee_pin_fit/) reproduces
+the Ø22 × 19 mm final boss with its bore axis vertical.
+[Result](../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
+A deliberately clearance-fit printed ABS pin may support
 hand-alignment work meanwhile, but it cannot release the distal link, establish
 the knee-angle datum, or carry powered, spring, ground-contact or load testing.
 The Ø16 bore is a superseded sleeve check; Ø6 supports later stop work; the

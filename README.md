@@ -40,7 +40,7 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next: replace the corrected proximal link with the Ø4.5-receiver revision** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl). Print it alone in ABS from the supplied orientation. The [Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) follows as a separate plate.
+**Next: calibrate the received steel knee pin in the full-depth ABS ladder** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_pin_fit/ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl). Print it alone in ABS from the supplied orientation and start at the two-hole Ø10.05 end. The [Ø4.5-receiver proximal replacement](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) remains next in the integration queue.
 
 This automatically maintained convenience section lists previously released
 prints still useful for fixture preparation. The nominal Ø4.0 M3 station in the
@@ -51,9 +51,16 @@ active ABS M3 receiver family. [Selection and Fusion verification](evidence/inse
 **Completed and accepted, September 7:** provisional distal link and temporary
 pin assembled with free supported movement/easy pin removal; both detached
 spring caps fit the free spring; corrected proximal link fitted with all six
-hub screws seating properly. Keep these parts and the accepted shoulder hub.
+hub screws seating properly.
 [Owner photo and acceptance scope](evidence/assembly/2026-09-07_owner_mockup/).
-No repeat print is requested for the completed batch.
+Keep the surviving parts and the accepted shoulder hub. That acceptance applies
+only to the loose printed-pin mock-up.
+
+**Steel-pin update, September 15:** one received metal pin passed snugly through
+the installed bearings but seized in the provisional shin's nominal Ø10 printed
+bore. The owner broke the provisional plastic shin to recover the pin. Do not
+repeat that bore in another full link. The released full-depth ladder reproduces
+the final Ø22 × 19 mm boss at Ø10.05–Ø10.25 in 0.05 mm steps. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Ladder instructions](first_article_stl/knee_pin_fit/).
 
 **Also printed, September 7:** shoulder cable cover, corrected front cable
 post, wheel hub and general fit gauge. These four prints are complete; the
@@ -64,6 +71,7 @@ owner-reported FAIL. The dedicated ladder has since selected Ø4.5.
 
 | Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
+| [Knee-pin full-depth bore ladder](first_article_stl/knee_pin_fit/ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl) | 1 ABS calibration print | Import unchanged with the thin runner on the bed; **no supports**. Two index holes mark Ø10.05; stations increase to Ø10.25 in 0.05 mm steps. |
 | [Corrected proximal link, Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) | 1 ABS replacement | Import unchanged with the outboard arm face down; **no supports**. Inspect the controlled bridge undersides and Ø17 bearing-retention lips. |
 | [Mode A stand, Ø4.5 M3 revision](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS, separate plate | Import unchanged with the mount face down; **no supports**; requires at least 300 mm on one bed axis |
 | [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
@@ -92,20 +100,22 @@ panel/stand and housing screws first, cover/post next, proximal link last.
 The front post uses two M3 × 12 in the upper cover positions; lower positions
 remain M3 × 10. Check the real tie/harness through its eye before refitting the
 link. The optional rear anchor uses two M3 × 8 plus washers and fits before
-enclosing the rear wiring. Keep the provisional distal link detached during fixture preparation;
-its printed pin is only for the [supported bench rehearsal](first_article_stl/knee_mockup/).
-Fit the wheel hub to its unplugged motor separately from that mock-up.
+enclosing the rear wiring. The provisional distal link was destroyed during
+steel-pin recovery; retain its earlier result as evidence only. Its printed pin
+was limited to the [supported bench rehearsal](first_article_stl/knee_mockup/).
+Fit the wheel hub to its unplugged motor separately.
 
 **Still held:** final distal/steel-pin/retention stack, wheel rim, spring
 cartridge and complete powered fixture. The passed caps are fit coupons;
 keep the spring off the leg. The complete single-leg build stays ABS; PA-CF
 and structural tests remain deferred. [Teensy Stage 0](firmware/teensy_stage0/)
-can proceed with USB power and both motors disconnected while the steel pin
-is in transit.
+can proceed with USB power and both motors disconnected while the received
+steel pin is inspected and the released bore ladder selects the shin compensation.
 
 The TPU tyre remains coupled to the held rim. Knee stop/encoder parts and the
 magnet carrier have legacy STLs but are not added to this print batch: full
-knee assembly still awaits the real pin/retention, and their current bed-ready
+knee assembly still awaits corrected steel-pin bore selection and retention,
+and their current bed-ready
 print release needs verification before adding them to this queue. Cartridge
 eyes and the internal bumper await the owned-spring adaptation. Two-leg and
 Mode B parts are deferred.

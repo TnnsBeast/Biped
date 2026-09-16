@@ -22,11 +22,13 @@ import adsk.core
 import adsk.fusion
 
 
-WORKSPACE = '/Users/neilchulani/Robots/Biped'
+WORKSPACE = '/Users/neilchulani/Biped'
 OUT_DIR = os.path.join(WORKSPACE, 'first_article_stl', 'actuator_fit')
 PIN_TRIAL_OUT_DIR = os.path.join(OUT_DIR, 'gim6010_pin_trials')
 BEARING_TRIAL_OUT_DIR = os.path.join(
     WORKSPACE, 'first_article_stl', 'bearing_fit')
+KNEE_PIN_TRIAL_OUT_DIR = os.path.join(
+    WORKSPACE, 'first_article_stl', 'knee_pin_fit')
 ASSEMBLY_DRY_FIT_OUT_DIR = os.path.join(
     WORKSPACE, 'first_article_stl', 'assembly_dry_fit')
 DOCUMENT = 'Beni_Prototype1_TestGauges'
@@ -88,6 +90,22 @@ BEARING_LADDER_NAME = 'ABS_CAL_6800_BORE_LADDER'
 BEARING_LADDER_LENGTH = 170.0
 BEARING_LADDER_WIDTH = 32.0
 BEARING_LADDER_THICKNESS = 4.0
+
+
+# ABS-only diagnostic ladder after the bought metal pin seized in the
+# provisional shin's nominal O10 bore.  The 0.05 mm series follows the useful
+# resolution of the successful 6800 ladder.  Each station reproduces the final
+# distal boss OD and full engagement depth, with the bore normal to the bed.
+# These are trial bores, not released structural dimensions.
+KNEE_PIN_BORE_TRIALS = (10.05, 10.10, 10.15, 10.20, 10.25)
+KNEE_PIN_LADDER_NAME = 'ABS_CAL_KNEE_PIN_BORE_LADDER'
+KNEE_PIN_LADDER_CENTERS_X = (-48.0, -24.0, 0.0, 24.0, 48.0)
+KNEE_PIN_LADDER_BOSS_D = B.DBOSS_D
+KNEE_PIN_LADDER_THICKNESS = B.DBOSS_Y1 - B.DBOSS_Y0
+KNEE_PIN_LADDER_RUNNER = (-60.0, -13.5, 120.0, 4.0, 2.0)
+KNEE_PIN_LADDER_INDEX_TAB = (-66.0, -18.0, 10.0, 10.0, 2.0)
+KNEE_PIN_LADDER_INDEX_HOLES = ((-63.0, -15.0, 2.0),
+                               (-59.0, -11.0, 2.0))
 ABS_PROXIMAL_SLUG = 'proximal_d19p15_m4_access_fixed'
 ABS_PROXIMAL_NAME = 'ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED'
 ABS_PROXIMAL_PRINT_NAME = ABS_PROXIMAL_NAME + '_PRINT_ORIENTED'
@@ -122,6 +140,30 @@ def _bearing_ladder_spec():
         'orientation': ('two O3 index holes mark the O19.05 end; bores increase '
                         'left-to-right: 19.05, 19.10, 19.15, 19.20, 19.25 mm'),
         'hardware': 'one real 6800-2RS bearing, O19 x 5 mm',
+    }
+
+
+def _knee_pin_ladder_spec():
+    return {
+        'trial_bores': list(KNEE_PIN_BORE_TRIALS),
+        'trial_centers_x': list(KNEE_PIN_LADDER_CENTERS_X),
+        'boss_od': KNEE_PIN_LADDER_BOSS_D,
+        'engagement_depth': KNEE_PIN_LADDER_THICKNESS,
+        'runner': list(KNEE_PIN_LADDER_RUNNER),
+        'index_tab': list(KNEE_PIN_LADDER_INDEX_TAB),
+        'index_holes': [list(row) for row in KNEE_PIN_LADDER_INDEX_HOLES],
+        'interface': ('ABS-only bought knee-pin bore calibration; '
+                      'not a structural release dimension'),
+        'orientation': ('two O2 index holes mark the O10.05 end; boss bores '
+                        'increase left-to-right: 10.05, 10.10, 10.15, '
+                        '10.20, 10.25 mm; bore axes are bed-normal'),
+        'hardware': ('one received metal knee pin; inspect it first and use '
+                     'the same pin for every station'),
+        'target_fit': ('smallest station that accepts controlled thumb '
+                       'pressure, does not spin freely and remains removable '
+                       'using the exposed pin length'),
+        'source_failure': ('provisional nominal O10 ABS shin bore seized the '
+                           'fully inserted metal pin on 2026-09-15'),
     }
 
 
@@ -267,6 +309,57 @@ def _build_6800_bore_ladder(root, x_mm=0.0, y_mm=-70.0):
     return occ
 
 
+def _rect_feature(comp, x0, y0, width, depth, height, operation):
+    sketch = comp.sketches.add(comp.xYConstructionPlane)
+    sketch.sketchCurves.sketchLines.addTwoPointRectangle(
+        adsk.core.Point3D.create(_cm(x0), _cm(y0), 0),
+        adsk.core.Point3D.create(_cm(x0 + width), _cm(y0 + depth), 0))
+    return _extrude(comp, sketch.profiles.item(0), height, operation)
+
+
+def _build_knee_pin_bore_ladder(root, x_mm=0.0, y_mm=-115.0):
+    """Build five final-boss-depth knee-pin trials on a breakaway runner."""
+    spec = _knee_pin_ladder_spec()
+    _drop_occurrence(root, KNEE_PIN_LADDER_NAME)
+    occ = _new_component(root, KNEE_PIN_LADDER_NAME, x_mm, y_mm)
+    comp = occ.component
+
+    rx, ry, rw, rd, rh = spec['runner']
+    feature = _rect_feature(
+        comp, rx, ry, rw, rd, rh,
+        adsk.fusion.FeatureOperations.NewBodyFeatureOperation)
+    body = feature.bodies.item(0)
+    body.name = KNEE_PIN_LADDER_NAME
+
+    tx, ty, tw, td, th = spec['index_tab']
+    _rect_feature(comp, tx, ty, tw, td, th,
+                  adsk.fusion.FeatureOperations.JoinFeatureOperation)
+
+    for x_center in spec['trial_centers_x']:
+        boss_sketch = comp.sketches.add(comp.xYConstructionPlane)
+        _circle(boss_sketch, x_center, 0.0, spec['boss_od'])
+        _extrude(comp, boss_sketch.profiles.item(0),
+                 spec['engagement_depth'],
+                 adsk.fusion.FeatureOperations.JoinFeatureOperation)
+
+    for x_center, bore_d in zip(spec['trial_centers_x'],
+                                spec['trial_bores']):
+        bore_sketch = comp.sketches.add(comp.xYConstructionPlane)
+        _circle(bore_sketch, x_center, 0.0, bore_d)
+        _extrude(comp, bore_sketch.profiles.item(0),
+                 spec['engagement_depth'] + 0.5,
+                 adsk.fusion.FeatureOperations.CutFeatureOperation)
+    for x_center, y_center, bore_d in spec['index_holes']:
+        marker_sketch = comp.sketches.add(comp.xYConstructionPlane)
+        _circle(marker_sketch, x_center, y_center, bore_d)
+        _extrude(comp, marker_sketch.profiles.item(0), th + 0.5,
+                 adsk.fusion.FeatureOperations.CutFeatureOperation)
+
+    comp.attributes.add('BeniFirstArticle', 'spec',
+                        json.dumps(spec, sort_keys=True))
+    return occ
+
+
 def _cylinder_diameters(body):
     values = []
     for face in body.faces:
@@ -336,6 +429,52 @@ def _measure_6800_bore_ladder(occ, spec=None):
         'orientation': spec['orientation'],
         'bbox_mm': size,
         'volume_cm3': round(body.volume, 4),
+        'cylindrical_face_diameters_mm': cylinders,
+        'spec': spec,
+    }
+
+
+def _measure_knee_pin_bore_ladder(occ, spec=None):
+    if spec is None:
+        spec = _knee_pin_ladder_spec()
+    comp = occ.component
+    if comp.bRepBodies.count != 1:
+        raise RuntimeError('%s has %d bodies, expected 1' %
+                           (comp.name, comp.bRepBodies.count))
+    body = comp.bRepBodies.item(0)
+    if not body.isSolid:
+        raise RuntimeError('%s body is not solid' % comp.name)
+    if any(body.edges.item(i).faces.count != 2 for i in range(body.edges.count)):
+        raise RuntimeError('%s contains a non-manifold B-Rep edge' % comp.name)
+    bb = body.boundingBox
+    size = [round((bb.maxPoint.x - bb.minPoint.x) * 10.0, 4),
+            round((bb.maxPoint.y - bb.minPoint.y) * 10.0, 4),
+            round((bb.maxPoint.z - bb.minPoint.z) * 10.0, 4)]
+    expected = [126.0, 29.0, spec['engagement_depth']]
+    if any(abs(a - b) > 0.001 for a, b in zip(size, expected)):
+        raise RuntimeError('%s bbox %r != expected %r' %
+                           (comp.name, size, expected))
+    cylinders = _cylinder_diameters(body)
+    for diameter in spec['trial_bores']:
+        count = sum(abs(actual - diameter) <= 0.001 for actual in cylinders)
+        if count != 1:
+            raise RuntimeError('%s has %d O%.2f trial faces; got %r' %
+                               (comp.name, count, diameter, cylinders))
+    boss_count = sum(abs(actual - spec['boss_od']) <= 0.001
+                     for actual in cylinders)
+    marker_count = sum(abs(actual - 2.0) <= 0.001 for actual in cylinders)
+    if boss_count != 5 or marker_count != 2:
+        raise RuntimeError('%s boss/marker face count mismatch: %r' %
+                           (comp.name, cylinders))
+    return {
+        'name': comp.name,
+        'interface': spec['interface'],
+        'hardware': spec['hardware'],
+        'target_fit': spec['target_fit'],
+        'orientation': spec['orientation'],
+        'bbox_mm': size,
+        'volume_cm3': round(body.volume, 4),
+        'closed_manifold_brep': True,
         'cylindrical_face_diameters_mm': cylinders,
         'spec': spec,
     }
@@ -447,6 +586,20 @@ def build_6800_bore_ladder():
         'document': doc.name,
         'document_modified': doc.isModified,
         'purpose': 'ABS-only 6800-2RS bearing-bore calibration',
+        'coupon': manifest,
+    }, indent=2, sort_keys=True))
+    return occ
+
+
+def build_knee_pin_bore_ladder():
+    """Build the final-boss-depth ABS knee-pin calibration ladder."""
+    _app, doc, _design, root = _app_design_root()
+    occ = _build_knee_pin_bore_ladder(root)
+    manifest = _measure_knee_pin_bore_ladder(occ)
+    print(json.dumps({
+        'document': doc.name,
+        'document_modified': doc.isModified,
+        'purpose': 'ABS-only received knee-pin bore calibration',
         'coupon': manifest,
     }, indent=2, sort_keys=True))
     return occ
@@ -645,6 +798,45 @@ def export_6800_bore_ladder():
         json.dump({
             'document': doc.name,
             'purpose': 'ABS-only 6800-2RS bearing-bore calibration',
+            'coupon': row,
+        }, stream, indent=2, sort_keys=True)
+        stream.write('\n')
+    print(json.dumps({'exported': row,
+                      'manifest': manifest_path}, indent=2, sort_keys=True))
+    return row
+
+
+def export_knee_pin_bore_ladder():
+    """Export the final-boss-depth knee-pin ladder after B-Rep validation."""
+    _app, doc, design, root = _app_design_root()
+    os.makedirs(KNEE_PIN_TRIAL_OUT_DIR, exist_ok=True)
+    occ = None
+    for i in range(root.occurrences.count):
+        candidate = root.occurrences.item(i)
+        if candidate.component.name == KNEE_PIN_LADDER_NAME:
+            occ = candidate
+            break
+    if occ is None:
+        raise RuntimeError('missing knee-pin ladder component %s' %
+                           KNEE_PIN_LADDER_NAME)
+    row = _measure_knee_pin_bore_ladder(occ)
+    path = os.path.join(KNEE_PIN_TRIAL_OUT_DIR,
+                        KNEE_PIN_LADDER_NAME + '_PRINT_ORIENTED.stl')
+    options = design.exportManager.createSTLExportOptions(occ.component, path)
+    options.meshRefinement = (
+        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
+    options.isBinaryFormat = True
+    if not design.exportManager.execute(options):
+        raise RuntimeError('STL export failed for %s' % KNEE_PIN_LADDER_NAME)
+    row['stl'] = path
+    row['stl_bytes'] = os.path.getsize(path)
+
+    manifest_path = os.path.join(KNEE_PIN_TRIAL_OUT_DIR,
+                                 'fusion_manifest.json')
+    with open(manifest_path, 'w', encoding='utf-8') as stream:
+        json.dump({
+            'document': doc.name,
+            'purpose': 'ABS-only received knee-pin bore calibration',
             'coupon': row,
         }, stream, indent=2, sort_keys=True)
         stream.write('\n')

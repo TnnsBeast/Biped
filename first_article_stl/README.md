@@ -70,10 +70,24 @@ The [temporary pin and provisional distal link](knee_mockup/) are printed and
 provisionally assembled by owner report on September 7. Both spring caps are
 also printed, with both spring ends seating flat uncompressed. Supported knee
 movement and pin removal pass. [Photo and physical acceptance scope](../evidence/assembly/2026-09-07_owner_mockup/).
+On September 15, the owner inserted a received metal pin into that provisional
+shin. Its nominal Ø10 bore seized the pin, and the shin was broken to recover
+it. The earlier loose Ø9.7 printed-pin result remains evidence, but the shin is
+destroyed and must not be reprinted for another steel-pin trial. [Steel-pin
+result](../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
 The traveller remains scoped to two detached links supported on the bench;
 the caps check the ends of the owned spring off the leg. Follow that batch's specific support
 policy: **the distal mock-up needs selective supports**, while the pin and
 caps print without supports. No main spring or motors attach to this mock-up.
+
+## 2026-09-15 steel knee-pin bore calibration
+
+One received metal pin seated through both installed bearings and seized in the
+provisional shin's nominal Ø10 ABS bore. The provisional shin was broken to
+recover it. Print the [full-depth Ø10.05–Ø10.25 ladder](knee_pin_fit/) next; its
+five stations reproduce the final Ø22 × 19 mm boss and bed-normal bore axis.
+Do not print another distal link until the physical test selects a removable
+light-press station.
 
 ## 2026-09-14 M3 receiver recalibration — Ø4.5 selected
 
