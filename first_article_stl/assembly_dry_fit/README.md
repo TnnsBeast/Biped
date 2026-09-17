@@ -1,5 +1,55 @@
 # ABS shoulder and proximal-link assembly articles
 
+## Ø10.30 shin/distal steel-pin fit article — released 2026-09-16
+
+Print one
+[`ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl`](ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl)
+in ABS. Import it unchanged: the broad inboard source face is already on the
+bed, and the Ø10.30 knee-pin bore is bed-normal like the accepted coupon.
+
+The initial integrated receiver copied the former steel sleeve's 21.6 mm span.
+Fusion proved that geometry cannot be assembled: its Ø16 end lands extend
+0.8 mm into both bearing pockets and trap the shin in every radial direction.
+The released receiver stays within the clear 20.0 mm proximal-fork gap. It is
+still 1.0 mm longer than the printed Ø10.25 coupon and retains the owner's
+Ø10.30 choice, while leaving 0.8 mm nominal axial clearance to each bearing.
+
+Use the tuned enclosed ABS profile: 0.20 mm layers, 4 walls, 5 top/bottom
+layers and 30% infill. Paint or place normal supports only beneath these four
+regions:
+
+1. the Ø16 knee-receiver annular underside;
+2. the raised knee web;
+3. the wheel-end underside; and
+4. the open channel ceiling.
+
+For the 0.20 mm profile use at least **0.4 mm top/bottom support distance** and
+**0.6 mm XY distance**. Block support from the complete knee bore, cartridge
+and stop bores, motor-cover opening, motor screw holes and motor mounting face.
+Remove the three lower support groups toward the bed and the channel support
+through its open side. Inspect all four supported surfaces before assembly.
+
+Support both links on the bench and keep both motors and the spring disconnected.
+With both 6800 bearings installed in the proximal link, translate the detached
+shin straight into the fork along the verified +X path; reverse that motion for
+service. Insert the steel pin from the inboard side using thumb pressure only.
+The article passes when the pin enters fully, withdraws by hand, has no free
+spin or perceptible radial rock in the printed receiver, and the 0.8 mm nominal
+clearance on each side does not produce unacceptable axial play. Do not hammer,
+clamp, sand or polish the pin to make the result pass.
+
+Fusion checked 241 link-path poses and 101 pin-path poses with zero modeled
+interference. The STL is a closed 5,990-triangle manifold and matches the
+native solid volume within 0.014%. The complete Mode A eight-check regression
+passed on the corrected geometry before the v25 save; the v26 support-gap
+revalidation left that source geometry unchanged.
+[Fusion release evidence](../../evidence/knee_fit/2026-09-16_distal_d10p30_release/).
+
+This is a **steel-pin fit and assembly-path release**. The current knee collar
+does not retain the pin, and the magnet carrier/encoder coupling is not yet
+released. Do not attach the spring, power either motor, put the wheel on the
+ground or structurally load the joint.
+
 ## Corrected proximal link — Ø4.5 replacement released 2026-09-14
 
 The owner confirmed proper seating of all six hub screws on the printed Ø4.0
@@ -58,12 +108,11 @@ The gauge's Ø4.0 M3 station failed, and the owner selected Ø4.5 on the dedicat
 [M3 ladder](../insert_fit/). Print the re-exported stand separately. Print the
 Ø4.5 shoulder plate if the fitted plate is the prior Ø4.0 revision or lacks
 suitable cover-insert receivers. Use the documented bed orientations and insert gates.
-The wheel rim is still **DO NOT PRINT** because of its unsupported ledges.
-The final distal link and knee collar retain their pin-fit/retention gates.
-For the interim two-link bench test, use the separate
-[supported knee mock-up batch](../knee_mockup/): its provisional distal link
-and temporary pin are for supported hand positioning only, with no motor or
-spring cartridge attached.
+The wheel rim is still **DO NOT PRINT** because of its unsupported ledges. Use
+the released Ø10.30 distal article above for the real steel-pin fit. The knee
+collar, magnet carrier and encoder coupling retain their release gates. The
+older [supported knee mock-up batch](../knee_mockup/) remains historical
+evidence for its loose printed alignment pin only.
 
 The new [front cable post](../mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl)
 fits outside the cover. Use two **M3 × 12** at the upper cover positions; the

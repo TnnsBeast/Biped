@@ -82,7 +82,7 @@ constraint the brief did not have. None is a matter of taste.
 | 6 | `Chassis_Shoulder_Plate_L` is "Ø96, 8 × M3 on Ø74 PCD" | 120 × 120 panel, Ø48 bore | It is the chassis **side panel**. The Ø74 PCD is the *motor's* pattern, already used by the motor's own screws, so the ~~carriage~~ **stand** bolts to the panel's **five existing frame-bolt holes** instead. §2.2. **Stands — and it is now the stand's primary interface.** |
 | 7 | (not mentioned) | Housing screws **M3 × 8**, not M3 × 10 | The inherited model uses M3 × 10 through a 5 mm panel into a **4.0 mm** thread → 5 mm of screw into 4 mm of hole. Bottoms out before it clamps — the same defect class as the two found in design record §7 [REV2]. §9. **Stands.** |
 | 8 | `Knee_Stop_Arc_L`, laser-cut 3 mm steel at 45 HRC | **Deleted.** The +27° stop becomes a **compression stack inside the spring cartridge**; a printed plate keeps the −8° stop and a +28° backup | No laser parts. And the steel plate only worked because its slot ends were *conformal*; every printed or bought convex substitute reverts to Hertzian line contact at 1.0–1.8 GPa. §8. **Stands. The −8° stop is live in Mode A; the +27° column is only needed before step 10.** |
-| 9 | `Distal_Link_L` "reuse as-is" | **Re-exported** | Adopting §2.3 moves the sleeve's Ø16 bore into the printed link as a nominal Ø10 pin receiver. Ø10.25 passed the initial 19.0 mm ABS coupon; the owner selected Ø10.30 for the 21.6 mm production receiver, and PA-CF must be recalibrated. This is the hidden cost of deleting the double-D. §4. **Stands.** |
+| 9 | `Distal_Link_L` "reuse as-is" | **Re-exported** | Adopting §2.3 moves the sleeve's Ø16 bore into the printed link as a nominal Ø10 pin receiver. Ø10.25 passed the initial 19.0 mm ABS coupon; the owner selected Ø10.30. The final serviceable receiver spans the clear 20.0 mm fork gap with 0.8 mm bearing clearance per side, and PA-CF must be recalibrated. This is the hidden cost of deleting the double-D. §4. **Stands.** |
 | 10 | (not mentioned) | The cartridge's usable internal length is **44.570 mm consumed**, not 35.57 | Measured with a probe ring at six knee angles, spread 0.0000 mm. The dead-length build-up (11.00 + 14.57 + 4.0 + 6.0) is 9.0 mm optimistic. Sizing the new stop from the build-up would have put the hard stop at **+10°**. §8. **Stands.** |
 
 **Departure 11, added 2026-08-17 — the brief's two-mode stand is one mode.** The
@@ -382,17 +382,17 @@ without replacing that reference and the encoder stops tracking the knee.
 | Item | Decision |
 |---|---|
 | Axle | **Hardened Ø10 h6 ground dowel pin, 35 mm.** NOT a shoulder bolt: a shoulder screw's shoulder is h9/h11, which rattles in the 6800's Ø10 bore, and knee-angle noise is measurement error on this rig. A ground dowel holds the fit for ~$2. |
-| Sleeve | **Deleted.** Its Ø16 bore becomes a nominal **Ø10 pin receiver printed directly into the distal boss**. The nominal Ø10 ABS bore seized; Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm coupon on 2026-09-16. Fusion then exposed the 21.6 mm production span, and the owner selected Ø10.30 for ABS. Recalibrate for PA-CF. |
-| Angular reference | The press of the pin into the printed boss. Torque to be carried is two 6800 seals' drag, order **0.002 N·m**; a light press on Ø10 × 21.6 holds ~100× that. |
+| Sleeve | **Deleted.** Its Ø16 bore becomes a nominal **Ø10 pin receiver printed directly into the distal boss**. The nominal Ø10 ABS bore seized; Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm coupon on 2026-09-16. The owner selected Ø10.30 while the receiver was expected to span 21.6 mm. Fusion then found that copied sleeve span trapped the link in the bearing pockets; the released ABS receiver spans the clear 20.0 mm fork gap with 0.8 mm bearing clearance per side. Recalibrate for PA-CF. |
+| Angular reference | The press of the pin into the printed boss. Torque to be carried is two 6800 seals' drag, order **0.002 N·m**; a light press on Ø10 × 20.0 holds ~100× that. The first printed article must confirm no free spin or rock. |
 | Retention | **UNRESOLVED. Do not print `RIG_Knee_Collar_L`.** Fusion inspection found that its Ø15 × 3 body does not overlap the modelled pin and its Ø2.5 hole is axial, not a radial set-screw receiver. The 35 mm pin allocation leaves no proven free shaft for a catalogue clamp collar. Measure the delivered eBay pin and real bearing/link stack before selecting or modelling retention. |
 | Magnet | `RIG_Knee_Magnet_Carrier_L`, printed, Ø10 bore 3.5 deep pressed on the pin's 3.4 mm protrusion, Ø6.1 pocket 2.5 deep. The magnet **bottoms on the pin's own ground end face** — the best datum available. |
 
 ### Arithmetic
 
 ```
-bearing pressure on the printed distal boss, 275 N proof over 21.6 mm:
-   Ø16 steel sleeve, as designed        0.80 MPa
-   Ø10 pin direct in printed PA-CF      1.27 MPa      against 84 MPa XY
+bearing pressure on the printed distal boss, 275 N proof:
+   Ø16 steel sleeve over 21.6 mm        0.80 MPa
+   Ø10 pin direct over 20.0 mm          1.38 MPa      against 84 MPa XY
 Ø10 pin in bending, 275 N at 6.4 mm     18 MPa
 pin length: Ø10 × 35 from y 58.7 → 93.7, 3.4 mm proud of arm B at 90.3
             carrier bore needs 3.5, magnet pocket 2.5 → fits in 6.0 mm
@@ -403,8 +403,9 @@ guide §4 to **0.043 mm** worst case.
 
 ### What it costs
 
-- **`Distal_Link_L` is no longer "reuse as-is"** and must be re-printed. Its
-  volume goes 45.0 → 47.6 cm³, exactly the 2646 mm³ of the printed-in sleeve.
+- **`Distal_Link_L` is no longer "reuse as-is"** and must be re-printed. The
+  serviceable v26 source is 48.4709 cm³; its Ø10.30 receiver is integrated over
+  the clear 20.0 mm fork gap.
 - Deletes **two** machined families (`Knee_Axle_L`, `Knee_Sleeve_L`), converts
   `Knee_Magnet_Carrier_L` from steel to printed, and buys one dowel pin.
 - **Saves 26.4 g on the slide**, which matters given §5.
@@ -450,7 +451,7 @@ carries the pessimistic C4 figure of 500 g for the GIM6010-8.
 | 2 × MGN12H block | 108.0 |
 | `RIG_Carriage` | 103.7 |
 | `Wheel_Tyre_L` 80.052 · `Wheel_Rim_L` 77.568 | 157.620 |
-| `Proximal_Link_L` 72.5 · `Distal_Link_L` 54.8 | 127.3 |
+| `Proximal_Link_L` 72.5 · `Distal_Link_L` 55.7 | 128.2 |
 | `Shoulder_Output_Hub_L` | 56.790 |
 | `Chassis_Shoulder_Plate_L` | 46.896 |
 | `Wheel_Hub_L` 34.445 · knee + cartridge + fasteners | ~231.6 |
@@ -728,7 +729,7 @@ minimal cooling · dried filament**, per `beni_rig_no_machining.md` §1.
 | `RIG_Knee_Stop_Plate_L` | 2.5 | 2.9 | flat on the bed |
 | `RIG_Knee_Bumper_Tube_L` | 0.9 | 1.1 | **TPU 95A**, bore axis vertical |
 | `RIG_Ballast_Pot` × 2 | 13.8 | 15.9 ea | open side up, no support |
-| `Distal_Link_L` | 47.6 | 54.8 | on edge, link axis vertical — **re-exported, §4** |
+| `Distal_Link_L` | 48.4709 | 55.7415 | broad inboard face down, knee bore bed-normal; selective supports only in the four released regions — **fit article re-exported, §4** |
 
 Two printed parts carry consequences the brief already flagged:
 

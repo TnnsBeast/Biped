@@ -79,12 +79,14 @@ tolerance evidence remain to be verified. One pin passed snugly through both
 installed bearings but seized in the provisional shin's nominal Ø10 bore,
 forcing the owner to break the printed shin to recover it. That bore is a
 **FAIL**. Nominal Ø10.25 then gave the intended firm-thumb fit on the initial
-Ø22 × 19.0 mm coupon. Fusion inspection found the production receiver actually
-spans 21.6 mm across its thrust lands, and the owner selected Ø10.30 for the ABS
-source. The [Ø10.25–Ø10.45 full-span ladder](../first_article_stl/knee_pin_fit/)
-remains an optional diagnostic. Test the candidates through each bearing
-separately; the final distal link still needs its print, service-path and
-retention gates.
+Ø22 × 19.0 mm coupon. The owner selected Ø10.30 while the receiver was expected
+to span 21.6 mm. Fusion's final service audit found that copied steel-sleeve
+span trapped the link inside the bearing pockets, so v26 uses the clear 20.0 mm
+fork gap with 0.8 mm axial clearance per side. The [Ø10.25–Ø10.45 full-span
+ladder](../first_article_stl/knee_pin_fit/) remains a conservative optional
+diagnostic. Test the candidates through each bearing separately and print the
+[released distal fit article](../first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl).
+Physical fit, retention and encoder coupling remain open.
 [Result](../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
 A deliberately clearance-fit printed ABS pin may support
 hand-alignment work meanwhile, but it cannot release the distal link, establish

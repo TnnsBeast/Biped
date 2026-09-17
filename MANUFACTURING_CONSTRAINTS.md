@@ -39,7 +39,7 @@ For the single-leg rig, every one of these is resolved. Nothing is outstanding.
 | `Cart_Upper_Eye_L`, `Cart_Lower_Eye_L` | 7075 machined | **printed**, measured, real dimension fed back to the spring model | `beni_rig_no_machining.md` §2.4 |
 | `Knee_Magnet_Carrier_L` | steel | **printed**, runout measured on an indicator | rig design record §4 |
 | `Knee_Axle_L` | 4140 ground, double-D | **bought** Ø10 h6 hardened ground dowel pin | rig design record §4 |
-| `Knee_Sleeve_L` | steel, double-D bore | **deleted** — its Ø16 bore becomes a nominal Ø10 pin receiver printed into `Distal_Link_L`; Ø10.25 passed the initial 19.0 mm ABS coupon, and the owner selected Ø10.30 for the 21.6 mm production receiver | rig design record §4 |
+| `Knee_Sleeve_L` | steel, double-D bore | **deleted** — its Ø16 bore becomes a nominal Ø10 pin receiver printed into `Distal_Link_L`; Ø10.25 passed the initial 19.0 mm ABS coupon, the owner selected Ø10.30, and the serviceable ABS receiver spans 20.0 mm with 0.8 mm bearing clearance per side | rig design record §4 |
 | `Cart_Guide_Rod_L` | ground steel | **bought** Ø5 × 50 hardened shaft | rig design record §9 |
 | `Cart_Preload_Shim_L` | shim stock | **bought** Ø19/Ø13.6 × 0.5 shim washers | rig design record §9 |
 | **`Knee_Stop_Arc_L`** | **laser-cut 3 mm steel, 45 HRC** | **deleted.** The +27° hard stop is now a **compression column of bought M5 washers** inside the spring cartridge, with a printed TPU sleeve as the progressive bumper; `RIG_Knee_Stop_Plate_L` (printed) keeps the −8° stop and a +28° backup | **rig design record §8** |

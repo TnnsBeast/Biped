@@ -145,8 +145,13 @@ were snug but were not the cause of the trapped assembly.
 Do not repeat the nominal Ø10 bore in another link. The bearing result remains
 incomplete until the pin candidates are inserted and removed through each
 bearing separately without the printed link. Nominal Ø10.25 passed the initial
-19.0 mm coupon under firm thumb pressure, but Fusion found the production
-receiver spans 21.6 mm across the thrust lands. The owner selected Ø10.30 for
-the ABS production bore. Fusion insertion/service-path verification, first-link
-spin/rock/withdrawal checks and retention still gate the final distal link.
-[Owner report and disposition](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
+19.0 mm coupon under firm thumb pressure, and the owner selected Ø10.30 while
+the receiver was expected to span 21.6 mm. Fusion's final service audit found
+that copied sleeve span overlapped both bearing pockets, so the saved v26 source
+now uses the clear 20.0 mm fork gap with 0.8 mm axial clearance per side.
+Printability, support-removal, link/pin insertion and mesh checks pass, and the
+bed-ready fit article is released. The first print must still prove firm-thumb
+insertion, hand withdrawal, no free spin or rock and acceptable axial play.
+Retention and encoder coupling remain required before spring-loaded or powered
+use. [Owner result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) ·
+[Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/).

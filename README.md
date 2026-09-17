@@ -40,7 +40,12 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next: print the Ø4.5-receiver proximal replacement** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl). Print one in ABS, import unchanged with the outboard arm face down, and keep supports off. The owner selected Ø10.30 for the ABS distal-link pin bore; that link remains held for its final printability, service-path and retention checks.
+**Next newly released critical print: the Ø10.30 shin/distal steel-pin fit
+article** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl).
+Print one in ABS and import it unchanged with the broad inboard face down. Use
+only the selective supports in its traveller. This print closes the real-pin
+fit and physical assembly checks; pin retention and encoder coupling still
+block powered use.
 
 This automatically maintained convenience section lists previously released
 prints still useful for fixture preparation. The nominal Ø4.0 M3 station in the
@@ -61,10 +66,16 @@ the installed bearings but seized in the provisional shin's nominal Ø10 printed
 bore. The owner broke the provisional plastic shin to recover the pin. Do not
 repeat that bore in another full link. The initial ladder's largest,
 unmarked-end station, nominal Ø10.25, passed its 19.0 mm length under firm thumb
-pressure. Fusion then found the production receiver spans 21.6 mm across its
-thrust lands. The owner selected Ø10.30, one 0.05 mm step larger, for the active
-ABS source. The full-span ladder is retained as an optional diagnostic.
-[Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Optional coupon](first_article_stl/knee_pin_fit/).
+pressure. The owner selected Ø10.30, one 0.05 mm step larger, while the
+integrated receiver was expected to span 21.6 mm. The final Fusion service-path
+audit found that copying that steel-sleeve span into the print trapped the shin
+0.8 mm inside each bearing pocket. `Beni_SingleLegRig` v26 therefore confines
+the Ø10.30 receiver to the clear 20.0 mm fork gap, restores 0.8 mm axial
+clearance per side, and provides a verified bed-ready fit article. The 21.6 mm
+ladder remains a conservative optional diagnostic.
+[Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) ·
+[Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/) ·
+[Optional coupon](first_article_stl/knee_pin_fit/).
 
 **Also printed, September 7:** shoulder cable cover, corrected front cable
 post, wheel hub and general fit gauge. These four prints are complete; the
@@ -75,6 +86,7 @@ owner-reported FAIL. The dedicated ladder has since selected Ø4.5.
 
 | Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
+| [Ø10.30 shin/distal steel-pin fit article](first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged with the broad inboard face down. Use painted/manual normal supports only under the knee receiver land, raised knee web, wheel-end underside and open channel ceiling; follow the [traveller](first_article_stl/assembly_dry_fit/README.md). |
 | [Corrected proximal link, Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) | 1 ABS replacement | Import unchanged with the outboard arm face down; **no supports**. Inspect the controlled bridge undersides and Ø17 bearing-retention lips. |
 | [Mode A stand, Ø4.5 M3 revision](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS, separate plate | Import unchanged with the mount face down; **no supports**; requires at least 300 mm on one bed axis |
 | [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
@@ -83,7 +95,8 @@ owner-reported FAIL. The dedicated ladder has since selected Ø4.5.
 Use the tuned enclosed ABS profile. Import the `PRINT_ORIENTED` files unchanged:
 no rotation, scaling or hole compensation. The optional rear anchor is the
 exception: lay either 41.0 × 15.45 mm broad face on the bed, as described in its
-traveller. Preview the stand's blind-pocket roofs and the proximal link's
+traveller. The shin is the supported exception described above. Preview the
+stand's blind-pocket roofs and the proximal link's
 channel/root-pad bridges, then inspect their printed undersides. Keep supports off functional
 faces. [Stand/post traveller](first_article_stl/mode_a/) · [Link, plate and receiver instructions](first_article_stl/assembly_dry_fit/)
 · [Insert map](docs/assembly/heatset_receiver_map.md).
@@ -108,13 +121,13 @@ steel-pin recovery; retain its earlier result as evidence only. Its printed pin
 was limited to the [supported bench rehearsal](first_article_stl/knee_mockup/).
 Fit the wheel hub to its unplugged motor separately.
 
-**Still held:** final distal/steel-pin/retention stack, wheel rim, spring
-cartridge and complete powered fixture. The passed caps are fit coupons;
+**Still held:** pin retention and encoder coupling for the released distal fit
+article, wheel rim, spring cartridge and complete powered fixture. The passed caps are fit coupons;
 keep the spring off the leg. The complete single-leg build stays ABS; PA-CF
 and structural tests remain deferred. [Teensy Stage 0](firmware/teensy_stage0/)
 can proceed with USB power and both motors disconnected while the received
-steel pin and bearings are checked separately and the Ø10.30 distal source
-clears its remaining audits.
+steel pin and bearings are checked separately and the printed Ø10.30 distal
+article completes its physical insertion, withdrawal, spin, rock and axial-play checks.
 
 The TPU tyre remains coupled to the held rim. Knee stop/encoder parts and the
 magnet carrier have legacy STLs but are not added to this print batch: full

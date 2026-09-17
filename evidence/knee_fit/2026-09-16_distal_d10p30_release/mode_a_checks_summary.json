@@ -1,0 +1,22 @@
+{
+  "document": "Beni_SingleLegRig",
+  "saved_version": 25,
+  "check_1_knee_sweep_worst_deviation_mm": 0.042865894902575974,
+  "check_1_status": "PASS",
+  "check_2_shoulder_sweep_poses": 17,
+  "check_2_clashing_poses": 0,
+  "check_2_status": "PASS",
+  "check_3_mode_a_floor_failures": 0,
+  "check_3_status": "PASS",
+  "check_4_stand_receiver_count": 5,
+  "check_4_status": "PASS",
+  "check_5_torque_arm_clearance": true,
+  "check_5_status": "PASS",
+  "check_6_mode_a_overhang_mm": 42.0,
+  "check_6_status": "PASS",
+  "check_7_clamp_landings": [[-100.0, -77.5], [-32.0, -8.5], [8.5, 61.0], [77.5, 100.0]],
+  "check_7_status": "PASS",
+  "check_8_threaded_receiver_problems": [],
+  "check_8_status": "PASS",
+  "reference_and_placed_transform_guards": "PASS"
+}

@@ -10,10 +10,13 @@
   "selected_station_from_marked_end": 5,
   "selected_nominal_bore_diameter_mm": 10.25,
   "owner_report": "The biggest hole, furthest from the marker, works. The pin can be pushed through with a thumb but requires firm pressure.",
-  "final_receiver_span_mm": 21.6,
+  "initial_assumed_receiver_span_mm": 21.6,
+  "final_receiver_span_mm": 20.0,
+  "axial_clearance_each_side_mm": 0.8,
   "production_nominal_bore_diameter_mm": 10.30,
-  "production_selection_basis": "Owner selected one 0.05 mm step above the firm-thumb 10.25 mm coupon result to allow for the production receiver's additional 2.6 mm contact length.",
-  "classification": "Owner-directed ABS production bore selection; first corrected link still requires insertion, removal, spin and rock checks.",
+  "production_selection_basis": "Owner selected one 0.05 mm step above the firm-thumb 10.25 mm coupon result while the integrated receiver was expected to span 21.6 mm. The value remains conservative after the service-path correction to 20.0 mm.",
+  "service_path_disposition": "Fusion v26 confines the receiver to the clear 20.0 mm fork gap; printability, support removal, link insertion, pin insertion and mesh checks pass. See evidence/knee_fit/2026-09-16_distal_d10p30_release/.",
+  "classification": "Owner-directed ABS production bore selection and Fusion-released fit article; first print still requires insertion, removal, spin, rock and axial-play checks.",
   "source": "Owner report in the project task.",
-  "limitations": "The 10.30 mm production value is an owner engineering choice extrapolated one 0.05 mm step from a qualitative 19.0 mm coupon result; the 21.6 mm full span was not physically printed. No photograph, measured printed bore or pin diameter, force measurement, or separate spin, rock and withdrawal results were supplied. Verify those checks on the first corrected link and repeat the calibration for PA-CF. Final distal-link printability, service path and pin retention remain unreleased."
+  "limitations": "The 10.30 mm production value is an owner engineering choice extrapolated one 0.05 mm step from a qualitative 19.0 mm coupon result. The conservative 21.6 mm diagnostic span was not physically printed. No photograph, measured printed bore or pin diameter, force measurement, or separate spin, rock, withdrawal and axial-play results were supplied. Verify those checks on the released 20.0 mm fit article and repeat the calibration for PA-CF. Pin retention and encoder coupling remain unreleased."
 }

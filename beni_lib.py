@@ -226,10 +226,12 @@ TRACK = 2 * 84.0                  # 168 mm
 KNEE_AXLE_D = 10.0
 # Active ABS first-article printed bore selected by the owner on 2026-09-16.
 # O10.25 accepted the received steel pin through the 19.0 mm coupon under firm
-# thumb pressure.  The owner selected O10.30 for the 21.6 mm production receiver
-# to add one 0.05 mm step of margin for the extra contact length.  This is an
-# owner-directed ABS process choice, not a change to the nominal O10 hardware
-# envelope; repeat the calibration for PA-CF.
+# thumb pressure.  The owner selected O10.30 while the production receiver was
+# expected to span 21.6 mm.  The later service-path audit confined the integrated
+# printed receiver to the clear 20.0 mm fork gap; retaining O10.30 is therefore
+# conservative relative to that decision.  This is an owner-directed ABS
+# process choice, not a change to the nominal O10 hardware envelope; repeat the
+# calibration for PA-CF.
 ABS_KNEE_PIN_BORE_D = 10.30
 KNEE_BRG_OD = 19.0                  # real 6800-2RS hardware envelope
 # ABS first-article printed seat selected by the owner from the O19.05..O19.25

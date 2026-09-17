@@ -10,9 +10,10 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 > The proximal-link print failure exposed a reversed unequal-circle tangent
 > sign in the shared source helper. The source geometry is corrected, but the
 > existing distal STL predates that correction and its wheel-end boss needs a
-> separate exact support/overhang check. Do **not** print the legacy distal STL
-> yet. It remains gated by the real Ø10 h6 knee-pin fit and a new bed-ready
-> Fusion export. The other flat-datum parts in this directory are unaffected.
+> separate exact support/overhang check. Do **not** print this legacy distal STL.
+> The verified Ø10.30 × 20.0 mm ABS fit article is now released separately at
+> [`../first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl`](../first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl).
+> The other flat-datum parts in this directory are unaffected.
 
 > ## ⚠ OWNER SCOPE 2026-09-02 — COMPLETE ABS SINGLE-LEG INTEGRATION FIRST
 > The current print campaign stays ABS through the complete single-leg
@@ -29,7 +30,7 @@ Companion: `../beni_single_leg_rig_design_record.md`.
 >
 > | Active Mode-A set (individual release gates still apply) | Active design holds | Deferred |
 > |---|---|---|
-> | `RIG_Stand` with owner-selected Ø4.5 M3 receivers, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, and the cartridge-eye reroute parts | `Distal_Link_L`: real-pin and printability gate. M4 hubs: Ø5.3 ABS coupon passed; use the first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: replace the printed Ø4.0 link with the released Ø4.5 revision before M3 installation. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: use the revised cover-mounted ABS first article. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
+> | `RIG_Stand` with owner-selected Ø4.5 M3 receivers, the separately released Ø10.30 distal fit article, `RIG_Knee_Stop_Plate_L`, `RIG_Knee_Bumper_Tube_L`, `RIG_Knee_Magnet_Carrier_L`, and the cartridge-eye reroute parts | Distal physical fit, pin retention and encoder coupling. M4 hubs: Ø5.3 ABS coupon passed; use the first-article files. `Wheel_Rim_L`: unsupported-ledges printability hold. Proximal root: replace the printed Ø4.0 link with the released Ø4.5 revision before M3 installation. `RIG_Knee_Collar_L`: no pin retention. `RIG_Cable_Post_A`: use the revised cover-mounted ABS first article. `RIG_Cable_Post_B`: Mode-A redesign. | `RIG_Torque_Arm`, `RIG_Floor_Plate`, §1 `RIG_Carriage`, §2 `RIG_Index_Bar`, §8 `RIG_Ballast_Pot` ×2, `RIG_Rail` / blocks / Ø8 mode pin / bumpers, and every loaded PA-CF test article. |
 >
 > `RIG_Stand` replaces `RIG_Carriage` as "the part everything else hangs on", and
 > the overhang it works at is **42.00 mm, not 63.00** — Mode A deletes the block
@@ -273,7 +274,7 @@ committing to a second set.**
 | `Wheel_Hub_L.stl` | 7075-T6 | flat, register face up | **ABS FIRST ARTICLE READY:** use the new bed-ready Ø5.3 file in the [receiver map](../docs/assembly/heatset_receiver_map.md). Install M4 × 8 inserts from the detached motor face, with 2 mm projection. Rim printing remains held for unsupported ledges. |
 | `Cart_Upper_Eye_L.stl` | 7075-T6 | **pivot bore axis vertical** | Printed on its side the eye splits along a layer. Carries the **11.00 ±0.05** pivot-to-spigot dimension: **measure what you actually achieved and feed the real number into the spring model** rather than chasing nominal. Step 6 measures F₀ and k anyway, so a print error is detectable. |
 | `Cart_Lower_Eye_L.stl` | 7075-T6 | pivot bore axis vertical | Same, for **14.57 ±0.05** including 2.0 mm of shims. |
-| `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — legacy orientation/export is not released** | Its Ø16 steel-sleeve bore is now **Ø10**, but the existing STL predates the 2026-09-01 exact-tangent correction. Fusion's adjacent-family audit finds an existing 2633.0 mm² face-flat datum aligned with the Ø10 bore, so no geometry change is yet indicated; the real Ø10 h6 knee-pin gate and a final support/bridge audit still precede a new bed-ready ABS export. |
+| `Distal_Link_L.stl` | PA-CF design; next article ABS | **HOLD — this legacy file remains unreleased; use the separate first article** | This STL predates the tangent correction and Ø10.30 receiver. Fusion v26 now uses a serviceable Ø10.30 × 20.0 mm receiver and passed printability, support-removal, assembly/service and mesh checks. Print the [bed-ready ABS fit article](../first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl) with its selective-support policy. Physical fit, retention and encoder coupling remain open. |
 
 `Knee_Stop_Arc_L` is **gone entirely** — there are no laser-cut parts. The +27°
 crash stop moved into the spring cartridge as a compression stack (a stack of

@@ -63,10 +63,14 @@ plane aligned with their critical circular features. The shoulder plate, both
 hubs, both cartridge eyes, wheel rim, encoder bracket, Mode A stand, torque arm,
 cable anchor, knee stop plate and magnet carrier already have suitable planes.
 
-`Distal_Link_L` is the one related hold. Its live body already has a 2633.0 mm²
-supporting face aligned with the critical Ø10 knee-pin bore, so a geometry change
-is not yet indicated. It still needs its real Ø10 h6 pin gate, a face-flat
-bed-ready export and a final support/bridge audit before release.
+At the time of this audit, `Distal_Link_L` was the one related hold. Its live
+body already had a 2633.0 mm² supporting face aligned with the critical Ø10
+knee-pin bore. That hold is now superseded for the active ABS fit article:
+Fusion v26 carries a Ø10.30 × 20.0 mm receiver and a verified broad-face-down
+export with four selective-support regions. See the
+[2026-09-16 release](../../knee_fit/2026-09-16_distal_d10p30_release/). The
+legacy `rig_stl/reroute/Distal_Link_L.stl` and the later PA-CF structural part
+remain unreleased.
 
 ## Physical gate
 

@@ -33,11 +33,15 @@ bearings are snug but the nominal Ø10 printed shin bore caused the seizure; the
 provisional shin was broken to recover the pin. Treat that ABS bore as failed,
 run the pins through each bearing separately, and use a full-depth same-axis
 bore ladder before releasing another distal link. The owner found nominal
-Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm coupon. Fusion
-then exposed that the production receiver spans 21.6 mm across its thrust
-lands. The owner selected Ø10.30, one 0.05 mm step above the physical result,
-for the active ABS source. The full-span ladder remains optional; printability,
-service path and retention still gate the distal link. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Optional diagnostic coupon](first_article_stl/knee_pin_fit/).
+Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm coupon. The
+owner selected Ø10.30, one 0.05 mm step above the physical result, while the
+receiver was expected to span 21.6 mm. Fusion's service-path audit then found
+that copied sleeve span extended 0.8 mm into each bearing pocket and trapped the
+link. Saved `Beni_SingleLegRig` v26 uses a serviceable Ø10.30 × 20.0 mm printed
+receiver, and the bed-ready ABS fit article has passed Fusion printability,
+support-removal, link/pin insertion, mesh and Mode A checks. Print it and record
+insertion, withdrawal, spin, rock and axial play. Pin retention and encoder
+coupling still gate powered use. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/) · [Optional diagnostic coupon](first_article_stl/knee_pin_fit/).
 The gauge's nominal Ø4.0 M3 station was too small. On September 14 the owner
 selected the dedicated ladder's largest, unmarked-end station, nominal Ø4.5.
 Fusion now uses Ø4.5 for the active ABS stand, shoulder plate and proximal link

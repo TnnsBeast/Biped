@@ -5,11 +5,16 @@ bore. The owner then tested an initial Ø10.05–Ø10.25 ladder whose stations w
 19.0 mm deep. Nominal Ø10.25 accepted the pin with firm thumb pressure, which
 is the intended fit feel.
 
-Fusion inspection found that the final printed receiver spans **21.6 mm**, not
-19.0 mm: the Ø22 center boss runs from Y=65.0 to 84.0 and its Ø16 thrust lands
-continue to Y=63.7 and 85.3. The initial coupon therefore underrepresented the
-press length by 2.6 mm. This corrected ladder covers the complete receiver span
-and starts at the owner's Ø10.25 candidate.
+The first Fusion inspection assumed the printed receiver would copy the former
+steel sleeve's **21.6 mm** span: the Ø22 center boss runs from Y=65.0 to 84.0
+and its Ø16 thrust lands continue to Y=63.7 and 85.3. This ladder intentionally
+covers that conservative span and starts at the owner's Ø10.25 candidate.
+
+The later service-path audit found that a 21.6 mm integrated receiver overlaps
+both bearing pockets and cannot enter or leave the assembled fork. The released
+v26 link therefore uses a **20.0 mm** receiver in the clear Y=64.5–84.5 fork
+gap, leaving 0.8 mm clearance per side. This 21.6 mm ladder remains useful only
+as a conservative diagnostic if the released Ø10.30 link prints too tightly.
 
 The owner subsequently selected **Ø10.30** for the production ABS source: one
 0.05 mm step above the firm-thumb Ø10.25 result. Printing this second ladder is
@@ -63,11 +68,12 @@ diagnostic alternatives; none transfers to PA-CF.
    number and whether the cooled pin spins, rocks or pulls out by hand.
 
 If every station is too tight or the pin becomes trapped, break only that coupon
-boss and report the last attempted station. Do not print the final shin yet.
+boss and report the last attempted station. Use the separately released
+Ø10.30 × 20.0 mm distal fit article for the active physical test.
 
 ## Verification
 
-Fusion MCP built and inspected one closed solid with exact Ø22 × 21.6 mm
+Fusion MCP built and inspected one closed diagnostic solid with exact Ø22 × 21.6 mm
 stations and bores Ø10.25–Ø10.45 in 0.05 mm steps. The print-oriented
 high-refinement STL is a closed, non-degenerate manifold at Z=0. See
 [`fusion_manifest.json`](fusion_manifest.json) and

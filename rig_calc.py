@@ -542,17 +542,19 @@ def knee_axle_check():
     span = 90.3 - 58.7
     print(f'  bearing-to-bearing journal span      {span:.1f} mm '
           '(y = 58.7 … 90.3)')
-    print('  sleeve span, currently keyed          21.6 mm (y = 63.7 … 85.3)')
+    print('  former keyed steel-sleeve span        21.6 mm (y = 63.7 … 85.3)')
+    print('  serviceable printed receiver span     20.0 mm (y = 64.5 … 84.5)')
     print(f'  peak knee force, φ = +27°            {ground_force(PHI_STOP):.1f} N')
     print(f'  proof screen, 275 N at one wheel     bending '
           f'{275 * 6.4:.0f} N·mm → '
           f'{275 * 6.4 / (math.pi * 10 ** 3 / 32):.0f} MPa in a Ø10 shaft')
     print('  torque the key has to carry: two 6800 seal + grease drag only,')
     print('  order 0.002 N·m.  A printed light press on Ø10 holds ~100× that.')
-    print('\n  Bearing pressure on the printed distal boss over the 21.6 mm span:')
-    for d, what in ((16.0, 'Ø16 steel sleeve, as designed'),
-                    (10.0, 'Ø10 axle direct in printed PA-CF')):
-        print(f'    {what:<34s} {275.0 / (d * 21.6):5.2f} MPa'
+    print('\n  Bearing pressure on the distal boss:')
+    for d, length, what in (
+            (16.0, 21.6, 'Ø16 steel sleeve over 21.6 mm'),
+            (10.0, 20.0, 'Ø10 axle direct over 20.0 mm')):
+        print(f'    {what:<34s} {275.0 / (d * length):5.2f} MPa'
               '   against PA-CF 84 MPa XY')
     print('\n  Pin length arithmetic, hardened Ø10 h6 ground dowel:')
     for ln in (35.0, 40.0):

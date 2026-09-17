@@ -36,23 +36,30 @@ station using firm thumb pressure. That is the intended feel for the
 shin-to-pin angular reference: deliberate hand force, with no hammer or clamp,
 and no free slip reported.
 
-**Coupon result: OWNER SELECTED 19.0 MM CANDIDATE — nominal Ø10.25.** Fusion inspection
-then found that the production receiver actually spans 21.6 mm because it
-includes the two 1.3 mm thrust lands. The initial ladder therefore did not
-reproduce the whole press length. It establishes Ø10.25 as the lower end of a
-corrected full-span ladder.
+**Coupon result: OWNER SELECTED 19.0 MM CANDIDATE — nominal Ø10.25.** The first
+Fusion inspection assumed that the integrated printed receiver would copy the
+deleted steel sleeve's 21.6 mm span. The owner therefore made the production
+selection conservatively relative to the 19.0 mm coupon.
 
 ## Production selection — 2026-09-16
 
-The owner judged that the extra 2.6 mm of receiver length would not materially
-change the fit and directed the production ABS bore to **Ø10.30**, one 0.05 mm
-step above the firm-thumb Ø10.25 coupon result. This closes the ABS bore-size
-gate by owner engineering choice without another coupon print.
+The owner judged that the initially assumed extra 2.6 mm of receiver length
+would not materially change the fit and directed the production ABS bore to
+**Ø10.30**, one 0.05 mm step above the firm-thumb Ø10.25 coupon result. This
+closes the ABS bore-size gate by owner engineering choice without another
+coupon print.
 
-The first corrected link must still confirm firm thumb insertion and hand
-removal with no free spin or rock before spring-loaded or powered use. The bore
-decision does not release the link's printability, service-path or pin-retention
-gates, and it does not transfer to PA-CF.
+The subsequent Fusion service-path audit found that a 21.6 mm printed receiver
+extends 0.8 mm into each bearing pocket and cannot be inserted into or removed
+from the assembled fork. The released v26 design retains the conservative
+Ø10.30 bore but confines it to the clear 20.0 mm fork gap. Fusion printability,
+support-removal, link/pin insertion and mesh checks pass. See the
+[release evidence](../2026-09-16_distal_d10p30_release/).
+
+The first printed link must still confirm firm thumb insertion and hand removal
+with no free spin or rock, plus acceptable axial play, before spring-loaded or
+powered use. Pin retention and encoder coupling remain held, and the ABS result
+does not transfer to PA-CF.
 
 No separate spin, rock, withdrawal, printed-diameter or pin-diameter result was
 supplied. This is ABS process evidence and does not change the nominal Ø10 pin
@@ -69,11 +76,12 @@ for the saved Fusion build check.
 2. Test that pin, and then the other received candidates, through each loose or
    independently accessible 6800 bearing with no printed link present. Record
    whether controlled thumb pressure inserts and removes each pin.
-3. Use nominal Ø10.30 for the active ABS distal-link receiver. The corrected
+3. Use nominal Ø10.30 for the active 20.0 mm ABS distal-link receiver. The
    [21.6 mm full-span ladder](../../../first_article_stl/knee_pin_fit/) remains
-   available as a diagnostic if the first link is unexpectedly tight.
-4. Keep the final `Distal_Link_L`, pin retention and encoder coupling on hold
-   until the print, insertion and service paths are verified in Fusion.
+   available as a conservative diagnostic if the first link is unexpectedly tight.
+4. Print the [released distal fit article](../../../first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl)
+   and record insertion, withdrawal, spin, rock and axial play. Pin retention
+   and encoder coupling remain held.
 
 The earlier supported mock-up result remains valid evidence for the loose Ø9.7
 printed alignment-pin assembly only. It does not transfer to the real steel pin.

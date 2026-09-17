@@ -110,9 +110,10 @@ REROUTE_PRINT = [
     ('Cart_Upper_Eye_L', 'pivot bore axis vertical; printed on its side the eye '
                          'splits along a layer'),
     ('Cart_Lower_Eye_L', 'pivot bore axis vertical'),
-    ('Distal_Link_L', 'on edge, link axis vertical -- its former Ø16 sleeve '
-                      'bore uses the owner-selected Ø10.30 ABS receiver; final '
-                      'printability, service-path and retention audits hold it'),
+    ('Distal_Link_L', 'broad inboard face down so the owner-selected Ø10.30 '
+                      'ABS pin bore is bed-normal like its calibration coupon; '
+                      'use the separately verified first-article export and '
+                      'its selective-support policy'),
 ]
 
 
@@ -858,7 +859,10 @@ def export_heatset_receiver_release_articles():
                 'Ø4.0 revision or lacks four usable M3 cover receivers'],
             'already_printed_retain': [
                 'Wheel_Hub_L', 'Shoulder_Cable_Cover_L'],
-            'held': ['Wheel_Rim_L', 'Distal_Link_L', 'RIG_Knee_Collar_L'],
+            'fit_article_released_separately': [
+                'ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED'],
+            'held': ['Wheel_Rim_L', 'RIG_Knee_Collar_L',
+                     'distal pin retention and encoder coupling'],
         },
     }
     # Include the separately verified current assembly articles without

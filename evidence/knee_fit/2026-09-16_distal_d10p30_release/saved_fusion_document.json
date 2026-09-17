@@ -1,0 +1,14 @@
+{
+  "document": "Beni_SingleLegRig",
+  "version_number": 26,
+  "version_id": "urn:adsk.wipprod:fs.file:vf.d83WtInjTxmXNMUUEjlLLA?version=26",
+  "is_saved": true,
+  "is_modified": false,
+  "distal_body_count": 1,
+  "distal_is_solid": true,
+  "distal_volume_mm3": 48470.860199946736,
+  "bore_radius_mm": 5.15,
+  "bore_y_mm": [64.5, 84.5],
+  "receiver_span_mm": 20.0,
+  "reference_and_placed_transform_guards": "PASS"
+}

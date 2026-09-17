@@ -86,11 +86,14 @@ One received metal pin seated through both installed bearings and seized in the
 provisional shin's nominal Ø10 ABS bore. The provisional shin was broken to
 recover it. The owner printed the initial Ø10.05–Ø10.25 ladder
 and found nominal Ø10.25 gives the intended firm-thumb fit through its 19.0 mm
-station. Fusion then found the production receiver spans 21.6 mm across the
-boss and thrust lands. The owner selected nominal Ø10.30, one 0.05 mm step above
-the physical result, for the active ABS source. The [corrected full-span ladder](knee_pin_fit/)
-remains an optional diagnostic. Do not print the distal link until its final
-printability, assembly/service-path and retention checks pass.
+station. The owner selected nominal Ø10.30, one 0.05 mm step above the physical
+result, while the receiver was expected to span 21.6 mm. Fusion's final service
+audit found that copied sleeve span trapped the link inside the bearing pockets,
+so v26 confines the receiver to the clear 20.0 mm fork gap with 0.8 mm axial
+clearance per side. Print the [released bed-ready distal fit article](assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl)
+and complete its physical insertion, withdrawal, spin, rock and axial-play
+checks. The [21.6 mm full-span ladder](knee_pin_fit/) remains a conservative
+optional diagnostic. Retention and encoder coupling still gate powered use.
 
 ## 2026-09-14 M3 receiver recalibration — Ø4.5 selected
 

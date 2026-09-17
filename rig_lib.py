@@ -1365,6 +1365,16 @@ def check_ballast_envelope(layers=6, verbose=True):
 KNEE_X, KNEE_Z = 91.9253, -77.1345      # knee axis, frozen
 SLEEVE_Y0, SLEEVE_Y1 = 63.7, 85.3       # the steel sleeve's span
 AXLE_Y0, AXLE_Y1 = 58.7, 90.3           # bearing-to-bearing journal
+# The former steel sleeve could span the bearing inner faces because it was a
+# separate part inserted axially.  Once that sleeve function is printed into
+# the distal link, the same 21.6 mm span traps the link in the proximal fork:
+# its Ø16 end lands extend 0.8 mm into both bearing pockets, so the link has no
+# radial assembly or service path.  Keep the printed receiver inside the clear
+# 20.0 mm fork gap instead.  The resulting 0.8 mm clearance to each bearing
+# inner face is intentional and can take the BOM's optional thrust washers if
+# physical axial play requires them.
+PRINTED_RECEIVER_Y0 = beni_lib.CH_Y0      # 64.5
+PRINTED_RECEIVER_Y1 = beni_lib.CH_Y1      # 84.5
 PIN_LEN = 35.0
 MAG_CARRIER_T = 6.0
 MAG_D, MAG_T = 6.1, 2.5
@@ -1383,9 +1393,9 @@ def build_rig_knee_substitute():
 
     What this builds:
       * the Ø16 sleeve bore in the printed distal boss becomes the selected ABS
-        knee-pin bore, i.e. the steel sleeve's function is printed into the link
-        -- so `Distal_Link_L` is NO LONGER "reuse as-is" and its STL must be
-        re-exported after the remaining release audits close;
+        knee-pin bore over the clear 20.0 mm fork gap.  The former 21.6 mm steel
+        sleeve span cannot be copied literally into one printed link because its
+        end lands enter both bearing pockets and eliminate the assembly path;
       * a bought hardened Ø10 h6 ground dowel pin replaces the 4140 axle.  NOT
         a shoulder bolt: a shoulder screw's shoulder is h9/h11, which rattles in
         the 6800's Ø10 bore, and knee-angle noise is measurement error here;
@@ -1400,15 +1410,17 @@ def build_rig_knee_substitute():
 
     # 1. Print the sleeve's function into the distal boss.  Keep the bought pin
     # envelope at O10; use only the owner-selected O10.30 same-axis ABS process
-    # value for this printed receiver.  Keep the link on its remaining
-    # printability/service/retention holds and calibrate PA-CF separately.
+    # value for this printed receiver.  Its ABS fit article is released after
+    # the printability/service audit; physical fit, retention and encoder
+    # coupling remain open, and PA-CF must be calibrated separately.
     dl = find_occ('Distal_Link_L')
-    ring(dl.component, SLEEVE_Y0,
+    ring(dl.component, PRINTED_RECEIVER_Y0,
          beni_lib.ABS_KNEE_PIN_BORE_D / 2.0, 8.0,
-         SLEEVE_Y1 - SLEEVE_Y0,
+         PRINTED_RECEIVER_Y1 - PRINTED_RECEIVER_Y0,
          op='join', cx=KNEE_X, cz=KNEE_Z)
-    print('   Distal_Link_L bore Ø16 -> Ø%.2f ABS (sleeve function printed in)'
-          % beni_lib.ABS_KNEE_PIN_BORE_D)
+    print('   Distal_Link_L bore Ø16 -> Ø%.2f ABS over %.1f mm clear fork gap'
+          % (beni_lib.ABS_KNEE_PIN_BORE_D,
+             PRINTED_RECEIVER_Y1 - PRINTED_RECEIVER_Y0))
 
     # 2. the bought pin
     drop_comp('HW_DowelPin_D10x35')
