@@ -224,6 +224,14 @@ TRACK = 2 * 84.0                  # 168 mm
 
 # ------------------------------------------------------------- hardware sizes
 KNEE_AXLE_D = 10.0
+# Provisional ABS first-article bore candidate selected from the initial
+# O10.05..O10.25 ladder on 2026-09-16.  O10.25 accepted the received steel pin
+# through that coupon's 19.0 mm boss under firm thumb pressure.  Fusion then
+# exposed that the real printed receiver includes its thrust lands and spans
+# 21.6 mm, so the corrected full-span O10.25..O10.45 ladder must confirm the
+# production value before distal-link export.  This never changes the nominal
+# O10 hardware envelope, and PA-CF needs a separate calibration.
+ABS_KNEE_PIN_BORE_CANDIDATE_D = 10.25
 KNEE_BRG_OD = 19.0                  # real 6800-2RS hardware envelope
 # ABS first-article printed seat selected by the owner from the O19.05..O19.25
 # ladder.  O19.10 passed and the full-depth link is usable, but was slightly

@@ -1,34 +1,34 @@
 {
   "bed_datum_z_mm": 0.0,
-  "bytes": 249684,
+  "bytes": 106284,
   "degenerate_facets": 0,
   "edge_incidence_errors": {},
   "envelope_mm": [
     126.0,
     29.0,
-    21.600000381469727
+    19.0
   ],
-  "facets": 4992,
+  "facets": 2124,
   "file": "ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl",
   "fusion_brep_envelope_mm": [
     126.0,
     29.0,
-    21.6
+    19.0
   ],
-  "fusion_brep_volume_mm3": 32970.4,
+  "fusion_brep_volume_mm3": 29428.4,
   "maximum_mm": [
     60.0,
     11.0,
-    21.600000381469727
+    19.0
   ],
-  "mesh_volume_mm3": 32955.87020640543,
+  "mesh_volume_mm3": 29402.218772252778,
   "minimum_mm": [
     -66.0,
     -18.0,
     0.0
   ],
-  "sha256": "56475f97dd064adcb5c1b20fb443b196ee80602cd78956cc340fedd220cb7046",
+  "sha256": "27f69f2c1da262bf99522fd76a183a4db9374e4ae2b227dd0837ef192155d1c9",
   "status": "PASS",
-  "unique_vertices": 2484,
-  "volume_relative_error": 0.00044069206301928235
+  "unique_vertices": 1050,
+  "volume_relative_error": 0.0008896585525282924
 }

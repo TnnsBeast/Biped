@@ -1,0 +1,17 @@
+{
+  "status": "OWNER SELECTED 19MM CANDIDATE",
+  "reported_date_local": "2026-09-16",
+  "material": "ABS",
+  "hardware": "one received metal knee pin; exact measured diameter and tolerance evidence unrecorded",
+  "coupon": "evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/ABS_CAL_KNEE_PIN_BORE_LADDER_19MM_PRINTED.stl",
+  "boss_outer_diameter_mm": 22.0,
+  "engagement_length_mm": 19.0,
+  "marker_station_diameter_mm": 10.05,
+  "selected_station_from_marked_end": 5,
+  "selected_nominal_bore_diameter_mm": 10.25,
+  "owner_report": "The biggest hole, furthest from the marker, works. The pin can be pushed through with a thumb but requires firm pressure.",
+  "final_receiver_span_mm": 21.6,
+  "classification": "Selected lower-bound candidate for the corrected full-span ABS ladder; not a production bore release.",
+  "source": "Owner report in the project task.",
+  "limitations": "Qualitative same-profile ABS result from a 19.0 mm coupon. Fusion later verified that the production receiver spans 21.6 mm across the boss and thrust lands. No photograph, measured printed bore or pin diameter, force measurement, or separate spin, rock and withdrawal results were supplied. Confirm on the corrected full-span ladder and repeat again for PA-CF. Final distal-link printability, service path and pin retention remain unreleased."
+}

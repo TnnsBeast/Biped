@@ -32,8 +32,11 @@ through the installed bearings and provisional shin. The owner reports that the
 bearings are snug but the nominal Ø10 printed shin bore caused the seizure; the
 provisional shin was broken to recover the pin. Treat that ABS bore as failed,
 run the pins through each bearing separately, and use a full-depth same-axis
-bore ladder before releasing another distal link. Fusion has released that
-Ø10.05–Ø10.25 ladder with the final Ø22 × 19 mm boss geometry. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Print and test](first_article_stl/knee_pin_fit/).
+bore ladder before releasing another distal link. The owner found nominal
+Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm coupon. Fusion
+then exposed that the production receiver spans 21.6 mm across its thrust
+lands, so a corrected Ø10.25–Ø10.45 full-span ladder is released and still
+gates the bore selection. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Corrected coupon](first_article_stl/knee_pin_fit/).
 The gauge's nominal Ø4.0 M3 station was too small. On September 14 the owner
 selected the dedicated ladder's largest, unmarked-end station, nominal Ø4.5.
 Fusion now uses Ø4.5 for the active ABS stand, shoulder plate and proximal link

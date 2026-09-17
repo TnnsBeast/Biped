@@ -93,15 +93,17 @@ BEARING_LADDER_THICKNESS = 4.0
 
 
 # ABS-only diagnostic ladder after the bought metal pin seized in the
-# provisional shin's nominal O10 bore.  The 0.05 mm series follows the useful
-# resolution of the successful 6800 ladder.  Each station reproduces the final
-# distal boss OD and full engagement depth, with the bore normal to the bed.
+# provisional shin's nominal O10 bore.  The initial O10.05..O10.25 ladder
+# reproduced only the 19.0 mm centre boss; Fusion later exposed that the final
+# printed receiver includes two 1.3 mm thrust lands and spans 21.6 mm.  The
+# owner found O10.25 a firm-thumb fit in the 19.0 mm print, so this corrected
+# series starts there and brackets larger candidates in the same 0.05 mm steps.
 # These are trial bores, not released structural dimensions.
-KNEE_PIN_BORE_TRIALS = (10.05, 10.10, 10.15, 10.20, 10.25)
+KNEE_PIN_BORE_TRIALS = (10.25, 10.30, 10.35, 10.40, 10.45)
 KNEE_PIN_LADDER_NAME = 'ABS_CAL_KNEE_PIN_BORE_LADDER'
 KNEE_PIN_LADDER_CENTERS_X = (-48.0, -24.0, 0.0, 24.0, 48.0)
 KNEE_PIN_LADDER_BOSS_D = B.DBOSS_D
-KNEE_PIN_LADDER_THICKNESS = B.DBOSS_Y1 - B.DBOSS_Y0
+KNEE_PIN_LADDER_THICKNESS = round(B.SLEEVE_Y1 - B.SLEEVE_Y0, 4)
 KNEE_PIN_LADDER_RUNNER = (-60.0, -13.5, 120.0, 4.0, 2.0)
 KNEE_PIN_LADDER_INDEX_TAB = (-66.0, -18.0, 10.0, 10.0, 2.0)
 KNEE_PIN_LADDER_INDEX_HOLES = ((-63.0, -15.0, 2.0),
@@ -154,9 +156,9 @@ def _knee_pin_ladder_spec():
         'index_holes': [list(row) for row in KNEE_PIN_LADDER_INDEX_HOLES],
         'interface': ('ABS-only bought knee-pin bore calibration; '
                       'not a structural release dimension'),
-        'orientation': ('two O2 index holes mark the O10.05 end; boss bores '
-                        'increase left-to-right: 10.05, 10.10, 10.15, '
-                        '10.20, 10.25 mm; bore axes are bed-normal'),
+        'orientation': ('two O2 index holes mark the O10.25 end; receiver bores '
+                        'increase left-to-right: 10.25, 10.30, 10.35, '
+                        '10.40, 10.45 mm; bore axes are bed-normal'),
         'hardware': ('one received metal knee pin; inspect it first and use '
                      'the same pin for every station'),
         'target_fit': ('smallest station that accepts controlled thumb '
@@ -164,6 +166,9 @@ def _knee_pin_ladder_spec():
                        'using the exposed pin length'),
         'source_failure': ('provisional nominal O10 ABS shin bore seized the '
                            'fully inserted metal pin on 2026-09-15'),
+        'source_limitation': ('initial O10.05..O10.25 coupon was 19.0 mm deep; '
+                              'O10.25 took firm thumb pressure, but the final '
+                              'printed receiver spans 21.6 mm'),
     }
 
 
@@ -318,7 +323,7 @@ def _rect_feature(comp, x0, y0, width, depth, height, operation):
 
 
 def _build_knee_pin_bore_ladder(root, x_mm=0.0, y_mm=-115.0):
-    """Build five final-boss-depth knee-pin trials on a breakaway runner."""
+    """Build five full-receiver-span knee-pin trials on a breakaway runner."""
     spec = _knee_pin_ladder_spec()
     _drop_occurrence(root, KNEE_PIN_LADDER_NAME)
     occ = _new_component(root, KNEE_PIN_LADDER_NAME, x_mm, y_mm)
@@ -592,7 +597,7 @@ def build_6800_bore_ladder():
 
 
 def build_knee_pin_bore_ladder():
-    """Build the final-boss-depth ABS knee-pin calibration ladder."""
+    """Build the full-receiver-span ABS knee-pin calibration ladder."""
     _app, doc, _design, root = _app_design_root()
     occ = _build_knee_pin_bore_ladder(root)
     manifest = _measure_knee_pin_bore_ladder(occ)
@@ -807,7 +812,7 @@ def export_6800_bore_ladder():
 
 
 def export_knee_pin_bore_ladder():
-    """Export the final-boss-depth knee-pin ladder after B-Rep validation."""
+    """Export the full-receiver-span knee-pin ladder after B-Rep validation."""
     _app, doc, design, root = _app_design_root()
     os.makedirs(KNEE_PIN_TRIAL_OUT_DIR, exist_ok=True)
     occ = None

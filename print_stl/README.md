@@ -77,10 +77,12 @@ candidates arrived on September 15; quantity, measured diameter and exact
 tolerance evidence remain to be verified. One pin passed snugly through both
 installed bearings but seized in the provisional shin's nominal Ø10 bore,
 forcing the owner to break the printed shin to recover it. That bore is a
-**FAIL**. Test the candidates through each bearing separately and use a
-full-depth, final-boss-matched bore ladder before another distal link. The
-released [Ø10.05–Ø10.25 ladder](../first_article_stl/knee_pin_fit/) reproduces
-the Ø22 × 19 mm final boss with its bore axis vertical.
+**FAIL**. Nominal Ø10.25 then gave the intended firm-thumb fit on the initial
+Ø22 × 19.0 mm coupon. Fusion inspection found the production receiver actually
+spans 21.6 mm across its thrust lands, so the corrected
+[Ø10.25–Ø10.45 ladder](../first_article_stl/knee_pin_fit/) must select the ABS
+source value. Test the candidates through each bearing separately; the final
+distal link still needs its print, service-path and retention gates.
 [Result](../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
 A deliberately clearance-fit printed ABS pin may support
 hand-alignment work meanwhile, but it cannot release the distal link, establish

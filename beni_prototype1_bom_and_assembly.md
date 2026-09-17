@@ -32,7 +32,7 @@ Printed parts assume solid-equivalent density; see the note at the end.
 |---|---:|---:|---:|---:|---|
 | `Chassis_Shoulder_Plate_L/R` (side panel incl. motor interface) | 40.2337 | 46.2687 | 2 | 92.5375 | flat, panel face on the bed; spiral lip prints up, no support |
 | `Proximal_Link_L/R` | 66.7915 | 76.8102 | 2 | 153.6204 | outboard arm/bearing face flat, bearing axes normal to the bed; bed-ready export only, supports off, 20.0 mm channel bridge |
-| `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical bore, but the received steel pin seized in the provisional nominal Ø10 ABS shin bore. Physical selection on the released full-depth same-axis ladder and the final support/bridge audit now gate export. |
+| `Distal_Link_L/R` | 46.1144 | 53.0315 | 2 | 106.0631 | **HOLD** — Fusion finds a 2633.0 mm² face-flat datum aligned with the critical bore. The nominal Ø10 ABS bore failed; Ø10.25 passed the initial 19.0 mm coupon, but the production receiver spans 21.6 mm. The corrected full-span ladder and final support/bridge, insertion/service-path and retention audits gate export. |
 | `Wheel_Rim_L/R` | 67.4501 | 77.5676 | 2 | 155.1352 | **PRINTABILITY HOLD:** web-down orientation has unsupported internal and retaining-flange ledges; do not print until resolved. Carries the tyre bead groove, inboard retaining flange, owned-M4×8 insert-tip reliefs, and a Ø38 web opening that preserves a 1 mm ligament to those reliefs |
 | `Chassis_Frame` (centre cage, not mirrored) | 61.1724 | 70.3483 | 1 | 70.3483 | flanges vertical, open box, no support |
 | **Subtotal** | | | | **577.7044** | |
@@ -255,8 +255,10 @@ PA-CF and 7075 and should be confirmed on a scrap coupon.
 3. Press `Knee_Sleeve_L` into the distal link's Ø16 knee boss bore, with the
    double-D flats aligned to the sagittal plane. It protrudes 1.3 mm each side.
    > **[SUPERSEDED — skip this step.]** `Knee_Sleeve_L` is **deleted**. The Ø16
-   > bore is now **printed directly into `Distal_Link_L` as Ø10**, so the axle
-   > runs in the printed link. See
+   > bore is now a nominal Ø10 pin receiver printed directly into
+   > `Distal_Link_L`; Ø10.25 is the provisional ABS candidate while the
+   > corrected 21.6 mm full-span ladder selects the production compensation.
+   > The axle runs in the printed link. See
    > [`beni_single_leg_rig_design_record.md`](beni_single_leg_rig_design_record.md) §4.
 4. Fit the two PTFE thrust washers, place the distal link into the proximal
    fork channel and align the bores.
@@ -401,9 +403,12 @@ remaining sequence is gated as follows:
    heads and both bearings. [Access audit and order](evidence/assembly/2026-09-05_access_fix/).
 3. `Distal_Link_L/R` — **hold**. The received steel pin seized in the provisional
    nominal Ø10 ABS shin bore, and the owner broke that print to recover it.
-   Select a corrected diameter with the released full-depth Ø22-boss, bed-normal ABS ladder,
-   then let the corrected tangent-source, bed-ready STL clear its dedicated DFM
-   audit and check the angular-reference fit and Ø41.5 cover clearance.
+   Nominal Ø10.25 gave the intended firm-thumb fit in the initial 19.0 mm
+   coupon, but Fusion found the printed receiver spans 21.6 mm across its thrust
+   lands. Select the smallest passing bore on the corrected Ø10.25–Ø10.45
+   full-span ladder, then let the corrected tangent-source, bed-ready STL clear
+   its DFM audit, insertion/service path, retention design, angular-reference
+   fit and Ø41.5 cover clearance.
    A clearance-fit printed ABS pin may be used only to hand-align a fully
    supported mock-up; it does not clear this
    gate and must not carry powered, spring, ground-contact or load testing.
@@ -416,9 +421,11 @@ Repeat the **Ø19 bearing-seat coupon** immediately before the later two-leg
 PA-CF structural build. PA-CF shrinkage decides its own compensation; do not
 copy the ABS value or ream the printed seat.
 
-*Note: the Ø16 sleeve fit named in step 2 and above is now a **Ø10** bore printed
-straight into `Distal_Link_L` — `Knee_Sleeve_L` is deleted. The print order itself
-is unchanged. Use `print_stl/GAUGE_Fit_Coupon.stl`, which carries both bores.*
+*Note: the Ø16 sleeve fit named in step 2 and above is now a nominal **Ø10** pin
+receiver printed straight into `Distal_Link_L` — `Knee_Sleeve_L` is deleted.
+Ø10.25 passed the initial 19.0 mm ABS coupon, but the corrected 21.6 mm
+full-span ladder still gates the production source; PA-CF needs a new coupon.
+The print order itself is unchanged.*
 
 ---
 

@@ -3,17 +3,17 @@
     "bbox_mm": [
       126.0,
       29.0,
-      21.6
+      19.0
     ],
     "closed_manifold_brep": true,
     "cylindrical_face_diameters_mm": [
       2.0,
       2.0,
+      10.05,
+      10.1,
+      10.15,
+      10.2,
       10.25,
-      10.3,
-      10.35,
-      10.4,
-      10.45,
       22.0,
       22.0,
       22.0,
@@ -23,10 +23,10 @@
     "hardware": "one received metal knee pin; inspect it first and use the same pin for every station",
     "interface": "ABS-only bought knee-pin bore calibration; not a structural release dimension",
     "name": "ABS_CAL_KNEE_PIN_BORE_LADDER",
-    "orientation": "two O2 index holes mark the O10.25 end; receiver bores increase left-to-right: 10.25, 10.30, 10.35, 10.40, 10.45 mm; bore axes are bed-normal",
+    "orientation": "two O2 index holes mark the O10.05 end; boss bores increase left-to-right: 10.05, 10.10, 10.15, 10.20, 10.25 mm; bore axes are bed-normal",
     "spec": {
       "boss_od": 22.0,
-      "engagement_depth": 21.6,
+      "engagement_depth": 19.0,
       "hardware": "one received metal knee pin; inspect it first and use the same pin for every station",
       "index_holes": [
         [
@@ -48,7 +48,7 @@
         2.0
       ],
       "interface": "ABS-only bought knee-pin bore calibration; not a structural release dimension",
-      "orientation": "two O2 index holes mark the O10.25 end; receiver bores increase left-to-right: 10.25, 10.30, 10.35, 10.40, 10.45 mm; bore axes are bed-normal",
+      "orientation": "two O2 index holes mark the O10.05 end; boss bores increase left-to-right: 10.05, 10.10, 10.15, 10.20, 10.25 mm; bore axes are bed-normal",
       "runner": [
         -60.0,
         -13.5,
@@ -57,14 +57,13 @@
         2.0
       ],
       "source_failure": "provisional nominal O10 ABS shin bore seized the fully inserted metal pin on 2026-09-15",
-      "source_limitation": "initial O10.05..O10.25 coupon was 19.0 mm deep; O10.25 took firm thumb pressure, but the final printed receiver spans 21.6 mm",
       "target_fit": "smallest station that accepts controlled thumb pressure, does not spin freely and remains removable using the exposed pin length",
       "trial_bores": [
-        10.25,
-        10.3,
-        10.35,
-        10.4,
-        10.45
+        10.05,
+        10.1,
+        10.15,
+        10.2,
+        10.25
       ],
       "trial_centers_x": [
         -48.0,
@@ -75,9 +74,9 @@
       ]
     },
     "stl": "/Users/neilchulani/Biped/first_article_stl/knee_pin_fit/ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl",
-    "stl_bytes": 249684,
+    "stl_bytes": 106284,
     "target_fit": "smallest station that accepts controlled thumb pressure, does not spin freely and remains removable using the exposed pin length",
-    "volume_cm3": 32.9704
+    "volume_cm3": 29.4284
   },
   "document": "Beni_Prototype1_TestGauges",
   "purpose": "ABS-only received knee-pin bore calibration"
