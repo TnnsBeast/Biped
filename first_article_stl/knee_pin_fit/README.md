@@ -1,4 +1,4 @@
-# ABS knee-pin full-span bore ladder — print and test
+# Optional ABS knee-pin full-span diagnostic ladder
 
 The received metal pin seized in the provisional shin's nominal Ø10 printed
 bore. The owner then tested an initial Ø10.05–Ø10.25 ladder whose stations were
@@ -10,6 +10,11 @@ Fusion inspection found that the final printed receiver spans **21.6 mm**, not
 continue to Y=63.7 and 85.3. The initial coupon therefore underrepresented the
 press length by 2.6 mm. This corrected ladder covers the complete receiver span
 and starts at the owner's Ø10.25 candidate.
+
+The owner subsequently selected **Ø10.30** for the production ABS source: one
+0.05 mm step above the firm-thumb Ø10.25 result. Printing this second ladder is
+therefore optional. Retain it for diagnosis if the first Ø10.30 link is tighter
+than expected; it is not in the active print queue.
 
 ## Print
 
@@ -38,8 +43,8 @@ stations are:
 | 4 | Ø10.40 mm |
 | 5 | Ø10.45 mm |
 
-These are calibration candidates. None is a released distal-link dimension
-until the physical test selects it.
+Station 2 matches the owner-selected Ø10.30 ABS source. The other stations are
+diagnostic alternatives; none transfers to PA-CF.
 
 ## Test
 

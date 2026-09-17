@@ -36,18 +36,31 @@ station using firm thumb pressure. That is the intended feel for the
 shin-to-pin angular reference: deliberate hand force, with no hammer or clamp,
 and no free slip reported.
 
-**Result: OWNER SELECTED 19.0 MM CANDIDATE — nominal Ø10.25.** Fusion inspection
+**Coupon result: OWNER SELECTED 19.0 MM CANDIDATE — nominal Ø10.25.** Fusion inspection
 then found that the production receiver actually spans 21.6 mm because it
 includes the two 1.3 mm thrust lands. The initial ladder therefore did not
 reproduce the whole press length. It establishes Ø10.25 as the lower end of a
-corrected full-span ladder, not as a final production release.
+corrected full-span ladder.
+
+## Production selection — 2026-09-16
+
+The owner judged that the extra 2.6 mm of receiver length would not materially
+change the fit and directed the production ABS bore to **Ø10.30**, one 0.05 mm
+step above the firm-thumb Ø10.25 coupon result. This closes the ABS bore-size
+gate by owner engineering choice without another coupon print.
+
+The first corrected link must still confirm firm thumb insertion and hand
+removal with no free spin or rock before spring-loaded or powered use. The bore
+decision does not release the link's printability, service-path or pin-retention
+gates, and it does not transfer to PA-CF.
 
 No separate spin, rock, withdrawal, printed-diameter or pin-diameter result was
 supplied. This is ABS process evidence and does not change the nominal Ø10 pin
 or bearing envelope. Repeat the coupon for PA-CF. See
-[`result.json`](result.json) for the machine-readable report and
-[`source_candidate_fusion_verification.json`](source_candidate_fusion_verification.json)
-for the transient source-build check.
+[`result.json`](result.json) for the machine-readable report and the source
+verification record in
+[`source_selection_fusion_verification.json`](source_selection_fusion_verification.json)
+for the saved Fusion build check.
 
 ## Disposition
 
@@ -56,12 +69,11 @@ for the transient source-build check.
 2. Test that pin, and then the other received candidates, through each loose or
    independently accessible 6800 bearing with no printed link present. Record
    whether controlled thumb pressure inserts and removes each pin.
-3. Print the corrected [21.6 mm full-span ladder](../../../first_article_stl/knee_pin_fit/),
-   which now starts at Ø10.25 and continues to Ø10.45 in 0.05 mm steps. Select
-   the smallest removable light press.
+3. Use nominal Ø10.30 for the active ABS distal-link receiver. The corrected
+   [21.6 mm full-span ladder](../../../first_article_stl/knee_pin_fit/) remains
+   available as a diagnostic if the first link is unexpectedly tight.
 4. Keep the final `Distal_Link_L`, pin retention and encoder coupling on hold
-   until the full-span bore is selected and the print, insertion and service
-   paths are verified in Fusion.
+   until the print, insertion and service paths are verified in Fusion.
 
 The earlier supported mock-up result remains valid evidence for the loose Ø9.7
 printed alignment-pin assembly only. It does not transfer to the real steel pin.

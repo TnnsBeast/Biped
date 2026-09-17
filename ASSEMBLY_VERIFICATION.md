@@ -146,7 +146,7 @@ Do not repeat the nominal Ø10 bore in another link. The bearing result remains
 incomplete until the pin candidates are inserted and removed through each
 bearing separately without the printed link. Nominal Ø10.25 passed the initial
 19.0 mm coupon under firm thumb pressure, but Fusion found the production
-receiver spans 21.6 mm across the thrust lands. The corrected full-span ladder,
-Fusion insertion/service-path verification, spin/rock/withdrawal checks and
-retention still gate the final distal link.
+receiver spans 21.6 mm across the thrust lands. The owner selected Ø10.30 for
+the ABS production bore. Fusion insertion/service-path verification, first-link
+spin/rock/withdrawal checks and retention still gate the final distal link.
 [Owner report and disposition](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).

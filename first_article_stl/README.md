@@ -80,15 +80,16 @@ the caps check the ends of the owned spring off the leg. Follow that batch's spe
 policy: **the distal mock-up needs selective supports**, while the pin and
 caps print without supports. No main spring or motors attach to this mock-up.
 
-## 2026-09-16 steel knee-pin bore result — corrected full-span ladder
+## 2026-09-16 steel knee-pin bore result — Ø10.30 ABS selected
 
 One received metal pin seated through both installed bearings and seized in the
 provisional shin's nominal Ø10 ABS bore. The provisional shin was broken to
 recover it. The owner printed the initial Ø10.05–Ø10.25 ladder
 and found nominal Ø10.25 gives the intended firm-thumb fit through its 19.0 mm
 station. Fusion then found the production receiver spans 21.6 mm across the
-boss and thrust lands. The [corrected ladder](knee_pin_fit/) now tests Ø10.25–Ø10.45 at the full
-span. Do not print another distal link until this physical result plus its final
+boss and thrust lands. The owner selected nominal Ø10.30, one 0.05 mm step above
+the physical result, for the active ABS source. The [corrected full-span ladder](knee_pin_fit/)
+remains an optional diagnostic. Do not print the distal link until its final
 printability, assembly/service-path and retention checks pass.
 
 ## 2026-09-14 M3 receiver recalibration — Ø4.5 selected

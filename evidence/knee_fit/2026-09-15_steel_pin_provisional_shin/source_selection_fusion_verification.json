@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "verified_date_local": "2026-09-16",
+  "method": "Fusion MCP rebuild of Distal_Link_L and rig knee substitute in Beni_SingleLegRig",
+  "source_constant": "beni_lib.ABS_KNEE_PIN_BORE_D",
+  "selected_diameter_mm": 10.3,
+  "receiver_span_mm": 21.6,
+  "receiver_y_span_mm": [
+    63.7,
+    85.3
+  ],
+  "component": "Distal_Link_L",
+  "body_count": 1,
+  "body_is_solid": true,
+  "pin_distal_nominal_interference_mm3": 0,
+  "reference_transform_check": "PASS",
+  "placed_transform_check": "PASS",
+  "fusion_document": "Beni_SingleLegRig",
+  "fusion_document_version": 24,
+  "fusion_document_saved": true,
+  "fusion_document_modified_after_save": false,
+  "retention_status": "UNRELEASED",
+  "disposition": "Selected ABS bore is saved in the rig. Final distal-link printability, insertion/service path and retention audits remain open."
+}

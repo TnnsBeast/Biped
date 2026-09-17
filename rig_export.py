@@ -111,8 +111,8 @@ REROUTE_PRINT = [
                          'splits along a layer'),
     ('Cart_Lower_Eye_L', 'pivot bore axis vertical'),
     ('Distal_Link_L', 'on edge, link axis vertical -- its former Ø16 sleeve '
-                      'bore provisionally uses the Ø10.25 ABS candidate; the '
-                      '21.6 mm full-span coupon and final audit still hold it'),
+                      'bore uses the owner-selected Ø10.30 ABS receiver; final '
+                      'printability, service-path and retention audits hold it'),
 ]
 
 

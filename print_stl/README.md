@@ -8,9 +8,10 @@
 > - **`Distal_Link_L.stl` is superseded** by
 >   [`../rig_stl/reroute/Distal_Link_L.stl`](../rig_stl/reroute/Distal_Link_L.stl).
 >   The steel knee sleeve is deleted and its Ø16 bore is now printed into the link
->   as Ø10. **That rig file is currently on DFM hold** pending the real Ø10 h6
->   knee-pin gate and a post-tangent-fix bed-ready Fusion re-export; do not print
->   either legacy distal file yet.
+>   as the owner-selected Ø10.30 ABS receiver around the nominal Ø10 pin. **That
+>   rig file is currently on DFM hold** pending the post-tangent-fix bed-ready
+>   Fusion audit, service path and retention design; do not print either legacy
+>   distal file yet.
 > - **`check_prints/` is obsolete** — it existed to dry-fit before ordering
 >   machining. Use [`../rig_stl/reroute/`](../rig_stl/reroute/) instead.
 > - The **`GAUGE_*` coupons below are still exactly right** and were re-measured
@@ -79,10 +80,11 @@ installed bearings but seized in the provisional shin's nominal Ø10 bore,
 forcing the owner to break the printed shin to recover it. That bore is a
 **FAIL**. Nominal Ø10.25 then gave the intended firm-thumb fit on the initial
 Ø22 × 19.0 mm coupon. Fusion inspection found the production receiver actually
-spans 21.6 mm across its thrust lands, so the corrected
-[Ø10.25–Ø10.45 ladder](../first_article_stl/knee_pin_fit/) must select the ABS
-source value. Test the candidates through each bearing separately; the final
-distal link still needs its print, service-path and retention gates.
+spans 21.6 mm across its thrust lands, and the owner selected Ø10.30 for the ABS
+source. The [Ø10.25–Ø10.45 full-span ladder](../first_article_stl/knee_pin_fit/)
+remains an optional diagnostic. Test the candidates through each bearing
+separately; the final distal link still needs its print, service-path and
+retention gates.
 [Result](../evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/).
 A deliberately clearance-fit printed ABS pin may support
 hand-alignment work meanwhile, but it cannot release the distal link, establish

@@ -1382,10 +1382,10 @@ def build_rig_knee_substitute():
     still right, but the reference has to be replaced, not just dropped.
 
     What this builds:
-      * the Ø16 sleeve bore in the printed distal boss becomes the current
-        provisional ABS knee-pin bore, i.e. the steel sleeve's function is
-        printed into the link -- so `Distal_Link_L` is NO LONGER "reuse as-is"
-        and its STL must be re-exported after the full-span coupon closes;
+      * the Ø16 sleeve bore in the printed distal boss becomes the selected ABS
+        knee-pin bore, i.e. the steel sleeve's function is printed into the link
+        -- so `Distal_Link_L` is NO LONGER "reuse as-is" and its STL must be
+        re-exported after the remaining release audits close;
       * a bought hardened Ø10 h6 ground dowel pin replaces the 4140 axle.  NOT
         a shoulder bolt: a shoulder screw's shoulder is h9/h11, which rattles in
         the 6800's Ø10 bore, and knee-angle noise is measurement error here;
@@ -1399,16 +1399,16 @@ def build_rig_knee_substitute():
         print('   removed %-24s x%d' % (nm, drop_comp(nm)))
 
     # 1. Print the sleeve's function into the distal boss.  Keep the bought pin
-    # envelope at O10; O10.25 is the provisional same-axis ABS candidate while
-    # the corrected 21.6 mm full-span coupon closes the source mismatch.  Keep
-    # the link on hold and calibrate PA-CF separately.
+    # envelope at O10; use only the owner-selected O10.30 same-axis ABS process
+    # value for this printed receiver.  Keep the link on its remaining
+    # printability/service/retention holds and calibrate PA-CF separately.
     dl = find_occ('Distal_Link_L')
     ring(dl.component, SLEEVE_Y0,
-         beni_lib.ABS_KNEE_PIN_BORE_CANDIDATE_D / 2.0, 8.0,
+         beni_lib.ABS_KNEE_PIN_BORE_D / 2.0, 8.0,
          SLEEVE_Y1 - SLEEVE_Y0,
          op='join', cx=KNEE_X, cz=KNEE_Z)
     print('   Distal_Link_L bore Ø16 -> Ø%.2f ABS (sleeve function printed in)'
-          % beni_lib.ABS_KNEE_PIN_BORE_CANDIDATE_D)
+          % beni_lib.ABS_KNEE_PIN_BORE_D)
 
     # 2. the bought pin
     drop_comp('HW_DowelPin_D10x35')

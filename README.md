@@ -40,7 +40,7 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — convenience link
 
-**Next: confirm the received steel pin in the corrected 21.6 mm full-span ABS ladder** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/knee_pin_fit/ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl). Import unchanged with the runner on the bed and keep supports off. The two-hole end is Ø10.25, followed by Ø10.30–Ø10.45. The [Ø4.5-receiver proximal replacement](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) remains next in the integration queue.
+**Next: print the Ø4.5-receiver proximal replacement** — [direct STL download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl). Print one in ABS, import unchanged with the outboard arm face down, and keep supports off. The owner selected Ø10.30 for the ABS distal-link pin bore; that link remains held for its final printability, service-path and retention checks.
 
 This automatically maintained convenience section lists previously released
 prints still useful for fixture preparation. The nominal Ø4.0 M3 station in the
@@ -62,8 +62,9 @@ bore. The owner broke the provisional plastic shin to recover the pin. Do not
 repeat that bore in another full link. The initial ladder's largest,
 unmarked-end station, nominal Ø10.25, passed its 19.0 mm length under firm thumb
 pressure. Fusion then found the production receiver spans 21.6 mm across its
-thrust lands. The corrected full-span Ø10.25–Ø10.45 ladder closes that mismatch.
-[Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Corrected coupon](first_article_stl/knee_pin_fit/).
+thrust lands. The owner selected Ø10.30, one 0.05 mm step larger, for the active
+ABS source. The full-span ladder is retained as an optional diagnostic.
+[Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Optional coupon](first_article_stl/knee_pin_fit/).
 
 **Also printed, September 7:** shoulder cable cover, corrected front cable
 post, wheel hub and general fit gauge. These four prints are complete; the
@@ -74,7 +75,6 @@ owner-reported FAIL. The dedicated ladder has since selected Ø4.5.
 
 | Part, if still needed | Quantity / material | Required import orientation and supports |
 |---|---|---|
-| [Corrected knee-pin full-span bore ladder](first_article_stl/knee_pin_fit/ABS_CAL_KNEE_PIN_BORE_LADDER_PRINT_ORIENTED.stl) | 1 ABS calibration print | Import unchanged with the thin runner on the bed; **no supports**. Two index holes mark Ø10.25; stations increase to Ø10.45 in 0.05 mm steps. |
 | [Corrected proximal link, Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) | 1 ABS replacement | Import unchanged with the outboard arm face down; **no supports**. Inspect the controlled bridge undersides and Ø17 bearing-retention lips. |
 | [Mode A stand, Ø4.5 M3 revision](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) | 1 ABS, separate plate | Import unchanged with the mount face down; **no supports**; requires at least 300 mm on one bed axis |
 | [Rear Mode A cable anchor — optional](first_article_stl/mode_a/RIG_Cable_Anchor_ModeA.stl) | 1 ABS | Rotate this assembly-coordinate file onto either broad face; **no supports** |
@@ -113,12 +113,12 @@ cartridge and complete powered fixture. The passed caps are fit coupons;
 keep the spring off the leg. The complete single-leg build stays ABS; PA-CF
 and structural tests remain deferred. [Teensy Stage 0](firmware/teensy_stage0/)
 can proceed with USB power and both motors disconnected while the received
-steel pin and bearings are checked separately and the corrected full-span bore
-ladder is tested.
+steel pin and bearings are checked separately and the Ø10.30 distal source
+clears its remaining audits.
 
 The TPU tyre remains coupled to the held rim. Knee stop/encoder parts and the
 magnet carrier have legacy STLs but are not added to this print batch: full
-knee assembly still awaits a 21.6 mm full-span bore selection and a working
+knee assembly still awaits verification of the Ø10.30 first link and a working
 retention design, and their current bed-ready
 print release needs verification before adding them to this queue. Cartridge
 eyes and the internal bumper await the owned-spring adaptation. Two-leg and

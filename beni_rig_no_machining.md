@@ -101,7 +101,7 @@ rotating, and static knee force peaks near 51 N. **Correction from building it:*
 to sleeve, they also carried the **encoder's angular reference** out to the magnet, so that
 reference had to be replaced — a bought Ø10 h6 hardened ground dowel pin for the axle, the sleeve's
 bore printed into `Distal_Link_L` as a nominal Ø10 receiver. Ø10.25 passed the initial 19.0 mm ABS
-coupon; the corrected 21.6 mm full-span ladder still gates production, and PA-CF needs a new
+coupon; the owner selected Ø10.30 for the 21.6 mm production receiver, and PA-CF needs a new
 calibration. Design record **§4**.
 
 ### 2.4 Cartridge eyes — the one open question
