@@ -90,12 +90,17 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    two-leg structural build.** Use ABS for mating coupons, the complete
    single-leg mechanical assembly, cable routing, hand-driven kinematics, and
    wheel-clear/current-limited motor and electronics commissioning under
-   self-weight only. Do not apply a torque-arm load, stall torque, main-spring
-   preload or characterisation load, ground traction, a drop, a structural proof
-   load, or any human-adjacent load through the ABS path. The ABS stand is an
-   assembly fixture, not a measurement fixture. ABS print compensation does not
-   transfer to PA-CF; repeat the critical coupons immediately before the later
-   two-leg structural prints.
+   self-weight only. The owner-directed September 17 exception permits the
+   owned OD18 / ID9 / 50 mm spring only in the released unpowered mechanical
+   article: install it at the -8° stop with nominally zero compression, keep the
+   wheel clear and the distal side hand-contained, and move slowly no farther
+   than the +15° test stop. This observes self-weight equilibrium only; it is
+   not spring characterisation. Do not apply a torque-arm load, intentional
+   spring preload, added mass, stall torque, ground traction, a drop, a
+   structural proof load, or any human-adjacent load through the ABS path. The
+   ABS stand is an assembly fixture, not a measurement fixture. ABS print
+   compensation does not transfer to PA-CF; repeat the critical coupons
+   immediately before the later two-leg structural prints.
 
 8. **Keep the public GitHub repository current.** The tracking repository is
    `https://github.com/TnnsBeast/Biped`. When a task materially changes project

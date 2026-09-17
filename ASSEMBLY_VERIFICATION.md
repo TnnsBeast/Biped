@@ -57,7 +57,9 @@ verify that all six projecting Ø5.5 label envelopes enter straight coaxial
 Ø6.0 × 2.2 reliefs in `Wheel_Rim_L`; after the six screws are removed, the rim
 services straight outboard along the same open paths. The owner-selected
 Ø5.3 receiver was promoted through Fusion on 2026-09-04. The hub is an ABS
-print release; the rim remains held for the separate printability finding below.
+print release. The final tyre-compatible rim remains held for the separate
+printability finding below; the September 17 no-tyre shell is a different,
+suspended-test-only part.
 
 The same rerun found a separate `RIG_Cable_Post_A`/cable-cover overlap. The
 2026-09-05 redesign moves the post outside the cover; its eye remains open
@@ -82,7 +84,7 @@ the corrected link and all six screw seats. See the
 [physical result](evidence/assembly/2026-09-07_owner_mockup/) and
 [current audit](evidence/assembly/2026-09-05_access_fix/).
 
-**Wheel-rim printing remains BLOCKED.** With the broad web face on the bed,
+**Final tyre-compatible wheel-rim printing remains BLOCKED.** With the broad web face on the bed,
 the annular underside at source y = 72 spans r = 30…44: a 14 mm unsupported
 inward ledge. The outer retaining flange also has an overhang. The former
 no-support claim is withdrawn. A printable solution must preserve the frozen
@@ -152,6 +154,28 @@ now uses the clear 20.0 mm fork gap with 0.8 mm axial clearance per side.
 Printability, support-removal, link/pin insertion and mesh checks pass, and the
 bed-ready fit article is released. The first print must still prove firm-thumb
 insertion, hand withdrawal, no free spin or rock and acceptable axial play.
-Retention and encoder coupling remain required before spring-loaded or powered
-use. [Owner result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) ·
+Final retention and encoder coupling remain required before powered use. The
+controlled September 17 unpowered spring article uses an outboard
+spacer/bracket keeper plus hand containment and depends on this physical gate.
+[Owner result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) ·
 [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/).
+
+## 2026-09-17 unpowered spring-mechanical article
+
+The [local traveller](first_article_stl/mechanical_spring_test/) is `CAD PATH
+VERIFIED` for the complete supported single-leg sequence. Fusion sampled every
+integer knee pose from -8° through +15°, found zero link/cartridge/spring-envelope
+interference, and proved contact at both stops by 0.5° of overtravel. It also
+verified radial insertion for both eyes, axial insertion for the guide and
+spring, both clevis-pin paths, the steel knee-pin path and 40 mm wheel-shell
+service travel. All seven exported meshes are closed manifolds on their stated
+support planes.
+
+The test remains `PHYSICAL ASSEMBLY PENDING`. Complete every detached fit check
+and the Ø10.30 distal article's steel-pin gate before installing the spring.
+Use two Ø4 × 32 clevis pins/E-clips and one Ø6 × 9 stop dowel. Clamp the stand,
+unplug both motors, keep the wheel clear and contain the distal side by hand.
+Install the spring at the -8° stop, where nominal compression is zero, and move
+slowly no farther than +15°. This procedure observes self-weight equilibrium;
+it does not validate spring rate, solid height, ground contact, structural load
+or powered motion.

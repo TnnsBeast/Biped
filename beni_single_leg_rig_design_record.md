@@ -937,7 +937,7 @@ right height.
 | Ø6 × 2.5 diametric NdFeB magnet | 1 | **the AS5048A adapter kit already bundles an AS5000-MD6H-2 diametric magnet** — check the kit before buying this separately. A plain axial fridge magnet does **not** work; it must be diametrically magnetised |
 | PU bumper, Ø14 | ~~2~~ | rail travel stops. **[DEFERRED — MODE B]** |
 | **Steel shot / airgun BBs / M4 nuts** | ~~~150 g~~ | ballast fill, §5. **[DEFERRED — MODE B]** |
-| Main spring, Yellow TF, OD18 / ID9 × **50 mm free** | **1 owned** | Order screenshot and owner length correction confirm the recommended variant. Keep it; no replacement for length is needed. The original Ø19 × 2.6 × 55 / 10.45 N/mm baseline remains in CAD; cartridge adaptation and the owned spring's measured rate remain open. [Spring record](evidence/springs/2026-09-05_reconciliation/). |
+| Main spring, Yellow TF, OD18 / ID9 × **50 mm free** | **1 owned** | Order screenshot and owner length correction confirm the recommended variant. Keep it; no replacement for length is needed. A test-only Ø8-pilot cartridge is released for the controlled unpowered -8°…+15° ABS mechanical article. The original Ø19 × 2.6 × 55 / 10.45 N/mm structural baseline remains in CAD; the owned spring's measured rate/solid height and final PA-CF cartridge remain open. [Spring record](evidence/springs/2026-09-05_reconciliation/) · [test release](evidence/assembly/2026-09-17_abs_spring_mechanical_test/). |
 
 ### Nothing to laser-cut and nothing to machine
 Every part is printed or bought. The retired steel-arc DXFs are under

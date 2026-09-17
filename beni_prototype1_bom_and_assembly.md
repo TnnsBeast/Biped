@@ -106,7 +106,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | Shoulder actuator | **Steadywin GIM6010-8** (variant TBC — see design record §9) | 2 | ~500 | 1000 |
 | Wheel actuator | **Steadywin GIM4305-10** | 2 | ~250 | 500 |
 | Knee bearing | **6800-2RS, 10 × 19 × 5**, sealed | 4 | 6.5 | 26.0 |
-| Main knee spring — original two-leg CAD baseline | Ø19 OD × **2.6 mm wire** × **55 mm free** × ~9.8 active coils, closed & ground, **chrome-silicon ASTM A877/A877M**, shot-peened + preset, **10.45 N/mm**. The active single-leg article owns a yellow OD18 / ID9 × 50 mm candidate; its cartridge adaptation is pending. [Spring record](evidence/springs/2026-09-05_reconciliation/). | 2 | 25.3 | 50.6 |
+| Main knee spring — original two-leg CAD baseline | Ø19 OD × **2.6 mm wire** × **55 mm free** × ~9.8 active coils, closed & ground, **chrome-silicon ASTM A877/A877M**, shot-peened + preset, **10.45 N/mm**. The active single-leg article owns a yellow OD18 / ID9 × 50 mm spring and has a separate test-only Ø8-pilot cartridge release for controlled, unpowered -8°…+15° ABS observation. Its rate/solid height and final two-leg cartridge remain open. [Spring record](evidence/springs/2026-09-05_reconciliation/) · [test release](evidence/assembly/2026-09-17_abs_spring_mechanical_test/). | 2 | 25.3 | 50.6 |
 | Cartridge pivot pin | Ø4 × 32 clevis pin + E-clip (DIN 6799-4) | 4 | 3.8 | 15.2 |
 | Knee stop dowel | Ø6 × 9 hardened dowel, h6 | 2 | 2.0 | 4.0 |
 | Knee angle sensor | **AS5048A** (or AS5047-class) on a 14 × 14 PCB | 2 | ~2 | 4.0 |

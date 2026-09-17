@@ -1,0 +1,297 @@
+{
+  "assembly_images": [
+    "/Users/neilchulani/Biped/evidence/assembly/2026-09-17_abs_spring_mechanical_test/00_fusion_full_mechanical_test_phi_0.png",
+    "/Users/neilchulani/Biped/evidence/assembly/2026-09-17_abs_spring_mechanical_test/01_fusion_full_mechanical_test_phi_15.png"
+  ],
+  "exports": [
+    {
+      "export_name": "ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.png",
+      "horizontal_pivot_bridge_mm": 4.4,
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        20.000000000000007,
+        19.000000000000004,
+        21.00000000000001
+      ],
+      "source_axis_mapped_to_print_z": [
+        -0.13868816073602114,
+        0.0,
+        -0.9903361015693912
+      ],
+      "source_part": "ABS_TEST_Cart_Upper_Eye_50mm",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "stl_bytes": 118484,
+      "support_faces": [
+        {
+          "area_mm2": 94.99999999999986,
+          "index": 0,
+          "z_mm": 5.9674487573602125e-15
+        }
+      ],
+      "support_policy": "Import unchanged. No supports. Use a brim; inspect the 4.4 mm self-supporting horizontal pivot passage.",
+      "unsupported_downward_planar_faces": []
+    },
+    {
+      "export_name": "ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.png",
+      "horizontal_pivot_bridge_mm": 4.4,
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        20.000000000000018,
+        19.000000000000004,
+        28.70009933141363
+      ],
+      "source_axis_mapped_to_print_z": [
+        0.13868816073602114,
+        0.0,
+        0.9903361015693912
+      ],
+      "source_part": "ABS_TEST_Cart_Lower_Eye_50mm",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "stl_bytes": 129684,
+      "support_faces": [
+        {
+          "area_mm2": 94.99999999999817,
+          "index": 0,
+          "z_mm": 5.4123372450476476e-15
+        }
+      ],
+      "support_policy": "Import unchanged. No supports. Use a brim; inspect the 4.4 mm self-supporting horizontal pivot passage.",
+      "unsupported_downward_planar_faces": []
+    },
+    {
+      "export_name": "ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        11.4882,
+        55.6887,
+        3.8
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_TEST_Cart_Guide_Bar_50mm",
+      "source_support_face_indices": [
+        4
+      ],
+      "source_support_face_y_mm": 76.4,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl",
+      "stl_bytes": 684,
+      "support_face_area_mm2": 211.66,
+      "support_policy": "Import unchanged; no supports; 3.8 mm square face on bed."
+    },
+    {
+      "export_name": "ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        52.0975,
+        31.6756,
+        3.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_TEST_Knee_Stop_Plate_15deg",
+      "source_support_face_indices": [
+        80
+      ],
+      "source_support_face_y_mm": 93.3,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.stl",
+      "stl_bytes": 91884,
+      "support_face_area_mm2": 878.544,
+      "support_policy": "Import unchanged; no supports; full plate face on bed."
+    },
+    {
+      "export_name": "ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        15.0,
+        15.0,
+        7.4
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": 90.0,
+      "source_part": "ABS_TEST_Knee_Pin_Outboard_Spacer",
+      "source_support_face_indices": [
+        6
+      ],
+      "source_support_face_y_mm": 94.0,
+      "source_support_side": "min",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl",
+      "stl_bytes": 90484,
+      "support_face_area_mm2": 164.148,
+      "support_policy": "Import unchanged; no supports; broad 15 mm face on bed."
+    },
+    {
+      "export_name": "ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        96.0,
+        96.0,
+        36.5
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_TEST_Wheel_Rim_NoTyre",
+      "source_support_face_indices": [
+        28
+      ],
+      "source_support_face_y_mm": 104.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl",
+      "stl_bytes": 284884,
+      "support_face_area_mm2": 5093.354,
+      "support_policy": "Import unchanged; no supports; broad web face on bed; no tyre."
+    },
+    {
+      "export_name": "ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/00_fusion_ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        34.0,
+        34.4904,
+        11.6
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Knee_Encoder_Bracket_L",
+      "source_support_face_indices": [
+        16
+      ],
+      "source_support_face_y_mm": 101.9,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl",
+      "stl_bytes": 188184,
+      "support_face_area_mm2": 783.875,
+      "support_policy": "Import unchanged; no supports; shelf face on bed and posts up."
+    }
+  ],
+  "fusion_document": "Beni_SingleLegRig",
+  "mesh_verification": {
+    "ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        11.488204956054688,
+        55.68873596191406,
+        3.799999952316302
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 804.3075437053672,
+      "minimum_z_mm": -1.7763568394002505e-14,
+      "native_volume_relative_error": 5.673133100131736e-07,
+      "nonmanifold_edges": 0,
+      "sha256": "2868cf5e87554e07fc9f3588fe26959b4ded7ad4d540b1227ad305bb8eaf60cd",
+      "triangles": 12
+    },
+    "ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        20.0,
+        19.0,
+        28.70009994506836
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 6509.727898928161,
+      "minimum_z_mm": 0.0,
+      "native_volume_relative_error": 2.1292694456614493e-05,
+      "nonmanifold_edges": 0,
+      "sha256": "6401702d49a08ccd6c23743ff7539c3b817ebdcb5a932f1e92246c1bdbe9d3c8",
+      "triangles": 2592
+    },
+    "ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        20.0,
+        19.0,
+        21.0
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 4477.2291210969,
+      "minimum_z_mm": 0.0,
+      "native_volume_relative_error": 1.916838124229654e-06,
+      "nonmanifold_edges": 0,
+      "sha256": "44f0e7888c085ecc42217cdc037dc8c68a36b51928a3bbdbacc0f1ddbf14e822",
+      "triangles": 2368
+    },
+    "ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        33.9998779296875,
+        34.48884582519531,
+        11.60000038146973
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 2614.4064791415053,
+      "minimum_z_mm": -3.774417776480736e-15,
+      "native_volume_relative_error": 0.0001814299433012034,
+      "nonmanifold_edges": 0,
+      "sha256": "ba505b0d0c1887e6d5420a18ab741c8ae56b2503fedfb28dfe0c5c3063d3d7fe",
+      "triangles": 3762
+    },
+    "ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        15.0,
+        14.997764587402344,
+        7.400000095367433
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 976.9552150734133,
+      "minimum_z_mm": -1.6650864621633077e-15,
+      "native_volume_relative_error": 0.00017842871534963687,
+      "nonmanifold_edges": 0,
+      "sha256": "3b503cf331de164797090ec91d06cc859e1d8e8c4f500900137330f14af39bcd",
+      "triangles": 1808
+    },
+    "ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        52.09750747680664,
+        31.673614501953125,
+        3.000000000000008
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 2635.675730744226,
+      "minimum_z_mm": -7.882142170673092e-15,
+      "native_volume_relative_error": 1.622668497010205e-05,
+      "nonmanifold_edges": 0,
+      "sha256": "2fd2a99e85de6746f62931259b1afef312160421ef601eb71a3eb9957f13199c",
+      "triangles": 1836
+    },
+    "ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        96.0,
+        96.0,
+        36.500000000000014
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 57764.84780962729,
+      "minimum_z_mm": -1.0658141036401503e-14,
+      "native_volume_relative_error": 8.422578866752756e-06,
+      "nonmanifold_edges": 0,
+      "sha256": "2b0fe6c96755025dcecbcf1e353ba51fe1034e23d187d4c5006c0d4fab7268bf",
+      "triangles": 5696
+    }
+  },
+  "scope": "unpowered supported ABS mechanical spring demonstration",
+  "spring": {
+    "compression_mm": [
+      0.0,
+      10.240025748568371
+    ],
+    "free_length_mm": 50.0,
+    "owned_id_mm": 9.0,
+    "owned_od_mm": 18.0,
+    "range_deg": [
+      -8.0,
+      15.0
+    ],
+    "rate": "unmeasured"
+  }
+}

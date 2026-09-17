@@ -61,7 +61,8 @@ The owner accepted the corrected hub's insert installation on 2026-09-05.
 The **access-fixed Ø19.15 proximal link is printed with six-screw seating accepted**; use the final
 [README print queue](../README.md#current-print--convenience-link). Two head
 paths and one incomplete seat were corrected. The front cable post also now
-mounts outside the cover. The wheel rim retains its printability hold.
+mounts outside the cover. The final tyre-compatible wheel rim retains its
+printability hold; the later no-tyre mechanical-test shell is separate.
 [Current audit and acceptance](../evidence/assembly/2026-09-05_access_fix/).
 
 ## 2026-09-06 supported knee mock-up
@@ -110,6 +111,22 @@ the rear anchor is optional.
 The [current print queue](../README.md#current-print--convenience-link) contains
 the remaining prints, and [PROJECT_STATUS.md](../PROJECT_STATUS.md) maintains
 the active mechanical, CAD and electronics work.
+
+## 2026-09-17 unpowered spring-mechanical article
+
+The new [mechanical spring test batch](mechanical_spring_test/) adapts the owned
+OD18 / ID9 / 50 mm spring with two Ø8-pilot eyes, a removable square guide,
+a -8°…+15° stop, an outboard steel-pin spacer/keeper and a support-free no-tyre
+wheel shell. All seven STLs are print oriented and Fusion verified. The spring
+is nominally uncompressed at -8° and reaches 10.240 mm modeled compression at
++15°. Use only with both motors unplugged, the stand clamped, the wheel clear
+and the distal side hand-contained. The local README is the required print,
+detached-fit, assembly and observation traveller.
+
+This release does not clear the final tyre-compatible rim, final knee-pin
+retention, encoder coupling, spring characterisation, ground contact or powered
+motion. It depends on the Ø10.30 distal article passing its physical steel-pin
+checks first.
 
 ## Actuator-coupon slicer setup
 

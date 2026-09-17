@@ -17,7 +17,9 @@ that result, but print the Ø4.5-receiver replacement before M3 installation.
 [Physical acceptance](../../evidence/assembly/2026-09-07_owner_mockup/). Use the
 [current print queue](../../README.md#current-print--convenience-link) and
 [access audit](../../evidence/assembly/2026-09-05_access_fix/).
-The wheel rim retains its independent printability hold.
+The final tyre-compatible wheel rim retains its independent printability hold.
+The support-free no-tyre shell is released separately for the suspended,
+unpowered September 17 mechanical test only.
 
 The general gauge's nominal Ø4.0 M3 station was too small. The owner then
 reported that the largest, unmarked-end pocket on the dedicated Ø4.1–4.5

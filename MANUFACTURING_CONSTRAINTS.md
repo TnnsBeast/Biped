@@ -62,8 +62,9 @@ installation and cooled-retention checks. Fusion verifies that diameter in both
 documents. The nominal Ø4.0 M3 general-gauge station failed physically; the
 owner then selected the largest, unmarked-end station on the dedicated ladder,
 nominal Ø4.5. Fusion verifies Ø4.5 throughout the active ABS M3 receiver family.
-The two hubs are ABS first-article print releases;
-the rim has a separate printability hold. The printed corrected proximal link
+The two hubs are ABS first-article print releases. The final tyre-compatible
+rim has a separate printability hold; a simplified no-tyre shell is released
+only for the suspended September 17 mechanical test. The printed corrected proximal link
 passed all six M4 screw seats, closing its reported root-access/seating failure;
 replace it with the released Ø4.5-receiver revision before M3 installation.**
 Physical evidence: [M4 coupon PASS](evidence/inserts/2026-09-04_m4_coupon_pass/),
@@ -96,7 +97,7 @@ coupons before the later PA-CF structural build.
 | `Proximal_Link_L` arm-B boss | 5 | Voron-style M3; owner-selected Ø4.5 × 5.0 blind pockets (3 stop-plate + 2 encoder-bracket) | **ABS REPLACEMENT RELEASED.** The printed Ø19.15 access-fixed link passed its bearings and six M4 screw seats but has the failed Ø4.0 pockets. Replace it with the verified Ø4.5 revision before M3 installation. |
 | `RIG_Stand` panel interface | 5 | Voron-style M3; owner-selected Ø4.5 × 6.0 blind pocket for a 5.0 mm insert | **ABS RELEASED.** Fusion verified all five spans, surrounding geometry, print orientation, clean STL and zero stand interference. The depth retains 1.0 mm insertion space and a 6.0 mm printed floor. |
 | `Shoulder_Output_Hub_L` root flange | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the full 8.0 mm flange | **OWNER HUB INSERT INSTALLATION AND CORRECTED-LINK SIX-SCREW SEATING PASS.** Retain the new Ø4.15 hub with Ø5.3 receivers and corrected link. M4 × 10 link screws have 6.2 mm engagement and 1.8 mm end clearance. The owner confirms all six M4 screws work properly on the replacement. |
-| `Wheel_Hub_L` rim joint | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the 6.0 mm hub | **ABS HUB PRINTED; INSERT/MOTOR FIT PENDING; RIM PRINTABILITY HOLD.** [September 7 completion](evidence/assembly/2026-09-07_small_parts_printed/). Install from the motor face: 6.0 mm embeds and 2.0 mm projects outboard. The rim’s six Ø6.0 × 2.2 reliefs retain 0.25 mm radial and 0.20 mm axial envelope clearance, with a Ø38 opening and 1.0 mm ligament. M4 × 8 rim screws have 6.0 mm engagement and 2.0 mm end clearance. The rim’s internal ledge and outer flange need a verified overhang solution; do not print it under the former no-support instruction. |
+| `Wheel_Hub_L` rim joint | 6 | Owner-held Kadriick M4 × 8; owner-selected Ø5.3 through the 6.0 mm hub | **ABS HUB PRINTED; INSERT/MOTOR FIT PENDING; FINAL TYRE RIM HELD.** [September 7 completion](evidence/assembly/2026-09-07_small_parts_printed/). Install from the motor face: 6.0 mm embeds and 2.0 mm projects outboard. The final rim’s six Ø6.0 × 2.2 reliefs retain 0.25 mm radial and 0.20 mm axial envelope clearance, with a Ø38 opening and 1.0 mm ligament. M4 × 8 rim screws have 6.0 mm engagement and 2.0 mm end clearance. Its internal ledge and outer flange still need a verified overhang solution. The separately released no-tyre shell preserves this hub interface and Ø96 drum only for the wheel-clear, unpowered mechanical test. |
 
 The active ABS article consumes **14 M3 inserts** before spares: 4 shoulder
 plate + 5 proximal-link boss + 5 stand. It also consumes **12 of the 30 owned
