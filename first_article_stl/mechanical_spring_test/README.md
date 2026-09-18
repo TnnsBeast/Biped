@@ -58,9 +58,16 @@ the spring.
 
 ## Detached fit checks
 
-1. Slide the guide bar into the upper eye from the spring-pilot side. It must
-   bottom by hand and pull out by hand. Fusion provides 0.626 mm diametral room
-   around the bar's diagonal; any binding or layer split is a failed print.
+The guide bar does **not** enter the teardrop-shaped side passage. That passage
+is the horizontal Ø4 clevis-pin hole; its pointed roof is only a self-supporting
+print feature. Insert the guide along the spring axis through the round hole in
+the raised Ø8 cylindrical spring pilot. The guide then runs through the center
+of the spring.
+
+1. Slide the guide bar into the upper eye through the round opening in its
+   raised spring pilot. It must bottom by hand and pull out by hand. Fusion
+   provides 0.626 mm diametral room around the bar's diagonal; any binding or
+   layer split is a failed print.
 2. Slide the lower eye over the free end of the guide. It must move through the
    full available travel without catching.
 3. Place each end of the free spring over its Ø8 pilot. Both ends must sit flat
@@ -85,10 +92,11 @@ clear of the floor.
    spring-free knee and confirm it stops at -8° and +15°.
 3. Put the knee at the -8° stop. Insert the upper cartridge eye radially into
    its proximal-link clevis and install the upper steel clevis pin and E-clips.
-4. Insert the guide bar into the upper eye. Slide the free spring over the guide
-   and onto the upper Ø8 pilot. Slide the lower eye over the guide and into the
-   lower spring end, then bring its pivot into the distal-link clevis. The lower
-   clevis pin must enter with fingertip pressure. If more than slight hand
+4. Insert the guide bar through the round center of the upper eye's raised Ø8
+   pilot. Slide the free spring over the guide and onto that pilot. With the
+   lower eye's raised pilot facing the other spring end, slide its round center
+   opening over the exposed guide, then bring its pivot into the distal-link
+   clevis. The lower clevis pin must enter with fingertip pressure. If more than slight hand
    compression is needed, stop and record the achieved gap; do not pull the
    parts together with a pin, screw, clamp, or tool.
 5. Put the printed spacer on the encoder bracket with its small locator in the
