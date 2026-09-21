@@ -73,6 +73,22 @@ retention and encoder coupling still gate powered use.
 [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/) ·
 [Optional diagnostic coupon](first_article_stl/knee_pin_fit/).
 
+**Mechanical hardware order update, 2026-09-20:** the owner reports that the
+assorted metric fasteners required by the active single-leg assembly are already
+in hand; exact counts, materials and grades have not been separately inventoried
+in the repository. Three additional Amazon hardware families are now **ordered /
+not yet received or accepted**: 15 × seller-listed Ø6 × 10 mm 304 stainless
+cylindrical pins, 60 × Ø4 × 10 mm 304 stainless cylindrical pins, and 8 ×
+seller-listed M4 × 40 mm 304 stainless single-hole clevis pins with cotter
+retainers. The Ø6 × 10 parts are candidate substitutes for the released Ø6 ×
+9 stop dowel; the Ø4 × 10 parts are candidate shoulder-hub locating pins; and
+the 40 mm clevis pins/cotters are candidate substitutes for the released Ø4 ×
+32 clevis-pin/E-clip hardware. **Do not mark these substitutions accepted from
+the order alone.** On arrival, record actual diameter/length and hand-fit them
+in the released ABS article. The canonical September 17 release dimensions
+remain Ø6 × 9 and Ø4 × 32 until the candidate substitutions are physically
+accepted and, where they change modeled geometry, reverified through Fusion.
+
 **Unpowered ABS spring-mechanical release, 2026-09-17:** Fusion now contains
 and the repository now releases two 50 mm spring eyes, a removable guide bar,
 a -8°…+15° stop plate, an outboard steel-pin spacer/keeper, and a support-free
