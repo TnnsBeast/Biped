@@ -2,6 +2,12 @@
 
 Status: `CAD PATH VERIFIED / PHYSICAL ASSEMBLY PENDING`
 
+> **September 22 calibration hold:** the preliminary hub/link exports use
+> Ø4.05 root press sockets and Ø4.15 clevis passages. Print the
+> [orientation-matched fit ladders](../2026-09-22_ordered_pin_fit_ladders/)
+> and promote the selected stations before printing the three large affected
+> parts. The captive Ø6 × 10 stop design is unchanged and needs no ladder.
+
 Fusion document `Beni_SingleLegRig` v28 was rebuilt, audited, exported, and
 saved through the Fusion MCP for this release.
 

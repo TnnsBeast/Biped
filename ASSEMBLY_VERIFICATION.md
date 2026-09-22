@@ -201,3 +201,30 @@ motors, keep the wheel clear, contain the distal side by hand, install the
 spring at the -8° stop, and move slowly no farther than +15°. This procedure
 observes self-weight equilibrium; it does not validate spring rate, solid
 height, ground contact, structural load, or powered motion.
+
+## 2026-09-22 ordered-pin fit ladders
+
+The two [ordered-pin fit ladders](first_article_stl/ordered_pin_fit/) are
+`FUSION VERIFIED / PHYSICAL SELECTION PENDING`. They precede the large
+ordered-pin hub and link prints and use the real pins directly; no measurement
+is part of the gate.
+
+The root ladder reproduces the hub's bed-facing 5.0 mm blind socket and 3.0 mm
+closed floor at Ø4.05…4.25 in 0.05 mm steps. Its accepted station must start
+straight, seat fully with gentle controlled press pressure, remain retained
+when inverted, and produce no whitening or split. The link side remains an
+intentional slip fit.
+
+The clevis ladder reproduces the Ø14 boss and the longest restrictive link
+land at 9.0 mm, with Ø4.15…4.35 passages in 0.05 mm steps. Fusion read the live
+link-land spans as 5.0, 5.8, 8.2, and 9.0 mm; the intervening cartridge-eye
+passages are already Ø4.4 × 19 mm. The accepted station is the smallest one
+that takes the real M4 × 40 pin with fingertip pressure, permits hand
+withdrawal, and has no free radial rock. A continuous 34 mm coupon was rejected
+because that dimension is the retained stack, not continuous bore material,
+and would bias the result loose.
+
+The Ø6 × 10 stop pin remains excluded from fit calibration because its Ø6.2
+socket is deliberately loose and the closed stop-plate skin provides axial
+capture. After the two Ø4 results are reported, update/confirm the Fusion
+source and bed-ready hub/link exports before those large parts are printed.

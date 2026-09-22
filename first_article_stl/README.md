@@ -59,7 +59,7 @@ plate, proximal link and stand exports now reflect that result.
 
 The owner accepted the corrected hub's insert installation on 2026-09-05.
 The **access-fixed Ø19.15 proximal link is printed with six-screw seating accepted**; use the final
-[README print queue](../README.md#current-print--convenience-link). Two head
+[README print queue](../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article). Two head
 paths and one incomplete seat were corrected. The front cable post also now
 mounts outside the cover. The final tyre-compatible wheel rim retains its
 printability hold; the later no-tyre mechanical-test shell is separate.
@@ -108,7 +108,7 @@ promoted and verified through Fusion. Print the Ø4.5 corrected proximal-link
 replacement and stand; print the Ø4.5 shoulder plate if the fitted plate is the
 prior Ø4.0 revision. Detached motor-fit and cover/post/harness results are still pending;
 the rear anchor is optional.
-The [current print queue](../README.md#current-print--convenience-link) contains
+The [current print queue](../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article) contains
 the remaining prints, and [PROJECT_STATUS.md](../PROJECT_STATUS.md) maintains
 the active mechanical, CAD and electronics work.
 
@@ -127,6 +127,18 @@ This release does not clear the final tyre-compatible rim, final knee-pin
 retention, encoder coupling, spring characterisation, ground contact or powered
 motion. It depends on the Ø10.30 distal article passing its physical steel-pin
 checks first.
+
+## 2026-09-22 ordered-pin fit ladders
+
+Print the two [ordered-pin ABS ladders](ordered_pin_fit/) before the large
+September 21 hub and link replacements. One reproduces the Ø4 × 10 root
+dowel's 5.0 mm blind press socket at Ø4.05…4.25. The other reproduces the
+longest 9.0 mm M4 × 40 clevis-link passage at Ø4.15…4.35. Both use 0.05 mm
+steps, exact final-part print orientation, and the real pins as go/no-go
+gauges; no measurement is required. The Ø6 × 10 captive stop remains a
+deliberate clearance fit and has no ladder. Hold the large hub/proximal/distal
+prints until the selected stations are promoted into Fusion and their STLs are
+confirmed or re-exported.
 
 ## Actuator-coupon slicer setup
 

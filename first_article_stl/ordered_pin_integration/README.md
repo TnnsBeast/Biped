@@ -2,9 +2,17 @@
 
 Status: `CAD PATH VERIFIED / PHYSICAL ASSEMBLY PENDING`
 
+> **Calibration prerequisite, added September 22:** print and evaluate the two
+> [ordered-pin fit ladders](../ordered_pin_fit/) before these large parts. The
+> current hub and link files contain the preliminary Ø4.05 root press socket
+> and Ø4.15 clevis passages. Do not print the hub, proximal link, or distal link
+> until the selected stations are promoted into CAD and these STLs are
+> confirmed or re-exported. The stop plate is unaffected.
+
 This September 21 batch makes the purchased pin sizes part of the load path
-and retention design. It is not a collection of loose spacers. Print these four
-replacement parts before continuing the unpowered ABS single-leg assembly:
+and retention design. It is not a collection of loose spacers. After the
+calibration prerequisite is closed, print these four replacement parts before
+continuing the unpowered ABS single-leg assembly:
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|

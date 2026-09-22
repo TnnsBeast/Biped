@@ -1,0 +1,319 @@
+{
+  "clevis_ladder": {
+    "cartridge_eye_bore_mm": [
+      4.4,
+      19.0
+    ],
+    "engagement_depth_mm": 9.0,
+    "hardware": "one actual M4 x 40 single-hole clevis pin",
+    "index": "two \u00d82 holes mark the \u00d84.15 end; the closest station is \u00d84.15 and each station farther away increases by 0.05 mm",
+    "live_link_land_spans_mm": [
+      5.0,
+      5.8,
+      8.2,
+      9.0
+    ],
+    "selection": "start at \u00d84.35 and move toward smaller stations; select the smallest station the pin crosses fully with fingertip pressure and withdraws by hand without free radial rock",
+    "station_centres_x_mm": [
+      -48.0,
+      -24.0,
+      0.0,
+      24.0,
+      48.0
+    ],
+    "trial_diameters_mm": [
+      4.15,
+      4.2,
+      4.25,
+      4.3,
+      4.35
+    ]
+  },
+  "excluded_D6x10_ladder": {
+    "reason": "the \u00d86 x 10 stop pin is captured between a \u00d86.2 clearance socket and closed plate skin; fit does not locate or retain the joint, so a ladder would not improve the design"
+  },
+  "exports": [
+    {
+      "export_name": "ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/00_fusion_ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        130.0,
+        20.0,
+        8.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER",
+      "source_support_face_indices": [
+        16
+      ],
+      "source_support_face_y_mm": 8.0,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED.stl",
+      "stl_bytes": 65884,
+      "support_face_area_mm2": 2526.065,
+      "support_policy": "Import unchanged. Broad socket-opening face on bed; pin axes vertical. No supports. Two \u00d82 marker holes identify the \u00d84.05 end."
+    },
+    {
+      "export_name": "ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/00_fusion_ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        130.0,
+        15.0,
+        9.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER",
+      "source_support_face_indices": [
+        21
+      ],
+      "source_support_face_y_mm": 9.0,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.stl",
+      "stl_bytes": 115284,
+      "support_face_area_mm2": 1203.522,
+      "support_policy": "Import unchanged. Boss/web face on bed; 9 mm pin passages vertical. No supports; brim permitted. Two \u00d82 marker holes identify the \u00d84.15 end."
+    }
+  ],
+  "generation_document": "temporary unsaved Fusion design",
+  "material_and_profile": "ABS; same enclosed profile and exact orientation as the final parts",
+  "measurement_policy": "Use the actual ordered pins as go/no-go gauges; no calipers or pin measurement.",
+  "mesh_verification": {
+    "ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        130.0,
+        20.0,
+        8.000000000000002
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 20413.44288660138,
+      "minimum_z_mm": -1.1102230246251565e-15,
+      "native_volume_relative_error": 9.649183690121854e-05,
+      "nonmanifold_edges": 0,
+      "sha256": "faa0d735736f89b9929fd486a1f7babdd54f6b2a71d67036be6889f6499018d6",
+      "triangles": 1316
+    },
+    "ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        130.0,
+        14.98024845123291,
+        9.000000000000002
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 10817.160892561265,
+      "minimum_z_mm": -1.1102230246251565e-15,
+      "native_volume_relative_error": 0.0013424445259814539,
+      "nonmanifold_edges": 0,
+      "sha256": "6b6cd4a30f1137c804ecba1d196136ee7083433acca882558b1545f6626476a4",
+      "triangles": 2304
+    }
+  },
+  "root_dowel_ladder": {
+    "closed_floor_mm": 3.0,
+    "hardware": "one or more actual \u00d84 x 10 cylindrical dowels",
+    "index": "two \u00d82 holes mark the \u00d84.05 end; the closest station is \u00d84.05 and each station farther away increases by 0.05 mm",
+    "receiver_depth_mm": 5.0,
+    "represents": "shoulder-hub blind press socket; final link slip socket remains deliberately looser",
+    "selection": "start at \u00d84.25 with an actual dowel and move toward smaller stations using a fresh dowel as needed; select the smallest station that starts straight by hand, seats fully with gentle smooth-jaw press pressure, stays retained when inverted, and causes no whitening or split",
+    "socket_face_image": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_fit/01_fusion_ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_SOCKET_FACE.png",
+    "station_centres_x_mm": [
+      -48.0,
+      -24.0,
+      0.0,
+      24.0,
+      48.0
+    ],
+    "trial_diameters_mm": [
+      4.05,
+      4.1,
+      4.15,
+      4.2,
+      4.25
+    ]
+  },
+  "source_document": "Beni_SingleLegRig",
+  "source_document_version": 28,
+  "status": "FUSION VERIFIED / DIAGNOSTIC PRINT RELEASE",
+  "topology": {
+    "ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER": {
+      "bbox_mm": [
+        -70.0,
+        60.0,
+        0.0,
+        8.0,
+        -10.0,
+        10.0
+      ],
+      "closed_manifold": true,
+      "cylindrical_faces": [
+        {
+          "diameter_mm": 2.0,
+          "y_span_mm": [
+            0.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 2.0,
+          "y_span_mm": [
+            0.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 4.05,
+          "y_span_mm": [
+            3.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 4.1,
+          "y_span_mm": [
+            3.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 4.15,
+          "y_span_mm": [
+            3.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 4.2,
+          "y_span_mm": [
+            3.0,
+            8.0
+          ]
+        },
+        {
+          "diameter_mm": 4.25,
+          "y_span_mm": [
+            3.0,
+            8.0
+          ]
+        }
+      ],
+      "dimensions_mm": [
+        130.0,
+        8.0,
+        20.0
+      ],
+      "edges": 26,
+      "faces": 18,
+      "volume_mm3": 20411.47334604436
+    },
+    "ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER": {
+      "bbox_mm": [
+        -70.0,
+        60.0,
+        0.0,
+        9.0,
+        -8.0,
+        7.000000000000002
+      ],
+      "closed_manifold": true,
+      "cylindrical_faces": [
+        {
+          "diameter_mm": 2.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 2.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 4.15,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 4.2,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 4.25,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 4.3,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 4.35,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 14.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 14.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 14.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 14.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        },
+        {
+          "diameter_mm": 14.0,
+          "y_span_mm": [
+            0.0,
+            9.0
+          ]
+        }
+      ],
+      "dimensions_mm": [
+        130.0,
+        9.0,
+        15.0
+      ],
+      "edges": 62,
+      "faces": 25,
+      "volume_mm3": 10831.701851418766
+    }
+  }
+}

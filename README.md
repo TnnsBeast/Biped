@@ -40,11 +40,18 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — ordered-pin unpowered ABS mechanical article
 
-**Print the four [ordered-pin replacements](first_article_stl/ordered_pin_integration/) first.** They redesign the shoulder root, both cartridge-pin lands, and the knee stop around the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 stainless pins. No pin measurement and no loose printed spacer are required. The new hub, proximal link, distal link, and stop plate supersede their earlier versions; reuse the six unchanged spring-test parts listed below.
+**Print the two [ordered-pin fit ladders](first_article_stl/ordered_pin_fit/) first, then report the selected stations.** Use the actual Ø4 × 10 dowel and M4 × 40 clevis pin as go/no-go gauges; no pin measurement is required. Hold the large hub and link prints until those results are promoted into the CAD and the three affected STLs are confirmed or re-exported. The Ø6 × 10 captive stop is deliberately clearance-fit and needs no ladder.
 
-Fusion verified the ordered hardware envelopes, all four replacement meshes, the full 24-pose sweep, OD18/ID9 spring envelope, guide and clevis insertion paths, steel knee-pin path, no-tyre wheel-shell service path, stop clearance through the permitted range, and positive stop contact 0.5° beyond each limit. At -8° the spring is nominally uncompressed; predicted compression is 3.257 mm at 0° and 10.240 mm at +15°. The actual resting angle is a physical observation because the owned spring rate is not measured. [Ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) · [complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
+Fusion verified both ladder B-Reps, controlled orientations, and closed-manifold meshes. It also verified the ordered hardware envelopes, all four preliminary replacement meshes, the full 24-pose sweep, OD18/ID9 spring envelope, guide and clevis insertion paths, steel knee-pin path, no-tyre wheel-shell service path, stop clearance through the permitted range, and positive stop contact 0.5° beyond each limit. [Fit-ladder evidence](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) · [ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) · [complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
 
-### Print or replace these four parts
+### Print these calibration ladders now
+
+| Part | Qty | Import orientation and supports |
+|---|---:|---|
+| [Ø4 × 10 root-dowel blind-socket ladder](first_article_stl/ordered_pin_fit/ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; broad face on bed; no supports; two Ø2 holes mark the Ø4.05 end |
+| [M4 × 40 clevis link-land ladder](first_article_stl/ordered_pin_fit/ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; boss/web face on bed; no supports; brim permitted; two Ø2 holes mark the Ø4.15 end |
+
+### After the fit selection, print or replace these four parts
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
