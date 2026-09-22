@@ -224,7 +224,10 @@ def _build_stop():
         B.slot(sk, points[index][0], points[index][1],
                points[index + 1][0], points[index + 1][1],
                R.STOP_SLOT_R_OUT - R.STOP_SLOT_R_IN)
-    B.extrude(comp, B.profiles(sk), R.STOP_PLATE_Y1 - R.STOP_PLATE_Y0,
+    # Leave the same closed outboard skin as the canonical rig plate.  The
+    # ordered Ø6 x 10 dowel is captured between this skin and the distal-link
+    # socket floor instead of relying on a printed press fit.
+    B.extrude(comp, B.profiles(sk), R.STOP_SLOT_DEPTH,
               op='cut', participants=_bodies(comp))
 
     sk = B.sk_on_y(comp, R.STOP_PLATE_Y0)
@@ -527,9 +530,73 @@ def audit(_context: str):
         },
         'poses': [],
         'topology': {},
+        'ordered_pin_interfaces': {
+            'clevis_M4x40': {
+                'quantity_used': 2,
+                'shaft_diameter_mm': B.CLEVIS_PIN_D,
+                'shaft_length_mm': B.CLEVIS_PIN_SHAFT_LEN,
+                'retaining_hole_diameter_mm': B.CLEVIS_PIN_HOLE_D,
+                'retaining_hole_datum_from_head_mm':
+                    B.CLEVIS_PIN_HOLE_DATUM,
+                'printed_stack_mm': B.CLEVIS_RETAINED_STACK,
+                'washer': 'ISO 7089 M4, 4.3 x 9 x 0.8 mm',
+                'conservative_hole_edge_clearance_mm':
+                    (B.CLEVIS_PIN_HOLE_DATUM - B.CLEVIS_PIN_HOLE_D / 2.0
+                     - B.CLEVIS_RETAINED_STACK - B.CLEVIS_WASHER_T),
+                'upper_integral_boss_side': 'inboard; outboard print datum preserved',
+                'lower_integral_boss_side': 'outboard; inboard print datum preserved',
+                'cotter_keepout': ('orient the supplied cotter radially away from '
+                                   'the knee; 30 mm centred XZ envelope reserved'),
+            },
+            'stop_dowel_D6x10': {
+                'quantity_used': 1,
+                'pin_span_y_mm': [B.STOP_PIN_SOCKET_Y0,
+                                  B.STOP_PIN_SOCKET_Y0 + B.STOP_PIN_LEN],
+                'distal_socket_diameter_mm': B.STOP_PIN_SOCKET_D,
+                'distal_socket_depth_mm': B.STOP_PIN_SOCKET_DEPTH,
+                'printed_socket_floor_mm':
+                    B.STOP_PIN_SOCKET_Y0 - B.CH_Y1,
+                'plate_channel_depth_mm': R.STOP_SLOT_DEPTH,
+                'plate_outer_skin_mm': R.STOP_OUTER_SKIN,
+                'pin_end_to_channel_cap_clearance_mm':
+                    (R.STOP_PLATE_Y0 + R.STOP_SLOT_DEPTH
+                     - (B.STOP_PIN_SOCKET_Y0 + B.STOP_PIN_LEN)),
+            },
+            'shoulder_root_dowels_D4x10': {
+                'quantity_used': 3,
+                'pcd_mm': B.ROOT_DOWEL_PCD,
+                'angles_deg': list(B.ROOT_DOWEL_A),
+                'hub_press_socket_mm': [B.ROOT_DOWEL_HUB_SOCKET_D,
+                                        B.ROOT_DOWEL_HUB_DEPTH],
+                'link_slip_socket_mm': [B.ROOT_DOWEL_LINK_SOCKET_D,
+                                        B.ROOT_DOWEL_LINK_DEPTH],
+                'axial_bottom_clearance_mm':
+                    B.ROOT_DOWEL_LINK_DEPTH
+                    - (B.ROOT_DOWEL_LEN - B.ROOT_DOWEL_HUB_DEPTH),
+            },
+        },
     }
     for name in (UPPER, LOWER, GUIDE, STOP, SPACER, RIM):
         report['topology'][name] = _topology(B.find_occ(name))
+    assert report['ordered_pin_interfaces']['clevis_M4x40'][
+        'conservative_hole_edge_clearance_mm'] >= 0.39
+    assert report['ordered_pin_interfaces']['stop_dowel_D6x10'][
+        'printed_socket_floor_mm'] >= 0.49
+    assert report['ordered_pin_interfaces']['stop_dowel_D6x10'][
+        'pin_end_to_channel_cap_clearance_mm'] >= 0.29
+    assert report['ordered_pin_interfaces']['shoulder_root_dowels_D4x10'][
+        'axial_bottom_clearance_mm'] >= 0.19
+
+    prox_box = _topology(B.find_occ('Proximal_Link_L'))['bbox_mm']
+    distal_box = _topology(B.find_occ('Distal_Link_L'))['bbox_mm']
+    report['print_datum_preservation'] = {
+        'proximal_outboard_max_y_mm': prox_box[3],
+        'proximal_required_mm': B.PROX_PRINT_FACE_Y,
+        'distal_inboard_min_y_mm': distal_box[2],
+        'distal_required_mm': B.LEG_Y_IN,
+    }
+    assert abs(prox_box[3] - B.PROX_PRINT_FACE_Y) <= 0.001
+    assert abs(distal_box[2] - B.LEG_Y_IN) <= 0.001
 
     original_visibility = [(occ, occ.isLightBulbOn)
                            for occ in B.root().occurrences]
@@ -540,7 +607,7 @@ def audit(_context: str):
             lower = _copy_at_occ(B.find_occ(LOWER))
             guide = _copy_at_occ(B.find_occ(GUIDE))
             stop = _copy_at_occ(B.find_occ(STOP))
-            dowel = _copy_at_occ(B.find_occ('HW_DowelPin_D6x9'))
+            dowel = _copy_at_occ(B.find_occ('HW_DowelPin_D6x10'))
             prox = _copy_at_occ(B.find_occ('Proximal_Link_L'))
             distal = _copy_at_occ(B.find_occ('Distal_Link_L'))
             spring = _spring_envelope(phi)
@@ -585,7 +652,7 @@ def audit(_context: str):
         for phi in (TEST_PHI_EXT - 0.5, TEST_PHI_FLEX + 0.5):
             _pose(0.0, phi)
             interference = _overlap(_copy_at_occ(B.find_occ(STOP)),
-                                    _copy_at_occ(B.find_occ('HW_DowelPin_D6x9')))
+                                    _copy_at_occ(B.find_occ('HW_DowelPin_D6x10')))
             report['stop_overtravel_proof'].append({
                 'phi_deg': phi,
                 'stop_dowel_interference_mm3': interference,
@@ -603,7 +670,7 @@ def audit(_context: str):
         distal_occ = B.find_occ('Distal_Link_L')
         direction, _length = B.cart_dir(TEST_PHI_EXT)
         spring = _spring_envelope(TEST_PHI_EXT)
-        clevis = sorted(B.find_all_occ('HW_ClevisPin_D4x32'),
+        clevis = sorted(B.find_all_occ('HW_ClevisPin_M4x40'),
                         key=lambda item: item.boundingBox.minPoint.z,
                         reverse=True)
         assert len(clevis) == 2

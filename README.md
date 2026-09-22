@@ -38,20 +38,28 @@ before printing spring-loaded parts.
 ---
 
 <!-- PRINT_QUEUE_START -->
-## Current print — unpowered ABS spring-mechanical article
+## Current print — ordered-pin unpowered ABS mechanical article
 
-**Start with the [upper cartridge eye direct download](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl), then use the complete [print and assembly traveller](first_article_stl/mechanical_spring_test/).** This September 17 batch completes a clamped, motor-unplugged mechanical single-leg article around the owned **OD18 / ID9 / 50 mm** spring. It is limited to slow, hand-contained, wheel-clear self-weight observation from **-8° through +15°**.
+**Print the four [ordered-pin replacements](first_article_stl/ordered_pin_integration/) first.** They redesign the shoulder root, both cartridge-pin lands, and the knee stop around the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 stainless pins. No pin measurement and no loose printed spacer are required. The new hub, proximal link, distal link, and stop plate supersede their earlier versions; reuse the six unchanged spring-test parts listed below.
 
-Fusion verified all seven meshes, the full 24-pose sweep, OD18/ID9 spring envelope, guide and clevis insertion paths, steel knee-pin path, no-tyre wheel-shell service path, stop clearance through the permitted range, and positive stop contact 0.5° beyond each limit. At -8° the spring is nominally uncompressed; predicted compression is 3.257 mm at 0° and 10.240 mm at +15°. The actual resting angle is a physical observation because the owned spring rate is not measured. [Fusion evidence and images](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
+Fusion verified the ordered hardware envelopes, all four replacement meshes, the full 24-pose sweep, OD18/ID9 spring envelope, guide and clevis insertion paths, steel knee-pin path, no-tyre wheel-shell service path, stop clearance through the permitted range, and positive stop contact 0.5° beyond each limit. At -8° the spring is nominally uncompressed; predicted compression is 3.257 mm at 0° and 10.240 mm at +15°. The actual resting angle is a physical observation because the owned spring rate is not measured. [Ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) · [complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
 
-### Print this mechanical-test batch
+### Print or replace these four parts
+
+| Part | Qty | Import orientation and supports |
+|---|---:|---|
+| [Shoulder output hub with three Ø4 × 10 root sockets](first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, Ø56 outboard flange on bed; no supports; controlled socket bridges |
+| [Proximal link with root sockets and integral M4 × 40 upper land](first_article_stl/ordered_pin_integration/ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad outboard face on bed; no support in functional bores or channel |
+| [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; use only the traveller's selective supports and block all fit bores |
+| [-8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, closed skin on bed and channel upward; no supports |
+
+### Reuse or print these unchanged September 17 parts
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
 | [Upper 50 mm cartridge eye](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, spring axis vertical; no supports; brim required |
 | [Lower 50 mm cartridge eye](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, spring axis vertical; no supports; brim required |
 | [Removable guide bar](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, long face on bed; no supports |
-| [-8°…+15° knee stop plate](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, full plate face on bed; no supports |
 | [Outboard knee-pin spacer](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; no supports |
 | [Encoder bracket used as pin keeper](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; no supports |
 | [No-tyre wheel shell](first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad web face on bed; no supports; print alone |
@@ -60,12 +68,12 @@ Use the tuned enclosed ABS profile: **0.20 mm layers, 4 walls, 5 top and 5 botto
 
 ### Existing parts and hardware that must pass first
 
-1. Print and physically accept the [Ø10.30 × 20.0 distal steel-pin article](first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl): firm-thumb insertion, hand withdrawal, no free spin, no radial rock and acceptable axial play.
-2. Print the [Ø4.5 M3 proximal-link replacement](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl) before installing its five inserts. The printed Ø4.0 copy is retained only as fit evidence.
+1. The ordered-pin distal link is also the current Ø10.30 × 20.0 steel knee-pin article. Before installing the spring, confirm firm-thumb knee-pin insertion, hand withdrawal, no free spin, no radial rock, and acceptable axial play.
+2. Install inserts only in the four new replacement parts. Retain the earlier hub, proximal link, distal link, and stop plate as evidence, not assembly parts.
 3. Print and securely clamp the [Ø4.5 Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl). Replace a fitted Ø4.0 [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) before its insert installation.
-4. Have the owned spring, **2 × Ø4 × 32 clevis pins with E-clips**, **1 × Ø6 × 9 steel stop dowel**, the received steel knee pin, both 6800 bearings, the accepted shoulder hub and the printed wheel hub.
+4. Have the owned spring, **3 × Ø4 × 10 dowels**, **2 × M4 × 40 clevis pins with supplied cotters**, **2 × ISO 7089 M4 washers**, **1 × Ø6 × 10 dowel**, **3 × M3 × 10 stop screws**, the received steel knee pin, both 6800 bearings, and the printed wheel hub. The seller dimensions are already designed in; only visual inspection and hand fit are required.
 
-Follow the traveller's detached checks and assembly order. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Clamp the stand, support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
+Follow the [ordered-pin traveller](first_article_stl/ordered_pin_integration/) and then the unchanged September 17 sequence. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Clamp the stand, support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
 
 The support-free no-tyre wheel shell is a suspended mechanical-test part. The final tyre-compatible structural rim, final pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion remain held. Keep the TPU tyre off this article.
 

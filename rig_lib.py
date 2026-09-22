@@ -859,8 +859,8 @@ ARTIFACT_PAIRS = (
     # the knee stop dowel crushing its PU bumpers.  These are the DESIGNED crush
     # volumes and they reproduce design record §10.1 exactly: 1.4 mm3 on the
     # extension pad at -8 deg, 8.6 at +25, 12.7 at the +27 metal stop.
-    ('HW_DowelPin_D6x9', 'Knee_Bumper_Ext_L'),
-    ('HW_DowelPin_D6x9', 'Knee_Bumper_Flex_L'),
+    ('HW_DowelPin_D6x10', 'Knee_Bumper_Ext_L'),
+    ('HW_DowelPin_D6x10', 'Knee_Bumper_Flex_L'),
     # the cartridge stop's TPU tube crushing on the LOWER spring seat.  Same
     # class of artifact, for the §8 compression column: the tube is sized to
     # first touch at +20 deg and to be 18.5 % crushed when the washer stack goes
@@ -1581,7 +1581,9 @@ def build_rig_knee_flexion_stop():
 STOP_SECTOR_R_IN, STOP_SECTOR_R_OUT = 11.0, 35.5
 STOP_SECTOR_A0, STOP_SECTOR_A1 = 200.345, 302.000
 STOP_SLOT_R_IN, STOP_SLOT_R_OUT = 26.9, 33.1
-STOP_PLATE_Y0, STOP_PLATE_Y1 = 90.3, 93.3
+STOP_PLATE_Y0, STOP_PLATE_Y1 = 90.3, beni_lib.TEST_STOP_PLATE_Y1
+STOP_SLOT_DEPTH = 5.0
+STOP_OUTER_SKIN = STOP_PLATE_Y1 - STOP_PLATE_Y0 - STOP_SLOT_DEPTH
 STOP_DOWEL_A_PHI0 = 246.6                # dowel angle at phi = 0
 STOP_INSERT_R = 15.0
 STOP_INSERT_A = (230.0, 260.0, 290.0)
@@ -1621,7 +1623,10 @@ def build_rig_knee_stop_plate():
     for i in range(len(pts) - 1):
         slot(sk, pts[i][0], pts[i][1], pts[i + 1][0], pts[i + 1][1],
              STOP_SLOT_R_OUT - STOP_SLOT_R_IN)
-    extrude(c, profiles(sk), STOP_PLATE_Y1 - STOP_PLATE_Y0, op='cut',
+    # Open the motion channel only from the link side.  The remaining 0.8 mm
+    # outboard skin captures the ordered Ø6 x 10 pin axially against the blind
+    # socket floor in the distal arm.
+    extrude(c, profiles(sk), STOP_SLOT_DEPTH, op='cut',
             participants=bodies_of(c))
 
     sk = sk_on_y(c, STOP_PLATE_Y0)
@@ -1635,6 +1640,8 @@ def build_rig_knee_stop_plate():
     _report(occ, 'RIG_Knee_Stop_Plate_L')
     print('     slot %.1f .. %.1f deg  -> extension stop -8, flexion backup +28'
           % (a_flex, a_ext))
+    print('     captive pin channel %.1f deep, %.1f mm outboard skin'
+          % (STOP_SLOT_DEPTH, STOP_OUTER_SKIN))
     return occ
 
 

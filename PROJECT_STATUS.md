@@ -8,7 +8,7 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
-> **Current scope decision, updated 2026-09-17 — complete the single-leg integration
+> **Current scope decision, updated 2026-09-21 — complete the single-leg integration
 > article in ABS; defer PA-CF to the two-leg structural build.** The active leg
 > may be fully dry-assembled, hand-posed, wired, and commissioned with both
 > motors under current limits while the wheel is clear and the printed path
@@ -29,10 +29,10 @@ commands. For the public project overview and active print download, see
 |---|---|
 | **Prototype 1**, two-leg robot | Modelled, saved and verified in Fusion (`Biped → Beni_Prototype1`). The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. The assembly audit and remaining release gates are linked below. Revision 2; not built. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now inherits the owner-selected Ø4.5 M3 receiver and Ø5.3 M4 receiver constants, but the stripped/deferred carriage was not rebuilt or released. Rebuild and verify it in Fusion when Mode B returns and repeat the M3 coupon for its eventual material/profile. |
-| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** The owner selected Ø4.5 M3 receivers and a Ø10.30 × 20.0 mm serviceable distal receiver; its physical steel-pin checks remain open. The September 17 Fusion release adds a test-only 50 mm spring cartridge, removable guide, -8°…+15° stop, outboard knee-pin spacer/bracket, and support-free no-tyre wheel shell. All seven bed-ready files, 24-pose spring sweep, insertion/service paths, stop proof and meshes pass. This releases only an unpowered, clamped, wheel-clear, hand-contained self-weight test. Final pin retention, encoder coupling, tyre-compatible structural rim, actual harness routing and electronics still gate powered use. |
+| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** The September 21 ordered-pin revision replaces the shoulder hub, proximal link, distal link, and stop plate so the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 pins are proper locating, pivot, and captive-stop hardware rather than spacer workarounds. Fusion passes the four meshes, the 24-pose spring sweep, insertion/service paths, and stop proof. The physical D10 knee-pin and newly ordered pin hand fits remain open. This releases only an unpowered, clamped, wheel-clear, hand-contained self-weight test. Final D10 retention, encoder coupling, tyre-compatible structural rim, actual harness routing and electronics still gate powered use. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). **Spring received: Yellow / OD18 / ID9 / 50 mm free length**, matching the recommended order and both detached Ø8 pilots by physical fit. The test-only cartridge adaptation is now released; the real spring rate and solid height remain unmeasured. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The owner printed the corrected Ø4.15 shoulder hub with Ø5.3 M4 receivers and successfully installed its inserts. Retain that hub. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping; the CAD/source now match this physical result. The face-flat Ø19.10 proximal link passed both bearing fits; the later wall-obstruction correction is printed, and the owner confirmed all six corrected-link screw seats on September 7. That printed link still has failed Ø4.0 M3 pockets and must be replaced by the released Ø4.5 revision before M3 installation. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). The bought metal knee pins arrived on 2026-09-15; their count, measured diameter and tolerance evidence remain unverified. One fully seated through both installed bearings and the provisional shin. The bearings felt snug, but the owner isolated the seizure to the shin's nominal Ø10 printed bore and broke the provisional plastic shin to recover the pin. That bore is a physical FAIL; the initial 19.0 mm ladder made nominal Ø10.25 the firm-thumb candidate, and the owner conservatively selected Ø10.30 while the receiver was expected to span 21.6 mm. Fusion's subsequent service-path audit corrected the integrated receiver to the clear 20.0 mm fork gap. The released Ø10.30 fit article still needs physical insertion, withdrawal, spin, rock and axial-play checks. The bearing fit also needs a separate one-bearing-at-a-time hand test. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/). Voron-style M3 inserts plus photographed assortments are in hand. Their nominal Ø4.0 general-gauge station failed; on September 14 the owner selected the largest, unmarked-end station on the dedicated ladder, nominal Ø4.5. This is a qualitative best-fit report without a photograph, measured printed diameter, or separate spin/pull result. The mixed Kadriick case label shows 30 × M4 × 8 and 25 × M4 × 10. The owner confirmed the largest ABS M4 ladder station, Ø5.3, passed all installation and cooled-retention checks on 2026-09-04 and elected to retain M4. Confirm that two Ø4 × 32 steel clevis pins/E-clips and one Ø6 × 9 steel stop dowel are physically in hand before installing the spring. The complete leg and wiring remain unfinished. |
+| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). **Spring received: Yellow / OD18 / ID9 / 50 mm free length**, matching the recommended order and both detached Ø8 pilots by physical fit. The test-only cartridge adaptation is now released; the real spring rate and solid height remain unmeasured. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The owner printed the corrected Ø4.15 shoulder hub with Ø5.3 M4 receivers and successfully installed its inserts. Retain it as fit evidence; the active article now uses the ordered-pin hub with three root-dowel sockets. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping; the CAD/source now match this physical result. The face-flat Ø19.10 proximal link passed both bearing fits; the later wall-obstruction correction is printed, and the owner confirmed all six corrected-link screw seats on September 7. That printed link still has failed Ø4.0 M3 pockets and is superseded by the ordered-pin Ø19.15/Ø4.5 revision. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). The bought metal knee pins arrived on 2026-09-15; their count, measured diameter and tolerance evidence remain unverified. One fully seated through both installed bearings and the provisional shin. The bearings felt snug, but the owner isolated the seizure to the shin's nominal Ø10 printed bore and broke the provisional plastic shin to recover the pin. That bore is a physical FAIL; the initial 19.0 mm ladder made nominal Ø10.25 the firm-thumb candidate, and the owner conservatively selected Ø10.30 while the receiver was expected to span 21.6 mm. Fusion's subsequent service-path audit corrected the integrated receiver to the clear 20.0 mm fork gap. The ordered-pin distal link retains that Ø10.30 × 20.0 receiver and still needs physical insertion, withdrawal, spin, rock and axial-play checks. The bearing fit also needs a separate one-bearing-at-a-time hand test. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/). Voron-style M3 inserts plus photographed assortments are in hand. Their nominal Ø4.0 general-gauge station failed; on September 14 the owner selected the largest, unmarked-end station on the dedicated ladder, nominal Ø4.5. This is a qualitative best-fit report without a photograph, measured printed diameter, or separate spin/pull result. The mixed Kadriick case label shows 30 × M4 × 8 and 25 × M4 × 10. The owner confirmed the largest ABS M4 ladder station, Ø5.3, passed all installation and cooled-retention checks on 2026-09-04 and elected to retain M4. The September 20 order adds 60 × Ø4 × 10 dowels, 8 × M4 × 40 clevis pins with cotters, and 15 × Ø6 × 10 dowels. The active design consumes 3, 2, and 1 respectively and requires only visual inspection plus binary hand fit, not measurement. The complete leg and wiring remain unfinished. |
 
 **Owner update, 2026-09-07:** the temporary pin, provisional distal link and
 two spring caps are printed, and provisional assembly succeeded. The owner
@@ -73,21 +73,21 @@ retention and encoder coupling still gate powered use.
 [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/) ·
 [Optional diagnostic coupon](first_article_stl/knee_pin_fit/).
 
-**Mechanical hardware order update, 2026-09-20:** the owner reports that the
-assorted metric fasteners required by the active single-leg assembly are already
-in hand; exact counts, materials and grades have not been separately inventoried
-in the repository. Three additional Amazon hardware families are now **ordered /
-not yet received or accepted**: 15 × seller-listed Ø6 × 10 mm 304 stainless
-cylindrical pins, 60 × Ø4 × 10 mm 304 stainless cylindrical pins, and 8 ×
-seller-listed M4 × 40 mm 304 stainless single-hole clevis pins with cotter
-retainers. The Ø6 × 10 parts are candidate substitutes for the released Ø6 ×
-9 stop dowel; the Ø4 × 10 parts are candidate shoulder-hub locating pins; and
-the 40 mm clevis pins/cotters are candidate substitutes for the released Ø4 ×
-32 clevis-pin/E-clip hardware. **Do not mark these substitutions accepted from
-the order alone.** On arrival, record actual diameter/length and hand-fit them
-in the released ABS article. The canonical September 17 release dimensions
-remain Ø6 × 9 and Ø4 × 32 until the candidate substitutions are physically
-accepted and, where they change modeled geometry, reverified through Fusion.
+**Ordered-pin integration release, 2026-09-21:** the owner reports that the
+assorted metric fasteners are already in hand. The September 20 order adds
+15 × seller-listed Ø6 × 10 mm 304 stainless cylindrical pins, 60 × Ø4 × 10 mm
+304 stainless cylindrical pins, and 8 × M4 × 40 mm 304 stainless single-hole
+clevis pins with supplied cotters. Fusion now models those exact listed sizes.
+Three Ø4 pins locate the shoulder root in purpose-built press/slip sockets; two
+M4 × 40 pins cross integral 34.0 mm clevis lands plus ISO 7089 M4 washers; and
+one Ø6 pin is captive between a blind distal socket and the stop plate's closed
+skin. The four affected printed parts were rebuilt, motion/path audited, and
+released as closed-manifold bed-ready meshes. **No owner measurement is
+required.** On arrival, visually reject damaged hardware and perform the
+traveller's binary hand-fit checks without drilling, filing, hammering, or
+screw pull-down. The hardware is not `PHYSICAL ASSEMBLY VERIFIED` until those
+checks pass. [Design evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) ·
+[print and assembly traveller](first_article_stl/ordered_pin_integration/).
 
 **Unpowered ABS spring-mechanical release, 2026-09-17:** Fusion now contains
 and the repository now releases two 50 mm spring eyes, a removable guide bar,
@@ -107,14 +107,16 @@ insert installation/detached motor fit are still unreported.
 [Owner completion record and exact files](evidence/assembly/2026-09-07_small_parts_printed/).
 
 **Corrected Ø19.15 ABS proximal link: the Ø4.0 revision is printed and its six
-M4 screw seats were accepted.** Retain it as physical evidence, but print the
-new Ø4.5 M3 receiver revision for the active build. Keep the accepted shoulder hub. The active downloads are in the final
-[README print queue](README.md#current-print--convenience-link).
+M4 screw seats were accepted.** Retain it and the accepted shoulder hub as
+physical evidence, but use the September 21 ordered-pin proximal link and hub
+for the active build. The active downloads are in the
+[README print queue](README.md#current-print--ordered-pin-unpowered-abs-mechanical-article).
 Fusion found two wall-obstructed M4 head paths and one screw seat cut into by
 the large lightening opening. The corrected link clears the paths and retains
 complete seating lands. The five knee M3 paths remain unobstructed and now use
-the owner-selected Ø4.5 diameter in the released replacement. The accepted
-shoulder hub stays in use; no further hub reprint is needed.
+the owner-selected Ø4.5 diameter in the released replacement. Those accepted
+prints establish the process dimensions; the ordered-pin geometry requires
+both active parts to be reprinted.
 
 The corrected front cable post fits outside the cover and uses two M3 × 12
 screws in the upper cover positions. Its Ø8 eye lies beyond the cover edge.
@@ -179,35 +181,36 @@ are not substitutes for these mating coupons. The optional Mode A cable anchor
 is in `first_article_stl/mode_a/`. PA-CF coupons and structural prints are now
 deferred to the later two-leg build.
 
-## Immediate next steps after the September 17 mechanical release
+## Immediate next steps after the September 21 ordered-pin release
 
-1. Print the released [Ø10.30 distal steel-pin fit article](first_article_stl/assembly_dry_fit/ABS_FA_Distal_Link_L_D10p30_STEEL_PIN_FIT_PRINT_ORIENTED.stl)
-   in ABS using the selective-support policy in its traveller. Record the
-   steel-pin hardware and run each pin through each bearing separately. With
-   both links supported, confirm straight insertion/removal of the shin, full
-   pin insertion and hand withdrawal, no free spin or radial rock, and acceptable
-   axial play across the nominal 0.8 mm clearance per side. Retention and encoder
-   coupling still need verification before powered use.
-2. Keep the accepted loose-pin mock-up evidence, shoulder hub and caps. The
-   provisional shin itself was destroyed during steel-pin recovery. Retain the printed
-   corrected proximal link as evidence of the bearing and M4 access results,
-   but replace it with the released [Ø4.5 M3 revision](first_article_stl/assembly_dry_fit/ABS_FA_Proximal_Link_L_D19p15_M4_ACCESS_FIXED_PRINT_ORIENTED.stl)
-   before M3 installation. Print it alone in ABS from the supplied orientation.
+1. Print the four [ordered-pin replacement parts](first_article_stl/ordered_pin_integration/)
+   from their supplied orientations: shoulder hub, proximal link, distal link,
+   and closed-skin stop plate. They supersede all earlier copies of those four
+   parts for the active article. Do not rotate, scale, drill, file, or fit them
+   by screw pull-down.
+2. When the ordered hardware arrives, visually reject damage and use the
+   traveller's binary fit checks; no measurement is required. Seat three
+   Ø4 × 10 dowels in the hub and hand-mate the proximal root, place one Ø6 × 10
+   dowel in the distal socket before bolting on the stop plate, and retain each
+   M4 × 40 clevis pin with one ISO 7089 M4 washer plus its supplied cotter.
+   Complete the existing D10 steel knee-pin check in the new distal link:
+   firm-thumb insertion, hand withdrawal, no free spin or radial rock, and
+   acceptable axial play. Final D10 retention and encoder coupling still gate
+   powered use.
 3. Print the revised [ABS stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl)
    on its own; it needs at least 300 mm on one bed axis. Print the revised
    [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl)
    if the fitted plate is the prior Ø4.0 revision or lacks four usable cover
    receivers. The rear cable anchor remains optional. The already printed
    cover, post and wheel hub need no repeat print.
-4. Print the seven-part
-   [unpowered spring-mechanical batch](first_article_stl/mechanical_spring_test/)
-   in ABS with the exact supplied orientations. Before spring installation,
-   confirm that two Ø4 × 32 clevis pins with E-clips and one Ø6 × 9 steel stop
-   dowel are in hand. Complete every detached fit check and the Ø10.30 distal
-   physical gate first. Then clamp the stand, unplug both motors, keep the wheel
-   clear and the distal side hand-contained, install the spring at -8°, and move
-   slowly through the traveller's -8°, 0°, 5°, 10° and 15° observations. Stop
-   at the first bind, crack, stop bypass, coil contact or loss of pin control.
+4. Reuse or print the six unchanged parts in the
+   [September 17 spring-mechanical batch](first_article_stl/mechanical_spring_test/):
+   both cartridge eyes, guide, D10 spacer, bracket keeper, and no-tyre wheel
+   shell. Do not use its superseded stop plate. Complete every detached fit
+   check first. Then clamp the stand, unplug both motors, keep the wheel clear
+   and the distal side hand-contained, install the spring at -8°, and move
+   slowly through -8°, 0°, 5°, 10° and 15°. Stop at the first bind, crack,
+   stop bypass, coil contact, guide escape, or loss of pin control.
 5. Inspect the printed cable cover, front cable post and wheel hub. Follow the
    [receiver map](docs/assembly/heatset_receiver_map.md) for wheel-hub M4 inserts,
    then rehearse detached, unplugged motor fit. The provisional distal link is
@@ -225,10 +228,10 @@ deferred to the later two-leg build.
    coupling, spring-rate/solid-height characterisation and powered motion remain
    held for later work.
 
-The replacement proximal link, Mode A stand and conditional shoulder plate are
-the Ø4.5 releases from the September 14 result. Keep the temporary pin limited
-to the supported bench rehearsal; motor commissioning waits for the final
-mechanical, fixture, harness and electronics gates.
+The ordered-pin proximal link retains the accepted Ø19.15 bearing seat and Ø4.5
+M3 receiver values. The Mode A stand and conditional shoulder plate remain the
+Ø4.5 releases from the September 14 result. Motor commissioning waits for the
+final mechanical, fixture, harness, and electronics gates.
 
 ---
 
@@ -237,7 +240,7 @@ mechanical, fixture, harness and electronics gates.
 | Document | What it is |
 |---|---|
 | `Beni_Prototype1` | The complete two-leg robot. **Master — do not edit casually.** |
-| `Beni_SingleLegRig` | The active ABS integration rig, saved as v27 on 2026-09-17. It now also contains the test-only 50 mm cartridge eyes/guide, -8°…+15° stop, outboard pin spacer/keeper, no-tyre wheel shell and owned-spring reference envelope. |
+| `Beni_SingleLegRig` | The active ABS integration rig, saved as v28 on 2026-09-21. It contains the test-only 50 mm cartridge eyes/guide, ordered-pin shoulder root and clevis lands, captive Ø6 × 10 stop, outboard D10 pin spacer/keeper, no-tyre wheel shell, and owned-spring reference envelope. |
 | `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
@@ -315,6 +318,7 @@ hand-built.
 | `knee_mockup_fusion.py` | Fusion MCP | Creates the separate supported ABS knee mock-up, temporary pin and detached spring-seat caps; checks assembly/support paths and exported meshes. |
 | `distal_first_article_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Audits the Ø10.30 × 20.0 mm distal receiver, link and pin service paths, four selective-support regions and the bed-ready mesh; writes the v26 release evidence. |
 | `mechanical_spring_test_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Builds and audits the unpowered 50 mm spring cartridge, guide, -8°…+15° stop, outboard pin keeper stack and no-tyre wheel shell; exports the seven bed-ready ABS files and September 17 evidence. |
+| `ordered_pin_integration_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Releases the four September 21 replacement parts around the ordered Ø4 × 10, M4 × 40, and Ø6 × 10 hardware; verifies meshes and writes the ordered-pin manifest/evidence. |
 | `readme_images_fusion.py` | Fusion MCP, with `Beni_Prototype1` active | Refreshes the full-robot, complete-leg, wheel-module, and knee-detail images used by the project homepage. |
 | `stl_inspect.py` | plain `python3` | Recovers circular features from an STL mesh. Used to check the GAUGE coupons against the design record. |
 | `fusion_bridge/` | both sides | Lets an agent without Fusion read the live model. `bridge.py` (plain `python3`) validates requests and reads results; `probe.py` + `ops.py` run inside Fusion. See [`fusion_bridge/PROTOCOL.md`](fusion_bridge/PROTOCOL.md). |

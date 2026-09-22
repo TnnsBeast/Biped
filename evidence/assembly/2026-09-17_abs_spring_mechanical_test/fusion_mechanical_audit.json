@@ -65,10 +65,6 @@
           "maximum_interference_mm3": 0.0
         },
         {
-          "angle_deg": 180,
-          "maximum_interference_mm3": 0.0
-        },
-        {
           "angle_deg": 225,
           "maximum_interference_mm3": 0.0
         },
@@ -99,6 +95,52 @@
       ],
       "directions_checked": 24,
       "travel_mm": 40.0
+    }
+  },
+  "ordered_pin_interfaces": {
+    "clevis_M4x40": {
+      "conservative_hole_edge_clearance_mm": 0.4000000000000028,
+      "cotter_keepout": "orient the supplied cotter radially away from the knee; 30 mm centred XZ envelope reserved",
+      "lower_integral_boss_side": "outboard; inboard print datum preserved",
+      "printed_stack_mm": 34.0,
+      "quantity_used": 2,
+      "retaining_hole_datum_from_head_mm": 36.0,
+      "retaining_hole_diameter_mm": 1.6,
+      "shaft_diameter_mm": 4.0,
+      "shaft_length_mm": 40.0,
+      "upper_integral_boss_side": "inboard; outboard print datum preserved",
+      "washer": "ISO 7089 M4, 4.3 x 9 x 0.8 mm"
+    },
+    "shoulder_root_dowels_D4x10": {
+      "angles_deg": [
+        90.4,
+        210.4,
+        330.4
+      ],
+      "axial_bottom_clearance_mm": 0.20000000000000018,
+      "hub_press_socket_mm": [
+        4.05,
+        5.0
+      ],
+      "link_slip_socket_mm": [
+        4.25,
+        5.2
+      ],
+      "pcd_mm": 44.0,
+      "quantity_used": 3
+    },
+    "stop_dowel_D6x10": {
+      "distal_socket_depth_mm": 4.5,
+      "distal_socket_diameter_mm": 6.2,
+      "pin_end_to_channel_cap_clearance_mm": 0.29999999999999716,
+      "pin_span_y_mm": [
+        85.0,
+        95.0
+      ],
+      "plate_channel_depth_mm": 5.0,
+      "plate_outer_skin_mm": 0.7999999999999972,
+      "printed_socket_floor_mm": 0.5,
+      "quantity_used": 1
     }
   },
   "pin_keeper": {
@@ -446,6 +488,12 @@
       "upper_lower_interference_mm3": 0.0
     }
   ],
+  "print_datum_preservation": {
+    "distal_inboard_min_y_mm": 59.5,
+    "distal_required_mm": 59.5,
+    "proximal_outboard_max_y_mm": 90.30000000000001,
+    "proximal_required_mm": 90.3
+  },
   "radial_clearances_mm": {
     "guide_bore_to_bar_diagonal": 0.6259884629822388,
     "spring_id_to_pilot_diametral": 1.0
@@ -791,27 +839,27 @@
   "stop_overtravel_proof": [
     {
       "phi_deg": -8.5,
-      "stop_dowel_interference_mm3": 2.2697482781503036
+      "stop_dowel_interference_mm3": 3.5559389691021264
     },
     {
       "phi_deg": 15.5,
-      "stop_dowel_interference_mm3": 2.2685724282960065
+      "stop_dowel_interference_mm3": 3.5540968043302255
     }
   ],
   "topology": {
     "ABS_TEST_Cart_Guide_Bar_50mm": {
       "bbox_mm": [
-        61.00430914812857,
+        61.715350243574925,
         72.49251688708864,
         72.6,
         76.39999999999999,
-        -107.82388121832764,
+        -102.74652160246042,
         -52.13514535011565
       ],
       "closed_manifold": true,
-      "edges": 12,
-      "faces": 6,
-      "volume_mm3": 804.3080000000009
+      "edges": 36,
+      "faces": 14,
+      "volume_mm3": 577.3038742650605
     },
     "ABS_TEST_Cart_Lower_Eye_50mm": {
       "bbox_mm": [
@@ -837,9 +885,9 @@
         -41.356302556724614
       ],
       "closed_manifold": true,
-      "edges": 43,
-      "faces": 19,
-      "volume_mm3": 4477.22053898988
+      "edges": 53,
+      "faces": 22,
+      "volume_mm3": 4465.839353068817
     },
     "ABS_TEST_Knee_Pin_Outboard_Spacer": {
       "bbox_mm": [
@@ -860,14 +908,14 @@
         58.63992622245169,
         110.73743388027876,
         90.3,
-        93.3,
+        96.1,
         -112.6345,
         -80.95889376814627
       ],
       "closed_manifold": true,
       "edges": 237,
-      "faces": 82,
-      "volume_mm3": 2635.632963158436
+      "faces": 83,
+      "volume_mm3": 5179.44104399178
     },
     "ABS_TEST_Wheel_Rim_NoTyre": {
       "bbox_mm": [

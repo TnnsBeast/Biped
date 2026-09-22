@@ -183,13 +183,14 @@ BASE_PARTS = ('Chassis_Frame', 'Electronics_Tray', 'Battery_4S2200',
               'Shoulder_Cable_Cover_L', 'Shoulder_Cable_Spiral_L',
               'REF_GIM6010-8')
 THIGH_PARTS = ('Shoulder_Output_Hub_L', 'Proximal_Link_L', 'HW_Bearing_6800',
+               'HW_DowelPin_D4x10_Root',
                'Knee_Stop_Arc_L', 'Knee_Bumper_Flex_L', 'Knee_Bumper_Ext_L',
                'Knee_Encoder_Bracket_L', 'Knee_Encoder_PCB_L',
-               'HW_SHCS_M3x16', 'HW_SHCS_M3x6',
+               'HW_SHCS_M3x16',
                'Cart_Upper_Eye_L', 'Cart_Guide_Rod_L')
 SHANK_PARTS = ('Distal_Link_L', 'Knee_Sleeve_L', 'Knee_Axle_L',
                'Knee_Magnet_Carrier_L', 'HW_Magnet_D6x2p5_Diametric',
-               'HW_DowelPin_D6x9', 'REF_GIM4305-10', 'HW_SHCS_M2p5x12',
+               'HW_DowelPin_D6x10', 'REF_GIM4305-10', 'HW_SHCS_M2p5x12',
                'Cart_Lower_Eye_L', 'Cart_Preload_Shim_L', 'Knee_Spring_L')
 WHEEL_PARTS = ('Wheel_Hub_L', 'Wheel_Rim_L', 'Wheel_Tyre_L')
 
@@ -197,7 +198,7 @@ WHEEL_PARTS = ('Wheel_Hub_L', 'Wheel_Rim_L', 'Wheel_Tyre_L')
 # used in several places; see _split_screws.
 SCREW_PARTS = ('HW_SHCS_M3x10', 'HW_SHCS_M3x8', 'HW_SHCS_M4x8',
                'HW_SHCS_M4x10',
-               'HW_ClevisPin_D4x32')
+               'HW_ClevisPin_M4x40', 'HW_Washer_M4')
 
 
 def _split_screws(side):
@@ -220,7 +221,7 @@ def _split_screws(side):
             out['thigh'].append(o)
         elif nm == 'HW_SHCS_M4x8':
             out['wheel'].append(o)
-        elif nm == 'HW_ClevisPin_D4x32':
+        elif nm in ('HW_ClevisPin_M4x40', 'HW_Washer_M4'):
             # the cartridge is a floating two-pivot member: its upper pivot
             # rides with the thigh, its lower pivot with the shank.  Same split
             # as beni_lib.classify()'s CART_UP / CART_LO.

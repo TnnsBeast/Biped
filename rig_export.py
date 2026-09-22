@@ -320,9 +320,10 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
     """Build/export the coupon-selected ABS shoulder hub.
 
     This creates a separately named transient component so the released
-    Ø4.05 master hub remains untouched.  The owner-tested Ø4.15 motor-pin
-    fit is retained with the owner-tested M4 receiver diameter. Both native
-    and bed-ready copies are exported, then the transient component is deleted.
+    assembly component remains untouched.  The owner-tested Ø4.15 motor-pin
+    fit and Ø5.3 M4 receiver are retained, together with the three ordered-
+    hardware Ø4 x 10 root-dowel sockets. Both native and bed-ready copies are
+    exported, then the transient component is deleted.
     """
     if abs(pin_bore_d - 4.15) > 1e-6:
         raise ValueError('only the owner-tested Ø4.15 ABS variant is released')
@@ -376,8 +377,8 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
             'M4 screw seats on the printed access-fixed link. That print has '
             'the failed Ø4.0 M3 receivers; repeat the six-screw rehearsal after '
             'printing the released Ø4.5 replacement.'),
-        'source_geometry': ('Shoulder_Output_Hub_L with pin bores overridden; '
-                            'six M4 heat-set receivers retained'),
+        'source_geometry': ('Shoulder_Output_Hub_L; six M4 heat-set receivers '
+                            'and three Ø4 x 10 root-dowel sockets retained'),
         'pin_bores_mm': pin_bore_d,
         'pin_bore_count_brep': pin_faces,
         'pin_pcd_mm': B.SH_PIN_PCD,
@@ -390,6 +391,14 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
         'link_insert_hole_depth_mm': B.HUB_LINK_INSERT_HOLE_DEPTH,
         'link_insert_hole_y_span_mm': list(expected_span),
         'link_fastener': '6 x M4 x 10 SHCS',
+        'root_dowels': {
+            'quantity': 3,
+            'nominal_size_mm': [B.ROOT_DOWEL_D, B.ROOT_DOWEL_LEN],
+            'pcd_mm': B.ROOT_DOWEL_PCD,
+            'angles_deg': list(B.ROOT_DOWEL_A),
+            'hub_socket_diameter_mm': B.ROOT_DOWEL_HUB_SOCKET_D,
+            'hub_socket_depth_mm': B.ROOT_DOWEL_HUB_DEPTH,
+        },
         'nominal_envelope_mm': [B.HUB_FLANGE_D,
                                 B.HUB_Y1 - B.HUB_Y0,
                                 B.HUB_FLANGE_D],
@@ -422,11 +431,11 @@ def export_abs_shoulder_hub_first_article(pin_bore_d=4.15):
 
     oriented = _export_max_y_face_down(
         occ, name + '_PRINT_ORIENTED', ABS_ASSEMBLY_DIR,
-        ('No supports. Six M4 insert bores, three dowel-pin bores, six motor '
-         'holes and the centre bore are vertical; the body contracts away '
-         'from the Ø56 bed face. Two Ø11 blind-relief ceilings and the Ø6.2 '
-         'motor-counterbore shoulders are controlled bridges; inspect their '
-         'undersides before inserting hardware.'))
+        ('No supports. Six M4 insert bores, three motor-pin bores, three root-'
+         'dowel sockets, six motor holes and the centre bore are vertical; '
+         'the body contracts away from the Ø56 bed face. The Ø4 root-socket '
+         'ceilings, two Ø11 blind-relief ceilings and Ø6.2 motor-counterbore '
+         'shoulders are controlled bridges; inspect before hardware.'))
     manifest['print_oriented'] = oriented
     manifest_path = os.path.join(ABS_ASSEMBLY_DIR,
                                  'fusion_manifest.json')

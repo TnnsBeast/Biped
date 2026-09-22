@@ -1,0 +1,273 @@
+{
+  "assembly_image": "/Users/neilchulani/Biped/evidence/assembly/2026-09-21_ordered_pin_integration/00_fusion_ordered_pin_integration_phi_0.png",
+  "design_decisions": {
+    "D4x10_shoulder_root_dowels": {
+      "angles_deg": [
+        90.4,
+        210.4,
+        330.4
+      ],
+      "axial_bottom_clearance_mm": 0.2,
+      "hub_press_socket_mm": [
+        4.05,
+        5.0
+      ],
+      "link_slip_socket_mm": [
+        4.25,
+        5.2
+      ],
+      "pcd_mm": 44.0,
+      "quantity": 3,
+      "retention": "press in hub, slip in link, axially captive after the six M4 screws clamp the faces"
+    },
+    "D6x10_stop_dowel": {
+      "distal_socket_floor_mm": 0.5,
+      "distal_socket_mm": [
+        6.2,
+        4.5
+      ],
+      "pin_end_cap_clearance_mm": 0.3,
+      "plate_channel_depth_mm": 5.0,
+      "plate_outer_skin_mm": 0.8,
+      "quantity": 1,
+      "retention": "captured between printed floor and stop-plate skin; no adhesive or press fit required",
+      "stop_fasteners": "3 x M3 x 10 SHCS into existing M3 inserts"
+    },
+    "M4x40_clevis_pins": {
+      "conservative_washer_to_hole_edge_clearance_mm": 0.4,
+      "cotter_orientation": "rotate each clevis pin so its supplied cotter lies radially away from the knee",
+      "lower_land": "\u00d814 integral outboard boss; verified distal inboard print plane unchanged",
+      "printed_stack_mm": 34.0,
+      "quantity": 2,
+      "seller_drawing_hole_mm": [
+        1.6,
+        36.0
+      ],
+      "shaft_mm": [
+        4.0,
+        40.0
+      ],
+      "upper_land": "\u00d814 integral inboard boss; verified proximal outboard print plane unchanged",
+      "washer": "2 x ISO 7089 M4, 4.3 x 9 x 0.8 mm"
+    }
+  },
+  "document": "Beni_SingleLegRig",
+  "exports": [
+    {
+      "export_name": "ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        56.0,
+        56.0,
+        14.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Shoulder_Output_Hub_L",
+      "source_support_face_indices": [
+        49
+      ],
+      "source_support_face_y_mm": 59.5,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl",
+      "stl_bytes": 282084,
+      "support_face_area_mm2": 1738.996,
+      "support_policy": "\u00d856 outboard flange face on bed. No supports. The three \u00d84.05 x 5.0 root-dowel sockets are vertical 4 mm bridges; inspect their ceilings before installing pins or inserts."
+    },
+    {
+      "export_name": "ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        141.9253,
+        127.1345,
+        34.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "Proximal_Link_L",
+      "source_support_face_indices": [
+        89
+      ],
+      "source_support_face_y_mm": 90.3,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl",
+      "stl_bytes": 338184,
+      "support_face_area_mm2": 4436.717,
+      "support_policy": "Verified broad y=90.3 outboard face on bed. No supports in bearing seats, root sockets, clevis bore or the 20 mm channel. The M4x40 upper-clevis land grows away from the bed on the inboard side."
+    },
+    {
+      "export_name": "ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        136.9253,
+        122.1345,
+        34.0
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": 90.0,
+      "source_part": "Distal_Link_L",
+      "source_support_face_indices": [
+        17
+      ],
+      "source_support_face_y_mm": 59.5,
+      "source_support_side": "min",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl",
+      "stl_bytes": 225284,
+      "support_face_area_mm2": 2759.96,
+      "support_policy": "Verified broad y=59.5 inboard face on bed. Retain the released selective-support policy under the knee receiver land, raised web, wheel-end underside and open channel ceiling. Block support from all fit bores. The lower-clevis land grows away from the bed."
+    },
+    {
+      "export_name": "ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED",
+      "fusion_screenshot": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.png",
+      "minimum_z_mm": 0.0,
+      "oriented_bbox_mm": [
+        52.0975,
+        31.6756,
+        5.8
+      ],
+      "rotation_axis": "+X",
+      "rotation_deg": -90.0,
+      "source_part": "ABS_TEST_Knee_Stop_Plate_15deg",
+      "source_support_face_indices": [
+        81
+      ],
+      "source_support_face_y_mm": 96.1,
+      "source_support_side": "max",
+      "stl": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl",
+      "stl_bytes": 65884,
+      "support_face_area_mm2": 983.399,
+      "support_policy": "Closed 0.8 mm outboard skin on bed; the 5.0 mm pin channel opens upward. No supports. Inspect the skin and all three M3 holes."
+    }
+  ],
+  "mechanical_audit": "/Users/neilchulani/Biped/evidence/assembly/2026-09-17_abs_spring_mechanical_test/fusion_mechanical_audit.json",
+  "mesh_verification": {
+    "ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        136.89337158203125,
+        122.11243438720703,
+        34.0
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 49017.20809583081,
+      "minimum_z_mm": 0.0,
+      "native_volume_relative_error": 1.0012140520457803e-05,
+      "nonmanifold_edges": 0,
+      "sha256": "359adb1442191c336ea52c0b94cba16420975351d6bfb55004a087afd511d14d",
+      "triangles": 4504
+    },
+    "ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        52.09750747680664,
+        31.675552368164062,
+        5.800000190734871
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 5179.181642545725,
+      "minimum_z_mm": -7.882570769344403e-15,
+      "native_volume_relative_error": 5.0082903512623584e-05,
+      "nonmanifold_edges": 0,
+      "sha256": "d56b5aae0a7b2472bee2f360cff8930a67477c2d4b2fcc5fe8466753a355518a",
+      "triangles": 1316
+    },
+    "ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        141.9213104248047,
+        127.12665748596191,
+        34.00000000000001
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 69790.29797994945,
+      "minimum_z_mm": -4.216641819780945e-15,
+      "native_volume_relative_error": 0.0004914688228739781,
+      "nonmanifold_edges": 0,
+      "sha256": "fce5e3390bbd12601c5b73bbafa91914d5ebcbdff041ad3bbc5dd98c25516d5e",
+      "triangles": 6762
+    },
+    "ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED": {
+      "degenerate_triangles": 0,
+      "dimensions_mm": [
+        55.98746871948242,
+        55.99373245239258,
+        14.00000000000001
+      ],
+      "file": "/Users/neilchulani/Biped/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl",
+      "mesh_volume_mm3": 19922.856665099705,
+      "minimum_z_mm": -1.0100810297767118e-14,
+      "native_volume_relative_error": 0.0005122436870130524,
+      "nonmanifold_edges": 0,
+      "sha256": "d5c5315645998551624771382d967db7f3b5506b9f8a2c0aeff605e52946315f",
+      "triangles": 5640
+    }
+  },
+  "scope": "unpowered, clamped, wheel-clear, hand-contained ABS mechanical assembly only",
+  "status": "FUSION VERIFIED / PRINT RELEASE; ordered metal hardware still requires visual inspection and hand fit on arrival",
+  "topology": {
+    "ABS_TEST_Knee_Stop_Plate_15deg": {
+      "bbox_mm": [
+        58.63992622245169,
+        110.73743388027876,
+        90.3,
+        96.1,
+        -112.6345,
+        -80.95889376814627
+      ],
+      "closed_manifold": true,
+      "edges": 237,
+      "faces": 83,
+      "volume_mm3": 5179.44104399178
+    },
+    "Distal_Link_L": {
+      "bbox_mm": [
+        -34.0,
+        102.92533317427734,
+        59.5,
+        93.50000000000001,
+        -188.26902632476944,
+        -66.1345131623847
+      ],
+      "closed_manifold": true,
+      "edges": 207,
+      "faces": 73,
+      "volume_mm3": 49017.69886791986
+    },
+    "Proximal_Link_L": {
+      "bbox_mm": [
+        -30.999999999999996,
+        110.92533317427737,
+        56.3,
+        90.30000000000001,
+        -96.1345131623847,
+        30.999999999999996
+      ],
+      "closed_manifold": true,
+      "edges": 197,
+      "faces": 90,
+      "volume_mm3": 69756.01507333298
+    },
+    "Shoulder_Output_Hub_L": {
+      "bbox_mm": [
+        -28.0,
+        28.0,
+        45.5,
+        59.5,
+        -28.0,
+        28.0
+      ],
+      "closed_manifold": true,
+      "edges": 76,
+      "faces": 51,
+      "volume_mm3": 19912.656532499273
+    }
+  },
+  "unchanged_gates": [
+    "The ordered pins are not accepted until visually undamaged and they enter the released receivers by hand; no measurement is required.",
+    "The D10 knee-pin spacer/bracket remains test-only and final D10 retention plus encoder coupling remain open.",
+    "ABS is released only for the supported unpowered test. Repeat same-orientation fit coupons before the later PA-CF build."
+  ]
+}

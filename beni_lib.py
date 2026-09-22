@@ -65,6 +65,7 @@ SH_OUT_PCD = 25.0                 # output flange 6x M3
 SH_OUT_A0 = 30.4
 SH_PIN_PCD = 20.4                 # output 3x O4 anti-rotation pins
 SH_PIN_A0 = 60.4
+ABS_SHOULDER_PIN_BORE_D = 4.15    # owner PASS with delivered motor pins
 SH_OUT_FACE_Y = 45.5
 SH_PIN_TIP_Y = 49.0
 SH_PILOT_D = 34.0                 # output pilot boss O34, y 44..45
@@ -77,6 +78,18 @@ HUB_BODY_D = 38.0
 HUB_FLANGE_D = 56.0
 HUB_LINK_PCD = 44.0               # 6x M4 link bolts into hub flange
 HUB_LINK_A0 = 0.4
+# Three ordered Ø4 x 10 cylindrical dowels key the hub-to-link interface at
+# otherwise unused midpoints between the six M4 fasteners.  The hub owns the
+# press sockets and the proximal root owns blind clearance sockets, so the
+# dowels are captive after the joint is clamped and do not depend on glue.
+ROOT_DOWEL_PCD = HUB_LINK_PCD
+ROOT_DOWEL_A = (90.4, 210.4, 330.4)
+ROOT_DOWEL_D = 4.0
+ROOT_DOWEL_LEN = 10.0
+ROOT_DOWEL_HUB_SOCKET_D = 4.05
+ROOT_DOWEL_HUB_DEPTH = 5.0
+ROOT_DOWEL_LINK_SOCKET_D = 4.25
+ROOT_DOWEL_LINK_DEPTH = 5.2
 HUB_CABLE_R = 21.0                # cable pass-through in hub flange
 # Owner-held Kadriick assortment, photographed 2026-09-02.  Its case label
 # specifies M4 x 8 mm (H), d1=5.5 and d2=5.0.  It does not define a printed-hole
@@ -188,6 +201,25 @@ KNEE_BOSS_B_Y1 = 90.3
 # boss allowance creates a broad face-flat print datum without changing the
 # frozen 58.7...90.3 mm knee envelope or any bearing/insert plane.
 PROX_PRINT_FACE_Y = KNEE_BOSS_B_Y1
+# The ordered M4 x 40 clevis-pin drawing gives 36 mm to the retaining-hole
+# datum.  A 34.0 mm printed stack plus one ISO 7089 M4 washer (0.8 mm) leaves
+# at least 0.4 mm to a Ø1.6 hole even under the conservative interpretation
+# that 36 mm is measured to the hole centre.  The upper boss grows INBOARD so
+# the proximal link keeps its verified outboard print datum; the lower boss
+# grows OUTBOARD so the distal link keeps its verified inboard print datum.
+CLEVIS_RETAINED_STACK = 34.0
+CLEVIS_BOSS_D = 14.0
+CLEVIS_PIN_D = 4.0
+CLEVIS_PIN_SHAFT_LEN = 40.0
+CLEVIS_PIN_HEAD_D = 7.0
+CLEVIS_PIN_HEAD_T = 1.5
+CLEVIS_PIN_HOLE_D = 1.6
+CLEVIS_PIN_HOLE_DATUM = 36.0
+CLEVIS_WASHER_D_IN = 4.3
+CLEVIS_WASHER_D_OUT = 9.0
+CLEVIS_WASHER_T = 0.8
+UPPER_CLEVIS_HEAD_SEAT_Y = PROX_PRINT_FACE_Y - CLEVIS_RETAINED_STACK
+LOWER_CLEVIS_OUTBOARD_Y = LEG_Y_IN + CLEVIS_RETAINED_STACK
 BRG1_Y0, BRG1_Y1 = 58.7, 63.7     # 6800 in arm A
 BRG2_Y0, BRG2_Y1 = 85.3, 90.3     # 6800 in arm B
 KNEE_LIP_D = 17.0                 # 0.8 mm retaining lip behind each bearing
@@ -658,16 +690,17 @@ def build_mirror():
 # Expected occurrence count per part, per side.  Anything else means a builder
 # ran twice without clearing, or a placement pattern changed.
 EXPECT_COUNT = {
-    'HW_SHCS_M3x10': 15,      # 6 output + 5 frame + 4 cover
+    'HW_SHCS_M3x10': 18,      # 6 output + 5 frame + 4 cover + 3 knee stop
     'HW_SHCS_M3x8': 11,       # 8 shoulder housing + 3 wheel output
-    'HW_SHCS_M3x6': 3,        # knee stop arc
     'HW_SHCS_M4x10': 6,       # link root
     'HW_SHCS_M4x8': 6,        # wheel rim -> short wheel-hub inserts
     'HW_SHCS_M2p5x12': 6,     # wheel motor
     'HW_SHCS_M3x16': 2,       # encoder bracket
     'HW_Bearing_6800': 2,
     'Cart_Preload_Shim_L': 4,
-    'HW_ClevisPin_D4x32': 2,
+    'HW_ClevisPin_M4x40': 2,
+    'HW_Washer_M4': 2,
+    'HW_DowelPin_D4x10_Root': 3,
 }
 
 
@@ -809,9 +842,9 @@ def audit_blind_holes(verbose=True):
         ('proximal root -> shoulder hub',
          HUB_Y1 - HUB_LINK_INSERT_HOLE_DEPTH, HUB_Y1,
          HUB_LINK_INSERT_LEN, 63.3, 10.0, HUB_MID_Y),
-        ('knee stop arc -> proximal arm B',
+        ('captive knee stop plate -> proximal arm B',
          KNEE_BOSS_B_Y1 - STOP_INSERT_DEPTH, KNEE_BOSS_B_Y1, INSERT_LEN,
-         STOP_ARC_Y0 + STOP_ARC_T, 6.0, KNEE_BOSS_B_Y0),
+         TEST_STOP_PLATE_Y1, 10.0, KNEE_BOSS_B_Y0),
         ('encoder bracket -> proximal arm B',
          KNEE_BOSS_B_Y1 - ENC_INSERT_DEPTH, KNEE_BOSS_B_Y1, INSERT_LEN,
          101.9, 16.0, KNEE_BOSS_B_Y0),
@@ -1014,7 +1047,8 @@ def audit_source_parity(verbose=True):
     """Every modelled part must have a builder, and vice versa."""
     built = set()
     for fn in (build_shoulder_plate, build_cable_cover, build_cable_spiral,
-               build_shoulder_hub, build_proximal_link, build_distal_link,
+               build_shoulder_hub, build_shoulder_root_dowels,
+               build_proximal_link, build_distal_link,
                build_knee_hardware, build_cartridge, build_knee_stop,
                build_encoder, build_wheel, build_chassis_frame,
                build_electronics_tray, build_battery, build_electronics_block,
@@ -1119,7 +1153,7 @@ def _artifact(na, nb, phi):
         return True
     # the PU bumpers are SUPPOSED to be crushed by the stop dowel: the flexion
     # pad from phi = +20 and the extension pad from phi = -6.5
-    if 'HW_DowelPin_D6x9' in pair:
+    if 'HW_DowelPin_D6x10' in pair:
         if 'Knee_Bumper_Flex_L' in pair and phi >= 19.9:
             return True
         if 'Knee_Bumper_Ext_L' in pair and phi <= -6.4:
@@ -1161,8 +1195,8 @@ def sweep_check(poses=None, verbose=True):
             a, b = it.entityOne, it.entityTwo
             na = a.component.name if hasattr(a, 'component') else a.name
             nb = b.component.name if hasattr(b, 'component') else b.name
-            if 'HW_DowelPin_D6x9' in (base_name(na.replace('(Mirror)', '')),
-                                      base_name(nb.replace('(Mirror)', ''))):
+            if 'HW_DowelPin_D6x10' in (base_name(na.replace('(Mirror)', '')),
+                                       base_name(nb.replace('(Mirror)', ''))):
                 if _artifact(na, nb, float(ph)):
                     crush.append((th, ph, v))
                     continue
@@ -1701,8 +1735,10 @@ PART_CLASS = {
     'Wheel_Rim_L': 'PACF',
     'Wheel_Tyre_L': 'TPU',
     'HW_Bearing_6800': 'STEEL',
-    'HW_ClevisPin_D4x32': 'STEEL',
-    'HW_DowelPin_D6x9': 'STEEL',
+    'HW_ClevisPin_M4x40': 'STEEL',
+    'HW_Washer_M4': 'STEEL',
+    'HW_DowelPin_D4x10_Root': 'STEEL',
+    'HW_DowelPin_D6x10': 'STEEL',
     'HW_Magnet_D6x2p5_Diametric': 'STEEL',
     'HW_SHCS_M2p5x12': 'STEEL',
     'HW_SHCS_M3x6': 'STEEL',
@@ -2143,6 +2179,11 @@ WM_PLATE_D = 68.0
 STOP_R = 30.0             # stop-pin radius from the knee axis
 STOP_PIN_D = 6.0
 STOP_SLOT_W = 6.2
+STOP_PIN_LEN = 10.0
+STOP_PIN_SOCKET_D = 6.2
+STOP_PIN_SOCKET_DEPTH = 4.5
+STOP_PIN_SOCKET_Y0 = LEG_Y_OUT - STOP_PIN_SOCKET_DEPTH
+TEST_STOP_PLATE_Y1 = 96.1       # 5.8 mm plate, leaves 0.8 mm captive skin
 STOP_PIN_A0 = 246.6       # pin global XZ angle at phi = 0 (fixed to distal link)
 STOP_ARC_Y0 = 90.3        # steel arc plate sits on the proximal arm-B boss face
 STOP_ARC_T = 3.0
@@ -2239,7 +2280,7 @@ def repair_proximal_root_seat_land(comp):
         design().timeline.moveToEnd()
 
 
-def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
+def build_proximal_link(bearing_seat_d=ABS_KNEE_BRG_SEAT_D,
                         component_name='Proximal_Link_L'):
     drop_comp(component_name)
     occ = new_comp(component_name)
@@ -2277,6 +2318,12 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
     extrude(c, sk.profiles.item(0), ROOT_PLATE_Y1 - CH_Y0, 'join')
     sk = sk_on_y(c, KNEE_BOSS_A_Y0); circle(sk, KX, KZ, 2 * PL_R2)
     extrude(c, sk.profiles.item(0), LEG_Y_IN - KNEE_BOSS_A_Y0, 'join')
+    # Integral inboard clevis land for the ordered M4 x 40 pin.  Growing this
+    # side preserves the verified y=90.3 outboard print face.
+    sk = sk_on_y(c, UPPER_CLEVIS_HEAD_SEAT_Y)
+    circle(sk, UX, UZ, CLEVIS_BOSS_D)
+    extrude(c, sk.profiles.item(0),
+            LEG_Y_IN - UPPER_CLEVIS_HEAD_SEAT_Y, 'join')
     # Arm B already reaches the existing Y=90.3 bearing-boss plane.  The old
     # local 0.8 mm boss step is deliberately absorbed into the full outboard
     # face so the bearing axes can print normal to the bed.
@@ -2292,8 +2339,10 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
     extrude(c, sk.profiles.item(0), BRG2_Y0 - CH_Y1, 'cut')
 
     # upper cartridge pivot
-    sk = sk_on_y(c, KNEE_BOSS_A_Y0 - 1); circle(sk, UX, UZ, 4.15)
-    extrude(c, sk.profiles.item(0), (KNEE_BOSS_B_Y1 - KNEE_BOSS_A_Y0) + 2, 'cut')
+    sk = sk_on_y(c, UPPER_CLEVIS_HEAD_SEAT_Y - 1)
+    circle(sk, UX, UZ, 4.15)
+    extrude(c, sk.profiles.item(0),
+            PROX_PRINT_FACE_Y - UPPER_CLEVIS_HEAD_SEAT_Y + 2, 'cut')
 
     # Root fasteners: counterbored seats in arm A, continuous access through
     # the channel wall and arm B (the wall obstructed two old access holes).
@@ -2303,6 +2352,16 @@ def build_proximal_link(bearing_seat_d=KNEE_BRG_OD,
     sk = sk_on_y(c, 63.3)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, 7.5, 6, HUB_LINK_A0)
     extrude(c, profiles(sk), ROOT_PLATE_Y1 - 63.3 + 0.5, 'cut')
+    # Blind slip sockets accept the 5 mm projecting halves of the three root
+    # dowels.  The 0.20 mm extra depth prevents axial bottoming before the M4
+    # joint reaches metal-to-plastic face contact.
+    sk = sk_on_y(c, LEG_Y_IN)
+    for angle_deg in ROOT_DOWEL_A:
+        angle = math.radians(angle_deg)
+        circle(sk, ROOT_DOWEL_PCD / 2.0 * math.cos(angle),
+               ROOT_DOWEL_PCD / 2.0 * math.sin(angle),
+               ROOT_DOWEL_LINK_SOCKET_D)
+    extrude(c, profiles(sk), ROOT_DOWEL_LINK_DEPTH, 'cut')
     clear_proximal_root_access(c)
     sk = sk_on_y(c, CH_Y1); circle(sk, 0, 0, 34.0)
     extrude(c, sk.profiles.item(0), PROX_PRINT_FACE_Y - CH_Y1 + 0.5, 'cut')
@@ -2381,20 +2440,31 @@ def build_distal_link():
     sk = sk_on_y(c, WM_MOUNT_Y); circle(sk, WX, WZ, 112.0)
     extrude(c, sk.profiles.item(0), LEG_Y_OUT - WM_MOUNT_Y + 1.0, 'cut')
 
+    # Integral outboard clevis land.  The inboard face remains the calibrated
+    # bed datum for the distal-link print and its Ø10.30 receiver.
+    sk = sk_on_y(c, LEG_Y_OUT)
+    circle(sk, LX, LZ, CLEVIS_BOSS_D)
+    extrude(c, sk.profiles.item(0), LOWER_CLEVIS_OUTBOARD_Y - LEG_Y_OUT,
+            'join')
+
     sk = sk_on_y(c, DBOSS_Y0 - 1); circle(sk, KX, KZ, KNEE_SLEEVE_OD)
     extrude(c, sk.profiles.item(0), (DBOSS_Y1 - DBOSS_Y0) + 2, 'cut')
     sk = sk_on_y(c, LEG_Y_IN - 1); circle(sk, LX, LZ, 4.15)
-    extrude(c, sk.profiles.item(0), LEG_W + 2, 'cut')
+    extrude(c, sk.profiles.item(0),
+            LOWER_CLEVIS_OUTBOARD_Y - LEG_Y_IN + 2, 'cut')
     sk = sk_on_y(c, LEG_Y_IN - 1); circle(sk, WX, WZ, WM_COVER_D)
     extrude(c, sk.profiles.item(0), (WM_MOUNT_Y - LEG_Y_IN) + 2, 'cut')
     sk = sk_on_y(c, LEG_Y_IN - 1)
     circles_polar(sk, WX, WZ, WM_BOLT_PCD, 2.8, 6, WM_BOLT_A0)
     extrude(c, profiles(sk), (WM_MOUNT_Y - LEG_Y_IN) + 2, 'cut')
 
-    # O6 H7 stop-pin seat in arm B
+    # Captive Ø6 x 10 stop-pin socket.  It opens from the outboard face but
+    # leaves a 0.5 mm printed floor in the 5 mm arm; the closed-skin stop plate
+    # traps the pin axially after assembly, so this is deliberately clearance
+    # fit rather than an uncontrolled press fit in ABS.
     q = kpt(STOP_R, STOP_PIN_A0)
-    sk = sk_on_y(c, CH_Y1 - 0.5); circle(sk, q[0], q[1], STOP_PIN_D)
-    extrude(c, sk.profiles.item(0), (LEG_Y_OUT - CH_Y1) + 1.0, 'cut')
+    sk = sk_on_y(c, LEG_Y_OUT); circle(sk, q[0], q[1], STOP_PIN_SOCKET_D)
+    extrude(c, sk.profiles.item(0), -STOP_PIN_SOCKET_DEPTH, 'cut')
 
     for (u0, v0, u1, v1, w) in [(64.0, -6.0, 96.0, -5.0, 16.0),
                                 (46.0, 26.0, 94.0, 15.0, 12.0)]:
@@ -2418,12 +2488,12 @@ STATIC_NAMES = ('REF_GIM6010-8', 'Chassis_Shoulder_Plate_L',
                 'Shoulder_Cable_Cover_L', 'Chassis_Frame',
                 'Battery_4S2200', 'Electronics_Tray', 'Chassis_Electronics')
 PROX_NAMES = ('Shoulder_Output_Hub_L', 'Proximal_Link_L', 'HW_Bearing_6800',
+              'HW_DowelPin_D4x10_Root',
               'Knee_Stop_Arc_L', 'Knee_Bumper_Flex_L', 'Knee_Bumper_Ext_L',
-              'Knee_Encoder_Bracket_L', 'Knee_Encoder_PCB_L', 'HW_SHCS_M3x16',
-              'HW_SHCS_M3x6')
+              'Knee_Encoder_Bracket_L', 'Knee_Encoder_PCB_L', 'HW_SHCS_M3x16')
 DIST_NAMES = ('Distal_Link_L', 'Knee_Sleeve_L', 'Knee_Axle_L',
               'Knee_Magnet_Carrier_L', 'HW_Magnet_D6x2p5_Diametric',
-              'HW_DowelPin_D6x9', 'REF_GIM4305-10', 'Wheel_Hub_L',
+              'HW_DowelPin_D6x10', 'REF_GIM4305-10', 'Wheel_Hub_L',
               'Wheel_Rim_L', 'Wheel_Tyre_L', 'HW_SHCS_M2p5x12')
 CART_UP_NAMES = ('Cart_Upper_Eye_L', 'Cart_Guide_Rod_L')
 CART_LO_NAMES = ('Cart_Lower_Eye_L', 'Cart_Preload_Shim_L')
@@ -2468,8 +2538,10 @@ def classify(occ):
         # Y is invariant under both joint rotations. A Z threshold changes
         # class during a shoulder sweep and leaves wheel screws behind.
         return 'DIST' if cy > WH_HUB_Y_A else 'STATIC'
-    if n == 'HW_ClevisPin_D4x32':
+    if n == 'HW_ClevisPin_M4x40':
         return 'CART_LO' if cz < -100 else 'CART_UP'
+    if n == 'HW_Washer_M4':
+        return 'DIST' if cz < -100 else 'PROX'
     return 'STATIC'
 
 
@@ -2937,14 +3009,15 @@ def build_cable_cover():
     return occ
 
 
-def build_shoulder_hub(pin_bore_d=4.05,
+def build_shoulder_hub(pin_bore_d=ABS_SHOULDER_PIN_BORE_D,
                        component_name='Shoulder_Output_Hub_L'):
     """Build the shoulder output hub.
 
     ``pin_bore_d`` and ``component_name`` exist so material/profile fit trials
     can be generated without changing the released nominal hub.  The ordinary
-    assembly build still uses the manufacturer-derived Ø4.05 geometry and the
-    canonical ``Shoulder_Output_Hub_L`` name.
+    assembly build uses the owner-accepted Ø4.15 ABS process value and the
+    canonical ``Shoulder_Output_Hub_L`` name.  PA-CF still requires a same-
+    orientation fit coupon before this value transfers to the structural build.
     """
     drop_comp(component_name)
     occ = new_comp(component_name); c = occ.component
@@ -2973,6 +3046,16 @@ def build_shoulder_hub(pin_bore_d=4.05,
     sk = sk_on_y(c, HUB_Y1)
     circles_polar(sk, 0, 0, HUB_LINK_PCD, HUB_LINK_INSERT_D, 6, HUB_LINK_A0)
     extrude(c, profiles(sk), -HUB_LINK_INSERT_HOLE_DEPTH, 'cut')
+    # Three blind press sockets for the ordered Ø4 x 10 root dowels.  They sit
+    # at unused fastener-circle midpoints and leave 3 mm of hub material below
+    # their blind ends; 5 mm remains exposed for the proximal-link slip sockets.
+    sk = sk_on_y(c, HUB_Y1)
+    for angle_deg in ROOT_DOWEL_A:
+        angle = math.radians(angle_deg)
+        circle(sk, ROOT_DOWEL_PCD / 2.0 * math.cos(angle),
+               ROOT_DOWEL_PCD / 2.0 * math.sin(angle),
+               ROOT_DOWEL_HUB_SOCKET_D)
+    extrude(c, profiles(sk), -ROOT_DOWEL_HUB_DEPTH, 'cut')
     a = math.radians(30.4)
     sk = sk_on_y(c, HUB_MID_Y - 1)
     circle(sk, HUB_CABLE_R * math.cos(a), HUB_CABLE_R * math.sin(a), 6.0)
@@ -2982,6 +3065,28 @@ def build_shoulder_hub(pin_bore_d=4.05,
         sk = sk_on_y(c, 54.0)
         circle(sk, 21 * math.cos(ang), 21 * math.sin(ang), 11.0)
         extrude(c, sk.profiles.item(0), 5.5, 'cut')
+    return occ
+
+
+def build_shoulder_root_dowels():
+    """Model three ordered Ø4 x 10 dowels across the hub/link face."""
+    drop_comp('HW_DowelPin_D4x10_Root')
+    points = []
+    for angle_deg in ROOT_DOWEL_A:
+        angle = math.radians(angle_deg)
+        points.append((ROOT_DOWEL_PCD / 2.0 * math.cos(angle),
+                       ROOT_DOWEL_PCD / 2.0 * math.sin(angle)))
+    x0, z0 = points[0]
+    occ = new_comp('HW_DowelPin_D4x10_Root')
+    c = occ.component
+    cyl_y(c, None, x0, z0, ROOT_DOWEL_D,
+          HUB_Y1 - ROOT_DOWEL_HUB_DEPTH,
+          HUB_Y1 - ROOT_DOWEL_HUB_DEPTH + ROOT_DOWEL_LEN)
+    c.bRepBodies.item(0).name = 'HW_DowelPin_D4x10_Root'
+    for x, z in points[1:]:
+        root().occurrences.addExistingComponent(
+            c, mat((1, 0, 0), (0, 1, 0), (0, 0, 1),
+                   (x - x0, 0.0, z - z0)))
     return occ
 
 
@@ -3110,13 +3215,28 @@ def build_cartridge():
         root().occurrences.addExistingComponent(c, m)
 
     drop_comp('HW_ClevisPin_D4x32')
-    o = new_comp('HW_ClevisPin_D4x32'); c = o.component
-    sk = sk_on_y(c, LEG_Y_IN - 2.0); circle(sk, UX, UZ, 7.5)
-    extrude(c, sk.profiles.item(0), 2.0, 'new').bodies.item(0).name = 'HW_ClevisPin_D4x32'
-    sk = sk_on_y(c, LEG_Y_IN); circle(sk, UX, UZ, CART_PIN_D)
-    extrude(c, sk.profiles.item(0), 31.5, 'join')
+    drop_comp('HW_ClevisPin_M4x40')
+    o = new_comp('HW_ClevisPin_M4x40'); c = o.component
+    sk = sk_on_y(c, UPPER_CLEVIS_HEAD_SEAT_Y - CLEVIS_PIN_HEAD_T)
+    circle(sk, UX, UZ, CLEVIS_PIN_HEAD_D)
+    extrude(c, sk.profiles.item(0), CLEVIS_PIN_HEAD_T,
+            'new').bodies.item(0).name = 'HW_ClevisPin_M4x40'
+    sk = sk_on_y(c, UPPER_CLEVIS_HEAD_SEAT_Y)
+    circle(sk, UX, UZ, CLEVIS_PIN_D)
+    extrude(c, sk.profiles.item(0), CLEVIS_PIN_SHAFT_LEN, 'join')
     root().occurrences.addExistingComponent(
-        c, mat((1, 0, 0), (0, 1, 0), (0, 0, 1), (LX - UX, 0.0, LZ - UZ)))
+        c, mat((1, 0, 0), (0, 1, 0), (0, 0, 1),
+               (LX - UX, LEG_Y_IN - UPPER_CLEVIS_HEAD_SEAT_Y, LZ - UZ)))
+
+    drop_comp('HW_Washer_M4')
+    o = new_comp('HW_Washer_M4'); c = o.component
+    ring(c, PROX_PRINT_FACE_Y, CLEVIS_WASHER_D_IN / 2.0,
+         CLEVIS_WASHER_D_OUT / 2.0, CLEVIS_WASHER_T,
+         'new', cx=UX, cz=UZ).bodies.item(0).name = 'HW_Washer_M4'
+    root().occurrences.addExistingComponent(
+        c, mat((1, 0, 0), (0, 1, 0), (0, 0, 1),
+               (LX - UX, LOWER_CLEVIS_OUTBOARD_Y - PROX_PRINT_FACE_Y,
+                LZ - UZ)))
     rebuild_spring(0.0)
 
 
@@ -3156,10 +3276,12 @@ def build_knee_stop():
     extrude(c, profiles(sk), STOP_ARC_T + 2, 'cut')
 
     drop_comp('HW_DowelPin_D6x9')
-    o = new_comp('HW_DowelPin_D6x9'); c = o.component
+    drop_comp('HW_DowelPin_D6x10')
+    o = new_comp('HW_DowelPin_D6x10'); c = o.component
     q = kpt(STOP_R, STOP_PIN_A0)
-    sk = sk_on_y(c, CH_Y1); circle(sk, q[0], q[1], STOP_PIN_D)
-    extrude(c, sk.profiles.item(0), 9.0, 'new').bodies.item(0).name = 'HW_DowelPin_D6x9'
+    sk = sk_on_y(c, STOP_PIN_SOCKET_Y0); circle(sk, q[0], q[1], STOP_PIN_D)
+    extrude(c, sk.profiles.item(0), STOP_PIN_LEN,
+            'new').bodies.item(0).name = 'HW_DowelPin_D6x10'
 
     for nm, a0, a1 in (('Knee_Bumper_Flex_L', bf - df + 0.4, bf - 0.4),
                        ('Knee_Bumper_Ext_L', be + 0.4, be + de - 0.4)):
@@ -3337,12 +3459,12 @@ def build_fasteners():
     # Delivered actuator test: x10 bottoms before the 5 mm panel clamps.
     place_polar(s8, SH_BOLT_PCD, 8, SH_BOLT_A0, SH_PLATE_Y1)
     place_polar(s8, WM_OUT_PCD, 3, WM_OUT_A0, WH_HUB_Y_B - 2.5, cx=WX, cz=WZ)
-    # knee stop arc: 3 mm of steel plate + 3 mm into a 5 mm insert.  An M3 x 8
-    # here reached 0.5 mm past the bore floor and bottomed out before clamping.
-    s6 = screw_comp('HW_SHCS_M3x6', 3.0, 6.0)
+    # Captive-pin stop plate: 5.8 mm of printed plate + 4.2 mm into the 5 mm
+    # insert.  M3 x 10 stops 0.8 mm before the blind receiver floor and its
+    # 3 mm head remains 0.8 mm clear of the encoder bracket.
     for ang in STOP_BOLT_A:
         w = kpt(STOP_BOLT_R, ang)
-        place(s6, w[0], w[1], STOP_ARC_Y0 + STOP_ARC_T)
+        place(s, w[0], w[1], TEST_STOP_PLATE_Y1)
     s25 = screw_comp('HW_SHCS_M2p5x12', 2.5, 12.0)
     place_polar(s25, WM_BOLT_PCD, 6, WM_BOLT_A0, LEG_Y_IN, flip=True, cx=WX, cz=WZ)
     s16 = screw_comp('HW_SHCS_M3x16', 3.0, 16.0)
@@ -3381,6 +3503,7 @@ def build_all(log=None):
     build_cable_cover();        say('cable cover')
     build_cable_spiral();       say('harness spiral envelope')
     build_shoulder_hub();       say('shoulder output hub')
+    build_shoulder_root_dowels(); say('shoulder root locating dowels')
     build_proximal_link();      say('proximal link')
     build_distal_link();        say('distal link')
     build_knee_hardware();      say('knee axle / sleeve / bearings / magnet')

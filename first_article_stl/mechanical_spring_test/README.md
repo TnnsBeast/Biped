@@ -1,5 +1,12 @@
 # Unpowered ABS spring-mechanical test
 
+> **September 21 update:** the original shoulder hub, proximal link, distal
+> link, stop plate, Ø4 × 32 clevis pins, and Ø6 × 9 stop dowel are superseded.
+> Use the [ordered-pin replacement traveller](../ordered_pin_integration/) for
+> those parts and hardware. This directory remains current only for the two
+> cartridge eyes, guide bar, D10 knee-pin spacer, bracket keeper, no-tyre wheel
+> shell, and the hand-test limits below.
+
 This batch completes a supported, motor-unplugged single-leg mechanical article
 around the owned **OD18 / ID9 / 50 mm** yellow spring. It is a hand-operated
 fit and behavior test. It does not establish spring rate, payload, ground
@@ -22,14 +29,13 @@ hole compensation.
 | [`ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl`](ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 | Upper eye, spring axis vertical; use a brim |
 | [`ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl`](ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 | Lower eye, spring axis vertical; use a brim |
 | [`ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl`](ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl) | 1 | Removable 3.8 mm square guide, long face on the bed |
-| [`ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.stl`](ABS_TEST_Knee_Stop_Plate_15deg_PRINT_ORIENTED.stl) | 1 | -8° to +15° test stop, full plate face on the bed |
 | [`ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl`](ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl) | 1 | Locates in the encoder bracket and limits outboard pin travel |
 | [`ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl`](ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl) | 1 | Existing bracket reused as the outboard keeper plate |
 | [`ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl`](ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl) | 1 | Support-free suspended-test wheel shell; broad web face on the bed |
 
 Use the same enclosed ABS profile as the passed dimensional articles: **0.20 mm
 layers, 4 walls, 5 top and 5 bottom layers, 30% infill**. Disable supports for
-all seven files. A brim is required on both cartridge eyes and is permitted on
+all six current files. A brim is required on both cartridge eyes and is permitted on
 the other parts if the tuned ABS profile normally uses one. The eye pivot
 passages have self-supporting pointed roofs; inspect them after printing and do
 not drill, file, sand, heat, or force a failed fit.
@@ -43,18 +49,19 @@ eyes after removal.
 This batch assumes these already released parts are printed or will be printed
 from the active queue:
 
-- the Ø4.5 M3 proximal-link replacement, with five inserts installed;
-- the Ø10.30 × 20.0 distal steel-pin article after it passes its physical
+- the ordered-pin proximal link, with five inserts installed;
+- the ordered-pin distal link after its Ø10.30 × 20.0 receiver passes physical
   insertion, withdrawal, spin, rock, and axial-play checks;
-- the accepted shoulder hub, wheel hub, shoulder plate as required, and the
+- the ordered-pin shoulder hub, wheel hub, shoulder plate as required, and the
   clamped Mode A stand.
 
 Use the owned 50 mm spring, both 6800 bearings, the 10 × 35 steel knee pin,
-**2 × Ø4 × 32 steel clevis pins with E-clips**, **1 × Ø6 × 9 steel stop dowel**,
-3 × M3 × 6 stop-plate screws, 2 × M3 × 16 bracket screws, and 6 × M4 × 8 wheel
-rim screws. Do not substitute printed cartridge pins or a printed stop dowel.
-If the two clevis pins or the stop dowel are not in hand, stop before installing
-the spring.
+**2 × M4 × 40 clevis pins with supplied cotters**, **2 × ISO 7089 M4 washers**,
+**1 × Ø6 × 10 stop dowel**, 3 × M3 × 10 stop-plate screws, 2 × M3 × 16 bracket
+screws, and 6 × M4 × 8 wheel-rim screws. The shoulder root also uses 3 ×
+Ø4 × 10 dowels. Do not substitute printed cartridge pins, a printed stop dowel,
+or printed clevis spacers. If the ordered metal hardware is not in hand, stop
+before installing the spring.
 
 ## Detached fit checks
 
@@ -87,16 +94,20 @@ clear of the floor.
 1. Install the two bearings and assemble the proximal and released distal links
    with the steel knee pin. Confirm the pin still withdraws by hand before
    adding the spring hardware.
-2. Install the Ø6 × 9 steel dowel in the distal link and bolt the new test stop
-   plate to the three proximal-link inserts with M3 × 6 screws. Hand-pose the
-   spring-free knee and confirm it stops at -8° and +15°.
+2. Place the Ø6 × 10 steel dowel in the ordered-pin distal link's blind socket
+   and bolt the closed-skin stop plate to the three proximal-link inserts with
+   M3 × 10 screws. The plate captures the dowel; do not glue or force it.
+   Hand-pose the spring-free knee and confirm it stops at -8° and +15°.
 3. Put the knee at the -8° stop. Insert the upper cartridge eye radially into
-   its proximal-link clevis and install the upper steel clevis pin and E-clips.
+   its proximal-link clevis. Insert the upper M4 × 40 pin inboard-to-outboard,
+   add one specified M4 washer, orient the cotter radially away from the knee,
+   and seat the supplied cotter fully without bending or reshaping it.
 4. Insert the guide bar through the round center of the upper eye's raised Ø8
    pilot. Slide the free spring over the guide and onto that pilot. With the
    lower eye's raised pilot facing the other spring end, slide its round center
    opening over the exposed guide, then bring its pivot into the distal-link
-   clevis. The lower clevis pin must enter with fingertip pressure. If more than slight hand
+   clevis. The lower M4 × 40 pin must enter with fingertip pressure. Add its M4
+   washer and supplied cotter in the same orientation. If more than slight hand
    compression is needed, stop and record the achieved gap; do not pull the
    parts together with a pin, screw, clamp, or tool.
 5. Put the printed spacer on the encoder bracket with its small locator in the

@@ -171,11 +171,33 @@ spring, both clevis-pin paths, the steel knee-pin path and 40 mm wheel-shell
 service travel. All seven exported meshes are closed manifolds on their stated
 support planes.
 
-The test remains `PHYSICAL ASSEMBLY PENDING`. Complete every detached fit check
-and the Ø10.30 distal article's steel-pin gate before installing the spring.
-Use two Ø4 × 32 clevis pins/E-clips and one Ø6 × 9 stop dowel. Clamp the stand,
-unplug both motors, keep the wheel clear and contain the distal side by hand.
-Install the spring at the -8° stop, where nominal compression is zero, and move
-slowly no farther than +15°. This procedure observes self-weight equilibrium;
-it does not validate spring rate, solid height, ground contact, structural load
-or powered motion.
+The test remains `PHYSICAL ASSEMBLY PENDING`. Its Ø4 × 32 clevis-pin, Ø6 × 9
+stop-dowel, and original stop-plate instructions are superseded by the
+September 21 ordered-pin release below. The cartridge eyes, guide, D10 spacer,
+bracket keeper, and no-tyre wheel shell remain current.
+
+## 2026-09-21 ordered-pin integration
+
+The [ordered-pin traveller](first_article_stl/ordered_pin_integration/) is `CAD
+PATH VERIFIED` for the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 pin families.
+The new shoulder hub and proximal root use three face-locating dowels with a
+press side, slip side, and screw-clamped axial capture. Both cartridge pivots
+use integral Ø14 lands that make a 34.0 mm retained stack; one ISO 7089 M4
+washer separates each printed land from its supplied cotter, with 0.4 mm
+conservative clearance to the retaining-hole edge. The stop dowel is captured
+between a blind distal socket and a closed 0.8 mm stop-plate skin, with 0.3 mm
+axial clearance and no glue or press-fit dependency.
+
+Fusion preserved the accepted proximal and distal print datums, passed both
+40 mm clevis insertion paths, all 24 allowed knee poses, and positive stop
+contact at 0.5° of overtravel. All four replacement meshes are closed
+manifolds on their stated bed planes. [Numeric release evidence](evidence/assembly/2026-09-21_ordered_pin_integration/).
+
+The release remains `PHYSICAL ASSEMBLY PENDING`: when the order arrives,
+visually inspect it and complete the traveller's hand-fit checks. Do not ask
+the owner to measure the pins and do not compensate a failed interface by
+drilling, filing, hammering, or screw pull-down. Clamp the stand, unplug both
+motors, keep the wheel clear, contain the distal side by hand, install the
+spring at the -8° stop, and move slowly no farther than +15°. This procedure
+observes self-weight equilibrium; it does not validate spring rate, solid
+height, ground contact, structural load, or powered motion.

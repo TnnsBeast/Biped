@@ -1,5 +1,13 @@
 # Fusion release — unpowered ABS spring-mechanical article
 
+> **September 21 update:** the original stop plate, Ø4 × 32 clevis-pin stack,
+> and Ø6 × 9 stop-dowel stack are superseded by the
+> [ordered-pin integration](../2026-09-21_ordered_pin_integration/). The motion
+> limits, cartridge eyes, guide, D10 knee-pin keeper, wheel shell, and the
+> updated mechanical audit remain current. The ordered-pin geometry is saved
+> in `Beni_SingleLegRig` v28; v27 remains the historical September 17 release
+> identified below.
+
 The owner asked to complete a mechanical single-leg article in ABS, install the
 owned OD18 / ID9 / 50 mm spring, keep both motors unpowered, and observe how the
 spring and self-weight set the leg's compressed position. This record releases
