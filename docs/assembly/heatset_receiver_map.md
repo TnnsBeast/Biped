@@ -7,15 +7,16 @@ the screw direction that remains accessible in the assembled robot.
 The complete single-leg article is ABS. PA-CF coupons and structural prints
 wait for the later two-leg build.
 
-## Release status — 2026-09-14
+## Release status — updated 2026-09-22
 
-The owner successfully printed and installed inserts in the Ø5.3 shoulder hub.
-Keep it. The replacement proximal link clears two obstructed M4 head paths and
-restores one incomplete seat; its five knee M3 mouths remain clear. The owner
-confirmed all six M4 screws seat properly on the printed Ø4.0 revision. Retain
-that result, but print the Ø4.5-receiver replacement before M3 installation.
+The owner successfully installed inserts in the earlier Ø5.3 shoulder hub and
+confirmed all six M4 screws seat in the earlier corrected proximal link. Keep
+those physical results as evidence. The active ordered-pin hub and proximal
+link were reported printed on September 22; they require their own insert
+installation and final-part hand fit. The active link retains the corrected
+M4 access paths and five Ø4.5 M3 receivers.
 [Physical acceptance](../../evidence/assembly/2026-09-07_owner_mockup/). Use the
-[current print queue](../../README.md#current-print--convenience-link) and
+[current print queue](../../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article) and
 [access audit](../../evidence/assembly/2026-09-05_access_fix/).
 The final tyre-compatible wheel rim retains its independent printability hold.
 The support-free no-tyre shell is released separately for the suspended,
@@ -44,19 +45,22 @@ nominal Ø4.5. Fusion now carries Ø4.5 through the active ABS receiver family.
 
 ## Shoulder hub — six M4 inserts
 
-![Coupon-selected shoulder hub on its controlled bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Output_Hub_L_D4p15_OWNED_M4x8_D5p30_PRINT_ORIENTED.png)
+![Current ordered-pin shoulder hub on its controlled bed face](../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.png)
 
-- Status: **OWNER INSERT INSTALLATION AND SIX-SCREW SEATING PASS.** Retain the
-  accepted hub and corrected proximal link; all six M4 screws work properly.
+- Status: **CURRENT HUB PRINTED / NEW INSERT INSTALLATION PENDING.** The
+  earlier hub's insert and six-screw pass does not establish the new print's
+  physical fit.
 - Receiver: 6 × owner-selected Ø5.3 through the 8.0 mm flange.
 - Insert: 6 × owner-held Kadriick M4 × 8, installed from the outboard/link
   face with a depth stop and flush at both ends.
 - Fastener: 6 × M4 × 10 through the proximal-link root.
 - Result: 6.2 mm thread engagement; screw tip stops 1.8 mm before the
   motor-side insert end.
+- The three Ø4.25 × 5.0 root-dowel sockets must stay clear of the iron and
+  molten ABS. Install the three Ø4 × 10 dowels after the inserts cool.
 
-The first legacy hub with Ø3.3 holes remains historical motor-fit evidence.
-The owner has since printed and successfully inserted the corrected Ø5.3 hub.
+The earlier Ø4.15 hub with successfully installed Ø5.3 inserts remains
+historical physical evidence; it is superseded for this pin-based assembly.
 
 ## Shoulder plate and cable cover — four M3 inserts total
 
@@ -82,11 +86,11 @@ The owner has since printed and successfully inserted the corrected Ø5.3 hub.
 ![Printed face-flat proximal link with both bearings installed](../../first_article_stl/assembly_dry_fit/01_fusion_abs_proximal_d19p10_with_bearings.png)
 
 The image records the earlier Ø19.10 bearing-fit article. The printed corrected
-Ø19.15 link passed all six M4 hub screw seats, but still has the failed Ø4.0 M3
-pockets. Retain it as physical evidence and replace it with the released Ø4.5
-revision before M3 installation. The new arm-B boss has five Ø4.5 × 5.0
-pockets: three for the knee stop plate and two for the encoder bracket. Fusion
-verifies that all five mouths and paths are clear.
+Ø19.15 link passed all six M4 hub screw seats, but has the failed Ø4.0 M3
+pockets. Retain it as physical evidence. The current ordered-pin proximal link
+is now reported printed and has five Ø4.5 × 5.0 pockets: three for the knee
+stop plate and two for the encoder bracket. Install the five M3 inserts in that
+new part only after checking its bearing seats and screw-access paths.
 
 ## Mode A stand — five M3 inserts
 
@@ -142,8 +146,10 @@ projection requires more rim relief without adding useful engagement.
    the part cool without a screw installed.
 4. Start every screw with fingers. Never use screw torque to seat a printed
    part or straighten an insert.
-5. Keep the motors unplugged. The owner has completed the corrected link's
-   six-screw seating check; use the existing traveller if repeating assembly.
+5. Keep the motors unplugged. The earlier link's six-screw seating check is
+   historical evidence; complete the new link's root-dowel face mating and
+   six-screw seating check using the
+   [current traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly).
 
 For the complete shoulder order and link attachment, continue with the
 [shoulder-to-proximal picture guide](shoulder_to_proximal_link.md).

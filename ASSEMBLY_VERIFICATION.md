@@ -203,6 +203,14 @@ farther than +15°. This procedure observes self-weight equilibrium; it does not
 validate spring rate, solid height, ground contact, structural load, or powered
 motion.
 
+On September 22 the owner reported that the four revised parts and all parts
+from the earlier mechanical-test print batch are printed, and that the Amazon
+pin families are in hand. This closes their printing and receipt gates only;
+the [owner material record](evidence/assembly/2026-09-22_owner_printed_parts_and_pins/)
+does not claim completed bearing, insert, pin, stop or spring checks. Follow
+the [current ordered assembly](first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
+with the retained September 17 cartridge and wheel-shell parts.
+
 ## 2026-09-22 ordered-pin fit ladders
 
 The two [ordered-pin fit ladders](first_article_stl/ordered_pin_fit/) are

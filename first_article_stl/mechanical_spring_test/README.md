@@ -7,6 +7,13 @@
 > cartridge eyes, guide bar, D10 knee-pin spacer, bracket keeper, no-tyre wheel
 > shell, and the hand-test limits below.
 
+**Owner update, September 22:** the owner reports that all parts from this
+earlier mechanical-test print batch were printed. The six retained files below
+can be reused after physical inspection and detached fit checks. The four
+superseded structural parts have now been reprinted from the
+[ordered-pin release](../ordered_pin_integration/), and the Amazon pins are in
+hand. Use that release's consolidated assembly order.
+
 This batch completes a supported, motor-unplugged single-leg mechanical article
 around the owned **OD18 / ID9 / 50 mm** yellow spring. It is a hand-operated
 fit and behavior test. It does not establish spring rate, payload, ground
@@ -19,7 +26,7 @@ installed spring length and **10.240 mm compression**. The actual equilibrium
 angle cannot be predicted until the spring rate is measured: this compression
 spring opposes knee flexion, while the leg's self-weight flexes the knee.
 
-## Print these files
+## Retained print files
 
 Import every `PRINT_ORIENTED` STL unchanged. Do not rotate, scale, or apply
 hole compensation.

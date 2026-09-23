@@ -2,6 +2,11 @@
 
 Status: `FUSION VERIFIED / PRINT RELEASE / FINAL-PART HAND FIT PENDING`
 
+The owner now reports all four revised files printed, all earlier mechanical
+test parts printed, and the three Amazon pin families received. Exact physical
+status and its limits are in the
+[owner material record](../2026-09-22_owner_printed_parts_and_pins/).
+
 > **September 22 calibration closed:** the actual pins selected nominal Ø4.25
 > for both the hub press sockets and link clevis passages. Those values are
 > promoted in Fusion v29 and the four production files are refreshed and

@@ -40,7 +40,14 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — ordered-pin unpowered ABS mechanical article
 
-**The fit selection is complete: print the four refreshed ordered-pin replacements now.** [Direct-download the selected Ø4.25 root-dowel hub STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl), then use the table below for the other three files and controlled orientations.
+Convenience links for the active ABS article.
+
+**Owner report: the four revised parts are printed, the earlier mechanical-test
+batch is printed, and the Amazon pins are in hand.** No repeat print is
+currently indicated for those parts. For a replacement, [direct-download the
+selected Ø4.25 root-dowel hub STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl);
+the table below retains the other controlled files. [Owner material
+record](evidence/assembly/2026-09-22_owner_printed_parts_and_pins/).
 
 The actual Ø4 × 10 dowel selected the largest root-ladder station, nominal
 Ø4.25: relatively tight, thumb-pressable, and removable with pliers. The actual
@@ -52,7 +59,7 @@ proof. [Fit result](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) ·
 [ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) ·
 [complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
 
-### Print or replace these four parts
+### Four revised parts reported printed — replacement files
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
@@ -61,7 +68,7 @@ proof. [Fit result](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) ·
 | [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; use only the traveller's selective supports and block all fit bores |
 | [-8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, closed skin on bed and channel upward; no supports |
 
-### Reuse or print these unchanged September 17 parts
+### Six earlier parts reported printed — retain and inspect
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
@@ -77,11 +84,11 @@ Use the tuned enclosed ABS profile: **0.20 mm layers, 4 walls, 5 top and 5 botto
 ### Existing parts and hardware that must pass first
 
 1. The ordered-pin distal link is also the current Ø10.30 × 20.0 steel knee-pin article. Before installing the spring, confirm firm-thumb knee-pin insertion, hand withdrawal, no free spin, no radial rock, and acceptable axial play.
-2. Install inserts only in the four new replacement parts. Retain the earlier hub, proximal link, distal link, and stop plate as evidence, not assembly parts.
-3. Print and securely clamp the [Ø4.5 Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl). Replace a fitted Ø4.0 [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) before its insert installation.
+2. Install inserts in the **new hub and proximal link** after inspection; the new distal link and stop plate receive none. Retain the earlier hub, proximal link, distal link, and stop plate as evidence, not assembly parts.
+3. Identify the printed stand and shoulder plate before using them. Use the [Ø4.5 Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) and current [Ø4.5 shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl); print either only if the version in hand is absent or the prior Ø4.0 revision. Securely clamp the stand.
 4. Have the owned spring, **3 × Ø4 × 10 dowels**, **2 × M4 × 40 clevis pins with supplied cotters**, **2 × ISO 7089 M4 washers**, **1 × Ø6 × 10 dowel**, **3 × M3 × 10 stop screws**, the received steel knee pin, both 6800 bearings, and the printed wheel hub. The seller dimensions are already designed in; only visual inspection and hand fit are required.
 
-Follow the [ordered-pin traveller](first_article_stl/ordered_pin_integration/) and then the unchanged September 17 sequence. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Clamp the stand, support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
+Follow the consolidated [ordered-pin assembly sequence](first_article_stl/ordered_pin_integration/README.md#ordered-assembly), including the detached D10 knee-pin and clevis checks, then the September 17 spring hand test. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
 
 The support-free no-tyre wheel shell is a suspended mechanical-test part. The final tyre-compatible structural rim, final pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion remain held. Keep the TPU tyre off this article.
 
