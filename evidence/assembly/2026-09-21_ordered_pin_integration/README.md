@@ -1,21 +1,21 @@
 # Fusion release — ordered-pin mechanical integration
 
-Status: `CAD PATH VERIFIED / PHYSICAL ASSEMBLY PENDING`
+Status: `FUSION VERIFIED / PRINT RELEASE / FINAL-PART HAND FIT PENDING`
 
-> **September 22 calibration hold:** the preliminary hub/link exports use
-> Ø4.05 root press sockets and Ø4.15 clevis passages. Print the
-> [orientation-matched fit ladders](../2026-09-22_ordered_pin_fit_ladders/)
-> and promote the selected stations before printing the three large affected
-> parts. The captive Ø6 × 10 stop design is unchanged and needs no ladder.
+> **September 22 calibration closed:** the actual pins selected nominal Ø4.25
+> for both the hub press sockets and link clevis passages. Those values are
+> promoted in Fusion v29 and the four production files are refreshed and
+> released for printing. The captive Ø6 × 10 stop remains unchanged.
 
-Fusion document `Beni_SingleLegRig` v28 was rebuilt, audited, exported, and
+Fusion document `Beni_SingleLegRig` v29 was rebuilt, audited, exported, and
 saved through the Fusion MCP for this release.
 
 The September 20 order supplied the dimensions used for this redesign. No
 owner measurement is required: Fusion was changed to consume the seller-listed
 Ø4 × 10 dowels, Ø6 × 10 dowel, and M4 × 40 single-hole clevis pins directly.
-The real pieces still receive a visual damage check and binary hand fit on
-arrival; the order alone is not physical acceptance.
+The real pieces received the fit-ladder check without measurement. The final
+printed parts still receive a visual damage check and binary hand fit; coupon
+selection alone is not final assembly acceptance.
 
 Order/source dimensions used: the receipt identifies 60 × ZDingTech Ø4 × 10
 dowels, 8 × uxcell M4 × 40 single-hole clevis pins, and 15 × HARFINGTON Ø6 ×

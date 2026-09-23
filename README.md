@@ -40,18 +40,19 @@ before printing spring-loaded parts.
 <!-- PRINT_QUEUE_START -->
 ## Current print — ordered-pin unpowered ABS mechanical article
 
-**Print the two [ordered-pin fit ladders](first_article_stl/ordered_pin_fit/) first, then report the selected stations.** Use the actual Ø4 × 10 dowel and M4 × 40 clevis pin as go/no-go gauges; no pin measurement is required. Hold the large hub and link prints until those results are promoted into the CAD and the three affected STLs are confirmed or re-exported. The Ø6 × 10 captive stop is deliberately clearance-fit and needs no ladder.
+**The fit selection is complete: print the four refreshed ordered-pin replacements now.** [Direct-download the selected Ø4.25 root-dowel hub STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl), then use the table below for the other three files and controlled orientations.
 
-Fusion verified both ladder B-Reps, controlled orientations, and closed-manifold meshes. It also verified the ordered hardware envelopes, all four preliminary replacement meshes, the full 24-pose sweep, OD18/ID9 spring envelope, guide and clevis insertion paths, steel knee-pin path, no-tyre wheel-shell service path, stop clearance through the permitted range, and positive stop contact 0.5° beyond each limit. [Fit-ladder evidence](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) · [ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) · [complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
+The actual Ø4 × 10 dowel selected the largest root-ladder station, nominal
+Ø4.25: relatively tight, thumb-pressable, and removable with pliers. The actual
+M4 × 40 clevis pin selected the middle station, also nominal Ø4.25, and was
+reported to work well. Fusion v29 promotes both results, preserves the Ø4.25 ×
+5.2 link-side root slip sockets and Ø4.4 cartridge-eye passages, and re-verifies
+all four meshes, the full 24-pose sweep, insertion/service paths, and stop
+proof. [Fit result](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) ·
+[ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) ·
+[complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
 
-### Print these calibration ladders now
-
-| Part | Qty | Import orientation and supports |
-|---|---:|---|
-| [Ø4 × 10 root-dowel blind-socket ladder](first_article_stl/ordered_pin_fit/ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; broad face on bed; no supports; two Ø2 holes mark the Ø4.05 end |
-| [M4 × 40 clevis link-land ladder](first_article_stl/ordered_pin_fit/ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; boss/web face on bed; no supports; brim permitted; two Ø2 holes mark the Ø4.15 end |
-
-### After the fit selection, print or replace these four parts
+### Print or replace these four parts
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|

@@ -1,10 +1,21 @@
 # Ordered-pin ABS fit ladders
 
-Status: `FUSION VERIFIED / PHYSICAL SELECTION PENDING`
+Status: `OWNER SELECTED / CAD PROMOTED`
 
-Print these two inexpensive calibration parts before the ordered-pin shoulder
-hub, proximal link, or distal link. They use the real ordered hardware as
-go/no-go gauges, so **no measurement or calipers are required**.
+These two inexpensive calibration parts used the real ordered hardware as
+go/no-go gauges, so **no measurement or calipers were required**. Their
+September 22 results are now promoted into Fusion v29 and the refreshed
+[ordered-pin production files](../ordered_pin_integration/).
+
+## Selected results
+
+- Root dowel: **Ø4.25**, the largest station farthest from the two-marker end.
+  The owner reported it was relatively tight, pressed in with a thumb, and
+  pulled out with pliers. This is the retained hub side; inspect each final hub
+  socket for whitening or cracking during installation.
+- M4 × 40 clevis pin: **Ø4.25**, the middle station. The owner reported that it
+  worked well. This is the removable proximal/distal link-passage value; still
+  confirm hand insertion and withdrawal through the completed link/eye stacks.
 
 | File | What it reproduces | Size |
 |---|---|---:|
@@ -55,12 +66,11 @@ are 5.0, 5.8, 8.2, and 9.0 mm long. The cartridge eyes between them already
 have Ø4.4 × 19 mm passages. A solid 34 mm coupon would not reproduce the real
 interrupted stack and could incorrectly select an oversized, sloppy bore.
 
-## What to report
+## Recorded result
 
-Report only the selected nominal station for each ladder, for example:
-`root dowel Ø4.10; clevis Ø4.20`. No pin dimensions are needed. Do not print
-the three affected large parts until the result is promoted into the CAD and
-their bed-ready STLs are confirmed or re-exported.
+The recorded selections are `root dowel Ø4.25; clevis Ø4.25`. No pin dimensions
+were requested or used. The hub, proximal link, and distal link were rebuilt in
+Fusion and their bed-ready STLs were re-exported after the selection.
 
 There is no Ø6 × 10 ladder. The stop pin is deliberately captured in a Ø6.2
 clearance socket by the stop plate's closed skin; its socket neither locates
@@ -68,5 +78,6 @@ nor retains the joint, so a tighter empirical fit would add risk without
 improving the mechanism.
 
 Fusion B-Rep and mesh evidence, exact station geometry, orientations, and file
-hashes are in [`fusion_manifest.json`](fusion_manifest.json) and the
+hashes are in [`fusion_manifest.json`](fusion_manifest.json). The owner report
+and Fusion release record are in the
 [release evidence](../../evidence/assembly/2026-09-22_ordered_pin_fit_ladders/).

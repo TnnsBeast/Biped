@@ -1,9 +1,8 @@
 """Fusion-authored release for the 2026-09-21 ordered pin integration.
 
-Run only through the Fusion MCP with ``Beni_SingleLegRig`` active.  This does
-not accept unreceived hardware.  It exports the four printed parts whose
-geometry now deliberately uses the seller-listed dimensions, while preserving
-the hand-fit gate when the order arrives.
+Run only through the Fusion MCP with ``Beni_SingleLegRig`` active.  It exports
+the four printed parts whose geometry deliberately uses the seller-listed
+dimensions and the owner's orientation-matched ABS fit-ladder selections.
 """
 
 import json
@@ -41,7 +40,7 @@ def release(_context: str):
         ('Shoulder_Output_Hub_L',
          'ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED',
          E._export_max_y_face_down,
-         'Ø56 outboard flange face on bed. No supports. The three Ø4.05 x '
+         'Ø56 outboard flange face on bed. No supports. The three Ø4.25 x '
          '5.0 root-dowel sockets are vertical 4 mm bridges; inspect their '
          'ceilings before installing pins or inserts.'),
         ('Proximal_Link_L',
@@ -92,14 +91,15 @@ def release(_context: str):
         - (B.STOP_PIN_SOCKET_Y0 + B.STOP_PIN_LEN))
     manifest = {
         'document': app.activeDocument.name,
-        'status': ('FUSION VERIFIED / PRINT RELEASE; ordered metal hardware '
-                   'still requires visual inspection and hand fit on arrival'),
+        'status': ('FUSION VERIFIED / PRINT RELEASE; owner-selected Ø4.25 '
+                   'coupon values still require final-part hand fit'),
         'scope': ('unpowered, clamped, wheel-clear, hand-contained ABS '
                   'mechanical assembly only'),
         'design_decisions': {
             'M4x40_clevis_pins': {
                 'quantity': 2,
                 'shaft_mm': [B.CLEVIS_PIN_D, B.CLEVIS_PIN_SHAFT_LEN],
+                'selected_link_passage_diameter_mm': B.CLEVIS_LINK_BORE_D,
                 'seller_drawing_hole_mm': [B.CLEVIS_PIN_HOLE_D,
                                             B.CLEVIS_PIN_HOLE_DATUM],
                 'printed_stack_mm': B.CLEVIS_RETAINED_STACK,
@@ -142,8 +142,8 @@ def release(_context: str):
             },
         },
         'unchanged_gates': [
-            'The ordered pins are not accepted until visually undamaged and '
-            'they enter the released receivers by hand; no measurement is required.',
+            'The selected coupon values require final-part hand fit and a '
+            'visual damage check; no pin measurement is required.',
             'The D10 knee-pin spacer/bracket remains test-only and final D10 '
             'retention plus encoder coupling remain open.',
             'ABS is released only for the supported unpowered test. Repeat '

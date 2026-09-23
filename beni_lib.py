@@ -86,7 +86,10 @@ ROOT_DOWEL_PCD = HUB_LINK_PCD
 ROOT_DOWEL_A = (90.4, 210.4, 330.4)
 ROOT_DOWEL_D = 4.0
 ROOT_DOWEL_LEN = 10.0
-ROOT_DOWEL_HUB_SOCKET_D = 4.05
+# Owner selected nominal Ø4.25 on the orientation-matched ABS ladder on
+# 2026-09-22: thumb press-in, tool-assisted pull-out.  This remains the
+# retained hub side; the link socket is deliberately a hand-mating slip side.
+ROOT_DOWEL_HUB_SOCKET_D = 4.25
 ROOT_DOWEL_HUB_DEPTH = 5.0
 ROOT_DOWEL_LINK_SOCKET_D = 4.25
 ROOT_DOWEL_LINK_DEPTH = 5.2
@@ -210,6 +213,10 @@ PROX_PRINT_FACE_Y = KNEE_BOSS_B_Y1
 CLEVIS_RETAINED_STACK = 34.0
 CLEVIS_BOSS_D = 14.0
 CLEVIS_PIN_D = 4.0
+# Owner selected the middle, nominal Ø4.25 station on the orientation-matched
+# 9 mm ABS link-land ladder on 2026-09-22.  Cartridge-eye passages remain the
+# independently released Ø4.4 geometry.
+CLEVIS_LINK_BORE_D = 4.25
 CLEVIS_PIN_SHAFT_LEN = 40.0
 CLEVIS_PIN_HEAD_D = 7.0
 CLEVIS_PIN_HEAD_T = 1.5
@@ -2340,7 +2347,7 @@ def build_proximal_link(bearing_seat_d=ABS_KNEE_BRG_SEAT_D,
 
     # upper cartridge pivot
     sk = sk_on_y(c, UPPER_CLEVIS_HEAD_SEAT_Y - 1)
-    circle(sk, UX, UZ, 4.15)
+    circle(sk, UX, UZ, CLEVIS_LINK_BORE_D)
     extrude(c, sk.profiles.item(0),
             PROX_PRINT_FACE_Y - UPPER_CLEVIS_HEAD_SEAT_Y + 2, 'cut')
 
@@ -2449,7 +2456,8 @@ def build_distal_link():
 
     sk = sk_on_y(c, DBOSS_Y0 - 1); circle(sk, KX, KZ, KNEE_SLEEVE_OD)
     extrude(c, sk.profiles.item(0), (DBOSS_Y1 - DBOSS_Y0) + 2, 'cut')
-    sk = sk_on_y(c, LEG_Y_IN - 1); circle(sk, LX, LZ, 4.15)
+    sk = sk_on_y(c, LEG_Y_IN - 1)
+    circle(sk, LX, LZ, CLEVIS_LINK_BORE_D)
     extrude(c, sk.profiles.item(0),
             LOWER_CLEVIS_OUTBOARD_Y - LEG_Y_IN + 2, 'cut')
     sk = sk_on_y(c, LEG_Y_IN - 1); circle(sk, WX, WZ, WM_COVER_D)

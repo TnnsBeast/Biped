@@ -106,6 +106,7 @@
       "quantity_used": 2,
       "retaining_hole_datum_from_head_mm": 36.0,
       "retaining_hole_diameter_mm": 1.6,
+      "selected_link_passage_diameter_mm": 4.25,
       "shaft_diameter_mm": 4.0,
       "shaft_length_mm": 40.0,
       "upper_integral_boss_side": "inboard; outboard print datum preserved",
@@ -119,7 +120,7 @@
       ],
       "axial_bottom_clearance_mm": 0.20000000000000018,
       "hub_press_socket_mm": [
-        4.05,
+        4.25,
         5.0
       ],
       "link_slip_socket_mm": [

@@ -534,6 +534,7 @@ def audit(_context: str):
             'clevis_M4x40': {
                 'quantity_used': 2,
                 'shaft_diameter_mm': B.CLEVIS_PIN_D,
+                'selected_link_passage_diameter_mm': B.CLEVIS_LINK_BORE_D,
                 'shaft_length_mm': B.CLEVIS_PIN_SHAFT_LEN,
                 'retaining_hole_diameter_mm': B.CLEVIS_PIN_HOLE_D,
                 'retaining_hole_datum_from_head_mm':

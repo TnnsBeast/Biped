@@ -130,15 +130,13 @@ checks first.
 
 ## 2026-09-22 ordered-pin fit ladders
 
-Print the two [ordered-pin ABS ladders](ordered_pin_fit/) before the large
-September 21 hub and link replacements. One reproduces the Ø4 × 10 root
-dowel's 5.0 mm blind press socket at Ø4.05…4.25. The other reproduces the
-longest 9.0 mm M4 × 40 clevis-link passage at Ø4.15…4.35. Both use 0.05 mm
-steps, exact final-part print orientation, and the real pins as go/no-go
-gauges; no measurement is required. The Ø6 × 10 captive stop remains a
-deliberate clearance fit and has no ladder. Hold the large hub/proximal/distal
-prints until the selected stations are promoted into Fusion and their STLs are
-confirmed or re-exported.
+The two [ordered-pin ABS ladders](ordered_pin_fit/) are complete historical fit
+evidence. Using the actual pins without measurement, the owner selected
+nominal Ø4.25 for the root-dowel hub socket and nominal Ø4.25 for the clevis
+link passages. Fusion v29 now contains those values and the large
+[hub/proximal/distal production files](ordered_pin_integration/) were
+re-exported and released for printing. The Ø6 × 10 captive stop remains a
+deliberate Ø6.2 clearance fit and has no ladder.
 
 ## Actuator-coupon slicer setup
 

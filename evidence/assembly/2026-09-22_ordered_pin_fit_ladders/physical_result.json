@@ -1,0 +1,21 @@
+{
+  "clevis_pin": {
+    "hardware": "ordered M4 x 40 single-hole clevis pin",
+    "interpretation": "Selected for the removable proximal/distal link passages; the completed link/cartridge stacks still require hand insertion and withdrawal checks.",
+    "owner_report": "middle size works well",
+    "selected_nominal_passage_diameter_mm": 4.25,
+    "station": "middle"
+  },
+  "date": "2026-09-22",
+  "material": "ABS",
+  "measurement_policy": "No pin measurement; actual ordered pins were used directly as go/no-go gauges.",
+  "root_dowel": {
+    "hardware": "ordered diameter 4 x 10 mm cylindrical dowel",
+    "interpretation": "Selected for the hub retained side; inspect the final hub for whitening or cracking while installing each dowel.",
+    "owner_report": "relatively tight; can press it in with thumb and then pull it out with pliers",
+    "selected_nominal_socket_diameter_mm": 4.25,
+    "station": "largest, farthest from the two-small-dot marker"
+  },
+  "status": "OWNER SELECTED / CAD PROMOTED / FUSION V29",
+  "stop_dowel": "No ladder; the diameter 6.2 mm clearance socket remains unchanged."
+}

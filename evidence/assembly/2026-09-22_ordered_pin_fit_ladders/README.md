@@ -1,11 +1,30 @@
 # Fusion release — ordered-pin ABS fit ladders
 
-Status: `FUSION VERIFIED / PHYSICAL SELECTION PENDING`
+Status: `OWNER SELECTED / CAD PROMOTED`
 
 Fusion generated both coupons in a temporary unsaved design through the Fusion
 MCP, exported them in their controlled print orientations, verified their
 B-Reps and binary meshes, and returned to the saved `Beni_SingleLegRig` v28
-without modifying it.
+without modifying it. After the physical selection, Fusion v29 was rebuilt and
+saved with the two selected Ø4.25 interfaces; the production meshes were
+re-exported and reverified.
+
+## Physical result
+
+No pin measurement was requested. The actual ordered pins served as go/no-go
+gauges:
+
+- The owner selected the largest root-dowel station, nominal **Ø4.25**, farthest
+  from the two marker holes. It was reported as relatively tight, pressable by
+  thumb, and removable with pliers. This is promoted to the hub's retained
+  socket; whitening/cracking remains a final-hub installation rejection check.
+- The owner selected the middle clevis station, nominal **Ø4.25**, and reported
+  that it works well. This is promoted to the proximal and distal link
+  passages; insertion and withdrawal through each completed link/eye stack
+  remain final-part checks.
+
+The machine-readable owner report is in
+[`physical_result.json`](physical_result.json).
 
 The root-dowel ladder brackets Ø4.05…4.25 in 0.05 mm steps. Every station is a
 5.0 mm blind socket in an 8.0 mm body, preserving the released shoulder hub's
@@ -33,4 +52,5 @@ topology, oriented bounding boxes, SHA-256 hashes, and selection rules are in
 |:---:|:---:|
 | ![Root ladder socket face; two marker holes identify the small-diameter end](../../../first_article_stl/ordered_pin_fit/01_fusion_ABS_CAL_D4x10_ROOT_BLIND_SOCKET_LADDER_SOCKET_FACE.png) | ![Clevis link-land ladder, print orientation](../../../first_article_stl/ordered_pin_fit/00_fusion_ABS_CAL_M4x40_CLEVIS_LINK_LAND_LADDER_PRINT_ORIENTED.png) |
 
-Follow the [physical selection traveller](../../../first_article_stl/ordered_pin_fit/README.md).
+The completed selection procedure is retained in the
+[physical selection traveller](../../../first_article_stl/ordered_pin_fit/README.md).
