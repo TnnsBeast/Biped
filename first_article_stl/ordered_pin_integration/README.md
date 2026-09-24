@@ -2,7 +2,8 @@
 
 Status: `FUSION VERIFIED / PRINT RELEASE / FINAL-PART HAND FIT PENDING`
 
-Start with the [picture-led orientation and assembly guide](../../docs/assembly/ordered_pin_picture_guide.md)
+Start with the [21-step illustrated assembly manual](../../docs/assembly/ordered_pin_picture_guide.md)
+or its [printable PDF](../../output/pdf/beni_single_leg_assembly_manual.pdf)
 at the bench; the detailed checklist remains below.
 
 **Owner update, September 22:** all four revised parts in this batch are
