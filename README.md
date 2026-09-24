@@ -21,7 +21,7 @@ two-leg build.
 |:---:|:---:|:---:|
 | <img src="evidence/shoulder_assembly/2026-08-23_plate_sequence/01_plate_approaches_bare_motor.png" alt="Shoulder plate approaching the bare actuator" width="440"> | <img src="evidence/shoulder_assembly/2026-08-23_plate_sequence/02_hub_installs_after_plate.png" alt="Shoulder hub installed after the plate" width="440"> | <img src="evidence/shoulder_assembly/2026-08-23_plate_sequence/03_final_shoulder_stack.png" alt="Final shoulder assembly" width="440"> |
 
-[Shoulder picture assembly guide](docs/assembly/shoulder_to_proximal_link.md) · [Heat-set receiver picture map](docs/assembly/heatset_receiver_map.md) · [Assembly-path evidence and acceptance result](evidence/shoulder_assembly/2026-08-23_plate_sequence/README.md) · [First-article prints](first_article_stl/README.md) · [Manufacturing constraints](MANUFACTURING_CONSTRAINTS.md)
+[Current ordered-pin picture assembly guide](docs/assembly/ordered_pin_picture_guide.md) · [Shoulder close-up](docs/assembly/shoulder_to_proximal_link.md) · [Heat-set receiver picture map](docs/assembly/heatset_receiver_map.md) · [Assembly-path evidence and acceptance result](evidence/shoulder_assembly/2026-08-23_plate_sequence/README.md) · [First-article prints](first_article_stl/README.md) · [Manufacturing constraints](MANUFACTURING_CONSTRAINTS.md)
 
 The CAD gallery is exported from the live Fusion model with
 [`readme_images_fusion.py`](readme_images_fusion.py) and should be refreshed with
@@ -31,16 +31,17 @@ The passive-knee detail includes the live `Knee_Spring_L` helical body: Ø19 OD,
 Ø2.6 wire and an 11.8-total-coil representation rebuilt to the current cartridge
 length. This is the original 55 mm baseline. The owner has the recommended
 yellow OD18 / ID9 × **50 mm spring**; the earlier longer-length report was a
-typo, corrected on September 6. Keep that spring. The cartridge adaptation
-is still unfinished; see the [spring record](evidence/springs/2026-09-05_reconciliation/)
-before printing spring-loaded parts.
+typo, corrected on September 6. Keep that spring. The 50 mm test-only cartridge
+is released for the unpowered ABS hand test; see the
+[ordered-pin picture guide](docs/assembly/ordered_pin_picture_guide.md)
+before assembly. The final structural cartridge is still held.
 
 ---
 
 <!-- PRINT_QUEUE_START -->
 ## Current print — ordered-pin unpowered ABS mechanical article
 
-Convenience links for the active ABS article.
+Automatically maintained convenience links for the active ABS article.
 
 **Owner report: the four revised parts are printed, the earlier mechanical-test
 batch is printed, and the Amazon pins are in hand.** No repeat print is
@@ -88,7 +89,9 @@ Use the tuned enclosed ABS profile: **0.20 mm layers, 4 walls, 5 top and 5 botto
 3. Identify the printed stand and shoulder plate before using them. Use the [Ø4.5 Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) and current [Ø4.5 shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl); print either only if the version in hand is absent or the prior Ø4.0 revision. Securely clamp the stand.
 4. Have the owned spring, **3 × Ø4 × 10 dowels**, **2 × M4 × 40 clevis pins with supplied cotters**, **2 × ISO 7089 M4 washers**, **1 × Ø6 × 10 dowel**, **3 × M3 × 10 stop screws**, the received steel knee pin, both 6800 bearings, and the printed wheel hub. The seller dimensions are already designed in; only visual inspection and hand fit are required.
 
-Follow the consolidated [ordered-pin assembly sequence](first_article_stl/ordered_pin_integration/README.md#ordered-assembly), including the detached D10 knee-pin and clevis checks, then the September 17 spring hand test. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
+Follow the [picture-led assembly guide](docs/assembly/ordered_pin_picture_guide.md)
+and its [detailed ordered-pin checklist](first_article_stl/ordered_pin_integration/README.md#ordered-assembly),
+including the detached D10 knee-pin and clevis checks, then the September 17 spring hand test. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
 
 The support-free no-tyre wheel shell is a suspended mechanical-test part. The final tyre-compatible structural rim, final pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion remain held. Keep the TPU tyre off this article.
 

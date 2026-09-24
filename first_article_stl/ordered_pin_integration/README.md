@@ -2,6 +2,9 @@
 
 Status: `FUSION VERIFIED / PRINT RELEASE / FINAL-PART HAND FIT PENDING`
 
+Start with the [picture-led orientation and assembly guide](../../docs/assembly/ordered_pin_picture_guide.md)
+at the bench; the detailed checklist remains below.
+
 **Owner update, September 22:** all four revised parts in this batch are
 reported printed, the retained September 17 mechanical-test parts are reported
 printed, and the three Amazon pin families are reported in hand. No final-part
