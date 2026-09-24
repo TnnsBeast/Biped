@@ -118,6 +118,8 @@ REROUTE_PRINT = [
 
 
 def _stl(occ, path, refinement='high'):
+    from mechanical_release_audit_fusion import assert_part
+    assert_part(occ.component.name)
     des = B.design()
     em = des.exportManager
     opt = em.createSTLExportOptions(occ, path)
@@ -137,6 +139,8 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
     if side not in ('min', 'max'):
         raise ValueError("side must be 'min' or 'max'")
     comp = occ.component
+    from mechanical_release_audit_fusion import assert_part
+    assert_part(comp.name)
     if comp.bRepBodies.count != 1:
         raise RuntimeError('%s must contain exactly one solid body' % comp.name)
     body = comp.bRepBodies.item(0)
@@ -192,6 +196,7 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
 
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, export_name + '.stl')
+    staged_path = path + '.pending.stl'
     image_path = os.path.join(out_dir, '00_fusion_' + export_name + '.png')
     visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
     try:
@@ -200,10 +205,15 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
         app = adsk.core.Application.get()
         app.activeViewport.fit()
         app.activeViewport.refresh()
-        size = _stl(print_occ, path)
+        size = _stl(print_occ, staged_path)
+        from mechanical_release_audit_fusion import assert_export
+        assert_export(comp.name, staged_path)
+        os.replace(staged_path, path)
         if not app.activeViewport.saveAsImageFile(image_path, 1600, 1200):
             raise RuntimeError('Fusion screenshot failed for %s' % export_name)
     finally:
+        if os.path.exists(staged_path):
+            os.remove(staged_path)
         for item, was_on in visibility:
             if item != print_occ:
                 item.isLightBulbOn = was_on

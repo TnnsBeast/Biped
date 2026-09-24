@@ -237,3 +237,21 @@ The Ø6 × 10 stop pin remains excluded from fit calibration because its Ø6.2
 socket is deliberately loose and the closed stop-plate skin provides axial
 capture. Fusion v29 and the refreshed bed-ready hub/link exports have passed
 the mechanical audit and are released for printing.
+
+
+## September 23 mechanical release regression gate
+
+The September 22 distal mesh failed its physical pin-fit check: a rebuild lost
+the printed receiver and left Ø16. The [full 15-part audit](evidence/assembly/2026-09-23_mechanical_reprint_audit/)
+supersedes the v29 release claim for that file. PINREV2 restores Ø10.30 × 20.0
+and incorporates the owner's Ø4.30 root/clevis-link preference. Reprint the hub
+and both links; keep the other current released parts subject to the audit's
+stand/plate revision check and physical acceptance.
+
+Run `mechanical_release_audit_fusion.assert_all()` before and after mechanical
+motion/path checks, then validate each bed-ready mesh against the reviewed
+baseline. Rebuild testing and deliberate missing/oversized/shortened receiver
+mutations must demonstrate rejection. Cut operations must target only their
+own bodies. Baseline updates require explicit design review, never automatic
+acceptance of whatever a builder produced. No release may infer fit from a
+filename, parameter constant, mesh volume or zero interference alone.

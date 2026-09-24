@@ -86,12 +86,12 @@ ROOT_DOWEL_PCD = HUB_LINK_PCD
 ROOT_DOWEL_A = (90.4, 210.4, 330.4)
 ROOT_DOWEL_D = 4.0
 ROOT_DOWEL_LEN = 10.0
-# Owner selected nominal Ø4.25 on the orientation-matched ABS ladder on
-# 2026-09-22: thumb press-in, tool-assisted pull-out.  This remains the
-# retained hub side; the link socket is deliberately a hand-mating slip side.
-ROOT_DOWEL_HUB_SOCKET_D = 4.25
+# September 23 owner requests one +0.05 mm step beyond the Ø4.25 ladder
+# selection for easier removal. Ø4.30 is a new fit candidate, not coupon-passed.
+# Both root sockets are captured by the assembled six-screw joint.
+ROOT_DOWEL_HUB_SOCKET_D = 4.30
 ROOT_DOWEL_HUB_DEPTH = 5.0
-ROOT_DOWEL_LINK_SOCKET_D = 4.25
+ROOT_DOWEL_LINK_SOCKET_D = 4.30
 ROOT_DOWEL_LINK_DEPTH = 5.2
 HUB_CABLE_R = 21.0                # cable pass-through in hub flange
 # Owner-held Kadriick assortment, photographed 2026-09-02.  Its case label
@@ -213,10 +213,10 @@ PROX_PRINT_FACE_Y = KNEE_BOSS_B_Y1
 CLEVIS_RETAINED_STACK = 34.0
 CLEVIS_BOSS_D = 14.0
 CLEVIS_PIN_D = 4.0
-# Owner selected the middle, nominal Ø4.25 station on the orientation-matched
-# 9 mm ABS link-land ladder on 2026-09-22.  Cartridge-eye passages remain the
-# independently released Ø4.4 geometry.
-CLEVIS_LINK_BORE_D = 4.25
+# September 23 owner requests +0.05 mm beyond the selected Ø4.25 ladder
+# station for easier hand removal. Final-part fit remains required. The
+# independently released Ø4.4 cartridge-eye passages are unchanged.
+CLEVIS_LINK_BORE_D = 4.30
 CLEVIS_PIN_SHAFT_LEN = 40.0
 CLEVIS_PIN_HEAD_D = 7.0
 CLEVIS_PIN_HEAD_T = 1.5
@@ -605,6 +605,13 @@ def revolve(comp, prof, axis, angle_deg=360.0, op='new'):
     ipt = rf.createInput(prof, axis, _OPS[op])
     ipt.setAngleExtent(False,
                        adsk.core.ValueInput.createByString('%g deg' % angle_deg))
+    if op in ('cut', 'inter'):
+        # Like extrudes, an unscoped revolve can cut OTHER components. A
+        # legacy cartridge rebuild damaged the ABS test eye and guide this way.
+        bodies = [comp.bRepBodies.item(i) for i in range(comp.bRepBodies.count)]
+        if not bodies:
+            raise RuntimeError('Revolve cut requires bodies in its owning component')
+        ipt.participantBodies = bodies
     return rf.add(ipt)
 
 
@@ -2414,6 +2421,31 @@ def build_proximal_link(bearing_seat_d=ABS_KNEE_BRG_SEAT_D,
     return occ
 
 
+def ensure_abs_knee_receiver(occ):
+    """Keep the calibrated receiver integral to every single-leg rebuild.
+
+    Idempotent for the legacy rig conversion entry point. Only a pristine
+    sleeve-sized bore may be converted; any other geometry needs review.
+    """
+    spans = _receiver_face_spans(occ, ABS_KNEE_PIN_BORE_D, [(KX, KZ)])
+    if len(spans) == 1:
+        span = next(iter(spans.values()))
+        if abs(span[0] - CH_Y0) < .001 and abs(span[1] - CH_Y1) < .001:
+            return occ
+        raise RuntimeError('ABS knee receiver has the wrong axial span: %s' % (span,))
+    original = _receiver_face_spans(occ, KNEE_SLEEVE_OD, [(KX, KZ)])
+    if len(original) != 1:
+        raise RuntimeError('Cannot safely restore ABS receiver: expected original sleeve bore')
+    ring(occ.component, CH_Y0, ABS_KNEE_PIN_BORE_D / 2.0,
+         KNEE_SLEEVE_OD / 2.0, CH_Y1 - CH_Y0,
+         'join', cx=KX, cz=KZ)
+    spans = _receiver_face_spans(occ, ABS_KNEE_PIN_BORE_D, [(KX, KZ)])
+    if len(spans) != 1 or any(abs(a-b) > .001 for a,b in
+                             zip(next(iter(spans.values())), (CH_Y0,CH_Y1))):
+        raise RuntimeError('ABS receiver restoration failed')
+    return occ
+
+
 def build_distal_link():
     drop_comp('Distal_Link_L')
     occ = new_comp('Distal_Link_L')
@@ -2483,6 +2515,10 @@ def build_distal_link():
     sk = sk_on_y(c, LEG_Y_IN - 1)
     circles_polar(sk, WX, WZ, 52.0, 9.0, 6, WM_BOLT_A0 + 30.0)
     extrude(c, profiles(sk), (WM_MOUNT_Y - LEG_Y_IN) + 2, 'cut')
+    # The two-leg baseline still uses its separate sleeve. The active ABS rig
+    # must never depend on a later conversion step to close its Ø16 opening.
+    if adsk.core.Application.get().activeDocument.name == 'Beni_SingleLegRig':
+        ensure_abs_knee_receiver(occ)
     return occ
 
 

@@ -516,9 +516,12 @@ def _restore():
 
 def audit(_context: str):
     assert adsk.core.Application.get().activeDocument.name == 'Beni_SingleLegRig'
+    from mechanical_release_audit_fusion import assert_all
+    measured_interfaces = assert_all()
     _register_pose_classes()
     B.capture_nominal(force=True)
     report = {
+        'measured_interface_contracts': measured_interfaces,
         'scope': 'unpowered supported ABS mechanical spring demonstration',
         'spring': {
             'owned_od_mm': OWNED_SPRING_OD,
@@ -762,6 +765,8 @@ def audit(_context: str):
         for occ, state in original_visibility:
             occ.isLightBulbOn = state
 
+    # Sweeping/rebuilding reference parts must not silently cut printed parts.
+    assert_all()
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
     path = os.path.join(EVIDENCE_DIR, 'fusion_mechanical_audit.json')
     with open(path, 'w') as stream:
@@ -771,6 +776,8 @@ def audit(_context: str):
 
 def _export_axis_up(occ, export_name, axis, support_policy):
     """Export with the selected cartridge axis mapped to print +Z."""
+    from mechanical_release_audit_fusion import assert_part
+    assert_part(occ.component.name)
     body = occ.component.bRepBodies.item(0)
     ax, az = axis
     perpendicular = (-az, ax)
@@ -820,6 +827,7 @@ def _export_axis_up(occ, export_name, axis, support_policy):
     result.name = export_name
     os.makedirs(OUT_DIR, exist_ok=True)
     path = os.path.join(OUT_DIR, export_name + '.stl')
+    staged_path = path + '.pending.stl'
     image_path = os.path.join(OUT_DIR, '00_fusion_' + export_name + '.png')
     visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
     try:
@@ -828,9 +836,14 @@ def _export_axis_up(occ, export_name, axis, support_policy):
         app = adsk.core.Application.get()
         app.activeViewport.fit()
         app.activeViewport.refresh()
-        size = E._stl(temporary, path)
+        size = E._stl(temporary, staged_path)
+        from mechanical_release_audit_fusion import assert_export
+        assert_export(occ.component.name, staged_path)
+        os.replace(staged_path, path)
         assert app.activeViewport.saveAsImageFile(image_path, 1600, 1200)
     finally:
+        if os.path.exists(staged_path):
+            os.remove(staged_path)
         for item, state in visibility:
             if item != temporary:
                 item.isLightBulbOn = state
@@ -926,6 +939,8 @@ def _assembly_image(phi, filename):
 def release(_context: str):
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
+    from mechanical_release_audit_fusion import assert_all
+    assert_all()
     os.makedirs(OUT_DIR, exist_ok=True)
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
     _register_pose_classes()

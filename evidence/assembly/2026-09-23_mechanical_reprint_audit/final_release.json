@@ -1,0 +1,1293 @@
+{
+  "document": "Beni_SingleLegRig",
+  "version": 30,
+  "dimensional_contracts": [
+    {
+      "part": "Distal_Link_L",
+      "interface": "steel knee-pin receiver",
+      "diameter_mm": 10.3,
+      "expected_y_spans_mm": [
+        [
+          64.5,
+          84.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          64.5,
+          84.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Proximal_Link_L",
+      "interface": "6800 seats",
+      "diameter_mm": 19.15,
+      "expected_y_spans_mm": [
+        [
+          58.7,
+          63.7
+        ],
+        [
+          85.3,
+          90.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          58.7,
+          63.7
+        ],
+        [
+          85.3,
+          90.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Proximal_Link_L",
+      "interface": "bearing retention lips",
+      "diameter_mm": 17,
+      "expected_y_spans_mm": [
+        [
+          63.7,
+          64.5
+        ],
+        [
+          84.5,
+          85.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          63.7,
+          64.5
+        ],
+        [
+          84.5,
+          85.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Shoulder_Output_Hub_L",
+      "interface": "root dowel blind sockets",
+      "diameter_mm": 4.3,
+      "expected_y_spans_mm": [
+        [
+          54.5,
+          59.5
+        ],
+        [
+          54.5,
+          59.5
+        ],
+        [
+          54.5,
+          59.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          54.5,
+          59.5
+        ],
+        [
+          54.5,
+          59.5
+        ],
+        [
+          54.5,
+          59.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Proximal_Link_L",
+      "interface": "root dowel slip sockets",
+      "diameter_mm": 4.3,
+      "expected_y_spans_mm": [
+        [
+          59.5,
+          64.7
+        ],
+        [
+          59.5,
+          64.7
+        ],
+        [
+          59.5,
+          64.7
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          59.5,
+          64.7
+        ],
+        [
+          59.5,
+          64.7
+        ],
+        [
+          59.5,
+          64.7
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Shoulder_Output_Hub_L",
+      "interface": "motor factory pin passages",
+      "diameter_mm": 4.15,
+      "expected_y_spans_mm": [
+        [
+          46.2,
+          59.5
+        ],
+        [
+          46.2,
+          59.5
+        ],
+        [
+          46.2,
+          59.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          46.2,
+          59.5
+        ],
+        [
+          46.2,
+          59.5
+        ],
+        [
+          46.2,
+          59.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Shoulder_Output_Hub_L",
+      "interface": "M4 insert receivers",
+      "diameter_mm": 5.3,
+      "expected_y_spans_mm": [
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ],
+        [
+          51.5,
+          59.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Proximal_Link_L",
+      "interface": "M3 insert receivers",
+      "diameter_mm": 4.5,
+      "expected_y_spans_mm": [
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ],
+        [
+          85.3,
+          90.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Proximal_Link_L",
+      "interface": "upper clevis lands",
+      "diameter_mm": 4.3,
+      "expected_y_spans_mm": [
+        [
+          56.3,
+          64.5
+        ],
+        [
+          84.5,
+          90.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          56.3,
+          64.5
+        ],
+        [
+          84.5,
+          90.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Distal_Link_L",
+      "interface": "lower clevis lands",
+      "diameter_mm": 4.3,
+      "expected_y_spans_mm": [
+        [
+          59.5,
+          64.5
+        ],
+        [
+          84.5,
+          93.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          59.5,
+          64.5
+        ],
+        [
+          84.5,
+          93.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Distal_Link_L",
+      "interface": "captive stop socket",
+      "diameter_mm": 6.2,
+      "expected_y_spans_mm": [
+        [
+          85,
+          89.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          85.0,
+          89.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Distal_Link_L",
+      "interface": "wheel motor mounting screws",
+      "diameter_mm": 2.8,
+      "expected_y_spans_mm": [
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ],
+        [
+          59.5,
+          67.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Distal_Link_L",
+      "interface": "wheel motor cover clearance",
+      "diameter_mm": 41.5,
+      "expected_y_spans_mm": [
+        [
+          59.5,
+          67.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          59.5,
+          67.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "RIG_Stand",
+      "interface": "M3 insert receivers",
+      "diameter_mm": 4.5,
+      "expected_y_spans_mm": [
+        [
+          36,
+          42
+        ],
+        [
+          36,
+          42
+        ],
+        [
+          36,
+          42
+        ],
+        [
+          36,
+          42
+        ],
+        [
+          36,
+          42
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ],
+        [
+          36.0,
+          42.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Chassis_Shoulder_Plate_L",
+      "interface": "M3 cover receivers",
+      "diameter_mm": 4.5,
+      "expected_y_spans_mm": [
+        [
+          42,
+          47
+        ],
+        [
+          42,
+          47
+        ],
+        [
+          42,
+          47
+        ],
+        [
+          42,
+          47
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ],
+        [
+          42.0,
+          47.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Shoulder_Cable_Cover_L",
+      "interface": "M3 clearance",
+      "diameter_mm": 3.4,
+      "expected_y_spans_mm": [
+        [
+          47,
+          53.5
+        ],
+        [
+          47,
+          53.5
+        ],
+        [
+          47,
+          53.5
+        ],
+        [
+          47,
+          53.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          47.0,
+          53.5
+        ],
+        [
+          47.0,
+          53.5
+        ],
+        [
+          47.0,
+          53.5
+        ],
+        [
+          47.0,
+          53.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "RIG_Cable_Post_A",
+      "interface": "M3 clearance",
+      "diameter_mm": 3.4,
+      "expected_y_spans_mm": [
+        [
+          53.5,
+          55.5
+        ],
+        [
+          53.5,
+          55.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          53.5,
+          55.5
+        ],
+        [
+          53.5,
+          55.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "RIG_Cable_Post_A",
+      "interface": "harness eye",
+      "diameter_mm": 8,
+      "expected_y_spans_mm": [
+        [
+          53.5,
+          55.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          53.5,
+          55.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Wheel_Hub_L",
+      "interface": "M4 insert receivers",
+      "diameter_mm": 5.3,
+      "expected_y_spans_mm": [
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ],
+        [
+          94.5,
+          100.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Wheel_Hub_L",
+      "interface": "motor register",
+      "diameter_mm": 37.3,
+      "expected_y_spans_mm": [
+        [
+          94.5,
+          95.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          94.5,
+          95.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Wheel_Hub_L",
+      "interface": "motor screw clearance",
+      "diameter_mm": 3.4,
+      "expected_y_spans_mm": [
+        [
+          95.3,
+          98
+        ],
+        [
+          95.3,
+          98
+        ],
+        [
+          95.3,
+          98
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          95.3,
+          98.0
+        ],
+        [
+          95.3,
+          98.0
+        ],
+        [
+          95.3,
+          98.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Wheel_Hub_L",
+      "interface": "motor screw counterbores",
+      "diameter_mm": 6.5,
+      "expected_y_spans_mm": [
+        [
+          98,
+          100.5
+        ],
+        [
+          98,
+          100.5
+        ],
+        [
+          98,
+          100.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          98.0,
+          100.5
+        ],
+        [
+          98.0,
+          100.5
+        ],
+        [
+          98.0,
+          100.5
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Cart_Upper_Eye_50mm",
+      "interface": "clevis eye passage",
+      "diameter_mm": 4.4,
+      "expected_y_spans_mm": [
+        [
+          65,
+          84
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          65.0,
+          84.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Cart_Lower_Eye_50mm",
+      "interface": "clevis eye passage",
+      "diameter_mm": 4.4,
+      "expected_y_spans_mm": [
+        [
+          65,
+          84
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          65.0,
+          84.0
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Knee_Stop_Plate_15deg",
+      "interface": "mounting holes",
+      "diameter_mm": 3.4,
+      "expected_y_spans_mm": [
+        [
+          90.3,
+          96.1
+        ],
+        [
+          90.3,
+          96.1
+        ],
+        [
+          90.3,
+          96.1
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          90.3,
+          96.1
+        ],
+        [
+          90.3,
+          96.1
+        ],
+        [
+          90.3,
+          96.1
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Knee_Stop_Plate_15deg",
+      "interface": "stop channel depth / closed skin",
+      "diameter_mm": 6.2,
+      "expected_y_spans_mm": [
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ],
+        [
+          90.3,
+          95.3
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Knee_Pin_Outboard_Spacer",
+      "interface": "keeper locator",
+      "diameter_mm": 7.6,
+      "expected_y_spans_mm": [
+        [
+          99.4,
+          101.4
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          99.4,
+          101.4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Knee_Pin_Outboard_Spacer",
+      "interface": "pin stop body",
+      "diameter_mm": 15,
+      "expected_y_spans_mm": [
+        [
+          94,
+          99.4
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          94.0,
+          99.4
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Knee_Encoder_Bracket_L",
+      "interface": "locator hole",
+      "diameter_mm": 8,
+      "expected_y_spans_mm": [
+        [
+          99.9,
+          101.9
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          99.9,
+          101.9
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "Knee_Encoder_Bracket_L",
+      "interface": "mounting passages",
+      "diameter_mm": 3.4,
+      "expected_y_spans_mm": [
+        [
+          90.3,
+          101.9
+        ],
+        [
+          90.3,
+          101.9
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          90.3,
+          101.9
+        ],
+        [
+          90.3,
+          101.9
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Wheel_Rim_NoTyre",
+      "interface": "insert tip relief",
+      "diameter_mm": 6,
+      "expected_y_spans_mm": [
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ],
+        [
+          100.5,
+          102.7
+        ]
+      ],
+      "pass": true
+    },
+    {
+      "part": "ABS_TEST_Wheel_Rim_NoTyre",
+      "interface": "M4 clearance",
+      "diameter_mm": 4.3,
+      "expected_y_spans_mm": [
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ]
+      ],
+      "measured_y_spans_mm": [
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ],
+        [
+          102.7,
+          104.5
+        ]
+      ],
+      "pass": true
+    }
+  ],
+  "released_files": {
+    "RIG_Stand": {
+      "file": "first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl",
+      "sha256": "d222b5fb7d6a586f7feddef55d9e860a1a59ecc9e4b2abde3a9c8da3a256d2cb"
+    },
+    "Chassis_Shoulder_Plate_L": {
+      "file": "first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl",
+      "sha256": "d0489f235902321cf666ba97e5a41208e6e6c615323cadf4c7e70dd96e807121"
+    },
+    "Shoulder_Cable_Cover_L": {
+      "file": "first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl",
+      "sha256": "d577e92e577e96442d0313872086443b2beb0e509ccd5731287c3a5a5491972b"
+    },
+    "RIG_Cable_Post_A": {
+      "file": "first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl",
+      "sha256": "02a46d5876512b5e2275debef03625e21deaa35d598e85276a33c8ae0a6ab9c3"
+    },
+    "Shoulder_Output_Hub_L": {
+      "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl",
+      "sha256": "6166b1b7f03fc829e25fb133242dbbd57f81a720dd86368d9f1c6a1fa4f79f32"
+    },
+    "Proximal_Link_L": {
+      "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+      "sha256": "f800ec71af19c05a60ac19c8b1d5f652733f9c2ec02bd3bd8d9ef03e537d5ea6"
+    },
+    "Distal_Link_L": {
+      "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+      "sha256": "7999d109bf36b07673f396f700198a16b0423aae3ba2a49d80fda305ac21eb38"
+    },
+    "ABS_TEST_Knee_Stop_Plate_15deg": {
+      "file": "first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl",
+      "sha256": "6a1ae7baf29e70111a846a301c5c024d009134acf31e87af38308ba4e0cded70"
+    },
+    "Wheel_Hub_L": {
+      "file": "first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl",
+      "sha256": "c5938b156ae47429fabdc4ea4d348663e97a52458e542b2f296801ca8a480617"
+    },
+    "ABS_TEST_Cart_Upper_Eye_50mm": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "sha256": "44f0e7888c085ecc42217cdc037dc8c68a36b51928a3bbdbacc0f1ddbf14e822"
+    },
+    "ABS_TEST_Cart_Lower_Eye_50mm": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl",
+      "sha256": "6401702d49a08ccd6c23743ff7539c3b817ebdcb5a932f1e92246c1bdbe9d3c8"
+    },
+    "ABS_TEST_Cart_Guide_Bar_50mm": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl",
+      "sha256": "2868cf5e87554e07fc9f3588fe26959b4ded7ad4d540b1227ad305bb8eaf60cd"
+    },
+    "ABS_TEST_Knee_Pin_Outboard_Spacer": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl",
+      "sha256": "3b503cf331de164797090ec91d06cc859e1d8e8c4f500900137330f14af39bcd"
+    },
+    "Knee_Encoder_Bracket_L": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl",
+      "sha256": "ba505b0d0c1887e6d5420a18ab741c8ae56b2503fedfb28dfe0c5c3063d3d7fe"
+    },
+    "ABS_TEST_Wheel_Rim_NoTyre": {
+      "file": "first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl",
+      "sha256": "2b0fe6c96755025dcecbcf1e353ba51fe1034e23d187d4c5006c0d4fab7268bf"
+    }
+  },
+  "scope": "15 printed parts; v30 three PINREV2 replacements; final physical fits pending"
+}

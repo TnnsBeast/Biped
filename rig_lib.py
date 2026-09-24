@@ -1288,6 +1288,8 @@ def checks_44():
     slide_mass() / sprung_split() are Mode B too -- there is no sprung mass in
     Mode A because there is no ballast, so check 4 becomes the load report.
     """
+    from mechanical_release_audit_fusion import assert_all
+    assert_all()
     register_materials()
     register_pose_classes()
     beni_lib.apply_materials(verbose=False)
@@ -1414,10 +1416,7 @@ def build_rig_knee_substitute():
     # the printability/service audit; physical fit, retention and encoder
     # coupling remain open, and PA-CF must be calibrated separately.
     dl = find_occ('Distal_Link_L')
-    ring(dl.component, PRINTED_RECEIVER_Y0,
-         beni_lib.ABS_KNEE_PIN_BORE_D / 2.0, 8.0,
-         PRINTED_RECEIVER_Y1 - PRINTED_RECEIVER_Y0,
-         op='join', cx=KNEE_X, cz=KNEE_Z)
+    beni_lib.ensure_abs_knee_receiver(dl)
     print('   Distal_Link_L bore Ø16 -> Ø%.2f ABS over %.1f mm clear fork gap'
           % (beni_lib.ABS_KNEE_PIN_BORE_D,
              PRINTED_RECEIVER_Y1 - PRINTED_RECEIVER_Y0))

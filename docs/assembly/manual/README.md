@@ -6,12 +6,13 @@ The [bench guide](../ordered_pin_picture_guide.md) and
 
 ## Drawing provenance
 
-The 29 images in `views/` were captured from the live `Beni_SingleLegRig` v29
+The 29 images in `views/` were captured from the corrected live `Beni_SingleLegRig` v30
 through the Fusion MCP using `assembly_manual_fusion.py`. Only reversible
 occurrence transforms, visibility and camera settings were used. The manifest
 records projected part positions, insertion arrows and insert receivers;
 restoration checks passed for transforms, visibility, occurrence/timeline counts
-and motor guards. No manufacturing geometry was changed or newly released.
+and motor guards. The September 23 images follow the verified PINREV2 correction; capture
+itself changes no manufacturing geometry. The source version is in the manifest.
 Exploded distances are illustration spacing, not engineering dimensions.
 
 The parts key reuses the released native Fusion print-orientation images.
@@ -27,7 +28,7 @@ and [actual-pin selection](../../../evidence/assembly/2026-09-22_ordered_pin_fit
 
 ## Reproduction and checks
 
-Run `assembly_manual_fusion.py` only through Fusion MCP with the active v29
+Run `assembly_manual_fusion.py` only through Fusion MCP with the active corrected
 single-leg rig. Its `run('')` captures all views; a comma-separated frame list
 selects particular views. The model state is restored in `finally`.
 

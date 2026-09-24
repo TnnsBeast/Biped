@@ -28,6 +28,8 @@ def center(o):
 def run(_context: str):
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
+    from mechanical_release_audit_fusion import assert_all
+    assert_all()
     design = adsk.fusion.Design.cast(app.activeProduct)
     root = design.rootComponent
     vp = app.activeViewport
@@ -76,7 +78,7 @@ def run(_context: str):
     bracket_screws = g('HW_SHCS_M3x16 (10)')
     rim_screws = g('HW_SHCS_M4x8 (2)')
     os.makedirs(OUT, exist_ok=True)
-    manifest = {'document': app.activeDocument.name, 'source_version': 29,
+    manifest = {'document': app.activeDocument.name, 'source_version': app.activeDocument.dataFile.versionNumber,
                 'illustration_only': True, 'frames': {}}
     wanted=set(_context.split(',')) if _context else set()
     manifest_path=os.path.join(OUT,'manifest.json')

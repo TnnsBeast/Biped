@@ -24,9 +24,9 @@ background for the later structural build.
 
 - GIM6010-8 shoulder motor
 - `Chassis_Shoulder_Plate_L`
-- the current `ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10` hub with
+- the current `ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30` hub with
   3 × Ø4 × 10 bought root dowels
-- the current `ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40` link and
+- the current `ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30` link and
   two 6800-2RS bearings
 - 8 × M3 × 8 housing screws
 - 6 × M3 × 10 shoulder-output-hub screws
@@ -60,7 +60,7 @@ the output hub and proximal link cover this area.
 
 With the detached hub supported flat, install its six M4 × 8 inserts from the
 outboard/link face and seat the three bought Ø4 × 10 dowels 5.0 mm into their
-selected Ø4.25 blind sockets. Reject whitening or splitting. The iron must
+selected Ø4.30 blind sockets. Reject whitening or splitting. The iron must
 not touch the dowel sockets.
 
 Align the hub with the GIM6010's three factory pins and move it straight onto
@@ -90,7 +90,7 @@ The **large circular end with six counterbores and the Ø34 centre access** is t
 shoulder end. The forked end containing the two installed 6800 bearings points
 away from the shoulder motor toward the knee.
 
-<img src="../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.png" alt="Current ordered-pin proximal link showing the shoulder root and forked bearing end" width="760">
+<img src="../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.png" alt="Current ordered-pin proximal link showing the shoulder root and forked bearing end" width="760">
 
 Do not put either end of this link against the GIM4305 wheel motor. That motor
 mounts to the current ordered-pin distal link, while it is still detached.
@@ -101,10 +101,10 @@ The proximal link does **not** bolt into the shoulder plate. Its six M4 screws
 pass through the link's root counterbores and thread into six inserts installed
 from the outboard face of the **rotating shoulder hub**.
 
-<img src="../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.png" alt="Current ordered-pin hub with six M4 receiver bores and three root-dowel sockets" width="760">
+<img src="../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.png" alt="Current ordered-pin hub with six M4 receiver bores and three root-dowel sockets" width="760">
 
 The picture shows the current hub with Fusion-exported **Ø5.3 ABS M4 receivers**
-and three Ø4.25 root-dowel sockets. Install six fresh M4 × 8 inserts in the
+and three Ø4.30 root-dowel sockets. Install six fresh M4 × 8 inserts in the
 detached revised hub from the outboard/link face with a depth stop. Each
 occupies the full 8.0 mm flange.
 M4 × 10 link screws have 6.2 mm thread engagement and 1.8 mm end clearance in
@@ -121,7 +121,7 @@ accessible outboard face.
 
 ## 6. Rehearse the revised link, then attach it
 
-Use `ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl`.
+Use `ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl`.
 Before fitting the link, pass each of the six M4 × 10 screws through its outer
 access hole. Every head must rest flat on its counterbore floor without force.
 The lightening opening now stops short of the previously clipped seat.
@@ -133,7 +133,7 @@ M3 pockets selected from the same-profile ABS ladder. Install the five M3
 inserts in this new link after inspection.
 
 Support the knee end. Move the link straight onto the three new root dowels;
-its Ø4.25 × 5.2 slip sockets must allow both faces to meet by hand. Then
+its Ø4.30 × 5.2 slip sockets must allow both faces to meet by hand. Then
 finger-start all six M4 × 10 screws and check each head clamps flat. Do not
 use screws to draw the link into place. Remove and refit it once to confirm
 the service path.

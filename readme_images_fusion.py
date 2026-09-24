@@ -14,7 +14,7 @@ import adsk.core
 import adsk.fusion
 
 
-OUTPUT_DIR = "/Users/neilchulani/Robots/Biped/docs/readme"
+OUTPUT_DIR = os.path.join(os.path.dirname(__file__), 'docs', 'readme')
 
 
 def _settle(viewport):
@@ -68,6 +68,15 @@ def _restore_bulbs(original_bulbs):
 
 def run(_context: str):
     app = adsk.core.Application.get()
+    if app.activeDocument.name == 'Beni_SingleLegRig':
+        import mechanical_release_audit_fusion as A
+        import mechanical_spring_test_fusion as M
+        A.assert_all()
+        os.makedirs(OUTPUT_DIR, exist_ok=True)
+        M._assembly_image(0.0, os.path.join(OUTPUT_DIR, 'beni_abs_mechanical.png'))
+        M._restore()
+        A.assert_all()
+        return
     if app.activeDocument.name != "Beni_Prototype1":
         raise RuntimeError("Open Beni_Prototype1 before exporting README images")
 

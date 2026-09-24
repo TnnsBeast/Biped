@@ -6,40 +6,37 @@ Start with the [21-step illustrated assembly manual](../../docs/assembly/ordered
 or its [printable PDF](../../output/pdf/beni_single_leg_assembly_manual.pdf)
 at the bench; the detailed checklist remains below.
 
-**Owner update, September 22:** all four revised parts in this batch are
-reported printed, the retained September 17 mechanical-test parts are reported
-printed, and the three Amazon pin families are reported in hand. No final-part
-fit or completed assembly has been reported. See the
-[owner material record](../../evidence/assembly/2026-09-22_owner_printed_parts_and_pins/).
+**September 23 correction: reprint the shoulder hub and both links from
+PINREV2. Keep the existing closed-skin stop plate.** The September 22 distal
+STL was mislabeled D10p30 but contained Ø16; its replacement restores the
+Ø10.30 × 20.0 receiver. Root-dowel sockets and clevis-link passages now use
+owner-requested **Ø4.30**, +0.05 mm beyond the Ø4.25 ladder selection, for easier
+hand removal. This is a new fit candidate; final-part hand fit remains open.
+Motor-pin passages, knee bore, cartridge eyes and captive stop clearances are
+otherwise unchanged. See the [all-15-part audit](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/)
+for evidence and the keep/reprint decision for every part.
 
-> **Calibration closed September 22:** the owner selected nominal Ø4.25 for
-> both the root-dowel hub socket and clevis-link passages using the actual
-> ordered pins. Fusion v29 and all four files below contain those values. The
-> coupon result releases these prints; the printed assemblies still receive
-> the binary hand-fit checks below.
-
-This September 21 batch makes the purchased pin sizes part of the load path
-and retention design. It is not a collection of loose spacers. These are the
-four replacement parts in the unpowered ABS single-leg
-assembly:
+The three PINREV2 files below replace the corresponding September 22 prints.
+The fourth row is retained hardware, not another required reprint.
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
-| [`ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl`](ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl) | 1 | Import unchanged with the Ø56 outboard flange on the bed. No supports. The three root-socket ceilings are controlled bridges. |
-| [`ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl`](ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl) | 1 | Import unchanged with the broad outboard face on the bed. No support in bearing seats, root sockets, clevis bore, or open channel. |
-| [`ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl`](ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl) | 1 | Import unchanged with the broad inboard face on the bed. Use support only under the knee-receiver land, raised web, wheel-end underside, and open-channel ceiling. Block support from every fit bore. |
+| [`ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl`](ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl) | 1 | Import unchanged with the Ø56 outboard flange on the bed. No supports. The three root-socket ceilings are controlled bridges. |
+| [`ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl`](ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 | Import unchanged with the broad outboard face on the bed. No support in bearing seats, root sockets, clevis bore, or open channel. |
+| [`ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl`](ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 | Import unchanged with the broad inboard face on the bed. Use support only under the knee-receiver land, raised web, wheel-end underside, and open-channel ceiling. Block support from every fit bore. |
 | [`ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl`](ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 | Import unchanged with the closed 0.8 mm skin on the bed and the pin channel opening upward. No supports. |
 
 Use the tuned enclosed-ABS profile: **0.20 mm layers, 4 walls, 5 top and 5
 bottom layers, 30% infill**. Do not rotate, scale, compensate holes, drill,
 sand, file, or heat-fit a failed article.
 
-These four files supersede the earlier shoulder hub, proximal link, distal
-link, and September 17 stop plate for this build. Reuse the unchanged two
+The PINREV2 hub and links supersede their prior versions. Keep the ordered-pin
+closed-skin stop plate; the older September 17 stop plate remains superseded. Reuse the unchanged two
 50 mm cartridge eyes, guide bar, D10 knee-pin spacer, encoder-bracket keeper,
 and no-tyre wheel shell from the
 [`mechanical_spring_test`](../mechanical_spring_test/) batch.
-Keep the older four structural prints out of the active assembly. The printed
+Keep superseded hub/link prints and the old September 17 stop plate out of
+the active assembly. The printed
 stand and shoulder plate are not yet identified as the current Ø4.5 M3-receiver
 versions; check their source files before installing inserts. The already
 reported printed cable cover, front cable post, and wheel hub are reusable
@@ -56,7 +53,7 @@ socket-head screws from the fastener inventory. The washers are the specified
 bearing surface for the cotters; do not replace them with printed spacers.
 
 No dimensional measurement is required. The seller dimensions are already in
-the CAD, and the actual ordered pins selected the two Ø4.25 printed interfaces.
+the CAD, and the owner requested Ø4.30 after selecting Ø4.25 with the actual pins.
 Check that the pieces are undamaged and perform the final-part hand-fit steps
 below. A pin that needs drilling, filing, hammering, or screw pull-down is a
 failed interface, not a request to rework the hardware.
@@ -70,7 +67,7 @@ floor. Have **two ISO 7089 M4 steel washers** for the clevis cotters. Their
 presence was not confirmed in the owner update, so check before closing either
 clevis joint.
 
-1. Sort and inspect the prints. Use the four revised parts above and the six
+1. Sort and inspect the prints. Use the three PINREV2 parts, retained closed-skin stop plate and the six
    retained September 17 pieces, not the previous hub, links or stop plate.
    Reject cracks, lifted mating faces, blocked bores, damaged bearing lips, or
    a damaged closed skin on the stop plate. Verify that any stand and shoulder
@@ -99,10 +96,10 @@ clevis joint.
    receiver cool and reject a proud, tilted or loose insert. The stop plate,
    distal link, cartridge eyes and cable cover receive no inserts.
 4. With the hub detached and its flange supported flat, start three Ø4 × 10
-   dowels straight into its Ø4.25 blind sockets with thumb pressure or a
-   controlled smooth-jaw press. Seat each 5.0 mm deep. Stop for whitening,
+   dowels straight into its Ø4.30 blind sockets by hand. Seat each 5.0 mm deep. Stop for whitening,
    splitting or a cocked pin. Offer the proximal root over their exposed halves
-   as a trial: its Ø4.25 × 5.2 sockets must let the faces meet by hand. Remove
+   as a trial: its Ø4.30 × 5.2 sockets must let the faces meet by hand. Confirm hand withdrawal and no objectionable play with the root assembled.
+   Support the dowels while mating the root; the screws capture them. Remove
    the proximal link for the shoulder and cable-cover steps.
 5. Assemble the shoulder in the established order: fit the current shoulder
    plate over the **bare output rotor** of the unplugged GIM6010 and fasten the
@@ -166,10 +163,12 @@ motion, ground contact, added mass, or structural testing.
 
 ## Verification record
 
-Fusion v29 verified the selected Ø4.25 hub sockets and link passages, exact
-40 mm clevis insertion paths, washer/cotter space, the captive Ø6 stop stack,
-the three shoulder-root dowel locations, the unchanged calibrated print faces,
-and all -8°…+15° hand poses. Every STL is a closed manifold with zero
-non-manifold edges and zero degenerate triangles. See the
-[release evidence](../../evidence/assembly/2026-09-21_ordered_pin_integration/)
-and [`fusion_manifest.json`](fusion_manifest.json).
+The September 23 correction verifies measured Ø4.30 root/clevis-link holes,
+the restored Ø10.30 × 20.0 knee receiver, complete proximal screw seats,
+40 mm clevis insertion paths, washer/cotter space and captive Ø6 stop stack.
+The 24-pose -8°…+15° sweep, link/pin service paths and selective-support removal
+checks pass. Each released STL is a closed manifold and matches the reviewed
+Fusion geometry and bed orientation. See the [full audit and regression
+checks](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/) and
+[`fusion_manifest.json`](fusion_manifest.json). New Ø4.30 physical fits remain
+unverified until the replacement prints pass the hand checks.

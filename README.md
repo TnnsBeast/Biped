@@ -36,6 +36,10 @@ is released for the unpowered ABS hand test; see the
 [ordered-pin picture guide](docs/assembly/ordered_pin_picture_guide.md)
 before assembly. The final structural cartridge is still held.
 
+## Current ABS mechanical article
+
+![Corrected ABS mechanical article from live Fusion](docs/readme/beni_abs_mechanical.png)
+
 ---
 
 <!-- PRINT_QUEUE_START -->
@@ -43,31 +47,29 @@ before assembly. The final structural cartridge is still held.
 
 Automatically maintained convenience links for the active ABS article.
 
-**Owner report: the four revised parts are printed, the earlier mechanical-test
-batch is printed, and the Amazon pins are in hand.** No repeat print is
-currently indicated for those parts. For a replacement, [direct-download the
-selected Ø4.25 root-dowel hub STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl);
-the table below retains the other controlled files. [Owner material
-record](evidence/assembly/2026-09-22_owner_printed_parts_and_pins/).
+**Reprint three parts: shoulder hub, proximal link and distal link.**
+[Direct-download the corrected PINREV2 distal STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl).
+The September 22 distal file lost its Ø10.30 receiver and incorrectly exported
+Ø16. The corrected file restores Ø10.30 × 20.0. At the owner's request,
+root-dowel sockets and clevis-link passages now use **Ø4.30**, one +0.05 mm
+step beyond the selected Ø4.25 ladder station, for easier removal. These new
+fits still need final-part hand acceptance. Other pin interfaces are unchanged.
 
-The actual Ø4 × 10 dowel selected the largest root-ladder station, nominal
-Ø4.25: relatively tight, thumb-pressable, and removable with pliers. The actual
-M4 × 40 clevis pin selected the middle station, also nominal Ø4.25, and was
-reported to work well. Fusion v29 promotes both results, preserves the Ø4.25 ×
-5.2 link-side root slip sockets and Ø4.4 cartridge-eye passages, and re-verifies
-all four meshes, the full 24-pose sweep, insertion/service paths, and stop
-proof. [Fit result](evidence/assembly/2026-09-22_ordered_pin_fit_ladders/) ·
-[ordered-pin evidence](evidence/assembly/2026-09-21_ordered_pin_integration/) ·
-[complete motion evidence](evidence/assembly/2026-09-17_abs_spring_mechanical_test/).
+The [all-15-part audit](evidence/assembly/2026-09-23_mechanical_reprint_audit/)
+finds no other reprint necessary for the current released files. Keep the
+closed-skin stop plate and the six earlier parts below. Keep the wheel hub,
+cable cover and front post. Stand and shoulder plate may be kept only if they
+are the current Ø4.5 M3-receiver versions; their physical print revisions are
+still unconfirmed. Withdraw the older hub and links from the active assembly.
 
-### Four revised parts reported printed — replacement files
+### Three PINREV2 replacements; retain the existing stop plate
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
-| [Shoulder output hub with three Ø4 × 10 root sockets](first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, Ø56 outboard flange on bed; no supports; controlled socket bridges |
-| [Proximal link with root sockets and integral M4 × 40 upper land](first_article_stl/ordered_pin_integration/ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad outboard face on bed; no support in functional bores or channel |
-| [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; use only the traveller's selective supports and block all fit bores |
-| [-8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, closed skin on bed and channel upward; no supports |
+| [Shoulder output hub with three Ø4 × 10 root sockets](first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, Ø56 outboard flange on bed; no supports; controlled socket bridges |
+| [Proximal link with root sockets and integral M4 × 40 upper land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad outboard face on bed; no support in functional bores or channel |
+| [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; use only the traveller's selective supports and block all fit bores |
+| [KEEP: -8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, closed skin on bed and channel upward; no supports |
 
 ### Six earlier parts reported printed — retain and inspect
 

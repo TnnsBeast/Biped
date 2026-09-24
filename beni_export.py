@@ -428,6 +428,8 @@ PRINT_DIR = os.path.join(ROOT, 'print_stl')
 
 
 def _stl(occ, path, refinement='high'):
+    from mechanical_release_audit_fusion import assert_part
+    assert_part(occ.component.name)
     des = B.design()
     em = des.exportManager
     opt = em.createSTLExportOptions(occ, path)

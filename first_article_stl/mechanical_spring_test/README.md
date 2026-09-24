@@ -9,10 +9,10 @@
 
 **Owner update, September 22:** the owner reports that all parts from this
 earlier mechanical-test print batch were printed. The six retained files below
-can be reused after physical inspection and detached fit checks. The four
-superseded structural parts have now been reprinted from the
-[ordered-pin release](../ordered_pin_integration/), and the Amazon pins are in
-hand. Use that release's consolidated assembly order.
+can be reused after physical inspection and detached fit checks. The September 23 [audit](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/)
+confirms these six retained files remain correct. Reprint the PINREV2 hub and
+both links; retain the ordered-pin closed-skin stop plate. The Amazon pins are
+in hand. Use that release's consolidated assembly order.
 
 This batch completes a supported, motor-unplugged single-leg mechanical article
 around the owned **OD18 / ID9 / 50 mm** yellow spring. It is a hand-operated

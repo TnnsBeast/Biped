@@ -1,0 +1,7 @@
+{
+  "missing_receiver": "REJECTED",
+  "oversized_receiver": "REJECTED",
+  "short_receiver": "REJECTED",
+  "mislabeled_D10p30_mesh": "REJECTED",
+  "overlapping_revolve_cut": "ALL 15 PRINTED PARTS UNCHANGED"
+}

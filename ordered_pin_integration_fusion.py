@@ -29,6 +29,8 @@ def _round(value):
 def release(_context: str):
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
+    from mechanical_release_audit_fusion import assert_all
+    measured_interfaces = assert_all()
     os.makedirs(OUT_DIR, exist_ok=True)
     os.makedirs(EVIDENCE_DIR, exist_ok=True)
     R.replace_cart_stops()
@@ -38,19 +40,19 @@ def release(_context: str):
 
     parts = [
         ('Shoulder_Output_Hub_L',
-         'ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED',
+         'ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED',
          E._export_max_y_face_down,
-         'Ø56 outboard flange face on bed. No supports. The three Ø4.25 x '
+         'Ø56 outboard flange face on bed. No supports. The three Ø4.30 x '
          '5.0 root-dowel sockets are vertical 4 mm bridges; inspect their '
          'ceilings before installing pins or inserts.'),
         ('Proximal_Link_L',
-         'ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED',
+         'ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED',
          E._export_max_y_face_down,
          'Verified broad y=90.3 outboard face on bed. No supports in bearing '
          'seats, root sockets, clevis bore or the 20 mm channel. The M4x40 '
          'upper-clevis land grows away from the bed on the inboard side.'),
         ('Distal_Link_L',
-         'ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED',
+         'ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED',
          E._export_min_y_face_down,
          'Verified broad y=59.5 inboard face on bed. Retain the released '
          'selective-support policy under the knee receiver land, raised web, '
@@ -90,9 +92,10 @@ def release(_context: str):
         R.STOP_PLATE_Y0 + R.STOP_SLOT_DEPTH
         - (B.STOP_PIN_SOCKET_Y0 + B.STOP_PIN_LEN))
     manifest = {
+        'measured_interface_contracts': measured_interfaces,
         'document': app.activeDocument.name,
-        'status': ('FUSION VERIFIED / PRINT RELEASE; owner-selected Ø4.25 '
-                   'coupon values still require final-part hand fit'),
+        'status': ('FUSION VERIFIED / PRINT RELEASE; owner-selected Ø4.30 '
+                   'fit candidates require final-part hand fit'),
         'scope': ('unpowered, clamped, wheel-clear, hand-contained ABS '
                   'mechanical assembly only'),
         'design_decisions': {
@@ -137,12 +140,12 @@ def release(_context: str):
                 'axial_bottom_clearance_mm': _round(
                     B.ROOT_DOWEL_LINK_DEPTH
                     - (B.ROOT_DOWEL_LEN - B.ROOT_DOWEL_HUB_DEPTH)),
-                'retention': ('press in hub, slip in link, axially captive '
+                'retention': ('owner-requested easier hand fit on both sides; captive '
                               'after the six M4 screws clamp the faces'),
             },
         },
         'unchanged_gates': [
-            'The selected coupon values require final-part hand fit and a '
+            'The owner-requested Ø4.30 candidates require final-part hand fit and a '
             'visual damage check; no pin measurement is required.',
             'The D10 knee-pin spacer/bracket remains test-only and final D10 '
             'retention plus encoder coupling remain open.',

@@ -64,7 +64,7 @@ def header(step,title,subtitle):
 def footer():
     c.setStrokeColor(LINE);c.setLineWidth(.7);c.line(32,30,W-32,30)
     txt(32,16,'BENI  /  ABS SINGLE LEG  /  MOTORS UNPLUGGED',8,True,GREY)
-    txt(619,16,'Fusion v29  |  23 Sep 2026',8,False,GREY)
+    txt(619,16,'Fusion v30  |  23 Sep 2026',8,False,GREY)
     txt(790,16,str(len(PAGES)),9,True,BLUE)
     c.showPage()
 
@@ -173,16 +173,16 @@ txt(36,471,'BUILD IN THIS ORDER',11,True,BLUE)
 for i,(a,b) in enumerate([('01-04','Prepare loose parts'),('05-09','Build the shoulder'),('10-14','Build wheel end and knee'),('15-20','Fit cartridge and retainers'),('21','Hand-test the supported leg')]):
     y=437-i*45;txt(36,y,a,16,True);txt(98,y,b,12)
 para(36,182,'Both motors unplugged.<br/>Stand clamped to the bench.<br/>Wheel clear of bench and floor.<br/>Keep one hand on the distal side.',270,13)
-txt(36,67,'Current CAD views, exploded only for illustration.',10,False,GREY)
+para(36,81,'23 SEP: Reprint hub + both links (PINREV2).<br/>Root/clevis holes Ø4.30; knee receiver Ø10.30.',285,10,ORANGE)
 footer()
 
 # Visual parts key. These IDs stay the same in the exploded drawings.
-header(None,'Identify your printed parts','Use the four revised parts. Match the remaining parts to your earlier batch.')
+header(None,'Identify your printed parts','Reprint D, E and G from PINREV2. Keep K and the other current released parts.')
 assets=[
- ('D','NEW shoulder hub','ordered_pin_integration/00_fusion_ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.png'),
- ('E','NEW proximal link','ordered_pin_integration/00_fusion_ABS_PINREV_Proximal_Link_D19p15_ROOT_D4x10_M4x40_PRINT_ORIENTED.png'),
- ('G','NEW distal link','ordered_pin_integration/00_fusion_ABS_PINREV_Distal_Link_D10p30_D6x10_M4x40_PRINT_ORIENTED.png'),
- ('K','NEW stop plate','ordered_pin_integration/00_fusion_ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.png'),
+ ('D','NEW shoulder hub','ordered_pin_integration/00_fusion_ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.png'),
+ ('E','NEW proximal link','ordered_pin_integration/00_fusion_ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.png'),
+ ('G','NEW distal link','ordered_pin_integration/00_fusion_ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.png'),
+ ('K','KEEP stop plate','ordered_pin_integration/00_fusion_ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.png'),
  ('L','Upper cartridge eye','mechanical_spring_test/00_fusion_ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.png'),
  ('N','Lower cartridge eye','mechanical_spring_test/00_fusion_ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.png'),
  ('M','Guide bar','mechanical_spring_test/00_fusion_ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.png'),

@@ -45,7 +45,7 @@ nominal Ø4.5. Fusion now carries Ø4.5 through the active ABS receiver family.
 
 ## Shoulder hub — six M4 inserts
 
-![Current ordered-pin shoulder hub on its controlled bed face](../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.png)
+![Current ordered-pin shoulder hub on its controlled bed face](../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.png)
 
 - Status: **CURRENT HUB PRINTED / NEW INSERT INSTALLATION PENDING.** The
   earlier hub's insert and six-screw pass does not establish the new print's
@@ -56,7 +56,7 @@ nominal Ø4.5. Fusion now carries Ø4.5 through the active ABS receiver family.
 - Fastener: 6 × M4 × 10 through the proximal-link root.
 - Result: 6.2 mm thread engagement; screw tip stops 1.8 mm before the
   motor-side insert end.
-- The three Ø4.25 × 5.0 root-dowel sockets must stay clear of the iron and
+- The three Ø4.30 × 5.0 root-dowel sockets must stay clear of the iron and
   molten ABS. Install the three Ø4 × 10 dowels after the inserts cool.
 
 The earlier Ø4.15 hub with successfully installed Ø5.3 inserts remains

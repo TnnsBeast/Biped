@@ -52,6 +52,15 @@ The complete leg and wiring are unfinished. Use the README queue for current
 prints. If you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.
 
+September 23: the full mechanical-article audit requires PINREV2 hub and both
+links. The knee receiver regression is corrected, and the owner requests Ø4.30
+root-dowel/clevis-link holes only. Every mechanical release must pass
+`mechanical_release_audit_fusion.assert_all()` and its mesh guards. Ordinary
+exports must never rewrite `mechanical_release_baseline.json`; deliberate
+changes require review, renewed paths/orientation evidence and a baseline diff
+in the same commit. Revolve cuts must have explicit participant bodies, just
+like extrude cuts. [Audit and reprint decisions](evidence/assembly/2026-09-23_mechanical_reprint_audit/).
+
 Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 
 ## The hard rules

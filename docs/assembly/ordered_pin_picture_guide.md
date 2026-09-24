@@ -3,11 +3,14 @@
 [Download the printable 23-page PDF](../../output/pdf/beni_single_leg_assembly_manual.pdf).
 
 A visual parts key and 21 numbered assembly operations, using exploded views
-of the current Fusion v29 article. Read the pages in order. Both motors stay
+of the corrected September 23 Fusion v30 article. Read the pages in order. Both motors stay
 unplugged; clamp the stand, keep the wheel clear and hand-contain the distal side.
 
-The four revised prints and Amazon pins are owner-reported in hand. Physical
-final-part fit and completed assembly remain unverified. The
+**Reprint the PINREV2 shoulder hub and both links.** Their root-dowel and
+clevis-link holes are Ø4.30; the distal knee receiver is restored to Ø10.30.
+Keep the current stop plate and other released prints, subject to the
+[all-15-part audit](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/).
+New print completion, final fits and completed assembly remain unverified. The
 [detailed traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
 retains the acceptance checklist; [drawing provenance](manual/README.md) records
 sources and illustration limits.
