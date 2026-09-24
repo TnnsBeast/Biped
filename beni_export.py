@@ -23,6 +23,7 @@ import adsk.core
 import adsk.fusion
 
 import beni_lib as B
+import stl_release as S
 
 ROOT = '/Users/neilchulani/Robots/Biped'
 STEP_DIR = os.path.join(ROOT, 'manufacturing', 'step')
@@ -428,17 +429,21 @@ PRINT_DIR = os.path.join(ROOT, 'print_stl')
 
 
 def _stl(occ, path, refinement='high'):
+    """'high' is the print release standard (stl_release); lower presets are
+    for viewer meshes only."""
     from mechanical_release_audit_fusion import assert_part
     assert_part(occ.component.name)
     des = B.design()
     em = des.exportManager
-    opt = em.createSTLExportOptions(occ, path)
-    opt.meshRefinement = {
-        'high': adsk.fusion.MeshRefinementSettings.MeshRefinementHigh,
-        'medium': adsk.fusion.MeshRefinementSettings.MeshRefinementMedium,
-        'low': adsk.fusion.MeshRefinementSettings.MeshRefinementLow,
-    }[refinement]
-    opt.isBinaryFormat = True
+    if refinement == 'high':
+        opt = S.stl_options(em, occ, path, occ.component.bRepBodies)
+    else:
+        opt = em.createSTLExportOptions(occ, path)
+        opt.meshRefinement = {
+            'medium': adsk.fusion.MeshRefinementSettings.MeshRefinementMedium,
+            'low': adsk.fusion.MeshRefinementSettings.MeshRefinementLow,
+        }[refinement]
+        opt.isBinaryFormat = True
     em.execute(opt)
     return os.path.getsize(path)
 

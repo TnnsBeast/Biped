@@ -259,3 +259,17 @@ mutations must demonstrate rejection. Cut operations must target only their
 own bodies. Baseline updates require explicit design review, never automatic
 acceptance of whatever a builder produced. No release may infer fit from a
 filename, parameter constant, mesh volume or zero interference alone.
+
+## September 24 cross-machine STL release gate
+
+Tessellation is part of dimensional control, like print orientation. Fusion
+2705.1.25 ignores the surface deviation, so its plain High export would print
+the proximal Ø19.15 bearing seats 0.040 mm tighter across the flats than the
+released file. Every print export now uses `stl_release`: a 0.004 mm chord on
+the largest radius, measured, on any machine. `assert_export()` accepts the
+pinned triangle fingerprint or a `mesh_fidelity()` proof that the mesh is the
+reviewed B-Rep at its bed pose. Exporters retain pinned files that still match.
+All 15 pinned files pass, the wrong-geometry controls fail, and both release
+scripts complete on this machine without changing a released file.
+[Evidence and rejected alternatives](evidence/assembly/2026-09-24_cross_machine_release_gate/).
+

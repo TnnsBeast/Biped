@@ -22,7 +22,7 @@ import adsk.core
 import adsk.fusion
 
 
-WORKSPACE = '/Users/neilchulani/Biped'
+WORKSPACE = os.path.dirname(os.path.realpath(__file__))
 OUT_DIR = os.path.join(WORKSPACE, 'first_article_stl', 'actuator_fit')
 PIN_TRIAL_OUT_DIR = os.path.join(OUT_DIR, 'gim6010_pin_trials')
 BEARING_TRIAL_OUT_DIR = os.path.join(
@@ -36,6 +36,7 @@ DOCUMENT = 'Beni_Prototype1_TestGauges'
 if WORKSPACE not in sys.path:
     sys.path.insert(0, WORKSPACE)
 import beni_lib as B
+import stl_release as S
 
 COUPONS = {
     # Chassis_Shoulder_Plate_L interface: O48 rotating-face clearance and the
@@ -709,10 +710,8 @@ def export_all():
             raise RuntimeError('missing coupon component %s' % name)
         row = _measure(occ)
         path = os.path.join(OUT_DIR, name + '.stl')
-        options = manager.createSTLExportOptions(occ.component, path)
-        options.meshRefinement = (
-            adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-        options.isBinaryFormat = True
+        options = S.stl_options(manager, occ.component, path,
+                                occ.component.bRepBodies)
         if not manager.execute(options):
             raise RuntimeError('STL export failed for %s' % name)
         row['stl'] = path
@@ -748,10 +747,8 @@ def export_gim6010_pin_trials():
             raise RuntimeError('missing pin-trial component %s' % name)
         row = _measure(occ, spec)
         path = os.path.join(PIN_TRIAL_OUT_DIR, name + '.stl')
-        options = manager.createSTLExportOptions(occ.component, path)
-        options.meshRefinement = (
-            adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-        options.isBinaryFormat = True
+        options = S.stl_options(manager, occ.component, path,
+                                occ.component.bRepBodies)
         if not manager.execute(options):
             raise RuntimeError('STL export failed for %s' % name)
         row['stl'] = path
@@ -788,10 +785,8 @@ def export_6800_bore_ladder():
     row = _measure_6800_bore_ladder(occ)
     path = os.path.join(BEARING_TRIAL_OUT_DIR,
                         BEARING_LADDER_NAME + '.stl')
-    options = design.exportManager.createSTLExportOptions(occ.component, path)
-    options.meshRefinement = (
-        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-    options.isBinaryFormat = True
+    options = S.stl_options(design.exportManager, occ.component, path,
+                            occ.component.bRepBodies)
     if not design.exportManager.execute(options):
         raise RuntimeError('STL export failed for %s' % BEARING_LADDER_NAME)
     row['stl'] = path
@@ -827,10 +822,8 @@ def export_knee_pin_bore_ladder():
     row = _measure_knee_pin_bore_ladder(occ)
     path = os.path.join(KNEE_PIN_TRIAL_OUT_DIR,
                         KNEE_PIN_LADDER_NAME + '_PRINT_ORIENTED.stl')
-    options = design.exportManager.createSTLExportOptions(occ.component, path)
-    options.meshRefinement = (
-        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-    options.isBinaryFormat = True
+    options = S.stl_options(design.exportManager, occ.component, path,
+                            occ.component.bRepBodies)
     if not design.exportManager.execute(options):
         raise RuntimeError('STL export failed for %s' % KNEE_PIN_LADDER_NAME)
     row['stl'] = path
@@ -865,10 +858,8 @@ def export_abs_proximal_link():
     row = _measure_abs_proximal(occ)
     path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
                         ABS_PROXIMAL_NAME + '.stl')
-    options = design.exportManager.createSTLExportOptions(occ.component, path)
-    options.meshRefinement = (
-        adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-    options.isBinaryFormat = True
+    options = S.stl_options(design.exportManager, occ.component, path,
+                            occ.component.bRepBodies)
     if not design.exportManager.execute(options):
         raise RuntimeError('STL export failed for %s' % ABS_PROXIMAL_NAME)
     row['stl'] = path
@@ -1014,11 +1005,8 @@ def export_abs_proximal_link_print_oriented():
 
         path = os.path.join(ASSEMBLY_DRY_FIT_OUT_DIR,
                             ABS_PROXIMAL_PRINT_NAME + '.stl')
-        options = design.exportManager.createSTLExportOptions(
-            print_occ.component, path)
-        options.meshRefinement = (
-            adsk.fusion.MeshRefinementSettings.MeshRefinementHigh)
-        options.isBinaryFormat = True
+        options = S.stl_options(design.exportManager, print_occ.component, path,
+                                print_occ.component.bRepBodies)
         if not design.exportManager.execute(options):
             raise RuntimeError('STL export failed for %s' %
                                ABS_PROXIMAL_PRINT_NAME)

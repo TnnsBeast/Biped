@@ -74,12 +74,19 @@ def refresh_images(_context: str):
 
 
 def release(_context: str):
+    """Export and verify the four ordered-pin parts; a path argument is a dry run.
+
+    Unchanged parts keep their pinned files (exporters retain them), so a
+    release on a machine with a different Fusion tessellation causes no churn.
+    """
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
     from mechanical_release_audit_fusion import assert_all
     measured_interfaces = assert_all()
-    os.makedirs(OUT_DIR, exist_ok=True)
-    os.makedirs(EVIDENCE_DIR, exist_ok=True)
+    out_dir = _context or OUT_DIR
+    evidence_dir = _context or EVIDENCE_DIR
+    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(evidence_dir, exist_ok=True)
     R.replace_cart_stops()
     R.ref_assert()
     R.placed_assert()
@@ -92,13 +99,13 @@ def release(_context: str):
         occurrence = B.find_occ(source)
         assert occurrence is not None
         topology[source] = M._topology(occurrence)
-        row = R.guarded(exporter, occurrence, export_name, OUT_DIR, policy)
+        row = R.guarded(exporter, occurrence, export_name, out_dir, policy)
         exports.append(row)
         meshes[export_name] = M._verify_binary_stl(
             row['stl'], topology[source]['volume_mm3'])
 
     assembly_image = os.path.join(
-        EVIDENCE_DIR, '00_fusion_ordered_pin_integration_phi_0.png')
+        evidence_dir, '00_fusion_ordered_pin_integration_phi_0.png')
     M._assembly_image(0.0, assembly_image)
     R.replace_cart_stops()
     B.capture_nominal(force=True)
@@ -179,8 +186,8 @@ def release(_context: str):
         'mechanical_audit': os.path.join(
             M.EVIDENCE_DIR, 'fusion_mechanical_audit.json'),
     }
-    for path in (os.path.join(OUT_DIR, 'fusion_manifest.json'),
-                 os.path.join(EVIDENCE_DIR, 'fusion_release_manifest.json')):
+    for path in (os.path.join(out_dir, 'fusion_manifest.json'),
+                 os.path.join(evidence_dir, 'fusion_release_manifest.json')):
         with open(path, 'w', encoding='utf-8') as stream:
             json.dump(manifest, stream, indent=2, sort_keys=True)
             stream.write('\n')

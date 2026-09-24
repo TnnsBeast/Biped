@@ -878,6 +878,52 @@ ARTIFACT_PAIRS = (
 # cannot coexist.  Both come off before the leg goes on.
 STEP2_FIXTURES = ('RIG_Torque_Arm', 'RIG_Scale_Pedestal')
 
+# Parts the single-leg conversion deletes.  Two-leg builders run inside the rig
+# bring them back: build_cartridge() ends in rebuild_spring(), which recreates
+# the right-hand spring, and build_knee_stop() recreates the steel arc and PU
+# bumpers beside the stop dowel.  A rebuild after 2026-09-21 did exactly that
+# (compare the 2026-08-20 snapshot).  checks_44() reports any that exist;
+# remove_rig_excluded_parts() is the deliberate, guarded cleanup.
+RIG_REMOVED = ('Knee_Stop_Arc_L', 'Knee_Bumper_Flex_L', 'Knee_Bumper_Ext_L',
+               'Knee_Spring_L(Mirror)', 'Knee_Sleeve_L', 'Knee_Axle_L',
+               'Knee_Magnet_Carrier_L')
+
+# The unpowered ABS article is modelled beside the structural rig it stands in
+# for: each ABS_TEST_* part is co-located with the structural part it replaces,
+# and the owned-spring envelope is a reference volume.  checks_44() audits the
+# structural rig as before; mechanical_spring_test_fusion.audit() owns the ABS
+# article (-8..+15 deg, its own spring envelope and insertion paths).
+ABS_ARTICLE_PREFIXES = ('ABS_TEST_', 'REFERENCE_Owned_Spring_Envelope')
+
+
+def _structural_rig_clash(pair):
+    """True for a clash that belongs to the structural Mode A rig checks."""
+    names = (pair[0], pair[1])
+    if any(n.startswith(p) for n in names for p in ABS_ARTICLE_PREFIXES):
+        return False
+    return not any(base_name(n.split(':')[0]) in RIG_REMOVED for n in names)
+
+
+def rig_inventory_problems():
+    """Parts that the rig conversion removes but that exist in the model."""
+    found = []
+    r = root()
+    for i in range(r.occurrences.count):
+        name = base_name(r.occurrences.item(i).component.name)
+        if name in RIG_REMOVED and name not in found:
+            found.append(name)
+    return found
+
+
+def remove_rig_excluded_parts():
+    """Deliberately delete resurrected RIG_REMOVED parts, under the guard."""
+    def work():
+        return {name: drop_comp(name) for name in RIG_REMOVED if find_occ(name)}
+    removed = guarded(work)
+    replace_cart_stops()
+    placed_assert(verbose=False)
+    return removed
+
 
 def _is_artifact(a, b):
     na, nb = base_name(a.split(':')[0]), base_name(b.split(':')[0])
@@ -1148,7 +1194,8 @@ def check2_shoulder_sweep(step=15.0):
         rig_set_pose(t, 0.0)
         cl = [c for c in real_clashes(verbose=False)
               if not any(f in c[0] or f in c[1]
-                         for f in ('RIG_Floor_Plate',) + STEP2_FIXTURES)]
+                         for f in ('RIG_Floor_Plate',) + STEP2_FIXTURES)
+              and _structural_rig_clash(c)]
         lo = max(lo, Z_FLOOR_A - wheel_bottom())
         if cl:
             bad.append((t, cl))
@@ -1300,6 +1347,12 @@ def checks_44():
     beni_lib.capture_nominal(force=True)
     print()
     r = {}
+    r['0'] = rig_inventory_problems()
+    print('=== CHECK 0: rig inventory (parts the conversion removes) ===')
+    print('  present: %s  -> %s' % (r['0'] or 'none', 'FAIL' if r['0'] else 'PASS'))
+    print('  ABS_TEST_* parts and the owned-spring envelope are audited by '
+          'mechanical_spring_test_fusion.audit()')
+    print()
     r['1'] = check1_knee_sweep(); print()
     r['2'] = check2_shoulder_sweep(); print()
     r['3'] = check3_mode_a_floor(); print()
@@ -2124,7 +2177,8 @@ def check3_mode_a_floor():
     for phi in (PHI_EXT_STOP, 0.0, 10.0, 20.0, 25.0, 27.0):
         rig_set_pose(0.0, phi)
         cl = [x for x in real_clashes(verbose=False)
-              if not any(f in x[0] or f in x[1] for f in STEP2_FIXTURES)]
+              if not any(f in x[0] or f in x[1] for f in STEP2_FIXTURES)
+              and _structural_rig_clash(x)]
         wb = wheel_bottom()
         clear = wb - Z_FLOOR_A
         ok = clear >= -0.02 and not cl

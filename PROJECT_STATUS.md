@@ -8,6 +8,17 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**September 24 CAD readiness on the second machine:** Fusion 2705.1.25 ignores
+the STL surface deviation, so plain "High" exports would print the proximal
+bearing seats 0.040 mm tighter than released. Every print export now uses
+`stl_release`, and the release gate proves mesh↔B-Rep fidelity instead of
+matching another machine's triangles. Both release scripts complete here
+without changing a released file. [Release gate](evidence/assembly/2026-09-24_cross_machine_release_gate/).
+Four parts that the rig conversion deletes had been resurrected by a
+Sept 21–23 rebuild. They are removed in v31; `checks_44()` and the ABS-article
+motion audit pass in full. [Model cleanup](evidence/assembly/2026-09-24_rig_model_cleanup/).
+Neither change alters a printed part.
+
 **September 23 correction and full mechanical audit:** reprint the **shoulder
 hub, proximal link and distal link** from PINREV2. The September 22 distal STL
 lost its printed knee receiver and contained Ø16 despite its D10p30 filename;
@@ -43,7 +54,7 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 
 | | Status |
 |---|---|
-| **Prototype 1**, two-leg robot | Modelled, saved and verified in Fusion (`Biped → Beni_Prototype1`). The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. The assembly audit and remaining release gates are linked below. Revision 2; not built. |
+| **Prototype 1**, two-leg robot | Modelled and saved in Fusion (`Biped → Beni_Prototype1`, v18). The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. The assembly audit and remaining release gates are linked below. Revision 2; not built. **v18 predates the September 21 ordered-pin source.** On 2026-09-24 a read-only `audit_all()` reported 6 problems: hardware counts, and source parity for the Ø4 × 32 clevis pins and Ø6 × 9 dowel still modelled, against M4 × 40 pins, washers, root dowels and Ø6 × 10 in `beni_lib`. Rebuild deliberately when the two-leg build resumes; the PA-CF fits need their own coupons anyway. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now inherits the owner-selected Ø4.5 M3 receiver and Ø5.3 M4 receiver constants, but the stripped/deferred carriage was not rebuilt or released. Rebuild and verify it in Fusion when Mode B returns and repeat the M3 coupon for its eventual material/profile. |
 | **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** The ordered-pin revision replaces the shoulder hub, proximal link, distal link, and stop plate so the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 pins serve as locating, pivot, and captive-stop hardware. The actual pins selected Ø4.25; the owner now requests Ø4.30 for root-dowel sockets and clevis-link passages. The September 22 distal print failed with a missing receiver. PINREV2 corrects it and replaces the hub and both links; these three new prints are pending. The earlier stop plate and mechanical-test batch remain reusable, with Amazon pins received. Final-part pin fits, the physical D10 knee-pin checks, inserts and assembly remain open. The immediate article is an unpowered, clamped, wheel-clear, hand-contained self-weight test. Final D10 retention, encoder coupling, tyre-compatible structural rim, actual harness routing and electronics still gate powered use. |
 | Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
@@ -273,7 +284,7 @@ final mechanical, fixture, harness, and electronics gates.
 | Document | What it is |
 |---|---|
 | `Beni_Prototype1` | The complete two-leg robot. **Master — do not edit casually.** |
-| `Beni_SingleLegRig` | The active ABS integration rig, saved as v30 on 2026-09-23 (PINREV2). It contains the test-only 50 mm cartridge eyes/guide, owner-requested Ø4.30 ordered-pin shoulder-root sockets and clevis-link passages, the restored Ø10.30 × 20.0 knee receiver, captive Ø6 × 10 stop, outboard D10 pin spacer/keeper, no-tyre wheel shell, and owned-spring reference envelope. |
+| `Beni_SingleLegRig` | The active ABS integration rig, saved as v31 on 2026-09-24: PINREV2 geometry (v30) with four parts resurrected by a Sept 21–23 rebuild removed ([cleanup](evidence/assembly/2026-09-24_rig_model_cleanup/)). It contains the test-only 50 mm cartridge eyes/guide, owner-requested Ø4.30 ordered-pin shoulder-root sockets and clevis-link passages, the restored Ø10.30 × 20.0 knee receiver, captive Ø6 × 10 stop, outboard D10 pin spacer/keeper, no-tyre wheel shell, and owned-spring reference envelope. |
 | `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
@@ -351,9 +362,10 @@ hand-built.
 | `first_article_fusion.py` | Fusion MCP | Builds, validates and exports the ABS actuator coupons, 6800 ladder, full-depth knee-pin bore ladder and proximal first article in `Beni_Prototype1_TestGauges`. |
 | `knee_mockup_fusion.py` | Fusion MCP | Creates the separate supported ABS knee mock-up, temporary pin and detached spring-seat caps; checks assembly/support paths and exported meshes. |
 | `distal_first_article_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Audits the Ø10.30 × 20.0 mm distal receiver, link and pin service paths, four selective-support regions and the bed-ready mesh; writes the v26 release evidence. |
-| `mechanical_spring_test_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Builds and audits the unpowered 50 mm spring cartridge, guide, -8°…+15° stop, outboard pin keeper stack and no-tyre wheel shell; exports the seven bed-ready ABS files and September 17 evidence. |
-| `ordered_pin_integration_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Releases the four ordered-pin parts (PINREV2 hub/links plus the stop plate) around the ordered Ø4 × 10, M4 × 40, and Ø6 × 10 hardware; verifies meshes and writes the ordered-pin manifest/evidence. `refresh_images()` recaptures their release images without rewriting the STLs. |
-| `mechanical_release_audit_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | The fail-closed release gate: `assert_all()` checks 32 measured interface contracts and every native face of the 15 printed parts against the reviewed `mechanical_release_baseline.json`; `assert_export()` checks each bed-ready mesh fingerprint. Exporters call it; they never update the baseline. |
+| `mechanical_spring_test_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Builds and audits the unpowered 50 mm spring cartridge, guide, -8°…+15° stop, outboard pin keeper stack and no-tyre wheel shell. `audit()` runs the 24-pose sweep, stop proof and insertion paths; `release()` exports the six current spring-test files (the stop plate is released by the ordered-pin script). A directory argument makes either a dry run. |
+| `ordered_pin_integration_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Releases the four ordered-pin parts (PINREV2 hub/links plus the stop plate) around the ordered Ø4 × 10, M4 × 40, and Ø6 × 10 hardware; verifies meshes and writes the ordered-pin manifest/evidence. `refresh_images()` recaptures their release images without rewriting the STLs; a directory argument to `release()` is a dry run. |
+| `mechanical_release_audit_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | The fail-closed release gate: `assert_all()` checks 32 measured interface contracts and every native face of the 15 printed parts against the reviewed `mechanical_release_baseline.json`. `assert_export()` accepts a bed-ready mesh that matches the pinned fingerprint or passes the machine-independent `mesh_fidelity()` proof against the reviewed B-Rep. `regression_tests()` runs the negative controls. Exporters never update the baseline; only the logged `accept_shapes()`, `accept_released_files()` and `accept_verified_sources()` review steps do. |
+| `stl_release.py` | Fusion MCP | The print tessellation standard used by every STL exporter: a 0.004 mm chord on the largest curved radius, set through the normal deviation because Fusion 2705.1.25 ignores surface deviation. [Record](evidence/assembly/2026-09-24_cross_machine_release_gate/). |
 | `verify_mechanical_release.py` | plain `python3`, also GitHub CI | Byte-hash gate: the 15 released STLs and the Fusion-verified source files must match the baseline. A changed source fails until it is re-verified in Fusion and its hash is updated deliberately. |
 | `ordered_pin_fit_ladders_fusion.py` | Fusion MCP, with `Beni_SingleLegRig` active | Generates the September 22 root-dowel and clevis-passage ABS ladders in a temporary unsaved Fusion document, verifies their controlled orientations/B-Reps/meshes, and leaves the active rig unmodified. |
 | `readme_images_fusion.py` | Fusion MCP, with `Beni_Prototype1` active | Refreshes the full-robot, complete-leg, wheel-module, and knee-detail images used by the project homepage. |

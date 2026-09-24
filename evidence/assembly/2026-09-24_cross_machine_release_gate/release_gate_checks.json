@@ -1,0 +1,386 @@
+{
+ "date": "2026-09-24",
+ "document": "Beni_SingleLegRig v30 (unsaved session; cloud version unchanged)",
+ "fusion_build": "2705.1.25",
+ "stl_writer_header": "STLB ATF 15.15.0.0 (same header on the released files)",
+ "root_cause": {
+  "stl_export_hub_triangles": {
+   "preset_high": 5640,
+   "custom_reported_high": 5640,
+   "custom_sd_tenth": 5640,
+   "preset_high_then_reassert": 5640,
+   "preset_medium": 5040
+  },
+  "released_hub_triangles": 10850,
+  "finding_stl_export": "surfaceDeviation 0.00403 and 0.000403 give identical 5640-triangle meshes; only normalDeviation changes the result (Medium 15 deg: 5040)",
+  "triangle_mesh_calculator": {
+   "st0.0004cm_nd10_side80.42mm_ar21.5": 47488,
+   "st0.0004cm_nd10_only": 47488,
+   "st0.004cm_nd10_side80.42mm_ar21.5": 47488,
+   "quality_VeryHigh": 47488,
+   "quality_High": 47488
+  },
+  "finding_mesh_calculator": "every setting and quality preset returns the same 47488-triangle mesh with fixed 1 deg segments",
+  "released_chord_rule": "High = 5.0e-5 x bounding-box diagonal (hub 0.0040, proximal 0.0097, distal 0.0093 mm); Medium = 1.6e-4 x diagonal (stand 0.056, plate 0.027, cover 0.021, post 0.015, wheel hub 0.0125 mm)"
+ },
+ "standard_export_hub": {
+  "max_radius_mm": 28.0,
+  "segment_deg": 1.9369739330187057,
+  "fidelity": {
+   "triangles": 62396,
+   "vertices": 31166,
+   "open_or_nonmanifold_edges": 0,
+   "degenerate_triangles": 0,
+   "shells": 1,
+   "lumps": 1,
+   "vertices_off_reviewed_surface": 0,
+   "max_cylinder_chord_mm": 0.00399,
+   "mesh_volume_mm3": 19884.468,
+   "brep_volume_mm3": 19888.064,
+   "mesh_area_mm2": 10276.929,
+   "brep_area_mm2": 10278.034,
+   "bed_contact_mesh_mm2": 1733.745,
+   "bed_contact_brep_mm2": 1734.077,
+   "mesh_min_z_mm": -1.010299987793577e-14,
+   "box_deviation_mm": [
+    0.0,
+    0.004,
+    0.0
+   ],
+   "brep_samples": 197,
+   "brep_samples_not_in_mesh": 0
+  }
+ },
+ "pinned_files_fidelity": {
+  "RIG_Stand": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.05619,
+   "triangles": 2372,
+   "seconds": 0.1
+  },
+  "Chassis_Shoulder_Plate_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.02685,
+   "triangles": 4338,
+   "seconds": 0.3
+  },
+  "Shoulder_Cable_Cover_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.02107,
+   "triangles": 1740,
+   "seconds": 0.0
+  },
+  "RIG_Cable_Post_A": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.01481,
+   "triangles": 728,
+   "seconds": 0.0
+  },
+  "Shoulder_Output_Hub_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00402,
+   "triangles": 10850,
+   "seconds": 0.4
+  },
+  "Proximal_Link_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.0097,
+   "triangles": 9060,
+   "seconds": 0.4
+  },
+  "Distal_Link_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00934,
+   "triangles": 6172,
+   "seconds": 0.3
+  },
+  "ABS_TEST_Knee_Stop_Plate_15deg": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00302,
+   "triangles": 2150,
+   "seconds": 0.3
+  },
+  "Wheel_Hub_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.01253,
+   "triangles": 2724,
+   "seconds": 0.1
+  },
+  "ABS_TEST_Cart_Upper_Eye_50mm": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00173,
+   "triangles": 2368,
+   "seconds": 0.1
+  },
+  "ABS_TEST_Cart_Lower_Eye_50mm": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00198,
+   "triangles": 2592,
+   "seconds": 0.1
+  },
+  "ABS_TEST_Cart_Guide_Bar_50mm": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.0,
+   "triangles": 12,
+   "seconds": 0.0
+  },
+  "ABS_TEST_Knee_Pin_Outboard_Spacer": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00112,
+   "triangles": 1808,
+   "seconds": 0.0
+  },
+  "Knee_Encoder_Bracket_L": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00249,
+   "triangles": 3762,
+   "seconds": 0.1
+  },
+  "ABS_TEST_Wheel_Rim_NoTyre": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00701,
+   "triangles": 5696,
+   "seconds": 0.2
+  },
+  "Shoulder_Output_Hub_L [standard export]": {
+   "pass": true,
+   "failures": [],
+   "chord_mm": 0.00399,
+   "triangles": 62396,
+   "seconds": 2.1
+  }
+ },
+ "dry_run_releases": {
+  "ordered_pin_integration": {
+   "seconds": 48.5,
+   "exports": [
+    {
+     "export_name": "ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 3119884,
+     "minimum_z_mm": 0.0
+    },
+    {
+     "export_name": "ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 4307784,
+     "minimum_z_mm": 0.0
+    },
+    {
+     "export_name": "ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 4022584,
+     "minimum_z_mm": 0.0
+    },
+    {
+     "export_name": "ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 572884,
+     "minimum_z_mm": 0.0
+    }
+   ],
+   "mesh_verification": {
+    "ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED": {
+     "triangles": 62396,
+     "nonmanifold_edges": 0,
+     "native_volume_relative_error": 0.00018078049789723694
+    },
+    "ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED": {
+     "triangles": 86154,
+     "nonmanifold_edges": 0,
+     "native_volume_relative_error": 1.0007098190516628e-07
+    },
+    "ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED": {
+     "triangles": 80450,
+     "nonmanifold_edges": 0,
+     "native_volume_relative_error": 8.68527119367755e-06
+    },
+    "ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED": {
+     "triangles": 11456,
+     "nonmanifold_edges": 0,
+     "native_volume_relative_error": 0.0001559655114572101
+    }
+   }
+  },
+  "mechanical_spring_test": {
+   "seconds": 91.4,
+   "exports": [
+    {
+     "export_name": "ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 115984
+    },
+    {
+     "export_name": "ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 134184
+    },
+    {
+     "export_name": "ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "exact pinned tessellation",
+     "stl_bytes": 684
+    },
+    {
+     "export_name": "ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 68784
+    },
+    {
+     "export_name": "ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 1368884
+    },
+    {
+     "export_name": "ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED",
+     "release_file": "written",
+     "mesh_gate": "B-Rep fidelity",
+     "stl_bytes": 500884
+    }
+   ],
+   "mesh_verification": {
+    "ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED": {
+     "triangles": 12,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 5.673133100131736e-07
+    },
+    "ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED": {
+     "triangles": 2682,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 6.225093542684873e-05
+    },
+    "ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED": {
+     "triangles": 2318,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 0.00011006346740712484
+    },
+    "ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED": {
+     "triangles": 10016,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 0.00025351743530191575
+    },
+    "ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED": {
+     "triangles": 1374,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 0.0006338314851161633
+    },
+    "ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED": {
+     "triangles": 27376,
+     "nonmanifold_edges": 0,
+     "degenerate_triangles": 0,
+     "native_volume_relative_error": 0.00011046641957985775
+    }
+   }
+  }
+ },
+ "retention_in_release_folders": {
+  "seconds": 163.9,
+  "all_retained_unchanged": true,
+  "parts": {
+   "RIG_Stand": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Chassis_Shoulder_Plate_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Shoulder_Cable_Cover_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "RIG_Cable_Post_A": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Shoulder_Output_Hub_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Proximal_Link_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Distal_Link_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Knee_Stop_Plate_15deg": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Wheel_Hub_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Cart_Upper_Eye_50mm": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Cart_Lower_Eye_50mm": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Cart_Guide_Bar_50mm": {
+    "release_file": "retained",
+    "mesh_gate": "exact pinned tessellation",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Knee_Pin_Outboard_Spacer": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "Knee_Encoder_Bracket_L": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   },
+   "ABS_TEST_Wheel_Rim_NoTyre": {
+    "release_file": "retained",
+    "mesh_gate": "B-Rep fidelity",
+    "stl_bytes_unchanged": true
+   }
+  }
+ },
+ "negative_controls": "negative_controls.json"
+}

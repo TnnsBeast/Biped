@@ -1,0 +1,111 @@
+{
+ "date": "2026-09-24",
+ "document": "Beni_SingleLegRig",
+ "saved_version": 31,
+ "resurrected_parts_removed": {
+  "Knee_Stop_Arc_L": 1,
+  "Knee_Bumper_Flex_L": 1,
+  "Knee_Bumper_Ext_L": 1,
+  "Knee_Spring_L(Mirror)": 1
+ },
+ "occurrences": [
+  105,
+  101
+ ],
+ "timeline": [
+  1352,
+  1325
+ ],
+ "guards_after_removal": {
+  "ref": true,
+  "placed": true,
+  "assert_all": "PASS"
+ },
+ "checks_44_before_removal": {
+  "check_0_inventory": [
+   "Knee_Spring_L(Mirror)",
+   "Knee_Stop_Arc_L",
+   "Knee_Bumper_Flex_L",
+   "Knee_Bumper_Ext_L"
+  ],
+  "check_2_clashing_poses": 0,
+  "check_3_failures": 0
+ },
+ "checks_44_after_removal": {
+  "seconds": 357.8,
+  "check_0_inventory": [],
+  "check_1_worst_deviation_mm": 0.042865894902604396,
+  "check_2_clashing_poses": 0,
+  "check_3_failures": 0,
+  "check_5_torque_arm": true,
+  "check_6_overhang_mm": 42.0,
+  "check_7_clamp_landings": [
+   [
+    -100.0,
+    -77.5
+   ],
+   [
+    -32.0,
+    -8.5
+   ],
+   [
+    8.5,
+    61.0
+   ],
+   [
+    77.5,
+    100.0
+   ]
+  ],
+  "check_8_threaded_receiver_problems": [],
+  "assert_all": "PASS"
+ },
+ "abs_article_motion_audit": {
+  "seconds": 19.9,
+  "poses": 24,
+  "max_interference_mm3": {
+   "cartridge_to_distal_mm3": 0.0,
+   "cartridge_to_proximal_mm3": 0.0,
+   "guide_lower_solid_interference_mm3": 0.0,
+   "spring_envelope_to_links_mm3": 0.0,
+   "stop_dowel_interference_mm3": 0.0,
+   "upper_lower_interference_mm3": 0.0
+  },
+  "stop_overtravel_proof": [
+   {
+    "phi_deg": -8.5,
+    "stop_dowel_interference_mm3": 3.5559389691021264
+   },
+   {
+    "phi_deg": 15.5,
+    "stop_dowel_interference_mm3": 3.5540968043302255
+   }
+  ],
+  "assembly_paths_max_mm3": {
+   "guide_into_upper": 0.0,
+   "lower_clevis_from_inboard": 0.0,
+   "lower_eye_radial": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "spring_over_guide": 0.0,
+   "upper_clevis_from_inboard": 0.0,
+   "upper_eye_radial": [
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "rim_service_max_mm3": 0.0,
+  "pin_keeper": {
+   "inboard_retention": "firm-thumb receiver fit; hand-contained test only",
+   "nominal_bracket_gap_mm": 0.5,
+   "nominal_pin_end_gap_mm": 0.29999999999999716,
+   "pin_to_spacer_interference_mm3": 0.0,
+   "spacer_to_bracket_interference_mm3": 0.0
+  },
+  "assert_all": "PASS"
+ },
+ "reference_record": "snapshots/2026-08-20_rig-mode-a/mode_a_metrics.json (76 occurrences; none of the four removed parts; checks_44 all PASS)"
+}

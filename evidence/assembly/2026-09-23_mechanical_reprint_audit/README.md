@@ -87,7 +87,9 @@ like extrude cuts, now explicitly name their participating bodies.
 positions/diameters/depths, and every native face against the independently
 reviewed `mechanical_release_baseline.json`. The source geometry check runs
 before the active-article exporters and the mechanical audit; bed-oriented
-exports also require the reviewed triangle-geometry fingerprint. The motion
+exports also require the reviewed triangle-geometry fingerprint **[SUPERSEDED
+2026-09-24: or a machine-independent `mesh_fidelity()` proof; see the
+[cross-machine release gate](../2026-09-24_cross_machine_release_gate/)]**. The motion
 audit repeats the shape check afterward to catch incidental edits. Manual
 captures require the same gate. Exporters cannot update the baseline.
 
@@ -163,7 +165,7 @@ Fusion MCP without saving: cloud v30 is unchanged.
 2. The triangle fingerprint in `assert_export()` depends on the Fusion build.
    On the second machine `MeshRefinementHigh` gives 5640 triangles for the hub
    against the released 10850, although the surfaces agree. Re-exports there
-   are blocked fail-closed. Do not work around it: a new export needs a
-   deliberate, reviewed baseline update with the surface comparison as its
-   evidence.
+   were blocked fail-closed. **[RESOLVED 2026-09-24: machine-independent
+   fidelity gate and tessellation standard; see the
+   [cross-machine release gate](../2026-09-24_cross_machine_release_gate/).]**
 

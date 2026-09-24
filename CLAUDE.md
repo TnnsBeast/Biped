@@ -9,7 +9,9 @@ ABS single-leg integration article followed later by a two-leg PA-CF structural
 build, Teensy 4.1 control.
 
 Two Fusion documents exist: `Beni_Prototype1` (the two-leg robot, revision 2,
-audits clean) and `Beni_SingleLegRig` (a Save-As copy, the **active build**).
+v18; it predates the Sept 21 ordered-pin source, so `audit_all()` reports 6
+count/parity problems until it is deliberately rebuilt) and `Beni_SingleLegRig`
+(a Save-As copy, the **active build**, v31).
 **The rig build is MODE A only** as of 2026-08-17 — shoulder bolted rigid to a
 printed stand; the vertical slide, the ballast and the drop series are **deferred,
 not cancelled**. `RIG_Stand` **is now modelled** (`rig_lib.build_rig_stand()`,
@@ -213,11 +215,14 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
   MCP timeout is re-sent, and the retry can start inside the running script at
   its `adsk.doEvents()`. Keep each call short, write results to a file as you
   go, and guard any structural script with a lock file so a retry exits.
-- **The release mesh fingerprint depends on the Fusion build.** On the owner's
-  second machine, `MeshRefinementHigh` tessellates differently, so
-  `assert_export()` blocks every re-export there even when the surfaces agree
-  within 0.03 mm. Do not bypass it; a new export needs a reviewed baseline
-  update. [Record](evidence/assembly/2026-09-23_mechanical_reprint_audit/#completion-after-the-interrupted-session).
+- **STL tessellation depends on the Fusion build; the release gate does not.**
+  Fusion 2705.1.25 ignores `surfaceDeviation` and honours only
+  `normalDeviation`, so its "High" preset is up to 4× coarser than the
+  machine that made the existing releases. Every print export must use
+  `stl_release.stl_options()` (0.004 mm chord on the largest radius), never a
+  bare preset. `assert_export()` accepts the pinned fingerprint or a proven
+  `mesh_fidelity()` tessellation of the reviewed B-Rep; exporters retain pinned
+  files that still match. [Record](evidence/assembly/2026-09-24_cross_machine_release_gate/).
 - **The repo path differs per machine** (`/Users/neilchulani/Personal/Biped`
   here, `/Users/neilchulani/Biped` on the other). Scripts resolve paths from
   `__file__`; in an MCP script, `sys.path.insert(0, <repo>)` before importing.
@@ -246,6 +251,16 @@ returns `'STATIC'` for anything else, so the six §2.3/§13 replacement parts st
 frozen while the leg swept through them. Call `rig_lib.register_pose_classes()`
 before any sweep.
 
+⚠ **Two-leg builders resurrect parts the rig conversion removed.** In
+`Beni_SingleLegRig`, `beni_lib.build_cartridge()` ends in `rebuild_spring()`,
+which recreates the right-hand spring. `build_knee_stop()` recreates the steel
+`Knee_Stop_Arc_L` and both PU bumpers beside the stop dowel; `build_all()` does
+both. A Sept 21–23 rebuild brought back all four. `rig_lib.checks_44()` check 0
+now fails while any `rig_lib.RIG_REMOVED` part exists. `ABS_TEST_*` parts share
+space with the structural parts they replace: `checks_44()` audits the
+structural rig, and `mechanical_spring_test_fusion.audit()` audits the ABS
+article.
+
 Geometry is scripted so the models stay reproducible. Prefer changing the builder
 in `beni_lib.py` / `rig_lib.py` over hand-editing the model, and re-run the audits:
 
@@ -258,6 +273,23 @@ python3 rig_calc.py     # recomputes every number in the rig design record
 
 `rig_calc.py` and `stl_inspect.py` run in plain `python3`; everything else runs
 only inside Fusion.
+
+### Releasing a changed printed part (`Beni_SingleLegRig`)
+
+A directory argument turns `ordered_pin_integration_fusion.release()`,
+`mechanical_spring_test_fusion.release()` and `.audit()` into dry runs.
+
+1. Change the builder and rebuild the part under `rig_lib.guarded()`. For an
+   intended interface change, update its contract in
+   `mechanical_release_audit_fusion.dimensional_contracts()` first.
+2. Re-run the motion/path audit and `rig_lib.checks_44()`.
+3. `accept_shapes([...], reason)`: the deliberate B-Rep review step.
+4. Run the part's release script. Unchanged parts keep their pinned files.
+5. `accept_released_files([...], reason)`, then `accept_verified_sources(reason)`
+   once Fusion has exercised every changed source.
+6. Save the Fusion document through the MCP, run
+   `python3 verify_mechanical_release.py`, and commit the baseline diff with
+   its evidence. The `review_log` in the baseline records each accept step.
 
 ## If you cannot reach Fusion
 

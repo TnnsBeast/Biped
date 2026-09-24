@@ -21,6 +21,7 @@ import adsk.fusion
 
 import beni_lib as B
 import rig_lib as R
+import stl_release as S
 
 ROOT = os.path.dirname(os.path.realpath(__file__))
 STL_DIR = os.path.join(ROOT, 'rig_stl')
@@ -118,13 +119,12 @@ REROUTE_PRINT = [
 
 
 def _stl(occ, path, refinement='high'):
+    """Binary STL at the release tessellation standard (stl_release)."""
     from mechanical_release_audit_fusion import assert_part
     assert_part(occ.component.name)
     des = B.design()
     em = des.exportManager
-    opt = em.createSTLExportOptions(occ, path)
-    opt.meshRefinement = adsk.fusion.MeshRefinementSettings.MeshRefinementHigh
-    opt.isBinaryFormat = True
+    opt = S.stl_options(em, occ, path, occ.component.bRepBodies)
     em.execute(opt)
     return os.path.getsize(path)
 
@@ -218,14 +218,23 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
     image_path = os.path.join(out_dir, '00_fusion_' + export_name + '.png')
     visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
     size = None
+    gate = release_file = None
     try:
         for item, _was_on in visibility:
             item.isLightBulbOn = (item == print_occ)
         if not image_only:
             size = _stl(print_occ, staged_path)
-            from mechanical_release_audit_fusion import assert_export
-            assert_export(comp.name, staged_path)
-            os.replace(staged_path, path)
+            from mechanical_release_audit_fusion import (
+                assert_export, pinned_release_current)
+            gate = assert_export(comp.name, staged_path)
+            if pinned_release_current(comp.name, path):
+                # The reviewed pinned file still matches this B-Rep; a
+                # different Fusion tessellation must not churn the release.
+                release_file = 'retained'
+                size = os.path.getsize(path)
+            else:
+                os.replace(staged_path, path)
+                release_file = 'written'
         _save_print_image(image_path)
     finally:
         if os.path.exists(staged_path):
@@ -241,6 +250,8 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
         'export_name': export_name,
         'stl': path,
         'stl_bytes': size,
+        'release_file': release_file,
+        'mesh_gate': gate and gate.get('gate'),
         'fusion_screenshot': image_path,
         'rotation_axis': '+X',
         'rotation_deg': -90.0 if side == 'max' else 90.0,

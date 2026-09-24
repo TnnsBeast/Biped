@@ -1,0 +1,20 @@
+{
+  "missing_receiver": "REJECTED",
+  "oversized_receiver": "REJECTED",
+  "short_receiver": "REJECTED",
+  "mislabeled_D10p30_mesh": "REJECTED",
+  "overlapping_revolve_cut": "ALL 15 PRINTED PARTS UNCHANGED",
+  "sept22_hub_D4p25_sockets": "REJECTED: Exported mesh/orientation differs from reviewed Fusion geometry: Shoulder_Output_Hub_L [\"156 vertices are not on the reviewed B-Rep, e.g. [(-2.263, 21.743, 0.0)",
+  "coarse_low_preset_export": "REJECTED: Exported mesh/orientation differs from reviewed Fusion geometry: Shoulder_Output_Hub_L [\"chord 0.0127 mm exceeds the 0.0050 mm release standard\"]",
+  "one_root_socket_filled": "REJECTED: Exported mesh/orientation differs from reviewed Fusion geometry: Shoulder_Output_Hub_L [\"volume differs beyond tessellation\", \"surface area differs beyond tesse",
+  "wrong_bed_face": "REJECTED: Exported mesh/orientation differs from reviewed Fusion geometry: Shoulder_Output_Hub_L [\"28091 vertices are not on the reviewed B-Rep, e.g. [(-0.519, 15.54, 8.5",
+  "release_standard_export": {
+    "accepted": "B-Rep fidelity",
+    "triangles": 62396,
+    "max_cylinder_chord_mm": 0.00399
+  },
+  "pinned_release_file": {
+    "accepted": "exact pinned tessellation",
+    "retained_by_exporters": true
+  }
+}

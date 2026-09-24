@@ -2,22 +2,35 @@
 
 The reviewed baseline is independent of builders. Ordinary exports cannot update
 it. A deliberate design change requires review of the diff, renewed paths and
-print-orientation evidence, and an explicit baseline update in the same commit.
+print-orientation evidence, and an explicit accept_* call in the same commit.
+
+The mesh gate is machine-independent. A bed-ready STL passes when it matches
+the pinned triangle fingerprint exactly, or when mesh_fidelity() proves it is
+the reviewed B-Rep at its recorded bed pose at the release chord. Fusion builds
+tessellate differently, so a fingerprint alone cannot be the fit gate.
 """
 import hashlib
 import json
 import math
 import os
 import struct
+import time
 import adsk.core
 import adsk.fusion
 import beni_lib as B
 import rig_lib as R
 import mechanical_spring_test_fusion as M
+import stl_release as S
 
 ROOT = os.path.dirname(__file__)
 BASELINE = os.path.join(ROOT, 'mechanical_release_baseline.json')
 EVIDENCE = os.path.join(ROOT, 'evidence/assembly/2026-09-23_mechanical_reprint_audit')
+GATE_EVIDENCE = os.path.join(ROOT, 'evidence/assembly/2026-09-24_cross_machine_release_gate')
+# Fusion-verified sources pinned by accept_verified_sources(); CI re-hashes them.
+VERIFIED_SOURCES = ['beni_lib.py', 'rig_lib.py', 'rig_export.py', 'beni_export.py',
+                    'mechanical_spring_test_fusion.py', 'ordered_pin_integration_fusion.py',
+                    'mechanical_release_audit_fusion.py', 'distal_first_article_fusion.py',
+                    'stl_release.py']
 # Source component, released file, bed transform. This is the manual's complete
 # fifteen-part printed inventory; purchased hardware is checked by assembly paths.
 PARTS = [
@@ -160,8 +173,34 @@ def mesh_signature(path):
 
 def export_comparison_mesh(name, side, path):
     """Native Fusion export at the recorded bed orientation; no local mesh CAD."""
+    _export_body(bed_body(name, side), path)
+
+
+def _export_body(body, path, options=None):
+    """Export a transient body through a temporary occurrence; run guarded."""
+    temp=B.root().occurrences.addNewComponent(adsk.core.Matrix3D.create())
+    temp.component.name='AUDIT_TRANSIENT'
+    try:
+        base=temp.component.features.baseFeatures.add();base.startEdit()
+        temp.component.bRepBodies.add(body,base);base.finishEdit()
+        em=B.design().exportManager
+        opt=(options or S.stl_options)(em,temp,path,temp.component.bRepBodies)
+        assert em.execute(opt)
+    finally:
+        temp.deleteMe()
+
+
+def _side(name):
+    for part,_,side in PARTS:
+        if part==name:return side
+    raise KeyError('Not a release part: '+name)
+
+
+def bed_body(name, side=None, source=None):
+    """Transient copy of the reviewed B-Rep (or source) at its recorded bed transform."""
+    side=side or _side(name)
     tm=adsk.fusion.TemporaryBRepManager.get()
-    body=tm.copy(_occ(name).component.bRepBodies.item(0))
+    body=tm.copy(source if source is not None else _occ(name).component.bRepBodies.item(0))
     matrix=adsk.core.Matrix3D.create()
     if side in ('upper','lower'):
         (ax,az),_=B.cart_dir(0)
@@ -174,18 +213,147 @@ def export_comparison_mesh(name, side, path):
     shift=adsk.core.Matrix3D.create()
     shift.translation=adsk.core.Vector3D.create(0,0,-body.boundingBox.minPoint.z)
     assert tm.transform(body,shift)
-    temp=B.root().occurrences.addNewComponent(adsk.core.Matrix3D.create())
-    temp.component.name='AUDIT_TRANSIENT'
-    try:
-        base=temp.component.features.baseFeatures.add();base.startEdit()
-        temp.component.bRepBodies.add(body,base);base.finishEdit()
-        em=B.design().exportManager
-        opt=em.createSTLExportOptions(temp,path)
-        opt.meshRefinement=adsk.fusion.MeshRefinementSettings.MeshRefinementHigh
-        opt.isBinaryFormat=True
-        assert em.execute(opt)
-    finally:
-        temp.deleteMe()
+    return body
+
+
+def _triangle_grid(tris, tolerance, cell=5.0):
+    grid={}
+    for idx,t in enumerate(tris):
+        lo=[math.floor((min(v[i] for v in t)-tolerance)/cell) for i in range(3)]
+        hi=[math.floor((max(v[i] for v in t)+tolerance)/cell) for i in range(3)]
+        for x in range(lo[0],hi[0]+1):
+            for y in range(lo[1],hi[1]+1):
+                for z in range(lo[2],hi[2]+1):grid.setdefault((x,y,z),[]).append(idx)
+    return grid
+
+
+def _cylinder_chord_mm(body, verts, tris):
+    """Largest rim-chord sagitta over every cylindrical face of the B-Rep.
+
+    Only curved-wall facets are measured: all three vertices lie on the
+    cylinder at more than one axial station, and the centroid is off the
+    reviewed surface. Planar faces that meet a cylinder along its straight
+    edges also have all vertices on it, but their centroids classify On.
+    """
+    on=adsk.fusion.PointContainment.PointOnPointContainment
+    worst=0.0
+    for face in body.faces:
+        g=adsk.core.Cylinder.cast(face.geometry)
+        if not g:continue
+        o=[c*10 for c in g.origin.asArray()];a=list(g.axis.asArray())
+        n=math.sqrt(sum(c*c for c in a));a=[c/n for c in a];r=g.radius*10
+        ref=[1.0,0,0] if abs(a[0])<0.9 else [0,1.0,0]
+        dot=sum(ref[i]*a[i] for i in range(3))
+        e1=[ref[i]-dot*a[i] for i in range(3)];n=math.sqrt(sum(c*c for c in e1));e1=[c/n for c in e1]
+        e2=[a[1]*e1[2]-a[2]*e1[1],a[2]*e1[0]-a[0]*e1[2],a[0]*e1[1]-a[1]*e1[0]]
+        bb=face.boundingBox
+        lo=[c*10-0.01 for c in bb.minPoint.asArray()];hi=[c*10+0.01 for c in bb.maxPoint.asArray()]
+        station={}
+        for i,v in enumerate(verts):
+            if not all(lo[k]<=v[k]<=hi[k] for k in range(3)):continue
+            d=[v[k]-o[k] for k in range(3)];t=sum(d[k]*a[k] for k in range(3))
+            rad=[d[k]-t*a[k] for k in range(3)]
+            if abs(math.sqrt(sum(c*c for c in rad))-r)>0.002:continue
+            station[i]=(t,math.atan2(sum(rad[k]*e2[k] for k in range(3)),sum(rad[k]*e1[k] for k in range(3))))
+        for tri in tris:
+            if not all(i in station for i in tri):continue
+            ts=[station[i][0] for i in tri]
+            if max(ts)-min(ts)<=0.005:continue
+            c=[sum(verts[i][k] for i in tri)/30.0 for k in range(3)]
+            if body.pointContainment(adsk.core.Point3D.create(*c))==on:continue
+            for p,q in ((tri[0],tri[1]),(tri[1],tri[2]),(tri[2],tri[0])):
+                if abs(station[p][0]-station[q][0])>0.005:continue
+                span=abs(station[p][1]-station[q][1])
+                span=min(span,2*math.pi-span)
+                worst=max(worst,r*(1-math.cos(span/2)))
+    return worst
+
+
+def mesh_fidelity(name, path, chord_gate_mm=S.CHORD_GATE_MM):
+    """Prove path is a closed tessellation of the reviewed B-Rep at its bed pose.
+
+    Mesh to B-Rep: every vertex must classify On the reviewed surface; a 0.025 mm
+    radius change classifies Outside. B-Rep to mesh: every face, edge and vertex
+    sample must lie within the chord of the mesh. Volume, area, bed contact and
+    box must agree within the measured tessellation. chord_gate_mm=None audits a
+    pinned file without imposing the release resolution.
+    """
+    body=bed_body(name)
+    raw=_mesh_triangles(path)
+    index={};tris=[]
+    for t in raw:tris.append(tuple(index.setdefault(v,len(index)) for v in t))
+    verts=[None]*len(index)
+    for v,i in index.items():verts[i]=v
+    failures=[];metrics={'triangles':len(tris),'vertices':len(verts)}
+    edges={};degenerate=0
+    for t in tris:
+        if len(set(t))<3:degenerate+=1
+        for p,q in ((t[0],t[1]),(t[1],t[2]),(t[2],t[0])):
+            k=(min(p,q),max(p,q));edges[k]=edges.get(k,0)+1
+    parent=list(range(len(verts)))
+    def find(i):
+        while parent[i]!=i:
+            parent[i]=parent[parent[i]];i=parent[i]
+        return i
+    for t in tris:
+        for p,q in ((t[0],t[1]),(t[1],t[2])):
+            rp,rq=find(p),find(q)
+            if rp!=rq:parent[rp]=rq
+    metrics.update(open_or_nonmanifold_edges=sum(1 for c in edges.values() if c!=2),
+                   degenerate_triangles=degenerate,
+                   shells=len({find(i) for i in range(len(verts))}),lumps=body.lumps.count)
+    if metrics['open_or_nonmanifold_edges'] or degenerate:failures.append('mesh is not a closed manifold')
+    if metrics['shells']!=metrics['lumps']:failures.append('shell count differs from B-Rep lumps')
+    on=adsk.fusion.PointContainment.PointOnPointContainment
+    off=[v for v in verts if body.pointContainment(adsk.core.Point3D.create(v[0]/10,v[1]/10,v[2]/10))!=on]
+    metrics['vertices_off_reviewed_surface']=len(off)
+    if off:failures.append('%d vertices are not on the reviewed B-Rep, e.g. %s'%(len(off),[tuple(round(c,3) for c in v) for v in off[:3]]))
+    chord=_cylinder_chord_mm(body,verts,tris)
+    metrics['max_cylinder_chord_mm']=round(chord,5)
+    if chord_gate_mm is not None and chord>chord_gate_mm:
+        failures.append('chord %.4f mm exceeds the %.4f mm release standard'%(chord,chord_gate_mm))
+    allowance=max(chord,chord_gate_mm or 0.0)+0.001
+    volume=area=bed=0.0
+    for p,q,r in raw:
+        u=[q[i]-p[i] for i in range(3)];w=[r[i]-p[i] for i in range(3)]
+        c=(u[1]*w[2]-u[2]*w[1],u[2]*w[0]-u[0]*w[2],u[0]*w[1]-u[1]*w[0])
+        area+=math.sqrt(sum(x*x for x in c))/2
+        volume+=(p[0]*(q[1]*r[2]-q[2]*r[1])-p[1]*(q[0]*r[2]-q[2]*r[0])+p[2]*(q[0]*r[1]-q[1]*r[0]))/6
+        if max(abs(p[2]),abs(q[2]),abs(r[2]))<1e-4 and c[2]<0:bed+=-c[2]/2
+    curved=bed_brep=0.0
+    for f in body.faces:
+        if not adsk.core.Plane.cast(f.geometry):
+            curved+=f.area*100;continue
+        ok,normal=f.evaluator.getNormalAtPoint(f.pointOnFace)
+        if ok and normal.z<-0.999999 and abs(f.pointOnFace.z)<1e-6:bed_brep+=f.area*100
+    metrics.update(mesh_volume_mm3=round(volume,3),brep_volume_mm3=round(body.volume*1000,3),
+                   mesh_area_mm2=round(area,3),brep_area_mm2=round(body.area*100,3),
+                   bed_contact_mesh_mm2=round(bed,3),bed_contact_brep_mm2=round(bed_brep,3))
+    if abs(volume-body.volume*1000)>allowance*curved+0.05:failures.append('volume differs beyond tessellation')
+    if abs(area-body.area*100)>0.002*body.area*100+0.05:failures.append('surface area differs beyond tessellation')
+    if bed_brep<=0 or abs(bed-bed_brep)>0.01*bed_brep+0.05:failures.append('bed contact face differs')
+    zmin=min(v[2] for v in verts);metrics['mesh_min_z_mm']=zmin
+    if abs(zmin)>1e-4:failures.append('mesh does not sit on the bed at z=0')
+    bb=body.boundingBox
+    box=[max(abs(min(v[k] for v in verts)-bb.minPoint.asArray()[k]*10),
+             abs(max(v[k] for v in verts)-bb.maxPoint.asArray()[k]*10)) for k in range(3)]
+    metrics['box_deviation_mm']=[round(x,4) for x in box]
+    if max(box)>allowance:failures.append('bed-pose bounding box differs')
+    grid=_triangle_grid(raw,allowance)
+    samples=[]
+    for f in body.faces:samples.append(('face',f.pointOnFace))
+    for e in body.edges:samples.append(('edge',e.pointOnEdge))
+    for v in body.vertices:samples.append(('vertex',v.geometry))
+    missing=[]
+    for kind,pt in samples:
+        p=(pt.x*10,pt.y*10,pt.z*10)
+        cand=grid.get(tuple(math.floor(c/5.0) for c in p),[])
+        d2=min((_distance2(p,*raw[i]) for i in cand),default=float('inf'))
+        if d2>allowance*allowance:missing.append((kind,tuple(round(c,3) for c in p)))
+    metrics['brep_samples']=len(samples);metrics['brep_samples_not_in_mesh']=len(missing)
+    if missing:failures.append('%d B-Rep samples are missing from the mesh, e.g. %s'%(len(missing),missing[:3]))
+    return {'part':name,'file':os.path.relpath(path,ROOT) if path.startswith(ROOT) else path,
+            'chord_gate_mm':chord_gate_mm,'pass':not failures,'failures':failures,'metrics':metrics}
 
 
 def audit_inventory(_context=''):
@@ -276,13 +444,95 @@ def compare_mesh_surfaces(first,second,tolerance=.03):
 
 
 def assert_export(name,path):
+    """Gate a staged bed-ready mesh; never updates the baseline.
+
+    Exact: the triangle fingerprint equals the pinned release. Otherwise the
+    mesh must pass mesh_fidelity() at the release chord. assert_part() has
+    already proved the B-Rep equals the reviewed shape.
+    """
     if name not in {r[0] for r in PARTS}:return
     if adsk.core.Application.get().activeDocument.name!='Beni_SingleLegRig':return
     baseline=json.load(open(BASELINE))['parts'][name]
     actual=mesh_signature(path)
-    if actual['geometry_sha256']!=baseline['fresh_fusion_export']['geometry_sha256']:
-        raise RuntimeError('Exported mesh/orientation differs from reviewed Fusion geometry: '+name)
-    return actual
+    if actual['geometry_sha256']==baseline['fresh_fusion_export']['geometry_sha256']:
+        return dict(actual,gate='exact pinned tessellation')
+    report=mesh_fidelity(name,path)
+    if not report['pass']:
+        raise RuntimeError('Exported mesh/orientation differs from reviewed Fusion geometry: %s %s'
+                           %(name,json.dumps(report['failures'])))
+    return dict(actual,gate='B-Rep fidelity',fidelity=report['metrics'])
+
+
+def pinned_release_current(name, path):
+    """True when path is the pinned release and still matches the reviewed B-Rep.
+
+    Exporters keep such a file instead of rewriting it, so an unchanged part
+    produces no churn on a machine whose tessellation differs.
+    """
+    row=json.load(open(BASELINE))['parts'].get(name)
+    if row is None or not os.path.exists(path):return False
+    if os.path.realpath(path)!=os.path.realpath(os.path.join(ROOT,row['file'])):return False
+    if hashlib.sha256(open(path,'rb').read()).hexdigest()!=row['released_sha256']:return False
+    return mesh_fidelity(name,path,chord_gate_mm=None)['pass']
+
+
+def _write_baseline(baseline, action, names, reason):
+    if not reason or len(reason.strip())<12:
+        raise ValueError('A deliberate baseline change needs a written review reason')
+    baseline.setdefault('review_log',[]).append(
+        {'date':time.strftime('%Y-%m-%d'),'action':action,'parts':names,'reason':reason.strip()})
+    with open(BASELINE,'w') as stream:json.dump(baseline,stream,indent=2)
+
+
+def accept_shapes(names, reason):
+    """Deliberate review step: live B-Rep shapes become the reviewed baseline.
+
+    Update the dimensional contracts first for an intended interface change;
+    every contract of each named part must pass. Never called by exporters.
+    """
+    assert adsk.core.Application.get().activeDocument.name=='Beni_SingleLegRig'
+    baseline=json.load(open(BASELINE));contracts=dimensional_contracts();changes={}
+    for name in names:
+        bad=[c for c in contracts if c['part']==name and not c['pass']]
+        if bad:raise RuntimeError('Contracts fail; fix geometry or contracts first: '+json.dumps(bad))
+        old=baseline['parts'][name]['shape'];new=shape_signature(name)
+        baseline['parts'][name]['shape']=new
+        changes[name]={'volume_mm3':[[b['volume_mm3'] for b in old],[b['volume_mm3'] for b in new]],
+                       'faces':[[len(b['faces']) for b in old],[len(b['faces']) for b in new]]}
+    _write_baseline(baseline,'accept_shapes',names,reason)
+    return changes
+
+
+def accept_released_files(names, reason):
+    """Deliberate review step: pin release files that pass mesh_fidelity()."""
+    assert adsk.core.Application.get().activeDocument.name=='Beni_SingleLegRig'
+    baseline=json.load(open(BASELINE));pinned={}
+    for name in names:
+        assert_part(name)
+        row=baseline['parts'][name];path=os.path.join(ROOT,row['file'])
+        report=mesh_fidelity(name,path)
+        if not report['pass']:raise RuntimeError('Release file fails fidelity: '+json.dumps(report))
+        signature=mesh_signature(path)
+        row['released_sha256']=signature['sha256']
+        row['fresh_fusion_export']={k:signature[k] for k in ('sha256','triangles','geometry_sha256')}
+        row['fidelity']=report['metrics'];pinned[name]=signature['sha256']
+    _write_baseline(baseline,'accept_released_files',names,reason)
+    return pinned
+
+
+def accept_verified_sources(reason):
+    """Deliberate review step: pin source hashes after Fusion verification.
+
+    Run only after the changed sources were exercised in Fusion; assert_all()
+    must pass with the modules imported from these exact files.
+    """
+    assert adsk.core.Application.get().activeDocument.name=='Beni_SingleLegRig'
+    assert_all()
+    baseline=json.load(open(BASELINE))
+    baseline['verified_source_sha256']={s:hashlib.sha256(open(os.path.join(ROOT,s),'rb').read()).hexdigest()
+                                        for s in VERIFIED_SOURCES}
+    _write_baseline(baseline,'accept_verified_sources',VERIFIED_SOURCES,reason)
+    return baseline['verified_source_sha256']
 
 
 def regression_tests(_context=''):
@@ -331,5 +581,51 @@ def regression_tests(_context=''):
     R.guarded(scoped_revolve)
     assert all(shape_signature(n)==s for n,s in before.items())
     results['overlapping_revolve_cut']='ALL 15 PRINTED PARTS UNCHANGED'
-    with open(os.path.join(EVIDENCE,'negative_controls.json'),'w') as s:json.dump(results,s,indent=2)
+    results.update(R.guarded(_fidelity_controls))
+    out_dir=_context or GATE_EVIDENCE
+    os.makedirs(out_dir,exist_ok=True)
+    with open(os.path.join(out_dir,'negative_controls.json'),'w') as s:json.dump(results,s,indent=2)
     print(json.dumps(results))
+
+
+def _fidelity_controls():
+    """Wrong meshes must fail mesh_fidelity(); the release-standard export must pass."""
+    import subprocess
+    import tempfile
+    import distal_first_article_fusion as D
+    tmp=tempfile.gettempdir();hub='Shoulder_Output_Hub_L';results={}
+    def expect_reject(label,name,path):
+        try:assert_export(name,path)
+        except RuntimeError as error:results[label]='REJECTED: '+str(error)[:160];return
+        raise AssertionError('Wrong mesh escaped the release gate: '+label)
+    old=os.path.join(tmp,'biped-control-sept22-hub.stl')
+    with open(old,'wb') as stream:stream.write(subprocess.check_output(['git','show',
+        '56b2507:first_article_stl/ordered_pin_integration/ABS_PINREV_Shoulder_Output_Hub_D4p15_ROOT_D4x10_PRINT_ORIENTED.stl'],cwd=ROOT))
+    expect_reject('sept22_hub_D4p25_sockets',hub,old)
+    def low(em,geometry,path,bodies):
+        options=em.createSTLExportOptions(geometry,path)
+        options.meshRefinement=adsk.fusion.MeshRefinementSettings.MeshRefinementLow
+        options.isBinaryFormat=True
+        return options
+    coarse=os.path.join(tmp,'biped-control-low-hub.stl')
+    _export_body(bed_body(hub),coarse,low)
+    expect_reject('coarse_low_preset_export',hub,coarse)
+    source=M._tm().copy(_occ(hub).component.bRepBodies.item(0))
+    x,z=B._receiver_centres(0,0,44,3,90.4)[0]
+    plug=D._cylinder(x,z,B.ROOT_DOWEL_HUB_SOCKET_D+0.02,B.HUB_Y1-B.ROOT_DOWEL_HUB_DEPTH,B.HUB_Y1)
+    assert M._tm().booleanOperation(source,plug,adsk.fusion.BooleanTypes.UnionBooleanType)
+    filled=os.path.join(tmp,'biped-control-filled-socket-hub.stl')
+    _export_body(bed_body(hub,source=source),filled)
+    expect_reject('one_root_socket_filled',hub,filled)
+    flipped=os.path.join(tmp,'biped-control-wrong-bed-face-hub.stl')
+    _export_body(bed_body(hub,side='min'),flipped)
+    expect_reject('wrong_bed_face',hub,flipped)
+    good=os.path.join(tmp,'biped-control-release-standard-hub.stl')
+    _export_body(bed_body(hub),good)
+    gate=assert_export(hub,good)
+    results['release_standard_export']={'accepted':gate['gate'],'triangles':gate['triangles'],
+        'max_cylinder_chord_mm':(gate.get('fidelity') or {}).get('max_cylinder_chord_mm')}
+    pinned=os.path.join(ROOT,json.load(open(BASELINE))['parts'][hub]['file'])
+    results['pinned_release_file']={'accepted':assert_export(hub,pinned)['gate'],
+                                    'retained_by_exporters':pinned_release_current(hub,pinned)}
+    return results

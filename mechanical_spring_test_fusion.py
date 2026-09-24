@@ -33,6 +33,17 @@ GUIDE = 'ABS_TEST_Cart_Guide_Bar_50mm'
 STOP = 'ABS_TEST_Knee_Stop_Plate_15deg'
 SPACER = 'ABS_TEST_Knee_Pin_Outboard_Spacer'
 RIM = 'ABS_TEST_Wheel_Rim_NoTyre'
+# Modelled in the rig but not in the unpowered ABS article: the structural
+# cartridge, stop, encoder and wheel beside their ABS_TEST_* substitutes, the
+# unreleased collar envelope, the floor plate and step-2 fixtures, and anything
+# the rig conversion removes (rig_lib.RIG_REMOVED).
+NOT_IN_ABS_ARTICLE = frozenset((
+    'Cart_Upper_Eye_L', 'Cart_Lower_Eye_L', 'Cart_Guide_Rod_L',
+    'Cart_Preload_Shim_L', 'Knee_Spring_L', 'RIG_Knee_Stop_Plate_L',
+    'HW_WasherStack_M5', 'RIG_Knee_Bumper_Tube_L', 'RIG_Knee_Magnet_Carrier_L',
+    'Wheel_Rim_L', 'Wheel_Tyre_L', 'RIG_Knee_Collar_L', 'Knee_Encoder_PCB_L',
+    'HW_Magnet_D6x2p5_Diametric', 'RIG_Floor_Plate')
+    + R.STEP2_FIXTURES + R.RIG_REMOVED)
 SPRING_REF = 'REFERENCE_Owned_Spring_Envelope_OD18_ID9_L50'
 
 OWNED_SPRING_OD = 18.0
@@ -349,11 +360,8 @@ def build(_context: str):
               _build_spacer, _build_test_rim, _build_spring_reference)]
     B.capture_nominal(force=True)
     for occurrence in B.root().occurrences:
-        occurrence.isLightBulbOn = occurrence.component.name not in (
-            'Cart_Upper_Eye_L', 'Cart_Lower_Eye_L', 'Cart_Guide_Rod_L',
-            'Cart_Preload_Shim_L', 'Knee_Spring_L', 'RIG_Knee_Stop_Plate_L',
-            'HW_WasherStack_M5', 'RIG_Knee_Bumper_Tube_L',
-            'RIG_Knee_Magnet_Carrier_L', 'Wheel_Rim_L', 'Wheel_Tyre_L')
+        occurrence.isLightBulbOn = (B.base_name(occurrence.component.name)
+                                    not in NOT_IN_ABS_ARTICLE)
     app.activeViewport.fit()
     app.activeViewport.refresh()
     print(json.dumps({part.component.name: _topology(part) for part in parts},
@@ -767,14 +775,15 @@ def audit(_context: str):
 
     # Sweeping/rebuilding reference parts must not silently cut printed parts.
     assert_all()
-    os.makedirs(EVIDENCE_DIR, exist_ok=True)
-    path = os.path.join(EVIDENCE_DIR, 'fusion_mechanical_audit.json')
+    evidence_dir = _context or EVIDENCE_DIR   # a path argument is a dry run
+    os.makedirs(evidence_dir, exist_ok=True)
+    path = os.path.join(evidence_dir, 'fusion_mechanical_audit.json')
     with open(path, 'w') as stream:
         json.dump(report, stream, indent=2, sort_keys=True)
     print(json.dumps(report, indent=2, sort_keys=True))
 
 
-def _export_axis_up(occ, export_name, axis, support_policy):
+def _export_axis_up(occ, export_name, axis, support_policy, out_dir=OUT_DIR):
     """Export with the selected cartridge axis mapped to print +Z."""
     from mechanical_release_audit_fusion import assert_part
     assert_part(occ.component.name)
@@ -825,22 +834,25 @@ def _export_axis_up(occ, export_name, axis, support_policy):
     base.finishEdit()
     assert result and result.isSolid
     result.name = export_name
-    os.makedirs(OUT_DIR, exist_ok=True)
-    path = os.path.join(OUT_DIR, export_name + '.stl')
+    os.makedirs(out_dir, exist_ok=True)
+    path = os.path.join(out_dir, export_name + '.stl')
     staged_path = path + '.pending.stl'
-    image_path = os.path.join(OUT_DIR, '00_fusion_' + export_name + '.png')
+    image_path = os.path.join(out_dir, '00_fusion_' + export_name + '.png')
     visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
     try:
         for item, _state in visibility:
             item.isLightBulbOn = item == temporary
-        app = adsk.core.Application.get()
-        app.activeViewport.fit()
-        app.activeViewport.refresh()
         size = E._stl(temporary, staged_path)
-        from mechanical_release_audit_fusion import assert_export
-        assert_export(occ.component.name, staged_path)
-        os.replace(staged_path, path)
-        assert app.activeViewport.saveAsImageFile(image_path, 1600, 1200)
+        from mechanical_release_audit_fusion import (
+            assert_export, pinned_release_current)
+        gate = assert_export(occ.component.name, staged_path)
+        if pinned_release_current(occ.component.name, path):
+            release_file = 'retained'
+            size = os.path.getsize(path)
+        else:
+            os.replace(staged_path, path)
+            release_file = 'written'
+        E._save_print_image(image_path)
     finally:
         if os.path.exists(staged_path):
             os.remove(staged_path)
@@ -854,6 +866,8 @@ def _export_axis_up(occ, export_name, axis, support_policy):
         'export_name': export_name,
         'stl': path,
         'stl_bytes': size,
+        'release_file': release_file,
+        'mesh_gate': gate and gate.get('gate'),
         'fusion_screenshot': image_path,
         'source_axis_mapped_to_print_z': [ax, 0.0, az],
         'support_faces': support_faces,
@@ -913,36 +927,50 @@ def _verify_binary_stl(path, native_volume_mm3):
 
 
 def _assembly_image(phi, filename):
+    """ABS article only, from the front-outboard side where the leg is visible.
+
+    Visibility and camera are restored afterwards; the capture no longer leaves
+    the structural parts hidden in the model.
+    """
     R.guarded(_build_spring_reference, phi)
     B.capture_nominal(force=True)
     _pose(0.0, phi)
-    hidden = {
-        'Cart_Upper_Eye_L', 'Cart_Lower_Eye_L', 'Cart_Guide_Rod_L',
-        'Cart_Preload_Shim_L', 'Knee_Spring_L', 'RIG_Knee_Stop_Plate_L',
-        'HW_WasherStack_M5', 'RIG_Knee_Bumper_Tube_L',
-        'RIG_Knee_Magnet_Carrier_L', 'Wheel_Rim_L', 'Wheel_Tyre_L',
-    }
     root = B.root()
     B.design().activateRootComponent()
-    for occurrence in root.occurrences:
-        occurrence.isLightBulbOn = occurrence.component.name not in hidden
+    bulbs = [(occurrence, occurrence.isLightBulbOn) for occurrence in root.occurrences]
     viewport = adsk.core.Application.get().activeViewport
-    camera = viewport.camera
-    camera.viewOrientation = adsk.core.ViewOrientations.IsoTopRightViewOrientation
-    camera.isFitView = True
-    viewport.camera = camera
-    viewport.refresh()
-    assert viewport.saveAsImageFile(filename, 2000, 1500)
-    _restore()
+    old_camera = viewport.camera
+    try:
+        for occurrence in root.occurrences:
+            occurrence.isLightBulbOn = (B.base_name(occurrence.component.name)
+                                        not in NOT_IN_ABS_ARTICLE)
+        camera = viewport.camera
+        target = adsk.core.Point3D.create(0.0, 5.0, -8.0)
+        camera.target = target
+        camera.eye = adsk.core.Point3D.create(target.x - 25.0, target.y + 45.0,
+                                              target.z + 20.0)
+        camera.upVector = adsk.core.Vector3D.create(0.0, 0.0, 1.0)
+        camera.isFitView = True
+        viewport.camera = camera
+        viewport.refresh()
+        assert viewport.saveAsImageFile(filename, 2000, 1500)
+    finally:
+        for occurrence, state in bulbs:
+            occurrence.isLightBulbOn = state
+        viewport.camera = old_camera
+        _restore()
 
 
 def release(_context: str):
+    """Export the six current spring-test parts; a path argument is a dry run."""
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
     from mechanical_release_audit_fusion import assert_all
     assert_all()
-    os.makedirs(OUT_DIR, exist_ok=True)
-    os.makedirs(EVIDENCE_DIR, exist_ok=True)
+    out_dir = _context or OUT_DIR
+    evidence_dir = _context or EVIDENCE_DIR
+    os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(evidence_dir, exist_ok=True)
     _register_pose_classes()
     B.design().activateRootComponent()
     B.capture_nominal(force=True)
@@ -955,19 +983,19 @@ def release(_context: str):
         _export_axis_up, B.find_occ(UPPER),
         UPPER + '_AXIS_UP_PRINT_ORIENTED', direction,
         'Import unchanged. No supports. Use a brim; inspect the 4.4 mm '
-        'self-supporting horizontal pivot passage.'))
+        'self-supporting horizontal pivot passage.', out_dir))
     exports.append(R.guarded(
         _export_axis_up, B.find_occ(LOWER),
         LOWER + '_AXIS_UP_PRINT_ORIENTED',
         (-direction[0], -direction[1]),
         'Import unchanged. No supports. Use a brim; inspect the 4.4 mm '
-        'self-supporting horizontal pivot passage.'))
+        'self-supporting horizontal pivot passage.', out_dir))
 
+    # The captive stop plate is released by ordered_pin_integration_fusion;
+    # exporting it here would overwrite the superseded Sept 17 file.
     standard = [
         (GUIDE, GUIDE + '_FLAT_PRINT_ORIENTED', E._export_max_y_face_down,
          'Import unchanged; no supports; 3.8 mm square face on bed.'),
-        (STOP, STOP + '_PRINT_ORIENTED', E._export_max_y_face_down,
-         'Import unchanged; no supports; full plate face on bed.'),
         (SPACER, SPACER + '_PRINT_ORIENTED', E._export_min_y_face_down,
          'Import unchanged; no supports; broad 15 mm face on bed.'),
         (RIM, RIM + '_PRINT_ORIENTED', E._export_max_y_face_down,
@@ -979,7 +1007,7 @@ def release(_context: str):
     ]
     for source, name, exporter, policy in standard:
         exports.append(R.guarded(exporter, B.find_occ(source), name,
-                                 OUT_DIR, policy))
+                                 out_dir, policy))
 
     mesh = {}
     for item in exports:
@@ -989,9 +1017,9 @@ def release(_context: str):
             item['stl'], native_volume)
 
     nominal_image = os.path.join(
-        EVIDENCE_DIR, '00_fusion_full_mechanical_test_phi_0.png')
+        evidence_dir, '00_fusion_full_mechanical_test_phi_0.png')
     flexed_image = os.path.join(
-        EVIDENCE_DIR, '01_fusion_full_mechanical_test_phi_15.png')
+        evidence_dir, '01_fusion_full_mechanical_test_phi_15.png')
     _assembly_image(0.0, nominal_image)
     _assembly_image(TEST_PHI_FLEX, flexed_image)
     R.guarded(_build_spring_reference, 0.0)
@@ -1015,8 +1043,8 @@ def release(_context: str):
         'mesh_verification': mesh,
         'assembly_images': [nominal_image, flexed_image],
     }
-    with open(os.path.join(OUT_DIR, 'fusion_manifest.json'), 'w') as stream:
+    with open(os.path.join(out_dir, 'fusion_manifest.json'), 'w') as stream:
         json.dump(manifest, stream, indent=2, sort_keys=True)
-    with open(os.path.join(EVIDENCE_DIR, 'fusion_release_manifest.json'), 'w') as stream:
+    with open(os.path.join(evidence_dir, 'fusion_release_manifest.json'), 'w') as stream:
         json.dump(manifest, stream, indent=2, sort_keys=True)
     print(json.dumps(manifest, indent=2, sort_keys=True))
