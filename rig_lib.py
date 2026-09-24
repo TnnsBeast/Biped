@@ -2023,17 +2023,22 @@ def replace_cart_stops():
 def guarded(fn, *a, **kw):
     """Run anything structural inside the capture / restore / assert cycle."""
     saved = xf_capture()
-    out = fn(*a, **kw)
-    # Pipe/sweep creation can queue one more parametric recompute after the
-    # builder returns.  Flush it before restoring transform2; otherwise that
-    # delayed recompute can erase a successful restore and drop the cartridge
-    # stop parts back at identity before placed_assert() runs.
-    beni_lib.design().computeAll()
-    adsk.doEvents()
-    moved = xf_restore(saved)
-    if moved:
-        print('   guard fired: rewrote %d of %d transforms  %s'
-              % (len(moved), len(saved), moved))
+    try:
+        out = fn(*a, **kw)
+    finally:
+        # Restore even when fn raises.  A fail-closed export gate raises after
+        # the exporter has deleted its temporary occurrence, and that delete
+        # alone drops the transform2-placed parts to identity (trap 5).
+        # Pipe/sweep creation can queue one more parametric recompute after
+        # the builder returns.  Flush it before restoring transform2; otherwise
+        # that delayed recompute can erase a successful restore and drop the
+        # cartridge stop parts back at identity before placed_assert() runs.
+        beni_lib.design().computeAll()
+        adsk.doEvents()
+        moved = xf_restore(saved)
+        if moved:
+            print('   guard fired: rewrote %d of %d transforms  %s'
+                  % (len(moved), len(saved), moved))
     ref_assert()
     placed_assert(verbose=False)
     return out

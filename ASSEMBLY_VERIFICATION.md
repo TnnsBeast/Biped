@@ -194,7 +194,9 @@ contact at 0.5° of overtravel. All four replacement meshes are closed
 manifolds on their stated bed planes. [Numeric release evidence](evidence/assembly/2026-09-21_ordered_pin_integration/).
 
 The release remains `FINAL-PART HAND FIT PENDING`: the actual ordered pins have
-already selected both Ø4.25 printed interfaces without measurement. Visually
+already selected both Ø4.25 printed interfaces without measurement. **[SUPERSEDED
+2026-09-23: PINREV2 uses the owner-requested Ø4.30; see the regression gate
+below.]** Visually
 inspect the hardware and complete the traveller's final-part hand-fit checks.
 Do not compensate a failed interface by drilling, filing, hammering, or screw
 pull-down. Clamp the stand, unplug both motors, keep the wheel clear, contain
@@ -236,7 +238,9 @@ the result loose.
 The Ø6 × 10 stop pin remains excluded from fit calibration because its Ø6.2
 socket is deliberately loose and the closed stop-plate skin provides axial
 capture. Fusion v29 and the refreshed bed-ready hub/link exports have passed
-the mechanical audit and are released for printing.
+the mechanical audit and are released for printing. **[SUPERSEDED 2026-09-23:
+the v29 distal export had lost its Ø10.30 receiver; PINREV2 replaces the hub
+and both link files.]**
 
 
 ## September 23 mechanical release regression gate

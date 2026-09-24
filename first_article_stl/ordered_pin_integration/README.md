@@ -36,11 +36,13 @@ closed-skin stop plate; the older September 17 stop plate remains superseded. Re
 and no-tyre wheel shell from the
 [`mechanical_spring_test`](../mechanical_spring_test/) batch.
 Keep superseded hub/link prints and the old September 17 stop plate out of
-the active assembly. The printed
-stand and shoulder plate are not yet identified as the current Ø4.5 M3-receiver
-versions; check their source files before installing inserts. The already
-reported printed cable cover, front cable post, and wheel hub are reusable
-after their pending fits and insert checks.
+the active assembly. The superseded September 22 hub, link and mislabeled Ø16
+distal files were removed from this folder on September 23; they remain in
+git history at `56b2507`. On September 23 the owner confirmed that the printed
+stand and shoulder plate were made after the Ø4.5 M3-receiver promotion, so
+both are current. [Owner report](../../evidence/assembly/2026-09-23_owner_stand_plate_and_washers/).
+The already reported printed cable cover, front cable post, and wheel hub are
+reusable after their pending fits and insert checks.
 
 ## Hardware consumed from the order
 
@@ -52,26 +54,47 @@ Also use 2 × ISO 7089 M4 steel washers, 4.3 × 9 × 0.8 mm, and 3 × M3 × 10
 socket-head screws from the fastener inventory. The washers are the specified
 bearing surface for the cotters; do not replace them with printed spacers.
 
+**Washer deviation, September 23:** the owner has no M4 washers and will try
+this unpowered article without them. Each clevis pin then floats up to 1.2 mm
+instead of 0.4 mm and its cotter bears on the ABS land. This is accepted only
+for the clamped, unplugged, hand-contained test: inspect both cotter faces
+after step 11 and fit washers before repeated cycling or powered use.
+[Arithmetic and limits](../../evidence/assembly/2026-09-23_owner_stand_plate_and_washers/#iso-7089-m4-washers).
+
 No dimensional measurement is required. The seller dimensions are already in
 the CAD, and the owner requested Ø4.30 after selecting Ø4.25 with the actual pins.
 Check that the pieces are undamaged and perform the final-part hand-fit steps
 below. A pin that needs drilling, filing, hammering, or screw pull-down is a
 failed interface, not a request to rework the hardware.
 
+## Kit check
+
+Collect everything before step 1. Counts come from the steps below; skip any
+insert already installed in an accepted part.
+
+| Group | Items |
+|---|---|
+| Printed, reprint | new PINREV2 shoulder hub (D), proximal link (E), distal link (G) |
+| Printed, keep | stand (A), shoulder plate (B), cable cover, front cable post, stop plate (K), upper and lower cartridge eyes (L, N), guide bar (M), knee-pin spacer (Q), keeper bracket (P), no-tyre shell (R), wheel hub (J) |
+| Actuators and bearings | GIM6010-8 (C) and GIM4305-10 (H), both unplugged; 2 × 6800-2RS (F) |
+| Pins and spring | Ø10 × 35 steel knee pin; 3 × Ø4 × 10 dowels; 2 × M4 × 40 clevis pins with supplied cotters; 1 × Ø6 × 10 dowel; owned OD18 / ID9 / 50 mm spring; 2 × ISO 7089 M4 washers (**not in hand**, see deviation above) |
+| Heat-set inserts | 12 × M4 × 8: 6 in hub D, 6 in wheel hub J. 14 × 5 mm M3: 5 in proximal E, 4 in plate B, 5 in stand A |
+| Socket-head screws | M2.5 × 12: 6 (wheel motor). M3 × 8: 11 (8 shoulder housing, 3 wheel hub). M3 × 10: 16 (5 plate-to-stand, 2 lower cover, 6 shoulder hub, 3 stop plate). M3 × 12: 2 (post and upper cover). M3 × 16: 2 (keeper bracket). M4 × 8: 6 (no-tyre shell). M4 × 10: 6 (proximal root) |
+| Bench | clamps for the stand, depth-controlled insert tip, hex keys, pliers for the cotters |
+
 ## Ordered assembly
 
 Keep both motor power and communication cables unplugged. Support the links,
 knee and wheel during detached fit work. Clamp or bolt the current Mode A stand
 to the bench before attaching the leg; keep the wheel clear of the bench and
-floor. Have **two ISO 7089 M4 steel washers** for the clevis cotters. Their
-presence was not confirmed in the owner update, so check before closing either
-clevis joint.
+floor. The two ISO 7089 M4 washers for the clevis cotters are not in hand; the
+steps below note where they go if fitted later.
 
 1. Sort and inspect the prints. Use the three PINREV2 parts, retained closed-skin stop plate and the six
    retained September 17 pieces, not the previous hub, links or stop plate.
    Reject cracks, lifted mating faces, blocked bores, damaged bearing lips, or
-   a damaged closed skin on the stop plate. Verify that any stand and shoulder
-   plate to be used are the released Ø4.5 M3-receiver versions. Keep the spring
+   a damaged closed skin on the stop plate. The stand and shoulder plate in
+   hand are the owner-confirmed Ø4.5 M3-receiver versions. Keep the spring
    off the leg for the first fit and stop checks.
 2. Rehearse detached interfaces before inserts or a loaded stack. Each 6800
    bearing must fit squarely in the **new** proximal link with thumb pressure
@@ -133,15 +156,16 @@ clevis joint.
    +15° without binding or bypass.
 9. With the knee at -8°, fit the upper cartridge eye radially, then pass an
    M4 × 40 clevis pin **inboard to outboard** through the actual link/eye stack.
-   Put one ISO 7089 M4 washer against the printed outboard face and fit the
-   supplied cotter, oriented radially away from the knee. Insert the guide
+   Put one ISO 7089 M4 washer against the printed outboard face (omitted under
+   the September 23 washer deviation) and fit the supplied cotter, oriented
+   radially away from the knee. Insert the guide
    through the **round center of the upper Ø8 spring pilot**, slide the free
    50 mm spring over it, and slide the lower eye onto the exposed guide and
    into the distal clevis. Its pin must pass with fingertip pressure. Add the
-   second steel washer and cotter in the same orientation. Seat cotters fully
-   without reshaping them and add no printed spacers. If the lower eye needs
-   more than slight hand compression, stop rather than pulling it in with a
-   pin, screw or clamp.
+   second washer (if in hand) and cotter in the same orientation. Seat cotters
+   fully without reshaping them and add no printed spacers. If the lower eye
+   needs more than slight hand compression, stop rather than pulling it in
+   with a pin, screw or clamp.
 10. Put the D10 outboard spacer's locator in the printed bracket's center hole
     and attach the bracket to the proximal link's two M3 inserts with
     **2 × M3 × 16**. The spacer limits outboard knee-pin travel; hand control
@@ -155,7 +179,8 @@ clevis joint.
     +5°, +10° and +15°. Stop for binding, whitening or cracking, coil contact,
     guide escape, pin migration, a loose cotter or stop bypass. Record the
     settle/return tendency; it does not establish spring rate or authorize
-    powered motion.
+    powered motion. Without washers, finish by inspecting both cotter contact
+    faces for indentation or whitening.
 
 The ordered hardware remains `FINAL-PART HAND FIT PENDING` until these binary
 checks pass. This does not require calipers and does not authorize powered

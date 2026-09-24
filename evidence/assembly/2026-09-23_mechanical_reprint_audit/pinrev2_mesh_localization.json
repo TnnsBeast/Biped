@@ -1,0 +1,682 @@
+{
+ "method": "Local binary-STL surface comparison in print coordinates: every vertex and facet centroid of one mesh is tested against the other mesh surface; samples farther than 0.01 mm are clustered. Supplementary to the Fusion checks; not CAD verification.",
+ "tolerance_mm": 0.01,
+ "comparisons": [
+  {
+   "part": "Shoulder_Output_Hub_L",
+   "reference": "Sept 22 release (56b2507)",
+   "released_pinrev2": "ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl",
+   "pinrev2_geometry_not_on_reference": [
+    {
+     "centre_xy_mm": [
+      -18.98,
+      -11.13
+     ],
+     "z_mm": [
+      1.67,
+      5.0
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 158
+    },
+    {
+     "centre_xy_mm": [
+      -0.15,
+      22.0
+     ],
+     "z_mm": [
+      1.67,
+      5.0
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 158
+    },
+    {
+     "centre_xy_mm": [
+      19.13,
+      -10.87
+     ],
+     "z_mm": [
+      1.67,
+      5.0
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 158
+    }
+   ],
+   "reference_geometry_not_on_pinrev2": [
+    {
+     "centre_xy_mm": [
+      -18.98,
+      -11.13
+     ],
+     "z_mm": [
+      0.0,
+      3.33
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 156
+    },
+    {
+     "centre_xy_mm": [
+      -0.15,
+      22.0
+     ],
+     "z_mm": [
+      0.0,
+      3.33
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 156
+    },
+    {
+     "centre_xy_mm": [
+      19.13,
+      -10.87
+     ],
+     "z_mm": [
+      0.0,
+      3.33
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 156
+    }
+   ]
+  },
+  {
+   "part": "Proximal_Link_L",
+   "reference": "Sept 22 release (56b2507)",
+   "released_pinrev2": "ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+   "pinrev2_geometry_not_on_reference": [
+    {
+     "centre_xy_mm": [
+      -18.98,
+      -11.13
+     ],
+     "z_mm": [
+      25.6,
+      29.07
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      -0.15,
+      22.0
+     ],
+     "z_mm": [
+      25.6,
+      29.07
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      19.13,
+      -10.87
+     ],
+     "z_mm": [
+      25.6,
+      29.07
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      1.93,
+      3.87
+     ],
+     "xy_extent_mm": [
+      4.28,
+      4.28
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 72
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      28.53,
+      31.27
+     ],
+     "xy_extent_mm": [
+      4.28,
+      4.28
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 72
+    }
+   ],
+   "reference_geometry_not_on_pinrev2": [
+    {
+     "centre_xy_mm": [
+      -18.98,
+      -11.13
+     ],
+     "z_mm": [
+      27.33,
+      30.8
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      -0.15,
+      22.0
+     ],
+     "z_mm": [
+      27.33,
+      30.8
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      19.13,
+      -10.87
+     ],
+     "z_mm": [
+      27.33,
+      30.8
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 108
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      0.0,
+      5.8
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 144
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      25.8,
+      25.8
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 36
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      28.53,
+      31.27
+     ],
+     "xy_extent_mm": [
+      4.23,
+      4.23
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 72
+    },
+    {
+     "centre_xy_mm": [
+      71.28,
+      -47.65
+     ],
+     "z_mm": [
+      34.0,
+      34.0
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 36
+    }
+   ]
+  },
+  {
+   "part": "Distal_Link_L",
+   "reference": "Sept 22 mislabeled release (56b2507)",
+   "released_pinrev2": "ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+   "pinrev2_geometry_not_on_reference": [
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      1.67,
+      3.33
+     ],
+     "xy_extent_mm": [
+      4.28,
+      4.28
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 72
+    },
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      26.5,
+      32.5
+     ],
+     "xy_extent_mm": [
+      4.3,
+      4.3
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 180
+    },
+    {
+     "centre_xy_mm": [
+      91.92,
+      77.13
+     ],
+     "z_mm": [
+      5.0,
+      5.33
+     ],
+     "xy_extent_mm": [
+      15.99,
+      16.0
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 366
+    },
+    {
+     "centre_xy_mm": [
+      91.92,
+      77.13
+     ],
+     "z_mm": [
+      15.0,
+      15.0
+     ],
+     "xy_extent_mm": [
+      10.29,
+      10.3
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 53
+    },
+    {
+     "centre_xy_mm": [
+      91.92,
+      77.13
+     ],
+     "z_mm": [
+      24.67,
+      25.0
+     ],
+     "xy_extent_mm": [
+      15.99,
+      16.0
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 366
+    },
+    {
+     "centre_xy_mm": [
+      91.93,
+      77.13
+     ],
+     "z_mm": [
+      8.33,
+      11.67
+     ],
+     "xy_extent_mm": [
+      10.28,
+      10.28
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 106
+    },
+    {
+     "centre_xy_mm": [
+      91.93,
+      77.13
+     ],
+     "z_mm": [
+      18.33,
+      21.67
+     ],
+     "xy_extent_mm": [
+      10.28,
+      10.28
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 106
+    }
+   ],
+   "reference_geometry_not_on_pinrev2": [
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      0.0,
+      5.0
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 144
+    },
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      25.0,
+      34.0
+     ],
+     "xy_extent_mm": [
+      4.25,
+      4.25
+     ],
+     "max_deviation_mm": 0.025,
+     "samples": 252
+    },
+    {
+     "centre_xy_mm": [
+      91.92,
+      77.13
+     ],
+     "z_mm": [
+      15.0,
+      15.0
+     ],
+     "xy_extent_mm": [
+      15.99,
+      16.0
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 65
+    },
+    {
+     "centre_xy_mm": [
+      91.93,
+      77.13
+     ],
+     "z_mm": [
+      8.67,
+      11.83
+     ],
+     "xy_extent_mm": [
+      15.98,
+      15.98
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 130
+    },
+    {
+     "centre_xy_mm": [
+      91.93,
+      77.13
+     ],
+     "z_mm": [
+      18.17,
+      21.33
+     ],
+     "xy_extent_mm": [
+      15.98,
+      15.98
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 130
+    }
+   ]
+  },
+  {
+   "part": "Distal_Link_L",
+   "reference": "Sept 16 v26 steel-pin fit article",
+   "released_pinrev2": "ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+   "pinrev2_geometry_not_on_reference": [
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      1.67,
+      3.33
+     ],
+     "xy_extent_mm": [
+      4.28,
+      4.28
+     ],
+     "max_deviation_mm": 0.075,
+     "samples": 72
+    },
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      26.5,
+      34.0
+     ],
+     "xy_extent_mm": [
+      13.99,
+      14.0
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 537
+    },
+    {
+     "centre_xy_mm": [
+      80.01,
+      104.67
+     ],
+     "z_mm": [
+      25.0,
+      28.5
+     ],
+     "xy_extent_mm": [
+      6.19,
+      6.2
+     ],
+     "max_deviation_mm": 1.0,
+     "samples": 162
+    }
+   ],
+   "reference_geometry_not_on_pinrev2": [
+    {
+     "centre_xy_mm": [
+      55.32,
+      118.03
+     ],
+     "z_mm": [
+      30.0,
+      30.0
+     ],
+     "xy_extent_mm": [
+      1.02,
+      2.73
+     ],
+     "max_deviation_mm": 0.542,
+     "samples": 7
+    },
+    {
+     "centre_xy_mm": [
+      60.32,
+      122.67
+     ],
+     "z_mm": [
+      25.0,
+      30.0
+     ],
+     "xy_extent_mm": [
+      10.48,
+      6.76
+     ],
+     "max_deviation_mm": 2.662,
+     "samples": 169
+    },
+    {
+     "centre_xy_mm": [
+      60.95,
+      121.37
+     ],
+     "z_mm": [
+      0.0,
+      5.0
+     ],
+     "xy_extent_mm": [
+      4.15,
+      4.15
+     ],
+     "max_deviation_mm": 0.075,
+     "samples": 144
+    },
+    {
+     "centre_xy_mm": [
+      80.01,
+      104.67
+     ],
+     "z_mm": [
+      26.67,
+      30.0
+     ],
+     "xy_extent_mm": [
+      6.0,
+      6.0
+     ],
+     "max_deviation_mm": 0.108,
+     "samples": 120
+    },
+    {
+     "centre_xy_mm": [
+      94.5,
+      77.48
+     ],
+     "z_mm": [
+      8.33,
+      11.83
+     ],
+     "xy_extent_mm": [
+      10.83,
+      15.29
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 129
+    },
+    {
+     "centre_xy_mm": [
+      94.57,
+      77.47
+     ],
+     "z_mm": [
+      14.83,
+      15.17
+     ],
+     "xy_extent_mm": [
+      10.7,
+      15.33
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 68
+    },
+    {
+     "centre_xy_mm": [
+      94.58,
+      77.44
+     ],
+     "z_mm": [
+      18.17,
+      21.67
+     ],
+     "xy_extent_mm": [
+      10.67,
+      15.38
+     ],
+     "max_deviation_mm": "no nearby surface (new/removed material)",
+     "samples": 129
+    }
+   ]
+  }
+ ]
+}

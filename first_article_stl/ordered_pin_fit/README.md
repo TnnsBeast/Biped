@@ -5,7 +5,11 @@ Status: `OWNER SELECTED / CAD PROMOTED`
 These two inexpensive calibration parts used the real ordered hardware as
 go/no-go gauges, so **no measurement or calipers were required**. Their
 September 22 results are now promoted into Fusion v29 and the refreshed
-[ordered-pin production files](../ordered_pin_integration/).
+[ordered-pin production files](../ordered_pin_integration/). **[SUPERSEDED
+2026-09-23: the owner then requested Ø4.30 for both interfaces, one step
+beyond these selections, for easier removal; PINREV2 in Fusion v30 carries it.
+The clevis ladder's fourth station from the two-marker end is Ø4.30 and can
+preview that fit; the root ladder stops at Ø4.25.]**
 
 ## Selected results
 

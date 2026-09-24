@@ -9,7 +9,11 @@ unplugged; clamp the stand, keep the wheel clear and hand-contain the distal sid
 **Reprint the PINREV2 shoulder hub and both links.** Their root-dowel and
 clevis-link holes are Ø4.30; the distal knee receiver is restored to Ø10.30.
 Keep the current stop plate and other released prints, subject to the
-[all-15-part audit](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/).
+[all-15-part audit](../../evidence/assembly/2026-09-23_mechanical_reprint_audit/);
+the stand and plate in hand are owner-confirmed Ø4.5 prints. The two M4
+cotter washers shown in steps 16 and 18 are not in hand: fit the cotters
+directly for this unpowered test and inspect both cotter faces afterwards
+([deviation record](../../evidence/assembly/2026-09-23_owner_stand_plate_and_washers/)).
 New print completion, final fits and completed assembly remain unverified. The
 [detailed traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
 retains the acceptance checklist; [drawing provenance](manual/README.md) records

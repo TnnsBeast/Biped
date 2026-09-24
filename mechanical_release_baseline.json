@@ -11591,5 +11591,21 @@
         }
       ]
     }
+  },
+  "verified_source_sha256": {
+    "beni_lib.py": "cac0195793d3cfae6a740c449ba79f474247e9508a565823dee3ac8dbee39932",
+    "rig_lib.py": "cc6109f075fb7d3d5110f8be7eb76e9512dcc63f2fe7c31779b4b4fca1d500e6",
+    "rig_export.py": "7b04eca21a871615bec1748b2b0e838d99bb2014bb204ba0a8742ec16911ca27",
+    "beni_export.py": "a4102e0da55aa2bd737d2b91d453c311c38512fba3e70797b8570e74ef8a7bcc",
+    "mechanical_spring_test_fusion.py": "55d68a99c10ecb33874daf7ec053890a2bd8dea99a5ab368bd5a61aa21369f4c",
+    "ordered_pin_integration_fusion.py": "c98ce2de5ce4ea9246afebd792c29351f67d40f49ed9dd3e54677793b02c165c",
+    "mechanical_release_audit_fusion.py": "4e6bd75402925cbb974a5ab2f4f2179f390ad63f73ce92035dea8f245c505ca0",
+    "distal_first_article_fusion.py": "79376bf071e9c7b884a76480d7e1d54bcb0ec57000b99bdbded583aed1566946"
+  },
+  "verified_source_evidence": {
+    "document": "Beni_SingleLegRig v30 (unsaved session; cloud version unchanged)",
+    "date": "2026-09-23",
+    "record": "evidence/assembly/2026-09-23_mechanical_reprint_audit/completion_checks.json",
+    "scope": "beni_lib builders rebuilt hub/proximal/distal equal to the baseline shapes; assert_all passed with these modules; rig_export image-only and blocked-export paths and rig_lib.guarded success/exception paths exercised; the remaining sources are unchanged from the v30 release session"
   }
 }

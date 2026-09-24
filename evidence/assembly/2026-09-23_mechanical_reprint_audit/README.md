@@ -26,11 +26,11 @@ Saved and verified in **Beni_SingleLegRig v30**.
 | Wheel hub | Keep | Released Ø5.3 M4 receiver version; motor register and mounting holes verified. |
 | Cable cover | Keep | Released M3-clearance version. |
 | Front cable post | Keep | Released cover-mount version. |
-| Mode A stand | **Conditional keep** | Released Ø4.5 × 6.0 M3 receiver version passes. Owner's physical print revision is still unidentified; replace an older Ø4.0 version. |
-| Shoulder plate | **Conditional keep** | Released Ø4.5 M3 receiver version passes. Owner's physical print revision is still unidentified; replace an older Ø4.0 version. |
+| Mode A stand | Keep | Released Ø4.5 × 6.0 M3 receiver version passes. The owner confirmed the print postdates the Ø4.5 promotion ([report](../2026-09-23_owner_stand_plate_and_washers/)). |
+| Shoulder plate | Keep | Released Ø4.5 M3 receiver version passes. The owner confirmed the print postdates the Ø4.5 promotion. |
 
 Download the three **PINREV2** replacements from the
-[current print queue](../../../../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article).
+[current print queue](../../../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article).
 The owner clarified that only the root-dowel and clevis-link fits should grow,
 by **+0.05 mm**, not +0.10 mm. The bought bearings, D10 knee receiver,
 factory motor-pin holes, cartridge eyes and stop-pin socket/channel retain their
@@ -38,6 +38,8 @@ previous intended sizes. Ø4.30 is an owner-requested fit candidate, **not a
 newly passed coupon result**. Confirm easy hand insertion and withdrawal,
 flush root mating faces and no objectionable assembled play. The root screws
 capture the dowels; both clevis pins still require their washers and cotters.
+The washers are not in hand; the owner's accepted deviation for the unpowered
+test is [recorded separately](../2026-09-23_owner_stand_plate_and_washers/).
 
 ## What failed
 
@@ -113,3 +115,55 @@ file hashes and verified source hashes. It cannot run Fusion in CI and does not
 replace the native geometry, path or physical checks. Exporters stage candidate
 meshes and only replace a released file after its geometry/orientation check
 passes. The baseline is reviewed evidence, never an auto-generated escape hatch.
+
+## Completion after the interrupted session
+
+The first September 23 session stopped before finishing the release. It left
+`mechanical_release_baseline.json` without `verified_source_sha256`, so
+`verify_mechanical_release.py` and CI failed. It also left the superseded
+September 22 hub/link files, including the mislabeled Ø16 distal, beside the
+PINREV2 files, near edge-on release images, and stale v29/Ø4.25 status text.
+A second session on the owner's other machine completed the release through
+Fusion MCP without saving: cloud v30 is unchanged.
+[`completion_checks.json`](completion_checks.json) holds the results.
+
+- **Live v30:** all 32 interface contracts and all 15 shape signatures match
+  the baseline.
+- **Source reproducibility at Ø4.30:** the earlier rebuild regression
+  predates Ø4.30. The current `beni_lib` builders were run into scratch
+  components; hub, proximal and distal equal the baseline in every face (two
+  runs). Guards and timeline/occurrence counts were unchanged afterwards.
+- **Released files:** fresh exports at the recorded bed transform match the
+  three PINREV2 files and the stop plate within 0.0304 mm, which is
+  tessellation chord error at the 0.03 mm QA tolerance.
+- **Change localization:** local surface comparison
+  ([`pinrev2_mesh_localization.json`](pinrev2_mesh_localization.json)) finds
+  the PINREV2 files differ from their predecessors only at the three hub
+  sockets and three link sockets (+0.025 mm radius), both clevis bores, and
+  the restored distal receiver. Against the September 16 Fusion-qualified fit
+  article the distal adds only the ordered-pin clevis land and Ø6.2 stop
+  socket and changes the clevis bore; its knee boss faces (y 65.0/84.0) and
+  Ø10.30 receiver span (y 64.5–84.5) sit at the same positions. The
+  September 16 mesh also carries an internal wall inside the knee boss that
+  PINREV2 does not.
+- **Images:** the exporter inherited the previous camera. It now uses a fixed
+  iso view; the four ordered-pin images were recaptured, STL bytes unchanged,
+  and the manual PDF/page gallery rebuilt.
+- **Removed:** the superseded September 22 hub, proximal and mislabeled distal
+  STL/PNG pairs. They remain in git at `56b2507`; the negative control reads
+  the distal from there.
+
+**Two new traps, both fixed or documented:**
+
+1. `rig_lib.guarded()` restored transforms only on success. A blocked export
+   raises after the exporter deletes its temporary occurrence, which drops
+   `HW_WasherStack_M5` and `RIG_Knee_Bumper_Tube_L` to identity. The restore
+   now runs in `finally`; the blocked-export case was re-run in Fusion and all
+   guards pass.
+2. The triangle fingerprint in `assert_export()` depends on the Fusion build.
+   On the second machine `MeshRefinementHigh` gives 5640 triangles for the hub
+   against the released 10850, although the surfaces agree. Re-exports there
+   are blocked fail-closed. Do not work around it: a new export needs a
+   deliberate, reviewed baseline update with the surface comparison as its
+   evidence.
+

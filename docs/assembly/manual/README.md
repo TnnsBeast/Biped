@@ -15,7 +15,9 @@ and motor guards. The September 23 images follow the verified PINREV2 correction
 itself changes no manufacturing geometry. The source version is in the manifest.
 Exploded distances are illustration spacing, not engineering dimensions.
 
-The parts key reuses the released native Fusion print-orientation images.
+The parts key reuses the released native Fusion print-orientation images. The
+four ordered-pin images were recaptured on September 23 from a fixed iso
+camera; the exporter had inherited a near edge-on view from the manual capture.
 The orange spring is a schematic between the CAD spring seats, not a drawing
 of the purchased spring's coils. Cotters are described but not modelled; use
 the supplied retainers. Drawings do not establish physical assembly acceptance.
@@ -38,6 +40,11 @@ Then, from the repository root with ReportLab and Poppler available:
 python3 docs/assembly/manual/build_manual.py
 pdftoppm -r 110 -png output/pdf/beni_single_leg_assembly_manual.pdf docs/assembly/manual/pages/step
 ```
+
+Without Poppler, render the same 110 dpi pages with PyMuPDF
+(`page.get_pixmap(dpi=110)`, saved as `pages/step-NN.png`). The September 23
+gallery was rendered this way; it draws the PDF's Helvetica-Bold headings as
+bold, where the earlier Poppler render substituted a regular face.
 
 All 23 rendered pages were visually reviewed for clipping, readable labels,
 arrows and assembly orientation. `pages/` is the published image gallery,

@@ -173,7 +173,7 @@ txt(36,471,'BUILD IN THIS ORDER',11,True,BLUE)
 for i,(a,b) in enumerate([('01-04','Prepare loose parts'),('05-09','Build the shoulder'),('10-14','Build wheel end and knee'),('15-20','Fit cartridge and retainers'),('21','Hand-test the supported leg')]):
     y=437-i*45;txt(36,y,a,16,True);txt(98,y,b,12)
 para(36,182,'Both motors unplugged.<br/>Stand clamped to the bench.<br/>Wheel clear of bench and floor.<br/>Keep one hand on the distal side.',270,13)
-para(36,81,'23 SEP: Reprint hub + both links (PINREV2).<br/>Root/clevis holes Ø4.30; knee receiver Ø10.30.',285,10,ORANGE)
+para(36,95,'23 SEP: Reprint hub + both links (PINREV2).<br/>Root/clevis holes Ø4.30; knee receiver Ø10.30.<br/>No M4 washers in hand: cotters bear on ABS;<br/>inspect both cotter faces after step 21.',285,10,ORANGE)
 footer()
 
 # Visual parts key. These IDs stay the same in the exploded drawings.
@@ -195,7 +195,7 @@ for i,(letter,label,path) in enumerate(assets):
     col,row=i%4,i//4;x=32+col*195;y=367-row*128
     c.drawImage(str(ROOT/'first_article_stl'/path),x+20,y+17,width=150,height=100,preserveAspectRatio=True,anchor='c')
     badge(x+10,y+8,letter);txt(x+25,y+4,label,11,True)
-para(35,106,'Also use the current stand (A), cable cover and front post. The stand and plate need the released Ø4.5 M3 receivers. Check their print-file revision before fitting inserts.',760,11)
+para(35,106,'Also use the current stand (A), cable cover and front post. The stand and plate in hand are the owner-confirmed Ø4.5 M3-receiver prints.',760,11)
 para(35,67,'Inboard = toward the stand/body. Outboard = away from the stand. C = GIM6010 shoulder motor; H = GIM4305 wheel motor; F = 6800 bearing.',760,10,GREY)
 footer()
 

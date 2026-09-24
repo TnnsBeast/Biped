@@ -47,55 +47,68 @@ before assembly. The final structural cartridge is still held.
 
 Automatically maintained convenience links for the active ABS article.
 
-**Reprint three parts: shoulder hub, proximal link and distal link.**
-[Direct-download the corrected PINREV2 distal STL](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl).
-The September 22 distal file lost its Ø10.30 receiver and incorrectly exported
-Ø16. The corrected file restores Ø10.30 × 20.0. At the owner's request,
-root-dowel sockets and clevis-link passages now use **Ø4.30**, one +0.05 mm
-step beyond the selected Ø4.25 ladder station, for easier removal. These new
-fits still need final-part hand acceptance. Other pin interfaces are unchanged.
+**Reprint three parts, 1 × ABS each (PINREV2, Fusion v30):**
+[shoulder hub](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl) ·
+[proximal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl) ·
+[distal link](https://raw.githubusercontent.com/TnnsBeast/Biped/main/first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl)
+(direct STL downloads).
 
-The [all-15-part audit](evidence/assembly/2026-09-23_mechanical_reprint_audit/)
-finds no other reprint necessary for the current released files. Keep the
-closed-skin stop plate and the six earlier parts below. Keep the wheel hub,
-cable cover and front post. Stand and shoulder plate may be kept only if they
-are the current Ø4.5 M3-receiver versions; their physical print revisions are
-still unconfirmed. Withdraw the older hub and links from the active assembly.
+These replace the September 22 prints. The September 22 distal file lost its
+Ø10.30 receiver and exported Ø16; PINREV2 restores Ø10.30 × 20.0. At the
+owner's request, root-dowel sockets and clevis-link passages are **Ø4.30**, one
++0.05 mm step beyond the selected Ø4.25 ladder station, for easier removal.
+That is a new fit candidate, accepted on the final parts. No other interface
+changed. The [all-15-part audit](evidence/assembly/2026-09-23_mechanical_reprint_audit/)
+and the owner's [September 23 stand/plate confirmation](evidence/assembly/2026-09-23_owner_stand_plate_and_washers/)
+close the reprint list: **every other part in hand is current.** Withdraw the
+older hub, links and stop plate from the assembly.
 
-### Three PINREV2 replacements; retain the existing stop plate
-
-| Part | Qty | Import orientation and supports |
-|---|---:|---|
-| [Shoulder output hub with three Ø4 × 10 root sockets](first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, Ø56 outboard flange on bed; no supports; controlled socket bridges |
-| [Proximal link with root sockets and integral M4 × 40 upper land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad outboard face on bed; no support in functional bores or channel |
-| [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; use only the traveller's selective supports and block all fit bores |
-| [KEEP: -8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, closed skin on bed and channel upward; no supports |
-
-### Six earlier parts reported printed — retain and inspect
+### Reprint: three PINREV2 parts
 
 | Part | Qty | Import orientation and supports |
 |---|---:|---|
-| [Upper 50 mm cartridge eye](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, spring axis vertical; no supports; brim required |
-| [Lower 50 mm cartridge eye](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, spring axis vertical; no supports; brim required |
-| [Removable guide bar](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, long face on bed; no supports |
-| [Outboard knee-pin spacer](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; no supports |
-| [Encoder bracket used as pin keeper](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged; no supports |
-| [No-tyre wheel shell](first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad web face on bed; no supports; print alone |
+| [Shoulder output hub with three Ø4 × 10 root sockets](first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, Ø56 outboard flange on bed; no supports; the three root-socket ceilings are controlled bridges |
+| [Proximal link with root sockets and integral M4 × 40 upper land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad outboard face on bed; no supports; the channel and root-pad ceilings bridge |
+| [Distal link with captive Ø6 × 10 socket and integral M4 × 40 lower land](first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl) | 1 ABS | Import unchanged, broad inboard face on bed; paint supports only under the Ø16 knee-receiver annulus, raised knee web, wheel-end underside and open-channel ceiling; ≥ 0.4 mm top/bottom and 0.6 mm XY support distance; block every bore, the motor opening and the motor mounting face |
 
-Use the tuned enclosed ABS profile: **0.20 mm layers, 4 walls, 5 top and 5 bottom layers, 30% infill**. Do not rotate, scale, compensate holes, drill, sand, file or heat-fit a failed article. The pointed roofs in the eye pivots are intentional self-supporting geometry.
+Use the tuned enclosed ABS profile: **0.20 mm layers, 4 walls, 5 top and 5
+bottom layers, 30% infill**. Do not rotate, scale, compensate holes, drill,
+sand, file or heat-fit a failed article.
 
-### Existing parts and hardware that must pass first
+Acceptance on the new prints, by hand and without measurement: the steel Ø10
+knee pin enters the distal receiver by firm thumb pressure, withdraws by hand,
+and has no free spin, radial rock or unacceptable axial play; three Ø4 × 10
+dowels seat 5.0 mm in the hub without whitening and the proximal root meets
+the hub face by hand; each M4 × 40 clevis pin passes its link lands and
+cartridge eye by hand. [Full traveller](first_article_stl/ordered_pin_integration/README.md#ordered-assembly).
 
-1. The ordered-pin distal link is also the current Ø10.30 × 20.0 steel knee-pin article. Before installing the spring, confirm firm-thumb knee-pin insertion, hand withdrawal, no free spin, no radial rock, and acceptable axial play.
-2. Install inserts in the **new hub and proximal link** after inspection; the new distal link and stop plate receive none. Retain the earlier hub, proximal link, distal link, and stop plate as evidence, not assembly parts.
-3. Identify the printed stand and shoulder plate before using them. Use the [Ø4.5 Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl) and current [Ø4.5 shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl); print either only if the version in hand is absent or the prior Ø4.0 revision. Securely clamp the stand.
-4. Have the owned spring, **3 × Ø4 × 10 dowels**, **2 × M4 × 40 clevis pins with supplied cotters**, **2 × ISO 7089 M4 washers**, **1 × Ø6 × 10 dowel**, **3 × M3 × 10 stop screws**, the received steel knee pin, both 6800 bearings, and the printed wheel hub. The seller dimensions are already designed in; only visual inspection and hand fit are required.
+### Keep: twelve parts already printed
+
+| Part | Status |
+|---|---|
+| [-8°…+15° closed-skin captive stop plate](first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl) | Current ordered-pin version; printed September 22 |
+| [Upper](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Upper_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) and [lower](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Lower_Eye_50mm_AXIS_UP_PRINT_ORIENTED.stl) 50 mm cartridge eyes, [guide bar](first_article_stl/mechanical_spring_test/ABS_TEST_Cart_Guide_Bar_50mm_FLAT_PRINT_ORIENTED.stl) | September 17 files, unchanged |
+| [Outboard knee-pin spacer](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Pin_Outboard_Spacer_PRINT_ORIENTED.stl), [encoder bracket used as pin keeper](first_article_stl/mechanical_spring_test/ABS_TEST_Knee_Encoder_Bracket_PIN_KEEPER_PRINT_ORIENTED.stl), [no-tyre wheel shell](first_article_stl/mechanical_spring_test/ABS_TEST_Wheel_Rim_NoTyre_PRINT_ORIENTED.stl) | September 17 files, unchanged |
+| [Wheel hub](first_article_stl/assembly_dry_fit/ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.stl), [cable cover](first_article_stl/assembly_dry_fit/ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.stl), [front cable post](first_article_stl/mode_a/ABS_FA_RIG_Cable_Post_A_COVER_MOUNT_PRINT_ORIENTED.stl) | Printed September 7; current |
+| [Mode A stand](first_article_stl/mode_a/ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.stl), [shoulder plate](first_article_stl/assembly_dry_fit/ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.stl) | Owner confirms both printed after the September 14 Ø4.5 receiver promotion; current |
+
+### Hardware
+
+Owned spring (OD18 / ID9 / 50 mm), received Ø10 × 35 steel knee pin, 2 ×
+6800-2RS bearings, 3 × Ø4 × 10 dowels, 2 × M4 × 40 clevis pins with supplied
+cotters, 1 × Ø6 × 10 dowel, and the inserts and screws in the
+[traveller's kit check](first_article_stl/ordered_pin_integration/README.md#kit-check).
+**The 2 × ISO 7089 M4 cotter washers are not in hand.** The owner will try the
+unpowered assembly without them: each clevis pin then floats up to 1.2 mm
+instead of 0.4 mm and its cotter bears on ABS. Inspect both cotter faces after
+the hand test and fit washers before repeated cycling or powered use.
+[Deviation record](evidence/assembly/2026-09-23_owner_stand_plate_and_washers/).
 
 Follow the [picture-led assembly guide](docs/assembly/ordered_pin_picture_guide.md)
 and its [detailed ordered-pin checklist](first_article_stl/ordered_pin_integration/README.md#ordered-assembly),
 including the detached D10 knee-pin and clevis checks, then the September 17 spring hand test. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
 
-The support-free no-tyre wheel shell is a suspended mechanical-test part. The final tyre-compatible structural rim, final pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion remain held. Keep the TPU tyre off this article.
+**Still held:** the final tyre-compatible structural rim, final knee-pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion. The support-free no-tyre shell is a suspended mechanical-test part; keep the TPU tyre off this article.
 
 The earlier loose printed-pin mock-up and detached spring caps remain accepted historical evidence only. The provisional shin was destroyed during steel-pin recovery and must not be reprinted. [Earlier owner result](evidence/assembly/2026-09-07_owner_mockup/) · [real-pin failure and corrected receiver release](evidence/knee_fit/2026-09-16_distal_d10p30_release/).
 <!-- PRINT_QUEUE_END -->

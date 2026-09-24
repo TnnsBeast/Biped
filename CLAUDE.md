@@ -209,6 +209,18 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 - **Fusion bounding boxes inflate under rotation** (axis-aligned box of the
   untransformed box). The box *centre* transforms exactly. Never read a clearance
   off `bbox` min/max for a rotated part.
+- **A long Fusion MCP script can run more than once.** A call that outlives the
+  MCP timeout is re-sent, and the retry can start inside the running script at
+  its `adsk.doEvents()`. Keep each call short, write results to a file as you
+  go, and guard any structural script with a lock file so a retry exits.
+- **The release mesh fingerprint depends on the Fusion build.** On the owner's
+  second machine, `MeshRefinementHigh` tessellates differently, so
+  `assert_export()` blocks every re-export there even when the surfaces agree
+  within 0.03 mm. Do not bypass it; a new export needs a reviewed baseline
+  update. [Record](evidence/assembly/2026-09-23_mechanical_reprint_audit/#completion-after-the-interrupted-session).
+- **The repo path differs per machine** (`/Users/neilchulani/Personal/Biped`
+  here, `/Users/neilchulani/Biped` on the other). Scripts resolve paths from
+  `__file__`; in an MCP script, `sys.path.insert(0, <repo>)` before importing.
 
 ## Editing the Fusion models
 

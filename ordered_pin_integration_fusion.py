@@ -26,6 +26,53 @@ def _round(value):
     return round(float(value), 6)
 
 
+# Source component, export name, bed-orientation exporter, support policy.
+PARTS = [
+    ('Shoulder_Output_Hub_L',
+     'ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED',
+     E._export_max_y_face_down,
+     'Ø56 outboard flange face on bed. No supports. The three Ø4.30 x '
+     '5.0 root-dowel sockets are vertical 4 mm bridges; inspect their '
+     'ceilings before installing pins or inserts.'),
+    ('Proximal_Link_L',
+     'ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED',
+     E._export_max_y_face_down,
+     'Verified broad y=90.3 outboard face on bed. No supports in bearing '
+     'seats, root sockets, clevis bore or the 20 mm channel. The M4x40 '
+     'upper-clevis land grows away from the bed on the inboard side.'),
+    ('Distal_Link_L',
+     'ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED',
+     E._export_min_y_face_down,
+     'Verified broad y=59.5 inboard face on bed. Retain the released '
+     'selective-support policy under the knee receiver land, raised web, '
+     'wheel-end underside and open channel ceiling. Block support from '
+     'all fit bores. The lower-clevis land grows away from the bed.'),
+    (M.STOP,
+     'ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED',
+     E._export_max_y_face_down,
+     'Closed 0.8 mm outboard skin on bed; the 5.0 mm pin channel opens '
+     'upward. No supports. Inspect the skin and all three M3 holes.'),
+]
+
+
+def refresh_images(_context: str):
+    """Recapture the four release images only; released STLs stay untouched."""
+    app = adsk.core.Application.get()
+    assert app.activeDocument.name == 'Beni_SingleLegRig'
+    from mechanical_release_audit_fusion import assert_all
+    assert_all()
+    rows = []
+    for source, export_name, exporter, policy in PARTS:
+        occurrence = B.find_occ(source)
+        assert occurrence is not None
+        row = R.guarded(exporter, occurrence, export_name, OUT_DIR, policy,
+                        image_only=True)
+        rows.append(row['fusion_screenshot'])
+    assert_all()
+    print(json.dumps(rows, indent=2))
+    return rows
+
+
 def release(_context: str):
     app = adsk.core.Application.get()
     assert app.activeDocument.name == 'Beni_SingleLegRig'
@@ -38,37 +85,10 @@ def release(_context: str):
     R.placed_assert()
     B.capture_nominal(force=True)
 
-    parts = [
-        ('Shoulder_Output_Hub_L',
-         'ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED',
-         E._export_max_y_face_down,
-         'Ø56 outboard flange face on bed. No supports. The three Ø4.30 x '
-         '5.0 root-dowel sockets are vertical 4 mm bridges; inspect their '
-         'ceilings before installing pins or inserts.'),
-        ('Proximal_Link_L',
-         'ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED',
-         E._export_max_y_face_down,
-         'Verified broad y=90.3 outboard face on bed. No supports in bearing '
-         'seats, root sockets, clevis bore or the 20 mm channel. The M4x40 '
-         'upper-clevis land grows away from the bed on the inboard side.'),
-        ('Distal_Link_L',
-         'ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED',
-         E._export_min_y_face_down,
-         'Verified broad y=59.5 inboard face on bed. Retain the released '
-         'selective-support policy under the knee receiver land, raised web, '
-         'wheel-end underside and open channel ceiling. Block support from '
-         'all fit bores. The lower-clevis land grows away from the bed.'),
-        (M.STOP,
-         'ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED',
-         E._export_max_y_face_down,
-         'Closed 0.8 mm outboard skin on bed; the 5.0 mm pin channel opens '
-         'upward. No supports. Inspect the skin and all three M3 holes.'),
-    ]
-
     exports = []
     meshes = {}
     topology = {}
-    for source, export_name, exporter, policy in parts:
+    for source, export_name, exporter, policy in PARTS:
         occurrence = B.find_occ(source)
         assert occurrence is not None
         topology[source] = M._topology(occurrence)

@@ -136,7 +136,11 @@ nominal Ø4.25 for the root-dowel hub socket and nominal Ø4.25 for the clevis
 link passages. Fusion v29 now contains those values and the large
 [hub/proximal/distal production files](ordered_pin_integration/) were
 re-exported and released for printing. The Ø6 × 10 captive stop remains a
-deliberate Ø6.2 clearance fit and has no ladder.
+deliberate Ø6.2 clearance fit and has no ladder. **[SUPERSEDED 2026-09-23:
+the v29 distal export lost its Ø10.30 receiver, and the owner then requested
+Ø4.30 root-dowel and clevis-link holes. Print the PINREV2 hub and links from
+the [current queue](../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article);
+[audit](../evidence/assembly/2026-09-23_mechanical_reprint_audit/).]**
 
 ## Actuator-coupon slicer setup
 

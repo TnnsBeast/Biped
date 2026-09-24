@@ -8,9 +8,9 @@ shows where the printed proximal link goes and which motor it belongs to.
 > proximal link, and support the knee end so the printed parts do not carry it as a
 > cantilever. This is a fit check, not a powered or load test.
 
-> **Updated 2026-09-22:** the owner reports the ordered-pin hub and proximal
-> link printed. Use those two revised parts. The earlier accepted hub and link
-> remain fit evidence only. The three bought Ø4 × 10 root dowels enter the new
+> **Updated 2026-09-23:** use the PINREV2 hub and proximal link reprints, with
+> Ø4.30 root-dowel sockets. The September 22 ordered-pin prints and the earlier
+> accepted hub and link remain fit evidence only. The three bought Ø4 × 10 root dowels enter the new
 > hub before this shoulder assembly. Follow the
 > [current ordered-pin traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
 > for the full unpowered leg sequence.
@@ -146,6 +146,6 @@ supported. Remove the link before servicing the cover; remove cover/post before
 accessing the housing screws.
 
 [Exact Fusion audit and physical acceptance](../../evidence/assembly/2026-09-05_access_fix/).
-The ordered-pin distal link is printed and retains the selected Ø10.30 × 20.0
-steel-pin receiver. Its physical knee-pin fit and supported spring-free stop
-check are next. Keep both motors unplugged for this rehearsal.
+The PINREV2 distal reprint restores the selected Ø10.30 × 20.0 steel-pin
+receiver; the September 22 distal print lacks it and must not be used. The
+reprint's physical knee-pin fit and supported spring-free stop check are next. Keep both motors unplugged for this rehearsal.

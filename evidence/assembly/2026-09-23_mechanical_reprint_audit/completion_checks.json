@@ -1,0 +1,121 @@
+{
+ "date": "2026-09-23",
+ "document": "Beni_SingleLegRig",
+ "version": 30,
+ "machine_note": "Run through Fusion MCP on the owner's second machine; repository at /Users/neilchulani/Personal/Biped. The document was never saved: all changes below were transient and cloud v30 is unchanged.",
+ "live_readonly_audit": {
+  "dimensional_contracts_passed": "32/32",
+  "shape_signatures_matching_baseline": "15/15",
+  "assert_all": "PASS",
+  "ref_guards_mm": {
+   "REF_GIM6010-8": [
+    5.0,
+    49.0
+   ],
+   "REF_GIM4305-10": [
+    61.5,
+    94.5
+   ]
+  }
+ },
+ "source_rebuild_vs_baseline": {
+  "method": "Current beni_lib builders run into scratch components AUDIT_SCRATCH_* inside rig_lib.guarded(); every native face compared with mechanical_release_baseline.json; scratch components deleted.",
+  "results": {
+   "Shoulder_Output_Hub_L": {
+    "equal": true,
+    "volume_mm3": 19888.0638,
+    "faces": 51
+   },
+   "Proximal_Link_L": {
+    "equal": true,
+    "volume_mm3": 69736.8404,
+    "faces": 90
+   },
+   "Distal_Link_L": {
+    "equal": true,
+    "volume_mm3": 49003.7728,
+    "faces": 73
+   }
+  },
+  "repeat_runs_agreeing": 2,
+  "after": {
+   "assert_all_after": "PASS",
+   "ref_assert": true,
+   "placed_assert": true,
+   "timeline_before": 1352,
+   "timeline_after": 1352,
+   "occ_before": 105,
+   "occ_after": 105,
+   "scratch_left": []
+  }
+ },
+ "released_stl_vs_fresh_fusion_export": {
+  "method": "mechanical_release_audit_fusion.export_comparison_mesh() at the recorded bed transform, then bidirectional vertex/facet-centroid surface distance against the released file.",
+  "parts": {
+   "Shoulder_Output_Hub_L": {
+    "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.stl",
+    "fresh_triangles": 5640,
+    "released_triangles": 10850,
+    "max_released_to_fresh_mm": 0.0127,
+    "max_fresh_to_released_mm": 0.011,
+    "samples_beyond_0p031_mm": 0,
+    "triangle_fingerprint_equal": false
+   },
+   "Proximal_Link_L": {
+    "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+    "fresh_triangles": 6762,
+    "released_triangles": 9060,
+    "max_released_to_fresh_mm": 0.0304,
+    "max_fresh_to_released_mm": 0.0272,
+    "samples_beyond_0p031_mm": 0,
+    "triangle_fingerprint_equal": false
+   },
+   "Distal_Link_L": {
+    "file": "first_article_stl/ordered_pin_integration/ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.stl",
+    "fresh_triangles": 4496,
+    "released_triangles": 6172,
+    "max_released_to_fresh_mm": 0.029,
+    "max_fresh_to_released_mm": 0.026,
+    "samples_beyond_0p031_mm": 0,
+    "triangle_fingerprint_equal": false
+   },
+   "ABS_TEST_Knee_Stop_Plate_15deg": {
+    "file": "first_article_stl/ordered_pin_integration/ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.stl",
+    "fresh_triangles": 1316,
+    "released_triangles": 2150,
+    "max_released_to_fresh_mm": 0.0097,
+    "max_fresh_to_released_mm": 0.0085,
+    "samples_beyond_0p031_mm": 0,
+    "triangle_fingerprint_equal": false
+   }
+  },
+  "finding": "This Fusion build tessellates MeshRefinementHigh differently from the machine that produced the release (hub 5640 vs 10850 triangles), so the triangle fingerprint in assert_export() cannot be reproduced here even though the surfaces agree within tessellation error. Re-exports on this machine are blocked fail-closed; a deliberate, reviewed baseline update is needed before exporting here."
+ },
+ "release_image_refresh": {
+  "images": [
+   "first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.png",
+   "first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Proximal_Link_D19p15_ROOT_D4p30_CLEVIS_D4p30_PRINT_ORIENTED.png",
+   "first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Distal_Link_D10p30_D6x10_CLEVIS_D4p30_PRINT_ORIENTED.png",
+   "first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV_Knee_Stop_Plate_15deg_D6x10_CAPTIVE_PRINT_ORIENTED.png"
+  ],
+  "stl_bytes_unchanged": true,
+  "cause": "rig_export._export_y_face_down inherited the previous viewport camera; the Sept 23 images were near edge-on. It now captures IsoTopRight."
+ },
+ "export_gate_and_guard": {
+  "blocked_export_before_fix": {
+   "export": "BLOCKED: Exported mesh/orientation differs from reviewed Fusion geometry: Distal_Link_L",
+   "placed_assert": "FAILED: displaced to the origin: ['HW_WasherStack_M5', 'RIG_Knee_Bumper_Tube_L'] -- call replace_cart_stops()"
+  },
+  "repair": "rig_lib.replace_cart_stops() restored HW_WasherStack_M5 and RIG_Knee_Bumper_Tube_L",
+  "fix": "rig_lib.guarded() now restores transform2 in finally, before re-raising",
+  "blocked_export_after_fix": {
+   "export": "BLOCKED: Exported mesh/orientation differs from reviewed Fusion geometry: Distal_Link_L",
+   "ref_assert": true,
+   "placed_assert": true,
+   "assert_all_after": "PASS",
+   "occurrences": 105,
+   "timeline": 1352
+  }
+ },
+ "mesh_localization": "pinrev2_mesh_localization.json"
+}

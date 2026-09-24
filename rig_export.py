@@ -129,12 +129,30 @@ def _stl(occ, path, refinement='high'):
     return os.path.getsize(path)
 
 
+def _save_print_image(image_path, width=1600, height=1200):
+    """Capture the isolated bed-oriented body from a fixed iso camera.
+
+    The exporter used to inherit whatever camera the previous operation left.
+    After the September 23 manual captures that was a near edge-on side view,
+    which made the released part images unreadable in the parts key.
+    """
+    viewport = adsk.core.Application.get().activeViewport
+    camera = viewport.camera
+    camera.viewOrientation = adsk.core.ViewOrientations.IsoTopRightViewOrientation
+    camera.isFitView = True
+    viewport.camera = camera
+    viewport.refresh()
+    if not viewport.saveAsImageFile(image_path, width, height):
+        raise RuntimeError('Fusion screenshot failed: %s' % image_path)
+
+
 def _export_y_face_down(occ, export_name, out_dir, support_policy,
-                        side='max'):
+                        side='max', image_only=False):
     """Export a bed-ready copy with one Y-normal source face at Z=0.
 
     The source occurrence is never moved.  The temporary solid and its Fusion
     viewport record are deleted after export, so this is safe in a saved rig.
+    ``image_only`` recaptures the release image without writing the STL.
     """
     if side not in ('min', 'max'):
         raise ValueError("side must be 'min' or 'max'")
@@ -199,18 +217,16 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
     staged_path = path + '.pending.stl'
     image_path = os.path.join(out_dir, '00_fusion_' + export_name + '.png')
     visibility = [(item, item.isLightBulbOn) for item in root.occurrences]
+    size = None
     try:
         for item, _was_on in visibility:
             item.isLightBulbOn = (item == print_occ)
-        app = adsk.core.Application.get()
-        app.activeViewport.fit()
-        app.activeViewport.refresh()
-        size = _stl(print_occ, staged_path)
-        from mechanical_release_audit_fusion import assert_export
-        assert_export(comp.name, staged_path)
-        os.replace(staged_path, path)
-        if not app.activeViewport.saveAsImageFile(image_path, 1600, 1200):
-            raise RuntimeError('Fusion screenshot failed for %s' % export_name)
+        if not image_only:
+            size = _stl(print_occ, staged_path)
+            from mechanical_release_audit_fusion import assert_export
+            assert_export(comp.name, staged_path)
+            os.replace(staged_path, path)
+        _save_print_image(image_path)
     finally:
         if os.path.exists(staged_path):
             os.remove(staged_path)
@@ -242,14 +258,16 @@ def _export_y_face_down(occ, export_name, out_dir, support_policy,
     }
 
 
-def _export_max_y_face_down(occ, export_name, out_dir, support_policy):
+def _export_max_y_face_down(occ, export_name, out_dir, support_policy,
+                            image_only=False):
     return _export_y_face_down(occ, export_name, out_dir, support_policy,
-                               side='max')
+                               side='max', image_only=image_only)
 
 
-def _export_min_y_face_down(occ, export_name, out_dir, support_policy):
+def _export_min_y_face_down(occ, export_name, out_dir, support_policy,
+                            image_only=False):
     return _export_y_face_down(occ, export_name, out_dir, support_policy,
-                               side='min')
+                               side='min', image_only=image_only)
 
 
 def export_stls(verbose=True):
