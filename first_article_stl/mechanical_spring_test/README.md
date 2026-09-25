@@ -1,5 +1,11 @@
 # Unpowered ABS spring-mechanical test
 
+**Spring-installed motion HOLD — September 24:** the owner reports spring
+bowing and sideways escape during compression after assembly. Keep motors
+unplugged and do not repeat spring compression pending diagnosis. Spring-free,
+supported inspection may continue. [Physical failure record](../../evidence/assembly/2026-09-24_spring_escape/).
+The spring-installation and hand-test steps below are held.
+
 > **September 21 update:** the original shoulder hub, proximal link, distal
 > link, stop plate, Ø4 × 32 clevis pins, and Ø6 × 9 stop dowel are superseded.
 > Use the [ordered-pin replacement traveller](../ordered_pin_integration/) for

@@ -1,5 +1,11 @@
 # Beni single-leg illustrated assembly manual
 
+**Spring-installed motion HOLD — September 24:** the owner reports spring
+bowing and sideways escape during compression after assembly. Keep motors
+unplugged and do not repeat spring compression pending diagnosis. Spring-free,
+supported inspection may continue. [Physical failure record](../../evidence/assembly/2026-09-24_spring_escape/).
+The spring-installation and hand-test steps below are held.
+
 [Download the printable 23-page PDF](../../output/pdf/beni_single_leg_assembly_manual.pdf).
 
 A visual parts key and 21 numbered assembly operations, using exploded views
@@ -14,7 +20,7 @@ the stand and plate in hand are owner-confirmed Ø4.5 prints. The two M4
 cotter washers shown in steps 16 and 18 are not in hand: fit the cotters
 directly for this unpowered test and inspect both cotter faces afterwards
 ([deviation record](../../evidence/assembly/2026-09-23_owner_stand_plate_and_washers/)).
-New print completion, final fits and completed assembly remain unverified. The
+The owner now reports the new prints and assembly complete; individual fit acceptance remains unverified and spring retention has failed. The
 [detailed traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
 retains the acceptance checklist; [drawing provenance](manual/README.md) records
 sources and illustration limits.

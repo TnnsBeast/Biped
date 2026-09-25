@@ -104,9 +104,15 @@ instead of 0.4 mm and its cotter bears on ABS. Inspect both cotter faces after
 the hand test and fit washers before repeated cycling or powered use.
 [Deviation record](evidence/assembly/2026-09-23_owner_stand_plate_and_washers/).
 
+**Spring test held after the September 24 assembly report:** the owner reports
+that the spring bows and escapes sideways during knee compression. Keep the
+motors unplugged and suspend spring-installed motion pending diagnosis.
+[Failure record](evidence/assembly/2026-09-24_spring_escape/). The sequence below
+records the intended assembly; it does not authorize repeating the failed test.
+
 Follow the [picture-led assembly guide](docs/assembly/ordered_pin_picture_guide.md)
 and its [detailed ordered-pin checklist](first_article_stl/ordered_pin_integration/README.md#ordered-assembly),
-including the detached D10 knee-pin and clevis checks, then the September 17 spring hand test. Install the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand, keep the wheel clear, and record whether the leg settles and returns at -8°, 0°, 5°, 10° and 15°. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
+including the detached D10 knee-pin and clevis checks, with the September 17 spring hand test **held pending resolution of the escape**. The released assembly sequence installs the spring only with the knee resting at the -8° stop. Both motor power and communication cables stay unplugged. Support the distal side by hand and keep the wheel clear. The settling/return observations at -8°, 0°, 5°, 10° and 15° are held. Stop immediately for binding, cracking, stop bypass, coil contact, guide escape or loss of pin control.
 
 **Still held:** the final tyre-compatible structural rim, final knee-pin retention, encoder coupling, ground contact, spring-rate/solid-height characterisation, intentional preload and powered motion. The support-free no-tyre shell is a suspended mechanical-test part; keep the TPU tyre off this article.
 
