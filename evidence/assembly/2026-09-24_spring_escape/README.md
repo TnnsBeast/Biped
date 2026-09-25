@@ -28,6 +28,16 @@ physical evidence or assume the owner assembled it incorrectly. The audit's
 `guide_overlap_mm` is calculated from source parameters at prescribed poses;
 it does not demonstrate retention of a loose guide during real assembly.
 
+## Owner clarification — mechanism redesign requested
+
+The owner also observes apparent twisting/compression near both spring ends
+and rejects treating the guide as the explanation or the repair scope. The
+request is to develop a better spring mechanism based on the existing CAD.
+This is design direction, not an isolated root-cause finding. The preferred
+concept is now a [fixed-axis spring cassette driven by a connecting rod](../../../docs/design/knee_spring_redesign.md), pending live Fusion evaluation.
+The earlier guide-focused requirements below remain necessary considerations
+for a captive module but do not define the new transmission.
+
 ## Replacement requirements — not a released design
 
 - Guide engagement must persist at full permitted extension and throughout

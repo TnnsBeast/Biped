@@ -206,9 +206,13 @@ to occupy |y| ≤ 47 without ever fouling the leg sweep.
    the specified solid height and the supplier/press check, not spline end detail.
 7. **The guide rod guides the spring only for φ ≳ +13°.** The stroke (16.6 mm)
    exceeds the axial room available between the lower eye's rod bore and its
-   pivot pin, so the rod withdraws at high extension. This is acceptable: at
-   φ ≤ +13° the spring is under 20 % deflection where buckling is not credible,
-   and the Ø13.4 seat spigots capture both spring ends at all times.
+   pivot pin, so the rod withdraws at high extension. **WITHDRAWN ASSUMPTION,
+   2026-09-24:** the earlier claim that this was acceptable because buckling was
+   not credible below 20 % deflection is not established physical evidence.
+   The active ABS cartridge uses different spring/seat dimensions, and the
+   owner now reports end distortion and spring escape. Do not use this legacy
+   argument to accept either build. See the [failure record](evidence/assembly/2026-09-24_spring_escape/)
+   and [mechanism redesign brief](docs/design/knee_spring_redesign.md).
 8. **The distal link is single-sided at the wheel.** Nothing may sit inside the
    wheel's swept annulus (r = 44…55 from the wheel axis over y = 69…104.5), so
    the fork terminates and only the 8 mm inboard plate continues to the wheel.

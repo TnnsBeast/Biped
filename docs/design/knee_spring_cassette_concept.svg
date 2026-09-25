@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680">
+<title>Fixed-axis spring cassette and connecting rod concept</title>
+<desc>Concept only, not to scale. A spring sits between a fixed seat and a linearly constrained carriage. A pivoting connecting rod joins the carriage to an anchor on the rotating distal link.</desc>
+<rect width="1200" height="680" fill="#fff"/>
+<style>text{font-family:Arial,sans-serif;fill:#233743;font-size:21px}.small{font-size:17px}.label{font-size:24px;font-weight:bold}</style>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto-start-reverse"><path d="M0 0L8 4L0 8" fill="#096ba7"/></marker></defs>
+<text x="40" y="48" class="label">Proposed mechanism: separate knee rotation from spring compression</text>
+<text x="40" y="82" class="small">CONCEPT ONLY • not to scale • mounting positions and travel require Fusion verification</text>
+<rect x="75" y="177" width="655" height="230" rx="15" fill="#f0f5f7" stroke="#617581" stroke-width="4"/>
+<text x="85" y="146">Cassette rigidly mounted to proximal link</text>
+<path d="M120 204H700 M120 380H700" stroke="#617581" stroke-width="10"/>
+<rect x="135" y="232" width="18" height="120" fill="#233743"/>
+<path d="M153 291H175L191 251L223 331L255 251L287 331L319 251L351 331L383 251L415 331L447 251L479 331L495 291H525" stroke="#bc711e" stroke-width="7" fill="none"/>
+<rect x="525" y="191" width="72" height="202" rx="8" fill="#cfe6f4" stroke="#096ba7" stroke-width="4"/>
+<circle cx="565" cy="291" r="12" fill="white" stroke="#096ba7" stroke-width="4"/>
+<path d="M540 165H680" stroke="#096ba7" stroke-width="3" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="757" y="216">Crosshead moves straight</text>
+<text x="757" y="246">Seats stay parallel</text>
+<path d="M750 249L595 276" stroke="#096ba7" stroke-width="2"/>
+<text x="85" y="448">Fixed seat</text><path d="M154 423V356" stroke="#233743" stroke-width="2"/>
+<text x="247" y="448">Contained spring</text>
+<path d="M565 291L883 477" stroke="#da7028" stroke-width="14"/>
+<text x="870" y="341">Pinned connecting rod</text>
+<text x="870" y="371" class="small">changes angle with knee</text>
+<path d="M857 358L749 398" stroke="#da7028" stroke-width="2"/>
+<path d="M708 560L995 424" stroke="#536879" stroke-width="30"/>
+<circle cx="708" cy="560" r="25" fill="white" stroke="#233743" stroke-width="5"/>
+<circle cx="883" cy="477" r="13" fill="white" stroke="#da7028" stroke-width="5"/>
+<text x="611" y="614">Knee pivot</text><text x="970" y="485">Distal link</text>
+<text x="970" y="515" class="small">rotates about knee</text>
+<text x="45" y="545" class="small">Bearings react the rod's sideways load.</text>
+<text x="45" y="574" class="small">Spring receives axial compression between constrained seats.</text>
+<text x="45" y="646" class="small">Proposed load path only. No replacement dimensions, bearing size or print release is implied.</text>
+</svg>

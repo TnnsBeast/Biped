@@ -20,6 +20,14 @@ engagement and allow practical cartridge assembly. Eye freedom, exact starting
 pose and damage remain unconfirmed; no replacement is released. Do not infer
 individual fit passes from the assembly report.
 [Owner observation and diagnostic status](evidence/assembly/2026-09-24_spring_escape/).
+The owner additionally reports end twisting and requests a mechanism-level
+redesign. [Preferred concept and CAD evaluation brief](docs/design/knee_spring_redesign.md):
+a fixed-axis cassette on the proximal link, driven by a pinned connecting rod
+from the distal link. Existing pose checks impose eye alignment; they do not
+prove physical alignment under load. This is a concept selection only, with
+packaging, force curve and new mounts unverified; Fusion MCP access is needed
+before dimensioning or releasing replacements.
+
 
 **September 24 CAD readiness on the second machine:** Fusion 2705.1.25 ignores
 the STL surface deviation, so plain "High" exports would print the proximal
