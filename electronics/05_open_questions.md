@@ -5,6 +5,27 @@ is not yet resolved. **Read this before ordering anything.**
 
 ## 1. Blockers — work stops until these are answered
 
+### R2A architecture blockers
+
+The existing B1–B3 remain relevant to owned hardware. Active-Knee Revision 2
+adds these blockers; do not select or order the knee drive from the teardown's
+apparent proportions.
+
+- **B4 — knee load cases:** verified joint torque, speed, power, impact and
+  thermal duty for standing, crouch, jump and landing are not derived.
+- **B5 — knee actuator:** motor, reduction, driver, bus voltage, encoder and
+  current limits are not selected. The existing wheel motor remains required at
+  the wheel and is not spare knee hardware.
+- **B6 — transmission:** belt family, tooth counts, wrap, tension, bearing load,
+  knee torque-transfer stack and service path are not selected or checked in
+  Fusion.
+- **B7 — six-actuator electronics:** power, regen, fusing, CAN loading, harness,
+  thermal path and firmware scheduling have not been revised for one added
+  actuator per leg.
+
+Canonical work plan:
+[`docs/design/active_knee_revision2_plan.md`](../docs/design/active_knee_revision2_plan.md).
+
 ### B1. GIM4305-10 wheel-driver absolute-maximum DC bus voltage and regen clamp
 
 ⚠ **DRIVER PART NUMBER CORRECTED 2026-08-20.** This blocker was written against

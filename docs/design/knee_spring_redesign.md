@@ -1,6 +1,13 @@
 # Knee spring redesign — fixed-axis cassette and connecting rod
 
-Status: **preferred concept for CAD evaluation; not dimensioned, verified or released**.
+Status: **[SUPERSEDED 2026-09-25]**. The owner selected an active, belt-driven
+knee after teardown evidence showed that Beni's knee is remotely actuated. This
+passive-cassette study remains as failure-analysis history; do not continue it.
+The replacement direction is
+[`active_knee_revision2_plan.md`](active_knee_revision2_plan.md).
+
+Original status: preferred concept for CAD evaluation; not dimensioned,
+verified or released.
 Based on the existing Fusion-derived design records, saved audit results and
 builder/posing source. No live Fusion inspection was possible in this session:
 no Fusion MCP tool is exposed, and plugin discovery returned no Fusion plugin.
@@ -8,7 +15,7 @@ No replacement STL, shopping list or physical test authorization is issued.
 
 ## Decision
 
-Develop a **spring cassette fixed to the proximal link, with a translating
+**[SUPERSEDED FOR R2A]** Develop a **spring cassette fixed to the proximal link, with a translating
 spring seat driven by a pinned connecting rod from the distal link**. The
 existing knee remains a passive revolute joint. The spring axis is fixed
 relative to the proximal link, not relative to the floor: the whole module

@@ -3,17 +3,22 @@
 CAD-derived reference data extracted from the original electronics handoff brief
 (`beni_electronics_handoff_brief.md`, since deleted — the rest of it was either
 answered by `01`–`07` or specified an architecture that is not being built).
-This is the **frozen datum** that
+This is the **legacy passive-knee datum** that
 `electronics/01_power_and_battery.md` through `07_bom.md` are designed against.
 Every number here comes from the Fusion model of **Beni Prototype 1, revision 2**
 (`Biped → Beni_Prototype1`); if the model changes, these figures must be
 re-extracted from CAD — they cannot be regenerated any other way.
 
+**[SUPERSEDED FOR ACTIVE-KNEE R2A]** These values remain authoritative for the
+historical model only. R2A adds a remote knee actuator and belt transmission, so
+mass properties, free space, power, harness and dynamics must be re-extracted
+from the verified R2A Fusion model before they are used for design.
+
 The original brief requested a custom STM32G474 board, a 6S pack, three CAN
-buses, a BMS and satellite nodes. **That is not what is being built.** The actual
-current build target is the **single-leg test rig** — Teensy 4.1, 20 V bench
-supply, breadboarded buses (`../fusion_brief_single_leg_rig.md`). Only the
-geometry and dynamics below carry forward.
+buses, a BMS and satellite nodes. The later legacy single-leg rig used a Teensy
+4.1, 20 V bench supply and breadboarded buses. R2A's electronics architecture is
+not selected; the geometry and dynamics below do not carry forward until they
+are re-extracted and re-derived.
 
 Two figures in the source brief were wrong and have been corrected here: the
 unstable pole (§2) and the clock-spring rotation margin (§3).
@@ -101,7 +106,10 @@ the mechanical design requires it but does not detail it.
 
 ## 4. Knee encoder mechanical stack — AS5048A (brief §4.1)
 
-The knee is passive, so its angle is the **only** way to know leg compression.
+**[LEGACY PASSIVE PROTOTYPE]** The knee is passive, so its angle is the only way
+this model knows leg compression. R2A retains an independent joint encoder to
+measure the active knee directly and to detect disagreement with the
+belt-driven motor coordinate.
 
 | | |
 |---|---|

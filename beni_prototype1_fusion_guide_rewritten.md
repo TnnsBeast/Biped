@@ -47,11 +47,17 @@ If subagents are available, use them **serially only**. Every subagent must insp
 
 # 2. Architecture to reproduce
 
-The best-supported reconstruction of Beni is:
+**[LEGACY PASSIVE PROTOTYPE; SUPERSEDED FOR ACTIVE-KNEE R2A]** The reconstruction
+used for the existing Fusion model was:
 
 **body → active rotary shoulder → proximal link → passive spring-loaded cylindrical knee/elbow → distal link → driven wheel**
 
-This serial biped morphology is intentional. Mondo previously built a parallel-leg prototype and reported that it was mechanically stiffer and more robust, but moved to the current bipedal morphology. Do **not** replace this design with an Ascento-style four-bar, active knee, or telescoping leg simply because it is easier mechanically.
+This serial biped morphology remains intentional. **[SUPERSEDED 2026-09-25]**
+The instruction prohibiting an active knee does not apply to R2A: teardown
+evidence now shows that Beni's knee is remotely actuated through a toothed-belt
+reduction. Preserve this passive model as history and develop R2A in a separate
+Fusion copy. See
+[`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
 ## Shoulder
 - Shoulder motor is fixed to the body.
@@ -62,9 +68,13 @@ This serial biped morphology is intentional. Mondo previously built a parallel-l
 - The shoulder must move in either direction for normal posture, jumping, flips, recovery, and self-righting.
 
 ## Knee
-The knee is **passive**. There is no knee actuator.
+**[LEGACY PASSIVE PROTOTYPE]** The knee is passive. There is no knee actuator in
+this historical model. R2A replaces it with a remote active knee.
 
-The knee contains the compliant spring mechanism and sits between the proximal and distal leg links. The exact internal Beni spring linkage is not public; the mechanism below is the engineered Prototype 1 implementation chosen because its kinematics and force curve work.
+The knee contains the compliant spring mechanism and sits between the proximal
+and distal leg links. **[SUPERSEDED 2026-09-25]** The mechanism below is an
+engineered Prototype 1 implementation; teardown evidence now shows it is not
+Beni's actual actuation architecture.
 
 ## Wheel
 The wheel motor is fixed to the distal link and independently drives the wheel.
@@ -73,7 +83,9 @@ The wheel motor is fixed to the distal link and independently drives the wheel.
 
 # 3. Important mechanical behavior
 
-Do not model or reason about the passive knee as if it were commanded by shoulder position.
+**[LEGACY PASSIVE PROTOTYPE]** Do not model or reason about this passive knee as
+if it were commanded by shoulder position. R2A instead requires a derived
+shoulder/knee-motor coordinate map for the belt transmission.
 
 ### Shoulder rotation does NOT automatically compress the knee
 If the wheel can move freely, rotating the shoulder mainly rotates the whole bent leg. The passive knee changes angle only when forces acting through the distal link create enough moment about the knee to overcome the spring.
@@ -93,16 +105,21 @@ Knee flexion occurs when wheel/ground forces create knee moment. This is stronge
 Coordinated wheel torque can influence knee loading, but the design must not depend on the wheel motor statically forcing the knee to full compression.
 
 ### Jump
-The important observed Beni behavior is:
+**[LEGACY HYPOTHESIS; SUPERSEDED FOR R2A]** The passive model used this jump
+explanation:
 
 **During a jump, the shoulder actuators rotate the leg assemblies so the lower/distal legs and wheels are driven rapidly downward against the ground. The resulting ground reaction loads and compresses the passive spring knees while accelerating the body upward.**
 
 The phrase "drive the legs downward" describes the jump action. It does not limit shoulder rotation direction.
 
 ### Landing
-The passive knee handles the first impact/compliance and stores/returns energy. The active shoulder must also be allowed to **yield and provide active damping** rather than mechanically locking during landing.
+**[LEGACY HYPOTHESIS; SUPERSEDED FOR R2A]** The passive knee was intended to
+handle the first impact/compliance and store/return energy. R2A must derive a
+coordinated active shoulder-and-knee landing controller and load case instead.
 
-This follows the same general lesson demonstrated by Ascento: passive leg compliance is useful, but active hip/shoulder control can act as a virtual spring-damper during landing.
+**[LEGACY RATIONALE]** This followed the general Ascento lesson that passive leg
+compliance can be combined with active hip/shoulder damping. It does not size or
+validate the R2A active-knee landing controller.
 
 ---
 
@@ -571,7 +588,7 @@ Also provide a short engineering note with:
 
 # 17. Do not change these without demonstrating a failure
 
-For Prototype 1, preserve:
+For the historical passive Prototype 1, preserve:
 
 - serial Beni-like morphology;
 - active 360° shoulder;
@@ -586,7 +603,7 @@ For Prototype 1, preserve:
 - PA-CF for primary printed load paths;
 - no active telescoping leg;
 - no Ascento-style parallel linkage;
-- no active knee;
+- **[SUPERSEDED FOR R2A]** no active knee;
 - no slip ring unless unlimited multi-turn shoulder rotation is actually required.
 
 ---
@@ -618,4 +635,10 @@ The following were checked when this guide was rewritten:
 - ASTM A401/A401M current scope:
   https://store.astm.org/a0401_a0401m-24.html
 
-**Known uncertainty:** no public teardown or engineering drawing found exposes Beni's exact internal spring-knee linkage. The active-shoulder + serial passive cylindrical-knee + driven-wheel morphology is evidence-backed. The specific two-pivot guided compression-spring cartridge in this guide is an engineered reconstruction selected because its kinematics, progressive wheel rate, package size, serviceability, and first-prototype manufacturability have been checked.
+**[SUPERSEDED 2026-09-25]** A public teardown now exposes the architecture: two
+shoulder-area brushless motors share the joint axis and a toothed-belt reduction
+controls the knee. The exact dimensions, ratio, belt standard and load ratings
+remain unknown. The passive cylindrical knee and two-pivot compression-spring
+cartridge in this guide are a historical engineered reconstruction, not a
+reconstruction of Beni's actual actuation. See the
+[teardown evidence note](evidence/reference/2026-09-25_beni_teardown/).

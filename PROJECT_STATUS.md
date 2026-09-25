@@ -8,25 +8,35 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**September 25 architecture reset — Active-Knee Revision 2 (R2A):** the owner
+has selected a remotely actuated, belt-driven knee as the replacement direction.
+A newly available Beni teardown shows two shoulder-area brushless motors on the
+same axis and a toothed-belt reduction controlling the knee. That evidence
+invalidates the project's prior assumption that Beni used a passive spring knee.
+The active work item is now the
+[R2A architecture plan](docs/design/active_knee_revision2_plan.md); the
+[teardown observations and their limits](evidence/reference/2026-09-25_beni_teardown/)
+are recorded separately. No R2A CAD, actuator choice, belt ratio, STL or purchase
+is released. The legacy ABS article stays spring-free and unpowered and remains
+useful only as fit, assembly and failure evidence.
+
 **September 24 physical assembly report — spring-retention FAIL:** the owner
 reports the three PINREV2 parts printed and the article assembled, with most
 interfaces working well. During knee compression the spring bows and escapes
-sideways. Suspend spring-installed motion and powered commissioning of this
-assembly pending diagnosis. The owner confirms the guide is disengaged with the spring uncompressed and
+sideways. The spring cartridge is retired from the active design; remove the
+spring and cancel powered commissioning of this article. The owner confirms the guide is disengaged with the spring uncompressed and
 only intermittently enters during compression; the loose-guide assembly is
 also unacceptable to the owner. This must be reconciled with the recorded
-5.500 mm modeled overlap at -8°. A replacement must retain continuous guide
-engagement and allow practical cartridge assembly. Eye freedom, exact starting
-pose and damage remain unconfirmed; no replacement is released. Do not infer
+5.500 mm modeled overlap at -8°. Eye freedom, exact starting pose and damage
+remain unconfirmed; no guide or cartridge replacement will be released. Do not infer
 individual fit passes from the assembly report.
 [Owner observation and diagnostic status](evidence/assembly/2026-09-24_spring_escape/).
 The owner additionally reports end twisting and requests a mechanism-level
-redesign. [Preferred concept and CAD evaluation brief](docs/design/knee_spring_redesign.md):
-a fixed-axis cassette on the proximal link, driven by a pinned connecting rod
-from the distal link. Existing pose checks impose eye alignment; they do not
-prove physical alignment under load. This is a concept selection only, with
-packaging, force curve and new mounts unverified; Fusion MCP access is needed
-before dimensioning or releasing replacements.
+redesign. The earlier
+[fixed-axis cassette study](docs/design/knee_spring_redesign.md) is
+**[SUPERSEDED 2026-09-25]** because it preserved the passive-joint premise.
+Existing pose checks impose eye alignment; they do not prove physical alignment
+under load.
 
 
 **September 24 CAD readiness on the second machine:** Fusion 2705.1.25 ignores
@@ -56,16 +66,14 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 [owner stand/plate and washer report](evidence/assembly/2026-09-23_owner_stand_plate_and_washers/).
 
 
-> **Current scope decision, updated 2026-09-22 — complete the single-leg integration
-> article in ABS; defer PA-CF to the two-leg structural build.** The active leg
-> may be fully dry-assembled, hand-posed, wired, and commissioned with both
-> motors under current limits while the wheel is clear and the printed path
-> carries self-weight only. The owner-directed spring exception permits the
-> released OD18 / ID9 / 50 mm cartridge at nominally zero compression at -8°
-> and slow, hand-contained motion through +15°, with both motors unplugged and
-> the wheel clear. This observes self-weight equilibrium only. Spring-rate and
-> coil-bind characterisation, torque-arm, added-mass, ground-traction,
-> stall/proof, drop and human-adjacent tests remain deferred with PA-CF.
+> **Current scope decision, updated 2026-09-25 — design and prove the R2A
+> single-leg integration article in ABS; defer PA-CF to the two-leg structural
+> build.** The legacy passive article stays spring-free and unpowered. The new
+> ABS leg may progress through dry assembly, hand-driven belt motion, detached
+> current-limited transmission checks and supported wheel-clear commissioning
+> under self-weight only after each R2A gate is released. Torque-arm,
+> added-mass, ground-traction, stall/proof, drop, jump and human-adjacent tests
+> remain deferred with PA-CF.
 >
 > **Fixture scope remains Mode A only.** The shoulder-to-stand geometry remains
 > useful for assembly and unloaded integration. The vertical MGN12 slide,
@@ -75,20 +83,22 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 
 | | Status |
 |---|---|
-| **Prototype 1**, two-leg robot | Modelled and saved in Fusion (`Biped → Beni_Prototype1`, v18). The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. The assembly audit and remaining release gates are linked below. Revision 2; not built. **v18 predates the September 21 ordered-pin source.** On 2026-09-24 a read-only `audit_all()` reported 6 problems: hardware counts, and source parity for the Ø4 × 32 clevis pins and Ø6 × 9 dowel still modelled, against M4 × 40 pins, washers, root dowels and Ø6 × 10 in `beni_lib`. Rebuild deliberately when the two-leg build resumes; the PA-CF fits need their own coupons anyway. |
+| **Prototype 1**, two-leg robot | Legacy passive-knee model saved in Fusion (`Biped → Beni_Prototype1`, v18). It remains the dimensional and failure-analysis baseline; it is no longer the target architecture. The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. Revision 2; not built. **v18 predates the September 21 ordered-pin source.** On 2026-09-24 a read-only `audit_all()` reported 6 problems: hardware counts, and source parity for the Ø4 × 32 clevis pins and Ø6 × 9 dowel still modelled, against M4 × 40 pins, washers, root dowels and Ø6 × 10 in `beni_lib`. Do not spend effort rebuilding it as the future robot; preserve it while R2A starts in a separate Fusion copy. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now inherits the owner-selected Ø4.5 M3 receiver and Ø5.3 M4 receiver constants, but the stripped/deferred carriage was not rebuilt or released. Rebuild and verify it in Fusion when Mode B returns and repeat the M3 coupon for its eventual material/profile. |
-| **Single-leg integration article / Mode A fixture** | **This is the active build, entirely in ABS.** The ordered-pin revision replaces the shoulder hub, proximal link, distal link, and stop plate so the purchased Ø4 × 10, M4 × 40, and Ø6 × 10 pins serve as locating, pivot, and captive-stop hardware. The actual pins selected Ø4.25; the owner now requests Ø4.30 for root-dowel sockets and clevis-link passages. The September 22 distal print failed with a missing receiver. PINREV2 corrects it and replaces the hub and both links; the owner now reports these three printed and the article assembled, but the spring bows and escapes during compression. The earlier stop plate and mechanical-test batch remain reusable, with Amazon pins received. Individual final-part pin fits, D10 knee-pin checks and insert acceptance remain unreported; assembly is owner-reported complete. Spring-installed testing is now held after physical spring escape; only supported, unpowered spring-free inspection should continue pending diagnosis. Final D10 retention, encoder coupling, tyre-compatible structural rim, actual harness routing and electronics still gate powered use. |
-| Electronics | Designed on paper (`electronics/`). Nothing wired. Mode A cuts Wave 0 to **~$25** plus a bench PSU. |
+| **Single-leg integration article / Mode A fixture** | The legacy passive ABS article is assembled and retained as physical fit and failure evidence. It is not the active architecture. Keep the spring removed and the motors unpowered. The stand remains useful for the future R2A wheel-clear integration article after its interfaces are revalidated. |
+| **Active-Knee Revision 2 (R2A)** | Architecture plan started; no CAD or hardware release. The selected direction is a body/shoulder-mounted knee actuator with synchronous-belt drive through a redesigned proximal link, plus an independent knee encoder. The recorded lateral stack makes an offset motor with a shoulder-axis jackshaft the first skeleton; compact coaxial packaging remains a comparison. Motor variant, ratio, belt family, knee output stack and new power budget remain open. |
+| Electronics | The current documents describe the legacy four-actuator robot. Nothing is wired. R2A requires six total actuators for the two-leg robot and a new power, CAN, harness, thermal and firmware review after knee motor selection. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
-| Physical hardware | **Both actuators and the 6800-2RS bearings are in hand.** Photo evidence: [`evidence/actuators/2026-08-20_received/`](evidence/actuators/2026-08-20_received/). **Spring received: Yellow / OD18 / ID9 / 50 mm free length**, matching the recommended order and both detached Ø8 pilots by physical fit. The test-only cartridge adaptation is now released; the real spring rate and solid height remain unmeasured. The ABS actuator-interface results are: GIM6010 housing PASS, original GIM6010 output Ø4.05 bore clearance FAIL followed by Ø4.15 ABS PASS, GIM4305 housing PASS with the real M2.5 screws, and GIM4305 output PASS. The owner printed the corrected Ø4.15 shoulder hub with Ø5.3 M4 receivers and successfully installed its inserts. Retain it as fit evidence; the active article now uses the ordered-pin hub with three root-dowel sockets. Continue using M3 × 8 for the eight housing screws because ×10 bottoms before clamping; the CAD/source now match this physical result. The face-flat Ø19.10 proximal link passed both bearing fits; the later wall-obstruction correction is printed, and the owner confirmed all six corrected-link screw seats on September 7. That printed link still has failed Ø4.0 M3 pockets and is superseded by the ordered-pin Ø19.15/Ø4.5 revision. Evidence: [`evidence/knee_fit/2026-09-02_proximal_link_full_depth/`](evidence/knee_fit/2026-09-02_proximal_link_full_depth/). The bought metal knee pins arrived on 2026-09-15; their count, measured diameter and tolerance evidence remain unverified. One fully seated through both installed bearings and the provisional shin. The bearings felt snug, but the owner isolated the seizure to the shin's nominal Ø10 printed bore and broke the provisional plastic shin to recover the pin. That bore is a physical FAIL; the initial 19.0 mm ladder made nominal Ø10.25 the firm-thumb candidate, and the owner conservatively selected Ø10.30 while the receiver was expected to span 21.6 mm. Fusion's subsequent service-path audit corrected the integrated receiver to the clear 20.0 mm fork gap. The ordered-pin distal link retains that Ø10.30 × 20.0 receiver and still needs physical insertion, withdrawal, spin, rock and axial-play checks. The bearing fit also needs a separate one-bearing-at-a-time hand test. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/). Voron-style M3 inserts plus photographed assortments are in hand. Their nominal Ø4.0 general-gauge station failed; on September 14 the owner selected the largest, unmarked-end station on the dedicated ladder, nominal Ø4.5. This is a qualitative best-fit report without a photograph, measured printed diameter, or separate spin/pull result. The mixed Kadriick case label shows 30 × M4 × 8 and 25 × M4 × 10. The owner confirmed the largest ABS M4 ladder station, Ø5.3, passed all installation and cooled-retention checks on 2026-09-04 and elected to retain M4. The September 20 pin order is in hand: 60 × Ø4 × 10 dowels, 8 × M4 × 40 clevis pins with cotters, and 15 × Ø6 × 10 dowels. The actual pins selected nominal Ø4.25 for both new calibrated interfaces. The active design consumes 3, 2, and 1 respectively; final-part visual inspection and binary hand fit remain, with no measurement requested. On September 23 the owner confirmed the printed stand and shoulder plate are post-September 14 Ø4.5 receiver prints and reported having no ISO 7089 M4 washers. The complete leg and wiring remain unfinished. |
+| Physical hardware | **The GIM6010-8 shoulder actuator, GIM4305-10 wheel actuator, 6800-2RS bearings, pins, fasteners and assembled legacy ABS article are in hand.** [Actuator photographs](evidence/actuators/2026-08-20_received/). The two actuators remain candidates for their original roles; R2A needs a third actuator per leg. Preserve the accepted motor-interface, insert and pin-fit results as process evidence, but recheck every reused interface against its new load and service path. The Yellow / OD18 / ID9 / 50 mm spring and its cartridge are retired from R2A after the physical escape. Detailed fit history remains in the dated evidence and legacy sections below. |
 
-**Owner update, 2026-09-07:** the temporary pin, provisional distal link and
+**[HISTORICAL] Owner update, 2026-09-07:** the temporary pin, provisional distal link and
 two spring caps are printed, and provisional assembly succeeded. The owner
 confirmed free supported knee movement/easy pin removal, both spring ends
 seating flat on the detached caps without force or compression, and use of the
 corrected proximal replacement with all six hub screws seating properly.
 [Photo and physical acceptance scope](evidence/assembly/2026-09-07_owner_mockup/).
-This is a provisional knee assembly; the complete leg and wiring remain unfinished.
+This was a provisional knee assembly. The corrected legacy article was later
+assembled and is now retained spring-free as evidence.
 
 **Latest M3 result and release, 2026-09-14:** the general fit gauge's nominal
 Ø4.0 M3 station was too small. The owner then tested the Fusion-generated
@@ -184,9 +194,10 @@ insert installation/detached motor fit are still unreported.
 
 **Earlier corrected Ø19.15 ABS proximal link:** the Ø4.0 M3-receiver revision
 was printed and its six M4 screw seats were accepted. Retain it and the earlier
-accepted shoulder hub as physical evidence. The owner now reports printing the
-ordered-pin replacements for the active build. Their files remain in the
-[README print queue](README.md#current-print--ordered-pin-unpowered-abs-mechanical-article).
+accepted shoulder hub as physical evidence. The owner later printed the
+ordered-pin replacements for the legacy passive build. Their files remain in
+the [historical first-article archive](first_article_stl/ordered_pin_integration/),
+but they are no longer in the active print queue.
 Fusion found two wall-obstructed M4 head paths and one screw seat cut into by
 the large lightening opening. The corrected link clears the paths and retains
 complete seating lands. The five knee M3 paths remain unobstructed and now use
@@ -257,46 +268,31 @@ are not substitutes for these mating coupons. The optional Mode A cable anchor
 is in `first_article_stl/mode_a/`. PA-CF coupons and structural prints are now
 deferred to the later two-leg build.
 
-## Immediate next steps after the September 23 PINREV2 correction
+## Immediate next steps for Active-Knee Revision 2
 
-1. Reprint the PINREV2 hub and both links, retain the closed-skin stop plate and
-   six mechanical-test parts, then follow the
-   [ordered-pin assembly traveller](first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
-   from its [kit check](first_article_stl/ordered_pin_integration/README.md#kit-check).
-   Inspect printed fit faces and the stop plate's closed skin. The stand and
-   shoulder plate in hand are owner-confirmed Ø4.5 receiver prints; no fixture
-   part needs printing. Without the two ISO 7089 M4 washers, inspect both
-   cotter faces after the hand test and fit washers before any repeated
-   cycling or powered use.
-2. Complete the detached bearing, D10 steel knee-pin, root-screw, guide and
-   clevis fits first. Install inserts in the **new hub and proximal link**,
-   plus current stand, plate and wheel hub as needed. Seat the three Ø4 × 10
-   dowels in the hub, hand-mate the proximal root, assemble the knee with the
-   real steel pin, then capture the Ø6 × 10 stop pin with the new plate. Prove
-   the -8° and +15° stops with the spring absent. Any failed fit stops the
-   sequence; no drilled or forced repair is an accepted first article.
-3. Reuse the reported printed cartridge eyes, guide, D10 spacer, bracket
-   keeper and no-tyre wheel shell after their detached checks. Follow the
-   [September 17 spring sequence](first_article_stl/mechanical_spring_test/README.md#assembly-order)
-   at the -8° stop with the stand clamped, motors unplugged, wheel clear and
-   distal side hand-contained. Move slowly through -8°, 0°, 5°, 10° and 15°.
-   Stop at the first bind, crack, stop bypass, coil contact, guide escape, or
-   loss of pin control. Final D10 retention and encoder coupling still gate
-   powered use.
-4. Inspect the already printed cable cover, front post and wheel hub. Their
-   inserts, detached motor fits and actual harness routing remain physical
-   checks; printing does not close them. The rear cable anchor remains optional.
-5. Run [Teensy Stage 0](firmware/teensy_stage0/) in parallel: USB power, both
-   motors disconnected, internal CAN loopback, BNO085 acquisition and the
-   microSD gate. Hardware results are still owed; the prior compile is not a pass.
-   The final tyre-compatible structural rim, final pin retention, encoder
-   coupling, spring-rate/solid-height characterisation and powered motion remain
-   held for later work.
+1. Keep the assembled passive article spring-free and unpowered. Photograph or
+   measure it only when a specific R2A interface question needs physical
+   evidence; do not spend another print cycle improving the spring cartridge.
+2. Through the Fusion MCP, create a read-only measurement report for the
+   current shoulder stack, proximal-link free space, knee bearing stack,
+   fastener paths and harness envelope.
+3. In a separate Fusion copy, compare the three R2A skeletons: opposite-side
+   coaxial motors, axially stacked motors, and a body-mounted offset knee motor
+   driving a shoulder-axis jackshaft.
+4. Derive the active-knee load cases and select an actuator, belt family, pulley
+   ratio and knee output stack from traceable data. Do not buy against the
+   teardown's apparent proportions.
+5. Update the power, CAN, harness, URDF and control plan after the motor and
+   ratio are selected. Retain an independent knee encoder for transmission fault
+   detection during development.
+6. Release one unpowered ABS belt-transmission article through the existing
+   Fusion, assembly-path, mesh and orientation gates. Only after it passes may a
+   detached, current-limited drive test be specified.
 
-The ordered-pin proximal link retains the accepted Ø19.15 bearing seat and Ø4.5
-M3 receiver values. The Mode A stand and conditional shoulder plate remain the
-Ø4.5 releases from the September 14 result. Motor commissioning waits for the
-final mechanical, fixture, harness, and electronics gates.
+The accepted fit results from the legacy article may inform R2A, but no old pin,
+bearing, insert or link interface is inherited without checking its new load and
+service path. The full work breakdown and release ladder are in
+[`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
 ---
 
@@ -304,8 +300,8 @@ final mechanical, fixture, harness, and electronics gates.
 
 | Document | What it is |
 |---|---|
-| `Beni_Prototype1` | The complete two-leg robot. **Master — do not edit casually.** |
-| `Beni_SingleLegRig` | The active ABS integration rig, saved as v31 on 2026-09-24: PINREV2 geometry (v30) with four parts resurrected by a Sept 21–23 rebuild removed ([cleanup](evidence/assembly/2026-09-24_rig_model_cleanup/)). It contains the test-only 50 mm cartridge eyes/guide, owner-requested Ø4.30 ordered-pin shoulder-root sockets and clevis-link passages, the restored Ø10.30 × 20.0 knee receiver, captive Ø6 × 10 stop, outboard D10 pin spacer/keeper, no-tyre wheel shell, and owned-spring reference envelope. |
+| `Beni_Prototype1` | Legacy passive-knee two-leg robot. **Historical master — preserve; do not convert in place.** |
+| `Beni_SingleLegRig` | Legacy passive-knee ABS rig, saved as v31 on 2026-09-24. Preserve it as the assembled article's CAD/evidence baseline. Start R2A in a separate Fusion copy after the read-only measurement report. |
 | `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
@@ -323,7 +319,14 @@ Rig design record §6.2.
 
 ## Documents, in reading order
 
-### The single-leg rig — build this first
+### Active-Knee Revision 2 — design this next
+
+| File | What it is |
+|---|---|
+| [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md) | Architecture decision, motor-layout trade study, belt-drive work packages, coupled kinematics and release ladder. |
+| [`evidence/reference/2026-09-25_beni_teardown/`](evidence/reference/2026-09-25_beni_teardown/) | Timestamped teardown observations and explicit limits on what the video establishes. |
+
+### Legacy single-leg rig — physical evidence baseline
 | File | What it is |
 |---|---|
 | [`fusion_agent_guide_mode_a.md`](fusion_agent_guide_mode_a.md) | **The CAD handoff for the Mode A build.** Everything a Fusion agent needs to model `RIG_Stand` and the reduced part set: verified load table, the 42.00 mm overhang, the mount interface, the check list, and the model-corrupting traps. Read this before touching the model. |
@@ -443,7 +446,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 | **B1** | Wheel-driver max bus voltage unconfirmed. Run the rig at 20 V. |
 | Clock spring | Highest-risk mechanical item. **Gets no validation in the rig build** — deleted for it. Moves to the two-leg build still unproven. |
 | Drop behaviour | **Now in the same category as the clock spring.** Mode A runs no drops, so the 45 mm passive limit, the φ_peak curve and `A_MAX` all move to the two-leg build unmeasured. Deliberate, and recorded in rig design record §11. |
-| Main knee spring | **Owned and correct by ordered variant:** Yellow / OD18 / ID9 / 50 mm. Owner confirmed 5 cm on 2026-09-06; the earlier 15 cm report was a typo. No wrong-delivery or replacement-order hold remains. A test-only Ø8-pilot cartridge is released for the unpowered -8°…+15° ABS mechanical article. The owned spring's rate and solid height, intentional preload, and the final PA-CF cartridge remain unresolved. [Spring record](evidence/springs/2026-09-05_reconciliation/) · [test release](evidence/assembly/2026-09-17_abs_spring_mechanical_test/). |
+| Main knee spring | **[RETIRED FROM R2A]** Yellow / OD18 / ID9 / 50 mm. It remains physical evidence from the failed passive article; do not reinstall it. R2A has no main compression spring. Any later energy-storage element requires a new, constrained load path and a separate release. [Spring record](evidence/springs/2026-09-05_reconciliation/) · [failure record](evidence/assembly/2026-09-24_spring_escape/). |
 | Brake chopper | Deferred with Mode B, and **still uncomputed** (~21.5 V on / ~20.8 V off). ⚠ Until it is built, nothing may backdrive a motor. |
 | Creep | Printed joints relax silently. Re-torque after the first hour, then periodically. Inspect the printed hub's dowel holes after every drop session. |
 | Stand hold-down | **New in Mode A.** 11.00 N·m of shoulder yaw needs 11.2 kg at a 100 mm base half-width, 5.6 kg at 200 mm, 3.7 kg at 300 mm. The modelled stand is **574.2 g**, so it **must be clamped to the bench, not weighted.** Four clamp landings and 4 × M6 bench-bolt holes are in the CAD; the unloaded bench pull-test has no CAD equivalent and is still owed. |

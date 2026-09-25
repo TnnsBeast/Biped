@@ -2,17 +2,19 @@
 
 ## What this project is
 
-A Beni-style wheeled biped: **body → active rotary shoulder → proximal link →
-passive spring-loaded knee → distal link → driven wheel**, one leg per side. Two
-Steadywin actuators per leg (GIM6010-8 shoulder, GIM4305-10 wheel), a complete
-ABS single-leg integration article followed later by a two-leg PA-CF structural
-build, Teensy 4.1 control.
+A Beni-style wheeled biped moving to **Active-Knee Revision 2 (R2A): body →
+active rotary shoulder → proximal link with a remote belt transmission → active
+rotary knee → distal link → driven wheel**, one leg per side. R2A plans three
+actuators per leg: the owned GIM6010-8 shoulder and GIM4305-10 wheel plus a knee
+actuator still to be selected from traceable load cases. The current Fusion
+documents and printed ABS article are the legacy passive-knee baseline; no R2A
+CAD or replacement print is released. Start with
+[`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
-Two Fusion documents exist: `Beni_Prototype1` (the two-leg robot, revision 2,
-v18; it predates the Sept 21 ordered-pin source, so `audit_all()` reports 6
-count/parity problems until it is deliberately rebuilt) and `Beni_SingleLegRig`
-(a Save-As copy, the **active build**, v31).
-**The rig build is MODE A only** as of 2026-08-17 — shoulder bolted rigid to a
+Two legacy Fusion documents exist: `Beni_Prototype1` (the passive-knee two-leg
+robot, revision 2, v18) and `Beni_SingleLegRig` (a Save-As copy, v31). Preserve
+both as historical baselines and create R2A in a separate Fusion copy.
+**The legacy rig is MODE A only** as of 2026-08-17 — shoulder bolted rigid to a
 printed stand; the vertical slide, the ballast and the drop series are **deferred,
 not cancelled**. `RIG_Stand` **is now modelled** (`rig_lib.build_rig_stand()`,
 2026-08-17) and the Mode B occurrences are stripped from the assembly; the CAD
@@ -40,19 +42,28 @@ owner selected Ø10.30, one 0.05 mm step above the physical result, while the
 receiver was expected to span 21.6 mm. Fusion's service-path audit then found
 that copied sleeve span extended 0.8 mm into each bearing pocket and trapped the
 link. Saved `Beni_SingleLegRig` v26 uses a serviceable Ø10.30 × 20.0 mm printed
-receiver, and the bed-ready ABS fit article has passed Fusion printability,
-support-removal, link/pin insertion, mesh and Mode A checks. Print it and record
-insertion, withdrawal, spin, rock and axial play. Pin retention and encoder
-coupling still gate powered use. [Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) · [Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/) · [Optional diagnostic coupon](first_article_stl/knee_pin_fit/).
+receiver, and the bed-ready ABS fit article passed Fusion printability,
+support-removal, link/pin insertion, mesh and Mode A checks. It has since been
+printed and assembled; do not reprint it for the active design.
+[Physical result](evidence/knee_fit/2026-09-15_steel_pin_provisional_shin/) ·
+[Fusion release](evidence/knee_fit/2026-09-16_distal_d10p30_release/).
 The gauge's nominal Ø4.0 M3 station was too small. On September 14 the owner
 selected the dedicated ladder's largest, unmarked-end station, nominal Ø4.5.
 Fusion now uses Ø4.5 for the active ABS stand, shoulder plate and proximal link
 and the future chassis-frame family. The updated sources, documents and active
 exports passed Fusion MCP verification. Replace affected printed Ø4.0 parts
 before M3 insert installation; repeat the coupon for the later PA-CF build.
-The complete leg and wiring are unfinished. Use the README queue for current
-prints. If you state an engineering figure, trace it to CAD, a vendor
+The legacy article is assembled, but its spring bowed, twisted and escaped
+sideways. Keep it spring-free and unpowered; use it only as fit and assembly
+evidence while R2A is developed. Use the README queue for current prints. If
+you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.
+
+September 25: a public Beni teardown shows coaxial shoulder-area motors and a
+toothed-belt reduction controlling the knee. This supersedes the passive-knee
+architecture assumption and the interim fixed-axis spring-cassette proposal.
+[Teardown evidence](evidence/reference/2026-09-25_beni_teardown/) ·
+[R2A plan](docs/design/active_knee_revision2_plan.md).
 
 September 23: the full mechanical-article audit requires PINREV2 hub and both
 links. The knee receiver regression is corrected, and the owner requests Ø4.30
@@ -78,11 +89,13 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    contradiction — do not silently pick one.** Unresolved conflicts are listed in
    `PROJECT_STATUS.md`; add to that list rather than guessing.
 
-3. **The frozen documents.** `beni_prototype1_fusion_guide_rewritten.md` §4–§9 is
-   the frozen kinematics and requirements. `beni_prototype1_design_record.md` §2
+3. **The frozen legacy documents.** `beni_prototype1_fusion_guide_rewritten.md`
+   §4–§9 is the frozen passive-prototype kinematics and requirements.
+   `beni_prototype1_design_record.md` §2
    (motor interfaces measured from STEP) and §3 (the lateral Y-stack) are the
-   datum the whole project is dimensioned against. Do not change any of these
-   without demonstrating an actual failure.
+   legacy datum. The physical spring failure and teardown justify the separate
+   R2A architecture; preserve the old values for comparison and re-extract new
+   datums from R2A Fusion CAD rather than silently editing the historical record.
 
 4. **Prefer editing bodies over adding banners.** This repo previously accumulated
    documents whose header said "superseded" while the body still instructed the
@@ -97,21 +110,18 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    editing, export, and verification. Do not substitute local STEP processing or
    UI automation for a Fusion operation.
 
-7. **Complete the single-leg integration article in ABS; defer PA-CF to the
+7. **Complete the R2A single-leg integration article in ABS; defer PA-CF to the
    two-leg structural build.** Use ABS for mating coupons, the complete
    single-leg mechanical assembly, cable routing, hand-driven kinematics, and
    wheel-clear/current-limited motor and electronics commissioning under
-   self-weight only. The owner-directed September 17 exception permits the
-   owned OD18 / ID9 / 50 mm spring only in the released unpowered mechanical
-   article: install it at the -8° stop with nominally zero compression, keep the
-   wheel clear and the distal side hand-contained, and move slowly no farther
-   than the +15° test stop. This observes self-weight equilibrium only; it is
-   not spring characterisation. Do not apply a torque-arm load, intentional
-   spring preload, added mass, stall torque, ground traction, a drop, a
-   structural proof load, or any human-adjacent load through the ABS path. The
-   ABS stand is an assembly fixture, not a measurement fixture. ABS print
-   compensation does not transfer to PA-CF; repeat the critical coupons
-   immediately before the later two-leg structural prints.
+   self-weight only. The September 17 spring exception is withdrawn after the
+   physical bowing/ejection failure: the legacy article stays spring-free and
+   unpowered. Do not apply a torque-arm load, intentional spring preload, added
+   mass, stall torque, ground traction, a drop, a jump, a structural proof load,
+   or any human-adjacent load through an ABS path. The ABS stand is an assembly
+   fixture, not a measurement fixture. ABS print compensation does not transfer
+   to PA-CF; repeat the critical coupons immediately before the later two-leg
+   structural prints.
 
 8. **Keep the public GitHub repository current.** The tracking repository is
    `https://github.com/TnnsBeast/Biped`. When a task materially changes project
@@ -162,6 +172,8 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 |---|---|
 | Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
+| Active-knee architecture, work packages and release gates | `docs/design/active_knee_revision2_plan.md` |
+| Beni teardown observations and limits | `evidence/reference/2026-09-25_beni_teardown/` |
 | The manufacturing rule and the ten-part routing table | `MANUFACTURING_CONSTRAINTS.md` |
 | PA-CF print settings + per-setting reasoning | `beni_rig_no_machining.md` §1 |
 | **Where ABS is allowed instead of PA-CF** | `beni_rig_no_machining.md` §4 |
@@ -178,7 +190,7 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 | **Fusion measurement traps** | `beni_single_leg_rig_design_record.md` §6.2 |
 | Knee hard-stop redesign + Hertzian reasoning | `beni_single_leg_rig_design_record.md` §8 |
 | Coordinate frame, free-space map, spring table | `electronics/00_mechanical_datum.md` |
-| Blocker/conflict register (B1, C1–C10, CR-1…10) | `electronics/05_open_questions.md` |
+| Blocker/conflict register (B1–B7, C1–C10, CR-1…10) | `electronics/05_open_questions.md` |
 | Rig electronics shopping list | `electronics/07_bom.md` Wave 0 |
 | Rig mechanical shopping list | `beni_single_leg_rig_design_record.md` §9 |
 | Reading the live CAD without Fusion access | `fusion_bridge/PROTOCOL.md` |
@@ -191,13 +203,13 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
   volume's bounding box, not the names.**
 - **Conflict shorthand.** B1 / C2 / C3 / C4 are referenced across many files and
   defined in `electronics/05_open_questions.md`. Do not renumber them.
-- **Two build targets, different numbers.** `electronics/01`–`06` describe the
-  two-leg robot; the rig is a Teensy 4.1 on a 20 V bench supply with no pack, no
+- **Legacy numbers do not size R2A.** `electronics/01`–`06` describe the
+  passive-knee two-leg robot; the legacy rig is a Teensy 4.1 on a 20 V bench supply with no pack, no
   BMS, no PCB, no satellite nodes, no clock springs. A figure that is right for one
   may be wrong for the other — scope it explicitly rather than overwriting it. The
   passive drop limit is the standing example: **45 mm planning limit / 46.3 mm
   computed +24° gate crossing** for the rig, ~49 mm for the two-leg 1-DOF model.
-- **Three scopes now, not two: two-leg / rig Mode A / rig Mode B.** Mark deferred
+- **Four scopes now: R2A / legacy two-leg / legacy rig Mode A / legacy rig Mode B.** Mark deferred
   material `[DEFERRED — MODE B]` inline at the row (rule 4 applies — a banner alone
   is not enough) and never delete it, because Mode B is deferred rather than
   cancelled. Two figures that are easy to cross-wire: the lateral overhang is

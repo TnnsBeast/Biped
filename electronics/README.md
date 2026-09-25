@@ -5,7 +5,13 @@
 CAD-derived geometry survives as `00_mechanical_datum.md`, and its
 request-for-design content is now answered by `01`–`07` themselves. Read §10
 references below as pointing at `00_mechanical_datum.md`.
-Mechanical side is frozen and audited; this is the first pass at the electrical side.
+**[LEGACY FOR R2A]** The mechanical side described here was frozen and audited
+for the four-actuator passive-knee robot. Active-Knee Revision 2 adds one knee
+actuator per leg and invalidates the motor count, power budget, CAN topology,
+harness, mass model and jump/landing controller. Use these documents as a
+baseline only; do not place a new robot order until the knee motor and belt
+ratio are selected in the
+[R2A plan](../docs/design/active_knee_revision2_plan.md).
 
 Every number here is traceable to either the CAD/design record (trusted), vendor
 documentation (marked), or a calculation shown in-line (reproducible). Where a
@@ -88,7 +94,7 @@ motor. See `02_harness_and_routing.md`.
 Against a 370° requirement that is **20° / 5% margin, not 27%.** Specify
 **470–500 mm** of free spiral.
 
-## System architecture
+## Legacy system architecture [SUPERSEDED FOR R2A]
 
 ```
          6S LiPo 22.2V ──┬── fuse 30A ── P-FET soft-start ── XT30 loop key
@@ -170,11 +176,10 @@ Two further findings that are not brief errors but change the design:
 ## Status
 
 All ten §10 deliverables are drafted across `01`–`06`. **They describe the
-two-leg robot, which is not the active build** — the active build is the
-**complete ABS single-leg integration article** using the Mode A fixture
-(Teensy 4.1, 20 V bench supply, breadboarded buses;
-`../fusion_brief_single_leg_rig.md`, `../beni_single_leg_rig_design_record.md`).
-Rig carve-outs are marked in `01`, `02`, `03` §3, `06` and `07` Wave 0.
+legacy four-actuator two-leg robot.** The legacy Mode A rig used a Teensy 4.1,
+20 V bench supply and breadboarded buses; its carve-outs remain marked in `01`,
+`02`, `03` §3, `06` and `07` Wave 0. R2A is the active design and requires a
+fresh six-actuator electronics pass after knee-motor selection.
 
 **Amended 2026-08-17 — the rig build is MODE A only.** The vertical slide, the
 ballast and the drop series are deferred, which changes three things on the
