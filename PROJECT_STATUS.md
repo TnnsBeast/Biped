@@ -12,8 +12,13 @@ commands. For the public project overview and active print download, see
 reports the three PINREV2 parts printed and the article assembled, with most
 interfaces working well. During knee compression the spring bows and escapes
 sideways. Suspend spring-installed motion and powered commissioning of this
-assembly pending diagnosis. Guide engagement, eye freedom and damage remain
-unconfirmed; do not infer individual fit passes from the assembly report.
+assembly pending diagnosis. The owner confirms the guide is disengaged with the spring uncompressed and
+only intermittently enters during compression; the loose-guide assembly is
+also unacceptable to the owner. This must be reconciled with the recorded
+5.500 mm modeled overlap at -8°. A replacement must retain continuous guide
+engagement and allow practical cartridge assembly. Eye freedom, exact starting
+pose and damage remain unconfirmed; no replacement is released. Do not infer
+individual fit passes from the assembly report.
 [Owner observation and diagnostic status](evidence/assembly/2026-09-24_spring_escape/).
 
 **September 24 CAD readiness on the second machine:** Fusion 2705.1.25 ignores
