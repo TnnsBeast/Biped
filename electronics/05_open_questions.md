@@ -15,7 +15,10 @@ apparent proportions.
   thermal duty for standing, crouch, jump and landing are not derived.
 - **B5 — knee actuator:** motor, reduction, driver, bus voltage, encoder and
   current limits are not selected. The existing wheel motor remains required at
-  the wheel and is not spare knee hardware.
+  the wheel and is not spare knee hardware. The dated
+  [candidate screen](../docs/design/active_knee_actuator_trade_study.md) retains
+  RobStride 05/EduLite 05 as compact budget candidates and RobStride 00 as the
+  stronger comparison; it is not a purchase release.
 - **B6 — transmission:** belt family, tooth counts, wrap, tension, bearing load,
   knee torque-transfer stack and service path are not selected or checked in
   Fusion.

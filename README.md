@@ -17,11 +17,14 @@ the shoulder/body and drives the knee through a synchronous belt inside the
 proximal link. This keeps actuator mass out of the distal link and makes knee
 angle, crouch, extension and landing response directly controllable.
 
-The preferred Fusion study will compare a true shoulder-axis motor arrangement
-with an offset body-mounted motor and shoulder-axis jackshaft. The actual knee
-motor, belt family, ratio, output bearing stack and power architecture are not
-selected yet. The project will not order or print around proportions inferred
-from the teardown.
+The preferred Fusion study will compare a compact actuator mounted at the
+proximal-link root with a stronger body-mounted actuator and shoulder-axis
+jackshaft. The first layout uses one belt and is the simpler, lower-cost
+prototype; the second keeps motor mass on the chassis. The actual knee motor,
+belt family, ratio, output bearing stack and power architecture are not selected
+yet. See the [dated actuator trade study](docs/design/active_knee_actuator_trade_study.md).
+The project will not order or print around proportions inferred from the
+teardown.
 
 ## Legacy mechanism and physical evidence
 

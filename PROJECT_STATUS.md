@@ -17,8 +17,12 @@ The active work item is now the
 [R2A architecture plan](docs/design/active_knee_revision2_plan.md); the
 [teardown observations and their limits](evidence/reference/2026-09-25_beni_teardown/)
 are recorded separately. No R2A CAD, actuator choice, belt ratio, STL or purchase
-is released. The legacy ABS article stays spring-free and unpowered and remains
-useful only as fit, assembly and failure evidence.
+is released. A dated [actuator trade study](docs/design/active_knee_actuator_trade_study.md)
+shows that another GIM6010-8 should not be the default knee purchase. The
+budget skeleton uses a compact integrated actuator on the proximal-link root
+and one belt; a stronger body-fixed actuator plus jackshaft remains the
+performance comparison. The legacy ABS article stays spring-free and unpowered
+and remains useful only as fit, assembly and failure evidence.
 
 **September 24 physical assembly report — spring-retention FAIL:** the owner
 reports the three PINREV2 parts printed and the article assembled, with most
@@ -86,7 +90,7 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 | **Prototype 1**, two-leg robot | Legacy passive-knee model saved in Fusion (`Biped → Beni_Prototype1`, v18). It remains the dimensional and failure-analysis baseline; it is no longer the target architecture. The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. Revision 2; not built. **v18 predates the September 21 ordered-pin source.** On 2026-09-24 a read-only `audit_all()` reported 6 problems: hardware counts, and source parity for the Ø4 × 32 clevis pins and Ø6 × 9 dowel still modelled, against M4 × 40 pins, washers, root dowels and Ø6 × 10 in `beni_lib`. Do not spend effort rebuilding it as the future robot; preserve it while R2A starts in a separate Fusion copy. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now inherits the owner-selected Ø4.5 M3 receiver and Ø5.3 M4 receiver constants, but the stripped/deferred carriage was not rebuilt or released. Rebuild and verify it in Fusion when Mode B returns and repeat the M3 coupon for its eventual material/profile. |
 | **Single-leg integration article / Mode A fixture** | The legacy passive ABS article is assembled and retained as physical fit and failure evidence. It is not the active architecture. Keep the spring removed and the motors unpowered. The stand remains useful for the future R2A wheel-clear integration article after its interfaces are revalidated. |
-| **Active-Knee Revision 2 (R2A)** | Architecture plan started; no CAD or hardware release. The selected direction is a body/shoulder-mounted knee actuator with synchronous-belt drive through a redesigned proximal link, plus an independent knee encoder. The recorded lateral stack makes an offset motor with a shoulder-axis jackshaft the first skeleton; compact coaxial packaging remains a comparison. Motor variant, ratio, belt family, knee output stack and new power budget remain open. |
+| **Active-Knee Revision 2 (R2A)** | Architecture plan and actuator price screen complete; no CAD or hardware release. The selected direction is a shoulder-area knee actuator with synchronous-belt drive through a redesigned proximal link, plus an independent knee encoder. The first Fusion comparison is a compact proximal-root motor with one belt versus a stronger body-fixed motor and shoulder-axis jackshaft. RobStride 05/EduLite 05/RobStride 00 are candidates only; load cases, Fusion fit, ratio, belt family, knee output stack and new power budget remain open. |
 | Electronics | The current documents describe the legacy four-actuator robot. Nothing is wired. R2A requires six total actuators for the two-leg robot and a new power, CAN, harness, thermal and firmware review after knee motor selection. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
 | Physical hardware | **The GIM6010-8 shoulder actuator, GIM4305-10 wheel actuator, 6800-2RS bearings, pins, fasteners and assembled legacy ABS article are in hand.** [Actuator photographs](evidence/actuators/2026-08-20_received/). The two actuators remain candidates for their original roles; R2A needs a third actuator per leg. Preserve the accepted motor-interface, insert and pin-fit results as process evidence, but recheck every reused interface against its new load and service path. The Yellow / OD18 / ID9 / 50 mm spring and its cartridge are retired from R2A after the physical escape. Detailed fit history remains in the dated evidence and legacy sections below. |
@@ -276,9 +280,9 @@ deferred to the later two-leg build.
 2. Through the Fusion MCP, create a read-only measurement report for the
    current shoulder stack, proximal-link free space, knee bearing stack,
    fastener paths and harness envelope.
-3. In a separate Fusion copy, compare the three R2A skeletons: opposite-side
-   coaxial motors, axially stacked motors, and a body-mounted offset knee motor
-   driving a shoulder-axis jackshaft.
+3. In a separate Fusion copy, compare four R2A skeletons: a compact motor on the
+   proximal-link root, opposite-side coaxial motors, axially stacked motors, and
+   a body-mounted offset knee motor driving a shoulder-axis jackshaft.
 4. Derive the active-knee load cases and select an actuator, belt family, pulley
    ratio and knee output stack from traceable data. Do not buy against the
    teardown's apparent proportions.
@@ -324,6 +328,7 @@ Rig design record §6.2.
 | File | What it is |
 |---|---|
 | [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md) | Architecture decision, motor-layout trade study, belt-drive work packages, coupled kinematics and release ladder. |
+| [`docs/design/active_knee_actuator_trade_study.md`](docs/design/active_knee_actuator_trade_study.md) | Dated integrated-actuator price/spec comparison, alternative mechanisms and recommended budget/performance Fusion skeletons. |
 | [`evidence/reference/2026-09-25_beni_teardown/`](evidence/reference/2026-09-25_beni_teardown/) | Timestamped teardown observations and explicit limits on what the video establishes. |
 
 ### Legacy single-leg rig — physical evidence baseline

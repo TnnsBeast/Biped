@@ -3,6 +3,12 @@
 Status: **architecture direction selected; planning only**. No replacement CAD,
 STL, motor order, belt order, or powered test is released by this document.
 
+The current actuator shortlist and price screen are in the
+[active-knee actuator trade study](active_knee_actuator_trade_study.md). It
+recommends a compact actuator mounted at the proximal-link root as the budget
+skeleton and a stronger body-fixed actuator with a jackshaft as the performance
+comparison. Another GIM6010-8 is not the default knee purchase.
+
 The name **R2A** distinguishes this architecture reset from the repository's
 older `Beni_Prototype1` “revision 2,” which was a production-readiness revision
 of the passive-knee model.
@@ -51,6 +57,7 @@ requirement. The owned GIM6010-8 has no usable through-bore, so R2A must compare
 | Coaxial actuators on opposite sides of the shoulder | Short belt path entrance and closest match to the observed architecture | Chassis width, independent outputs, bearing reactions, wiring and assembly order |
 | Axially stacked coaxial actuators | Compact in the side view | Likely excessive lateral stack with the owned actuator; no through-shaft shortcut is available |
 | Body-mounted offset knee actuator driving a shoulder-axis jackshaft | Preserves low leg inertia when exact coaxial packaging is infeasible | Adds a first belt stage, bearings and backlash; every pulley and shaft must be off-the-shelf or printed |
+| Compact knee actuator fixed to the proximal-link root | One belt stage, simple assembly and knee command naturally referenced to the proximal link | Adds moving mass near the shoulder and requires a flexing power/CAN path across the shoulder joint |
 
 R2A should select the simplest candidate that fits the real hardware and meets
 the torque, speed, service and print constraints. It does not need to reproduce
@@ -68,16 +75,20 @@ motor. Putting another GIM6010-8 outside each current motor adds its full nomina
 length before plates, bearings or belt structure and would move the legs farther
 outboard.
 
-That makes the **body-mounted offset knee motor plus shoulder-axis jackshaft the
-default first skeleton** with the present packaging. A compact coaxial knee
-motor remains a valid comparison only if actuator selection finds a substantially
-smaller part with adequate load capability. The legacy top-forward free box is
-a possible offset-motor search region, but it was previously assigned to the
-battery and must be re-scanned in Fusion for both sides, cooling, wiring and
-service access. These are screening conclusions from recorded datums, not a
-Fusion fit proof.
+That rules out a same-size coaxial GIM6010-8 as an easy knee solution. The first
+Fusion comparison is now between **a compact actuator mounted at the
+proximal-link root with one knee belt** and **a stronger body-mounted actuator
+driving a shoulder-axis jackshaft**. The proximal-root candidate simplifies the
+mechanism and assembly while placing moving mass close to the shoulder. The
+body-fixed candidate preserves lower leg inertia but adds a drive stage. A
+compact coaxial motor remains a valid comparison only if it fits the real stack
+and meets the derived load cases. The legacy top-forward free box is a possible
+body-fixed motor search region, but it was previously assigned to the battery
+and must be re-scanned in Fusion for both sides, cooling, wiring and service
+access. These are screening conclusions from recorded datums, not a Fusion fit
+proof.
 
-## Kinematic consequence of a body-fixed knee motor
+## Kinematic consequence of the motor mount
 
 If the upper belt pulley is driven by a motor fixed to the body while the belt
 centres are carried by the proximal link, shoulder motion and knee-motor motion
@@ -100,8 +111,11 @@ an independent knee joint encoder during development so motor/joint disagreement
 can detect belt slip, tooth skip, a loose pulley or a changed datum.
 
 If the knee-motor stator rotates with the proximal link instead, the coordinate
-mapping changes and the added motor mass becomes moving leg inertia. That option
-requires a separate dynamics comparison.
+mapping becomes direct at the external belt stage because both the motor stator
+and belt centres share the proximal-link frame. That removes the shoulder term
+from the knee command, while the added motor mass becomes moving leg inertia and
+its cable must cross the shoulder joint. Both layouts require a separate
+dynamics, harness and service comparison.
 
 ## Mechanical work packages
 
@@ -131,7 +145,8 @@ The first study must:
 - measure the actual free space around the shoulder, proximal link and knee;
 - place the delivered GIM6010-8 and GIM4305-10 reference geometry without
   altering their validated datums;
-- compare the three motor layouts above;
+- compare the four motor layouts above, using the compact proximal-root
+  actuator as the budget skeleton;
 - keep the existing shoulder, knee and wheel centres as the first comparison
   pose, while allowing them to change if the active mechanism requires it;
 - sweep shoulder and knee coordinates independently and together;
@@ -149,6 +164,12 @@ wheel actuator remains required at the wheel; it is not available as the knee
 actuator in a completed leg. The study may compare another owned-family motor
 or a different off-the-shelf actuator, but must use traceable torque-speed,
 voltage, encoder, mass, thermal and driver data.
+
+Carry the RobStride 05 and EduLite 05 as compact candidates and the RobStride
+00 as the stronger comparison until the load cases and Fusion layouts reject or
+select them. Their published price and peak torque do not constitute a purchase
+release. See the [trade study](active_knee_actuator_trade_study.md) for the
+dated source data and the DIY-drive comparison.
 
 Choose a standard synchronous-belt family and stocked pulley tooth counts. The
 ratio must simultaneously satisfy knee torque, speed, motor operating range,
@@ -247,8 +268,9 @@ The architecture is ready to freeze only when the repository contains:
 
 1. Create a read-only Fusion measurement report of the current shoulder stack,
    proximal-link free space and knee stack.
-2. Build three skeleton layouts: opposite-side coaxial, axially stacked, and
-   offset motor with shoulder-axis jackshaft.
+2. Build four skeleton layouts: proximal-root compact motor, opposite-side
+   coaxial, axially stacked, and body-fixed offset motor with shoulder-axis
+   jackshaft.
 3. Derive R2A joint load cases and compare candidate actuator operating points.
 4. Select the transmission architecture, then design the knee output stack and
    belt tensioning around stocked parts.

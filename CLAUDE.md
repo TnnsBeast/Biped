@@ -173,6 +173,7 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 | Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
 | Active-knee architecture, work packages and release gates | `docs/design/active_knee_revision2_plan.md` |
+| Active-knee actuator candidates, current prices and rejected drive concepts | `docs/design/active_knee_actuator_trade_study.md` |
 | Beni teardown observations and limits | `evidence/reference/2026-09-25_beni_teardown/` |
 | The manufacturing rule and the ten-part routing table | `MANUFACTURING_CONSTRAINTS.md` |
 | PA-CF print settings + per-setting reasoning | `beni_rig_no_machining.md` §1 |
