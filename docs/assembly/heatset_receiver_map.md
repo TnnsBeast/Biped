@@ -1,157 +1,123 @@
-# Picture guide — printed threaded receivers
+# Heat-set insert map — active ABS single leg
 
-This is the installation map for every existing printed part that owns a
-female thread. It separates receiver parts from clearance parts and records
-the screw direction that remains accessible in the assembled robot.
+**Five parts receive inserts: 14 × M3 (5 mm long) and 12 × M4 (8 mm long).**
+Use the approved Voron-style M3 and owned Kadriick M4 × 8 inserts.
+The owner reports the three PINREV2 replacement parts printed. Of those three,
+only the **shoulder hub and proximal link** receive inserts; the distal link
+receives none. Skip inserts already fitted in accepted retained parts.
 
-The complete single-leg article is ABS. PA-CF coupons and structural prints
-wait for the later two-leg build.
+Each picture below faces the **insert-entry side**. **Numbered rings mark the
+insert holes**; unmarked holes do not receive inserts. Numbers identify holes,
+not an installation sequence. Click a picture to enlarge it.
 
-## Release status — updated 2026-09-23
+| Part | Install | Entry face | Finished depth |
+|---|---|---|---|
+| [New shoulder hub](#shoulder-hub--6-m4) | 6 × M4 × 8 | Outboard: meets the proximal link | Flush at both ends |
+| [New proximal link](#proximal-link--5-m3) | 5 × M3, 5 mm long | Outboard knee face: stop plate / keeper side | Flush |
+| [Shoulder plate](#shoulder-plate--4-m3) | 4 × M3, 5 mm long | Outboard: cable-cover side | Flush at both ends |
+| [Mode A stand](#mode-a-stand--5-m3) | 5 × M3, 5 mm long | Shoulder-plate mounting face | Flush; 1.0 mm remains below insert |
+| [Wheel hub](#wheel-hub--6-m4) | 6 × M4 × 8 | **Motor side** | Flush on motor side; **2.0 mm projects on shell side** |
 
-The owner successfully installed inserts in the earlier Ø5.3 shoulder hub and
-confirmed all six M4 screws seat in the earlier corrected proximal link. Keep
-those physical results as evidence. The active hub and proximal link are the
-PINREV2 reprints (Ø4.30 root-dowel and clevis-link holes); install inserts only
-in those new prints. Their receivers are unchanged: six Ø5.3 M4 in the hub,
-five Ø4.5 M3 in the link, with the corrected M4 access paths. The owner
-confirmed on September 23 that the stand and shoulder plate in hand are the
-Ø4.5 prints. [Owner report](../../evidence/assembly/2026-09-23_owner_stand_plate_and_washers/).
-[Physical acceptance](../../evidence/assembly/2026-09-07_owner_mockup/). Use the
-[current print queue](../../README.md#current-print--ordered-pin-unpowered-abs-mechanical-article) and
-[access audit](../../evidence/assembly/2026-09-05_access_fix/).
-The final tyre-compatible wheel rim retains its independent printability hold.
-The support-free no-tyre shell is released separately for the suspended,
-unpowered September 17 mechanical test only.
+## Shoulder hub — 6 M4
 
-The general gauge's nominal Ø4.0 M3 station was too small. The owner then
-reported that the largest, unmarked-end pocket on the dedicated Ø4.1–4.5
-[M3 ladder](../../first_article_stl/insert_fit/) works best. That station is
-nominal Ø4.5. Fusion now carries Ø4.5 through the active ABS receiver family.
-[Physical selection and limitations](../../evidence/inserts/2026-09-14_m3_coupon_pass/).
+[![Shoulder hub: six numbered outer receivers, viewed from the link side](heatset/shoulder_hub.svg)](heatset/shoulder_hub.svg)
 
-## Insert redesign retained from 2026-09-03
+Use the **new PINREV2 hub**. Install six M4 × 8 inserts into the numbered
+Ø5.3 through holes in its outer flange, from the face that meets the proximal
+link. The flange is 8.0 mm thick, so both insert ends finish flush.
 
-- The shoulder and wheel M4 joints now use the owner's Kadriick M4 × 8 inserts;
-  procurement of a separate short family is no longer required.
-- The shoulder receiver runs through the full 8.0 mm flange.
-- The wheel hub embeds 6.0 mm of the insert; the remaining 2.0 mm nests in six
-  new `Wheel_Rim_L` reliefs without changing the frozen Y stack.
-- The stand has five Voron-style M3 pockets instead of Ø5 clearance bores.
-- Cable-cover inserts moved from the removable cover into the shoulder plate;
-  all four screws are now reachable from outboard.
-- The future chassis frame and deferred Mode-B carriage now have explicit
-  receiver bosses/pockets.
-- `RIG_Knee_Collar_L` is not a heat-set joint and is **not released**: its
-  current geometry cannot retain the pin.
+The inner motor-screw holes and the three Ø4.30 root-dowel sockets take **no
+inserts**. Keep the dowel sockets clear of the iron and molten plastic. Fit the
+three root dowels only after the inserts have cooled. The six M4 × 10 screws
+later pass through the proximal root and thread into these hub inserts.
 
-## Shoulder hub — six M4 inserts
+## Proximal link — 5 M3
 
-![Current ordered-pin shoulder hub on its controlled bed face](../../first_article_stl/ordered_pin_integration/00_fusion_ABS_PINREV2_Shoulder_Output_Hub_D4p15_ROOT_D4p30_PRINT_ORIENTED.png)
+[![Proximal knee close-up: blue holes 1–2 for the keeper bracket, orange holes 3–5 for the stop plate](heatset/proximal_link.svg)](heatset/proximal_link.svg)
 
-- Status: **PINREV2 HUB REPRINT PENDING / INSERT INSTALLATION PENDING.** The
-  earlier hub's insert and six-screw pass does not establish the new print's
-  physical fit. Do not install inserts in the superseded September 22 hub.
-- Receiver: 6 × owner-selected Ø5.3 through the 8.0 mm flange.
-- Insert: 6 × owner-held Kadriick M4 × 8, installed from the outboard/link
-  face with a depth stop and flush at both ends.
-- Fastener: 6 × M4 × 10 through the proximal-link root.
-- Result: 6.2 mm thread engagement; screw tip stops 1.8 mm before the
-  motor-side insert end.
-- The three Ø4.30 × 5.0 root-dowel sockets must stay clear of the iron and
-  molten ABS. Install the three Ø4 × 10 dowels after the inserts cool.
+Use the **new PINREV2 proximal link**. Find the **small knee-bearing end**, then
+turn the part to the outboard face with **five small blind pockets** around the
+bearing opening. The large shoulder ring is at the opposite end of the link.
 
-The earlier Ø4.15 hub with successfully installed Ø5.3 inserts remains
-historical physical evidence; it is superseded for this pin-based assembly.
+- **Blue 1–2:** two M3 inserts for the encoder bracket used as the knee-pin keeper.
+- **Orange 3–5:** three M3 inserts for the knee stop plate.
 
-## Shoulder plate and cable cover — four M3 inserts total
+All five inserts are 5 mm long and finish flush in Ø4.5 × 5.0 mm blind pockets.
+The six shoulder-root screw paths take **no inserts**: their screws thread into
+the shoulder hub. The stop plate and keeper bracket themselves also take none.
 
-| Receiver: shoulder plate | Clearance part: cable cover |
-|:---:|:---:|
-| ![Shoulder plate on the inboard bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Chassis_Shoulder_Plate_L_M3_INSERTS_PRINT_ORIENTED.png) | ![Cable cover on its outboard bed face](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Shoulder_Cable_Cover_L_CLEARANCE_PRINT_ORIENTED.png) |
+## Shoulder plate — 4 M3
 
-- **ABS RELEASE:** the current plate receivers are owner-selected Ø4.5 through
-  5.0 mm. Replace a prior Ø4.0 plate, then install 4 × approved 5 mm
-  Voron-style M3 inserts flush from the
-  shoulder plate's **outboard** face.
-- Put **no inserts** in the cover. Its four holes are Ø3.4 clearance.
-- Drive 4 × M3 × 10 from the cover's exposed outboard face. Each screw crosses
-  6.5 mm of cover, engages 3.5 mm of brass and stops 1.5 mm before the plate's
-  inboard face.
-- This screw direction remains available after the stand or chassis frame is
-  fitted. Remove the link before removing the cover. With revised cable post A,
-  use two M3 × 12 through the upper cover positions; the lower two remain ×10.
-  The added 2 mm post thickness preserves the same engagement and tip clearance.
+[![Shoulder plate: four numbered receivers around the motor opening, viewed from the cover side](heatset/shoulder_plate.svg)](heatset/shoulder_plate.svg)
 
-## Proximal link — five M3 inserts
+Face the side with the raised cable-routing lip around the motor opening—the
+side that meets the cable cover. Install four 5 mm M3 inserts in the **four
+numbered holes around that opening**, flush through the 5.0 mm plate.
 
-![Printed face-flat proximal link with both bearings installed](../../first_article_stl/assembly_dry_fit/01_fusion_abs_proximal_d19p10_with_bearings.png)
+The other holes are screw clearances. In particular, the plate-to-stand screws
+pass through the plate and thread into the **stand's** inserts. Put **no inserts
+in the cable cover or front cable post**.
 
-The image records the earlier Ø19.10 bearing-fit article. The printed corrected
-Ø19.15 link passed all six M4 hub screw seats, but has the failed Ø4.0 M3
-pockets. Retain it as physical evidence. The current PINREV2 proximal link
-(reprint pending) has five Ø4.5 × 5.0 pockets: three for the knee stop plate
-and two for the encoder bracket. Install the five M3 inserts in that new part
-only after checking its bearing seats and screw-access paths.
+## Mode A stand — 5 M3
 
-## Mode A stand — five M3 inserts
+[![Stand viewed from the shoulder-plate mounting face: four receivers at the top and one beside the motor opening](heatset/stand.svg)](heatset/stand.svg)
 
-![Current Mode A stand source on its mount-face bed datum](../../first_article_stl/mode_a/00_fusion_ABS_FA_RIG_Stand_M3_INSERTS_PRINT_ORIENTED.png)
+Face the upright surface that meets the shoulder plate, with the bench base
+at the bottom. Install five 5 mm M3 inserts: **four near the top, plus the fifth
+beside the motor opening**, as numbered. These Ø4.5 × 6.0 mm blind pockets leave
+1.0 mm below a flush insert. The base's bench-mounting holes take no inserts.
 
-- Status: **ABS PRINT RELEASE.** Fusion verifies the source and clean bed-ready
-  STL after the Ø4.5 promotion.
-- Receiver: 5 × Ø4.5 × 6.0 blind pockets from the y = 42 mount face.
-- Insert: 5 × approved 5 mm Voron-style M3.
-- Fastener: 5 × M3 × 10 through the 5 mm shoulder plate.
-- Clearance: 1.0 mm below the insert and a 6.0 mm printed floor.
+The stand and shoulder plate in hand were confirmed as the current Ø4.5
+receiver prints on September 23.
 
-## Wheel hub and rim — six owned M4 × 8 inserts
+## Wheel hub — 6 M4
 
-| Wheel hub — printed; physical checks pending | Rim — printability hold |
-|:---:|:---:|
-| ![Wheel hub on its rim-face bed datum](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Hub_L_OWNED_M4x8_D5p30_PRINT_ORIENTED.png) | ![Wheel rim showing six coaxial insert-tip reliefs](../../first_article_stl/assembly_dry_fit/00_fusion_ABS_FA_Wheel_Rim_L_OWNED_M4x8_RELIEF_PRINTABILITY_HOLD_DO_NOT_PRINT.png) |
+[![Wheel hub viewed from the motor face: six outer receivers; inner motor-screw holes remain clear](heatset/wheel_hub.svg)](heatset/wheel_hub.svg)
 
-- Status: **hub PRINTED; insert installation/detached motor fit pending; rim
-  DO NOT PRINT**. [Owner print completion](../../evidence/assembly/2026-09-07_small_parts_printed/).
-  The rim's 14 mm inward
-  ledge and outer flange overhang invalidate the former no-support instruction.
-- Hub receiver: 6 × owner-selected Ø5.3 through 6.0 mm.
-- Insert: 6 × owner-held Kadriick M4 × 8. Install from the motor face with a
-  depth stop, leaving 2.0 mm projecting from the outboard/rim face.
-- Rim: 6 × Ø6.0 × 2.2 coaxial reliefs from the hub-mating face, with a 1.0 mm
-  ligament to the Ø38 web opening; it owns no
-  inserts.
-- Fastener: 6 × M4 × 8 through the 4.0 mm rim web.
-- Result: 6.0 mm thread engagement, 2.0 mm screw clearance to the insert's
-  motor-side end, 0.25 mm radial and 0.20 mm axial protrusion clearance.
+Install six M4 × 8 inserts in the **six outer numbered holes**, entering from
+the **motor face shown**. Leave the three smaller inner motor-screw holes clear.
 
-After the screws are removed, the rim services straight outboard along the six
-open coaxial reliefs. M4 × 10 was rejected because its additional 2.0 mm of
-projection requires more rim relief without adding useful engagement.
+**This is the depth exception:** the hub is 6.0 mm thick and each insert is
+8.0 mm long. Stop flush on the motor face, leaving **2.0 mm of brass projecting
+from the opposite, wheel-shell face**. Those ends enter the shell's reliefs.
+Do not try to make both ends flush. The no-tyre wheel shell takes no inserts.
 
-## Deferred receivers already corrected in source
+## Parts that receive no inserts
 
-| Part | Receiver geometry | Status |
-|---|---|---|
-| `Chassis_Frame` | 10 Ø4.5 × 6.0 M3 pockets in Ø10 × 6.5 bosses | master source and B-Rep audit updated; repeat coupon for PA-CF before two-leg print release |
-| `RIG_Carriage` | builder inherits five Ø4.5 × 6.0 M3 plus 4 × Ø5.3 through M4 receivers for owned M4 × 8 | stripped/deferred component not rebuilt; repeat coupon and rebuild/verify in Fusion when Mode B returns |
-| optional M2 satellite-PCB boss | no existing part | architecture decision remains open; do not invent receivers |
+Distal link, knee stop plate, cable cover, front cable post, upper and lower
+spring eyes, guide bar, knee-pin spacer, encoder/keeper bracket and no-tyre
+wheel shell.
 
-## Installation gate
+## Before and after heating
 
-1. The existing Ø4.0 ABS station failed. The owner selected the dedicated
-   ladder's unmarked-end Ø4.5 station. Use Ø4.5 only with the same ABS profile;
-   repeat the ladder for any other process or the later PA-CF build.
-2. The owned M4 × 8 ladder is complete: Ø5.3 is the owner-confirmed ABS PASS.
-   Use the same profile and vertical bore axis for the released hub files.
-3. Heat inserts with a perpendicular, depth-controlled tip; stop flush and let
-   the part cool without a screw installed.
-4. Start every screw with fingers. Never use screw torque to seat a printed
-   part or straighten an insert.
-5. Keep the motors unplugged. The earlier link's six-screw seating check is
-   historical evidence; complete the new link's root-dowel face mating and
-   six-screw seating check using the
-   [current traveller](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly).
+1. Rehearse the [detached fit checks](../../first_article_stl/ordered_pin_integration/README.md#ordered-assembly)
+   first, including the new link's bearing seats and screw paths. Install
+   inserts with the parts detached and motors unplugged.
+2. Use the selected ABS receiver sizes: Ø4.5 for M3 and Ø5.3 for M4. Do not
+   install into superseded Ø4.0 M3 prints. These fit selections apply to the
+   same ABS profile; PA-CF needs new coupons later.
+3. Use a perpendicular, depth-controlled tip. Follow the finished depths above,
+   especially the wheel-hub projection. Let the part cool without a screw fitted.
+4. Reject tilted or loose inserts, or an end standing proud where flush is
+   required. Start screws with fingers; never use screw torque to straighten
+   an insert or draw incompatible parts together.
 
-For the complete shoulder order and link attachment, continue with the
-[shoulder-to-proximal picture guide](shoulder_to_proximal_link.md).
+## Sources and drawing provenance
+
+Dimensions and hardware follow the [canonical threaded-interface map](../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts)
+and the [current ordered-pin traveller](../../first_article_stl/ordered_pin_integration/README.md).
+Earlier hub installation and screw-seat passes remain historical evidence;
+new-print installation and fit still require physical checks.
+
+These diagrams reuse **unchanged Fusion MCP captures of corrected v30 / PINREV2**
+from the [assembly manual](manual/README.md). The numbered rings use the
+recorded receiver coordinates in [its manifest](manual/views/manifest.json),
+selecting the entry-face mouth for each hole. The proximal close-up is a viewport
+onto that same capture. No geometry is generated or inferred from an STL.
+
+Rebuild the SVG documentation overlays with
+`python3 docs/assembly/heatset/build_map.py`. This does not operate Fusion or
+change the source captures. New CAD views must be captured through Fusion MCP.
+Future chassis-frame, Mode B carriage and optional electronics receivers remain
+in the [canonical deferred-interface table](../../MANUFACTURING_CONSTRAINTS.md#threaded-interfaces-in-printed-parts);
+they are outside this assembly.
