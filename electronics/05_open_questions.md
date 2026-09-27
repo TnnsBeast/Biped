@@ -13,15 +13,18 @@ apparent proportions.
 
 - **B4 — knee load cases:** verified joint torque, speed, power, impact and
   thermal duty for standing, crouch, jump and landing are not derived.
-- **B5 — knee actuator:** motor, reduction, driver, bus voltage, encoder and
-  current limits are not selected. The existing wheel motor remains required at
-  the wheel and is not spare knee hardware. The dated
-  [candidate screen](../docs/design/active_knee_actuator_trade_study.md) retains
-  RobStride 05/EduLite 05 as compact budget candidates and RobStride 00 as the
-  stronger comparison; it is not a purchase release.
-- **B6 — transmission:** belt family, tooth counts, wrap, tension, bearing load,
-  knee torque-transfer stack and service path are not selected or checked in
-  Fusion.
+- **B5 — knee actuator:** **recommended 2026-09-27, not purchased.** A second
+  GIM6010-8 on the 20 V bus, as node 1 on bus A with the shoulder. It needs
+  1 Mbit, or 500 Hz at 500 kbit. Still open: which shaft its mono-turn encoder
+  reads (this decides homing), current limits and price. The existing wheel
+  motor remains required at the wheel and is not spare knee hardware.
+  [Recommendation](../docs/design/active_knee_actuator_trade_study.md).
+- **B6 — transmission:** **crank-and-pushrod selected 2026-09-27**, replacing
+  the belt. Still open: rod-end and pin part numbers against the calculated
+  requirement (≥ 1521 N rod-end static rating); knee stops (851 N at R35 from
+  the proof screen); the 8.7 N·m crank overhang on the actuator's output
+  bearing; and Fusion proof of the linkage and service path. Figures come from
+  `r2a_calc.py`.
 - **B7 — six-actuator electronics:** power, regen, fusing, CAN loading, harness,
   thermal path and firmware scheduling have not been revised for one added
   actuator per leg.

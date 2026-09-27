@@ -3,10 +3,12 @@
 ## What this project is
 
 A Beni-style wheeled biped moving to **Active-Knee Revision 2 (R2A): body →
-active rotary shoulder → proximal link with a remote belt transmission → active
-rotary knee → distal link → driven wheel**, one leg per side. R2A plans three
-actuators per leg: the owned GIM6010-8 shoulder and GIM4305-10 wheel plus a knee
-actuator still to be selected from traceable load cases. The current Fusion
+active rotary shoulder → proximal link carrying a shoulder-coaxial knee actuator
+and crank → pushrod → lever on the distal link → active rotary knee → driven
+wheel**, one leg per side. R2A uses three actuators per leg: the owned GIM6010-8
+shoulder, the owned GIM4305-10 wheel, and a second GIM6010-8 for the knee
+(recommended 2026-09-27, not yet bought). R2A work lives on the
+`r2a-active-knee` branch; its numbers come from `r2a_calc.py`. The current Fusion
 documents and printed ABS article are the legacy passive-knee baseline; no R2A
 CAD or replacement print is released. Start with
 [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
@@ -63,8 +65,8 @@ September 25, corrected by the September 27 frame review: a public Beni teardown
 shows an actively driven knee. A hip-coaxial crank moves the shin through a link,
 and a body-fixed motor drives a hip-coaxial ring through a short toothed belt; no
 belt runs down the leg. This supersedes the passive-knee architecture assumption
-and the interim fixed-axis spring-cassette proposal. R2A's proximal-link belt is
-a project choice, not Beni's mechanism (open item in `PROJECT_STATUS.md`).
+and the interim fixed-axis spring-cassette proposal. On September 27 the owner
+chose to copy the crank-and-pushrod knee; the belt-in-link plan is superseded.
 [Teardown evidence](evidence/reference/2026-09-25_beni_teardown/) ·
 [R2A plan](docs/design/active_knee_revision2_plan.md).
 
@@ -129,8 +131,10 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 8. **Keep the public GitHub repository current.** The tracking repository is
    `https://github.com/TnnsBeast/Biped`. When a task materially changes project
    files, finish with one coherent commit and push it to `origin/main` after the
-   relevant checks pass, unless the owner says not to. Do not commit generated
-   caches, credentials, local account/order screenshots, or unfinished outputs.
+   relevant checks pass, unless the owner says not to. **R2A work is committed
+   to and pushed on the `r2a-active-knee` branch** until the owner merges it.
+   Do not commit generated caches, credentials, local account/order
+   screenshots, or unfinished outputs.
    Read-only reviews and research do not require empty commits.
 
 9. **Final-pose clearance is not assembly verification.** Before releasing a
@@ -176,7 +180,8 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 | Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
 | Active-knee architecture, work packages and release gates | `docs/design/active_knee_revision2_plan.md` |
-| Active-knee actuator candidates, current prices and rejected drive concepts | `docs/design/active_knee_actuator_trade_study.md` |
+| R2A linkage, knee load cases, capability and part-load numbers | `r2a_calc.py` (rerun it and copy its output verbatim; never retype an edited figure) |
+| Active-knee actuator recommendation, dated candidate data and rejected drive concepts | `docs/design/active_knee_actuator_trade_study.md` |
 | Beni teardown observations and limits | `evidence/reference/2026-09-25_beni_teardown/` |
 | The manufacturing rule and the ten-part routing table | `MANUFACTURING_CONSTRAINTS.md` |
 | PA-CF print settings + per-setting reasoning | `beni_rig_no_machining.md` §1 |

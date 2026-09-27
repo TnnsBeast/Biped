@@ -1,7 +1,8 @@
 # Knee spring redesign — fixed-axis cassette and connecting rod
 
-Status: **[SUPERSEDED 2026-09-25]**. The owner selected an active, belt-driven
-knee after teardown evidence showed that Beni's knee is remotely actuated. This
+Status: **[SUPERSEDED 2026-09-25]**. The owner selected an active knee after
+teardown evidence showed that Beni's knee is remotely actuated. The first plan
+used a belt; since 2026-09-27 it is a crank and pushrod. This
 passive-cassette study remains as failure-analysis history; do not continue it.
 The replacement direction is
 [`active_knee_revision2_plan.md`](active_knee_revision2_plan.md).

@@ -9,8 +9,8 @@ references below as pointing at `00_mechanical_datum.md`.
 for the four-actuator passive-knee robot. Active-Knee Revision 2 adds one knee
 actuator per leg and invalidates the motor count, power budget, CAN topology,
 harness, mass model and jump/landing controller. Use these documents as a
-baseline only; do not place a new robot order until the knee motor and belt
-ratio are selected in the
+baseline only. The knee actuator (a second GIM6010-8) is recommended, but do
+not place a two-leg robot order until the single-leg gates pass under the
 [R2A plan](../docs/design/active_knee_revision2_plan.md).
 
 Every number here is traceable to either the CAD/design record (trusted), vendor

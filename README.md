@@ -3,28 +3,33 @@
 ![Beni Prototype 1](docs/readme/beni_full_robot.png)
 
 A mostly 3D-printed wheeled biped moving to **Active-Knee Revision 2 (R2A)**:
-active shoulder, remotely actuated belt-driven knee, and a driven wheel on each
-leg. The current CAD gallery and assembled ABS leg show the legacy passive-knee
-prototype. They remain the dimensional and failure-analysis baseline while the
-new mechanism is designed.
+active shoulder, a Beni-style crank-and-pushrod knee driven from the shoulder
+axis, and a driven wheel on each leg. The current CAD gallery and assembled ABS
+leg show the legacy passive-knee prototype. They remain the dimensional and
+failure-analysis baseline while the new mechanism is designed.
 
 **[Current status](PROJECT_STATUS.md)** · **[R2A plan](docs/design/active_knee_revision2_plan.md)** · **[Teardown evidence](evidence/reference/2026-09-25_beni_teardown/)** · **[Legacy mechanical design](beni_prototype1_design_record.md)** · **[Electronics](electronics/README.md)** · **[Firmware](firmware/README.md)** · **[Interactive viewer](web/)**
 
 ## Architecture direction
 
-R2A removes the axial compression-spring cartridge. A knee actuator stays near
-the shoulder/body and drives the knee through a synchronous belt inside the
-proximal link. This keeps actuator mass out of the distal link and makes knee
-angle, crouch, extension and landing response directly controllable.
+R2A removes the axial compression-spring cartridge and copies Beni's knee
+drive. A second GIM6010-8 rides on the proximal-link root, coaxial with the
+shoulder, and turns a crank inside the link. A rod-end pushrod drives a lever on
+the distal link behind the knee.
 
-The preferred Fusion study will compare a compact actuator mounted at the
-proximal-link root with a stronger body-mounted actuator and shoulder-axis
-jackshaft. The first layout uses one belt and is the simpler, lower-cost
-prototype; the second keeps motor mass on the chassis. The actual knee motor,
-belt family, ratio, output bearing stack and power architecture are not selected
-yet. See the [dated actuator trade study](docs/design/active_knee_actuator_trade_study.md).
-The project will not order or print around proportions inferred from the
-teardown.
+This design:
+- keeps the knee motor's mass on the shoulder axis;
+- references the knee coordinate to the proximal link, so it does not depend on
+  shoulder angle;
+- extends the knee range to α 51…150° (a 128.5 mm stroke);
+- reuses the owned shoulder and wheel actuators, the electronics, and the proven
+  plate, hub, knee and wheel interfaces.
+
+Concept work is on branch `r2a-active-knee`. See the
+[R2A plan](docs/design/active_knee_revision2_plan.md), the
+[actuator recommendation](docs/design/active_knee_actuator_trade_study.md) and
+[`r2a_calc.py`](r2a_calc.py). Nothing is released for print or purchase until
+the Fusion digital gate passes.
 
 ## Legacy mechanism and physical evidence
 
@@ -42,8 +47,7 @@ and unpowered. The full observation is recorded in the
 A frame review of the public teardown (September 27) shows Beni's knee driven
 from the hip: a hip-coaxial crank moves the shin through a link, and a
 body-fixed motor drives each hip ring through a short toothed belt. No belt runs
-down the leg, so R2A's proximal-link belt is a project choice; comparing it with
-a crank-and-link knee is an open decision. See the
+down the leg. R2A copies the crank-and-link knee. See the
 [timestamped evidence note](evidence/reference/2026-09-25_beni_teardown/)
 and the [R2A work plan](docs/design/active_knee_revision2_plan.md).
 
@@ -72,9 +76,9 @@ knee views.
 Automatically maintained convenience section for the active build.
 
 **Do not print another passive-knee spring part.** No Active-Knee Revision 2
-part or STL has been released. The next printable item will be an unpowered ABS
-belt-transmission article after the motor layout, belt and pulley family, knee
-output stack, service path and print orientation pass the Fusion release gates.
+part or STL has been released. The next printable items will be the new-fit
+coupons and an unpowered ABS crank-and-pushrod article, after the R2A Fusion
+digital gate proves the linkage, service paths and print orientation.
 
 Keep the assembled legacy article spring-free and unpowered. Retain its parts,
 owned actuators, bearings, pins and fasteners as evidence and possible reusable

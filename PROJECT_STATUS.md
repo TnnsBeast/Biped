@@ -8,24 +8,30 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
-**September 25 architecture reset — Active-Knee Revision 2 (R2A):** the owner
-has selected a remotely actuated, belt-driven knee as the replacement direction.
-A public Beni teardown (frame review 2026-09-27) shows the knee actively driven
-from the hip: a hip-coaxial crank moves the shin through a link, and a
-body-fixed motor drives a hip-coaxial ring through a short toothed belt. No belt
-runs down the leg. That evidence invalidates the project's prior assumption that
-Beni used a passive spring knee. R2A's proximal-link belt is a project choice,
-not a copy of Beni; see the open R2A item under *Known-unresolved*.
-The active work item is now the
-[R2A architecture plan](docs/design/active_knee_revision2_plan.md); the
-[teardown observations and their limits](evidence/reference/2026-09-25_beni_teardown/)
-are recorded separately. No R2A CAD, actuator choice, belt ratio, STL or purchase
-is released. A dated [actuator trade study](docs/design/active_knee_actuator_trade_study.md)
-shows that another GIM6010-8 should not be the default knee purchase. The
-budget skeleton uses a compact integrated actuator on the proximal-link root
-and one belt; a stronger body-fixed actuator plus jackshaft remains the
-performance comparison. The legacy ABS article stays spring-free and unpowered
-and remains useful only as fit, assembly and failure evidence.
+**September 27 R2A concept — Beni-style crank-and-pushrod knee, on branch
+`r2a-active-knee`.** The owner directed R2A to copy the knee mechanics in the
+[Beni teardown](evidence/reference/2026-09-25_beni_teardown/) and to reuse the
+owned actuators and electronics.
+
+- **Knee:** a second GIM6010-8 rides on the proximal-link root, coaxial with
+  the shoulder. It turns a crank inside the link, and a rod-end pushrod drives a
+  lever on the distal link behind the knee.
+- **Shoulder and wheel:** unchanged. The shoulder GIM6010-8 drives directly,
+  and the wheel module is untouched.
+- **Numbers:** [`r2a_calc.py`](r2a_calc.py) gives the linkage (crank 32 mm, rod
+  120 mm, lever 30 mm) and the knee range α 51…150°, a 128.5 mm stroke. It also
+  gives the loads and the idealised capability.
+- **Why a GIM6010-8:** the linkage cannot add useful reduction, so the knee
+  actuator must be 5 N·m-class. The GIM6010-8 is the only candidate of that
+  class that runs on the 20 V bench bus with the existing protocol and printed
+  interfaces.
+- **Documents:** the [R2A plan](docs/design/active_knee_revision2_plan.md) and
+  the [trade study](docs/design/active_knee_actuator_trade_study.md).
+- **Released so far:** no R2A CAD, STL or purchase. One knee GIM6010-8 is
+  recommended.
+
+The legacy ABS article stays spring-free and unpowered and remains useful only
+as fit, assembly and failure evidence.
 
 **September 24 physical assembly report — spring-retention FAIL:** the owner
 reports the three PINREV2 parts printed and the article assembled, with most
@@ -76,8 +82,8 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 > **Current scope decision, updated 2026-09-25 — design and prove the R2A
 > single-leg integration article in ABS; defer PA-CF to the two-leg structural
 > build.** The legacy passive article stays spring-free and unpowered. The new
-> ABS leg may progress through dry assembly, hand-driven belt motion, detached
-> current-limited transmission checks and supported wheel-clear commissioning
+> ABS leg may progress through dry assembly, hand-driven linkage motion, detached
+> current-limited drive checks and supported wheel-clear commissioning
 > under self-weight only after each R2A gate is released. Torque-arm,
 > added-mass, ground-traction, stall/proof, drop, jump and human-adjacent tests
 > remain deferred with PA-CF.
@@ -93,7 +99,7 @@ regression safeguards](evidence/assembly/2026-09-23_mechanical_reprint_audit/) �
 | **Prototype 1**, two-leg robot | Legacy passive-knee model saved in Fusion (`Biped → Beni_Prototype1`, v18). It remains the dimensional and failure-analysis baseline; it is no longer the target architecture. The September access correction adds continuous M4 head/driver and complete screw-seat checks to `beni_lib.audit_all()`. Revision 2; not built. **v18 predates the September 21 ordered-pin source.** On 2026-09-24 a read-only `audit_all()` reported 6 problems: hardware counts, and source parity for the Ø4 × 32 clevis pins and Ø6 × 9 dowel still modelled, against M4 × 40 pins, washers, root dowels and Ø6 × 10 in `beni_lib`. Do not spend effort rebuilding it as the future robot; preserve it while R2A starts in a separate Fusion copy. |
 | **Single-leg test rig, Mode B** | **[DEFERRED]** — not the build. Its source now inherits the owner-selected Ø4.5 M3 receiver and Ø5.3 M4 receiver constants, but the stripped/deferred carriage was not rebuilt or released. Rebuild and verify it in Fusion when Mode B returns and repeat the M3 coupon for its eventual material/profile. |
 | **Single-leg integration article / Mode A fixture** | The legacy passive ABS article is assembled and retained as physical fit and failure evidence. It is not the active architecture. Keep the spring removed and the motors unpowered. The stand remains useful for the future R2A wheel-clear integration article after its interfaces are revalidated. |
-| **Active-Knee Revision 2 (R2A)** | Architecture plan and actuator price screen complete; no CAD or hardware release. The selected direction is a shoulder-area knee actuator with synchronous-belt drive through a redesigned proximal link, plus an independent knee encoder. The first Fusion comparison is a compact proximal-root motor with one belt versus a stronger body-fixed motor and shoulder-axis jackshaft. RobStride 05/EduLite 05/RobStride 00 are candidates only; load cases, Fusion fit, ratio, belt family, knee output stack and new power budget remain open. |
+| **Active-Knee Revision 2 (R2A)** | Concept selected 2026-09-27 on branch `r2a-active-knee`; no CAD or hardware release. A Beni-style crank-and-pushrod knee is driven by a second GIM6010-8 on the proximal-link root, coaxial with the shoulder, with an independent AS5048A knee encoder. The linkage, loads and capability come from `r2a_calc.py`. Next is the Fusion digital gate in a separate R2A copy of the rig. |
 | Electronics | The current documents describe the legacy four-actuator robot. Nothing is wired. R2A requires six total actuators for the two-leg robot and a new power, CAN, harness, thermal and firmware review after knee motor selection. |
 | Firmware | Stage 0 bench scaffold implemented and compile-verified for Teensy 4.1 in [`firmware/teensy_stage0/`](firmware/teensy_stage0/). It has no actuator command path; hardware gates remain unrun. |
 | Physical hardware | **The GIM6010-8 shoulder actuator, GIM4305-10 wheel actuator, 6800-2RS bearings, pins, fasteners and assembled legacy ABS article are in hand.** [Actuator photographs](evidence/actuators/2026-08-20_received/). The two actuators remain candidates for their original roles; R2A needs a third actuator per leg. Preserve the accepted motor-interface, insert and pin-fit results as process evidence, but recheck every reused interface against its new load and service path. The Yellow / OD18 / ID9 / 50 mm spring and its cartridge are retired from R2A after the physical escape. Detailed fit history remains in the dated evidence and legacy sections below. |
@@ -277,31 +283,33 @@ deferred to the later two-leg build.
 
 ## Immediate next steps for Active-Knee Revision 2
 
-1. Keep the assembled passive article spring-free and unpowered. Photograph or
-   measure it only when a specific R2A interface question needs physical
-   evidence; do not spend another print cycle improving the spring cartridge.
-2. Through the Fusion MCP, create a read-only measurement report for the
-   current shoulder stack, proximal-link free space, knee bearing stack,
-   fastener paths and harness envelope.
-3. In a separate Fusion copy, compare four R2A skeletons: a compact motor on the
-   proximal-link root, opposite-side coaxial motors, axially stacked motors, and
-   a body-mounted offset knee motor driving a shoulder-axis jackshaft.
-4. Derive the active-knee load cases and select an actuator, belt family, pulley
-   ratio and knee output stack from traceable data. Do not buy against the
-   teardown's apparent proportions.
-5. Update the power, CAN, harness, URDF and control plan after the motor and
-   ratio are selected. Retain an independent knee encoder for transmission fault
-   detection during development.
-6. Release one unpowered ABS belt-transmission article through the existing
-   Fusion, assembly-path, mesh and orientation gates. Only after it passes may a
-   detached, current-limited drive test be specified.
+Work on branch `r2a-active-knee`. The full ladder is in the
+[R2A plan](docs/design/active_knee_revision2_plan.md) §10.
 
-The accepted fit results from the legacy article may inform R2A, but no old pin,
-bearing, insert or link interface is inherited without checking its new load and
-service path. The full work breakdown and release ladder are in
-[`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
+1. Keep the assembled passive article spring-free and unpowered. Do not spend
+   another print cycle on the spring cartridge.
+2. **Order one knee GIM6010-8** after confirming price and lead time. Order the
+   rod ends, M5 rod and Ø5 shoulder screws against the plan's §6 requirements.
+3. **Fusion digital gate.** Through the Fusion MCP, create an R2A copy of
+   `Beni_SingleLegRig`. Build the two proximal-link halves, the crank, and the
+   distal link with its lever around the §3 linkage.
+   - Sweep α 49…152° with the shoulder moving independently.
+   - Prove the tyre, rod and cable clearances, every assembly and tool path, and
+     every print orientation.
+   - Replace the envelope assumptions in `r2a_calc.py` with modelled geometry
+     and rerun it.
+4. Design the knee stops and bumpers, and print the new-fit coupons: Ø5 clevis
+   holes, rod-end side clearance, crank register.
+5. Add the second ODrive-CANSimple node (node 1, bus A at 1 Mbit) and the
+   linkage map to the Teensy firmware. Confirm where the GIM6010-8 encoder reads
+   (rotor or output) before relying on it for homing.
+6. Release one unpowered ABS linkage article through the Fusion, assembly-path,
+   mesh and orientation gates. Only after it passes may a detached,
+   current-limited drive test be specified.
 
----
+The accepted fit results from the legacy article carry over: shoulder plate,
+hub, knee stack and wheel module. No old interface is inherited for a new load
+without checking its load and service path.
 
 ## The active Fusion documents
 
@@ -330,8 +338,9 @@ Rig design record §6.2.
 
 | File | What it is |
 |---|---|
-| [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md) | Architecture decision, motor-layout trade study, belt-drive work packages, coupled kinematics and release ladder. |
-| [`docs/design/active_knee_actuator_trade_study.md`](docs/design/active_knee_actuator_trade_study.md) | Dated integrated-actuator price/spec comparison, alternative mechanisms and recommended budget/performance Fusion skeletons. |
+| [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md) | Crank-and-pushrod decision, Beni mapping, linkage, lateral stack, reuse/new BOM, assembly sequence, printing, electronics, verification ladder and rejected alternatives. |
+| [`docs/design/active_knee_actuator_trade_study.md`](docs/design/active_knee_actuator_trade_study.md) | Knee-actuator recommendation (second GIM6010-8), dated candidate data and rejected drive concepts. |
+| [`r2a_calc.py`](r2a_calc.py) | Linkage synthesis, knee load cases, idealised push-off/landing, part loads and CAN load; `--plot` redraws the plan's schematic. |
 | [`evidence/reference/2026-09-25_beni_teardown/`](evidence/reference/2026-09-25_beni_teardown/) | Timestamped teardown observations and explicit limits on what the video establishes. |
 
 ### Legacy single-leg rig — physical evidence baseline
@@ -390,6 +399,7 @@ hand-built.
 | `beni_export.py` | inside Fusion | STEP per part, URDF + inertia JSON with a mass-closure assert, print STLs, viewer STLs. |
 | `rig_lib.py` | inside Fusion | Builds every `RIG_*` part, including the completed Mode A `build_rig_stand()`, the §4.4 check suite (`checks_44()`), the Mode B travel harness (`slide_to()`), and an interference reporter whose names actually resolve (`real_clashes()`). The rail/block/carriage/index/pin/bumper/ballast builders and `check3_mode_b_travel()` are deferred with Mode B. |
 | `rig_calc.py` | plain `python3` | Independent recomputation of the brief's arithmetic: spring curve, drop series, MGN12H moments, travel budget, mass budget, bounce mode, torque arm, and **`mode_a_stand()` — the verified Mode A load set** (42.00 mm overhang, the four moments, the tipping table, the step-6 mass/φ table). |
+| `r2a_calc.py` | plain `python3` (numpy; matplotlib for `--plot`) | R2A crank-and-pushrod arithmetic: flex-stop envelope, four-bar synthesis under transmission-angle and clearance limits, the linkage map, knee load cases, idealised push-off and landing with a GIM6010-8, rod/pin/stop loads, crank overhang and CAN load. Source of every figure in the R2A plan §§3–9. |
 | `rig_export.py` | inside Fusion | Rig STLs, the targeted Mode A anchor, and the transient ABS-calibrated shoulder-hub first article, with print orientation recorded per part. |
 | `first_article_fusion.py` | Fusion MCP | Builds, validates and exports the ABS actuator coupons, 6800 ladder, full-depth knee-pin bore ladder and proximal first article in `Beni_Prototype1_TestGauges`. |
 | `knee_mockup_fusion.py` | Fusion MCP | Creates the separate supported ABS knee mock-up, temporary pin and detached spring-seat caps; checks assembly/support paths and exported meshes. |
@@ -448,7 +458,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 | | |
 |---|---|
-| **R2A knee transmission** | **New 2026-09-27; gates step 3.** The R2A plan, README and CLAUDE.md chose a synchronous belt inside the proximal link, partly because it was read as Beni's mechanism. The teardown frame review shows Beni uses a hip-coaxial crank and a link to a shin lever, with a short belt stage at the hip only; which hip drive turns the crank is not settled from stills. Owner decision: keep the proximal-link belt with its own justification, or add a crank-and-link knee to the step-3 skeleton comparison. [Evidence](evidence/reference/2026-09-25_beni_teardown/). |
+| ~~**R2A knee transmission**~~ | **[RESOLVED 2026-09-27]** The owner selected Beni-style mechanics. R2A drives the knee through a crank on the shoulder axis and a pushrod, not a belt in the proximal link. Which of Beni's two hip drives turns its crank is still not settled from stills, but R2A does not depend on it. [R2A plan](docs/design/active_knee_revision2_plan.md) §2. |
 | **C2** | Shoulder motor length, 40 vs 44 mm. Manufacturer STEP and live Fusion geometry use **44.0000 mm nominal**. The existing positive stand-in is only 9.5 mm long, so it cannot report exact overall hardware length; use the delivered motor against a negative ABS mating coupon or the actual ABS mating part as a functional go/no-go. No structural consequence in the rig. |
 | **C3** | Wheel motor length, 26 vs 33 mm. Manufacturer STEP and live Fusion geometry use **33.0000 mm nominal**. The existing full-length gauge is a positive stand-in; close assembly fit by placing the real motor into a negative ABS coupon or the actual ABS mating part. |
 | **C4** | Actuator masses, 388/150 vs 500/250 g. ~~Decides whether rig ballast is 37.5 g or 149.5 g of shot.~~ **Mode A has no ballast, so this decides nothing structural in the rig** — it still matters to the two-leg mass and power budgets. Weigh them. |

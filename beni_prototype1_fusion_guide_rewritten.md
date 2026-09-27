@@ -55,8 +55,8 @@ used for the existing Fusion model was:
 This serial biped morphology remains intentional. **[SUPERSEDED 2026-09-25]**
 The instruction prohibiting an active knee does not apply to R2A: teardown
 evidence now shows that Beni's knee is actively driven from the hip through a
-crank and link. Preserve this passive model as history and develop R2A in a separate
-Fusion copy. See
+crank and link. Preserve this passive model as history and develop R2A in a
+separate Fusion copy. See
 [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
 ## Shoulder
@@ -84,8 +84,9 @@ The wheel motor is fixed to the distal link and independently drives the wheel.
 # 3. Important mechanical behavior
 
 **[LEGACY PASSIVE PROTOTYPE]** Do not model or reason about this passive knee as
-if it were commanded by shoulder position. R2A instead requires a derived
-shoulder/knee-motor coordinate map for the belt transmission.
+if it were commanded by shoulder position. R2A instead requires the
+crank-to-knee linkage map; its knee actuator rides on the proximal link, so the
+map has no shoulder term.
 
 ### Shoulder rotation does NOT automatically compress the knee
 If the wheel can move freely, rotating the shoulder mainly rotates the whole bent leg. The passive knee changes angle only when forces acting through the distal link create enough moment about the knee to overcome the spring.

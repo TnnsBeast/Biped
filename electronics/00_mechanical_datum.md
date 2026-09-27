@@ -10,7 +10,8 @@ Every number here comes from the Fusion model of **Beni Prototype 1, revision 2*
 re-extracted from CAD — they cannot be regenerated any other way.
 
 **[SUPERSEDED FOR ACTIVE-KNEE R2A]** These values remain authoritative for the
-historical model only. R2A adds a remote knee actuator and belt transmission, so
+historical model only. R2A adds a shoulder-coaxial knee actuator and a
+crank-and-pushrod linkage on each proximal link, so
 mass properties, free space, power, harness and dynamics must be re-extracted
 from the verified R2A Fusion model before they are used for design.
 
@@ -108,8 +109,8 @@ the mechanical design requires it but does not detail it.
 
 **[LEGACY PASSIVE PROTOTYPE]** The knee is passive, so its angle is the only way
 this model knows leg compression. R2A retains an independent joint encoder to
-measure the active knee directly and to detect disagreement with the
-belt-driven motor coordinate.
+measure the active knee directly, to supply the absolute knee reference, and to
+detect disagreement with the crank-and-pushrod map.
 
 | | |
 |---|---|
