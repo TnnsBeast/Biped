@@ -39,9 +39,12 @@ and does not enter reliably during compression. Keep this article spring-free
 and unpowered. The full observation is recorded in the
 [failure evidence](evidence/assembly/2026-09-24_spring_escape/).
 
-The public teardown reviewed on September 25 shows two shoulder-area brushless
-motors arranged on the same axis and a toothed-belt reduction driving the knee.
-See the [timestamped evidence note](evidence/reference/2026-09-25_beni_teardown/)
+A frame review of the public teardown (September 27) shows Beni's knee driven
+from the hip: a hip-coaxial crank moves the shin through a link, and a
+body-fixed motor drives each hip ring through a short toothed belt. No belt runs
+down the leg, so R2A's proximal-link belt is a project choice; comparing it with
+a crank-and-link knee is an open decision. See the
+[timestamped evidence note](evidence/reference/2026-09-25_beni_teardown/)
 and the [R2A work plan](docs/design/active_knee_revision2_plan.md).
 
 ## Existing assembly references

@@ -54,14 +54,19 @@ requirement. The owned GIM6010-8 has no usable through-bore, so R2A must compare
 
 | Candidate | Reason to study | Main issue to resolve |
 |---|---|---|
-| Coaxial actuators on opposite sides of the shoulder | Short belt path entrance and closest match to the observed architecture | Chassis width, independent outputs, bearing reactions, wiring and assembly order |
+| Coaxial actuators on opposite sides of the shoulder | Short belt path entrance | Chassis width, independent outputs, bearing reactions, wiring and assembly order |
 | Axially stacked coaxial actuators | Compact in the side view | Likely excessive lateral stack with the owned actuator; no through-shaft shortcut is available |
 | Body-mounted offset knee actuator driving a shoulder-axis jackshaft | Preserves low leg inertia when exact coaxial packaging is infeasible | Adds a first belt stage, bearings and backlash; every pulley and shaft must be off-the-shelf or printed |
 | Compact knee actuator fixed to the proximal-link root | One belt stage, simple assembly and knee command naturally referenced to the proximal link | Adds moving mass near the shoulder and requires a flexing power/CAN path across the shoulder joint |
 
 R2A should select the simplest candidate that fits the real hardware and meets
 the torque, speed, service and print constraints. It does not need to reproduce
-the teardown's internal packaging exactly.
+the teardown's internal packaging exactly. Beni stacks two drives on the hip
+axis: a pancake motor inboard of the main hip bearing, and a ring belt-driven by
+an offset body-fixed motor. It drives the knee through a hip-coaxial crank and a
+link, not a belt. A crank-and-link knee is not yet one of the candidates above;
+that choice is open in [`PROJECT_STATUS.md`](../../PROJECT_STATUS.md)
+([evidence](../../evidence/reference/2026-09-25_beni_teardown/README.md)).
 
 ### Preliminary screen against the recorded CAD stack
 

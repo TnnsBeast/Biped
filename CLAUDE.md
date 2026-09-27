@@ -59,9 +59,12 @@ evidence while R2A is developed. Use the README queue for current prints. If
 you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.
 
-September 25: a public Beni teardown shows coaxial shoulder-area motors and a
-toothed-belt reduction controlling the knee. This supersedes the passive-knee
-architecture assumption and the interim fixed-axis spring-cassette proposal.
+September 25, corrected by the September 27 frame review: a public Beni teardown
+shows an actively driven knee. A hip-coaxial crank moves the shin through a link,
+and a body-fixed motor drives a hip-coaxial ring through a short toothed belt; no
+belt runs down the leg. This supersedes the passive-knee architecture assumption
+and the interim fixed-axis spring-cassette proposal. R2A's proximal-link belt is
+a project choice, not Beni's mechanism (open item in `PROJECT_STATUS.md`).
 [Teardown evidence](evidence/reference/2026-09-25_beni_teardown/) ·
 [R2A plan](docs/design/active_knee_revision2_plan.md).
 

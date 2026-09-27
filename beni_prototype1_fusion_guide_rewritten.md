@@ -54,8 +54,8 @@ used for the existing Fusion model was:
 
 This serial biped morphology remains intentional. **[SUPERSEDED 2026-09-25]**
 The instruction prohibiting an active knee does not apply to R2A: teardown
-evidence now shows that Beni's knee is remotely actuated through a toothed-belt
-reduction. Preserve this passive model as history and develop R2A in a separate
+evidence now shows that Beni's knee is actively driven from the hip through a
+crank and link. Preserve this passive model as history and develop R2A in a separate
 Fusion copy. See
 [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
@@ -635,10 +635,11 @@ The following were checked when this guide was rewritten:
 - ASTM A401/A401M current scope:
   https://store.astm.org/a0401_a0401m-24.html
 
-**[SUPERSEDED 2026-09-25]** A public teardown now exposes the architecture: two
-shoulder-area brushless motors share the joint axis and a toothed-belt reduction
-controls the knee. The exact dimensions, ratio, belt standard and load ratings
-remain unknown. The passive cylindrical knee and two-pivot compression-spring
+**[SUPERSEDED 2026-09-25]** A public teardown now exposes the architecture
+(frame review 2026-09-27): a hip-coaxial crank drives the knee through a link,
+and a body-fixed motor drives a hip-coaxial ring through a short toothed belt.
+The dimensions, ratios and load ratings remain unknown; the belt marking is
+recorded in the evidence note. The passive cylindrical knee and two-pivot compression-spring
 cartridge in this guide are a historical engineered reconstruction, not a
 reconstruction of Beni's actual actuation. See the
 [teardown evidence note](evidence/reference/2026-09-25_beni_teardown/).

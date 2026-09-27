@@ -10,9 +10,12 @@ commands. For the public project overview and active print download, see
 
 **September 25 architecture reset — Active-Knee Revision 2 (R2A):** the owner
 has selected a remotely actuated, belt-driven knee as the replacement direction.
-A newly available Beni teardown shows two shoulder-area brushless motors on the
-same axis and a toothed-belt reduction controlling the knee. That evidence
-invalidates the project's prior assumption that Beni used a passive spring knee.
+A public Beni teardown (frame review 2026-09-27) shows the knee actively driven
+from the hip: a hip-coaxial crank moves the shin through a link, and a
+body-fixed motor drives a hip-coaxial ring through a short toothed belt. No belt
+runs down the leg. That evidence invalidates the project's prior assumption that
+Beni used a passive spring knee. R2A's proximal-link belt is a project choice,
+not a copy of Beni; see the open R2A item under *Known-unresolved*.
 The active work item is now the
 [R2A architecture plan](docs/design/active_knee_revision2_plan.md); the
 [teardown observations and their limits](evidence/reference/2026-09-25_beni_teardown/)
@@ -445,6 +448,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 | | |
 |---|---|
+| **R2A knee transmission** | **New 2026-09-27; gates step 3.** The R2A plan, README and CLAUDE.md chose a synchronous belt inside the proximal link, partly because it was read as Beni's mechanism. The teardown frame review shows Beni uses a hip-coaxial crank and a link to a shin lever, with a short belt stage at the hip only; which hip drive turns the crank is not settled from stills. Owner decision: keep the proximal-link belt with its own justification, or add a crank-and-link knee to the step-3 skeleton comparison. [Evidence](evidence/reference/2026-09-25_beni_teardown/). |
 | **C2** | Shoulder motor length, 40 vs 44 mm. Manufacturer STEP and live Fusion geometry use **44.0000 mm nominal**. The existing positive stand-in is only 9.5 mm long, so it cannot report exact overall hardware length; use the delivered motor against a negative ABS mating coupon or the actual ABS mating part as a functional go/no-go. No structural consequence in the rig. |
 | **C3** | Wheel motor length, 26 vs 33 mm. Manufacturer STEP and live Fusion geometry use **33.0000 mm nominal**. The existing full-length gauge is a positive stand-in; close assembly fit by placing the real motor into a negative ABS coupon or the actual ABS mating part. |
 | **C4** | Actuator masses, 388/150 vs 500/250 g. ~~Decides whether rig ballast is 37.5 g or 149.5 g of shot.~~ **Mode A has no ballast, so this decides nothing structural in the rig** — it still matters to the two-leg mass and power budgets. Weigh them. |
