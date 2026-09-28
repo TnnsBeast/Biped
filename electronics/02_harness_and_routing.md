@@ -9,7 +9,7 @@ connector schedule) and **4** (clock-spring cable specification).
 > through the shoulder hub's Ø6.0 port, ±120° software-limited), and only a
 > handful of the connector schedule's entries survive breadboarded buses. See
 > `../fusion_brief_single_leg_rig.md` §2.4 and §5. This file is for the two-leg
-> robot.
+> robot. **The R2A single-leg rig (three actuators) is §8.**
 
 ## 1. The architectural move: a satellite node per leg
 
@@ -230,3 +230,37 @@ ground and no ground plane outside the PCBs.** Consequences:
 than twice the main PCB.** Daisy-chaining CAN rather than starring it is worth
 real grams as well as signal integrity. There is no margin here; every gram
 added downstream comes out of the robot's 210 g total margin.
+
+## 8. R2A single-leg rig
+
+Scope: the ABS single-leg article of the
+[R2A plan](../docs/design/active_knee_revision2_plan.md), on the Mode A stand,
+bench-powered. Everything above this section is the two-leg robot.
+
+| Bus | Teensy 4.1 | Nodes | Rate |
+|---|---|---|---|
+| A | CAN1 on a CAN Pal | shoulder GIM6010-8 **node 0**, knee GIM6010-8 **node 1** | 500 kbit/s for commissioning at 100 Hz (10.8 % worst); 1 kHz needs 1 Mbit/s (54.0 % worst) or one GIM6010-8 per bus |
+| B | CAN2 on a CAN Pal | wheel GIM4305-10 (GDZ34 driver) | not commanded until B2 closes; its default appears to be 1 Mbit/s (B2) |
+| (C) | CAN3, spare | a third CAN Pal if bus A is split | — |
+
+Load figures are `r2a_calc.py` §6 and §9.
+
+- **Daisy-chain bus A** from the CAN Pal to the nearer GIM6010-8 and on to the
+  farther one, stubs ≤ 30 mm, **120 Ω at the two ends only** (§4): at the CAN
+  Pal and at the farther actuator. Check each driver's integrated terminator
+  and disable the one in the middle.
+- **Node IDs.** Both GIM6010-8 leave the factory as node 0. Change the knee
+  unit to node 1 alone on the bus before it joins the shoulder
+  ([traveller gate 3](../docs/assembly/r2a_test_traveller.md)).
+- **Power.** 20 V bench supply (B1), current-limited, soldered 16–18 AWG to the
+  actuators ([07](07_bom.md) Wave 0). For the single-leg gates only the two
+  GIM6010-8 are powered, so the owned 3-way WAGO 221-413 rails suffice; a
+  5-way 221-415 is needed only when the wheel is powered too.
+- **AS5048A** on SPI direct to the Teensy, as before. Its board mounts on
+  `R2A_Encoder_Bracket_L`, which is held until the board outline is known.
+- **On the leg,** the wheel, AS5048A and knee-actuator cables follow the
+  routes modelled in Fusion and leave the proximal-link root as one service
+  loop to the stand ([assembly guide §14](../docs/assembly/r2a_assembly_guide.md#14-cables)).
+  The shoulder stays within ±120° in software.
+- **No backdriving under power:** the brake chopper is deferred
+  (`01_power_and_battery.md` §7.2).

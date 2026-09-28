@@ -130,7 +130,7 @@ ID Ø94** — 2 mm of stretch onto the Ø96 rim seat. Revision 2 also added:
 | **M4 × 8 SHCS** | wheel rim → short wheel-hub inserts (Ø46 PCD) | 6 | 12 |
 | **M3 × 6 SHCS** | knee stop arc → proximal arm B inserts | 3 | 6 |
 | M3 × 8 SHCS | wheel hub → motor output (Ø27 PCD) | 3 | 6 |
-| M2.5 × 12 SHCS | wheel motor → distal wheel-end plate (Ø47.5 PCD) | 6 | 12 |
+| M2.5 × 12 SHCS **[CONFLICT 2026-09-27: through the 8.0 mm plate a ×12 reaches 1.0 mm past the floor of the STEP's Ø2.0 × 3.0 holes; R2A uses M2.5 × 10 — see PROJECT_STATUS open inconsistencies]** | wheel motor → distal wheel-end plate (Ø47.5 PCD) | 6 | 12 |
 | M3 × 16 SHCS | encoder bracket → arm B inserts | 2 | 4 |
 | M3 × 10 SHCS | chassis frame → side panels (5 per side) | — | 10 |
 | **Total** | | **44 + chassis** | **98** |
@@ -363,6 +363,8 @@ wheel is fully assembled.*
     not release or torque this joint before an alternate path is demonstrated.
     The six M3 hub screws remain accessible through the Ø34 root opening.
 12. Bolt the wheel motor to the distal wheel-end plate, **6 × M2.5 × 12**
+    **[CONFLICT 2026-09-27: the ×12 reaches 1.0 mm past the STEP hole floor; see
+    the §7 row]**
     inserted **from the inboard face**, 0.6 N·m. The driver cover nests in the
     plate's Ø41.5 hole and its two M2 screws stay accessible.
 13. Route the wheel-motor harness up the distal link, across the knee with a
@@ -389,8 +391,9 @@ wheel is fully assembled.*
 
 ## 10. Recommended print order
 
-For the active single-leg article, retain the accepted shoulder hub and print the Ø4.5 corrected proximal-link replacement in
-the [current print queue](README.md#current-print--convenience-link). The
+**[SUPERSEDED 2026-09-27: the active single-leg article is R2A; its print set is
+in `r2a_stl/` and the README queue.]** For the active single-leg article, retain the accepted shoulder hub and print the Ø4.5 corrected proximal-link replacement in
+the [current print queue](README.md) (final section of the README). The
 remaining sequence is gated as follows:
 
 1. Corrected `Chassis_Shoulder_Plate_L`, if the fitted plate is the failed Ø4.0

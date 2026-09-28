@@ -136,4 +136,10 @@ bracket, even while the bracket is on hold) and two in the distal link's
 outboard pads (encoder arm). Let each cool; reject a proud, tilted or loose
 insert. No other R2A part takes inserts.
 
-Assembly follows the [R2A assembly guide](../docs/assembly/r2a_assembly_guide.md).
+## Assembly status
+
+**`CAD PATH VERIFIED`** — 33 of 33 insertion, tool and service paths in Fusion
+([`assembly_paths.json`](../evidence/r2a/2026-09-27_digital_gate/assembly_paths.json)).
+**Not yet physically rehearsed.** The sequence is the
+[R2A assembly guide](../docs/assembly/r2a_assembly_guide.md); powered gates are
+the [test traveller](../docs/assembly/r2a_test_traveller.md).

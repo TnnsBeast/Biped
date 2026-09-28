@@ -51,6 +51,13 @@ it is a 2014-era part with far worse noise and no 32 kHz path; use the BNO085.
 PSU cannot sink regen and will just let the bus rise. No hand-spinning the wheel
 under power, no dropping the leg. (`01_power_and_battery.md` §7.2.)
 
+**R2A single-leg additions (2026-09-27).** The knee GIM6010-8 (buy 1), an
+optional third CAN Pal for splitting bus A, and a 5-way WAGO 221-415 pair only
+if the wheel is powered with both GIM6010-8. Quantities, requirements and the
+mechanical items are in the
+[R2A ordering guide](../procurement/r2a_ordering_guide.md); the bus plan is
+[`02` §8](02_harness_and_routing.md#8-r2a-single-leg-rig).
+
 **This is the rig's *electronics* half only.** The mechanical half is
 `../beni_single_leg_rig_design_record.md` **§9** — whose linear-motion and
 extrusion sections are also deferred with Mode B. The two lists together are the

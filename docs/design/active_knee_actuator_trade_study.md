@@ -18,14 +18,15 @@ shows that the linkage cannot add useful reduction.
 - The μ ≥ 40° transmission-angle rule, applied over roughly 100° of knee
   travel, leaves only near-parallelograms, with N = 0.866–0.937 for the
   selected geometry.
-- The knee actuator must therefore supply the knee torque directly: 2.00 N·m to
-  stand at α = 80° for a 4.429 kg robot, and about 4.6 N·m for one full robot
-  weight per leg at the crouch.
+- The knee actuator must therefore supply the knee torque directly: 2.15 N·m to
+  stand at α = 80° for a 4.768 kg robot, and about 5.0 N·m for one full robot
+  weight per leg at the crouch (figures updated 2026-09-27 to the
+  Fusion-measured linkage mass).
 
 The GIM6010-8 wins on four counts:
 
-1. **Torque class.** Standing uses 40% of its 5 N·m rated torque at the knee,
-   or 4.8 A after the linkage ratio (46% of rated current). Stall is 11 N·m.
+1. **Torque class.** Standing uses 43% of its 5 N·m rated torque at the knee,
+   or 5.2 A after the linkage ratio (49% of rated current). Stall is 11 N·m.
 2. **Bus voltage.** It runs on the owned 20 V bench bus, like the owned unit.
    The 20 V bus is fixed until blocker B1 clears.
 3. **Electronics and firmware.** It speaks the same ODrive CANSimple protocol as
@@ -37,8 +38,8 @@ The GIM6010-8 wins on four counts:
 
 Its costs:
 - **Mass.** 388 g bare, or 500 g per the brief (conflict C4 unresolved).
-- **Size.** Its Ø80 × 44 mm envelope on the shoulder axis sets the 253 mm track
-  and the 51° flexion stop.
+- **Size.** Its Ø80 × 44 mm envelope on the shoulder axis sets the 256.2 mm
+  track and the 51° flexion stop.
 - **Price.** No price is recorded in this repository; confirm it at order.
 
 The 2026-09-25 advice against a second GIM6010-8 assumed a belt layout, where
@@ -55,8 +56,8 @@ against the calculated requirements, not a catalogue guess.
 
 | Candidate | Result for the crank layout |
 |---|---|
-| RobStride 05, EduLite 05 | **Rejected.** Standing needs 125% / 111% of their published rated torque, and the linkage cannot make up the difference. |
-| RobStride 00 | **Fallback.** The torque class fits: 40% at stance, 14 N·m peak, 310 g. Its published 24–60 V range excludes the 20 V bus. It also needs RobStride CAN at 1 Mbit on a separate bus and a new mechanical interface with its own coupons. Reconsider it only if knee mass must drop and B1 allows a bus of 24 V or more. |
+| RobStride 05, EduLite 05 | **Rejected.** Standing needs 134% / 119% of their published rated torque, and the linkage cannot make up the difference. |
+| RobStride 00 | **Fallback.** The torque class fits: 43% at stance, 14 N·m peak, 310 g. Its published 24–60 V range excludes the 20 V bus. It also needs RobStride CAN at 1 Mbit on a separate bus and a new mechanical interface with its own coupons. Reconsider it only if knee mass must drop and B1 allows a bus of 24 V or more. |
 | RobStride 01, 02 | Rejected for the same bus-voltage, protocol and interface reasons. Their Ø78.5 bodies bring no packaging gain over the GIM6010-8. |
 | GIM4305-10, second unit | Rejected. At 1 N·m rated and 3.47 N·m stall it is weaker than the standing requirement. |
 
@@ -64,8 +65,8 @@ against the calculated requirements, not a catalogue guess.
 
 | Candidate | Published price | Size | Mass | Voltage | Published output | R2A reading |
 |---|---:|---:|---:|---:|---:|---|
-| RobStride 05 | $110 | 46 × 46 × 44 mm | 191 g | 15–60 V | 1.6 N·m rated, 5.5 N·m peak; 7.75:1 | **[SUPERSEDED 2026-09-27]** was the belt-layout budget pick; rejected for the crank layout (stance 125 % of rated) |
-| EduLite 05 | $80 | 46 × 46 × 44 mm | 242 g | 15–60 V | 1.8 N·m rated, 6 N·m peak; 9:1 | **[SUPERSEDED 2026-09-27]** was the price-floor alternate; rejected for the crank layout (stance 111 % of rated) |
+| RobStride 05 | $110 | 46 × 46 × 44 mm | 191 g | 15–60 V | 1.6 N·m rated, 5.5 N·m peak; 7.75:1 | **[SUPERSEDED 2026-09-27]** was the belt-layout budget pick; rejected for the crank layout (stance 134 % of rated at the 4.768 kg mass) |
+| EduLite 05 | $80 | 46 × 46 × 44 mm | 242 g | 15–60 V | 1.8 N·m rated, 6 N·m peak; 9:1 | **[SUPERSEDED 2026-09-27]** was the price-floor alternate; rejected for the crank layout (stance 119 % of rated at the 4.768 kg mass) |
 | RobStride 00 | $125 | 57 × 57 × 51 mm | 310 g | 24–60 V | 5 N·m rated, 14 N·m peak; 10:1 | Fallback for the crank layout if B1 permits ≥ 24 V; the jackshaft layout it was paired with is rejected |
 | RobStride 01 | $130 | 78.5 × 78.5 × 40 mm | 380 g | 24–48 V | 6 N·m rated, 17 N·m peak; 7.75:1 | Rejected: ≥ 24 V, new protocol and interface, no packaging gain over the GIM6010-8 |
 | RobStride 02 | $145 | 78.5 × 78.5 × 45.5 mm | 405 g | 24–60 V | 6 N·m rated, 17 N·m peak; 7.75:1 | Rejected: as RobStride 01; dual encoder noted |

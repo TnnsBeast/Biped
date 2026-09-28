@@ -31,7 +31,7 @@ the [test traveller](../../docs/assembly/r2a_test_traveller.md), from
 **CAN plan, bus A.** Shoulder GIM6010-8 stays at the factory default node 0;
 the knee GIM6010-8 becomes node 1 before it joins the bus, so its heartbeat is
 `(1 << 5) | 0x001 = 0x021`. The procedure is in the traveller. Bus B carries
-the wheel SDC101, whose protocol is still unpublished (B2).
+the wheel GIM4305-10, whose GDZ34 driver protocol is still unconfirmed (B2).
 
 **Not implemented, and why.** No payload packer: the Set_Axis_Node_ID,
 Set_Axis_State, limit-setting and MIT (0x008) payloads and scalings are not

@@ -3,6 +3,9 @@
 Dated purchasing workbooks live here so quoted prices and availability are not
 mistaken for permanent engineering requirements.
 
+- **Active:** [`r2a_ordering_guide.md`](r2a_ordering_guide.md) — what to buy
+  for the R2A single-leg article, with the engineering requirement per item and
+  the owned stock it relies on. Nothing in it has been ordered.
 - [`mode_a_procurement_bom_2026-08-21.xlsx`](mode_a_procurement_bom_2026-08-21.xlsx)
   is the purchasing and inventory-status view for the first Mode A single-leg
   build. Use its `Status & Gaps` tab for the current readiness audit. Purchases

@@ -8,8 +8,26 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
-**September 27 R2A concept — Beni-style crank-and-pushrod knee, on branch
-`r2a-active-knee`.** The owner directed R2A to copy the knee mechanics in the
+**September 27 R2A digital gate closed; ABS single-leg print set released —
+nothing physically verified.** On branch `r2a-active-knee`, Fusion
+`Beni_R2A_SingleLeg` (v5, a copy of `Beni_SingleLegRig` v31; both legacy
+documents unchanged) holds the complete crank-and-pushrod leg.
+
+- **CAD evidence:** 140-pose sweep with 0 real clashes; 33 insertion, tool and
+  service paths `CAD PATH VERIFIED`; stops measured at 51.00° / 150.00°; tyre
+  5.49 mm and rod 2.80 mm clearances; fastener engagement per set
+  ([record](evidence/r2a/2026-09-27_digital_gate/README.md)).
+- **Released:** 12 bed-ready files in [`r2a_stl/`](r2a_stl/README.md), coupons
+  first, pinned by `verify_r2a_release.py` (also in CI). The AS5048A bracket is
+  held.
+- **To buy:** one knee GIM6010-8 and the linkage hardware
+  ([ordering guide](procurement/r2a_ordering_guide.md)); nothing ordered.
+- **Next physical work:** coupons, then the
+  [assembly guide](docs/assembly/r2a_assembly_guide.md) and the
+  [test traveller](docs/assembly/r2a_test_traveller.md) gates 2–4.
+
+**September 27 R2A concept — Beni-style crank-and-pushrod knee.** The owner
+directed R2A to copy the knee mechanics in the
 [Beni teardown](evidence/reference/2026-09-25_beni_teardown/) and to reuse the
 owned actuators and electronics.
 
@@ -27,8 +45,9 @@ owned actuators and electronics.
   interfaces.
 - **Documents:** the [R2A plan](docs/design/active_knee_revision2_plan.md) and
   the [trade study](docs/design/active_knee_actuator_trade_study.md).
-- **Released so far:** no R2A CAD, STL or purchase. One knee GIM6010-8 is
-  recommended.
+- **Released so far:** ~~no R2A CAD, STL or purchase~~ **[SUPERSEDED
+  2026-09-27: CAD and the ABS print set are released, above; no purchase]**.
+  One knee GIM6010-8 is recommended.
 
 The legacy ABS article stays spring-free and unpowered and remains useful only
 as fit, assembly and failure evidence.
@@ -286,37 +305,35 @@ deferred to the later two-leg build.
 Work on branch `r2a-active-knee`. The full ladder is in the
 [R2A plan](docs/design/active_knee_revision2_plan.md) §10.
 
-1. Keep the assembled passive article spring-free and unpowered. Do not spend
-   another print cycle on the spring cartridge.
-2. **Order one knee GIM6010-8** after confirming price and lead time. Order the
-   rod ends, M5 rod and Ø5 shoulder screws against the plan's §6 requirements.
-3. **Fusion digital gate.** Through the Fusion MCP, create an R2A copy of
-   `Beni_SingleLegRig`. Build the two proximal-link halves, the crank, and the
-   distal link with its lever around the §3 linkage.
-   - Sweep α 49…152° with the shoulder moving independently.
-   - Prove the tyre, rod and cable clearances, every assembly and tool path, and
-     every print orientation.
-   - Replace the envelope assumptions in `r2a_calc.py` with modelled geometry
-     and rerun it.
-4. Design the knee stops and bumpers, and print the new-fit coupons: Ø5 clevis
-   holes, rod-end side clearance, crank register.
-5. Add the second ODrive-CANSimple node (node 1, bus A at 1 Mbit) and the
-   linkage map to the Teensy firmware. Confirm where the GIM6010-8 encoder reads
-   (rotor or output) before relying on it for homing.
-6. Release one unpowered ABS linkage article through the Fusion, assembly-path,
-   mesh and orientation gates. Only after it passes may a detached,
-   current-limited drive test be specified.
+1. Keep the assembled passive article spring-free and unpowered until it is
+   taken down for R2A ([assembly guide §0](docs/assembly/r2a_assembly_guide.md#0-before-you-start)).
+2. **Order** the knee GIM6010-8, rod ends, M5 rod, jam nuts, Ø5 × 18 pins,
+   6800-2RS pair and M2.5 × 10 after confirming each against the
+   [ordering guide](procurement/r2a_ordering_guide.md); record the chosen rod
+   end's drawing there.
+3. **Print and test the three coupons** ([`r2a_stl/`](r2a_stl/README.md)).
+   A failed coupon means a re-release, never rework.
+4. **Print the article** and rehearse the
+   [assembly guide](docs/assembly/r2a_assembly_guide.md) physically; promote
+   steps to `PHYSICAL ASSEMBLY VERIFIED` only as they pass.
+5. **Run gates 2–4** of the [test traveller](docs/assembly/r2a_test_traveller.md):
+   unpowered linkage, detached knee drive (including the node-ID change to 1
+   and the rotor-or-output encoder test), wheel-clear single leg.
+6. Measure the AS5048A adapter board so `R2A_Encoder_Bracket_L` can be
+   released.
 
 The accepted fit results from the legacy article carry over: shoulder plate,
-hub, knee stack and wheel module. No old interface is inherited for a new load
-without checking its load and service path.
+hub, knee-pin receiver, 6800 seat, insert receivers and wheel module. No old
+interface is inherited for a new load without checking its load and service
+path.
 
 ## The active Fusion documents
 
 | Document | What it is |
 |---|---|
 | `Beni_Prototype1` | Legacy passive-knee two-leg robot. **Historical master — preserve; do not convert in place.** |
-| `Beni_SingleLegRig` | Legacy passive-knee ABS rig, saved as v31 on 2026-09-24. Preserve it as the assembled article's CAD/evidence baseline. Start R2A in a separate Fusion copy after the read-only measurement report. |
+| `Beni_SingleLegRig` | Legacy passive-knee ABS rig, saved as v31 on 2026-09-24. Preserve it as the assembled article's CAD/evidence baseline. |
+| `Beni_R2A_SingleLeg` | **Active.** R2A single-leg article, a copy of `Beni_SingleLegRig` v31; saved as v5 on 2026-09-27. Built by `r2a_lib.py`; every mutating script asserts this document is active (`r2a_lib.assert_r2a_doc()`). Knee REF guard: Y 84.1…128.1. [Gate record](evidence/r2a/2026-09-27_digital_gate/README.md). |
 | `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
@@ -340,7 +357,12 @@ Rig design record §6.2.
 |---|---|
 | [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md) | Crank-and-pushrod decision, Beni mapping, linkage, lateral stack, reuse/new BOM, assembly sequence, printing, electronics, verification ladder and rejected alternatives. |
 | [`docs/design/active_knee_actuator_trade_study.md`](docs/design/active_knee_actuator_trade_study.md) | Knee-actuator recommendation (second GIM6010-8), dated candidate data and rejected drive concepts. |
-| [`r2a_calc.py`](r2a_calc.py) | Linkage synthesis, knee load cases, idealised push-off/landing, part loads and CAN load; `--plot` redraws the plan's schematic. |
+| [`r2a_calc.py`](r2a_calc.py) | Linkage synthesis, knee load cases, idealised push-off/landing, part loads, CAN load, stand bench reach and ABS commissioning limits, all on the Fusion-measured geometry; `--plot` redraws the plan's schematic. |
+| [`evidence/r2a/2026-09-27_digital_gate/`](evidence/r2a/2026-09-27_digital_gate/README.md) | CAD evidence: sweep, clearances, assembly/tool/service paths, fastener engagement, print release audit. |
+| [`r2a_stl/README.md`](r2a_stl/README.md) | Print traveller: files, quantities, orientations, supports, acceptance tests. |
+| [`procurement/r2a_ordering_guide.md`](procurement/r2a_ordering_guide.md) | What to buy, with requirements; owned stock. |
+| [`docs/assembly/r2a_assembly_guide.md`](docs/assembly/r2a_assembly_guide.md) | Illustrated assembly and service sequence. |
+| [`docs/assembly/r2a_test_traveller.md`](docs/assembly/r2a_test_traveller.md) | Gates 2–4 with current, speed and range limits and pass/fail. |
 | [`evidence/reference/2026-09-25_beni_teardown/`](evidence/reference/2026-09-25_beni_teardown/) | Timestamped teardown observations and explicit limits on what the video establishes. |
 
 ### Legacy single-leg rig — physical evidence baseline
@@ -399,7 +421,13 @@ hand-built.
 | `beni_export.py` | inside Fusion | STEP per part, URDF + inertia JSON with a mass-closure assert, print STLs, viewer STLs. |
 | `rig_lib.py` | inside Fusion | Builds every `RIG_*` part, including the completed Mode A `build_rig_stand()`, the §4.4 check suite (`checks_44()`), the Mode B travel harness (`slide_to()`), and an interference reporter whose names actually resolve (`real_clashes()`). The rail/block/carriage/index/pin/bumper/ballast builders and `check3_mode_b_travel()` are deferred with Mode B. |
 | `rig_calc.py` | plain `python3` | Independent recomputation of the brief's arithmetic: spring curve, drop series, MGN12H moments, travel budget, mass budget, bounce mode, torque arm, and **`mode_a_stand()` — the verified Mode A load set** (42.00 mm overhang, the four moments, the tipping table, the step-6 mass/φ table). |
-| `r2a_calc.py` | plain `python3` (numpy; matplotlib for `--plot`) | R2A crank-and-pushrod arithmetic: flex-stop envelope, four-bar synthesis under transmission-angle and clearance limits, the linkage map, knee load cases, idealised push-off and landing with a GIM6010-8, rod/pin/stop loads, crank overhang and CAN load. Source of every figure in the R2A plan §§3–9. |
+| `r2a_calc.py` | plain `python3` (numpy; matplotlib for `--plot`) | R2A crank-and-pushrod arithmetic on the Fusion-measured geometry (`fusion_measurements.json`): flex-stop envelope, four-bar synthesis, linkage map, knee load cases, idealised push-off and landing, rod/pin/stop loads, crank overhang, CAN load, Mode A stand bench reach, ABS commissioning limits. Source of every figure in the R2A plan. |
+| `r2a_lib.py` | Fusion MCP, with `Beni_R2A_SingleLeg` active | Builds every R2A part and screw set, poses the leg (`r2a_pose()`), runs the interference sweep (`sweep_chunk()`, all occurrences forced visible), measures clearances and stops and writes the gate record. Every mutating entry point asserts the R2A document. |
+| `r2a_paths_fusion.py` | Fusion MCP, R2A active | The 33 insertion, tool and service paths, negative controls, and fastener engagement from the screws' planar faces. |
+| `r2a_release_fusion.py` | Fusion MCP, R2A active | R2A release gate: 37 dimensional contracts, bed poses, print audit, distal support-removal audit, coupons cut from the part B-Reps, export with `stl_release` and `mesh_fidelity()`; logged `accept_*` steps write `r2a_release_baseline.json`. Never touches the legacy baseline. |
+| `r2a_images_fusion.py` | Fusion MCP, R2A active | README gallery and assembly-guide images from the live R2A model. |
+| `verify_r2a_release.py` | plain `python3`, also GitHub CI | Byte-hash gate for the 12 R2A files and the three Fusion-verified R2A sources, plus the recorded contract and support audits. |
+| `firmware/r2a/` | plain `python3` + host `g++` | Knee linkage map, limits and CAN node plan as a header, generated table and host test. No actuator command path. |
 | `rig_export.py` | inside Fusion | Rig STLs, the targeted Mode A anchor, and the transient ABS-calibrated shoulder-hub first article, with print orientation recorded per part. |
 | `first_article_fusion.py` | Fusion MCP | Builds, validates and exports the ABS actuator coupons, 6800 ladder, full-depth knee-pin bore ladder and proximal first article in `Beni_Prototype1_TestGauges`. |
 | `knee_mockup_fusion.py` | Fusion MCP | Creates the separate supported ABS knee mock-up, temporary pin and detached spring-seat caps; checks assembly/support paths and exported meshes. |
@@ -442,6 +470,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 | Directory | Contents |
 |---|---|
+| `r2a_stl/` | **Active.** The R2A ABS single-leg print set and its traveller. |
 | `rig_stl/` | Rig parts to print, plus `reroute/` — the formerly-machined parts, now printed. `reroute/Distal_Link_L.stl` supersedes the `print_stl/` copy. |
 | `first_article_stl/` | **Print this first.** ABS actuator mating coupons, the unloaded shoulder dry-fit batch, the optional Mode A cable anchor, Fusion manifests and mesh checksums. |
 | `print_stl/` | Robot parts to print, the fit coupon, the two motor gauges |
@@ -468,9 +497,31 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 | Main knee spring | **[RETIRED FROM R2A]** Yellow / OD18 / ID9 / 50 mm. It remains physical evidence from the failed passive article; do not reinstall it. R2A has no main compression spring. Any later energy-storage element requires a new, constrained load path and a separate release. [Spring record](evidence/springs/2026-09-05_reconciliation/) · [failure record](evidence/assembly/2026-09-24_spring_escape/). |
 | Brake chopper | Deferred with Mode B, and **still uncomputed** (~21.5 V on / ~20.8 V off). ⚠ Until it is built, nothing may backdrive a motor. |
 | Creep | Printed joints relax silently. Re-torque after the first hour, then periodically. Inspect the printed hub's dowel holes after every drop session. |
+| R2A open items | AS5048A board outline (bracket held); rod-end vendor part against the envelope and ≥ 1521 N; rod group to crank 1.95 mm at the extension stop, 0.05 mm under the 2.0 mm rule (joint-internal, gate 2 inspects); GIM6010-8 encoder rotor-or-output (gate 3 test); output-bearing rating for the 9.2 N·m crank overhang. [Plan §12](docs/design/active_knee_revision2_plan.md#12-open-items). |
 | Stand hold-down | **New in Mode A.** 11.00 N·m of shoulder yaw needs 11.2 kg at a 100 mm base half-width, 5.6 kg at 200 mm, 3.7 kg at 300 mm. The modelled stand is **574.2 g**, so it **must be clamped to the bench, not weighted.** Four clamp landings and 4 × M6 bench-bolt holes are in the CAD; the unloaded bench pull-test has no CAD equivalent and is still owed. |
 
 ### Open inconsistencies in the documents
+
+Found during the 2026-09-27 R2A digital gate and **not** resolved in the legacy
+records:
+
+- **Wheel-motor screws, M2.5 × 12.** The legacy BOM (§7 table and §9 B12)
+  specifies 6 × M2.5 × 12 through the 8.0 mm distal wheel-end plate. The
+  GIM4305-10 STEP's six holes are Ø2.0 × 3.0 blind (y 67.5…70.5), so the ×12
+  reaches 1.0 mm past the floor. R2A uses M2.5 × 10 (2.0 mm engagement). Not
+  checked physically.
+- **GIM6010-8 housing thread behind the front 4.0 mm.** The design record §2.1
+  says "Ø6.0 through-bore between" the front and rear threads; the STEP shows a
+  Ø4.5 bore there; the legacy delivered-actuator test (BOM §9 B1) found a 5 mm
+  protrusion bottoms. R2A treats the thread as blind at ~4.0 mm (M3 × 10,
+  3.4 mm engagement).
+- **Single-leg CAN rate.** `electronics/03` §3 fixes the rig at 500 kbps for
+  breadboard stubs; two GIM6010-8 on one bus at 1 kHz need 1 Mbps. R2A
+  commissions at 100 Hz on 500 kbps and defers the choice (1 Mbps with ≤ 30 mm
+  stubs, or a third CAN Pal) to the gate 4 soak.
+- **Rig-to-bench reach.** The extended R2A leg passes below the Mode A stand's
+  base plane beyond α 91.8° at shoulder 0; the stand must be clamped at a bench
+  edge (`r2a_calc.py` §8). The legacy rig guides assume a flat bench.
 
 Found during the 2026-08-17 cleanup and **not** resolved, because resolving them
 needs a judgement call on the engineering:

@@ -15,16 +15,23 @@ apparent proportions.
   thermal duty for standing, crouch, jump and landing are not derived.
 - **B5 — knee actuator:** **recommended 2026-09-27, not purchased.** A second
   GIM6010-8 on the 20 V bus, as node 1 on bus A with the shoulder. It needs
-  1 Mbit, or 500 Hz at 500 kbit. Still open: which shaft its mono-turn encoder
-  reads (this decides homing), current limits and price. The existing wheel
-  motor remains required at the wheel and is not spare knee hardware.
+  1 Mbit, or 500 Hz at 500 kbit, for a 1 kHz-class loop; the single-leg
+  commissioning runs at 100 Hz on 500 kbit. Still open: which shaft its
+  mono-turn encoder reads (this decides homing; the
+  [test traveller](../docs/assembly/r2a_test_traveller.md) gate 3 tests it) and
+  price. ~~current limits~~ **[RESOLVED 2026-09-27 for the ABS article:** 1.0 A
+  detached, 3.0 A on the leg, `r2a_calc.py` §9**]**. The existing wheel motor
+  remains required at the wheel and is not spare knee hardware.
   [Recommendation](../docs/design/active_knee_actuator_trade_study.md).
 - **B6 — transmission:** **crank-and-pushrod selected 2026-09-27**, replacing
-  the belt. Still open: rod-end and pin part numbers against the calculated
-  requirement (≥ 1521 N rod-end static rating); knee stops (851 N at R35 from
-  the proof screen); the 8.7 N·m crank overhang on the actuator's output
-  bearing; and Fusion proof of the linkage and service path. Figures come from
-  `r2a_calc.py`.
+  the belt. Still open: rod-end part number against the calculated requirement
+  (≥ 1521 N rod-end static rating) and the modelled envelope, and the 9.2 N·m
+  crank overhang on the actuator's output bearing (no bearing rating
+  recorded). **[RESOLVED 2026-09-27:** Fusion proof of the linkage and service
+  path ([digital gate](../evidence/r2a/2026-09-27_digital_gate/README.md));
+  knee stops as radial faces with TPU plugs, 1083 N at R27.5 from the proof
+  screen; clevis pins are Ø5 × 18 dowels, not shoulder screws**]**. Figures
+  come from `r2a_calc.py`.
 - **B7 — six-actuator electronics:** power, regen, fusing, CAN loading, harness,
   thermal path and firmware scheduling have not been revised for one added
   actuator per leg.

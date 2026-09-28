@@ -699,6 +699,7 @@ LIM_STEP_A = 0.5            # ... rounded up to this step
 LIM_SHOULDER_DEG = 30.0     # gate 4: shoulder within this of hanging
 LIM_SPEED_DPS = 30.0        # gates 3-4: joint speed limit, deg/s at the joint
 LIM_CMD_HZ = 100.0          # gates 3-4: command + reply rate per node
+SOFT_LIMITS = (54.0, 147.0)  # deg, firmware/r2a/r2a_knee_linkage.h kSoftMin/MaxAlphaDeg
 DIST_ABS = ('R2A_Distal_Link_L', 'R2A_Lever_Cap_L', 'R2A_Encoder_Arm_L', 'Wheel_Hub_L',
             'ABS_TEST_Wheel_Rim_NoTyre')
 DIST_STEEL = ('HW_Pin_D5x18_Lever', 'HW_DowelPin_D4x10_Lever', 'HW_DowelPin_D4x10_EncArm',
@@ -756,6 +757,16 @@ def commissioning(r, alphas):
     sp_c = LIM_SPEED_DPS * float(np.max(r['n'][work]))
     print(f'  speed limit {LIM_SPEED_DPS:.0f} deg/s at each joint: knee crank <= {sp_c:.1f} deg/s'
           f' = {sp_c / 360:.3f} turn/s at the output; shoulder {LIM_SPEED_DPS / 360:.3f} turn/s')
+    st = FUSION['stops']
+    tpu = st['tpu_plug']
+    for key, soft in (('flex', SOFT_LIMITS[0]), ('ext', SOFT_LIMITS[1])):
+        c = st[key]
+        da = math.radians(abs(soft - c['contact_deg']))
+        r_c = 0.5 * (c['r0'] + c['r1'])
+        print(f'  at the {key} software limit alpha {soft:.0f} ({math.degrees(da):.2f} deg from rigid'
+              f' contact): rigid-face gap {r_c * da:.2f} mm at R{r_c:.1f}; TPU plug gap'
+              f' {tpu["r"] * da - tpu["protrusion"]:.2f} mm at R{tpu["r"]:.0f}; plug engages'
+              f' {math.degrees(tpu["protrusion"] / tpu["r"]):.2f} deg before rigid contact')
     for rate, scale in (('1 Mbit', 1.0), ('500 kbit', 2.0)):
         typ = 2 * 2 * LIM_CMD_HZ * FRAME_US_1M[0] * scale / 1e4
         worst = 2 * 2 * LIM_CMD_HZ * FRAME_US_1M[1] * scale / 1e4

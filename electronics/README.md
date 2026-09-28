@@ -179,7 +179,10 @@ All ten §10 deliverables are drafted across `01`–`06`. **They describe the
 legacy four-actuator two-leg robot.** The legacy Mode A rig used a Teensy 4.1,
 20 V bench supply and breadboarded buses; its carve-outs remain marked in `01`,
 `02`, `03` §3, `06` and `07` Wave 0. R2A is the active design and requires a
-fresh six-actuator electronics pass after knee-motor selection.
+fresh six-actuator electronics pass after knee-motor selection. **The R2A
+single-leg rig (three actuators, bus A shared by shoulder and knee) is
+[`02` §8](02_harness_and_routing.md#8-r2a-single-leg-rig);** its powered gates
+are the [test traveller](../docs/assembly/r2a_test_traveller.md).
 
 **Amended 2026-08-17 — the rig build is MODE A only.** The vertical slide, the
 ballast and the drop series are deferred, which changes three things on the

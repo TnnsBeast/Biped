@@ -36,6 +36,14 @@ must state the exact sequence, current status, and evidence link. The canonical
 fastener schedule and full robot assembly order remain in
 [`beni_prototype1_bom_and_assembly.md`](beni_prototype1_bom_and_assembly.md).
 
+**R2A single-leg article (2026-09-27): `CAD PATH VERIFIED`.** Fusion
+`Beni_R2A_SingleLeg` checks 33 insertion, tool and service paths, including the
+wheel module and the knee-module removal, with four negative controls
+([evidence](evidence/r2a/2026-09-27_digital_gate/README.md)). Build traveller:
+[`r2a_stl/README.md`](r2a_stl/README.md); sequence:
+[`docs/assembly/r2a_assembly_guide.md`](docs/assembly/r2a_assembly_guide.md).
+No physical rehearsal yet.
+
 The first recorded application of this gate is the GIM6010 shoulder stack:
 [`evidence/shoulder_assembly/2026-08-23_plate_sequence/`](evidence/shoulder_assembly/2026-08-23_plate_sequence/).
 

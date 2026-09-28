@@ -28,6 +28,11 @@ Covers brief §10 deliverables **2** (actuator variants, protocol, pinouts) and
 **Jump check:** 5.9 N·m ÷ 0.47 = **12.6 A = 54% of peak.** Comfortable on
 paper. See §1.4 for why "on paper" is doing work in that sentence.
 
+**R2A: a second GIM6010-8 drives the knee** through the crank and pushrod, as
+**node 1** on bus A beside the shoulder at node 0. Same data as above. Its
+node-ID change, current limits and encoder test are in the
+[R2A test traveller](../docs/assembly/r2a_test_traveller.md).
+
 ### 1.2 GIM4305-10 — wheel
 
 | Parameter | Value |
@@ -156,10 +161,15 @@ five assembled. **Budget 4–6 weeks and plan for a rev B.**
 The rig needs only two CAN buses (one per actuator), the Teensy has three CAN
 controllers and an onboard microSD socket, and it is in hand today. No PCB lead
 time, no PCB revision, no 8 mm slot constraint (the rig has no chassis). Wire
-two TCAN3414 breakouts on a breadboard at **500 kbps** (breadboard impedance
+two TCAN3414 breakouts **[SUPERSEDED 2026-08-17: two Adafruit CAN Pal 5708,
+`07_bom.md` Wave 0]** on a breadboard at **500 kbps** (breadboard impedance
 cannot hold 1 Mbps stubs). The knee encoder AS5048A runs SPI directly to the
 Teensy — no satellite node needed for a single leg. See
-`fusion_brief_single_leg_rig.md` §5.
+`fusion_brief_single_leg_rig.md` §5. **[LEGACY RIG — R2A has three actuators:
+shoulder and knee GIM6010-8 share bus A as nodes 0 and 1, the wheel is on bus
+B. 500 kbps carries the 100 Hz commissioning traffic; a 1 kHz loop needs 1 Mbps
+on bus A or one GIM6010-8 per bus on a third CAN Pal. See
+[`02` §8](02_harness_and_routing.md#8-r2a-single-leg-rig).]**
 
 **Fallbacks for the two-leg robot, in order:**
 

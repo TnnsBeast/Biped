@@ -635,7 +635,7 @@ of which reproduces design record §10.1 **exactly** (1.4 mm³ at −8°, 8.6 at
 12.7 at the +27° stop), which is a useful independent confirmation that the
 bumpers still engage where they were designed to after the §2.3 rebuild.
 
-### 6.2 Five measurement traps found while checking
+### 6.2 Measurement traps found while checking (five in the rig build, three more in R2A)
 
 Recorded because each one silently produced a *passing* result that was wrong,
 which is the failure mode this project's design record keeps warning about.
@@ -703,6 +703,26 @@ which is the failure mode this project's design record keeps warning about.
    > two cartridge stop parts into the motor, in the one place a real knee-stop
    > clash would show up. `rig_set_pose()` now guards and re-places them, and
    > `checks_44()` repairs and asserts before the first pose.
+6. **[ADDED 2026-09-27, found in `Beni_R2A_SingleLeg`] A hidden linked
+   occurrence drops out of `Design.analyzeInterference`.** The motor STEP
+   references are linked occurrences; hidden ordinary occurrences stay in the
+   analysis, hidden linked ones do not. A sweep run after an inspection view had
+   hidden the REFs reported clean while no longer checking the motors — a
+   *passing* wrong answer again. Force every occurrence visible for a sweep and
+   restore the view after (`r2a_lib.sweep_chunk()`, `all_visible()`).
+7. **[ADDED 2026-09-27] The transform guard also undoes intended moves, and
+   snapshots displace the REFs.** `rig_lib.guarded()` restores *every* captured
+   transform, so a placement written inside the guarded function is reverted;
+   write it after the guard, then re-run the REF asserts. Separately,
+   `design.snapshots.add()` followed by `computeAll()` displaced all three REFs
+   (recovered with undo); the R2A scripts never capture snapshots.
+8. **[ADDED 2026-09-27] A small STEP-thread overlap can hide a screw that
+   bottoms.** A screw in a STEP's minor-diameter hole plus 1 mm of solid beyond
+   its floor still totals under the 40 mm³ thread-artifact threshold. Check
+   screw depth against measured hole spans instead
+   (`r2a_paths_fusion.fastener_engagement()`); it found the wheel-motor
+   M2.5 × 12 running 1.0 mm past its hole floor. Occurrence bounding boxes also
+   carry a 0.01 mm pad: take exact spans from planar faces.
 
 ---
 

@@ -8,14 +8,20 @@ and crank → pushrod → lever on the distal link → active rotary knee → dr
 wheel**, one leg per side. R2A uses three actuators per leg: the owned GIM6010-8
 shoulder, the owned GIM4305-10 wheel, and a second GIM6010-8 for the knee
 (recommended 2026-09-27, not yet bought). R2A work lives on the
-`r2a-active-knee` branch; its numbers come from `r2a_calc.py`. The current Fusion
-documents and printed ABS article are the legacy passive-knee baseline; no R2A
-CAD or replacement print is released. Start with
+`r2a-active-knee` branch; its numbers come from `r2a_calc.py`. **R2A CAD lives in
+the separate Fusion document `Beni_R2A_SingleLeg` (v5, 2026-09-27)** and its ABS
+single-leg print set is released on the branch (`r2a_stl/`, pinned by
+`r2a_release_baseline.json` and `verify_r2a_release.py`). Nothing R2A has been
+printed, assembled or tested; every R2A claim is CAD evidence
+([`evidence/r2a/2026-09-27_digital_gate/`](evidence/r2a/2026-09-27_digital_gate/README.md)).
+The printed ABS article in hand is the legacy passive-knee baseline. Start with
 [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).
 
 Two legacy Fusion documents exist: `Beni_Prototype1` (the passive-knee two-leg
 robot, revision 2, v18) and `Beni_SingleLegRig` (a Save-As copy, v31). Preserve
-both as historical baselines and create R2A in a separate Fusion copy.
+both as historical baselines; R2A is `Beni_R2A_SingleLeg`, a copy of the rig.
+Other projects may be open in Fusion: every R2A script that can mutate must
+first call `r2a_lib.assert_r2a_doc()`.
 **The legacy rig is MODE A only** as of 2026-08-17 — shoulder bolted rigid to a
 printed stand; the vertical slide, the ballast and the drop series are **deferred,
 not cancelled**. `RIG_Stand` **is now modelled** (`rig_lib.build_rig_stand()`,
@@ -157,10 +163,12 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
     be discoverable only in a subdirectory document.
 
 11. **Keep the README CAD gallery current.** When a verified model change affects
-    the full robot, leg, wheel module, or knee views shown on the project
-    homepage, run `readme_images_fusion.py` through the Fusion MCP and commit the
-    refreshed `docs/readme/` images with the model change. Do not substitute
-    concept art or locally rendered STEP/STL images for the live Fusion model.
+    the views shown on the project homepage, regenerate them through the Fusion
+    MCP — `r2a_images_fusion.py` for the current R2A gallery (and the R2A
+    assembly-guide pictures), `readme_images_fusion.py` for the legacy views —
+    and commit the refreshed `docs/readme/` images with the model change. Do not
+    substitute concept art or locally rendered STEP/STL images for the live
+    Fusion model.
 
 12. **Print orientation is part of dimensional control.** A fit result transfers
     only when the released part prints the critical interface on the same build
@@ -180,6 +188,11 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 | Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
 | Active-knee architecture, work packages and release gates | `docs/design/active_knee_revision2_plan.md` |
+| R2A CAD evidence: sweep, clearances, paths, fastener engagement, release audit | `evidence/r2a/2026-09-27_digital_gate/` |
+| R2A print files, orientations, supports, acceptance tests | `r2a_stl/README.md` |
+| R2A purchase requirements and owned stock | `procurement/r2a_ordering_guide.md` |
+| R2A assembly/service sequence; powered test gates and limits | `docs/assembly/r2a_assembly_guide.md`; `docs/assembly/r2a_test_traveller.md` |
+| R2A single-leg CAN/power plan | `electronics/02_harness_and_routing.md` §8 |
 | R2A linkage, knee load cases, capability and part-load numbers | `r2a_calc.py` (rerun it and copy its output verbatim; never retype an edited figure) |
 | Active-knee actuator recommendation, dated candidate data and rejected drive concepts | `docs/design/active_knee_actuator_trade_study.md` |
 | Beni teardown observations and limits | `evidence/reference/2026-09-25_beni_teardown/` |
@@ -226,6 +239,10 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
   1.645 kg is **Mode B only** — Mode A has no ballast, which is why conflict C4
   decides nothing structural in the rig. **Rig step 6 runs in Mode A**, so the
   measured spring F₀ and k are not forfeited by the deferral.
+- **A hidden linked occurrence drops out of `analyzeInterference`** (the motor
+  REFs are linked). A sweep after an inspection view that hid them passes while
+  no longer checking the motors. Force every occurrence visible for a sweep;
+  `r2a_lib.sweep_chunk()` does. Rig design record §6.2 traps 6–8.
 - **`beni_lib.interference()` cannot be trusted** — it falls back to `entity.name`,
   so everything reads `Body1 ↔ Body2` and a `'RIG_'` filter matches nothing. Four
   builds reported zero clashes against 49 real pairs. Use `rig_lib.real_clashes()`.
@@ -294,6 +311,18 @@ python3 rig_calc.py     # recomputes every number in the rig design record
 
 `rig_calc.py` and `stl_inspect.py` run in plain `python3`; everything else runs
 only inside Fusion.
+
+### Releasing a changed R2A printed part (`Beni_R2A_SingleLeg`)
+
+Same shape as the legacy procedure below, with `r2a_release_fusion.py`:
+change the builder in `r2a_lib.py` and rebuild under `r2a_lib.guarded()`;
+update `contract_table()` for an intended interface change; re-run the sweep
+(`sweep_chunk()`), paths (`r2a_paths_fusion.run_steps()`) and
+`fastener_engagement()`; `accept_shapes([...], reason)`; `release(names=[...])`
+(a directory argument is a dry run); `accept_released_files(...)`;
+`accept_verified_sources(reason)`; save the document through the MCP; run
+`python3 verify_r2a_release.py` and commit the baseline diff with its evidence.
+The R2A gate never reads or writes `mechanical_release_baseline.json`.
 
 ### Releasing a changed printed part (`Beni_SingleLegRig`)
 
