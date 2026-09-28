@@ -1,0 +1,498 @@
+{
+ "document": "Beni_R2A_SingleLeg",
+ "version": 5,
+ "written": "2026-09-27 21:35",
+ "linkage_mm": {
+  "crank": 32.0,
+  "rod": 120.0,
+  "lever": 30.0,
+  "lever_offset_deg": -12.0,
+  "theta_c_build_deg": 69.40319298771009
+ },
+ "rod_end_envelope_mm": {
+  "eye_d": 18.0,
+  "eye_w": 6.0,
+  "ball_d": 11.0,
+  "ball_w": 8.0,
+  "neck_d": 9.0,
+  "h": 27.0,
+  "thread_depth": 10.0,
+  "bore": 5.0
+ },
+ "jam_nut_mm": {
+  "af": 8.0,
+  "t": 2.7,
+  "across_corners": 9.238
+ },
+ "rod_mm": {
+  "d": 5.0,
+  "length": 86.0
+ },
+ "stack_y_mm": {
+  "leg_inboard_face": 59.5,
+  "channel": [
+   64.5,
+   84.5
+  ],
+  "actuator_mount_face": 91.1,
+  "actuator_output_face": 87.6,
+  "actuator_housing": [
+   92.1,
+   116.1
+  ],
+  "actuator_cover": [
+   117.1,
+   128.1
+  ],
+  "rod_plane": 75.5,
+  "ball_gap": [
+   71.3,
+   79.7
+  ],
+  "crank_cap": [
+   68.3,
+   71.3
+  ],
+  "crank_slab": [
+   79.7,
+   87.6
+  ],
+  "lever_inboard_ear": [
+   65.8,
+   71.3
+  ],
+  "lever_cap": [
+   79.7,
+   83.4
+  ],
+  "bearing_a": [
+   59.5,
+   64.5
+  ],
+  "bearing_b": [
+   86.1,
+   91.1
+  ],
+  "receiver": [
+   65.3,
+   85.3
+  ],
+  "knee_pin": [
+   56.099999999999994,
+   91.1
+  ],
+  "magnet_face": 97.3,
+  "as5048a_die": [
+   98.3,
+   99.3
+  ]
+ },
+ "outline_mm": {
+  "root_r": 50.5,
+  "root_r_tyre_side": 42.0,
+  "bottom_edge_tangent_r": 41.0,
+  "knee_cheek_r": 36.0,
+  "knee_boss_r": 17.5,
+  "roof_v": [
+   44.0,
+   48.0
+  ],
+  "back_wall_r": [
+   46.5,
+   50.5
+  ]
+ },
+ "clevis_mm": {
+  "ear_thickness": {
+   "crank_cap": 3.0,
+   "crank_slab_at_pin": 6.8999999999999915,
+   "lever_inboard": 5.5,
+   "lever_cap": 3.700000000000003
+  },
+  "ball_gap": 8.400000000000006,
+  "pin": [
+   5.0,
+   18.0
+  ],
+  "pin_hole_d": 5.15,
+  "min_pin_engagement": 2.7
+ },
+ "stops": {
+  "flex": {
+   "contact_deg": 51.00390625,
+   "r0": 19.0,
+   "r1": 40.0,
+   "face_uv_deg": 210.0
+  },
+  "ext": {
+   "contact_deg": 149.99609375,
+   "r0": 19.0,
+   "r1": 36.0,
+   "face_uv_deg": 20.0
+  },
+  "band_mm": 5.0,
+  "bisection_tol_deg": 0.01,
+  "tpu_plug": {
+   "d": 6.0,
+   "protrusion": 1.0,
+   "r": 30.0
+  }
+ },
+ "clearances": [
+  {
+   "alpha": 49.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 41.411,
+   "theta_c_solver_deg": 41.411,
+   "tyre_to_proximal_mm": 2.073,
+   "rod_to_distal_mm": 2.8,
+   "rod_group_to_proximal_mm": 4.32,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 2.8,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 51.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 43.135,
+   "theta_c_solver_deg": 43.135,
+   "tyre_to_proximal_mm": 5.491,
+   "rod_to_distal_mm": 2.8,
+   "rod_group_to_proximal_mm": 4.337,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 2.8,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 55.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 46.633,
+   "theta_c_solver_deg": 46.633,
+   "tyre_to_proximal_mm": 12.064,
+   "rod_to_distal_mm": 2.8,
+   "rod_group_to_proximal_mm": 4.381,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 2.8,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 65.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 55.599,
+   "theta_c_solver_deg": 55.599,
+   "tyre_to_proximal_mm": 26.776,
+   "rod_to_distal_mm": 3.208,
+   "rod_group_to_proximal_mm": 4.381,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 3.208,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 80.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 69.403,
+   "theta_c_solver_deg": 69.403,
+   "tyre_to_proximal_mm": 43.467,
+   "rod_to_distal_mm": 4.627,
+   "rod_group_to_proximal_mm": 4.381,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 4.627,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 100.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 88.095,
+   "theta_c_solver_deg": 88.095,
+   "tyre_to_proximal_mm": 47.504,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 4.381,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 120.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 106.806,
+   "theta_c_solver_deg": 106.806,
+   "tyre_to_proximal_mm": 47.504,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 4.381,
+   "rod_group_to_crank_mm": 4.883,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 140.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 125.195,
+   "theta_c_solver_deg": 125.195,
+   "tyre_to_proximal_mm": 47.504,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 3.731,
+   "rod_group_to_crank_mm": 4.299,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 145.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 129.675,
+   "theta_c_solver_deg": 129.675,
+   "tyre_to_proximal_mm": 47.504,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 3.7,
+   "rod_group_to_crank_mm": 3.405,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 150.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 134.074,
+   "theta_c_solver_deg": 134.074,
+   "tyre_to_proximal_mm": 45.71,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 3.7,
+   "rod_group_to_crank_mm": 1.951,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.8,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_proximal_mm": 0.5
+  },
+  {
+   "alpha": 152.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 135.805,
+   "theta_c_solver_deg": 135.805,
+   "tyre_to_proximal_mm": 44.573,
+   "rod_to_distal_mm": 4.883,
+   "rod_group_to_proximal_mm": 3.7,
+   "rod_group_to_crank_mm": 1.489,
+   "rod_group_to_lever_mm": 4.883,
+   "upper_rod_end_to_crank_mm": 0.2,
+   "lower_rod_end_to_lever_mm": 0.2,
+   "crank_to_proximal_mm": 0.791,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_proximal_mm": 0.5
+  }
+ ],
+ "sweep": {
+  "poses": 140,
+  "knee_range": "49..152 deg in 1 deg steps at shoulder 0",
+  "shoulder_range": "-120..+120 deg in 20 deg steps at knee 51/100/150 deg",
+  "real_pairs": 0,
+  "artifact_classes": {
+   "alternative wheel parts": 280,
+   "cable envelope segments joined by construction": 420,
+   "static STEP output pins vs rotating hub": 169,
+   "rigid stop engaged beyond the stop angle": 8,
+   "output screw in static STEP output flange": 93,
+   "TPU bumper designed crush": 64,
+   "screw in modelled STEP thread": 4667
+  },
+  "min_detected_mm3": 0.01,
+  "all_occurrences_visible": true
+ },
+ "volumes_mm3": {
+  "ABS_TEST_Wheel_Rim_NoTyre": 57765.3,
+  "Chassis_Shoulder_Plate_L": 40691.8,
+  "HW_AS5048A_PCB": 338.6,
+  "HW_Bearing_6800": 2049.9,
+  "HW_DowelPin_D10x35": 2748.9,
+  "HW_DowelPin_D4x10_Crank": 251.3,
+  "HW_DowelPin_D4x10_EncArm": 125.7,
+  "HW_DowelPin_D4x10_Lever": 251.3,
+  "HW_DowelPin_D4x10_Root": 377.0,
+  "HW_JamNut_M5": 255.9,
+  "HW_Magnet_D6x2p5_Diametric": 70.7,
+  "HW_Pin_D5x18_Crank": 353.4,
+  "HW_Pin_D5x18_Lever": 353.4,
+  "HW_RodEnd_M5_Lower": 2567.0,
+  "HW_RodEnd_M5_Upper": 2567.0,
+  "HW_Rod_M5x86": 1688.6,
+  "HW_SHCS_M3x10": 1845.5,
+  "HW_SHCS_M3x12_PostA": 312.2,
+  "HW_SHCS_M3x16": 184.4,
+  "HW_SHCS_M3x8": 1406.1,
+  "HW_SHCS_M4x10": 1677.6,
+  "HW_SHCS_M4x8": 1526.8,
+  "R2A_Crank_Cap_L": 1393.0,
+  "R2A_Crank_L": 12565.5,
+  "R2A_Distal_Link_L": 60770.7,
+  "R2A_Encoder_Arm_L": 3733.2,
+  "R2A_Encoder_Bracket_L": 2583.2,
+  "R2A_Knee_Bumper_TPU_In": 226.2,
+  "R2A_Knee_Bumper_TPU_Out": 226.2,
+  "R2A_Knee_Pin_Cap_L": 4445.2,
+  "R2A_Lever_Cap_L": 1760.8,
+  "R2A_Prox_Inboard_L": 90484.4,
+  "R2A_Prox_Outboard_L": 62116.4,
+  "R2A_SHCS_M2p5x10_WheelMotor": 533.1,
+  "R2A_SHCS_M3x10_Actuator": 709.8,
+  "R2A_SHCS_M3x10_Crank": 851.8,
+  "R2A_SHCS_M3x10_EncArm": 283.9,
+  "R2A_SHCS_M3x12_Perimeter": 936.6,
+  "R2A_SHCS_M3x16_Bracket": 368.7,
+  "R2A_SHCS_M3x6_PinCap": 227.4,
+  "REFERENCE_Cable_Encoder": 1005.0,
+  "REFERENCE_Cable_Knee_Actuator": 4955.2,
+  "REFERENCE_Cable_Knee_Loop": 10159.9,
+  "REFERENCE_Cable_Wheel_Distal": 2534.1,
+  "REFERENCE_Cable_Wheel_Proximal": 4549.7,
+  "REF_GIM4305-10": 0.0,
+  "REF_GIM6010-8": 0.0,
+  "RIG_Cable_Anchor_ModeA": 1424.3,
+  "RIG_Cable_Post_A": 3596.4,
+  "RIG_Stand": 499322.0,
+  "Shoulder_Cable_Cover_L": 15453.1,
+  "Shoulder_Output_Hub_L": 19888.1,
+  "Wheel_Hub_L": 12199.1,
+  "Wheel_Rim_L": 67450.1,
+  "Wheel_Tyre_L": 66710.0
+ },
+ "legacy_volumes_mm3": {
+  "Proximal_Link_L": 69736.8,
+  "Distal_Link_L": 49003.8,
+  "Knee_Encoder_Bracket_L": 2614.9
+ },
+ "r2a_mass_parts": {
+  "R2A_Prox_Inboard_L": "PACF",
+  "R2A_Prox_Outboard_L": "PACF",
+  "R2A_Crank_L": "PACF",
+  "R2A_Crank_Cap_L": "PACF",
+  "R2A_Distal_Link_L": "PACF",
+  "R2A_Lever_Cap_L": "PACF",
+  "R2A_Encoder_Arm_L": "PACF",
+  "R2A_Encoder_Bracket_L": "PACF",
+  "R2A_Knee_Pin_Cap_L": "PACF",
+  "R2A_Knee_Bumper_TPU_In": "TPU",
+  "R2A_Knee_Bumper_TPU_Out": "TPU",
+  "HW_RodEnd_M5_Upper": "STEEL",
+  "HW_RodEnd_M5_Lower": "STEEL",
+  "HW_Rod_M5x86": "STEEL",
+  "HW_JamNut_M5": "STEEL",
+  "HW_Pin_D5x18_Crank": "STEEL",
+  "HW_Pin_D5x18_Lever": "STEEL",
+  "HW_DowelPin_D4x10_Crank": "STEEL",
+  "HW_DowelPin_D4x10_Lever": "STEEL",
+  "HW_DowelPin_D4x10_EncArm": "STEEL",
+  "R2A_SHCS_M3x10_Actuator": "STEEL",
+  "R2A_SHCS_M3x12_Perimeter": "STEEL",
+  "R2A_SHCS_M3x10_Crank": "STEEL",
+  "R2A_SHCS_M3x10_EncArm": "STEEL",
+  "R2A_SHCS_M3x16_Bracket": "STEEL",
+  "R2A_SHCS_M3x6_PinCap": "STEEL"
+ },
+ "linkage_map": [
+  {
+   "alpha": 49,
+   "theta_c_deg": 41.411
+  },
+  {
+   "alpha": 51,
+   "theta_c_deg": 43.135
+  },
+  {
+   "alpha": 55,
+   "theta_c_deg": 46.633
+  },
+  {
+   "alpha": 60,
+   "theta_c_deg": 51.083
+  },
+  {
+   "alpha": 65,
+   "theta_c_deg": 55.599
+  },
+  {
+   "alpha": 70,
+   "theta_c_deg": 60.165
+  },
+  {
+   "alpha": 80,
+   "theta_c_deg": 69.403
+  },
+  {
+   "alpha": 90,
+   "theta_c_deg": 78.729
+  },
+  {
+   "alpha": 100,
+   "theta_c_deg": 88.095
+  },
+  {
+   "alpha": 110,
+   "theta_c_deg": 97.466
+  },
+  {
+   "alpha": 120,
+   "theta_c_deg": 106.806
+  },
+  {
+   "alpha": 130,
+   "theta_c_deg": 116.07
+  },
+  {
+   "alpha": 140,
+   "theta_c_deg": 125.195
+  },
+  {
+   "alpha": 145,
+   "theta_c_deg": 129.675
+  },
+  {
+   "alpha": 150,
+   "theta_c_deg": 134.074
+  },
+  {
+   "alpha": 152,
+   "theta_c_deg": 135.805
+  }
+ ],
+ "note": "measured on v5 (v5 = v3 printed geometry with the knee-actuator and wheel-motor screws shortened to x 10); clearances from gate_measurements() at 11 knee angles; stops bisected by stop_contact() on v3 (stop geometry unchanged); full 140-pose sweep on v3, 10-pose spot sweep on v5 in sweep_after_screw_change.json; stand datums from RIG_Stand planar faces",
+ "stand_mm": {
+  "base_plane_z": -227.3119,
+  "outboard_face_y": 42.0,
+  "source": "RIG_Stand planar faces, assembly context"
+ }
+}

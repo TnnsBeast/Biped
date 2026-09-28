@@ -1,0 +1,113 @@
+[
+ {
+  "set": "R2A_SHCS_M3x10_Actuator",
+  "count": 5,
+  "screw_y_mm": [
+   81.5,
+   94.5
+  ],
+  "head_bearing_y_mm": 84.5,
+  "tip_y_mm": 94.5,
+  "grip_mm": 6.6,
+  "receiving": "knee GIM6010-8 housing front thread (~4.0; STEP \u00d82.459 y 91.1..95.1)",
+  "engagement_mm": 3.4,
+  "tip_to_floor_mm": 0.6
+ },
+ {
+  "set": "R2A_SHCS_M3x10_Crank",
+  "count": 6,
+  "screw_y_mm": [
+   79.6,
+   92.6
+  ],
+  "head_bearing_y_mm": 82.6,
+  "tip_y_mm": 92.6,
+  "grip_mm": 5.0,
+  "receiving": "knee GIM6010-8 output thread (5 mm deep)",
+  "engagement_mm": 5.0,
+  "tip_to_floor_mm": -0.0
+ },
+ {
+  "set": "R2A_SHCS_M3x12_Perimeter",
+  "count": 6,
+  "screw_y_mm": [
+   79.1,
+   94.1
+  ],
+  "head_bearing_y_mm": 91.1,
+  "tip_y_mm": 79.1,
+  "grip_mm": 6.6,
+  "receiving": "M3 x 5 insert, inboard-half wall top",
+  "engagement_mm": 5.0,
+  "tip_to_floor_mm": 0.6
+ },
+ {
+  "set": "R2A_SHCS_M3x16_Bracket",
+  "count": 2,
+  "screw_y_mm": [
+   86.9,
+   105.9
+  ],
+  "head_bearing_y_mm": 102.9,
+  "tip_y_mm": 86.9,
+  "grip_mm": 11.8,
+  "receiving": "M3 x 5 insert, outboard-half outer face",
+  "engagement_mm": 4.2,
+  "tip_to_floor_mm": 0.8
+ },
+ {
+  "set": "R2A_SHCS_M3x10_EncArm",
+  "count": 2,
+  "screw_y_mm": [
+   87.3,
+   100.3
+  ],
+  "head_bearing_y_mm": 97.3,
+  "tip_y_mm": 87.3,
+  "grip_mm": 6.3,
+  "receiving": "M3 x 5 insert, distal outboard pads",
+  "engagement_mm": 3.7,
+  "tip_to_floor_mm": 1.8
+ },
+ {
+  "set": "R2A_SHCS_M3x6_PinCap",
+  "count": 2,
+  "screw_y_mm": [
+   53.6,
+   62.6
+  ],
+  "head_bearing_y_mm": 56.6,
+  "tip_y_mm": 62.6,
+  "grip_mm": 2.9,
+  "receiving": "M3 x 5 insert, inboard-half inboard face",
+  "engagement_mm": 3.1,
+  "tip_to_floor_mm": 1.9
+ },
+ {
+  "set": "HW_SHCS_M4x10",
+  "count": 6,
+  "screw_y_mm": [
+   53.3,
+   67.3
+  ],
+  "head_bearing_y_mm": 63.3,
+  "tip_y_mm": 53.3,
+  "grip_mm": 3.8,
+  "receiving": "owned M4 x 8 insert, shoulder hub link face",
+  "engagement_mm": 6.2
+ },
+ {
+  "set": "R2A_SHCS_M2p5x10_WheelMotor",
+  "count": 6,
+  "screw_y_mm": [
+   57.0,
+   69.5
+  ],
+  "head_bearing_y_mm": 59.5,
+  "tip_y_mm": 69.5,
+  "grip_mm": 8.0,
+  "receiving": "GIM4305-10 housing thread (STEP \u00d82.0 x 3.0 blind, y 67.5..70.5)",
+  "engagement_mm": 2.0,
+  "tip_to_floor_mm": 1.0
+ }
+]

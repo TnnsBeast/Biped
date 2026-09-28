@@ -1,0 +1,594 @@
+{
+ "B1": {
+  "moving": [
+   "REF_GIM6010-8:2"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "knee actuator onto the outboard half (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B2": {
+  "moving": [
+   "R2A_SHCS_M3x10_Actuator"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "actuator 5 x M3 x 12 from the channel side",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B2k": {
+  "screws": "R2A_SHCS_M3x10_Actuator",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the actuator screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B3": {
+  "moving": [
+   "R2A_Crank_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank onto the actuator output (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B4": {
+  "moving": [
+   "R2A_SHCS_M3x10_Crank"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank 6 x M3 x 10 into the output",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B4k": {
+  "screws": "R2A_SHCS_M3x10_Crank",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the crank screws (crank at build angle)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B5": {
+  "moving": [
+   "HW_RodEnd_M5_Upper",
+   "HW_RodEnd_M5_Lower",
+   "HW_Rod_M5x86",
+   "HW_JamNut_M5"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "pushrod: upper rod end onto the crank ear (cap off)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B6": {
+  "moving": [
+   "R2A_Crank_Cap_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank cap on its two dowels",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B6p": {
+  "moving": [
+   "HW_Pin_D5x18_Crank"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank pin from the inboard side",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B7": {
+  "moving": [
+   "HW_RodEnd_M5_Upper",
+   "HW_RodEnd_M5_Lower",
+   "HW_Rod_M5x86",
+   "HW_JamNut_M5"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "lower rod end into the lever clevis (cap off)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B8": {
+  "moving": [
+   "R2A_Lever_Cap_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "lever cap on its two dowels",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B8p": {
+  "moving": [
+   "HW_Pin_D5x18_Lever"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "lever pin from the outboard side",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S1": {
+  "moving": [
+   "R2A_Prox_Inboard_L",
+   "HW_Bearing_6800 (5):1",
+   "R2A_Knee_Bumper_TPU_In"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "inboard half onto the shoulder hub (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S2": {
+  "moving": [
+   "HW_SHCS_M4x10"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "hub 6 x M4 x 10 from the channel side",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S2k": {
+  "screws": "HW_SHCS_M4x10",
+  "key_envelope_d_mm": 4.6,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the hub screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S3": {
+  "moving": [
+   "REF_GIM6010-8:2",
+   "R2A_Prox_Outboard_L",
+   "R2A_Knee_Bumper_TPU_Out",
+   "R2A_SHCS_M3x10_Actuator",
+   "R2A_Crank_L",
+   "R2A_Crank_Cap_L",
+   "HW_DowelPin_D4x10_Crank",
+   "R2A_SHCS_M3x10_Crank",
+   "HW_Pin_D5x18_Crank",
+   "HW_RodEnd_M5_Upper",
+   "HW_RodEnd_M5_Lower",
+   "HW_Rod_M5x86",
+   "HW_JamNut_M5",
+   "R2A_Distal_Link_L",
+   "R2A_Lever_Cap_L",
+   "HW_DowelPin_D4x10_Lever",
+   "HW_Pin_D5x18_Lever",
+   "HW_DowelPin_D4x10_EncArm",
+   "HW_Bearing_6800 (5):2"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 60,
+  "step_mm": 2.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "outboard module onto the inboard half (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S4": {
+  "moving": [
+   "R2A_SHCS_M3x12_Perimeter"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "perimeter 6 x M3 x 12 from outboard",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S4k": {
+  "screws": "R2A_SHCS_M3x12_Perimeter",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the perimeter screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S5": {
+  "moving": [
+   "R2A_Knee_Pin_Cap_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "knee-pin cap on the inboard face",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S5k": {
+  "screws": "R2A_SHCS_M3x6_PinCap",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the pin-cap screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S6": {
+  "moving": [
+   "HW_DowelPin_D10x35"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 45,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "\u00d810 knee pin from outboard (also the service path)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S7": {
+  "moving": [
+   "R2A_Encoder_Arm_L",
+   "HW_Magnet_D6x2p5_Diametric"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "encoder arm onto the distal pads",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S7k": {
+  "screws": "R2A_SHCS_M3x10_EncArm",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the encoder-arm screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S8": {
+  "moving": [
+   "R2A_Encoder_Bracket_L",
+   "HW_AS5048A_PCB"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "AS5048A board and bracket",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S8k": {
+  "screws": "R2A_SHCS_M3x16_Bracket",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the bracket screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W1": {
+  "moving": [
+   "REF_GIM4305-10:1"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "wheel motor onto the detached distal link (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W1s": {
+  "moving": [
+   "R2A_SHCS_M2p5x10_WheelMotor"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "wheel-motor 6 x M2.5 x 10 from the inboard side",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W1k": {
+  "screws": "R2A_SHCS_M2p5x10_WheelMotor",
+  "key_envelope_d_mm": 3.2,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the wheel-motor screws (distal link detached)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W2": {
+  "moving": [
+   "Wheel_Hub_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "wheel hub onto the wheel-motor output (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W2k": {
+  "screws": "HW_SHCS_M3x8 (10):10+HW_SHCS_M3x8 (10):11+HW_SHCS_M3x8 (10):12",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the 3 x M3 x 8 hub screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S3w": {
+  "moving": [
+   "REF_GIM6010-8:2",
+   "R2A_Prox_Outboard_L",
+   "R2A_Knee_Bumper_TPU_Out",
+   "R2A_SHCS_M3x10_Actuator",
+   "R2A_Crank_L",
+   "R2A_Crank_Cap_L",
+   "HW_DowelPin_D4x10_Crank",
+   "R2A_SHCS_M3x10_Crank",
+   "HW_Pin_D5x18_Crank",
+   "HW_RodEnd_M5_Upper",
+   "HW_RodEnd_M5_Lower",
+   "HW_Rod_M5x86",
+   "HW_JamNut_M5",
+   "R2A_Distal_Link_L",
+   "R2A_Lever_Cap_L",
+   "HW_DowelPin_D4x10_Lever",
+   "HW_Pin_D5x18_Lever",
+   "HW_DowelPin_D4x10_EncArm",
+   "HW_Bearing_6800 (5):2",
+   "REF_GIM4305-10:1",
+   "HW_SHCS_M2p5x10:2",
+   "HW_SHCS_M2p5x10:3",
+   "HW_SHCS_M2p5x10:4",
+   "HW_SHCS_M2p5x10:5",
+   "HW_SHCS_M2p5x10:6",
+   "HW_SHCS_M2p5x10:7",
+   "Wheel_Hub_L",
+   "HW_SHCS_M3x8 (10):10",
+   "HW_SHCS_M3x8 (10):11",
+   "HW_SHCS_M3x8 (10):12"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 60,
+  "step_mm": 2.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "outboard module with the wheel motor and hub fitted (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W3": {
+  "moving": [
+   "ABS_TEST_Wheel_Rim_NoTyre"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "no-tyre wheel shell onto the hub, last (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W3k": {
+  "screws": "HW_SHCS_M4x8",
+  "key_envelope_d_mm": 4.6,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "description": "hex key to the 6 x M4 x 8 shell screws",
+  "status": "CAD PATH VERIFIED"
+ }
+}

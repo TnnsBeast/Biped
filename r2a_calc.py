@@ -20,17 +20,29 @@ Inputs are copied verbatim from their sources:
   * PA-CF strength                          beni_rig_no_machining.md §1
   * legacy proof screen (275 N at a wheel)  beni_prototype1_fusion_guide_rewritten.md §11
 
-Values marked ASSUMPTION or DESIGN CHOICE are not facts about hardware.  They
-are envelopes or targets that the selected purchased parts and the Fusion
-model must meet or replace.
+  * modelled R2A geometry and volumes      Fusion Beni_R2A_SingleLeg, written by
+                                            r2a_lib.write_gate_record() to
+                                            evidence/r2a/2026-09-27_digital_gate/
+                                            fusion_measurements.json
+
+Values marked ASSUMPTION or DESIGN CHOICE are not facts about hardware.  The
+four envelope assumptions of the concept study (rod-end eye R8, jam nut R4.5,
+root wall, 60 g linkage allowance) are replaced by the modelled Fusion values
+loaded below; the rod-end envelope is a requirement on the purchased part.
 
 Run:  python3 r2a_calc.py            (add --plot to redraw docs/design/r2a_knee_linkage.png)
 """
 
+import json
 import math
+import os
 import sys
 
 import numpy as np
+
+GATE_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'evidence', 'r2a',
+                         '2026-09-27_digital_gate', 'fusion_measurements.json')
+FUSION = json.load(open(GATE_JSON))
 
 G = 9.80665
 
@@ -41,12 +53,16 @@ A_NOM = 50.0               # deg, proximal +50° / distal -50° from vertical
 ALPHA_NOM = 180.0 - 2 * A_NOM   # 80° interior knee angle at the legacy nominal
 
 # --------------------------------------------------- lateral stack, design record §3
-Y_LEG_IN, Y_LEG_OUT = 59.5, 89.5        # leg inboard / outboard faces
+Y_LEG_IN = 59.5                         # leg inboard face (hub face), design record §3
 Y_CHANNEL = (64.5, 84.5)                # former spring channel, 20 mm
 Y_TYRE = (69.0, 99.0)                   # rim + tyre
 Y_RIM_WEB_OUT = 104.5                   # outboard end of the wheel stack
-DISTAL_BOSS_R = 11.0                    # distal knee boss Ø22, y 65…84
-Y_ROD_PLANE = 74.5                      # legacy cartridge centre plane, reused for the rod
+DISTAL_BOSS_R = 11.0                    # distal knee boss Ø22 (R2A y 65.8…84.8)
+# modelled: the outboard half prints on one flat face, so the knee-actuator
+# mount face is that face (Fusion; concept value 89.5); the rod plane sits in
+# the clevis gap above the M4 hub-screw heads (Fusion; concept value 74.5)
+Y_LEG_OUT = FUSION['stack_y_mm']['actuator_mount_face']
+Y_ROD_PLANE = FUSION['stack_y_mm']['rod_plane']
 
 # --------------------------------------------------- GIM6010-8, design record §2.1
 GIM_HOUSING_R = 40.0       # Ø80
@@ -79,33 +95,54 @@ BUS_6S_NOM = 22.2          # V, 6S nominal (electronics/01 §4 power tree)
 
 # --------------------------------------------------- mass, design record §14
 M_REV2 = 3.3089            # kg, historical REV2 Fusion mass
-M_LINKAGE_ALLOW = 0.060    # kg per leg — ASSUMPTION: crank, rod ends, rod, pins,
-#                            extra cheek; replace with Fusion mass properties
+# Modelled per-leg increment: R2A printed parts in PA-CF + steel hardware at
+# its modelled (envelope) volume + TPU plugs, minus the legacy proximal link,
+# distal link and encoder bracket they replace.  Densities: beni_lib
+# MATERIAL_SPEC (PA-CF 1.15, steel 7.85, TPU 1.20 g/cm3).  No credit is taken
+# for the removed spring cartridge or stop parts.
+DENSITY = {'PACF': 1.15, 'STEEL': 7.85, 'TPU': 1.20}
+
+
+def linkage_mass_kg():
+    v = FUSION['volumes_mm3']
+    add = sum(v[k] * DENSITY[c] for k, c in FUSION['r2a_mass_parts'].items()) / 1e6
+    rem = sum(FUSION['legacy_volumes_mm3'].values()) * DENSITY['PACF'] / 1e6
+    return add - rem, add, rem
+
+
+M_LINKAGE = linkage_mass_kg()[0]
 
 # --------------------------------------------------- DESIGN CHOICES / ASSUMPTIONS
 TYRE_GAP = 5.0             # mm, minimum tyre-to-leg-root clearance at the flex stop
 ROOT_WALL = 3.3            # mm, printed wall outside an M3 clearance hole
 ROOT_R = GIM_PCD_R + M3_CLEAR / 2 + ROOT_WALL   # outboard cheek radius holding the actuator
+assert abs(ROOT_R - FUSION['outline_mm']['root_r_tyre_side']) < 1e-9   # modelled R42.0
 ALPHA_EXT_STOP = 150.0     # deg, extension stop: keep 30° from a straight leg
 OVERTRAVEL = 2.0           # deg, linkage must stay valid 2° beyond each stop
 CRANK_HUB_R = 19.0         # mm, crank hub Ø38 (same body as Shoulder_Output_Hub_L)
-ROD_EYE_R = 8.0            # mm, ASSUMPTION: rod-end eye envelope radius (M5 class)
-ROD_SHANK_R = 4.5          # mm, ASSUMPTION: jam-nut envelope radius on the rod
+# modelled rod-end design envelope (Fusion stand-in; a purchasing requirement)
+ROD_EYE_R = FUSION['rod_end_envelope_mm']['eye_d'] / 2
+ROD_SHANK_R = max(FUSION['rod_end_envelope_mm']['neck_d'],
+                  FUSION['jam_nut_mm']['across_corners']) / 2
 CLR = 2.0                  # mm, minimum running clearance
 MU_MIN = 40.0              # deg, minimum transmission angle over the working range
 MU_MIN_OVERTRAVEL = 35.0   # deg, allowed only in the 2° overtravel into the bumpers
 GAMMA_MIN = 15.0           # deg, keep the crank this far from its toggle
 ETA = 0.95                 # linkage efficiency, ASSUMPTION
-PIN_D = 5.0                # mm, crank / lever pin shoulder diameter
-CHEEK_T = 4.0              # mm, each printed clevis cheek at a pin
+PIN_D = 5.0                # mm, Ø5 clevis pin
+# modelled: worst-case engagement of a floating Ø5 x 18 pin in its thinner ear
+CHEEK_T = FUSION['clevis_mm']['min_pin_engagement']
 ROD_MINOR_D = {'M5': 5.0 - 1.0825 * 0.8, 'M6': 6.0 - 1.0825 * 1.0}   # ISO 724 d1
 E_STEEL = 200e3            # MPa
 PA_CF_XY = (84.0, 102.0)   # MPa, beni_rig_no_machining.md §1
 PROOF_WHEEL_N = 275.0      # N at one wheel, guide §11 structural screen
-STOP_R = 35.0              # mm, DESIGN CHOICE: knee-stop contact radius
+# modelled: centroid radius of the smaller radial stop-face overlap
+STOP_R = min(0.5 * (r['r0'] + r['r1']) for r in FUSION['stops'].values()
+             if isinstance(r, dict) and 'r0' in r)
 DYN_FACTOR = 1.5           # ASSUMPTION: dynamic factor on actuator stall torque
 SELECT_JUMP_FRAC = 0.97    # DESIGN CHOICE: accept 3 % of idealised push-off for compactness
-MAX_PIN_ENVELOPE = 40.0    # mm, DESIGN CHOICE: pin + eye envelope from the link line
+MAX_PIN_CENTRE = 32.0      # mm, DESIGN CHOICE: pin centres within 32 mm of the link line
+MAX_PIN_ENVELOPE = MAX_PIN_CENTRE + ROD_EYE_R   # (the concept's 40 mm with an R8 eye)
 FRAME_US_1M = (117.0, 135.0)   # typical / worst classical-CAN frame at 1 Mbit
 
 
@@ -179,10 +216,13 @@ def masses():
     hr('2.  R2A MASS ESTIMATE AND STATIC KNEE LOAD')
     out = {}
     for tag, m_act in (('bare 388 g', GIM['mass_bare']), ('brief 500 g', GIM['mass_brief'])):
-        m = M_REV2 + 2 * (m_act + M_LINKAGE_ALLOW)
+        m = M_REV2 + 2 * (m_act + M_LINKAGE)
         out[tag] = m
-        print(f'  REV2 {M_REV2:.4f} kg + 2 × (knee GIM6010-8 {tag} + {M_LINKAGE_ALLOW * 1000:.0f} g'
+        print(f'  REV2 {M_REV2:.4f} kg + 2 × (knee GIM6010-8 {tag} + {M_LINKAGE * 1000:.0f} g'
               f' linkage) = {m:.3f} kg')
+    d, add, rem = linkage_mass_kg()
+    print(f'  modelled linkage increment per leg {d * 1000:.0f} g = R2A parts {add * 1000:.0f} g'
+          f' - legacy links/bracket {rem * 1000:.0f} g (Fusion volumes; PA-CF, steel, TPU)')
     print('  (No credit is taken for the removed spring cartridge; C4 is unresolved,'
           ' so both actuator masses are carried.)')
     return out
@@ -442,7 +482,7 @@ def part_loads(r, alphas, b, flex):
     tau = f_max / (2 * math.pi * PIN_D ** 2 / 4)
     brg = f_max / (2 * PIN_D * CHEEK_T)
     print(f'  Ø{PIN_D:.0f} pin in double shear: τ = {tau:5.1f} MPa;'
-          f' bearing on two {CHEEK_T:.0f} mm printed cheeks: {brg:5.1f} MPa'
+          f' bearing on two printed ears at the {CHEEK_T:.1f} mm worst-case pin engagement: {brg:5.1f} MPa'
           f' (PA-CF XY {PA_CF_XY[0]:.0f}–{PA_CF_XY[1]:.0f} MPa; ABS carries no structural load)')
     print(f'  rod-end requirement: static radial rating ≥ 2 × {f_max:.0f} = {2 * f_max:.0f} N')
     arm = (Y_LEG_OUT - GIM_OUT_FACE_X) - Y_ROD_PLANE
@@ -450,10 +490,15 @@ def part_loads(r, alphas, b, flex):
           f' output face → {f_max * arm / 1000:.1f} N·m moment on its output bearing at the design rod force')
     tk = PROOF_WHEEL_N * float(knee_arm(flex)) / 1000
     print(f'  proof screen {PROOF_WHEEL_N:.0f} N at one wheel at the flex stop → knee {tk:.1f} N·m'
-          f' → {tk * 1000 / STOP_R:.0f} N at a R{STOP_R:.0f} stop (carried thigh↔shin, not by the rod)')
+          f' → {tk * 1000 / STOP_R:.0f} N at the R{STOP_R:.1f} stop-face centroid (thigh↔shin, not the rod)')
     i = int(np.argmin(np.abs(alphas - flex)))
     print(f'  actuator stall driven into the flex stop: knee {GIM["stall"] * r["n"][i]:.1f} N·m'
           f' → {GIM["stall"] * r["n"][i] * 1000 / STOP_R:.0f} N at the stop')
+    st = FUSION['stops']
+    print(f'  stop faces: two {st["band_mm"]:.1f} mm bands, radial overlap R{st["flex"]["r0"]:.0f}-{st["flex"]["r1"]:.0f}'
+          f' (flexion) / R{st["ext"]["r0"]:.0f}-{st["ext"]["r1"]:.0f} (extension); proof load'
+          f' {tk * 1000 / STOP_R:.0f} N on the smaller {2 * st["band_mm"] * (st["ext"]["r1"] - st["ext"]["r0"]):.0f} mm2'
+          f' -> {tk * 1000 / STOP_R / (2 * st["band_mm"] * (st["ext"]["r1"] - st["ext"]["r0"])):.1f} MPa')
 
 
 # ------------------------------------------------------------ 7. electronics
@@ -575,7 +620,151 @@ def plot(path, best, alphas, flex):
     print(f'\n  wrote {path}')
 
 
+def gate():
+    hr('0.  FUSION DIGITAL GATE (modelled values in use)')
+    g = FUSION
+    print(f"  source: {g['document']} v{g['version']}, {os.path.relpath(GATE_JSON)}")
+    e = g['rod_end_envelope_mm']
+    print(f"  rod-end design envelope: eye Ø{e['eye_d']:.1f} x {e['eye_w']:.1f}, ball {e['ball_w']:.1f} wide,"
+          f" neck Ø{e['neck_d']:.1f}, pin to shank end {e['h']:.1f}; jam nut"
+          f" {g['jam_nut_mm']['af']:.1f} AF ({g['jam_nut_mm']['across_corners']:.2f} across corners)")
+    print(f"  stop contact: flexion {g['stops']['flex']['contact_deg']:.2f} deg,"
+          f" extension {g['stops']['ext']['contact_deg']:.2f} deg (bisected to"
+          f" {g['stops']['bisection_tol_deg']:.2f} deg)")
+    rows = {r['alpha']: r for r in g['clearances']}
+    work = [r for a, r in rows.items() if 51.0 <= a <= 150.0]
+    print(f"  tyre to proximal at the flexion stop: {rows[51.0]['tyre_to_proximal_mm']:.2f} mm")
+    for key, label in (('rod_to_distal_mm', 'rod/nuts to the distal knee boss'),
+                       ('rod_group_to_crank_mm', 'rod group to the crank'),
+                       ('rod_group_to_proximal_mm', 'rod group to the proximal halves'),
+                       ('crank_to_proximal_mm', 'crank to the proximal halves'),
+                       ('encoder_arm_to_proximal_mm', 'encoder arm to the proximal parts')):
+        print(f"  min {label:<36s} {min(r[key] for r in work):6.2f} mm (alpha 51..150)")
+    print(f"  pin-to-pin in every sampled pose: {min(r['pin_to_pin_mm'] for r in work):.3f}"
+          f"..{max(r['pin_to_pin_mm'] for r in work):.3f} mm;"
+          f" max |theta_c CAD - solver| = "
+          f"{max(abs(r['theta_c_measured_deg'] - r['theta_c_solver_deg']) for r in work):.3f} deg")
+    sw = g['sweep']
+    print(f"  sweep: {sw['poses']} poses, knee {sw['knee_range']}, shoulder {sw['shoulder_range']};"
+          f" real clashes {sw['real_pairs']}")
+
+
+def stand(flex):
+    """Mode A stand with the R2A leg: bench reach and the added static moment.
+
+    Only the distal link and the wheel module can pass below the stand's base
+    plane: the knee never gets lower than L1 + the knee cheek below the axis,
+    and the knee actuator sits on the axis.  Those parts all lie outboard of the
+    leg inboard face, so the stand clamps at a bench edge and the leg overhangs.
+    """
+    hr('8.  MODE A STAND WITH THE R2A LEG')
+    st = FUSION['stand_mm']
+    h = -st['base_plane_z']
+    y_face = st['outboard_face_y']
+    y_leg = FUSION['stack_y_mm']['leg_inboard_face']
+    knee_low = L1 + FUSION['outline_mm']['knee_cheek_r']
+    print(f'  stand base plane {h:.2f} mm below the shoulder axis; outboard face y = {y_face:.1f}')
+    print(f'  lowest point of the knee and everything on the proximal link: {knee_low:.1f} mm'
+          f' below the axis (L1 + R{FUSION["outline_mm"]["knee_cheek_r"]:.0f} knee cheek)'
+          f' -> always above the bench')
+    a_touch = float(alpha_of_d(h - WHEEL_R))
+    print(f'  shoulder at 0 (wheel under the axis): tyre reaches the bench plane at alpha ='
+          f' {a_touch:.1f} deg')
+    for a in (flex, ALPHA_NOM, a_touch, ALPHA_EXT_STOP):
+        low = float(leg_d(a)) + WHEEL_R
+        print(f'    alpha {a:6.1f} deg: tyre bottom {low:6.1f} mm below the axis,'
+              f' {low - h:+6.1f} mm below the bench plane (negative = above it)')
+    print(f'  -> the leg must overhang a bench edge.  Every part that can pass below the'
+          f' bench plane lies at y >= {y_leg:.1f}, so the bench edge must lie between'
+          f' y {y_face:.1f} (stand face fully supported) and y {y_leg - TYRE_GAP:.1f}'
+          f' ({TYRE_GAP:.0f} mm from the leg)')
+    y_out = FUSION['stack_y_mm']['actuator_cover'][1]
+    for tag, m_act in (('bare 388 g', GIM['mass_bare']), ('brief 500 g', GIM['mass_brief'])):
+        mom = G * (m_act * (y_out - y_face) + M_LINKAGE * (Y_LEG_OUT - y_face)) / 1000
+        print(f'  added static roll moment, knee GIM6010-8 {tag} at <= {y_out - y_face:.1f} mm'
+              f' + {M_LINKAGE * 1000:.0f} g linkage at <= {Y_LEG_OUT - y_face:.1f} mm'
+              f' outboard of the stand face: <= {mom:.2f} N.m')
+    print(f'  against {GIM["stall"]:.2f} N.m shoulder-stall yaw, which already requires the'
+          f' stand to be clamped (rig_calc.py mode_a_stand); the knee reaction stays inside'
+          f' the leg (stator on the proximal link)')
+
+
+# ----------------------------------------------------- 9. ABS commissioning
+ABS_DENSITY = 1.04          # g/cm3, beni_lib MATERIAL_SPEC 'ABS'
+WHEEL_MOTOR_KG = 0.250      # GIM4305-10: ~150 g (electronics/03 §1.2) vs brief 250 g (C4); the larger
+# DESIGN CHOICES for the ABS article's powered gates (the test traveller copies these):
+LIM_KNEE_DETACHED_A = 1.0   # gate 3: knee actuator driving only the crank and a free rod
+LIM_HOLD_MARGIN = 2.0       # gate 4: current limit = this x the self-weight hold bound ...
+LIM_STEP_A = 0.5            # ... rounded up to this step
+LIM_SHOULDER_DEG = 30.0     # gate 4: shoulder within this of hanging
+LIM_SPEED_DPS = 30.0        # gates 3-4: joint speed limit, deg/s at the joint
+LIM_CMD_HZ = 100.0          # gates 3-4: command + reply rate per node
+DIST_ABS = ('R2A_Distal_Link_L', 'R2A_Lever_Cap_L', 'R2A_Encoder_Arm_L', 'Wheel_Hub_L',
+            'ABS_TEST_Wheel_Rim_NoTyre')
+DIST_STEEL = ('HW_Pin_D5x18_Lever', 'HW_DowelPin_D4x10_Lever', 'HW_DowelPin_D4x10_EncArm',
+              'HW_Magnet_D6x2p5_Diametric', 'HW_SHCS_M4x8', 'HW_SHCS_M3x8', 'R2A_SHCS_M3x10_EncArm',
+              'R2A_SHCS_M2p5x10_WheelMotor', 'HW_RodEnd_M5_Upper', 'HW_RodEnd_M5_Lower',
+              'HW_Rod_M5x86', 'HW_JamNut_M5')
+PROX_ABS = ('R2A_Prox_Inboard_L', 'R2A_Prox_Outboard_L', 'R2A_Crank_L', 'R2A_Crank_Cap_L',
+            'R2A_Knee_Pin_Cap_L')
+PROX_STEEL = ('HW_Bearing_6800', 'HW_DowelPin_D10x35', 'HW_Pin_D5x18_Crank', 'HW_DowelPin_D4x10_Crank',
+              'R2A_SHCS_M3x10_Actuator', 'R2A_SHCS_M3x12_Perimeter', 'R2A_SHCS_M3x10_Crank',
+              'R2A_SHCS_M3x6_PinCap', 'HW_SHCS_M4x10')
+
+
+def _mass(names, density):
+    return sum(FUSION['volumes_mm3'][n] for n in names) * density / 1e6
+
+
+def _ceil_step(x, step):
+    return math.ceil(x / step - 1e-9) * step
+
+
+def commissioning(r, alphas):
+    hr('9.  ABS COMMISSIONING LIMITS (test traveller gates 3 and 4)')
+    work = (alphas >= 51.0) & (alphas <= ALPHA_EXT_STOP)
+    n_min = float(np.min(r['n'][work]))
+    m_dist = _mass(DIST_ABS, ABS_DENSITY) + _mass(DIST_STEEL, DENSITY['STEEL']) + WHEEL_MOTOR_KG
+    m_prox = _mass(PROX_ABS, ABS_DENSITY) + _mass(PROX_STEEL, DENSITY['STEEL'])
+    print(f'  upper bounds from Fusion volumes (ABS {ABS_DENSITY}, steel envelopes, wheel motor'
+          f' {WHEEL_MOTOR_KG * 1000:.0f} g; the whole pushrod and every M3 x 8 counted on the distal side):')
+    print(f'    distal side {m_dist * 1000:.0f} g, all placed at the wheel centre; proximal side'
+          f' {m_prox * 1000:.0f} g, all at the knee; the knee actuator is on the shoulder axis')
+    tk = m_dist * G * L2 / 1000
+    tc = tk / (ETA * n_min)
+    i_k = tc / GIM['kt']
+    lim_k = _ceil_step(LIM_HOLD_MARGIN * i_k, LIM_STEP_A)
+    print(f'  knee hold, distal link horizontal: <= {tk:.2f} N.m knee -> {tc:.2f} N.m crank'
+          f' (N {n_min:.3f}, eta {ETA}) -> {i_k:.2f} A')
+    d_max = float(leg_d(ALPHA_EXT_STOP))
+    ts = G * (m_prox * L1 + m_dist * d_max) / 1000 * math.sin(math.radians(LIM_SHOULDER_DEG))
+    i_s = ts / GIM['kt']
+    lim_s = _ceil_step(LIM_HOLD_MARGIN * i_s, LIM_STEP_A)
+    print(f'  shoulder hold within {LIM_SHOULDER_DEG:.0f} deg of hanging, leg at the extension stop'
+          f' (d {d_max:.1f} mm): <= {ts:.2f} N.m -> {i_s:.2f} A')
+    print('  chosen current limits (DESIGN CHOICE, q-axis/phase current as set in the driver):')
+    for label, lim in (('gate 3 knee, detached', LIM_KNEE_DETACHED_A),
+                       (f'gate 4 knee, {LIM_HOLD_MARGIN:.0f} x hold', lim_k),
+                       (f'gate 4 shoulder, {LIM_HOLD_MARGIN:.0f} x hold', lim_s)):
+        print(f'    {label:<28s} {lim:4.1f} A = {lim * GIM["kt"]:.2f} N.m output'
+              f' ({100 * lim / GIM["rated_a"]:.0f} % of rated {GIM["rated_a"]} A)')
+    f_rod = float(np.max(lim_k * GIM['kt'] * r['n'][work] * 1000 / np.abs(r['s'][work])))
+    i_f = int(np.argmin(np.abs(alphas - 51.0)))
+    f_stop = lim_k * GIM['kt'] * r['n'][i_f] * 1000 / STOP_R
+    print(f'  at the gate 4 knee limit: rod force <= {f_rod:.0f} N (design {DYN_FACTOR} x stall case in §5);'
+          f' driven into the flexion stop <= {f_stop:.0f} N at R{STOP_R:.1f}')
+    sp_c = LIM_SPEED_DPS * float(np.max(r['n'][work]))
+    print(f'  speed limit {LIM_SPEED_DPS:.0f} deg/s at each joint: knee crank <= {sp_c:.1f} deg/s'
+          f' = {sp_c / 360:.3f} turn/s at the output; shoulder {LIM_SPEED_DPS / 360:.3f} turn/s')
+    for rate, scale in (('1 Mbit', 1.0), ('500 kbit', 2.0)):
+        typ = 2 * 2 * LIM_CMD_HZ * FRAME_US_1M[0] * scale / 1e4
+        worst = 2 * 2 * LIM_CMD_HZ * FRAME_US_1M[1] * scale / 1e4
+        print(f'  2 nodes, command + reply at {LIM_CMD_HZ:.0f} Hz on {rate:<8s}: {typ:4.1f} % typical,'
+              f' {worst:4.1f} % worst')
+
+
 def main():
+    gate()
     flex = envelope()
     ms = masses()
     m_hi = max(ms.values())
@@ -588,6 +777,8 @@ def main():
     static_knee = m_hi * G / 2 * knee_arm(ALPHA_NOM) / 1000
     jump_knee = m_hi * G * 1.0 * knee_arm(flex + 3.0) / 1000
     candidates_table(static_knee, jump_knee)
+    stand(flex)
+    commissioning(r, alphas)
     if '--plot' in sys.argv:
         import os
         plot(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'docs', 'design',

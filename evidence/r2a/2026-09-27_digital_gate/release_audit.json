@@ -1,0 +1,2232 @@
+{
+ "document": "Beni_R2A_SingleLeg",
+ "version": 4,
+ "dimensional_contracts": [
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "6800 seat A",
+   "diameter_mm": 19.15,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "bearing lip A",
+   "diameter_mm": 17.0,
+   "expected_y_spans_mm": [
+    [
+     64.5,
+     65.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     64.5,
+     65.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "M4 hub-screw clearance",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ],
+    [
+     59.5,
+     63.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "M4 head counterbores",
+   "diameter_mm": 7.5,
+   "expected_y_spans_mm": [
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ],
+    [
+     63.3,
+     64.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "root dowel slip holes",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "TPU plug bores",
+   "diameter_mm": 6.0,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     63.5
+    ],
+    [
+     59.5,
+     63.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     63.5
+    ],
+    [
+     59.5,
+     63.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "pin-cap M3 insert pockets",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     64.5
+    ],
+    [
+     59.5,
+     64.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Inboard_L",
+   "interface": "perimeter M3 insert pockets",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ],
+    [
+     78.5,
+     84.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "6800 seat B",
+   "diameter_mm": 19.15,
+   "expected_y_spans_mm": [
+    [
+     86.1,
+     91.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     86.1,
+     91.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "bearing lip B",
+   "diameter_mm": 17.0,
+   "expected_y_spans_mm": [
+    [
+     85.3,
+     86.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     85.3,
+     86.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "actuator M3 clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "perimeter M3 clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ],
+    [
+     84.5,
+     91.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "encoder-bracket M3 insert pockets",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     86.1,
+     91.1
+    ],
+    [
+     86.1,
+     91.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     86.1,
+     91.1
+    ],
+    [
+     86.1,
+     91.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Prox_Outboard_L",
+   "interface": "TPU plug bores",
+   "diameter_mm": 6.0,
+   "expected_y_spans_mm": [
+    [
+     85.5,
+     91.1
+    ],
+    [
+     85.5,
+     91.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     85.5,
+     91.1
+    ],
+    [
+     85.5,
+     91.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "motor factory-pin passages",
+   "diameter_mm": 4.15,
+   "expected_y_spans_mm": [
+    [
+     79.7,
+     86.9
+    ],
+    [
+     79.7,
+     86.9
+    ],
+    [
+     79.7,
+     86.9
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     79.7,
+     86.9
+    ],
+    [
+     79.7,
+     86.9
+    ],
+    [
+     79.7,
+     86.9
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "motor pin root reliefs",
+   "diameter_mm": 5.2,
+   "expected_y_spans_mm": [
+    [
+     86.9,
+     87.6
+    ],
+    [
+     86.9,
+     87.6
+    ],
+    [
+     86.9,
+     87.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     86.9,
+     87.6
+    ],
+    [
+     86.9,
+     87.6
+    ],
+    [
+     86.9,
+     87.6
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "output M3 clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ],
+    [
+     82.6,
+     87.6
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "output M3 head counterbores",
+   "diameter_mm": 6.2,
+   "expected_y_spans_mm": [
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ],
+    [
+     79.7,
+     82.6
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "crank pin (blind, 1.0 skin)",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     79.7,
+     86.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     79.7,
+     86.6
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_L",
+   "interface": "cap dowel sockets",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     71.3,
+     78.3
+    ],
+    [
+     71.3,
+     78.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     71.3,
+     78.3
+    ],
+    [
+     71.3,
+     78.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_Cap_L",
+   "interface": "crank pin",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     68.3,
+     71.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     68.3,
+     71.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Crank_Cap_L",
+   "interface": "dowel holes",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     68.3,
+     71.3
+    ],
+    [
+     68.3,
+     71.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     68.3,
+     71.3
+    ],
+    [
+     68.3,
+     71.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "steel knee-pin receiver",
+   "diameter_mm": 10.3,
+   "expected_y_spans_mm": [
+    [
+     65.3,
+     85.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     65.3,
+     85.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "lever pin",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     65.8,
+     71.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     65.8,
+     71.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "lever-cap dowel sockets",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     73.4,
+     79.7
+    ],
+    [
+     73.4,
+     79.7
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     73.4,
+     79.7
+    ],
+    [
+     73.4,
+     79.7
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "wheel-motor M2.5 clearance",
+   "diameter_mm": 2.8,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ],
+    [
+     59.5,
+     67.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "wheel-motor cover clearance",
+   "diameter_mm": 41.5,
+   "expected_y_spans_mm": [
+    [
+     59.5,
+     67.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.5,
+     67.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "encoder-arm M3 insert pockets",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     85.5,
+     91.0
+    ],
+    [
+     85.5,
+     91.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     85.5,
+     91.0
+    ],
+    [
+     85.5,
+     91.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Distal_Link_L",
+   "interface": "encoder-arm dowel socket",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     86.0,
+     91.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     86.0,
+     91.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Lever_Cap_L",
+   "interface": "lever pin",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     79.7,
+     83.4
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     79.7,
+     83.4
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Lever_Cap_L",
+   "interface": "dowel holes",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     79.7,
+     83.4
+    ],
+    [
+     79.7,
+     83.4
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     79.7,
+     83.4
+    ],
+    [
+     79.7,
+     83.4
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Encoder_Arm_L",
+   "interface": "magnet pocket",
+   "diameter_mm": 6.1,
+   "expected_y_spans_mm": [
+    [
+     94.8,
+     97.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     94.8,
+     97.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Encoder_Arm_L",
+   "interface": "M3 clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     91.0,
+     97.3
+    ],
+    [
+     91.0,
+     97.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.0,
+     97.3
+    ],
+    [
+     91.0,
+     97.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Encoder_Arm_L",
+   "interface": "dowel slip hole",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     91.0,
+     97.3
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.0,
+     97.3
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Knee_Pin_Cap_L",
+   "interface": "pin pocket",
+   "diameter_mm": 15.0,
+   "expected_y_spans_mm": [
+    [
+     55.6,
+     59.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     55.6,
+     59.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Knee_Pin_Cap_L",
+   "interface": "M3 clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     56.6,
+     59.5
+    ],
+    [
+     56.6,
+     59.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     56.6,
+     59.5
+    ],
+    [
+     56.6,
+     59.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "R2A_Knee_Pin_Cap_L",
+   "interface": "M3 head counterbores",
+   "diameter_mm": 6.0,
+   "expected_y_spans_mm": [
+    [
+     53.6,
+     56.6
+    ],
+    [
+     53.6,
+     56.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     53.6,
+     56.6
+    ],
+    [
+     53.6,
+     56.6
+    ]
+   ],
+   "pass": true
+  }
+ ],
+ "print_audit": {
+  "R2A_Prox_Inboard_L": {
+   "part": "R2A_Prox_Inboard_L",
+   "side": "min",
+   "bed_contact_mm2": 12449.67,
+   "counts": {
+    "bridge": 4,
+    "bed": 1,
+    "lip": 1
+   },
+   "faces": [
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      98.68,
+      65.44,
+      5.0
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      81.58,
+      68.46,
+      5.0
+     ]
+    },
+    {
+     "z_mm": 4.0,
+     "area_mm2": 25.18,
+     "extent_mm": [
+      6.0,
+      5.36
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      62.76,
+      69.08,
+      4.0
+     ]
+    },
+    {
+     "z_mm": 4.0,
+     "area_mm2": 25.18,
+     "extent_mm": [
+      6.0,
+      5.64
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      120.85,
+      84.88,
+      4.0
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 61.04,
+     "extent_mm": [
+      19.15,
+      19.15
+     ],
+     "class": "lip",
+     "centre_mm": [
+      100.96,
+      77.13,
+      5.0
+     ]
+    }
+   ],
+   "height_mm": 25.0
+  },
+  "R2A_Prox_Outboard_L": {
+   "part": "R2A_Prox_Outboard_L",
+   "side": "max",
+   "bed_contact_mm2": 10670.94,
+   "counts": {
+    "bridge": 4,
+    "bed": 1,
+    "lip": 1
+   },
+   "faces": [
+    {
+     "z_mm": 5.6,
+     "area_mm2": 25.18,
+     "extent_mm": [
+      6.0,
+      5.36
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      62.76,
+      -69.08,
+      5.6
+     ]
+    },
+    {
+     "z_mm": 5.6,
+     "area_mm2": 25.18,
+     "extent_mm": [
+      6.0,
+      5.64
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      120.85,
+      -84.88,
+      5.6
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      99.43,
+      -64.14,
+      5.0
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      80.43,
+      -67.49,
+      5.0
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 61.04,
+     "extent_mm": [
+      19.15,
+      19.15
+     ],
+     "class": "lip",
+     "centre_mm": [
+      100.96,
+      -77.13,
+      5.0
+     ]
+    }
+   ],
+   "height_mm": 6.6
+  },
+  "R2A_Crank_L": {
+   "part": "R2A_Crank_L",
+   "side": "max",
+   "bed_contact_mm2": 1511.38,
+   "counts": {
+    "lip": 3,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 0.7,
+     "area_mm2": 7.71,
+     "extent_mm": [
+      5.2,
+      5.2
+     ],
+     "class": "lip",
+     "centre_mm": [
+      10.04,
+      6.69,
+      0.7
+     ]
+    },
+    {
+     "z_mm": 0.7,
+     "area_mm2": 7.71,
+     "extent_mm": [
+      5.2,
+      5.2
+     ],
+     "class": "lip",
+     "centre_mm": [
+      -7.31,
+      3.32,
+      0.7
+     ]
+    },
+    {
+     "z_mm": 0.7,
+     "area_mm2": 7.71,
+     "extent_mm": [
+      5.2,
+      5.2
+     ],
+     "class": "lip",
+     "centre_mm": [
+      4.28,
+      -10.01,
+      0.7
+     ]
+    }
+   ],
+   "height_mm": 16.3
+  },
+  "R2A_Crank_Cap_L": {
+   "part": "R2A_Crank_Cap_L",
+   "side": "min",
+   "bed_contact_mm2": 543.02,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "height_mm": 3.0
+  },
+  "R2A_Distal_Link_L": {
+   "part": "R2A_Distal_Link_L",
+   "side": "min",
+   "bed_contact_mm2": 3533.41,
+   "counts": {
+    "SUPPORT": 5,
+    "bridge": 2,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 6.3,
+     "area_mm2": 331.56,
+     "extent_mm": [
+      17.55,
+      32.67
+     ],
+     "class": "SUPPORT",
+     "centre_mm": [
+      82.85,
+      108.42,
+      6.3
+     ]
+    },
+    {
+     "z_mm": 6.3,
+     "area_mm2": 1235.05,
+     "extent_mm": [
+      57.45,
+      50.08
+     ],
+     "class": "SUPPORT",
+     "centre_mm": [
+      103.27,
+      74.22,
+      6.3
+     ]
+    },
+    {
+     "z_mm": 6.3,
+     "area_mm2": 0.93,
+     "extent_mm": [
+      1.32,
+      2.83
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      91.63,
+      121.37,
+      6.3
+     ]
+    },
+    {
+     "z_mm": 25.0,
+     "area_mm2": 14.79,
+     "extent_mm": [
+      12.0,
+      8.39
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      60.82,
+      140.92,
+      25.0
+     ]
+    },
+    {
+     "z_mm": 25.0,
+     "area_mm2": 1218.17,
+     "extent_mm": [
+      56.03,
+      46.5
+     ],
+     "class": "SUPPORT",
+     "centre_mm": [
+      55.33,
+      108.05,
+      25.0
+     ]
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 602.85,
+     "extent_mm": [
+      65.39,
+      68.0
+     ],
+     "class": "SUPPORT",
+     "centre_mm": [
+      -23.76,
+      174.95,
+      5.0
+     ]
+    },
+    {
+     "z_mm": 5.8,
+     "area_mm2": 117.74,
+     "extent_mm": [
+      16.0,
+      16.0
+     ],
+     "class": "SUPPORT",
+     "centre_mm": [
+      98.5,
+      77.13,
+      5.8
+     ]
+    }
+   ],
+   "height_mm": 31.5
+  },
+  "R2A_Lever_Cap_L": {
+   "part": "R2A_Lever_Cap_L",
+   "side": "max",
+   "bed_contact_mm2": 543.02,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "height_mm": 3.7
+  },
+  "R2A_Encoder_Arm_L": {
+   "part": "R2A_Encoder_Arm_L",
+   "side": "max",
+   "bed_contact_mm2": 617.18,
+   "counts": {
+    "bridge": 1,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 2.5,
+     "area_mm2": 29.22,
+     "extent_mm": [
+      6.1,
+      6.1
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      91.93,
+      -77.13,
+      2.5
+     ]
+    }
+   ],
+   "height_mm": 6.3
+  },
+  "R2A_Knee_Pin_Cap_L": {
+   "part": "R2A_Knee_Pin_Cap_L",
+   "side": "min",
+   "bed_contact_mm2": 851.37,
+   "counts": {
+    "bridge": 2,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 3.0,
+     "area_mm2": 19.2,
+     "extent_mm": [
+      6.0,
+      6.0
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      101.03,
+      65.44,
+      3.0
+     ]
+    },
+    {
+     "z_mm": 3.0,
+     "area_mm2": 19.2,
+     "extent_mm": [
+      6.0,
+      6.0
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      83.93,
+      68.46,
+      3.0
+     ]
+    }
+   ],
+   "height_mm": 5.9
+  },
+  "R2A_Encoder_Bracket_L": {
+   "part": "R2A_Encoder_Bracket_L",
+   "side": "max",
+   "bed_contact_mm2": 759.53,
+   "counts": {
+    "bridge": 3,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 3.0,
+     "area_mm2": 4.8,
+     "extent_mm": [
+      5.83,
+      2.06
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      79.57,
+      -71.64,
+      3.0
+     ]
+    },
+    {
+     "z_mm": 2.0,
+     "area_mm2": 15.83,
+     "extent_mm": [
+      6.12,
+      6.82
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      78.49,
+      -65.98,
+      2.0
+     ]
+    },
+    {
+     "z_mm": 2.0,
+     "area_mm2": 15.83,
+     "extent_mm": [
+      7.46,
+      5.37
+     ],
+     "class": "bridge",
+     "centre_mm": [
+      100.46,
+      -61.82,
+      2.0
+     ]
+    }
+   ],
+   "height_mm": 11.8
+  }
+ },
+ "distal_support_audit": [
+  {
+   "label": "knee_web",
+   "source_face_y_mm": 65.8,
+   "source_face_area_mm2": 1235.053962942473,
+   "support_volume_mm3": 7653.7037918456135,
+   "top_bottom_gap_mm": 0.4,
+   "lateral_gap_mm": 0.6,
+   "knee_bore_keepout_diameter_mm": 11.0,
+   "clear_removal_paths": [
+    {
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    }
+   ],
+   "travel_checked_mm": 40.0,
+   "face_y_mm": 65.8
+  },
+  {
+   "label": "knee_web",
+   "source_face_y_mm": 65.8,
+   "source_face_area_mm2": 331.55585468694244,
+   "support_volume_mm3": 132.62234187477728,
+   "top_bottom_gap_mm": 0.4,
+   "lateral_gap_mm": 0.6,
+   "knee_bore_keepout_diameter_mm": 11.0,
+   "clear_removal_paths": [
+    {
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      1,
+      0,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -1,
+      0,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0,
+      0,
+      1
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0,
+      0,
+      -1
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0.7071,
+      0,
+      0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0.7071,
+      0,
+      -0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.7071,
+      0,
+      0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.7071,
+      0,
+      -0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.643,
+      0,
+      0.766
+     ],
+     "maximum_interference_mm3": 0.0
+    }
+   ],
+   "travel_checked_mm": 40.0,
+   "face_y_mm": 65.8
+  },
+  {
+   "label": "knee_receiver_land",
+   "source_face_y_mm": 65.3,
+   "source_face_area_mm2": 117.73903867491167,
+   "support_volume_mm3": 614.9667619402302,
+   "top_bottom_gap_mm": 0.4,
+   "lateral_gap_mm": 0.6,
+   "knee_bore_keepout_diameter_mm": 11.0,
+   "clear_removal_paths": [
+    {
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      1,
+      0,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0,
+      0,
+      1
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0.7071,
+      0,
+      0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      0.7071,
+      0,
+      -0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.7071,
+      0,
+      0.7071
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.643,
+      0,
+      0.766
+     ],
+     "maximum_interference_mm3": 0.0
+    }
+   ],
+   "travel_checked_mm": 40.0,
+   "face_y_mm": 65.3
+  },
+  {
+   "label": "open_channel",
+   "source_face_y_mm": 84.5,
+   "source_face_area_mm2": 1218.171343613625,
+   "support_volume_mm3": 22949.135606162374,
+   "top_bottom_gap_mm": 0.4,
+   "lateral_gap_mm": 0.6,
+   "knee_bore_keepout_diameter_mm": 11.0,
+   "clear_removal_paths": [
+    {
+     "direction": [
+      -0.8660254037844387,
+      0.0,
+      0.49999999999999994
+     ],
+     "maximum_interference_mm3": 0.0
+    },
+    {
+     "direction": [
+      -0.9659258262890682,
+      0.0,
+      0.258819045102521
+     ],
+     "maximum_interference_mm3": 0.0
+    }
+   ],
+   "travel_checked_mm": 40.0,
+   "face_y_mm": 84.5
+  },
+  {
+   "label": "wheel_end",
+   "source_face_y_mm": 64.5,
+   "source_face_area_mm2": 602.8499745598361,
+   "support_volume_mm3": 2648.152712314504,
+   "top_bottom_gap_mm": 0.4,
+   "lateral_gap_mm": 0.6,
+   "knee_bore_keepout_diameter_mm": 11.0,
+   "clear_removal_paths": [
+    {
+     "direction": [
+      0,
+      -1,
+      0
+     ],
+     "maximum_interference_mm3": 0.0
+    }
+   ],
+   "travel_checked_mm": 40.0,
+   "face_y_mm": 64.5
+  }
+ ],
+ "released_files": {
+  "R2A_Prox_Inboard_L": {
+   "file": "r2a_stl/R2A_Prox_Inboard_L_ABS_Y59p5_DOWN.stl",
+   "sha256": "224523f1588bdc65994f18a541bcc2a44ca52e7ce3d6cff0246bfdca4b35ac0e",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 80038,
+    "vertices": 39997,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00399,
+    "mesh_volume_mm3": 90481.601,
+    "brep_volume_mm3": 90484.39,
+    "mesh_area_mm2": 44280.584,
+    "brep_area_mm2": 44281.88,
+    "bed_contact_mesh_mm2": 12449.166,
+    "bed_contact_brep_mm2": 12449.67,
+    "mesh_min_z_mm": -1.2767356413084276e-14,
+    "box_deviation_mm": [
+     0.0006,
+     0.0018,
+     0.0
+    ],
+    "brep_samples": 431,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Prox_Outboard_L": {
+   "file": "r2a_stl/R2A_Prox_Outboard_L_ABS_Y91p1_DOWN.stl",
+   "sha256": "f75eff4b14ad440ab38f23d4d31037ea447043716f299d62967cf6c16df054d6",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 67804,
+    "vertices": 33874,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00399,
+    "mesh_volume_mm3": 62114.822,
+    "brep_volume_mm3": 62116.374,
+    "mesh_area_mm2": 28624.463,
+    "brep_area_mm2": 28625.253,
+    "bed_contact_mesh_mm2": 10670.623,
+    "bed_contact_brep_mm2": 10670.939,
+    "mesh_min_z_mm": -3.885572216083023e-15,
+    "box_deviation_mm": [
+     0.0006,
+     0.0019,
+     0.0
+    ],
+    "brep_samples": 233,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Crank_L": {
+   "file": "r2a_stl/R2A_Crank_L_ABS_OUTPUT_FACE_DOWN.stl",
+   "sha256": "3b6e0f817bde93f4f87c3dba9078ee4131e046772f3cc9a8d8b0739efdb8ca03",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 28034,
+    "vertices": 13999,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00397,
+    "mesh_volume_mm3": 12563.466,
+    "brep_volume_mm3": 12565.529,
+    "mesh_area_mm2": 6925.053,
+    "brep_area_mm2": 6925.904,
+    "bed_contact_mesh_mm2": 1511.083,
+    "bed_contact_brep_mm2": 1511.376,
+    "mesh_min_z_mm": -4.218117351175062e-15,
+    "box_deviation_mm": [
+     0.0001,
+     0.0006,
+     0.0
+    ],
+    "brep_samples": 343,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Crank_Cap_L": {
+   "file": "r2a_stl/R2A_Crank_Cap_L_ABS_OUTER_FACE_DOWN.stl",
+   "sha256": "41dab91d33114a7479a8358b98a81ef1f11828a6ef63f99a765dff8d676ceb9e",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 3196,
+    "vertices": 1594,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00397,
+    "mesh_volume_mm3": 1392.665,
+    "brep_volume_mm3": 1393.034,
+    "mesh_area_mm2": 1504.7,
+    "brep_area_mm2": 1505.091,
+    "bed_contact_mesh_mm2": 542.839,
+    "bed_contact_brep_mm2": 543.019,
+    "mesh_min_z_mm": -1.176836406102666e-14,
+    "box_deviation_mm": [
+     0.0005,
+     0.0,
+     0.0
+    ],
+    "brep_samples": 179,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Distal_Link_L": {
+   "file": "r2a_stl/R2A_Distal_Link_L_ABS_Y59p5_DOWN.stl",
+   "sha256": "1bac137b3bb33fd357cfec060310ee22b22e312b8f6d6ec48d542bb2439bbabf",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "selective",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 121410,
+    "vertices": 60671,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00347,
+    "mesh_volume_mm3": 60770.913,
+    "brep_volume_mm3": 60770.709,
+    "mesh_area_mm2": 28618.373,
+    "brep_area_mm2": 28618.639,
+    "bed_contact_mesh_mm2": 3533.488,
+    "bed_contact_brep_mm2": 3533.406,
+    "mesh_min_z_mm": -1.7763568394002505e-14,
+    "box_deviation_mm": [
+     0.0004,
+     0.0005,
+     0.0
+    ],
+    "brep_samples": 888,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Lever_Cap_L": {
+   "file": "r2a_stl/R2A_Lever_Cap_L_ABS_OUTER_FACE_DOWN.stl",
+   "sha256": "0499303ae9a92c943494eba3cd571f4e885c10026f1983a3f6ce4fe178c7d0e4",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 3448,
+    "vertices": 1720,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00397,
+    "mesh_volume_mm3": 1760.355,
+    "brep_volume_mm3": 1760.834,
+    "mesh_area_mm2": 1601.444,
+    "brep_area_mm2": 1601.848,
+    "bed_contact_mesh_mm2": 542.839,
+    "bed_contact_brep_mm2": 543.019,
+    "mesh_min_z_mm": -2.886578805234223e-15,
+    "box_deviation_mm": [
+     0.0,
+     0.0006,
+     0.0
+    ],
+    "brep_samples": 179,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Encoder_Arm_L": {
+   "file": "r2a_stl/R2A_Encoder_Arm_L_ABS_TOP_FACE_DOWN.stl",
+   "sha256": "99f8d70f94c7fcb4aa485d0f34b619c44f3d07092e25f3044d638e0a656d5891",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 3760,
+    "vertices": 1876,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00391,
+    "mesh_volume_mm3": 3732.642,
+    "brep_volume_mm3": 3733.225,
+    "mesh_area_mm2": 2310.794,
+    "brep_area_mm2": 2311.152,
+    "bed_contact_mesh_mm2": 617.093,
+    "bed_contact_brep_mm2": 617.183,
+    "mesh_min_z_mm": -1.1101891433072664e-15,
+    "box_deviation_mm": [
+     0.0003,
+     0.002,
+     0.0
+    ],
+    "brep_samples": 92,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Knee_Pin_Cap_L": {
+   "file": "r2a_stl/R2A_Knee_Pin_Cap_L_ABS_OUTER_FACE_DOWN.stl",
+   "sha256": "37cc8805650f3a7659bc5f8653f88e94573c752b48cb8dc5f067cfe69200ee65",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 4064,
+    "vertices": 2030,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00399,
+    "mesh_volume_mm3": 4443.846,
+    "brep_volume_mm3": 4445.237,
+    "mesh_area_mm2": 2767.926,
+    "brep_area_mm2": 2768.56,
+    "bed_contact_mesh_mm2": 851.105,
+    "bed_contact_brep_mm2": 851.372,
+    "mesh_min_z_mm": -3.774536784609825e-15,
+    "box_deviation_mm": [
+     0.004,
+     0.001,
+     0.0
+    ],
+    "brep_samples": 35,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Encoder_Bracket_L": {
+   "file": "r2a_stl/R2A_Encoder_Bracket_L_ABS_PLATE_DOWN.stl",
+   "sha256": null,
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "HOLD: AS5048A adapter-board outline not in the repository",
+   "fidelity": null
+  },
+  "R2A_COUPON_Crank_Register": {
+   "file": "r2a_stl/R2A_COUPON_Crank_Register_ABS.stl",
+   "sha256": "ff8cf18e49e687eacb40e26ec89563f2507bcd4bebeb3c778f051ce9c2580a98",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 21270,
+    "vertices": 10617,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00389,
+    "mesh_volume_mm3": 6918.818,
+    "brep_volume_mm3": 6920.448,
+    "mesh_area_mm2": 4092.86,
+    "brep_area_mm2": 4093.509,
+    "bed_contact_mesh_mm2": 913.1,
+    "bed_contact_brep_mm2": 913.346,
+    "mesh_min_z_mm": -4.2187581315996595e-15,
+    "box_deviation_mm": [
+     0.0018,
+     0.003,
+     0.0
+    ],
+    "brep_samples": 157,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_COUPON_Crank_Clevis": {
+   "file": "r2a_stl/R2A_COUPON_Crank_Clevis_ABS.stl",
+   "sha256": "da32201e2849f3bfde97774f268e01acd2809fbcec912bea49780ef2dedcb13a",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 7740,
+    "vertices": 3872,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00389,
+    "mesh_volume_mm3": 6350.712,
+    "brep_volume_mm3": 6351.815,
+    "mesh_area_mm2": 3366.539,
+    "brep_area_mm2": 3366.955,
+    "bed_contact_mesh_mm2": 691.617,
+    "bed_contact_brep_mm2": 691.766,
+    "mesh_min_z_mm": 0.0,
+    "box_deviation_mm": [
+     0.0024,
+     0.0005,
+     0.0
+    ],
+    "brep_samples": 260,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_COUPON_Pin_Dowel_Ladder": {
+   "file": "r2a_stl/R2A_COUPON_Pin_Dowel_Ladder_ABS.stl",
+   "sha256": "8489b6126b35d759b69f07fd9ae5275fa70c3a3b3c9f0986051dd83271cc600c",
+   "qty": 1,
+   "material": "ABS",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 2926,
+    "vertices": 1449,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00399,
+    "mesh_volume_mm3": 9009.698,
+    "brep_volume_mm3": 9008.132,
+    "mesh_area_mm2": 5939.036,
+    "brep_area_mm2": 5938.796,
+    "bed_contact_mesh_mm2": 1889.561,
+    "bed_contact_brep_mm2": 1889.264,
+    "mesh_min_z_mm": 0.0,
+    "box_deviation_mm": [
+     0.0,
+     0.0,
+     0.0
+    ],
+    "brep_samples": 132,
+    "brep_samples_not_in_mesh": 0
+   }
+  },
+  "R2A_Knee_Bumper_TPU": {
+   "file": "r2a_stl/R2A_Knee_Bumper_TPU95A_D6x4.stl",
+   "sha256": "a012043213cdd0422434c198f0f2eabb4e70e40c5097c1e9487680a5a2a41612",
+   "qty": 4,
+   "material": "TPU 95A",
+   "support_policy": "none",
+   "state": "RELEASED",
+   "fidelity": {
+    "triangles": 384,
+    "vertices": 194,
+    "open_or_nonmanifold_edges": 0,
+    "degenerate_triangles": 0,
+    "shells": 1,
+    "lumps": 1,
+    "vertices_off_reviewed_surface": 0,
+    "max_cylinder_chord_mm": 0.00157,
+    "mesh_volume_mm3": 113.018,
+    "brep_volume_mm3": 113.097,
+    "mesh_area_mm2": 131.894,
+    "brep_area_mm2": 131.947,
+    "bed_contact_mesh_mm2": 28.255,
+    "bed_contact_brep_mm2": 28.274,
+    "mesh_min_z_mm": 0.0,
+    "box_deviation_mm": [
+     0.0016,
+     0.0004,
+     0.0
+    ],
+    "brep_samples": 7,
+    "brep_samples_not_in_mesh": 0
+   }
+  }
+ },
+ "note": "Recorded from Beni_R2A_SingleLeg v4 (v3 geometry; v4 adds part appearances only, every shape signature re-checked). print_audit classifies each downward face in the exported bed pose; SUPPORT faces occur only on the distal link and each is covered by a distal_support_audit envelope."
+}

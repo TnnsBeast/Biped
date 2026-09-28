@@ -25,6 +25,7 @@ r2a_calc.py selection; nothing here re-derives them.
 import json
 import math
 import os
+import time
 
 import adsk.core
 import adsk.fusion
@@ -195,7 +196,20 @@ ROOF_V = (44.0, 48.0)
 ROOF_U_END = 95.0
 BACK_WALL_R = (46.5, 50.5)
 FLOOR_T = 4.0
-FLOOR_U = (14.0, 72.0)
+FLOOR_U = (14.0, 86.0)
+# Cable duct on the shin (-v) side of the rod, inside the proximal box: floor
+# wall below, duct wall above; the wheel cable enters through the inboard
+# cheek, the AS5048A cable through the outboard cheek, both leave through a
+# notch in the root back wall.
+DUCT_WALL_V = (-3.0, -1.0)
+DUCT_U = (42.0, 86.0)            # starts clear of the 358.6 deg actuator screw head
+DUCT_ENTRY_IN_UV = (80.0, -9.0)
+DUCT_ENTRY_OUT_UV = (82.0, -9.0)
+DUCT_ENTRY_D = 8.0
+DUCT_EXIT_UV_DEG = 222.0          # past the back wall's 215 deg end: no notch
+CABLE_Y = (66.5, 83.0)            # usable duct height between M4 heads and M3 heads
+# mid-link lightening window in both cheeks (clear of both pins and the duct)
+WINDOW_UV = ((46.0, 10.0), (76.0, 10.0), 20.0)   # v 0..20: 1 mm above the duct wall
 
 # Encoder stack.  The Ø10 x 35 knee pin sits flush with bearing B's outer
 # face and protrudes 3.4 mm inboard, where R2A_Knee_Pin_Cap_L stops it; the
@@ -203,7 +217,8 @@ FLOOR_U = (14.0, 72.0)
 PIN_Y = (BRG_B[1] - PIN_D10_LEN, BRG_B[1])   # 56.1 .. 91.1
 PIN_CAP_GAP = 0.5
 ENC_ARM_Y = (91.6, 95.4)
-ENC_ARM_PAD_Y0 = 89.5
+ENC_PAD_Y1 = 91.0            # distal outboard pads for the arm (89.5 .. 91.0)
+ENC_ARM_PAD_Y0 = ENC_PAD_Y1
 MAG_D, MAG_T = 6.1, 2.5
 ENC_DIE_GAP = 1.0             # design record §3, legacy air gap
 
@@ -607,6 +622,10 @@ def build_inboard_half():
             (p1[0] + FLOOR_T * n[0], p1[1] + FLOOR_T * n[1]),
             (p0[0] + FLOOR_T * n[0], p0[1] + FLOOR_T * n[1])]
     ext(c, _sk_poly_uv(c, Y_CH0, quad), Y_CH0, Y_CH1, 'join')
+    # cable duct wall
+    ext(c, _sk_poly_uv(c, Y_CH0, [(DUCT_U[0], DUCT_WALL_V[0]), (DUCT_U[1], DUCT_WALL_V[0]),
+                                   (DUCT_U[1], DUCT_WALL_V[1]), (DUCT_U[0], DUCT_WALL_V[1])]),
+        Y_CH0, Y_CH1, 'join')
     # screw bosses on the walls
     sk = B.sk_on_y(c, Y_CH0)
     for p in perimeter_screws_uv():
@@ -631,6 +650,7 @@ def build_inboard_half():
     # perimeter M3 insert pockets, blind from the wall tops
     _circles(c, Y_CH1 - B.FRAME_INSERT_HOLE_DEPTH, Y_CH1 + 1.0,
              [uv(*p) for p in perimeter_screws_uv()], B.FRAME_INSERT_D)
+    _cable_features(c, Y_IN - 1.0, Y_CH0, DUCT_ENTRY_IN_UV)
     tag(occ, 'PROX')
     return occ
 
@@ -681,14 +701,24 @@ def build_outboard_half():
              B.M3_INSERT_RECEIVER_D)
     _circles(c, Y_CH1 + 1.0, Y_OUT + 1.0,
              [uv(*tpu_centre_uv('flex')), uv(*tpu_centre_uv('ext'))], TPU_D)
+    _cable_features(c, Y_CH1, Y_OUT + 1.0, DUCT_ENTRY_OUT_UV)
     tag(occ, 'PROX')
     return occ
 
 
+def _cable_features(c, y0, y1, entry_uv):
+    """Mid-link lightening window and a duct entry hole through a cheek."""
+    (a0, a1, w) = WINDOW_UV
+    p0, p1 = uv(*a0), uv(*a1)
+    sk = B.sk_on_y(c, y0); B.slot(sk, p0[0], p0[1], p1[0], p1[1], w)
+    ext(c, sk, y0, y1, 'cut')
+    _circles(c, y0, y1, [uv(*entry_uv)], DUCT_ENTRY_D)
+
+
 # ================================================================ crank
-FAN_RHO = (6.0, 30.0)        # neck relief starts 6 mm from the pin centre
+FAN_RHO = (5.0, 30.0)        # neck relief starts 1 mm inside the envelope's neck
 FAN_HW = RE_NECK_D / 2.0 + 1.0
-FAN_MARGIN = 3.0             # deg, rod-end swivel allowance each side
+FAN_MARGIN = 4.0             # deg, rod-end swivel allowance each side
 SWEEP = (ALPHA_FLEX_STOP - OVERTRAVEL - 1.0, ALPHA_EXT_STOP + OVERTRAVEL + 1.0)
 
 
@@ -887,6 +917,8 @@ def build_distal_link():
     ext(c, sk, LEVER_IN[0], LEVER_IN[1], 'join')
     _circles(c, LEVER_IN[0], LEVER_IN[1], [P0], 2 * HEAD_R, 'join')
     dowels = _dowel_xz(P0, arm, LEVER_DOWEL_REL)
+    # the C-wall's dowel bosses stand on matching bosses (no overhang in print)
+    _circles(c, LEVER_IN[0], LEVER_IN[1], dowels, 2 * DOWEL_BOSS_R, 'join')
     _circles(c, GAP[0], GAP[1], [P0], 2 * HEAD_R, 'join')
     _circles(c, GAP[0], GAP[1], dowels, 2 * DOWEL_BOSS_R, 'join')
     _circles(c, GAP[0], GAP[1], [P0], RE_EYE_D + 2 * EYE_CLR, 'cut')
@@ -910,14 +942,16 @@ def build_distal_link():
         a0, a1 = B.dist_uv(u0, v0), B.dist_uv(u1, v1)
         B.slot(sk, a0[0], a0[1], a1[0], a1[1], w)
         ext(c, sk, y0 - 1.0, y1 + 1.0, 'cut')
-    # encoder-arm attachment: bosses into the U-channel, inserts, dowel socket
+    # encoder-arm attachment: 1.5 mm pads on the outboard face (inside the
+    # block's angular range), insert pockets 5.5 deep, dowel socket 5.0 deep.
+    # Nothing hangs into the U-channel, so its ceiling support slides out.
     att = [_dxz(p) for p in ENC_INSERTS_D + [ENC_DOWEL_D]]
-    _circles(c, B.CH_Y1 - 4.0, B.CH_Y1, att, 9.0, 'join')
-    _circles(c, y1 - B.INSERT_LEN, y1 + 1.0, att[:2], B.M3_INSERT_RECEIVER_D)
-    _circles(c, y1 - 5.0, y1 + 1.0, att[2:], DOWEL_HOLE_D)
+    _circles(c, y1, ENC_PAD_Y1, att, 10.0, 'join')
+    _circles(c, ENC_PAD_Y1 - 5.5, ENC_PAD_Y1 + 1.0, att[:2], B.M3_INSERT_RECEIVER_D)
+    _circles(c, ENC_PAD_Y1 - 5.0, ENC_PAD_Y1 + 1.0, att[2:], DOWEL_HOLE_D)
     # confine the full-width side plates to du-21 .. du+50 near the knee: the
     # proximal cheeks occupy every other direction at some knee angle
-    for band in ((B.LEG_Y_IN - 0.1, B.CH_Y0 + 0.2), (B.CH_Y1 - 0.1, B.LEG_Y_OUT + 0.1)):
+    for band in ((B.LEG_Y_IN - 0.1, B.CH_Y0 + 0.2), (B.CH_Y1 - 0.5, B.LEG_Y_OUT + 0.1)):
         sk = B.sk_on_y(c, band[0])
         pts = [_dxz(dpol(11.0, DIST_EXT_REL)), _dxz(dpol(60.0, DIST_EXT_REL))]
         for i in range(1, 12):
@@ -930,6 +964,17 @@ def build_distal_link():
             pts.append(_dxz(dpol(11.0, a)))
         B.polyline(sk, pts)
         ext(c, sk, band[0], band[1], 'cut')
+    # wheel-cable tie slots through the inboard side plate (pairs, 6 mm apart)
+    for du in (40.0, 52.0):
+        for dv in (-5.0, -11.0):
+            a0, a1 = B.dist_uv(du - 1.75, dv), B.dist_uv(du + 1.75, dv)
+            sk = B.sk_on_y(c, y0 - 1.0); B.slot(sk, a0[0], a0[1], a1[0], a1[1], 2.0)
+            ext(c, sk, y0 - 1.0, B.CH_Y0 + 0.5, 'cut')
+    # channel-band sliver of the legacy arm circle beyond the extension face
+    sk = B.sk_on_y(c, B.CH_Y0 - 0.1)
+    B.polyline(sk, [_dxz(dpol(23.0, DIST_EXT_REL)), _dxz(dpol(62.0, DIST_EXT_REL)),
+                    _dxz(dpol(62.0, DIST_EXT_REL + 20.0)), _dxz(dpol(23.0, DIST_EXT_REL + 20.0))])
+    ext(c, sk, B.CH_Y0 - 0.1, B.CH_Y1 + 0.1, 'cut')
     # knee receiver bore last, through the ring
     _circles(c, RECV[0] - 1.0, RECV[1] + 1.0, [(KX, KZ)], RECV_D)
     tag(occ, 'DIST')
@@ -1050,12 +1095,14 @@ def build_pins():
     _base_comp('HW_DowelPin_D4x10_Lever', b, 'DIST', 'Steel')
     ed = _dxz(ENC_DOWEL_D)
     _base_comp('HW_DowelPin_D4x10_EncArm',
-               _cyl((ed[0], B.LEG_Y_OUT - 5.0, ed[1]), (ed[0], B.LEG_Y_OUT + 5.0, ed[1]),
+               _cyl((ed[0], ENC_PAD_Y1 - 5.0, ed[1]), (ed[0], ENC_PAD_Y1 + 5.0, ed[1]),
                     DOWEL_D), 'DIST', 'Steel')
     f, x = uv(*tpu_centre_uv('flex')), uv(*tpu_centre_uv('ext'))
+    B.drop_comp(PART['TPU'])
     tp = [_cyl((p[0], Y_IN, p[1]), (p[0], Y_CH0 - 1.0, p[1]), TPU_D) for p in (f, x)]
-    tp += [_cyl((p[0], Y_CH1 + 1.0, p[1]), (p[0], Y_OUT, p[1]), TPU_D) for p in (f, x)]
-    _base_comp(PART['TPU'], _union(tp), 'PROX')
+    _base_comp(PART['TPU'] + '_In', _union(tp), 'PROX')
+    tp = [_cyl((p[0], Y_CH1 + 1.0, p[1]), (p[0], Y_CH1 + 5.0, p[1]), TPU_D) for p in (f, x)]
+    _base_comp(PART['TPU'] + '_Out', _union(tp), 'PROX')
     return True
 
 
@@ -1116,6 +1163,14 @@ def build_encoder():
     _circles(cb, Y_OUT, ENC_BRACKET_PLATE[0], enc_insert_xz(), 9.0, 'join')
     _circles(cb, Y_OUT - 1.0, ENC_BRACKET_PLATE[1] + 1.0, enc_insert_xz(), 3.4)
     _circles(cb, ENC_BRACKET_PLATE[0] - 1.0, ENC_BRACKET_PLATE[1] + 1.0, [(KX, KZ)], 8.0)
+    # lead notch from the centre to the plate edge toward the cable route
+    a = xz_angle_of_uv(205.0)
+    tt = (-math.sin(math.radians(a)), math.cos(math.radians(a)))
+    far = polar((KX, KZ), 20.0, a)
+    sk = B.sk_on_y(cb, ENC_BRACKET_PLATE[0] - 1.0)
+    B.polyline(sk, [(KX + 3 * tt[0], KZ + 3 * tt[1]), (far[0] + 3 * tt[0], far[1] + 3 * tt[1]),
+                    (far[0] - 3 * tt[0], far[1] - 3 * tt[1]), (KX - 3 * tt[0], KZ - 3 * tt[1])])
+    ext(cb, sk, ENC_BRACKET_PLATE[0] - 1.0, ENC_BRACKET_PLATE[1] + 1.0, 'cut')
     tag(ob, 'PROX')
     # inboard knee-pin cap
     pn = PART['PIN_CAP']
@@ -1143,15 +1198,24 @@ def screw_sets():
     per = [uv(*p) for p in perimeter_screws_uv()]
     crank = [polar((0, 0), B.SH_OUT_PCD / 2.0, 10.8 + 60.0 * i) for i in range(6)]
     arm = [_dxz(p) for p in ENC_INSERTS_D]
+    wm = [polar((B.WX, B.WZ), B.WM_BOLT_PCD / 2.0, B.WM_BOLT_A0 + 60.0 * i) for i in range(6)]
     return [
-        ('R2A_SHCS_M3x12_Actuator', 'HW_SHCS_M3x12', 3.0, 12.0, True, Y_CH1, act, 'PROX'),
+        # M3 x 10, not x 12: 3.4 mm into the ~4.0 mm housing thread.  The
+        # delivered-actuator test found a 5.0 mm protrusion bottoms (beni_lib
+        # build_hardware: "x10 bottoms before the 5 mm panel clamps"); x 12
+        # through the 6.6 mm cheek would protrude 5.4 mm.
+        ('R2A_SHCS_M3x10_Actuator', 'HW_SHCS_M3x10', 3.0, 10.0, True, Y_CH1, act, 'PROX'),
         ('R2A_SHCS_M3x12_Perimeter', 'HW_SHCS_M3x12', 3.0, 12.0, False, Y_OUT, per, 'PROX'),
         ('R2A_SHCS_M3x10_Crank', 'HW_SHCS_M3x10', 3.0, 10.0, True, CRANK_M3_SEAT_Y, crank, 'CRANK'),
-        ('R2A_SHCS_M3x12_EncArm', 'HW_SHCS_M3x12', 3.0, 12.0, False, ENC_ARM_PLATE[1], arm, 'DIST'),
+        ('R2A_SHCS_M3x10_EncArm', 'HW_SHCS_M3x10', 3.0, 10.0, False, ENC_ARM_PLATE[1], arm, 'DIST'),
         ('R2A_SHCS_M3x16_Bracket', 'HW_SHCS_M3x16', 3.0, 16.0, False, ENC_BRACKET_PLATE[1],
          enc_insert_xz(), 'PROX'),
         ('R2A_SHCS_M3x6_PinCap', 'HW_SHCS_M3x6', 3.0, 6.0, True, PIN_Y[0] - PIN_CAP_GAP + 1.0,
          pin_cap_insert_xz(), 'PROX'),
+        # wheel motor: the legacy M2.5 x 12 through the 8.0 mm wheel-end plate
+        # reaches 1.0 mm past the floor of the STEP's Ø2.0 x 3.0 holes
+        # (y 67.5..70.5, measured 2026-09-27); x 10 stops 1.0 mm short of it
+        ('R2A_SHCS_M2p5x10_WheelMotor', 'HW_SHCS_M2p5x10', 2.5, 10.0, True, B.LEG_Y_IN, wm, 'DIST'),
     ]
 
 
@@ -1159,11 +1223,11 @@ def build_fasteners():
     """Place every R2A screw as addExistingComponent (not transform2) occurrences."""
     assert_r2a_doc()
     placed = {}
+    for o in all_root_occs():
+        if o.attributes.itemByName('R2A', 'set') or \
+                B.base_name(o.component.name) == 'HW_SHCS_M2p5x12':
+            o.deleteMe()           # the legacy wheel-motor screws are replaced
     for label, comp, d, L, flip, y, pts, cls in screw_sets():
-        for o in all_root_occs():
-            a = o.attributes.itemByName('R2A', 'set')
-            if a and a.value == label:
-                o.deleteMe()
         master = B.screw_comp(comp, d, L)
         occs = []
         for (x, z) in pts:
@@ -1173,7 +1237,7 @@ def build_fasteners():
             occs.append(o)
         placed[label] = len(occs)
     # screw_comp leaves its master at the origin: remove it unless placed
-    for comp in ('HW_SHCS_M3x12', 'HW_SHCS_M3x6'):
+    for comp in ('HW_SHCS_M3x12', 'HW_SHCS_M3x6', 'HW_SHCS_M2p5x10'):
         for o in all_root_occs():
             if B.base_name(o.component.name) == comp and o.attributes.itemByName('R2A', 'set') is None:
                 o.deleteMe()
@@ -1318,8 +1382,27 @@ def _base(n):
     return B.base_name(n.split(':')[0])
 
 
+_REF_NAMES = set()
+
+
+def ref_body_names():
+    """Names the interference reporter can return for a motor STEP body: the
+    REF occurrences, every child occurrence and component in their trees."""
+    names = set()
+    for o in all_root_occs():
+        if B.base_name(o.component.name).startswith('REF_'):
+            stack = [o]
+            while stack:
+                cur = stack.pop()
+                names.add(B.base_name(cur.name.split(':')[0]))
+                names.add(B.base_name(cur.component.name))
+                for i in range(cur.childOccurrences.count):
+                    stack.append(cur.childOccurrences.item(i))
+    return names
+
+
 def _is_ref(n):
-    return any(t in n for t in REF_TOKENS)
+    return any(t in n for t in REF_TOKENS) or _base(n) in _REF_NAMES
 
 
 def classify_pair(a, b, v, alpha):
@@ -1327,6 +1410,8 @@ def classify_pair(a, b, v, alpha):
     s = {na, nb}
     if s <= WHEEL_ALTERNATIVES:
         return 'alternative wheel parts'
+    if na.startswith('REFERENCE_Cable') and nb.startswith('REFERENCE_Cable'):
+        return 'cable envelope segments joined by construction'
     if (na.startswith('HW_SHCS') and _is_ref(nb)) or (nb.startswith('HW_SHCS') and _is_ref(na)):
         if v <= THREAD_ARTIFACT_MM3:
             return 'screw in modelled STEP thread'
@@ -1338,7 +1423,7 @@ def classify_pair(a, b, v, alpha):
        (_is_ref(nb) and na in (PART['CRANK'], 'Shoulder_Output_Hub_L')):
         if v <= PIN_ARTIFACT_MM3:
             return 'static STEP output pins vs rotating hub'
-    if PART['TPU'] in s and PART['DIST'] in s:
+    if any(n.startswith(PART['TPU']) for n in s) and PART['DIST'] in s:
         if alpha <= ALPHA_FLEX_STOP + 3.0 or alpha >= ALPHA_EXT_STOP - 3.0:
             return 'TPU bumper designed crush'
     if PART['DIST'] in s and (PART['INB'] in s or PART['OUTB'] in s):
@@ -1349,6 +1434,8 @@ def classify_pair(a, b, v, alpha):
 
 def pose_clashes(theta, alpha, min_mm3=0.01):
     """Pose, run whole-assembly interference, classify, restore."""
+    global _REF_NAMES
+    _REF_NAMES = ref_body_names()
     r2a_pose(theta, alpha)
     try:
         raw = R.clashes(min_mm3, verbose=False)
@@ -1380,18 +1467,328 @@ def remove_legacy_duplicate_cover_screws():
     return gone
 
 
+def all_visible():
+    """Turn every root occurrence on; returns the previous states.
+
+    TRAP (2026-09-27): a hidden *linked* occurrence -- the three motor STEP
+    references -- drops out of Design.analyzeInterference while hidden ordinary
+    occurrences stay in.  A sweep run after an inspection view had hidden the
+    REFs silently stopped checking the motors.  Every sweep therefore forces
+    all occurrences visible and restores the view afterwards."""
+    saved = [(o, o.isLightBulbOn) for o in all_root_occs()]
+    for o, on in saved:
+        if not on:
+            o.isLightBulbOn = True
+    return saved
+
+
 def sweep_chunk(poses, path, min_mm3=0.01):
     """Append pose_clashes() results for (theta, alpha) poses to a JSON file."""
     assert_r2a_doc()
     ref_assert()
     capture_nominal(force=True)
+    saved = all_visible()
     data = json.load(open(path)) if os.path.exists(path) else {}
-    for th, al in poses:
-        key = '%.1f,%.1f' % (th, al)
-        if key in data:
-            continue
-        data[key] = pose_clashes(th, al, min_mm3)
-        with open(path, 'w') as s:
-            json.dump(data, s)
+    try:
+        for th, al in poses:
+            key = '%.1f,%.1f' % (th, al)
+            if key in data:
+                continue
+            data[key] = pose_clashes(th, al, min_mm3)
+            with open(path, 'w') as s:
+                json.dump(data, s)
+    finally:
+        restore_bulbs(saved)
     ref_assert()
     return len(data)
+
+
+# ============================================================ measurements
+def occ_bodies(o):
+    out, stack = [], [o]
+    while stack:
+        cur = stack.pop()
+        for b in cur.bRepBodies:
+            out.append(b)
+        for i in range(cur.childOccurrences.count):
+            stack.append(cur.childOccurrences.item(i))
+    return out
+
+
+def find_all(name):
+    return [o for o in all_root_occs() if B.base_name(o.component.name) == name]
+
+
+def min_dist(names_a, names_b):
+    """Minimum B-Rep distance (mm) between two named occurrence groups."""
+    mm = adsk.core.Application.get().measureManager
+    best = None
+    for na in names_a:
+        for oa in find_all(na) if not hasattr(na, 'bRepBodies') else [na]:
+            for ba in occ_bodies(oa):
+                for nb in names_b:
+                    for ob in find_all(nb) if not hasattr(nb, 'bRepBodies') else [nb]:
+                        for bb in occ_bodies(ob):
+                            v = mm.measureMinimumDistance(ba, bb).value * 10.0
+                            best = v if best is None else min(best, v)
+    return best
+
+
+def pin_axis_xz(name):
+    """Global XZ of the Ø5 pin's cylinder axis in its current pose."""
+    o = find_all(name)[0]
+    for b in occ_bodies(o):
+        for f in b.faces:
+            g = adsk.core.Cylinder.cast(f.geometry)
+            if g and abs(g.radius * 20.0 - PIN5_D) < 1e-6:
+                return (g.origin.x * 10.0, g.origin.z * 10.0)
+    raise RuntimeError('pin axis not found: ' + name)
+
+
+def knee_ref():
+    return ref_occs()[1]
+
+
+ROD_PARTS = ('HW_Rod_M5x86', 'HW_JamNut_M5', 'HW_RodEnd_M5_Upper', 'HW_RodEnd_M5_Lower')
+
+
+def gate_measurements(alphas=(51.0, 55.0, 65.0, 80.0, 100.0, 120.0, 140.0, 145.0, 150.0)):
+    """Clearances and closure at the sampled knee angles (theta = 0)."""
+    assert_r2a_doc()
+    ref_assert()
+    capture_nominal(force=True)
+    kr = knee_ref()
+    rows = []
+    try:
+        for a in alphas:
+            r2a_pose(0.0, a)
+            c = pin_axis_xz('HW_Pin_D5x18_Crank')
+            p = pin_axis_xz('HW_Pin_D5x18_Lever')
+            cu = uv_inv(*c)
+            row = {
+                'alpha': a,
+                'pin_to_pin_mm': round(math.hypot(c[0] - p[0], c[1] - p[1]), 4),
+                'theta_c_measured_deg': round(math.degrees(math.atan2(cu[1], cu[0])), 3),
+                'theta_c_solver_deg': round(solve(a)[2], 3),
+                'tyre_to_proximal_mm': round(min_dist(['Wheel_Tyre_L'],
+                    [PART['INB'], PART['OUTB'], kr, 'Shoulder_Output_Hub_L',
+                     PART['CRANK']]), 3),
+                'rod_to_distal_mm': round(min_dist(['HW_Rod_M5x86', 'HW_JamNut_M5'],
+                                                   [PART['DIST']]), 3),
+                'rod_group_to_proximal_mm': round(min_dist(list(ROD_PARTS),
+                    [PART['INB'], PART['OUTB'], 'HW_SHCS_M4x10']), 3),
+                'rod_group_to_crank_mm': round(min_dist(['HW_Rod_M5x86', 'HW_JamNut_M5',
+                    'HW_RodEnd_M5_Lower'], [PART['CRANK'], PART['CRANK_CAP']]), 3),
+                'rod_group_to_lever_mm': round(min_dist(['HW_Rod_M5x86', 'HW_JamNut_M5',
+                    'HW_RodEnd_M5_Upper'], [PART['DIST'], PART['LEVER_CAP']]), 3),
+                'upper_rod_end_to_crank_mm': round(min_dist(['HW_RodEnd_M5_Upper'],
+                    [PART['CRANK'], PART['CRANK_CAP']]), 3),
+                'lower_rod_end_to_lever_mm': round(min_dist(['HW_RodEnd_M5_Lower'],
+                    [PART['DIST'], PART['LEVER_CAP']]), 3),
+                'crank_to_proximal_mm': round(min_dist([PART['CRANK'], PART['CRANK_CAP'],
+                    'HW_DowelPin_D4x10_Crank'], [PART['INB'], PART['OUTB'],
+                    'HW_SHCS_M4x10', 'R2A_SHCS_M3x10_Actuator']), 3),
+                'distal_to_proximal_mm': round(min_dist([PART['DIST'], PART['LEVER_CAP']],
+                    [PART['INB'], PART['OUTB']]), 3),
+                'encoder_arm_to_proximal_mm': round(min_dist([PART['ENC_ARM']],
+                    [PART['OUTB'], PART['ENC_BRACKET'], 'HW_AS5048A_PCB',
+                     'R2A_SHCS_M3x16_Bracket', 'HW_DowelPin_D10x35']), 3),
+            }
+            rows.append(row)
+    finally:
+        r2a_restore()
+    ref_assert()
+    return rows
+
+
+def stop_contact(lo, hi, flex=True, tol=0.01):
+    """Bisect the knee angle where the rigid links first overlap."""
+    assert_r2a_doc()
+    capture_nominal(force=True)
+    mm = adsk.core.Application.get().measureManager
+
+    def overlap(a):
+        r2a_pose(0.0, a)
+        d = min_dist([PART['DIST']], [PART['INB'], PART['OUTB']])
+        return d <= 1e-4
+    try:
+        # flex: overlap below the stop; ext: overlap above it
+        while hi - lo > tol:
+            mid = 0.5 * (lo + hi)
+            ov = overlap(mid)
+            if flex:
+                lo, hi = (lo, mid) if not ov else (mid, hi)
+            else:
+                lo, hi = (mid, hi) if not ov else (lo, mid)
+        return 0.5 * (lo + hi)
+    finally:
+        r2a_restore()
+
+
+PRINTED = ('INB', 'OUTB', 'CRANK', 'CRANK_CAP', 'DIST', 'LEVER_CAP', 'ENC_ARM',
+           'ENC_BRACKET', 'PIN_CAP')
+
+
+def part_volumes():
+    """Native B-Rep volumes (mm3) of every R2A part and R2A hardware group."""
+    out = {}
+    for o in all_root_occs():
+        nm = B.base_name(o.component.name)
+        v = sum(b.volume * 1000.0 for b in o.component.bRepBodies)
+        key = nm
+        a = o.attributes.itemByName('R2A', 'set')
+        if a:
+            key = a.value
+        out.setdefault(key, [0, 0.0])
+        out[key][0] += 1
+        out[key][1] += v
+    return {k: {'count': c, 'volume_mm3': round(v, 1)} for k, (c, v) in sorted(out.items())}
+
+
+# ================================================================ cables
+CABLE_D = 6.0
+ENC_CABLE_D = 3.5       # 6 x AWG28 SPI lead envelope (AS5048A kit wiring TBD)
+ENC_CABLE_UV = 205.0
+
+
+def _tube(points, d=CABLE_D):
+    """Union of cylinders (and joint spheres) through global (x, y, z) points."""
+    parts = []
+    for a, b in zip(points[:-1], points[1:]):
+        parts.append(_cyl(a, b, d))
+    for p in points[1:-1]:
+        parts.append(_tm().createSphere(_p(*p), d / 20.0))
+    return _union(parts)
+
+
+def _xyz(xz, y):
+    return (xz[0], y, xz[1])
+
+
+def build_cables():
+    """Reference cable envelopes (not printed): wheel, encoder, knee actuator.
+
+    The knee crossing is a free loop; its reserve is an annulus around the pin
+    cap on the inboard side.  The service loop from the root exit to the
+    stand anchor is flexible and is a physical routing check."""
+    assert_r2a_doc()
+    yin = 55.5
+    ymid = 0.5 * (CABLE_Y[0] + CABLE_Y[1])
+    # wheel cable on the distal inboard face (distal-fixed)
+    w1 = [_xyz(B.dist_uv(120.0, 0.0), 57.0), _xyz(B.dist_uv(100.0, -8.0), yin),
+          _xyz(B.dist_uv(46.0, -8.0), yin), _xyz(B.dist_uv(32.0, -9.0), yin)]
+    _base_comp('REFERENCE_Cable_Wheel_Distal', _tube(w1), 'DIST')
+    # free-loop reserve around the pin cap
+    ring = _cut(_cyl((KX, yin - 3.0, KZ), (KX, yin + 3.0, KZ), 60.0),
+                _cyl((KX, yin - 4.0, KZ), (KX, yin + 4.0, KZ), 38.0))
+    _base_comp('REFERENCE_Cable_Knee_Loop', ring, 'PROX')
+    # proximal: loop -> inboard entry -> duct -> root -> back-wall exit
+    ex = polar((0, 0), 55.0, DUCT_EXIT_UV_DEG)
+    ex_in = polar((0, 0), BACK_WALL_R[0] - 3.0, DUCT_EXIT_UV_DEG)
+    w2 = [_xyz(kuv(28.0, 204.0), yin), _xyz(uv(*DUCT_ENTRY_IN_UV), yin),
+          _xyz(uv(*DUCT_ENTRY_IN_UV), ymid), _xyz(uv(30.0, -9.0), ymid),
+          _xyz(uv(0.0, -14.0), ymid), _xyz(uv(*ex_in), ymid), _xyz(uv(*ex), ymid)]
+    _base_comp('REFERENCE_Cable_Wheel_Proximal', _tube(w2), 'PROX')
+    # AS5048A cable: PCB edge -> outboard face -> outboard entry -> duct
+    # leaves the board through the bracket-plate notch, drops to the face at
+    # R22 (between the post at 180 deg and the arm's sweep from 218 deg)
+    yt = ENC_BRACKET_PLATE[1] + 2.0
+    ye = ENC_ARM_PLATE[1] - 2.5
+    e = [_xyz((KX, KZ), yt), _xyz(kuv(22.0, ENC_CABLE_UV), yt),
+         _xyz(kuv(22.0, ENC_CABLE_UV), ye), _xyz(kuv(34.0, ENC_CABLE_UV), ye),
+         _xyz(uv(*DUCT_ENTRY_OUT_UV), ye), _xyz(uv(*DUCT_ENTRY_OUT_UV), ymid + 2.0),
+         _xyz(uv(48.0, -8.0), ymid + 2.0)]
+    _base_comp('REFERENCE_Cable_Encoder', _tube(e, ENC_CABLE_D), 'PROX')
+    # knee-actuator cable: cover notch -> over the housing -> round the root
+    notch = polar((0, 0), 30.0, 72.0)
+    out = [polar((0, 0), 55.0, a) for a in (72.0, 110.0, 150.0, xz_angle_of_uv(DUCT_EXIT_UV_DEG))]
+    ya = ACT_COVER_Y[0] + 5.0
+    k = [_xyz(notch, ya), _xyz(out[0], ya), _xyz(out[0], 95.0)]
+    k += [_xyz(p, 95.0) for p in out[1:]] + [_xyz(out[-1], ymid)]
+    _base_comp('REFERENCE_Cable_Knee_Actuator', _tube(k), 'PROX')
+    return True
+
+
+# ============================================================ gate record
+GATE_DIR = os.path.join(ROOT_DIR, 'evidence', 'r2a', '2026-09-27_digital_gate')
+LEGACY_VOLUMES_MM3 = {
+    # native B-Rep volumes in Beni_SingleLegRig v31, read from this document's
+    # Save-As copy before any edit (R2A version 1 inventory, 2026-09-27)
+    'Proximal_Link_L': 69736.8, 'Distal_Link_L': 49003.8,
+    'Knee_Encoder_Bracket_L': 2614.9,
+}
+R2A_MASS_PARTS = {
+    PART['INB']: 'PACF', PART['OUTB']: 'PACF', PART['CRANK']: 'PACF',
+    PART['CRANK_CAP']: 'PACF', PART['DIST']: 'PACF', PART['LEVER_CAP']: 'PACF',
+    PART['ENC_ARM']: 'PACF', PART['ENC_BRACKET']: 'PACF', PART['PIN_CAP']: 'PACF',
+    PART['TPU'] + '_In': 'TPU', PART['TPU'] + '_Out': 'TPU', 'HW_RodEnd_M5_Upper': 'STEEL', 'HW_RodEnd_M5_Lower': 'STEEL',
+    'HW_Rod_M5x86': 'STEEL', 'HW_JamNut_M5': 'STEEL', 'HW_Pin_D5x18_Crank': 'STEEL',
+    'HW_Pin_D5x18_Lever': 'STEEL', 'HW_DowelPin_D4x10_Crank': 'STEEL',
+    'HW_DowelPin_D4x10_Lever': 'STEEL', 'HW_DowelPin_D4x10_EncArm': 'STEEL',
+    'R2A_SHCS_M3x10_Actuator': 'STEEL', 'R2A_SHCS_M3x12_Perimeter': 'STEEL',
+    'R2A_SHCS_M3x10_Crank': 'STEEL', 'R2A_SHCS_M3x10_EncArm': 'STEEL',
+    'R2A_SHCS_M3x16_Bracket': 'STEEL', 'R2A_SHCS_M3x6_PinCap': 'STEEL',
+}
+
+
+def write_gate_record(clearances, stops, sweep, extra=None):
+    """Write the Fusion-measured values r2a_calc.py consumes."""
+    assert_r2a_doc()
+    doc = adsk.core.Application.get().activeDocument
+    vols = {k: v['volume_mm3'] for k, v in part_volumes().items()}
+    rec = {
+        'document': doc.name, 'version': doc.dataFile.versionNumber,
+        'written': time.strftime('%Y-%m-%d %H:%M'),
+        'linkage_mm': {'crank': CRANK_A, 'rod': ROD_B, 'lever': LEVER_C,
+                       'lever_offset_deg': LEVER_DELTA, 'theta_c_build_deg': THC0},
+        'rod_end_envelope_mm': {'eye_d': RE_EYE_D, 'eye_w': RE_EYE_W, 'ball_d': RE_BALL_D,
+                                'ball_w': RE_BALL_W, 'neck_d': RE_NECK_D, 'h': RE_H,
+                                'thread_depth': RE_THREAD_DEPTH, 'bore': PIN5_D},
+        'jam_nut_mm': {'af': NUT_AF, 't': NUT_T,
+                       'across_corners': round(NUT_AF / math.cos(math.radians(30.0)), 3)},
+        'rod_mm': {'d': ROD_D, 'length': ROD_LEN},
+        'stack_y_mm': {'leg_inboard_face': Y_IN, 'channel': [Y_CH0, Y_CH1],
+                       'actuator_mount_face': ACT_MOUNT_Y, 'actuator_output_face': ACT_OUT_Y,
+                       'actuator_housing': list(ACT_HOUSING_Y), 'actuator_cover': list(ACT_COVER_Y),
+                       'rod_plane': Y_ROD, 'ball_gap': list(GAP), 'crank_cap': list(EAR_IN),
+                       'crank_slab': list(CRANK_SLAB), 'lever_inboard_ear': list(LEVER_IN),
+                       'lever_cap': list(EAR_OUT), 'bearing_a': list(BRG_A), 'bearing_b': list(BRG_B),
+                       'receiver': list(RECV), 'knee_pin': list(PIN_Y),
+                       'magnet_face': ENC_ARM_PLATE[1], 'as5048a_die': list(ENC_DIE)},
+        'outline_mm': {'root_r': ROOT_R, 'root_r_tyre_side': ROOT_R_TYRE,
+                       'bottom_edge_tangent_r': BOTTOM_TANGENT_R, 'knee_cheek_r': KNEE_CHEEK_R,
+                       'knee_boss_r': KNEE_BOSS_R, 'roof_v': list(ROOF_V),
+                       'back_wall_r': list(BACK_WALL_R)},
+        'clevis_mm': {'ear_thickness': {'crank_cap': EAR_IN[1] - EAR_IN[0],
+                                        'crank_slab_at_pin': CRANK_SLAB[1] - 1.0 - CRANK_SLAB[0],
+                                        'lever_inboard': LEVER_IN[1] - LEVER_IN[0],
+                                        'lever_cap': EAR_OUT[1] - EAR_OUT[0]},
+                      'ball_gap': GAP[1] - GAP[0], 'pin': [PIN5_D, PIN5_LEN],
+                      'pin_hole_d': PIN5_HOLE_D,
+                      # a floating Ø5 x 18 pin: lever pin between the cheek faces;
+                      # crank pin between the inboard face and its blind bottom
+                      'min_pin_engagement': round(min(
+                          (Y_CH0 + PIN5_LEN) - EAR_OUT[0],
+                          LEVER_IN[1] - (Y_CH1 - PIN5_LEN),
+                          EAR_IN[1] - ((CRANK_SLAB[1] - 1.0) - PIN5_LEN)), 3)},
+        'stops': {'flex': {'contact_deg': stops['flex'], 'r0': STOP_R0, 'r1': STOP_R1,
+                           'face_uv_deg': STOP_FLEX_UV},
+                  'ext': {'contact_deg': stops['ext'], 'r0': STOP_R0, 'r1': KNEE_CHEEK_R,
+                          'face_uv_deg': STOP_EXT_UV},
+                  'band_mm': 5.0, 'bisection_tol_deg': 0.01,
+                  'tpu_plug': {'d': TPU_D, 'protrusion': TPU_D / 2 - TPU_INSET, 'r': TPU_R}},
+        'clearances': clearances,
+        'sweep': sweep,
+        'volumes_mm3': vols,
+        'legacy_volumes_mm3': LEGACY_VOLUMES_MM3,
+        'r2a_mass_parts': R2A_MASS_PARTS,
+        'linkage_map': [{'alpha': a, 'theta_c_deg': round(solve(a)[2], 3)}
+                        for a in (49, 51, 55, 60, 65, 70, 80, 90, 100, 110, 120, 130, 140,
+                                  145, 150, 152)],
+    }
+    if extra:
+        rec.update(extra)
+    os.makedirs(GATE_DIR, exist_ok=True)
+    with open(os.path.join(GATE_DIR, 'fusion_measurements.json'), 'w') as s:
+        json.dump(rec, s, indent=1)
+    return rec

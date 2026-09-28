@@ -1,0 +1,73 @@
+{
+ "crank_into_actuator": {
+  "moving": [
+   "R2A_Crank_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 10,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 9818.9902,
+  "at_offset_mm": 10.001,
+  "clear": false
+ },
+ "pin_into_cap": {
+  "moving": [
+   "HW_DowelPin_D10x35"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 10,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 157.0796,
+  "at_offset_mm": 10.001,
+  "clear": false
+ },
+ "module_minus_y": {
+  "moving": [
+   "R2A_Prox_Outboard_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 5,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 6620.1105,
+  "at_offset_mm": 5.001,
+  "clear": false
+ },
+ "key_after_halves_closed": {
+  "screws": "R2A_SHCS_M3x10_Actuator",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   59.7295,
+   59.7295,
+   59.7295,
+   59.7295,
+   59.7295
+  ],
+  "clear": false
+ },
+ "info_key_with_crank_fitted": {
+  "screws": "R2A_SHCS_M3x10_Actuator",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true
+ }
+}
