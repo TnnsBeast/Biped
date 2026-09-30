@@ -1,0 +1,1389 @@
+{
+ "document": "Beni_R2A_SingleLeg",
+ "written": "2026-09-29 14:38",
+ "dimensional_contracts": [
+  {
+   "part": "POC_Knee_Actuator_Mock_Housing_L",
+   "interface": "journal bore",
+   "diameter_mm": 36.6,
+   "expected_y_spans_mm": [
+    [
+     91.6,
+     116.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.6,
+     116.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Housing_L",
+   "interface": "mount M3 insert receivers",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Housing_L",
+   "interface": "dial lock holes",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ],
+    [
+     111.1,
+     116.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "output rotating disc",
+   "diameter_mm": 46.0,
+   "expected_y_spans_mm": [
+    [
+     87.6,
+     91.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     87.6,
+     91.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "journal",
+   "diameter_mm": 36.0,
+   "expected_y_spans_mm": [
+    [
+     91.0,
+     116.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.0,
+     116.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "knob pilot",
+   "diameter_mm": 16.0,
+   "expected_y_spans_mm": [
+    [
+     116.2,
+     119.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     116.2,
+     119.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "output M3 insert receivers",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ],
+    [
+     87.6,
+     93.6
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "factory-pin dowel sockets",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     88.0,
+     94.1
+    ],
+    [
+     88.0,
+     94.1
+    ],
+    [
+     88.0,
+     94.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     88.0,
+     94.1
+    ],
+    [
+     88.0,
+     94.1
+    ],
+    [
+     88.0,
+     94.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "knob-screw insert receiver",
+   "diameter_mm": 4.5,
+   "expected_y_spans_mm": [
+    [
+     112.2,
+     119.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     112.2,
+     119.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "interface": "knob key dowel socket",
+   "diameter_mm": 4.25,
+   "expected_y_spans_mm": [
+    [
+     111.2,
+     116.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     111.2,
+     116.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "interface": "pilot bore",
+   "diameter_mm": 16.6,
+   "expected_y_spans_mm": [
+    [
+     116.2,
+     119.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     116.2,
+     119.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "interface": "key dowel slip hole",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     116.2,
+     121.7
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     116.2,
+     121.7
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "interface": "screw clearance",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     119.5,
+     124.9
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     119.5,
+     124.9
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "interface": "screw counterbore",
+   "diameter_mm": 6.2,
+   "expected_y_spans_mm": [
+    [
+     124.9,
+     128.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     124.9,
+     128.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "interface": "lock boss hole",
+   "diameter_mm": 4.3,
+   "expected_y_spans_mm": [
+    [
+     116.2,
+     128.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     116.2,
+     128.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knob_Lock_Pin",
+   "interface": "shank",
+   "diameter_mm": 3.8,
+   "expected_y_spans_mm": [
+    [
+     112.0,
+     128.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     112.0,
+     128.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Pushrod_L",
+   "interface": "eye bores",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     73.0,
+     78.0
+    ],
+    [
+     73.0,
+     78.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     73.0,
+     78.0
+    ],
+    [
+     73.0,
+     78.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Pushrod_L",
+   "interface": "eye outer",
+   "diameter_mm": 18.0,
+   "expected_y_spans_mm": [
+    [
+     73.0,
+     78.0
+    ],
+    [
+     73.0,
+     78.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     73.0,
+     78.0
+    ],
+    [
+     73.0,
+     78.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Eye_Thrust_Washer",
+   "interface": "bore",
+   "diameter_mm": 5.15,
+   "expected_y_spans_mm": [
+    [
+     71.5,
+     73.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     71.5,
+     73.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Eye_Thrust_Washer",
+   "interface": "outer",
+   "diameter_mm": 11.0,
+   "expected_y_spans_mm": [
+    [
+     71.5,
+     73.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     71.5,
+     73.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Clevis_Pin_Crank",
+   "interface": "pin",
+   "diameter_mm": 4.75,
+   "expected_y_spans_mm": [
+    [
+     65.9,
+     83.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     65.9,
+     83.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Clevis_Pin_Lever",
+   "interface": "pin",
+   "diameter_mm": 4.75,
+   "expected_y_spans_mm": [
+    [
+     65.9,
+     83.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     65.9,
+     83.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Bushing",
+   "interface": "outer",
+   "diameter_mm": 18.9,
+   "expected_y_spans_mm": [
+    [
+     59.8,
+     64.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.8,
+     64.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Bushing",
+   "interface": "bore",
+   "diameter_mm": 10.6,
+   "expected_y_spans_mm": [
+    [
+     59.8,
+     64.2
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     59.8,
+     64.2
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Washer_M2p5_WheelMotor",
+   "interface": "bore",
+   "diameter_mm": 2.9,
+   "expected_y_spans_mm": [
+    [
+     57.5,
+     59.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     57.5,
+     59.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Washer_M2p5_WheelMotor",
+   "interface": "outer",
+   "diameter_mm": 5.6,
+   "expected_y_spans_mm": [
+    [
+     57.5,
+     59.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     57.5,
+     59.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Protractor_L",
+   "interface": "M3 clearance on the bracket inserts",
+   "diameter_mm": 3.4,
+   "expected_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ],
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Knee_Protractor_L",
+   "interface": "ring inner edge",
+   "diameter_mm": 80.0,
+   "expected_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     91.1,
+     97.1
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Tyre_Gauge_Ring",
+   "interface": "tyre OD",
+   "diameter_mm": 110.0,
+   "expected_y_spans_mm": [
+    [
+     69.0,
+     106.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     69.0,
+     106.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Tyre_Gauge_Ring",
+   "interface": "bore on the no-tyre drum",
+   "diameter_mm": 96.4,
+   "expected_y_spans_mm": [
+    [
+     69.0,
+     104.5
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     69.0,
+     104.5
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Tyre_Gauge_Ring",
+   "interface": "lip bore",
+   "diameter_mm": 89.0,
+   "expected_y_spans_mm": [
+    [
+     104.5,
+     106.0
+    ]
+   ],
+   "measured_y_spans_mm": [
+    [
+     104.5,
+     106.0
+    ]
+   ],
+   "pass": true
+  },
+  {
+   "part": "POC_Pushrod_L",
+   "interface": "pin to pin",
+   "expected_mm": 120.0,
+   "measured_mm": 120.0,
+   "pass": true
+  }
+ ],
+ "print_audit": {
+  "POC_Knee_Actuator_Mock_Housing_L": {
+   "part": "POC_Knee_Actuator_Mock_Housing_L",
+   "bed_contact_mm2": 3873.18,
+   "counts": {
+    "bridge": 5,
+    "self-supporting": 1,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.25,
+     "area_mm2": 82.42,
+     "extent_mm": [
+      37.6,
+      37.6
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    }
+   ],
+   "bed_footprint_mm": [
+    81.4,
+    81.4
+   ],
+   "height_mm": 25.0
+  },
+  "POC_Knee_Actuator_Mock_Rotor_L": {
+   "part": "POC_Knee_Actuator_Mock_Rotor_L",
+   "bed_contact_mm2": 1505.42,
+   "counts": {
+    "self-supporting": 3,
+    "bridge": 9,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    }
+   ],
+   "bed_footprint_mm": [
+    46.0,
+    46.0
+   ],
+   "height_mm": 31.6
+  },
+  "POC_Knee_Actuator_Mock_Knob_L": {
+   "part": "POC_Knee_Actuator_Mock_Knob_L",
+   "bed_contact_mm2": 2465.37,
+   "counts": {
+    "bridge": 1,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 3.1,
+     "area_mm2": 21.11,
+     "extent_mm": [
+      6.2,
+      6.2
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    }
+   ],
+   "bed_footprint_mm": [
+    62.8,
+    56.0
+   ],
+   "height_mm": 11.8
+  },
+  "POC_Knob_Lock_Pin": {
+   "part": "POC_Knob_Lock_Pin",
+   "bed_contact_mm2": 50.27,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    8.0,
+    8.0
+   ],
+   "height_mm": 18.9
+  },
+  "POC_Pushrod_L": {
+   "part": "POC_Pushrod_L",
+   "bed_contact_mm2": 1149.91,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    108.5,
+    96.8
+   ],
+   "height_mm": 5.0
+  },
+  "POC_Clevis_Pin_Crank": {
+   "part": "POC_Clevis_Pin_Crank",
+   "bed_contact_mm2": 12.25,
+   "counts": {
+    "self-supporting": 1,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 0.2,
+     "area_mm2": 7.73,
+     "extent_mm": [
+      4.75,
+      4.75
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    }
+   ],
+   "bed_footprint_mm": [
+    4.7,
+    4.8
+   ],
+   "height_mm": 18.0
+  },
+  "POC_Eye_Thrust_Washer": {
+   "part": "POC_Eye_Thrust_Washer",
+   "bed_contact_mm2": 74.2,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    11.0,
+    11.0
+   ],
+   "height_mm": 1.5
+  },
+  "POC_Knee_Bushing": {
+   "part": "POC_Knee_Bushing",
+   "bed_contact_mm2": 164.5,
+   "counts": {
+    "self-supporting": 2,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 0.15,
+     "area_mm2": 24.79,
+     "extent_mm": [
+      18.9,
+      18.9
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 0.15,
+     "area_mm2": 14.53,
+     "extent_mm": [
+      11.2,
+      11.2
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    }
+   ],
+   "bed_footprint_mm": [
+    18.9,
+    18.9
+   ],
+   "height_mm": 5.0
+  },
+  "POC_Washer_M2p5_WheelMotor": {
+   "part": "POC_Washer_M2p5_WheelMotor",
+   "bed_contact_mm2": 18.02,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    5.6,
+    5.6
+   ],
+   "height_mm": 2.0
+  },
+  "POC_Knee_Protractor_L": {
+   "part": "POC_Knee_Protractor_L",
+   "bed_contact_mm2": 4265.33,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    100.0,
+    100.0
+   ],
+   "height_mm": 6.0
+  },
+  "POC_Tyre_Gauge_Ring": {
+   "part": "POC_Tyre_Gauge_Ring",
+   "bed_contact_mm2": 3282.18,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    110.0,
+    110.0
+   ],
+   "height_mm": 37.0
+  },
+  "POC_Feeler_4p0_5p0": {
+   "part": "POC_Feeler_4p0_5p0",
+   "bed_contact_mm2": 714.0,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    60.0,
+    12.0
+   ],
+   "height_mm": 5.0
+  },
+  "POC_COUPON_Rod_Eye": {
+   "part": "POC_COUPON_Rod_Eye",
+   "bed_contact_mm2": 464.95,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    39.3,
+    35.8
+   ],
+   "height_mm": 5.0
+  },
+  "POC_COUPON_Mock_Housing_Ring": {
+   "part": "POC_COUPON_Mock_Housing_Ring",
+   "bed_contact_mm2": 3873.18,
+   "counts": {
+    "bridge": 5,
+    "self-supporting": 1,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.25,
+     "area_mm2": 82.42,
+     "extent_mm": [
+      37.6,
+      37.6
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    }
+   ],
+   "bed_footprint_mm": [
+    81.4,
+    81.4
+   ],
+   "height_mm": 6.5
+  },
+  "POC_COUPON_Mock_Rotor_Stub": {
+   "part": "POC_COUPON_Mock_Rotor_Stub",
+   "bed_contact_mm2": 1505.42,
+   "counts": {
+    "self-supporting": 3,
+    "bridge": 9,
+    "bed": 1
+   },
+   "faces": [
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 0.2,
+     "area_mm2": 8.26,
+     "extent_mm": [
+      5.05,
+      5.05
+     ],
+     "class": "self-supporting",
+     "geometry": "Cone"
+    },
+    {
+     "z_mm": 6.5,
+     "area_mm2": 14.19,
+     "extent_mm": [
+      4.25,
+      4.25
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 6.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    }
+   ],
+   "bed_footprint_mm": [
+    46.0,
+    46.0
+   ],
+   "height_mm": 9.5
+  },
+  "POC_COUPON_Bushing_Seat": {
+   "part": "POC_COUPON_Bushing_Seat",
+   "bed_contact_mm2": 588.09,
+   "counts": {
+    "bed": 1,
+    "bridge": 2,
+    "lip": 1
+   },
+   "faces": [
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 15.9,
+     "extent_mm": [
+      4.5,
+      4.5
+     ],
+     "class": "bridge",
+     "geometry": "Plane"
+    },
+    {
+     "z_mm": 5.0,
+     "area_mm2": 61.04,
+     "extent_mm": [
+      19.15,
+      19.15
+     ],
+     "class": "lip",
+     "geometry": "Plane"
+    }
+   ],
+   "bed_footprint_mm": [
+    34.0,
+    34.0
+   ],
+   "height_mm": 5.8
+  },
+  "POC_COUPON_Tyre_Gauge_Lip": {
+   "part": "POC_COUPON_Tyre_Gauge_Lip",
+   "bed_contact_mm2": 3282.18,
+   "counts": {
+    "bed": 1
+   },
+   "faces": [],
+   "bed_footprint_mm": [
+    110.0,
+    110.0
+   ],
+   "height_mm": 7.0
+  }
+ }
+}

@@ -1,7 +1,8 @@
 # R2A single-leg article — ordering guide
 
 Status: **purchasing requirements for the first R2A ABS article, 2026-09-27.**
-Nothing here has been ordered. Vendor websites were not reachable from the
+Nothing here has been ordered, and nothing is needed for the all-printed proof
+of concept that comes first (§0). Vendor websites were not reachable from the
 design session (proxy 403), so **no vendor part number, price, stock or rating
 below has been checked**: each BUY line gives the engineering requirement, the
 part type and search terms, and leaves price and link as **TO CONFIRM**. Check
@@ -19,6 +20,28 @@ from the [Mode A workbook](mode_a_procurement_bom_2026-08-21.xlsx), the
 Status labels: **BUY** — not owned; **OWNED** — recorded as received;
 **OWNED — VERIFY** — recorded as owned or ordered, but the count, receipt or
 exact variant is not recorded in the repository.
+
+## 0. Proof of concept first: nothing to buy
+
+The owner's 2026-09-28 direction: prove the R2A mechanics with an all-printed,
+unpowered build **before ordering anything**. Every BUY line below has a
+printed stand-in or is not needed for it
+([POC guide](../docs/assembly/r2a_poc_guide.md), [print files](../r2a_poc_stl/README.md)):
+
+| # | Buy item | In the POC |
+|---:|---|---|
+| 1 | Knee GIM6010-8 | Printed mock actuator: the real mount (5 M3 inserts on Ø74) and output (6 M3 inserts on Ø25, three owned Ø4 × 10 dowels as the factory pins), plain journal, knob, θc dial and lock pin |
+| 2–4 | M5 rod ends, M5 rod, jam nuts | One-piece printed pushrod, 120.0 mm pin to pin, inside the modelled envelope, with printed Ø11 × 1.5 thrust washers |
+| 5 | Ø5 × 18 dowels | Printed Ø4.75 × 18 pins, retained like the dowels |
+| 6 | 6800-2RS pair | Printed plain bushings in the released Ø19.15 seats; the owned pair stays in the legacy link |
+| 7–9 | CAN Pal, WAGO 221-415, DIN 988 shims | Not needed: unpowered, no rod-end shimming |
+| 10 | M2.5 × 10 | The owned legacy M2.5 × 12 over printed 2.0 mm washers: 2.0 mm engagement, 1.0 mm to the floor, identical to × 10 |
+
+The POC uses owned stock from §2 plus four more Ø4 × 10 dowels than the
+article (three output pins, one knob key), 12 more M3 × 5 inserts (five mock
+mount, six mock output, one knob) and three more M3 × 10 (knob, protractor),
+and not the two M3 × 16 of the held bracket; counts marked OWNED — VERIFY
+still need a count. Order §1 only after the POC demonstration passes.
 
 ## 1. Buy list (what to order)
 

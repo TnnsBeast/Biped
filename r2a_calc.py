@@ -774,6 +774,81 @@ def commissioning(r, alphas):
               f' {worst:4.1f} % worst')
 
 
+# ------------------------------------------- 10. all-printed POC (hand-driven)
+POC_JSON = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'evidence', 'r2a',
+                        '2026-09-28_poc', 'poc_measurements.json')
+# DESIGN CHOICES: how finely the owner can read the printed scales by eye
+POC_READ_DIAL_DEG = 0.5        # knob pointer against 5-deg dial ticks
+POC_READ_PROTRACTOR_DEG = 1.0  # encoder-arm tip against 5-deg protractor ticks
+
+
+def _alpha_at_theta(thc_deg, a, b, c, delta, branch):
+    al = np.arange(40.0, 160.0, 0.01)
+    r = solve_linkage(al, a, b, c, delta, branch)
+    return float(np.interp(thc_deg, np.degrees(r['th_c']), al))
+
+
+def poc(best):
+    """Linkage-map check tolerance for the all-printed POC (guide check b).
+
+    Worst case from the POC's nominal (design) clearances, recorded by
+    r2a_poc_fusion.write_record(): every radial play is taken along the rod as
+    an effective pushrod-length error, plus the lock/dial and protractor
+    location and reading errors.  Nothing here is measured."""
+    hr('10. ALL-PRINTED POC: LINKAGE-MAP CHECK TOLERANCE (docs/assembly/r2a_poc_guide.md)')
+    if not os.path.exists(POC_JSON):
+        print('  POC record not found; run r2a_poc_fusion.write_record() in Fusion')
+        return
+    rec = json.load(open(POC_JSON))
+    d = rec['design_mm']
+    _, a, b, c, delta, branch, _ = best
+    print(f"  source: {rec['document']} v{rec['version']}, {os.path.relpath(POC_JSON)}")
+    slop = ((d['clevis_hole_d'] - d['pin_d']) / 2 + (d['eye_bore_d'] - d['pin_d']) / 2) * 2 \
+        + (d['journal_bore_d'] - d['journal_d']) / 2 + (d['bushing_id'] - d['knee_pin_d']) / 2
+    lock = math.degrees((d['lock_hole_d'] - d['lock_pin_d']) / 2 / d['lock_r'])
+    prot = math.degrees(((d['protractor_hole_d'] - d['screw_d']) / 2 * 2) / d['post_spacing'])
+    arm = math.degrees((d['arm_dowel_hole_d'] - d['dowel_d']) / 2 / d['arm_dowel_r'])
+    knee = math.degrees((d['bushing_id'] - d['knee_pin_d']) / 2 / d['arm_tip_r'])
+    print(f'  nominal radial plays taken along the rod: {slop:.2f} mm (two clevis pins in their'
+          f' holes and eyes, rotor journal, knee pin in the bushings)')
+    print(f'  lock pin {lock:.2f} deg of crank; protractor location {prot:.2f} deg, encoder-arm'
+          f' dowel {arm:.2f} deg, knee translation at the arm tip {knee:.2f} deg; reading'
+          f' {POC_READ_DIAL_DEG:.1f} deg dial / {POC_READ_PROTRACTOR_DEG:.1f} deg protractor (DESIGN CHOICE)')
+    print('     α°   θc° (lock hole)  dα/db °/mm  1/N   worst |Δα| locked   worst |Δα| by pointer')
+    worst_all = 0.0
+    dadbs, inv_n = [], []
+    for al in rec['check_alphas']:
+        r = solve_linkage(np.array([al - 0.01, al, al + 0.01]), a, b, c, delta, branch)
+        thc = math.degrees(r['th_c'][1])
+        n = float(r['n'][1])
+        dadb = (_alpha_at_theta(thc, a, b + 0.1, c, delta, branch)
+                - _alpha_at_theta(thc, a, b - 0.1, c, delta, branch)) / 0.2
+        common = abs(dadb) * slop + prot + arm + knee + POC_READ_PROTRACTOR_DEG
+        w_lock = common + lock / n
+        w_ptr = common + POC_READ_DIAL_DEG / n
+        worst_all = max(worst_all, w_lock, w_ptr)
+        dadbs.append(abs(dadb))
+        inv_n.append(1 / n)
+        print(f'   {al:5.1f}   {thc:8.3f}      {dadb:+7.3f}   {1 / n:5.3f}      {w_lock:5.2f}'
+              f'                {w_ptr:5.2f}')
+    tol = math.ceil(worst_all * 2) / 2
+    print(f'  -> check (b) absolute: every reading within ±{tol:.1f} deg of the map'
+          ' (DESIGN CHOICE: the nominal worst case above, rounded up to 0.5 deg)')
+    # With the play taken up the same way at every point (wheel pressed gently
+    # toward the shoulder, knob locked), the location errors are one constant
+    # offset; only the change of dα/db between points and the reading vary.
+    spread = slop * (max(dadbs) - min(dadbs)) + 2 * (POC_READ_PROTRACTOR_DEG + lock * max(inv_n))
+    stol = math.ceil(spread * 2) / 2
+    print(f'  -> check (b) consistency: max - min of the {len(dadbs)} (reading - map) deviations'
+          f' <= {stol:.1f} deg ({spread:.2f} deg = {slop:.2f} mm x the {max(dadbs) - min(dadbs):.3f} deg/mm'
+          f' range of dα/db + twice the protractor reading and lock errors; DESIGN CHOICE)')
+    m = rec.get('clearance_min_mm')
+    if m:
+        print('  POC CAD clearances, minimum over alpha 51..150 (r2a_poc_fusion.measurements):')
+        for k, v in m.items():
+            print(f'    {k:<40s} {v:6.3f} mm')
+
+
 def main():
     gate()
     flex = envelope()
@@ -790,6 +865,7 @@ def main():
     candidates_table(static_knee, jump_knee)
     stand(flex)
     commissioning(r, alphas)
+    poc(best)
     if '--plot' in sys.argv:
         import os
         plot(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'docs', 'design',

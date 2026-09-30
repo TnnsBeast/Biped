@@ -1,0 +1,73 @@
+{
+ "check_55": {
+  "alpha_pose": 55.0,
+  "hole_alpha": 55.0,
+  "theta_c_deg": 46.633,
+  "max_overlap_mm3": 0.0,
+  "clear": true
+ },
+ "negative_58": {
+  "alpha_pose": 58.0,
+  "hole_alpha": 55.0,
+  "theta_c_deg": 46.633,
+  "max_overlap_mm3": 49.6602,
+  "clear": false
+ },
+ "check_80": {
+  "alpha_pose": 80.0,
+  "hole_alpha": 80.0,
+  "theta_c_deg": 69.403,
+  "max_overlap_mm3": 0.0,
+  "clear": true
+ },
+ "negative_83": {
+  "alpha_pose": 83.0,
+  "hole_alpha": 80.0,
+  "theta_c_deg": 69.403,
+  "max_overlap_mm3": 52.7395,
+  "clear": false
+ },
+ "check_100": {
+  "alpha_pose": 100.0,
+  "hole_alpha": 100.0,
+  "theta_c_deg": 88.095,
+  "max_overlap_mm3": 0.0,
+  "clear": true
+ },
+ "negative_103": {
+  "alpha_pose": 103.0,
+  "hole_alpha": 100.0,
+  "theta_c_deg": 88.095,
+  "max_overlap_mm3": 53.2518,
+  "clear": false
+ },
+ "check_120": {
+  "alpha_pose": 120.0,
+  "hole_alpha": 120.0,
+  "theta_c_deg": 106.806,
+  "max_overlap_mm3": 0.0,
+  "clear": true
+ },
+ "negative_123": {
+  "alpha_pose": 123.0,
+  "hole_alpha": 120.0,
+  "theta_c_deg": 106.806,
+  "max_overlap_mm3": 52.7091,
+  "clear": false
+ },
+ "check_145": {
+  "alpha_pose": 145.0,
+  "hole_alpha": 145.0,
+  "theta_c_deg": 129.675,
+  "max_overlap_mm3": 0.0,
+  "clear": true
+ },
+ "negative_148": {
+  "alpha_pose": 148.0,
+  "hole_alpha": 145.0,
+  "theta_c_deg": 129.675,
+  "max_overlap_mm3": 49.4195,
+  "clear": false
+ },
+ "pass": true
+}

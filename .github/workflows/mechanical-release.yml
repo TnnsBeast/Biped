@@ -10,3 +10,4 @@ jobs:
           python-version: '3.12'
       - run: python verify_mechanical_release.py
       - run: python verify_r2a_release.py
+      - run: python verify_r2a_poc_release.py

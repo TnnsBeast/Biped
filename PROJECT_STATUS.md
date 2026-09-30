@@ -8,6 +8,29 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**September 29 R2A all-printed proof of concept (POC) — CAD-verified and
+released; nothing built.** The owner asked (2026-09-28) to prove the new
+mechanics with an all-printed, unpowered build before ordering anything.
+`Beni_R2A_SingleLeg` (v8) now carries `POC_*` stand-ins for every
+purchased part, beside the unchanged article parts.
+
+- **Stand-ins:** a mock knee GIM6010-8 on the real mount and output
+  interfaces (printed journal, knob, θc dial, lock pin); a one-piece 120.0 mm
+  printed pushrod with thrust washers; printed Ø5 pin stand-ins and knee
+  bushings; 2.0 mm washers so the owned M2.5 × 12 engage like M2.5 × 10; a knee
+  protractor and a Ø110 tyre gauge. Nothing to buy
+  ([ordering guide §0](procurement/r2a_ordering_guide.md#0-proof-of-concept-first-nothing-to-buy)).
+- **CAD evidence:** POC and article configurations each swept over the
+  gate's 140 poses with 0 real clashes; 34 POC paths `CAD PATH VERIFIED`; the
+  mock's tyre clearance at the flexion stop is 8.323 mm and the governing
+  5.491 mm is unchanged; the article's 1.95 mm tight spot is 2.80 mm with the
+  printed pushrod ([record](evidence/r2a/2026-09-28_poc/README.md)).
+- **Released:** 17 files in [`r2a_poc_stl/`](r2a_poc_stl/README.md), coupons
+  first, pinned by `verify_r2a_poc_release.py` (also in CI).
+- **Next physical work:** print batch P1 (POC and article coupons), then the
+  [POC guide](docs/assembly/r2a_poc_guide.md) build and its checks (a)–(g).
+  Order the article's purchased hardware only after they pass.
+
 **September 27 R2A digital gate closed; ABS single-leg print set released —
 nothing physically verified.** On branch `r2a-active-knee`, Fusion
 `Beni_R2A_SingleLeg` (v5, a copy of `Beni_SingleLegRig` v31; both legacy
@@ -20,11 +43,11 @@ documents unchanged) holds the complete crank-and-pushrod leg.
 - **Released:** 12 bed-ready files in [`r2a_stl/`](r2a_stl/README.md), coupons
   first, pinned by `verify_r2a_release.py` (also in CI). The AS5048A bracket is
   held.
-- **To buy:** one knee GIM6010-8 and the linkage hardware
+- **To buy, after the POC:** one knee GIM6010-8 and the linkage hardware
   ([ordering guide](procurement/r2a_ordering_guide.md)); nothing ordered.
-- **Next physical work:** coupons, then the
-  [assembly guide](docs/assembly/r2a_assembly_guide.md) and the
-  [test traveller](docs/assembly/r2a_test_traveller.md) gates 2–4.
+- **Physical work after the POC:** the article coupons that need the bought
+  parts, then the [assembly guide](docs/assembly/r2a_assembly_guide.md) and
+  the [test traveller](docs/assembly/r2a_test_traveller.md) gates 2–4.
 
 **September 27 R2A concept — Beni-style crank-and-pushrod knee.** The owner
 directed R2A to copy the knee mechanics in the
@@ -307,13 +330,18 @@ Work on branch `r2a-active-knee`. The full ladder is in the
 
 1. Keep the assembled passive article spring-free and unpowered until it is
    taken down for R2A ([assembly guide §0](docs/assembly/r2a_assembly_guide.md#0-before-you-start)).
-2. **Order** the knee GIM6010-8, rod ends, M5 rod, jam nuts, Ø5 × 18 pins,
+2. **Build the all-printed POC first.** Print batch P1 (the POC coupons, pins,
+   thrust washers and bushings with the article coupons 1–3) and pass every
+   test in [`r2a_poc_stl/`](r2a_poc_stl/README.md); then print the POC and
+   article parts, build the leg by the
+   [POC guide](docs/assembly/r2a_poc_guide.md) and record checks (a)–(g).
+   A failed coupon means a re-release, never rework.
+3. **Then order** the knee GIM6010-8, rod ends, M5 rod, jam nuts, Ø5 × 18 pins,
    6800-2RS pair and M2.5 × 10 after confirming each against the
    [ordering guide](procurement/r2a_ordering_guide.md); record the chosen rod
-   end's drawing there.
-3. **Print and test the three coupons** ([`r2a_stl/`](r2a_stl/README.md)).
-   A failed coupon means a re-release, never rework.
-4. **Print the article** and rehearse the
+   end's drawing there. Test the crank-register and crank-clevis coupons on
+   the real actuator and rod end.
+4. **Fit the bought parts to the article** and rehearse the
    [assembly guide](docs/assembly/r2a_assembly_guide.md) physically; promote
    steps to `PHYSICAL ASSEMBLY VERIFIED` only as they pass.
 5. **Run gates 2–4** of the [test traveller](docs/assembly/r2a_test_traveller.md):
@@ -333,7 +361,7 @@ path.
 |---|---|
 | `Beni_Prototype1` | Legacy passive-knee two-leg robot. **Historical master — preserve; do not convert in place.** |
 | `Beni_SingleLegRig` | Legacy passive-knee ABS rig, saved as v31 on 2026-09-24. Preserve it as the assembled article's CAD/evidence baseline. |
-| `Beni_R2A_SingleLeg` | **Active.** R2A single-leg article, a copy of `Beni_SingleLegRig` v31; saved as v5 on 2026-09-27. Built by `r2a_lib.py`; every mutating script asserts this document is active (`r2a_lib.assert_r2a_doc()`). Knee REF guard: Y 84.1…128.1. [Gate record](evidence/r2a/2026-09-27_digital_gate/README.md). |
+| `Beni_R2A_SingleLeg` | **Active.** R2A single-leg article, a copy of `Beni_SingleLegRig` v31; saved as v5 on 2026-09-27 (v6 was a user save with the same released shapes). v7 is a POC checkpoint and **v8** the POC release (2026-09-29): `POC_*` stand-ins built by `r2a_poc_fusion.py`, hidden in the saved article view. Built by `r2a_lib.py`; every mutating script asserts this document is active (`r2a_lib.assert_r2a_doc()`). Knee REF guard: Y 84.1…128.1. **Sweep the article with `r2a_poc_fusion.sweep('article', …)`, not `r2a_lib.sweep_chunk()`, which would count each stand-in against the part it replaces.** `design.computeAll()` displaces the knee REF until it is rewritten (`r2a_lib.add_knee_ref()`). [Gate record](evidence/r2a/2026-09-27_digital_gate/README.md) · [POC record](evidence/r2a/2026-09-28_poc/README.md). |
 | `Beni_Knee_Supported_DryFit` | Separate saved ABS bench mock-up, v1. Temporary pin and provisional distal link; spring caps are detached fit coupons. [Save and native re-inspection record](evidence/assembly/2026-09-06_supported_knee_mockup/fusion_document.json). |
 | `Beni_Prototype1_TestGauges` | Fit gauges and the four ABS actuator-interface coupons. |
 
@@ -425,8 +453,10 @@ hand-built.
 | `r2a_lib.py` | Fusion MCP, with `Beni_R2A_SingleLeg` active | Builds every R2A part and screw set, poses the leg (`r2a_pose()`), runs the interference sweep (`sweep_chunk()`, all occurrences forced visible), measures clearances and stops and writes the gate record. Every mutating entry point asserts the R2A document. |
 | `r2a_paths_fusion.py` | Fusion MCP, R2A active | The 33 insertion, tool and service paths, negative controls, and fastener engagement from the screws' planar faces. |
 | `r2a_release_fusion.py` | Fusion MCP, R2A active | R2A release gate: 37 dimensional contracts, bed poses, print audit, distal support-removal audit, coupons cut from the part B-Reps, export with `stl_release` and `mesh_fidelity()`; logged `accept_*` steps write `r2a_release_baseline.json`. Never touches the legacy baseline. |
-| `r2a_images_fusion.py` | Fusion MCP, R2A active | README gallery and assembly-guide images from the live R2A model. |
+| `r2a_images_fusion.py` | Fusion MCP, R2A active | README gallery and assembly-guide images from the live R2A model (`POC_*` always hidden). |
 | `verify_r2a_release.py` | plain `python3`, also GitHub CI | Byte-hash gate for the 12 R2A files and the three Fusion-verified R2A sources, plus the recorded contract and support audits. |
+| `r2a_poc_fusion.py` | Fusion MCP, R2A active | All-printed POC: builds the `POC_*` stand-ins, both configurations, the POC and article sweeps, clearances, rotor free-turn, lock-pin check points, 34 paths, fastener engagement, print audit and release; logged `accept_*` steps write `r2a_poc_release_baseline.json`; guide images. |
+| `verify_r2a_poc_release.py` | plain `python3`, also GitHub CI | Byte-hash gate for the 17 POC files and five Fusion-verified sources, plus the recorded contracts, print audit, both sweeps, paths, negative controls, lock-pin check points and rotor free-turn. |
 | `firmware/r2a/` | plain `python3` + host `g++` | Knee linkage map, limits and CAN node plan as a header, generated table and host test. No actuator command path. |
 | `rig_export.py` | inside Fusion | Rig STLs, the targeted Mode A anchor, and the transient ABS-calibrated shoulder-hub first article, with print orientation recorded per part. |
 | `first_article_fusion.py` | Fusion MCP | Builds, validates and exports the ABS actuator coupons, 6800 ladder, full-depth knee-pin bore ladder and proximal first article in `Beni_Prototype1_TestGauges`. |
@@ -470,7 +500,8 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 | Directory | Contents |
 |---|---|
-| `r2a_stl/` | **Active.** The R2A ABS single-leg print set and its traveller. |
+| `r2a_poc_stl/` | **Active, print first.** The all-printed POC stand-ins and coupons, and their traveller. |
+| `r2a_stl/` | **Active.** The R2A ABS single-leg print set and its traveller; the POC uses it unchanged. |
 | `rig_stl/` | Rig parts to print, plus `reroute/` — the formerly-machined parts, now printed. `reroute/Distal_Link_L.stl` supersedes the `print_stl/` copy. |
 | `first_article_stl/` | **Print this first.** ABS actuator mating coupons, the unloaded shoulder dry-fit batch, the optional Mode A cable anchor, Fusion manifests and mesh checksums. |
 | `print_stl/` | Robot parts to print, the fit coupon, the two motor gauges |

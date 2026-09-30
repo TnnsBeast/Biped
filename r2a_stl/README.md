@@ -5,6 +5,11 @@ Released 2026-09-27 from Fusion `Beni_R2A_SingleLeg` (geometry v3) by
 **import it unchanged — do not rotate, scale or mirror it**, and do not
 compensate holes. Only left-hand parts exist; this is the left leg.
 
+**Before buying anything, build the all-printed proof of concept**: it uses
+these article parts unchanged with printed stand-ins for every purchased part
+([`r2a_poc_stl/`](../r2a_poc_stl/README.md),
+[POC guide](../docs/assembly/r2a_poc_guide.md)).
+
 Scope (CLAUDE.md rule 7): ABS is for fit coupons, assembly, cable routing,
 hand-driven kinematics and wheel-clear, current-limited commissioning under
 self-weight. No torque-arm load, added mass, stall, ground contact, drop or

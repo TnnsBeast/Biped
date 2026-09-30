@@ -1,0 +1,802 @@
+[
+{
+"alpha": 51,
+"rod_to_distal": 3.491,
+"group_to_crank": 14.277,
+"group_to_lever": 3.491,
+"gauge_to_mock": 8.323,
+"gauge_to_proximal": 5.491
+},
+{
+"alpha": 52,
+"rod_to_distal": 3.742,
+"group_to_crank": 14.277,
+"group_to_lever": 3.742,
+"gauge_to_mock": 10.209,
+"gauge_to_proximal": 7.168
+},
+{
+"alpha": 53,
+"rod_to_distal": 4.014,
+"group_to_crank": 14.277,
+"group_to_lever": 4.014,
+"gauge_to_mock": 12.087,
+"gauge_to_proximal": 8.823
+},
+{
+"alpha": 54,
+"rod_to_distal": 4.302,
+"group_to_crank": 14.277,
+"group_to_lever": 4.302,
+"gauge_to_mock": 13.958,
+"gauge_to_proximal": 10.455
+},
+{
+"alpha": 55,
+"rod_to_distal": 4.602,
+"group_to_crank": 14.277,
+"group_to_lever": 4.602,
+"gauge_to_mock": 15.82,
+"gauge_to_proximal": 12.064
+},
+{
+"alpha": 56,
+"rod_to_distal": 4.91,
+"group_to_crank": 14.277,
+"group_to_lever": 4.91,
+"gauge_to_mock": 17.673,
+"gauge_to_proximal": 13.649
+},
+{
+"alpha": 57,
+"rod_to_distal": 5.224,
+"group_to_crank": 14.277,
+"group_to_lever": 5.224,
+"gauge_to_mock": 19.518,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 58,
+"rod_to_distal": 5.542,
+"group_to_crank": 14.277,
+"group_to_lever": 5.542,
+"gauge_to_mock": 21.354,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 59,
+"rod_to_distal": 5.863,
+"group_to_crank": 14.277,
+"group_to_lever": 5.863,
+"gauge_to_mock": 23.182,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 60,
+"rod_to_distal": 6.184,
+"group_to_crank": 14.277,
+"group_to_lever": 6.184,
+"gauge_to_mock": 24.987,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 61,
+"rod_to_distal": 6.506,
+"group_to_crank": 14.277,
+"group_to_lever": 6.506,
+"gauge_to_mock": 26.681,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 62,
+"rod_to_distal": 6.827,
+"group_to_crank": 14.277,
+"group_to_lever": 6.827,
+"gauge_to_mock": 28.372,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 63,
+"rod_to_distal": 7.146,
+"group_to_crank": 14.277,
+"group_to_lever": 7.146,
+"gauge_to_mock": 30.058,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 64,
+"rod_to_distal": 7.463,
+"group_to_crank": 14.277,
+"group_to_lever": 7.463,
+"gauge_to_mock": 31.74,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 65,
+"rod_to_distal": 7.777,
+"group_to_crank": 14.277,
+"group_to_lever": 7.777,
+"gauge_to_mock": 33.418,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 66,
+"rod_to_distal": 8.088,
+"group_to_crank": 14.277,
+"group_to_lever": 8.088,
+"gauge_to_mock": 35.09,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 67,
+"rod_to_distal": 8.395,
+"group_to_crank": 14.277,
+"group_to_lever": 8.395,
+"gauge_to_mock": 36.757,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 68,
+"rod_to_distal": 8.698,
+"group_to_crank": 14.277,
+"group_to_lever": 8.698,
+"gauge_to_mock": 38.419,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 69,
+"rod_to_distal": 8.997,
+"group_to_crank": 14.277,
+"group_to_lever": 8.997,
+"gauge_to_mock": 40.075,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 70,
+"rod_to_distal": 9.291,
+"group_to_crank": 14.277,
+"group_to_lever": 9.291,
+"gauge_to_mock": 41.726,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 71,
+"rod_to_distal": 9.58,
+"group_to_crank": 14.277,
+"group_to_lever": 9.58,
+"gauge_to_mock": 43.37,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 72,
+"rod_to_distal": 9.864,
+"group_to_crank": 14.277,
+"group_to_lever": 9.864,
+"gauge_to_mock": 45.008,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 73,
+"rod_to_distal": 10.143,
+"group_to_crank": 14.277,
+"group_to_lever": 10.143,
+"gauge_to_mock": 46.64,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 74,
+"rod_to_distal": 10.417,
+"group_to_crank": 14.277,
+"group_to_lever": 10.417,
+"gauge_to_mock": 48.265,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 75,
+"rod_to_distal": 10.684,
+"group_to_crank": 14.277,
+"group_to_lever": 10.684,
+"gauge_to_mock": 49.883,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 76,
+"rod_to_distal": 10.946,
+"group_to_crank": 14.277,
+"group_to_lever": 10.946,
+"gauge_to_mock": 51.494,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 77,
+"rod_to_distal": 11.202,
+"group_to_crank": 14.277,
+"group_to_lever": 11.202,
+"gauge_to_mock": 53.098,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 78,
+"rod_to_distal": 11.452,
+"group_to_crank": 14.277,
+"group_to_lever": 11.452,
+"gauge_to_mock": 54.695,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 79,
+"rod_to_distal": 11.695,
+"group_to_crank": 14.277,
+"group_to_lever": 11.695,
+"gauge_to_mock": 56.284,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 80,
+"rod_to_distal": 11.932,
+"group_to_crank": 14.277,
+"group_to_lever": 11.932,
+"gauge_to_mock": 57.865,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 81,
+"rod_to_distal": 12.163,
+"group_to_crank": 14.277,
+"group_to_lever": 12.163,
+"gauge_to_mock": 59.439,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 82,
+"rod_to_distal": 12.387,
+"group_to_crank": 14.277,
+"group_to_lever": 12.387,
+"gauge_to_mock": 61.004,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 83,
+"rod_to_distal": 12.604,
+"group_to_crank": 14.277,
+"group_to_lever": 12.604,
+"gauge_to_mock": 62.561,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 84,
+"rod_to_distal": 12.814,
+"group_to_crank": 14.277,
+"group_to_lever": 12.814,
+"gauge_to_mock": 64.11,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 85,
+"rod_to_distal": 13.017,
+"group_to_crank": 14.277,
+"group_to_lever": 13.017,
+"gauge_to_mock": 65.65,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 86,
+"rod_to_distal": 13.213,
+"group_to_crank": 14.277,
+"group_to_lever": 13.213,
+"gauge_to_mock": 67.182,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 87,
+"rod_to_distal": 13.402,
+"group_to_crank": 14.277,
+"group_to_lever": 13.402,
+"gauge_to_mock": 68.705,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 88,
+"rod_to_distal": 13.584,
+"group_to_crank": 14.277,
+"group_to_lever": 13.584,
+"gauge_to_mock": 70.219,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 89,
+"rod_to_distal": 13.758,
+"group_to_crank": 14.277,
+"group_to_lever": 13.758,
+"gauge_to_mock": 71.724,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 90,
+"rod_to_distal": 13.925,
+"group_to_crank": 14.277,
+"group_to_lever": 13.925,
+"gauge_to_mock": 73.22,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 91,
+"rod_to_distal": 14.085,
+"group_to_crank": 14.277,
+"group_to_lever": 14.085,
+"gauge_to_mock": 74.706,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 92,
+"rod_to_distal": 14.237,
+"group_to_crank": 14.277,
+"group_to_lever": 14.237,
+"gauge_to_mock": 76.183,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 93,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 77.65,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 94,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 79.107,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 95,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 80.555,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 96,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 81.992,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 97,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 83.42,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 98,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 84.837,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 99,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 86.243,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 100,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 87.639,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 101,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 89.024,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 102,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 90.399,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 103,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 91.763,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 104,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 93.115,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 105,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 94.457,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 106,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 95.787,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 107,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 97.106,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 108,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 98.413,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 109,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 99.709,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 110,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 100.993,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 111,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 102.265,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 112,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 103.526,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 113,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 104.774,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 114,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 106.01,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 115,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.277,
+"group_to_lever": 14.277,
+"gauge_to_mock": 107.235,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 116,
+"rod_to_distal": 14.277,
+"group_to_crank": 14.055,
+"group_to_lever": 14.277,
+"gauge_to_mock": 108.446,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 117,
+"rod_to_distal": 14.277,
+"group_to_crank": 13.661,
+"group_to_lever": 14.277,
+"gauge_to_mock": 109.634,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 118,
+"rod_to_distal": 14.277,
+"group_to_crank": 13.266,
+"group_to_lever": 14.277,
+"gauge_to_mock": 110.72,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 119,
+"rod_to_distal": 14.277,
+"group_to_crank": 12.869,
+"group_to_lever": 14.277,
+"gauge_to_mock": 111.791,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 120,
+"rod_to_distal": 14.277,
+"group_to_crank": 12.472,
+"group_to_lever": 14.277,
+"gauge_to_mock": 112.846,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 121,
+"rod_to_distal": 14.277,
+"group_to_crank": 12.073,
+"group_to_lever": 14.277,
+"gauge_to_mock": 113.885,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 122,
+"rod_to_distal": 14.277,
+"group_to_crank": 11.674,
+"group_to_lever": 14.277,
+"gauge_to_mock": 114.909,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 123,
+"rod_to_distal": 14.277,
+"group_to_crank": 11.274,
+"group_to_lever": 14.277,
+"gauge_to_mock": 115.916,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 124,
+"rod_to_distal": 14.277,
+"group_to_crank": 10.873,
+"group_to_lever": 14.277,
+"gauge_to_mock": 116.907,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 125,
+"rod_to_distal": 14.277,
+"group_to_crank": 10.472,
+"group_to_lever": 14.277,
+"gauge_to_mock": 117.883,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 126,
+"rod_to_distal": 14.277,
+"group_to_crank": 10.07,
+"group_to_lever": 14.277,
+"gauge_to_mock": 118.842,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 127,
+"rod_to_distal": 14.277,
+"group_to_crank": 9.669,
+"group_to_lever": 14.277,
+"gauge_to_mock": 119.784,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 128,
+"rod_to_distal": 14.277,
+"group_to_crank": 9.268,
+"group_to_lever": 14.277,
+"gauge_to_mock": 120.711,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 129,
+"rod_to_distal": 14.277,
+"group_to_crank": 8.867,
+"group_to_lever": 14.277,
+"gauge_to_mock": 121.62,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 130,
+"rod_to_distal": 14.277,
+"group_to_crank": 8.468,
+"group_to_lever": 14.277,
+"gauge_to_mock": 122.514,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 131,
+"rod_to_distal": 14.277,
+"group_to_crank": 8.069,
+"group_to_lever": 14.277,
+"gauge_to_mock": 123.391,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 132,
+"rod_to_distal": 14.277,
+"group_to_crank": 7.672,
+"group_to_lever": 14.277,
+"gauge_to_mock": 124.251,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 133,
+"rod_to_distal": 14.277,
+"group_to_crank": 7.278,
+"group_to_lever": 14.277,
+"gauge_to_mock": 125.094,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 134,
+"rod_to_distal": 14.277,
+"group_to_crank": 6.886,
+"group_to_lever": 14.277,
+"gauge_to_mock": 125.921,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 135,
+"rod_to_distal": 14.277,
+"group_to_crank": 6.498,
+"group_to_lever": 14.277,
+"gauge_to_mock": 126.731,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 136,
+"rod_to_distal": 14.277,
+"group_to_crank": 6.115,
+"group_to_lever": 14.277,
+"gauge_to_mock": 127.524,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 137,
+"rod_to_distal": 14.277,
+"group_to_crank": 5.737,
+"group_to_lever": 14.277,
+"gauge_to_mock": 128.3,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 138,
+"rod_to_distal": 14.277,
+"group_to_crank": 5.367,
+"group_to_lever": 14.277,
+"gauge_to_mock": 129.059,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 139,
+"rod_to_distal": 14.277,
+"group_to_crank": 5.005,
+"group_to_lever": 14.277,
+"gauge_to_mock": 129.801,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 140,
+"rod_to_distal": 14.277,
+"group_to_crank": 4.655,
+"group_to_lever": 14.277,
+"gauge_to_mock": 130.526,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 141,
+"rod_to_distal": 14.277,
+"group_to_crank": 4.319,
+"group_to_lever": 14.277,
+"gauge_to_mock": 131.234,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 142,
+"rod_to_distal": 14.277,
+"group_to_crank": 4.001,
+"group_to_lever": 14.277,
+"gauge_to_mock": 131.924,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 143,
+"rod_to_distal": 14.277,
+"group_to_crank": 3.706,
+"group_to_lever": 14.277,
+"gauge_to_mock": 132.598,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 144,
+"rod_to_distal": 14.277,
+"group_to_crank": 3.44,
+"group_to_lever": 14.277,
+"gauge_to_mock": 133.254,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 145,
+"rod_to_distal": 14.277,
+"group_to_crank": 3.209,
+"group_to_lever": 14.277,
+"gauge_to_mock": 133.892,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 146,
+"rod_to_distal": 14.277,
+"group_to_crank": 3.022,
+"group_to_lever": 14.277,
+"gauge_to_mock": 134.513,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 147,
+"rod_to_distal": 14.277,
+"group_to_crank": 2.888,
+"group_to_lever": 14.277,
+"gauge_to_mock": 135.117,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 148,
+"rod_to_distal": 14.277,
+"group_to_crank": 2.814,
+"group_to_lever": 14.277,
+"gauge_to_mock": 135.621,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 149,
+"rod_to_distal": 14.277,
+"group_to_crank": 2.8,
+"group_to_lever": 14.277,
+"gauge_to_mock": 136.094,
+"gauge_to_proximal": 15.0
+},
+{
+"alpha": 150,
+"rod_to_distal": 14.277,
+"group_to_crank": 2.8,
+"group_to_lever": 14.277,
+"gauge_to_mock": 136.553,
+"gauge_to_proximal": 15.0
+}
+]

@@ -1,0 +1,650 @@
+{
+ "document": "Beni_R2A_SingleLeg",
+ "version": 7,
+ "written": "2026-09-29 14:38",
+ "design_mm": {
+  "pin_d": 4.75,
+  "pin_len": 18.0,
+  "clevis_hole_d": 5.15,
+  "eye_bore_d": 5.15,
+  "journal_d": 36.0,
+  "journal_bore_d": 36.6,
+  "thrust_gaps": [
+   0.1,
+   0.1
+  ],
+  "pilot_d": 16.0,
+  "pilot_bore_d": 16.6,
+  "bushing_od": 18.9,
+  "bushing_id": 10.6,
+  "bearing_seat_d": 19.15,
+  "knee_pin_d": 10.0,
+  "lock_r": 31.0,
+  "lock_hole_d": 4.3,
+  "lock_pin_d": 3.8,
+  "protractor_hole_d": 3.4,
+  "screw_d": 3.0,
+  "post_spacing": 19.284,
+  "arm_dowel_hole_d": 4.3,
+  "dowel_d": 4.0,
+  "arm_dowel_r": 34.0,
+  "arm_tip_r": 39.0,
+  "gauge_bore_d": 96.4,
+  "gauge_od": 110.0,
+  "washer_t": 2.0,
+  "insert_boss_d": 9.0,
+  "housing_d": 80.0,
+  "rod_section_mm": [
+   5.0,
+   5.0
+  ],
+  "neck_section_mm": [
+   9.0,
+   5.0
+  ]
+ },
+ "check_alphas": [
+  55.0,
+  80.0,
+  100.0,
+  120.0,
+  145.0
+ ],
+ "lock_theta_c_deg": {
+  "55.0": 46.633,
+  "80.0": 69.403,
+  "100.0": 88.095,
+  "120.0": 106.806,
+  "145.0": 129.675
+ },
+ "stop_theta_c_deg": {
+  "51.0": 43.135,
+  "150.0": 134.074
+ },
+ "clearances": [
+  {
+   "alpha": 51.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 43.135,
+   "theta_c_solver_deg": 43.135,
+   "tyre_gauge_to_proximal_mm": 5.491,
+   "pushrod_rod_to_distal_mm": 3.491,
+   "pushrod_group_to_crank_mm": 14.277,
+   "pushrod_group_to_lever_mm": 3.491,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 4.337,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 8.323
+  },
+  {
+   "alpha": 55.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 46.633,
+   "theta_c_solver_deg": 46.633,
+   "tyre_gauge_to_proximal_mm": 12.064,
+   "pushrod_rod_to_distal_mm": 4.602,
+   "pushrod_group_to_crank_mm": 14.277,
+   "pushrod_group_to_lever_mm": 4.602,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 4.43,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 15.82
+  },
+  {
+   "alpha": 65.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 55.599,
+   "theta_c_solver_deg": 55.599,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 7.777,
+   "pushrod_group_to_crank_mm": 14.277,
+   "pushrod_group_to_lever_mm": 7.777,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 5.0,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 33.418
+  },
+  {
+   "alpha": 80.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 69.403,
+   "theta_c_solver_deg": 69.403,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 11.932,
+   "pushrod_group_to_crank_mm": 14.277,
+   "pushrod_group_to_lever_mm": 11.932,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 5.0,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 57.865
+  },
+  {
+   "alpha": 100.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 88.095,
+   "theta_c_solver_deg": 88.095,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 14.277,
+   "pushrod_group_to_crank_mm": 14.277,
+   "pushrod_group_to_lever_mm": 14.277,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 4.89,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 87.639
+  },
+  {
+   "alpha": 120.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 106.806,
+   "theta_c_solver_deg": 106.806,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 14.277,
+   "pushrod_group_to_crank_mm": 12.472,
+   "pushrod_group_to_lever_mm": 14.277,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 4.437,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 112.846
+  },
+  {
+   "alpha": 140.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 125.195,
+   "theta_c_solver_deg": 125.195,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 14.277,
+   "pushrod_group_to_crank_mm": 4.655,
+   "pushrod_group_to_lever_mm": 14.277,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 5.0,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 130.526
+  },
+  {
+   "alpha": 145.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 129.675,
+   "theta_c_solver_deg": 129.675,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 14.277,
+   "pushrod_group_to_crank_mm": 3.209,
+   "pushrod_group_to_lever_mm": 14.277,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 5.0,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.5,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 133.892
+  },
+  {
+   "alpha": 150.0,
+   "pin_to_pin_mm": 120.0,
+   "theta_c_measured_deg": 134.074,
+   "theta_c_solver_deg": 134.074,
+   "tyre_gauge_to_proximal_mm": 15.0,
+   "pushrod_rod_to_distal_mm": 14.277,
+   "pushrod_group_to_crank_mm": 2.8,
+   "pushrod_group_to_lever_mm": 14.277,
+   "thrust_washer_to_clevis_ears_mm": 0.2,
+   "pushrod_eye_to_thrust_washer_mm": 0.0,
+   "pushrod_to_proximal_mm": 5.0,
+   "crank_to_proximal_mm": 0.8,
+   "mock_rotor_to_proximal_mm": 0.1,
+   "knob_to_housing_mm": 0.1,
+   "distal_to_proximal_mm": 0.0,
+   "encoder_arm_to_protractor_mm": 1.0,
+   "distal_to_protractor_mm": 1.005,
+   "wheel_washers_heads_to_cable_mm": 5.434,
+   "mock_to_tyre_gauge_mm": 136.553
+  }
+ ],
+ "clearance_min_mm": {
+  "tyre_gauge_to_proximal_mm": 5.491,
+  "pushrod_rod_to_distal_mm": 3.491,
+  "pushrod_group_to_crank_mm": 2.8,
+  "pushrod_group_to_lever_mm": 3.491,
+  "thrust_washer_to_clevis_ears_mm": 0.2,
+  "pushrod_eye_to_thrust_washer_mm": 0.0,
+  "pushrod_to_proximal_mm": 4.337,
+  "crank_to_proximal_mm": 0.8,
+  "mock_rotor_to_proximal_mm": 0.1,
+  "knob_to_housing_mm": 0.1,
+  "distal_to_proximal_mm": 0.0,
+  "encoder_arm_to_protractor_mm": 1.0,
+  "distal_to_protractor_mm": 1.005,
+  "wheel_washers_heads_to_cable_mm": 5.434,
+  "mock_to_tyre_gauge_mm": 8.323
+ },
+ "tyre_to_mock_at_flexion_stop": {
+  "gauge_to_mock_housing": {
+   "mm": 8.323,
+   "point_on_actuator_mm": [
+    -10.02,
+    91.1,
+    -38.73
+   ],
+   "radius_from_shoulder_axis_mm": 40.0
+  },
+  "tyre_to_mock_housing": {
+   "mm": 8.481,
+   "point_on_actuator_mm": [
+    -10.02,
+    91.1,
+    -38.73
+   ],
+   "radius_from_shoulder_axis_mm": 40.0
+  },
+  "tyre_to_real_knee_actuator": {
+   "mm": 8.528,
+   "point_on_actuator_mm": [
+    -10.01,
+    92.05,
+    -38.72
+   ],
+   "radius_from_shoulder_axis_mm": 40.0
+  },
+  "knob_to_nearest_non_mock_part_alpha51": [
+   22.739,
+   "POC_Tyre_Gauge_Ring:1"
+  ],
+  "housing_to_perimeter_screws_mm": 2.86
+ },
+ "rotor_free_turn": {
+  "step_deg": 15.0,
+  "max_overlap_mm3": 0.0,
+  "clear": true,
+  "rotor_to_housing_min_mm": 0.1
+ },
+ "fine_scan_min_mm": {
+  "rod_to_distal": {
+   "mm": 3.491,
+   "alpha": 51
+  },
+  "group_to_crank": {
+   "mm": 2.8,
+   "alpha": 149
+  },
+  "group_to_lever": {
+   "mm": 3.491,
+   "alpha": 51
+  },
+  "gauge_to_mock": {
+   "mm": 8.323,
+   "alpha": 51
+  },
+  "gauge_to_proximal": {
+   "mm": 5.491,
+   "alpha": 51
+  }
+ },
+ "sweeps": {
+  "poc": {
+   "poses": 140,
+   "classes": {
+    "cable envelope segments joined by construction": 140,
+    "rigid stop engaged beyond the stop angle": 8,
+    "TPU bumper designed crush": 64,
+    "screw in modelled STEP thread": 3220,
+    "static STEP output pins vs rotating hub": 30
+   },
+   "real": []
+  },
+  "article": {
+   "poses": 140,
+   "classes": {
+    "alternative wheel parts": 280,
+    "static STEP output pins vs rotating hub": 169,
+    "cable envelope segments joined by construction": 420,
+    "rigid stop engaged beyond the stop angle": 8,
+    "TPU bumper designed crush": 64,
+    "screw in modelled STEP thread": 4667,
+    "output screw in static STEP output flange": 93
+   },
+   "real": []
+  }
+ },
+ "placement_mm": {
+  "POC_Knee_Actuator_Mock_Housing_L": [
+   [
+    -41.43,
+    40.0,
+    91.1,
+    116.1,
+    -41.43,
+    40.0
+   ]
+  ],
+  "POC_Knee_Actuator_Mock_Rotor_L": [
+   [
+    -23.0,
+    23.0,
+    87.6,
+    119.2,
+    -23.0,
+    23.0
+   ]
+  ],
+  "POC_Knee_Actuator_Mock_Knob_L": [
+   [
+    -28.0,
+    34.8,
+    116.2,
+    128.0,
+    -28.0,
+    28.0
+   ]
+  ],
+  "POC_Knob_Lock_Pin": [
+   [
+    23.01,
+    31.01,
+    111.6,
+    130.5,
+    11.22,
+    19.22
+   ]
+  ],
+  "POC_DowelPin_D4x10_Rotor": [
+   [
+    -11.64,
+    9.7,
+    84.1,
+    94.1,
+    -12.01,
+    8.69
+   ]
+  ],
+  "POC_DowelPin_D4x10_KnobKey": [
+   [
+    -11.58,
+    -7.58,
+    111.2,
+    121.2,
+    -7.4,
+    -3.4
+   ]
+  ],
+  "POC_Pushrod_L": [
+   [
+    18.88,
+    127.41,
+    73.0,
+    78.0,
+    -72.05,
+    24.71
+   ]
+  ],
+  "POC_Eye_Thrust_Washer": [
+   [
+    22.38,
+    33.38,
+    71.5,
+    73.0,
+    10.21,
+    21.21
+   ],
+   [
+    22.38,
+    33.38,
+    78.0,
+    79.5,
+    10.21,
+    21.21
+   ],
+   [
+    112.91,
+    123.91,
+    71.5,
+    73.0,
+    -68.55,
+    -57.55
+   ],
+   [
+    112.91,
+    123.91,
+    78.0,
+    79.5,
+    -68.55,
+    -57.55
+   ]
+  ],
+  "POC_Clevis_Pin_Crank": [
+   [
+    25.5,
+    30.25,
+    65.5,
+    83.5,
+    13.34,
+    18.09
+   ]
+  ],
+  "POC_Clevis_Pin_Lever": [
+   [
+    116.04,
+    120.79,
+    65.5,
+    83.5,
+    -65.43,
+    -60.68
+   ]
+  ],
+  "POC_Knee_Bushing": [
+   [
+    82.48,
+    101.38,
+    59.5,
+    64.5,
+    -86.58,
+    -67.68
+   ],
+   [
+    82.48,
+    101.38,
+    86.1,
+    91.1,
+    -86.58,
+    -67.68
+   ]
+  ],
+  "POC_Washer_M2p5_WheelMotor": [
+   [
+    17.89,
+    23.49,
+    57.5,
+    59.5,
+    -145.41,
+    -139.81
+   ],
+   [
+    -2.55,
+    3.05,
+    57.5,
+    59.5,
+    -133.32,
+    -127.72
+   ],
+   [
+    -23.24,
+    -17.64,
+    57.5,
+    59.5,
+    -144.98,
+    -139.38
+   ],
+   [
+    -23.49,
+    -17.89,
+    57.5,
+    59.5,
+    -168.73,
+    -163.13
+   ],
+   [
+    -3.05,
+    2.55,
+    57.5,
+    59.5,
+    -180.82,
+    -175.22
+   ],
+   [
+    17.64,
+    23.24,
+    57.5,
+    59.5,
+    -169.16,
+    -163.56
+   ]
+  ],
+  "POC_Tyre_Gauge_Ring": [
+   [
+    -55.0,
+    55.0,
+    69.0,
+    106.0,
+    -209.27,
+    -99.27
+   ]
+  ],
+  "POC_Knee_Protractor_L": [
+   [
+    41.93,
+    141.93,
+    91.1,
+    97.1,
+    -127.13,
+    -27.13
+   ]
+  ],
+  "POC_SHCS_M2p5x12": [
+   [
+    18.44,
+    22.94,
+    55.0,
+    69.5,
+    -144.86,
+    -140.36
+   ],
+   [
+    -2.0,
+    2.5,
+    55.0,
+    69.5,
+    -132.77,
+    -128.27
+   ],
+   [
+    -22.69,
+    -18.19,
+    55.0,
+    69.5,
+    -144.43,
+    -139.93
+   ],
+   [
+    -22.94,
+    -18.44,
+    55.0,
+    69.5,
+    -168.18,
+    -163.68
+   ],
+   [
+    -2.5,
+    2.0,
+    55.0,
+    69.5,
+    -180.27,
+    -175.77
+   ],
+   [
+    18.19,
+    22.69,
+    55.0,
+    69.5,
+    -168.61,
+    -164.11
+   ]
+  ],
+  "POC_SHCS_M3x10": [
+   [
+    -2.75,
+    2.75,
+    114.9,
+    127.9,
+    -2.75,
+    2.75
+   ],
+   [
+    96.68,
+    102.18,
+    87.1,
+    100.1,
+    -66.89,
+    -61.39
+   ],
+   [
+    77.68,
+    83.18,
+    87.1,
+    100.1,
+    -70.24,
+    -64.74
+   ]
+  ]
+ }
+}

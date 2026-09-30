@@ -1,7 +1,8 @@
 # Active-Knee Revision 2 plan (R2A)
 
 Status: **digital gate closed 2026-09-27; ABS single-leg print set released;
-nothing physically verified.** R2A work lives on the `r2a-active-knee` branch.
+all-printed proof of concept CAD-verified and released 2026-09-29; nothing
+physically verified.** R2A work lives on the `r2a-active-knee` branch.
 The Fusion model is `Beni_R2A_SingleLeg` (v5); its measurements are in the
 [digital-gate record](../../evidence/r2a/2026-09-27_digital_gate/README.md).
 Every mechanism, load and capability figure below is printed by
@@ -221,7 +222,7 @@ orientations are in [`r2a_stl/`](../../r2a_stl/README.md).
 | Ø10 × 35 knee pin, Ø10.30 × 20.0 receiver design, Ø19.15 6800 seat, Ø4.5 M3 and Ø5.3 M4 receivers | Owned / proven fits | Same diameters and print axes in the new parts |
 | **Proximal inboard and outboard halves, crank + 2 caps, distal link with integral lever + cap, encoder arm, knee-pin cap, 4 TPU stop plugs** | **Released for print** | The R2A article |
 | `R2A_Encoder_Bracket_L` | **Held** | Waits for the AS5048A adapter-board outline |
-| **GIM6010-8 knee; 2 M5 rod ends; M5 rod cut to 86.0 mm; 2 thin jam nuts; 2 Ø5 × 18 dowel pins; 6800-2RS pair; M2.5 × 10** | **Buy** | See the ordering guide |
+| **GIM6010-8 knee; 2 M5 rod ends; M5 rod cut to 86.0 mm; 2 thin jam nuts; 2 Ø5 × 18 dowel pins; 6800-2RS pair; M2.5 × 10** | **Buy, after the POC (§10 step 1b)** | See the ordering guide; each has a printed stand-in in [`r2a_poc_stl/`](../../r2a_poc_stl/README.md) |
 | Legacy spring, cartridge eyes, guide rod, spring caps, stop plate, cartridge pins; legacy proximal and distal prints | Retired | Evidence only |
 
 **Clevis pins: plain Ø5 × 18 dowels, not shoulder screws.** The concept listed
@@ -319,6 +320,17 @@ The release gate, orientations, slicer constraints and acceptance tests are in
    2.80 mm; 33 assembly, tool and service paths; cable envelopes; 37 print
    contracts and print audits; `r2a_calc.py` rerun on the modelled geometry
    ([record](../../evidence/r2a/2026-09-27_digital_gate/README.md)).
+   **1b. All-printed proof of concept — CAD-verified 2026-09-29, not built.**
+   The step before ordering. The released article prints are assembled with
+   printed stand-ins for every purchased part (mock knee actuator with a θc
+   dial and lock pin, one-piece pushrod, printed pins and bushings) on the
+   Mode A stand, unpowered, and moved by hand. Pass: the designed assembly
+   path, the linkage map at five check points within the `r2a_calc.py` §10
+   tolerance, stops first and the tyre clear, α independent of the shoulder,
+   a reversible linkage, no witness marks at the tight spots and the service
+   path ([POC guide](../assembly/r2a_poc_guide.md),
+   [CAD evidence](../../evidence/r2a/2026-09-28_poc/README.md)). Order the
+   §6 BUY items only after it passes.
 2. **Unpowered linkage gate.** The ABS article on the Mode A stand, with the
    actuators disconnected, is moved by hand through its range. No bind, and the
    stops engage before the overtravel limit. The AS5048A map check moves to

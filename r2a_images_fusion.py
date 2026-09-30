@@ -53,7 +53,18 @@ def _appearance(name):
 
 
 def apply_looks():
+    """Body appearances for the article renders.  design.computeAll() and
+    appearance edits can leave the knee REF's transform2 displaced (found
+    2026-09-29, r2a_poc_fusion), so the knee REF is recomposed from the
+    shoulder REF and asserted afterwards."""
     L.assert_r2a_doc()
+    n = _apply_looks()
+    L.add_knee_ref()
+    L.ref_assert()
+    return n
+
+
+def _apply_looks():
     n = 0
     for look, names in LOOK.items():
         a = _appearance(look)
@@ -145,7 +156,9 @@ def unoffset(undo):
         o.transform2 = B._as_matrix(m)
 
 
-HIDE_ALWAYS = ('ABS_TEST_Wheel_Rim_NoTyre', 'REFERENCE_Cable')
+# POC_* stand-ins (r2a_poc_fusion.py) share space with the article's purchased
+# parts; the article renders never show them.
+HIDE_ALWAYS = ('ABS_TEST_Wheel_Rim_NoTyre', 'REFERENCE_Cable', 'POC_')
 OUTBOARD_SIDE = ('R2A_Prox_Outboard_L', 'REF_GIM6010-8:2', 'R2A_Encoder_Bracket_L',
                  'HW_AS5048A_PCB', 'R2A_SHCS_M3x16_Bracket', 'R2A_SHCS_M3x10_Actuator',
                  'R2A_SHCS_M3x12_Perimeter', 'R2A_Knee_Bumper_TPU_Out', 'R2A_Encoder_Arm_L',
@@ -282,8 +295,7 @@ def guide_images(ids=None):
     ]
     out = []
     everything = tuple(B.base_name(o.component.name) for o in L.all_root_occs()
-                       if B.base_name(o.component.name) not in HIDE_ALWAYS
-                       and not B.base_name(o.component.name).startswith('REFERENCE_Cable'))
+                       if not any(B.base_name(o.component.name).startswith(h) for h in HIDE_ALWAYS))
     for fid, only, moves, eye, target, ext in frames:
         if ids and fid not in ids:
             continue

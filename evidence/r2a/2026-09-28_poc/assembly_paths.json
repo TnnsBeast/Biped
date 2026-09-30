@@ -1,0 +1,640 @@
+{
+ "M0": {
+  "moving": [
+   "POC_DowelPin_D4x10_Rotor:1"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 15,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "three \u00d84 x 10 output dowels into the detached rotor (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "M1": {
+  "moving": [
+   "POC_Knee_Actuator_Mock_Rotor_L:1",
+   "POC_DowelPin_D4x10_Rotor:1"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "rotor into the housing from the mount face (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "M2": {
+  "moving": [
+   "POC_DowelPin_D4x10_KnobKey:1"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 15,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "key dowel into the rotor end face (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "M3": {
+  "moving": [
+   "POC_Knee_Actuator_Mock_Knob_L:1"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "knob onto the pilot and key (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "M3s": {
+  "moving": [
+   "POC_SHCS_M3x10 (4):2"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "knob M3 x 10 into the rotor insert (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "M3k": {
+  "screws": "POC_SHCS_M3x10 (4):2",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the knob screw",
+  "status": "CAD PATH VERIFIED"
+ },
+ "A2": {
+  "moving": [
+   "POC_Knee_Bushing:2"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 15,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "bushing B into the outboard half from its outer face (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B1": {
+  "moving": [
+   "POC_Knee_Actuator_Mock_Housing_L:1",
+   "POC_Knee_Actuator_Mock_Rotor_L:1",
+   "POC_Knee_Actuator_Mock_Knob_L:1",
+   "POC_DowelPin_D4x10_Rotor:1",
+   "POC_DowelPin_D4x10_KnobKey:1",
+   "POC_SHCS_M3x10 (4):2"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "mock actuator onto the outboard half (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B2": {
+  "moving": [
+   "R2A_SHCS_M3x10_Actuator"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "five M3 x 10 from the channel side into the mock inserts",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B2k": {
+  "screws": "R2A_SHCS_M3x10_Actuator",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the mock mount screws",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B3": {
+  "moving": [
+   "R2A_Crank_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank onto the rotor output over the three dowels (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B4": {
+  "moving": [
+   "R2A_SHCS_M3x10_Crank"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank six M3 x 10 into the rotor inserts",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B4k": {
+  "screws": "R2A_SHCS_M3x10_Crank",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the crank screws (crank at its build angle)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B5a": {
+  "moving": [
+   "POC_Eye_Thrust_Washer:2"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "outboard thrust washer onto the crank ear face (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B5": {
+  "moving": [
+   "POC_Pushrod_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "pushrod upper eye into the crank ear, cap off (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B5b": {
+  "moving": [
+   "POC_Eye_Thrust_Washer:1"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "inboard thrust washer onto the upper eye (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B6": {
+  "moving": [
+   "R2A_Crank_Cap_L"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "crank cap on its two dowels",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B6p": {
+  "moving": [
+   "POC_Clevis_Pin_Crank"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "printed crank pin from the inboard side through cap, washers and eye",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W1s": {
+  "moving": [
+   "POC_SHCS_M2p5x12 (4):2",
+   "POC_SHCS_M2p5x12 (4):3",
+   "POC_SHCS_M2p5x12 (4):4",
+   "POC_SHCS_M2p5x12 (4):5",
+   "POC_SHCS_M2p5x12 (4):6",
+   "POC_SHCS_M2p5x12 (4):7",
+   "POC_Washer_M2p5_WheelMotor:1",
+   "POC_Washer_M2p5_WheelMotor:2",
+   "POC_Washer_M2p5_WheelMotor:3",
+   "POC_Washer_M2p5_WheelMotor:4",
+   "POC_Washer_M2p5_WheelMotor:5",
+   "POC_Washer_M2p5_WheelMotor:6"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "owned M2.5 x 12 with printed 2.0 washers into the wheel motor (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "W1k": {
+  "screws": "POC_SHCS_M2p5x12 (4):2+POC_SHCS_M2p5x12 (4):3+POC_SHCS_M2p5x12 (4):4+POC_SHCS_M2p5x12 (4):5+POC_SHCS_M2p5x12 (4):6+POC_SHCS_M2p5x12 (4):7",
+  "key_envelope_d_mm": 3.2,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the wheel-motor screws (distal link detached)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B7a": {
+  "moving": [
+   "POC_Eye_Thrust_Washer:3"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "inboard thrust washer onto the lever inboard ear (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B7": {
+  "moving": [
+   "POC_Pushrod_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "pushrod lower eye into the lever clevis, cap off (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B7b": {
+  "moving": [
+   "POC_Eye_Thrust_Washer:4"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "outboard thrust washer onto the lower eye (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B8": {
+  "moving": [
+   "R2A_Lever_Cap_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 20,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "lever cap on its two dowels",
+  "status": "CAD PATH VERIFIED"
+ },
+ "B8p": {
+  "moving": [
+   "POC_Clevis_Pin_Lever"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "printed lever pin from the outboard side through cap, washers and eye",
+  "status": "CAD PATH VERIFIED"
+ },
+ "A1": {
+  "moving": [
+   "POC_Knee_Bushing:1"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 15,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "bushing A into the inboard half from its hub face (from -Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S1": {
+  "moving": [
+   "R2A_Prox_Inboard_L",
+   "POC_Knee_Bushing:1",
+   "R2A_Knee_Bumper_TPU_In"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 40,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "inboard half with bushing A onto the shoulder hub (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S3w": {
+  "moving": [
+   "R2A_Prox_Outboard_L:1",
+   "R2A_Knee_Bumper_TPU_Out:1",
+   "R2A_Crank_L:1",
+   "R2A_Crank_Cap_L:1",
+   "HW_DowelPin_D4x10_Crank:1",
+   "POC_Clevis_Pin_Crank:1",
+   "POC_Pushrod_L:1",
+   "R2A_Distal_Link_L:1",
+   "R2A_Lever_Cap_L:1",
+   "HW_DowelPin_D4x10_Lever:1",
+   "POC_Clevis_Pin_Lever:1",
+   "HW_DowelPin_D4x10_EncArm:1",
+   "POC_Knee_Actuator_Mock_Housing_L:1",
+   "POC_Knee_Actuator_Mock_Rotor_L:1",
+   "POC_Knee_Actuator_Mock_Knob_L:1",
+   "POC_DowelPin_D4x10_Rotor:1",
+   "POC_DowelPin_D4x10_KnobKey:1",
+   "HW_SHCS_M3x10 (10):34",
+   "HW_SHCS_M3x10 (10):35",
+   "HW_SHCS_M3x10 (10):36",
+   "HW_SHCS_M3x10 (10):37",
+   "HW_SHCS_M3x10 (10):38",
+   "HW_SHCS_M3x10 (10):39",
+   "HW_SHCS_M3x10 (10):40",
+   "HW_SHCS_M3x10 (10):41",
+   "HW_SHCS_M3x10 (10):42",
+   "HW_SHCS_M3x10 (10):43",
+   "HW_SHCS_M3x10 (10):44",
+   "POC_SHCS_M3x10 (4):2",
+   "POC_Knee_Bushing:2",
+   "POC_Eye_Thrust_Washer:1",
+   "POC_Eye_Thrust_Washer:2",
+   "POC_Eye_Thrust_Washer:3",
+   "POC_Eye_Thrust_Washer:4",
+   "REF_GIM4305-10:1",
+   "POC_SHCS_M2p5x12 (4):2",
+   "POC_SHCS_M2p5x12 (4):3",
+   "POC_SHCS_M2p5x12 (4):4",
+   "POC_SHCS_M2p5x12 (4):5",
+   "POC_SHCS_M2p5x12 (4):6",
+   "POC_SHCS_M2p5x12 (4):7",
+   "POC_Washer_M2p5_WheelMotor:1",
+   "POC_Washer_M2p5_WheelMotor:2",
+   "POC_Washer_M2p5_WheelMotor:3",
+   "POC_Washer_M2p5_WheelMotor:4",
+   "POC_Washer_M2p5_WheelMotor:5",
+   "POC_Washer_M2p5_WheelMotor:6",
+   "Wheel_Hub_L",
+   "HW_SHCS_M3x8 (10):10",
+   "HW_SHCS_M3x8 (10):11",
+   "HW_SHCS_M3x8 (10):12"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 60,
+  "step_mm": 2.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "POC knee module with wheel motor and hub onto the inboard half (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S4k": {
+  "screws": "R2A_SHCS_M3x12_Perimeter",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the perimeter screws with the mock fitted",
+  "status": "CAD PATH VERIFIED"
+ },
+ "S6": {
+  "moving": [
+   "HW_DowelPin_D10x35"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 45,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "\u00d810 knee pin from outboard through both bushings (also service)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "G1": {
+  "moving": [
+   "POC_Tyre_Gauge_Ring"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 45,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "tyre gauge over the no-tyre shell, last (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "P1": {
+  "moving": [
+   "POC_Knee_Protractor_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 30,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "protractor onto the outboard face over the encoder arm (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "P1s": {
+  "moving": [
+   "POC_SHCS_M3x10 (4):3",
+   "POC_SHCS_M3x10 (4):4"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 25,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 0.0,
+  "at_offset_mm": null,
+  "clear": true,
+  "description": "protractor two M3 x 10 into the bracket inserts (from +Y)",
+  "status": "CAD PATH VERIFIED"
+ },
+ "P1k": {
+  "screws": "POC_SHCS_M3x10 (4):3+POC_SHCS_M3x10 (4):4",
+  "key_envelope_d_mm": 3.9,
+  "length_mm": 100.0,
+  "max_overlap_mm3_each": [
+   0.0,
+   0.0
+  ],
+  "clear": true,
+  "moving": null,
+  "description": "hex key to the protractor screws",
+  "status": "CAD PATH VERIFIED"
+ }
+}

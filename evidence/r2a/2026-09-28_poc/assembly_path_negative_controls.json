@@ -1,0 +1,63 @@
+{
+ "rotor_into_housing_from_plus_y": {
+  "moving": [
+   "POC_Knee_Actuator_Mock_Rotor_L:1"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 10,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 2070.0838,
+  "at_offset_mm": 10.001,
+  "clear": false
+ },
+ "pushrod_through_crank_slab": {
+  "moving": [
+   "POC_Pushrod_L"
+  ],
+  "vector": [
+   0,
+   1,
+   0
+  ],
+  "travel_mm": 10,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 1353.8615,
+  "at_offset_mm": 9.001,
+  "clear": false
+ },
+ "module_minus_y_into_inboard": {
+  "moving": [
+   "R2A_Prox_Outboard_L",
+   "POC_Knee_Actuator_Mock_Housing_L:1"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 5,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 6620.1105,
+  "at_offset_mm": 5.001,
+  "clear": false
+ },
+ "bushing_b_past_its_lip": {
+  "moving": [
+   "POC_Knee_Bushing:2"
+  ],
+  "vector": [
+   0,
+   -1,
+   0
+  ],
+  "travel_mm": 3,
+  "step_mm": 1.0,
+  "max_overlap_mm3": 42.8576,
+  "at_offset_mm": 3.001,
+  "clear": false
+ }
+}
