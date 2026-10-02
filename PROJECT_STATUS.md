@@ -8,6 +8,15 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**October 2 R2A P1 print completion — owner reported; fit checks pending.**
+The owner confirms the first batch has been printed. Read-only inspection of
+the open Bambu Studio plate identifies all 23 P1 instances: POC coupons, pins,
+thrust washers and bushings, article coupons 1–3, and two crank caps.
+[Batch record and limits](evidence/r2a/2026-10-02_p1_printed/README.md).
+Next: run the [P1 acceptance tests](r2a_poc_stl/README.md#acceptance-tests),
+including the owned Ø4 dowel checks, before batch P2. No fit result or complete
+POC assembly has been reported.
+
 **September 29 R2A all-printed proof of concept (POC) — CAD-verified and
 released; nothing built.** The owner asked (2026-09-28) to prove the new
 mechanics with an all-printed, unpowered build before ordering anything.
@@ -330,8 +339,8 @@ Work on branch `r2a-active-knee`. The full ladder is in the
 
 1. Keep the assembled passive article spring-free and unpowered until it is
    taken down for R2A ([assembly guide §0](docs/assembly/r2a_assembly_guide.md#0-before-you-start)).
-2. **Build the all-printed POC first.** Print batch P1 (the POC coupons, pins,
-   thrust washers and bushings with the article coupons 1–3) and pass every
+2. **Build the all-printed POC first.** Batch P1 is printed
+   ([owner record](evidence/r2a/2026-10-02_p1_printed/README.md)); pass every
    test in [`r2a_poc_stl/`](r2a_poc_stl/README.md); then print the POC and
    article parts, build the leg by the
    [POC guide](docs/assembly/r2a_poc_guide.md) and record checks (a)–(g).

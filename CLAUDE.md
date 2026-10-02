@@ -11,8 +11,10 @@ shoulder, the owned GIM4305-10 wheel, and a second GIM6010-8 for the knee
 `r2a-active-knee` branch; its numbers come from `r2a_calc.py`. **R2A CAD lives in
 the separate Fusion document `Beni_R2A_SingleLeg` (v5, 2026-09-27)** and its ABS
 single-leg print set is released on the branch (`r2a_stl/`, pinned by
-`r2a_release_baseline.json` and `verify_r2a_release.py`). Nothing R2A has been
-printed, assembled or tested; every R2A claim is CAD evidence
+`r2a_release_baseline.json` and `verify_r2a_release.py`). The owner reports
+the 23-piece P1 batch printed as of 2026-10-02; coupon checks and POC assembly
+remain pending ([print record](evidence/r2a/2026-10-02_p1_printed/README.md)).
+R2A mechanism and release claims remain CAD evidence
 ([`evidence/r2a/2026-09-27_digital_gate/`](evidence/r2a/2026-09-27_digital_gate/README.md)).
 The printed ABS article in hand is the legacy passive-knee baseline. Start with
 [`docs/design/active_knee_revision2_plan.md`](docs/design/active_knee_revision2_plan.md).

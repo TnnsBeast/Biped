@@ -35,6 +35,10 @@ file or heat-fit a failed fit: record it and stop.
 
 ## Print order
 
+**Owner status, reported 2026-10-02:** the complete 23-piece P1 batch is
+printed; acceptance tests remain pending.
+[Print record](../evidence/r2a/2026-10-02_p1_printed/README.md).
+
 **Batch P1 — coupons first.** Every printed-on-printed fit of the POC is on
 these. Coupons cut from a part are cut from its reviewed B-Rep, so they print
 the interface on the same build axis as the part (rule 12). Print the article

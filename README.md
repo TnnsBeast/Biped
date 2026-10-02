@@ -6,7 +6,8 @@ A mostly 3D-printed wheeled biped. **Active-Knee Revision 2 (R2A)** gives each
 leg three actuators: the shoulder GIM6010-8, a second GIM6010-8 coaxial with
 the shoulder that drives the knee through a Beni-style crank and pushrod, and
 the GIM4305-10 wheel. The single-leg ABS article is designed, CAD-verified and
-released for printing; nothing about it has been built or tested yet.
+released for printing. The first 23-piece coupon batch is printed; fit checks
+and the complete proof-of-concept build remain pending.
 
 **[Current status](PROJECT_STATUS.md)** · **[R2A plan](docs/design/active_knee_revision2_plan.md)** · **[POC guide](docs/assembly/r2a_poc_guide.md)** · **[POC print files](r2a_poc_stl/README.md)** · **[Print files](r2a_stl/README.md)** · **[Ordering guide](procurement/r2a_ordering_guide.md)** · **[Assembly guide](docs/assembly/r2a_assembly_guide.md)** · **[Test traveller](docs/assembly/r2a_test_traveller.md)** · **[CAD evidence](evidence/r2a/2026-09-27_digital_gate/README.md)** · **[Electronics](electronics/README.md)** · **[Firmware](firmware/README.md)**
 
@@ -26,9 +27,10 @@ released for printing; nothing about it has been built or tested yet.
 - **Buy, after the POC passes:** one knee GIM6010-8, M5 rod ends, rod and jam
   nuts, Ø5 × 18 pins, and a few small items. Prices and vendors are not
   confirmed.
-- **Not yet done:** printing, the POC demonstration, the physical assembly
-  rehearsal and the three test gates. No physical result exists for any R2A
-  part.
+- **Printed:** the 23-piece P1 coupon batch, owner reported October 2
+  ([record](evidence/r2a/2026-10-02_p1_printed/README.md)). Fit checks are next.
+- **Not yet done:** coupon acceptance, the remaining prints, the POC
+  demonstration, the physical assembly rehearsal and the three test gates.
 
 ## The R2A leg
 
@@ -83,8 +85,10 @@ replace the knee actuator, rod ends, rod, jam nuts, Ø5 pins, 6800 bearings
 and M2.5 × 10 screws. The build and the hand demonstration are in the
 [POC guide](docs/assembly/r2a_poc_guide.md). It is unpowered and unloaded.
 
-**Coupons first**: print these with the article coupons 1–3 below and pass
-every [POC acceptance test](r2a_poc_stl/README.md#acceptance-tests):
+**P1 is printed — test it first.** The owner reports the complete 23-piece
+batch printed ([record](evidence/r2a/2026-10-02_p1_printed/README.md)). Pass
+every [POC acceptance test](r2a_poc_stl/README.md#acceptance-tests) before
+printing P2. The P1 links below remain references for the printed parts:
 
 1. [Printed clevis pins](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_Clevis_Pin_D4p75x18_ABS_ON_END.stl) — **4 ×**, on end. Pass: slides through the pin-ladder coupon's Ø5.15 station by hand.
 2. [Rod-eye coupon](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_COUPON_Rod_Eye_ABS.stl) + [thrust washers](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_Eye_Thrust_Washer_D11x1p5_ABS.stl) (**6 ×**) — flat / on face. Pass: eye and two washers in the crank-clevis coupon swing freely; the pin withdraws by hand.

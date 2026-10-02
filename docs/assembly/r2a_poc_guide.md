@@ -1,6 +1,7 @@
 # R2A proof of concept — all-printed build and demonstration guide
 
-Status: **`CAD PATH VERIFIED` only; nothing has been built.** This guide
+Status: **`CAD PATH VERIFIED`; P1 printed, fit checks and assembly pending**
+([owner record](../../evidence/r2a/2026-10-02_p1_printed/README.md)). This guide
 builds the complete R2A single leg from **owned hardware plus prints**, with
 printed stand-ins for every part that would have to be bought, and then shows
 by hand that the R2A mechanics work. It is the step before ordering
