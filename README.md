@@ -2,7 +2,15 @@
 
 ![R2A single leg on the Mode A stand, rendered from the live Fusion model](docs/readme/r2a_leg_iso.png)
 
-A mostly 3D-printed wheeled biped. **Active-Knee Revision 2 (R2A)** gives each
+A mostly 3D-printed wheeled biped. **Current direction, October 11:** investigate
+a smaller six-actuator prototype for **$150–250 in new parts**, reusing owned
+electronics, with balancing, driving and active crouching first. The
+[miniature feasibility study](docs/design/miniature_wheeled_biped_study.md)
+contains the recommended motors, costed basket, sizing assumptions and RL plan.
+It is a research proposal; no miniature CAD or print is released. Further
+large-build purchases and new print batches are on hold during this pivot.
+
+The preserved **Active-Knee Revision 2 (R2A)** design gives each
 leg three actuators: the shoulder GIM6010-8, a second GIM6010-8 coaxial with
 the shoulder that drives the knee through a Beni-style crank and pushrod, and
 the GIM4305-10 wheel. The single-leg ABS article is designed, CAD-verified and
@@ -11,7 +19,7 @@ and the complete proof-of-concept build remain pending.
 
 **[Current status](PROJECT_STATUS.md)** · **[R2A plan](docs/design/active_knee_revision2_plan.md)** · **[POC guide](docs/assembly/r2a_poc_guide.md)** · **[POC print files](r2a_poc_stl/README.md)** · **[Print files](r2a_stl/README.md)** · **[Ordering guide](procurement/r2a_ordering_guide.md)** · **[Assembly guide](docs/assembly/r2a_assembly_guide.md)** · **[Test traveller](docs/assembly/r2a_test_traveller.md)** · **[CAD evidence](evidence/r2a/2026-09-27_digital_gate/README.md)** · **[Electronics](electronics/README.md)** · **[Firmware](firmware/README.md)**
 
-## Where R2A stands
+## Where the preserved R2A design stands
 
 - **CAD:** Fusion `Beni_R2A_SingleLeg` holds the complete leg. A 140-pose
   sweep of knee and shoulder shows no real clash; 33 insertion, tool and
@@ -24,11 +32,11 @@ and the complete proof-of-concept build remain pending.
   the whole leg be built from owned hardware and prints and moved by hand,
   unpowered ([POC guide](docs/assembly/r2a_poc_guide.md)). CAD-verified
   2026-09-29; not yet built.
-- **Buy, after the POC passes:** one knee GIM6010-8, M5 rod ends, rod and jam
+- **Purchasing on hold; if R2A resumes, after the POC passes:** one knee GIM6010-8, M5 rod ends, rod and jam
   nuts, Ø5 × 18 pins, and a few small items. Prices and vendors are not
   confirmed.
 - **Printed:** the 23-piece P1 coupon batch, owner reported October 2
-  ([record](evidence/r2a/2026-10-02_p1_printed/README.md)). Fit checks are next.
+  ([record](evidence/r2a/2026-10-02_p1_printed/README.md)). Fit checks remain unreported.
 - **Not yet done:** coupon acceptance, the remaining prints, the POC
   demonstration, the physical assembly rehearsal and the three test gates.
 
@@ -72,9 +80,17 @@ the legacy CAD views are in [`docs/readme/`](docs/readme/).
 ---
 
 <!-- PRINT_QUEUE_START -->
-## Current print queue — R2A all-printed proof of concept first
+## Current print queue — miniature unreleased; R2A on hold
 
-Automatically maintained convenience section for the active build. Branch
+Automatically maintained convenience section. **No miniature file is released
+or ready to print. No new R2A batch is requested during the miniature pivot.**
+Retain the printed P1 batch; do not reprint it for this research. The prior
+R2A releases below remain reference material if that build resumes.
+
+<details>
+<summary>Previously released R2A print set — on hold</summary>
+
+Instructions for the preserved R2A build only, if resumed. Branch
 `r2a-active-knee`, POC released 2026-09-29. Import every file **unchanged**:
 it is already in its print orientation. Profile: enclosed ABS, 0.20 mm
 layers, 4 walls, 5 top / 5 bottom, 30 % infill; no hole compensation; **no
@@ -96,7 +112,7 @@ printing P2. The P1 links below remain references for the printed parts:
 4. [Bushing-seat coupon](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_COUPON_Bushing_Seat_ABS.stl) + [knee bushings](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_Knee_Bushing_OD18p90_ID10p60_ABS_ON_END.stl) (**3 ×**) — hub face down / on end. Pass: bushing seats by thumb and holds; the steel Ø10 pin turns in it.
 5. [Tyre-gauge lip coupon](https://raw.githubusercontent.com/TnnsBeast/Biped/r2a-active-knee/r2a_poc_stl/POC_COUPON_Tyre_Gauge_Lip_ABS.stl) — lip down. Pass: slides onto the no-tyre shell by hand and stays.
 
-**Then the POC parts**, 1 × ABS each unless stated:
+**If R2A resumes, then the POC parts**, 1 × ABS each unless stated:
 
 | File | On the bed |
 |---|---|
@@ -128,4 +144,5 @@ is known; the POC protractor uses its inserts meanwhile. **Retired:** every
 legacy spring, cartridge, stop-plate and link print. Reused as printed:
 shoulder hub, shoulder plate, cable cover, stand, cable post, wheel hub and
 no-tyre shell.
+</details>
 <!-- PRINT_QUEUE_END -->

@@ -8,6 +8,18 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**October 11 miniature pivot — research and feasibility first.** The owner
+wants a much smaller, cheaper wheeled biped before further large-build spending:
+**$150–250 new parts**, reusing owned electronics, with balancing, driving and
+active crouching first. The [miniature study](docs/design/miniature_wheeled_biped_study.md)
+recommends four feedback joint servos, two encoder wheel motors and directly
+driven knees. Its sourced basket and reproducible sizing screen are proposals,
+not purchased hardware, CAD verification or print releases. Current next work
+is sample selection/inventory and a separate miniature Fusion model. Further
+large R2A purchases and new print batches are on hold during this pivot; retain
+the printed P1 batch and all existing evidence. R2A and legacy CAD remain
+preserved. Existing ABS commissioning restrictions remain unchanged.
+
 **October 2 R2A P1 print completion — owner reported; fit checks pending.**
 The owner confirms the first batch has been printed. Read-only inspection of
 the open Bambu Studio plate identifies all 23 P1 instances: POC coupons, pins,
@@ -334,6 +346,11 @@ deferred to the later two-leg build.
 
 ## Immediate next steps for Active-Knee Revision 2
 
+**On hold during the October 11 miniature feasibility pivot.** Work first from
+the [miniature stages and decision gates](docs/design/miniature_wheeled_biped_study.md#10-staged-work-and-decision-gates).
+The R2A sequence below is retained for resumption; it is not a current purchase
+or print instruction.
+
 Work on branch `r2a-active-knee`. The full ladder is in the
 [R2A plan](docs/design/active_knee_revision2_plan.md) §10.
 
@@ -389,6 +406,11 @@ Rig design record §6.2.
 ## Documents, in reading order
 
 ### Active-Knee Revision 2 — design this next
+
+Large R2A development is on hold during the miniature feasibility study.
+The current proposal is
+[`miniature_wheeled_biped_study.md`](docs/design/miniature_wheeled_biped_study.md);
+its numerical source is [`mini_biped_calc.py`](mini_biped_calc.py).
 
 | File | What it is |
 |---|---|
@@ -541,6 +563,13 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 | Stand hold-down | **New in Mode A.** 11.00 N·m of shoulder yaw needs 11.2 kg at a 100 mm base half-width, 5.6 kg at 200 mm, 3.7 kg at 300 mm. The modelled stand is **574.2 g**, so it **must be clamped to the bench, not weighted.** Four clamp landings and 4 × M6 bench-bolt holes are in the CAD; the unloaded bench pull-test has no CAD equivalent and is still owed. |
 
 ### Open inconsistencies in the documents
+
+**Miniature research, October 11:** wheel-encoder revision, motor net mass,
+servo variant descriptions, basket completeness, structural material and
+actuator/control evidence remain unresolved. The new **MINI-1…8** register is
+maintained once in the
+[miniature study](docs/design/miniature_wheeled_biped_study.md#11-unresolved-evidence-and-follow-up);
+these do not change the legacy B/C conflict IDs or accepted fit evidence.
 
 Found during the 2026-09-27 R2A digital gate and **not** resolved in the legacy
 records:

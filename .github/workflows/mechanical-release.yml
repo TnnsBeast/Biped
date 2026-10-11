@@ -11,3 +11,4 @@ jobs:
       - run: python verify_mechanical_release.py
       - run: python verify_r2a_release.py
       - run: python verify_r2a_poc_release.py
+      - run: python -m unittest -v test_mini_biped_calc.py

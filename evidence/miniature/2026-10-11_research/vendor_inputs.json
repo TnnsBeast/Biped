@@ -1,0 +1,80 @@
+{
+  "lookup_date": "2026-10-11",
+  "status": "Research inputs only. No purchased sample, CAD verification, physical verification, or print release.",
+  "price_qualification": "USD displayed product prices, no discounts. DFRobot, Pololu and GensTattu pages opened live. Waveshare shop direct fetches were blocked; prices/specifications were available in search-indexed official pages. These are not landed checkout quotes or stock guarantees.",
+  "joint_servo": {
+    "name": "ST3215 12 V, DFRobot SER0070; Feetech ST-3215-C018 specification",
+    "product_url": "https://www.dfrobot.com/product-2962.html",
+    "manufacturer_pdf_url": "https://www.feetechrc.com/Data/feetechrc/upload/file/20240507/6385067068652648096680943.pdf",
+    "rated_kgf_cm": 10.0,
+    "stall_kgf_cm": 30.0,
+    "rated_a": 0.9,
+    "stall_a": 2.7,
+    "no_load_rpm": 45,
+    "mass_g": 55,
+    "nominal_v": 12,
+    "modes": ["position", "closed-loop velocity", "open-loop velocity", "step"],
+    "feedback_qualification": "Load is PWM duty proxy, not joint torque. Current is a separate feedback channel. No documented constant-current mode for this SKU.",
+    "load_explanation_url": "https://www.feetechrc.com/2020-05-13_56655.html",
+    "variant_conflicts": "Manufacturer PDF says core motor/copper gears; retail prose says coreless/copper-aluminum and another manufacturer product page says steel. Do not assert identical internals across batches. Match 12 V SKU, horn geometry and measured behavior. Vendor voltage ranges differ; proposal uses 12 V bench / 3S up to 12.6 V, within overlapping published ranges."
+  },
+  "wheel_motor": {
+    "name": "Waveshare DCGM-3865-12V-EN-240RPM, SKU 22346",
+    "product_url": "https://www.waveshare.com/product/accessories/motors-servos/dcgm-3865-12v-en-240rpm.htm",
+    "wiki_url": "https://www.waveshare.com/wiki/DCGM-3865-12V-EN-240RPM",
+    "rated_kgf_cm": 4.0,
+    "stall_min_kgf_cm": 8.5,
+    "rated_max_a": 1.0,
+    "stall_max_a": 3.5,
+    "rated_rpm": 125,
+    "no_load_rpm": 240,
+    "nominal_v": 12,
+    "shaft_diameter_mm": 6,
+    "encoder_supply_v": [3.3, 5.0],
+    "current_basic_output_ppr": 546,
+    "older_basic_output_ppr": 462,
+    "older_manual_url": "https://m.media-amazon.com/images/I/81B0BQEdwEL.pdf",
+    "encoder_conflict": "Current official site: 13 PPR × 42 = 546; older Waveshare manual: 11 × 42 = 462. Neither is automatically the quadrature x4 count. Measure delivered unit and counting convention.",
+    "listing_weight_kg": 0.167,
+    "mass_qualification": "Shop listing weight; net versus packed mass is not specified. Used only as a provisional accounting proxy, not a verified motor mass."
+  },
+  "hs_servo": {
+    "name": "Waveshare ST3215-HS",
+    "product_url": "https://www.waveshare.com/product/modules/motors-servos/st3215-hs-servo-motor.htm",
+    "wiki_url": "https://www.waveshare.com/wiki/ST3215-HS_Servo_Motor",
+    "no_load_rpm": 106,
+    "advertised_stall_kgf_cm": 20,
+    "stall_a": 2.4,
+    "unit_usd": "21.99",
+    "qualification": "No validated wheel reversal response, loaded speed, continuous torque or end-to-end control latency for this application."
+  },
+  "baseline_bom": [
+    {"id": "joint_servo", "quantity": 4, "unit_usd": "19.90", "source": "https://www.dfrobot.com/product-2962.html", "price_access": "live page"},
+    {"id": "wheel_motor", "quantity": 2, "unit_usd": "9.99", "source": "https://www.waveshare.com/product/accessories/motors-servos/dcgm-3865-12v-en-240rpm.htm", "price_access": "indexed official shop page"},
+    {"id": "wheel_driver", "quantity": 2, "unit_usd": "11.94", "source": "https://www.pololu.com/product/4035", "price_access": "live page"},
+    {"id": "servo_adapter", "quantity": 1, "unit_usd": "4.99", "source": "https://www.waveshare.com/product/modules/motors-servos/bus-servo-adapter-a.htm", "price_access": "indexed official shop page"}
+  ],
+  "budget_allowances_usd": {
+    "bearings_pins_couplers_fastener_topups": "20.00",
+    "power_distribution_logic_interface_and_protection": "15.00",
+    "filament_cash_allowance": "20.00",
+    "shipping_tax_contingency": "30.00"
+  },
+  "power_reference": {
+    "battery": {
+      "name": "Tattu 850mAh 3S 45C XT30, TAA8503S45XT3",
+      "unit_usd": "14.39",
+      "source": "https://genstattu.com/tattu-850mah-11-1v-45c-3s1p-lipo-battery-pack-with-xt30-plug.html"
+    },
+    "charger": {
+      "name": "Gens ace iMars Mini with USB-C power adapter, GEA60WC1",
+      "unit_usd": "38.99",
+      "source": "https://genstattu.com/gens-ace-imars-mini-g-tech-60w-rc-battery-charger-with-usb-c-power-supply-adapter/"
+    },
+    "qualification": "Price reference, not an approved power pair. Check charge-current settings against chosen pack, balance/main connectors/adapters, discharge limits and mounting before selection. Existing or borrowed suitable charger is not confirmed owned. Initial $35 power allowance was replaced by these sourced prices."
+  },
+  "owned_electronics_source": "electronics/07_bom.md Wave 0: Teensy 4.1 and BNO085 owned; PSU ownership is contradictory/unconfirmed. No new computer included.",
+  "budget_exclusions": "New MCU/IMU/computer/GPU, new bench PSU, tools, new TPU spool, paid cloud training, spare actuator, labor. Existing assorted fasteners/wire are assumed reusable; allowances need a real basket before purchasing.",
+  "adapter_power_limit_source": "https://docs.waveshare.com/Bus_Servo_Adapter_A/FAQ",
+  "adapter_max_a": 5
+}

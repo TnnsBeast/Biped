@@ -2,6 +2,16 @@
 
 ## What this project is
 
+**Owner priority, 2026-10-11: miniature feasibility before more large-build
+spending.** Research a $150–250 wheeled biped using owned electronics, printed
+structure and six inexpensive actuators, with balancing/driving/active crouching
+first. The current proposal and MINI conflict register are in
+[`docs/design/miniature_wheeled_biped_study.md`](docs/design/miniature_wheeled_biped_study.md);
+new assumed sizing is in `mini_biped_calc.py`. No miniature CAD/print/hardware
+is released. Further large R2A purchases and new print batches are on hold;
+preserve the existing articles, CAD and release evidence. Work remains on
+`r2a-active-knee` until the owner merges it or requests a different branch.
+
 A Beni-style wheeled biped moving to **Active-Knee Revision 2 (R2A): body →
 active rotary shoulder → proximal link carrying a shoulder-coaxial knee actuator
 and crank → pushrod → lever on the distal link → active rotary knee → driven
@@ -123,8 +133,10 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    editing, export, and verification. Do not substitute local STEP processing or
    UI automation for a Fusion operation.
 
-7. **Complete the R2A single-leg integration article in ABS; defer PA-CF to the
-   two-leg structural build.** Use ABS for mating coupons, the complete
+7. **R2A stays ABS; PA-CF stays deferred to its two-leg structural build.**
+   The October 11 owner directive defers completing the large R2A article while
+   miniature feasibility is investigated. The following material/load rules
+   still apply to the existing ABS paths. Use ABS for mating coupons, the complete
    single-leg mechanical assembly, cable routing, hand-driven kinematics, and
    wheel-clear/current-limited motor and electronics commissioning under
    self-weight only. The September 17 spring exception is withdrawn after the
@@ -134,7 +146,10 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
    or any human-adjacent load through an ABS path. The ABS stand is an assembly
    fixture, not a measurement fixture. ABS print compensation does not transfer
    to PA-CF; repeat the critical coupons immediately before the later two-leg
-   structural prints.
+   structural prints. The miniature is a separate proposed design; its PETG
+   candidate, load path and powered ground envelope need their own Fusion and
+   physical verification. The research study does not release structural tests
+   or relax any existing ABS restriction.
 
 8. **Keep the public GitHub repository current.** The tracking repository is
    `https://github.com/TnnsBeast/Biped`. When a task materially changes project
@@ -189,6 +204,8 @@ Start at [`PROJECT_STATUS.md`](PROJECT_STATUS.md) for status and reading order.
 |---|---|
 | Active owner print/download queue | `README.md`, final convenience section between `PRINT_QUEUE_START` and `PRINT_QUEUE_END` |
 | Current build status, next work, and unresolved engineering issues | `PROJECT_STATUS.md` |
+| Miniature feasibility, actuator/BOM research, RL plan and MINI conflict register | `docs/design/miniature_wheeled_biped_study.md` |
+| Miniature assumed sizing, budget arithmetic and dated vendor inputs | `mini_biped_calc.py`; `evidence/miniature/2026-10-11_research/vendor_inputs.json` |
 | Active-knee architecture, work packages and release gates | `docs/design/active_knee_revision2_plan.md` |
 | R2A CAD evidence: sweep, clearances, paths, fastener engagement, release audit | `evidence/r2a/2026-09-27_digital_gate/` |
 | R2A print files, orientations, supports, acceptance tests | `r2a_stl/README.md` |

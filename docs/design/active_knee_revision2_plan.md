@@ -15,6 +15,11 @@ of the passive-knee model.
 
 ## 1. Decision
 
+**2026-10-11 priority update:** large R2A purchases and new print batches are on
+hold during the [miniature feasibility pivot](miniature_wheeled_biped_study.md).
+The mechanism below is preserved for resumption; its work packages do not
+instruct current ordering or printing.
+
 On 2026-09-27 the owner directed that R2A copy the knee mechanics seen in the
 [Beni teardown](../../evidence/reference/2026-09-25_beni_teardown/README.md),
 reuse the owned actuators and electronics, and add one actuator per leg.

@@ -1,6 +1,11 @@
 # R2A single-leg article — ordering guide
 
-Status: **purchasing requirements for the first R2A ABS article, 2026-09-27.**
+Status: **ON HOLD, 2026-10-11, during the miniature feasibility pivot.**
+Do not treat the BUY rows below as current ordering instructions. The new
+candidate basket is in the
+[miniature study](../docs/design/miniature_wheeled_biped_study.md#7-costed-basket-and-procurement-strategy).
+
+Preserved purchasing requirements for the first R2A ABS article, 2026-09-27.
 Nothing here has been ordered, and nothing is needed for the all-printed proof
 of concept that comes first (§0). Vendor websites were not reachable from the
 design session (proxy 403), so **no vendor part number, price, stock or rating

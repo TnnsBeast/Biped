@@ -1,0 +1,59 @@
+MINIATURE FEASIBILITY ONLY — no CAD/physical/thermal release
+Source lookup: 2026-10-11; some shop prices are indexed, not live checkout quotes.
+
+Published torque conversions at the specified 12 V:
+joint rated 0.980665 N·m; stall 2.941995 N·m
+wheel rated 0.392266 N·m; stall minimum 0.833565 N·m
+Planning static target = 0.50 × joint rated = 0.490333 N·m (unvalidated)
+
+Equal-link vertical-force screen; beta is knee flexion from straight:
+mass kg | beta deg | knee N·m, two legs | hip height mm
+0.800 |  30 | 0.071068 | 165.230
+0.800 |  90 | 0.194162 | 128.995
+0.800 | 120 | 0.237799 | 100.000
+1.000 |  30 | 0.088835 | 165.230
+1.000 |  90 | 0.242702 | 128.995
+1.000 | 120 | 0.297248 | 100.000
+1.200 |  30 | 0.106602 | 165.230
+1.200 |  90 | 0.291243 | 128.995
+1.200 | 120 | 0.356698 | 100.000
+1.500 |  30 | 0.133253 | 165.230
+1.500 |  90 | 0.364053 | 128.995
+1.500 | 120 | 0.445872 | 100.000
+
+1.200 kg / beta 120: static 0.356698; 2× vertical load 0.713396; single-leg support 0.713396 N·m
+1.200 kg hip vertical-force moment at 40.000 mm wheel offset: 0.235360 N·m
+Static-only mass at planning target, beta 120, two legs: 1.649572 kg (not a payload rating)
+
+Wheel surface speeds for proposed 60.000 mm OD (no traction/acceleration proof):
+standard ST3215 no load: 45 rpm -> 0.141372 m/s
+ST3215-HS no load: 106 rpm -> 0.333009 m/s
+DCGM rated point: 125 rpm -> 0.392699 m/s
+DCGM no load: 240 rpm -> 0.753982 m/s
+
+Mass allocation, all unverified except nominal servo catalogue mass:
+4 servo nominal masses: 0.220 kg
+2 wheel listing mass proxies; NET MASS UNKNOWN: 0.334 kg
+printed structures assumption: 0.160 kg
+battery assumption: 0.100 kg
+electronics/wire assumption: 0.080 kg
+metal hardware assumption: 0.050 kg
+Total planning allocation: 0.944 kg
+
+Baseline product prices:
+4 × joint_servo @ $19.90 = $79.60
+2 × wheel_motor @ $9.99 = $19.98
+2 × wheel_driver @ $11.94 = $23.88
+1 × servo_adapter @ $4.99 = $4.99
+Core $128.45; first sample set $46.82
+UNQUOTED allowance, bearings_pins_couplers_fastener_topups: $20.00
+UNQUOTED allowance, power_distribution_logic_interface_and_protection: $15.00
+UNQUOTED allowance, filament_cash_allowance: $20.00
+UNQUOTED allowance, shipping_tax_contingency: $30.00
+Power price references: battery $14.39, charger $38.99; compatibility still to verify
+Full-new reference basket with allowances $266.83
+Reuse/borrow suitable charger: $227.84; bench without pack/charger: $213.45
+
+Catalogue stall-current sum: 17.800 A; servo-only 10.800 A
+Not a supply recommendation: local limits and coordinated acceleration must be designed.
+Proposed rates: local 500 Hz / joint bus 100 Hz / policy 50 Hz; all timing UNVERIFIED

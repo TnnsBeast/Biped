@@ -8,7 +8,12 @@ has been re-checked.
 
 ## Recommendation
 
-**Buy one more Steadywin GIM6010-8 for the knee.** Keep the owned GIM6010-8 as
+**[ON HOLD 2026-10-11 — miniature feasibility now takes priority.]** The
+[miniature study](miniature_wheeled_biped_study.md) evaluates smaller actuators
+under new mass and task assumptions. The retained recommendation below applies
+to the large crank-and-pushrod R2A build if it resumes.
+
+**Large R2A only: one more Steadywin GIM6010-8 for the knee.** Keep the owned GIM6010-8 as
 the shoulder actuator and the owned GIM4305-10 as the wheel actuator.
 
 The [R2A plan](active_knee_revision2_plan.md) copies Beni's knee drive: an
@@ -47,7 +52,8 @@ the knee motor had to fit the proximal-link root or a body jackshaft. The crank
 layout puts the actuator outboard on the shoulder axis, where its size costs
 crouch depth and track width but no drive stage.
 
-Stage the spending around the single-leg article. Buy **one** knee unit now.
+If large R2A resumes, stage the spending around the single-leg article. Buy
+**one** knee unit only after its retained POC gate passes.
 Buy the two-leg units only after the single-leg digital, unpowered, detached
 and wheel-clear gates pass. Order the linkage hardware (§6 of the plan)
 against the calculated requirements, not a catalogue guess.
