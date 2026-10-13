@@ -79,14 +79,18 @@ evidence while R2A is developed. Use the README queue for current prints. If
 you state an engineering figure, trace it to CAD, a vendor
 source, a script, or an explicitly identified physical observation.
 
-September 25, corrected by the September 27 frame review: a public Beni teardown
+September 25, corrected by the September 27 frame review and October 12
+narration/source review: a public Beni teardown
 shows an actively driven knee. A hip-coaxial crank moves the shin through a link,
 and a body-fixed motor drives a hip-coaxial ring through a short toothed belt; no
 belt runs down the leg. This supersedes the passive-knee architecture assumption
 and the interim fixed-axis spring-cassette proposal. On September 27 the owner
 chose to copy the crank-and-pushrod knee; the belt-in-link plan is superseded.
-[Teardown evidence](evidence/reference/2026-09-25_beni_teardown/) ·
+[Teardown evidence and remaining compliance/reduction questions](evidence/reference/2026-09-25_beni_teardown/) ·
 [R2A plan](docs/design/active_knee_revision2_plan.md).
+The miniature's direct-knee proposal remains provisional pending the MINI-9
+mechanism comparison. Do not treat R2A's rigid pushrod or the miniature's
+position servos as a verified reproduction of Beni's internal actuation.
 
 September 23: the full mechanical-article audit requires PINREV2 hub and both
 links. The knee receiver regression is corrected, and the owner requests Ø4.30

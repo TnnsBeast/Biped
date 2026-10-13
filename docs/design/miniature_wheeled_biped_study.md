@@ -10,7 +10,14 @@ on the large robot. Current project/print status is in
 
 ## 1. Recommended direction
 
-Build a new miniature with **four ST3215 12 V feedback servos, two encoder DC
+**October 12 research qualification:** the direct-knee arrangement below is
+provisional pending the MINI-9 mechanism comparison. The
+[Beni mechanical evidence review](../../evidence/reference/2026-09-25_beni_teardown/README.md)
+distinguishes observed geometry, captioned explanations and unresolved internal
+actuation. This study proposes a simplified control-development platform;
+its actuator basket is not a reproduction of Beni's mechanism or capability.
+
+The candidate baseline uses **four ST3215 12 V feedback servos, two encoder DC
 wheel motors, printed links/body/wheels, and a small number of bought bearings,
 pins, screws and shaft couplers**. Use the owned Teensy 4.1 and BNO085. Start
 with a direct servo at each hip and knee; omit the large R2A crank and pushrod.
@@ -88,6 +95,7 @@ verified, ready-to-order copy of this exact proposal at the owner's budget.
 
 | Primary reference | What is demonstrated or documented | What to reuse |
 |---|---|---|
+| [Beni mechanism and developer-source review](../../evidence/reference/2026-09-25_beni_teardown/README.md) | Remote-knee architecture evidence with explicit source/confidence limits; custom-actuator/control reports | Compare packaging, output sensing and real actuator dynamics before freezing our simpler mechanism; proprietary dimensions and compliance remain unresolved |
 | [Upkie](https://github.com/upkie/upkie) | Wheeled biped, independent leg joints, balancing examples, common real/simulation Gymnasium interfaces and RL playgrounds | Joint topology, observation/action conventions and baseline balance experiments; its mjbots hardware is outside this budget |
 | [Open Duck Mini v2](https://github.com/apirrone/Open_Duck_Mini) | Printed servo biped with real sim-to-real demonstrations, actuator identification and an embedded policy runtime | Evidence that inexpensive servos can support RL when modeled appropriately; this is a footed robot, not a wheel-biped policy or BOM |
 | [Rhoban BAM](https://github.com/Rhoban/bam) | Servo identification tools and Feetech STS3215 models, usable in MuJoCo | Start from its fitting method and model structure; identify the delivered servo variant |
@@ -292,13 +300,32 @@ article or ABS stand for torque testing or ground experiments. Proposed powered
 miniature ground tests require a separately verified structural material,
 load path and commissioning envelope; this document does not release them.
 
-### Why not keep the full R2A linkage?
+### Direct knee versus a remote knee
 
-Its main benefit is moving knee-actuator mass toward the hip. In this miniature,
-first see whether the small knee servo's moving mass is acceptable. A direct
-knee removes several interfaces and lets joint feedback correspond directly
-to the knee angle. Keep the hip-coaxial crank concept as a later comparison if
-identified moving inertia is the limiting factor.
+The October 11 proposal deferred the hip-coaxial crank comparison. Following
+the owner's October 12 research request, compare it before freezing the
+mechanism. The qualitative screen below assumes the **same ST3215 candidate**
+in both arrangements. Neither arrangement inherits Beni's unknown reducer or
+spring behavior; adding a linkage does not improve the servo's internal control.
+
+| Criterion | Direct knee candidate | Hip-mounted knee servo with crank/link |
+|---|---|---|
+| Moving mass | Carries the knee servo away from the hip; its inertia must enter the model | Moves that servo toward the hip, but adds crank, link, pivots and supports; net benefit needs the actual mass distribution |
+| Torque/speed mapping | Servo output maps directly through the retained horn | Varies with geometry and pose; evaluate its Jacobian and avoid singularities |
+| Feedback | Output feedback approximates knee angle subject to horn/support compliance | Motor feedback needs the linkage map; backlash or series compliance can require independent knee sensing |
+| Impact | Loads reach the horn and gearbox unless a separately designed path intervenes | Remote placement alone does not isolate impact; the link can transmit it to the same gearbox |
+| Bearings and structure | Support both sides of the joint independently of the servo horn | Support knee and crank loads; avoid an unchecked cantilever on the servo output |
+| Backlash and friction | Servo gearbox plus horn/pivot interfaces | Same gearbox plus additional pivot clearances and friction |
+| Cables and service | Moving servo cable crosses the hip; local knee service | Root wiring may simplify; link retention, assembly order and access add work |
+| Cost and fabrication | Fewer mechanism parts; budget still conditional | Price additional pins, bearings, retained torque connection and output sensing if required; no machining |
+
+**Provisional judgment:** keep the direct knee as the comparison baseline for
+balance/drive/crouch because it has fewer transmission interfaces. Remote
+actuation deserves selection if the measured or Fusion-derived inertia and
+packaging benefit outweigh its added parts, friction and sensing burden.
+There is no quantitative winner yet. MINI-9 remains open until that evidence
+and the complete delivered basket are recorded. Do not reuse the large R2A
+dimensions as a miniature synthesis.
 
 A body-mounted **five-bar** leg is a viable alternate, evidenced by parallel-leg
 robots above. It retains two leg motors per side but adds passive pivots,
@@ -485,7 +512,7 @@ be preserved; this study copied no third-party CAD or control code.
 
 | Stage | Work and concrete evidence | Spending/decision |
 |---|---|---|
-| A — selection and inventory | Confirm owned MCU/IMU, supply, fasteners, filament/tread; quote the complete basket; identify exact variants and obtain drawings | Hold further large R2A purchases; no complete miniature order until the cap is credible |
+| A — selection and inventory | Complete MINI-9 mechanism comparison; confirm owned MCU/IMU, supply, fasteners, filament/tread; quote the complete basket; identify exact variants and obtain drawings | Keep the mechanism/basket provisional; hold further large R2A purchases; no complete miniature order until the cap is credible |
 | B — sample and unpowered packaging | First sample basket; electrical/no-load checks; new Fusion document with measured interfaces, wire access, joint support, wheel coupler and insertion/removal paths | Defer remaining actuators pending Stage C sample characterization |
 | C — coupon and actuator characterization | Same-material/same-axis fit coupons; verified miniature fixture/load path; sustained supported joint load and wheel reversal tests with temperatures, timestamps and current limits | Buy remaining actuators only if measured behavior/mass and landed price support the proposal; reject/resize a failed envelope |
 | D — one supported leg | Release actual orientations/meshes through Fusion; hand sweep first, then bounded wheel-clear hip/knee motion and wheel drive | Confirm no bind, loosening, cable catch, driver overheating or unexpected restart |
@@ -517,7 +544,9 @@ rather than spending on the remainder of an unsuitable set.
 | MINI-6 | PETG formulation, structural load cases, joint support and print orientation | Separate Fusion/physical release; existing ABS limits are unchanged |
 | MINI-7 | Full servo-bus timing, bridge voltage levels, fault/restart behavior and regen | Electrical design review and instrumented checks before ground commissioning |
 | MINI-8 | Policy inference time and training host availability | Benchmark owned hardware; revise compute plan explicitly if it fails |
+| MINI-9 | Direct-knee choice was proposed before the deeper Beni actuation/compliance review | Compare direct and hip-mounted knee drives using the same candidate actuator/task envelope: moving inertia, supported pivots, transmission/backlash, encoder meaning, cable travel, service access and cost. Define any proposed compliance load path independently; use the [research questions](../../evidence/reference/2026-09-25_beni_teardown/README.md#mechanical-questions-that-still-matter). Complete before freezing miniature architecture |
 
-Recommended next action is **Stage A/B around the sample set and a separate
-miniature Fusion skeleton**, retaining all six independent actuators. It is
+Recommended next action is **Stage A mechanism comparison and inventory,
+then Stage B around the selected sample set and a separate miniature Fusion
+skeleton**, retaining all six independent actuators. It is
 the cheapest useful experiment for deciding whether to commit the full budget.

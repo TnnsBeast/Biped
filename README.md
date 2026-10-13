@@ -7,6 +7,8 @@ a smaller six-actuator prototype for **$150–250 in new parts**, reusing owned
 electronics, with balancing, driving and active crouching first. The
 [miniature feasibility study](docs/design/miniature_wheeled_biped_study.md)
 contains the recommended motors, costed basket, sizing assumptions and RL plan.
+The [October 12 Beni mechanism review](evidence/reference/2026-09-25_beni_teardown/README.md)
+adds a direct-versus-remote knee comparison before miniature architecture is frozen.
 It is a research proposal; no miniature CAD or print is released. Further
 large-build purchases and new print batches are on hold during this pivot.
 

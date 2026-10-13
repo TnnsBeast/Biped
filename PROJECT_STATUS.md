@@ -8,6 +8,16 @@ commands. For the public project overview and active print download, see
 
 ## Where things stand
 
+**October 12 Beni mechanism research — architecture comparison before miniature
+freeze.** The owner requested deeper mechanical research using the
+[teardown Short](https://www.youtube.com/shorts/p3SAWH4o9yc). The updated
+[canonical evidence record](evidence/reference/2026-09-25_beni_teardown/README.md)
+separates frame observations, the newly retrieved narration, developer reports
+and unresolved compliance/reduction questions. The miniature's direct-knee
+proposal and basket remain provisional; complete the mechanism comparison in
+MINI-9 before freezing its architecture. No CAD, print, purchase or new powered
+test is released by this research.
+
 **October 11 miniature pivot — research and feasibility first.** The owner
 wants a much smaller, cheaper wheeled biped before further large-build spending:
 **$150–250 new parts**, reusing owned electronics, with balancing, driving and
@@ -549,7 +559,7 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 | | |
 |---|---|
-| ~~**R2A knee transmission**~~ | **[RESOLVED 2026-09-27]** The owner selected Beni-style mechanics. R2A drives the knee through a crank on the shoulder axis and a pushrod, not a belt in the proximal link. Which of Beni's two hip drives turns its crank is still not settled from stills, but R2A does not depend on it. [R2A plan](docs/design/active_knee_revision2_plan.md) §2. |
+| ~~**R2A knee transmission**~~ | **[RESOLVED 2026-09-27]** The owner selected the crank-and-pushrod implementation in [R2A plan §2](docs/design/active_knee_revision2_plan.md#2-what-is-copied-from-beni-and-what-is-not). The [October 12 narration review](evidence/reference/2026-09-25_beni_teardown/README.md#october-12-narration-check) updates the Beni drive assignment; exact constraints, knee reduction and compliance remain unverified. R2A does not reproduce those unknowns. |
 | **C2** | Shoulder motor length, 40 vs 44 mm. Manufacturer STEP and live Fusion geometry use **44.0000 mm nominal**. The existing positive stand-in is only 9.5 mm long, so it cannot report exact overall hardware length; use the delivered motor against a negative ABS mating coupon or the actual ABS mating part as a functional go/no-go. No structural consequence in the rig. |
 | **C3** | Wheel motor length, 26 vs 33 mm. Manufacturer STEP and live Fusion geometry use **33.0000 mm nominal**. The existing full-length gauge is a positive stand-in; close assembly fit by placing the real motor into a negative ABS coupon or the actual ABS mating part. |
 | **C4** | Actuator masses, 388/150 vs 500/250 g. ~~Decides whether rig ballast is 37.5 g or 149.5 g of shot.~~ **Mode A has no ballast, so this decides nothing structural in the rig** — it still matters to the two-leg mass and power budgets. Weigh them. |
@@ -566,10 +576,12 @@ python3 -c "import rig_calc; rig_calc.mode_a_stand()"
 
 **Miniature research, October 11:** wheel-encoder revision, motor net mass,
 servo variant descriptions, basket completeness, structural material and
-actuator/control evidence remain unresolved. The new **MINI-1…8** register is
+actuator/control evidence remain unresolved. The **MINI-1…9** register is
 maintained once in the
 [miniature study](docs/design/miniature_wheeled_biped_study.md#11-unresolved-evidence-and-follow-up);
 these do not change the legacy B/C conflict IDs or accepted fit evidence.
+MINI-9 was added October 12 for the mechanism comparison following the deeper
+Beni research.
 
 Found during the 2026-09-27 R2A digital gate and **not** resolved in the legacy
 records:

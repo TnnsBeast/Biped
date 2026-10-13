@@ -40,17 +40,19 @@ R2A.
 
 ## 2. What is copied from Beni, and what is not
 
-| Beni (frame review) | R2A | Why |
+| Beni comparison (see evidence qualifications below) | R2A | Why |
 |---|---|---|
 | Hip-coaxial crank inside the thigh root, link along the thigh, lever on the shin behind the knee axle | **Copied** | The knee motor sits on the shoulder axis, so its weight adds no static shoulder torque and little leg inertia. The drive is stiff and slip-free, and it needs no tensioner. |
-| Knee motor carried on the hip assembly (best-supported reading) | **Copied**: the knee actuator stator bolts to the proximal link | The knee coordinate is referenced to the proximal link, so there is no shoulder/knee coupling term. The knee reaction torque stays inside the leg. |
+| Knee motor carried on the hip assembly (best-supported reading, supported by the October 12 narration review; fastening still unverified) | **Adopted explicitly**: the knee actuator stator bolts to the proximal link | In R2A the knee coordinate is referenced to the proximal link, so its kinematic map has no shoulder-angle coupling term. Dynamic reaction loads still act through the assembly. |
 | Hip driven by an offset body motor through a short 2M belt to a large hip ring | **Not copied** | The owned GIM6010-8 already has an 8:1 planetary and drives the shoulder directly. A belt stage would add a ring pulley, a large bearing, a tensioner and backlash to a joint that does not need them. |
 | Pancake motor inboard of the main hip bearing | **Not possible** | The GIM6010-8 output is solid ([design record §2.1](../../beni_prototype1_design_record.md)), so nothing can pass through the shoulder axis. The knee actuator goes outboard of the link root instead. |
 | Wheel drive in the shin-end housing; wheel cable through the knee window | Wheel module unchanged; cable crosses the knee on the inboard side | The existing wheel interface is kept. |
 
-The Beni frames do not settle which of its two hip drives turns the knee crank.
-That question does not affect R2A, because R2A's knee crank is driven by its
-own actuator on the proximal link.
+The [October 12 evidence review](../../evidence/reference/2026-09-25_beni_teardown/README.md)
+adds narration to the earlier frames and qualifies the drive assignment,
+unspecified knee reduction and reported spring assistance. R2A deliberately
+uses a rigid pushrod and its own actuator on the proximal link. It reproduces
+the remote-knee concept, not verified Beni compliance or reducer internals.
 
 ## 3. Mechanism
 
@@ -367,7 +369,7 @@ shoulder-stall yaw that already requires clamping (`r2a_calc.py` §8).
 | Alternative | Why it lost |
 |---|---|
 | Synchronous belt down the proximal link (the 2026-09-25 plan) | It needs a tensioner, a guard, two pulley shafts and a slip-detecting encoder. Printed pulleys are load-limited. Its ratio buys nothing, because the knee actuator must be 5 N·m-class anyway. Beni does not use it. |
-| Beni's exact hip: offset body motor, belt to a hip ring, pancake knee motor inboard | It would retire the proven shoulder stack, and it adds a large bearing and a belt stage to a joint the owned GIM6010-8 already drives directly. |
+| Beni-inspired hip packaging: offset body motor, belt to a hip ring, pancake knee motor inboard | It would retire the proven shoulder stack, and it adds a large bearing and a belt stage to a joint the owned GIM6010-8 already drives directly. This is the supported external arrangement, not a verified exact internal reproduction. |
 | Body-fixed knee actuator with a shoulder-axis jackshaft | The GIM6010-8 output is solid, so a shaft would have to come from outboard, across the leg's sweep. The knee reaction would load the body and couple the shoulder and knee coordinates. |
 | Knee actuator at the knee or on the distal link | It moves about 0.4 kg away from the shoulder axis, adding shoulder gravity torque and leg inertia, and it widens the knee. |
 | Knee actuator part-way along the proximal link | It adds m·r² leg inertia and static shoulder torque for no packaging gain. |
